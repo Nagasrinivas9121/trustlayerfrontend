@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0f172a;   /* Slate 900 */
+  --color-secondary: #1e293b; /* Slate 800 */
+  --color-accent: #38bdf8;    /* Sky Blue */
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  /* Add these two lines: */
+  background-color: var(--color-primary); 
+  color: white; 
+}
