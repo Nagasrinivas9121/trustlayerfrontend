@@ -3,6 +3,9 @@ import { Shield, Server, Cloud, ArrowRight, Lock, X } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+// ✅ Backend URL from env
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function Services() {
   const { user, token } = useAuth();
   const navigate = useNavigate();
@@ -40,17 +43,19 @@ export default function Services() {
 
   const submitRequest = async () => {
     if (!user) {
-      // Redirect to login if not authenticated
-      navigate("/login", { state: { from: { pathname: "/services" } } });
+      navigate("/login", { state: { from: "/services" } });
       return;
     }
 
-    if (!description) return alert("Please describe your requirement");
+    if (!description.trim()) {
+      alert("Please describe your requirement");
+      return;
+    }
 
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:5000/api/services", {
+      const res = await fetch(`${API_URL}/api/services`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +72,7 @@ export default function Services() {
       alert("Service request submitted successfully!");
       setSelectedService(null);
       setDescription("");
-    } catch {
+    } catch (err) {
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -75,11 +80,10 @@ export default function Services() {
   };
 
   return (
-    // FIX: Added dark background to match screenshot
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-6xl mx-auto">
         
-        {/* Header */}
+        {/* HEADER */}
         <div className="text-center mb-16 mt-8">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Enterprise Security Services
@@ -89,18 +93,17 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* SERVICES GRID */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {servicesList.map((service) => (
             <div
               key={service.id}
-              // FIX: bg-white with text-gray-900 ensures readability
               className="bg-white text-gray-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 cursor-pointer group"
               onClick={() => setSelectedService(service.title)}
             >
               <div className="flex items-start gap-6">
                 <div className="p-3 bg-gray-50 rounded-lg group-hover:bg-blue-50 transition-colors">
-                    {service.icon}
+                  {service.icon}
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
@@ -109,10 +112,13 @@ export default function Services() {
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     {service.description}
                   </p>
-                  <button className="text-primary font-bold flex items-center text-sm uppercase tracking-wide">
-                    Request Proposal 
-                    <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  <span className="text-primary font-bold flex items-center text-sm uppercase tracking-wide">
+                    Request Proposal
+                    <ArrowRight
+                      size={16}
+                      className="ml-2 group-hover:translate-x-1 transition-transform"
+                    />
+                  </span>
                 </div>
               </div>
             </div>
@@ -122,26 +128,29 @@ export default function Services() {
         {/* MODAL */}
         {selectedService && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
-            <div className="bg-white text-gray-900 p-6 rounded-2xl w-full max-w-md shadow-2xl relative animate-fadeIn">
+            <div className="bg-white text-gray-900 p-6 rounded-2xl w-full max-w-md shadow-2xl relative">
               
-              {/* Close Button */}
-              <button 
+              <button
                 onClick={() => setSelectedService(null)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
               >
                 <X size={24} />
               </button>
 
-              <h3 className="text-2xl font-bold mb-2">Request Proposal</h3>
+              <h3 className="text-2xl font-bold mb-2">
+                Request Proposal
+              </h3>
               <p className="text-gray-500 mb-6 text-sm">
-                For: <span className="font-semibold text-primary">{selectedService}</span>
+                For:{" "}
+                <span className="font-semibold text-primary">
+                  {selectedService}
+                </span>
               </p>
 
               <textarea
                 rows="5"
-                // FIX: Added text-gray-900 so typed text is visible
-                className="w-full border border-gray-300 p-3 rounded-lg mb-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none resize-none text-gray-900 placeholder-gray-500"
-                placeholder="Please describe your specific requirements, timeline, or any questions you have..."
+                className="w-full border border-gray-300 p-3 rounded-lg mb-4 focus:ring-2 focus:ring-primary outline-none resize-none text-gray-900 placeholder-gray-500"
+                placeholder="Describe your requirements..."
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -149,14 +158,14 @@ export default function Services() {
               <div className="flex justify-end gap-3">
                 <button
                   onClick={() => setSelectedService(null)}
-                  className="px-5 py-2.5 text-gray-600 font-medium hover:bg-gray-100 rounded-lg transition-colors"
+                  className="px-5 py-2.5 text-gray-600 font-medium hover:bg-gray-100 rounded-lg"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={submitRequest}
                   disabled={loading}
-                  className="px-5 py-2.5 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-70"
+                  className="px-5 py-2.5 bg-primary text-white font-bold rounded-lg hover:opacity-90 disabled:opacity-70"
                 >
                   {loading ? "Submitting..." : "Submit Request"}
                 </button>

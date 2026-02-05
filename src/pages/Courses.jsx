@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+// ✅ Backend URL from env
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function Courses() {
-  const { user, token } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
+
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/courses")
+    fetch(`${API_URL}/api/courses`)
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
@@ -20,7 +24,7 @@ export default function Courses() {
 
   const handleBuy = (course) => {
     if (!user) {
-      navigate("/login", { state: { from: { pathname: "/courses" } } });
+      navigate("/login", { state: { from: "/courses" } });
       return;
     }
 

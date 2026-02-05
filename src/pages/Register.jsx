@@ -24,16 +24,24 @@ export default function Register() {
     e.preventDefault();
     setError("");
 
-    if (formData.password !== formData.confirmPassword) {
+    const { email, password, confirmPassword } = formData;
+
+    // 🔒 Client-side validation
+    if (!email || !password || !confirmPassword) {
+      return setError("All fields are required");
+    }
+
+    if (password !== confirmPassword) {
       return setError("Passwords do not match");
     }
-    if (formData.password.length < 6) {
+
+    if (password.length < 6) {
       return setError("Password must be at least 6 characters");
     }
 
     try {
       setLoading(true);
-      await register(formData.email, formData.password);
+      await register(email.trim(), password);
       navigate("/login");
     } catch (err) {
       setError(err.message || "Registration failed");
@@ -46,7 +54,7 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-100">
         
-        {/* Header */}
+        {/* HEADER */}
         <div className="text-center mb-6">
           <img
             src={logo}
@@ -61,14 +69,14 @@ export default function Register() {
           </p>
         </div>
 
-        {/* Error Message */}
+        {/* ERROR */}
         {error && (
           <div className="bg-red-50 text-red-600 text-sm p-3 rounded mb-4 border border-red-100 text-center">
             {error}
           </div>
         )}
 
-        {/* Form */}
+        {/* FORM */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             name="email"
@@ -76,8 +84,7 @@ export default function Register() {
             required
             autoComplete="email"
             placeholder="Email address"
-            // ADDED: text-gray-900 placeholder-gray-500 bg-white
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent text-gray-900 placeholder-gray-500 bg-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none text-gray-900 placeholder-gray-500 bg-white"
             value={formData.email}
             onChange={handleChange}
           />
@@ -88,8 +95,7 @@ export default function Register() {
             required
             autoComplete="new-password"
             placeholder="Password"
-            // ADDED: text-gray-900 placeholder-gray-500 bg-white
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent text-gray-900 placeholder-gray-500 bg-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none text-gray-900 placeholder-gray-500 bg-white"
             value={formData.password}
             onChange={handleChange}
           />
@@ -100,9 +106,7 @@ export default function Register() {
             required
             autoComplete="new-password"
             placeholder="Confirm password"
-            // FIXED: Typo was "borderrounded-lg"
-            // ADDED: text-gray-900 placeholder-gray-500 bg-white
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent text-gray-900 placeholder-gray-500 bg-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none text-gray-900 placeholder-gray-500 bg-white"
             value={formData.confirmPassword}
             onChange={handleChange}
           />
@@ -110,15 +114,19 @@ export default function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-accent text-primary font-bold py-2.5 rounded-lg disabled:opacity-60 hover:opacity-90 transition-opacity"
+            className="w-full bg-accent text-primary font-bold py-2.5 rounded-lg hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 
+        {/* FOOTER */}
         <div className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <Link to="/login" className="text-primary font-semibold hover:underline">
+          <Link
+            to="/login"
+            className="text-primary font-semibold hover:underline"
+          >
             Login here
           </Link>
         </div>

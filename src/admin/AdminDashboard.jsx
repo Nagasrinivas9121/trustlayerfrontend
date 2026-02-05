@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
+// ✅ Backend URL from env
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function AdminDashboard() {
   const { token } = useAuth();
 
@@ -27,9 +30,9 @@ export default function AdminDashboard() {
       };
 
       const [usersRes, coursesRes, servicesRes] = await Promise.all([
-        fetch("http://localhost:5000/api/admin/users", { headers }),
-        fetch("http://localhost:5000/api/courses"),
-        fetch("http://localhost:5000/api/admin/services", { headers }),
+        fetch(`${API_URL}/api/admin/users`, { headers }),
+        fetch(`${API_URL}/api/courses`),
+        fetch(`${API_URL}/api/admin/services`, { headers }),
       ]);
 
       setUsers(await usersRes.json());
@@ -44,7 +47,7 @@ export default function AdminDashboard() {
 
   const changeRole = async (id, role) => {
     try {
-      await fetch(`http://localhost:5000/api/admin/users/${id}/role`, {
+      await fetch(`${API_URL}/api/admin/users/${id}/role`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +57,7 @@ export default function AdminDashboard() {
       });
 
       fetchData();
-    } catch (err) {
+    } catch {
       alert("Failed to update role");
     }
   };
@@ -68,7 +71,7 @@ export default function AdminDashboard() {
     }
 
     try {
-      await fetch("http://localhost:5000/api/admin/courses", {
+      await fetch(`${API_URL}/api/admin/courses`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,21 +82,17 @@ export default function AdminDashboard() {
 
       setNewCourse({ title: "", price: "" });
       fetchData();
-    } catch (err) {
+    } catch {
       alert("Failed to add course");
     }
   };
 
   const deleteCourse = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this course?"
-    );
-
-    if (!confirmDelete) return;
+    if (!window.confirm("Are you sure you want to delete this course?")) return;
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/admin/courses/${id}`,
+        `${API_URL}/api/admin/courses/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -103,9 +102,8 @@ export default function AdminDashboard() {
       );
 
       if (!res.ok) throw new Error();
-
       fetchData();
-    } catch (err) {
+    } catch {
       alert("Failed to delete course");
     }
   };
@@ -114,7 +112,7 @@ export default function AdminDashboard() {
 
   const updateServiceStatus = async (id, status) => {
     try {
-      await fetch(`http://localhost:5000/api/admin/services/${id}`, {
+      await fetch(`${API_URL}/api/admin/services/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -124,7 +122,7 @@ export default function AdminDashboard() {
       });
 
       fetchData();
-    } catch (err) {
+    } catch {
       alert("Failed to update service status");
     }
   };
@@ -133,19 +131,19 @@ export default function AdminDashboard() {
 
   return (
     <div className="p-8 max-w-7xl mx-auto space-y-12">
-      <h2 className="text-3xl font-bold text-primary">Admin Dashboard</h2>
+      <h2 className="text-3xl font-bold text-primary">
+        Admin Dashboard
+      </h2>
 
       {/* USERS */}
       <section>
         <h3 className="text-xl font-bold mb-4">Users</h3>
-
         {users.map((u) => (
           <div
             key={u.id}
             className="flex justify-between items-center border p-3 mb-2 rounded"
           >
             <span>{u.email}</span>
-
             <select
               value={u.role}
               onChange={(e) => changeRole(u.id, e.target.value)}
@@ -171,7 +169,6 @@ export default function AdminDashboard() {
               setNewCourse({ ...newCourse, title: e.target.value })
             }
           />
-
           <input
             type="number"
             placeholder="Price"
@@ -181,7 +178,6 @@ export default function AdminDashboard() {
               setNewCourse({ ...newCourse, price: e.target.value })
             }
           />
-
           <button
             onClick={addCourse}
             className="bg-accent px-4 font-bold rounded"
@@ -198,7 +194,6 @@ export default function AdminDashboard() {
             <span>
               {c.title} – ₹{c.price}
             </span>
-
             <button
               onClick={() => deleteCourse(c.id)}
               className="text-red-600 font-semibold hover:underline"
@@ -211,7 +206,9 @@ export default function AdminDashboard() {
 
       {/* SERVICES */}
       <section>
-        <h3 className="text-xl font-bold mb-4">Service Requests</h3>
+        <h3 className="text-xl font-bold mb-4">
+          Service Requests
+        </h3>
 
         {services.map((s) => (
           <div key={s.id} className="border p-4 mb-3 rounded">

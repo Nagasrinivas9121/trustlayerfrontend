@@ -2,6 +2,9 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
+// ✅ Backend base URL from Vite env
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
@@ -14,10 +17,12 @@ export const AuthProvider = ({ children }) => {
     if (!token && user) {
       logout();
     }
+    // eslint-disable-next-line
   }, []);
 
+  // ================= LOGIN =================
   const login = async (email, password) => {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch(`${API_URL}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -31,8 +36,9 @@ export const AuthProvider = ({ children }) => {
     setUser(data.user);
   };
 
+  // ================= REGISTER =================
   const register = async (email, password) => {
-    const res = await fetch("http://localhost:5000/api/auth/register", {
+    const res = await fetch(`${API_URL}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -40,15 +46,17 @@ export const AuthProvider = ({ children }) => {
 
     const data = await res.json();
     if (!res.ok) throw new Error(data.message);
+
+    return data;
   };
 
+  // ================= LOGOUT =================
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
   };
 
-  // Helper for protected routes
   const isAuthenticated = !!user && !!token;
 
   return (

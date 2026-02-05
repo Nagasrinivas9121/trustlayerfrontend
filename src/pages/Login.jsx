@@ -7,7 +7,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // Added loading state
+  const [loading, setLoading] = useState(false);
 
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -26,10 +26,10 @@ export default function Login() {
 
     try {
       setLoading(true);
-      await login(email, password); 
+      await login(email.trim(), password);
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err.message || "Login failed");
+      setError(err.message || "Invalid email or password");
     } finally {
       setLoading(false);
     }
@@ -71,7 +71,6 @@ export default function Login() {
               type="email"
               required
               autoComplete="email"
-              // ADDED: text-gray-900 placeholder-gray-500 bg-white
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none text-gray-900 placeholder-gray-500 bg-white"
               placeholder="name@company.com"
               value={email}
@@ -87,7 +86,6 @@ export default function Login() {
               type="password"
               required
               autoComplete="current-password"
-              // ADDED: text-gray-900 placeholder-gray-500 bg-white
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none text-gray-900 placeholder-gray-500 bg-white"
               placeholder="••••••••"
               value={password}
