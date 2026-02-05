@@ -2,8 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
-// ✅ Backend base URL from Vite env
-const API_URL = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(
@@ -12,23 +11,26 @@ export const AuthProvider = ({ children }) => {
 
   const token = localStorage.getItem("token");
 
-  // Auto logout if token missing but user exists
   useEffect(() => {
-    if (!token && user) {
-      logout();
-    }
-    // eslint-disable-next-line
+    if (!token && user) logout();
   }, []);
 
-  // ================= LOGIN =================
   const login = async (email, password) => {
-    const res = await fetch(`${API_URL}/api/auth/login`, {
+    const res = await fetch(`${API}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error("Server error. Please try again.");
+    }
+
     if (!res.ok) throw new Error(data.message);
 
     localStorage.setItem("token", data.token);
@@ -36,32 +38,34 @@ export const AuthProvider = ({ children }) => {
     setUser(data.user);
   };
 
-  // ================= REGISTER =================
   const register = async (email, password) => {
-    const res = await fetch(`${API_URL}/api/auth/register`, {
+    const res = await fetch(`${API}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
 
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
+    const text = await res.text();
+    let data;
 
-    return data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error("Server error. Please try again.");
+    }
+
+    if (!res.ok) throw new Error(data.message);
   };
 
-  // ================= LOGOUT =================
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
   };
 
-  const isAuthenticated = !!user && !!token;
-
   return (
     <AuthContext.Provider
-      value={{ user, token, login, register, logout, isAuthenticated }}
+      value={{ user, token, login, register, logout, isAuthenticated: !!user }}
     >
       {children}
     </AuthContext.Provider>
