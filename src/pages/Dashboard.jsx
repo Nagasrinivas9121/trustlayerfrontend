@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-// ✅ Backend URL from env
 const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Dashboard() {
@@ -14,9 +13,7 @@ export default function Dashboard() {
     if (!token) return;
 
     fetch(`${API_URL}/api/enrollments`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -45,9 +42,7 @@ export default function Dashboard() {
         {/* HEADER */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-gray-700 pb-4">
           <div>
-            <h2 className="text-3xl font-bold">
-              Student Dashboard
-            </h2>
+            <h2 className="text-3xl font-bold">Student Dashboard</h2>
             <p className="text-gray-400 mt-1">
               Welcome back,{" "}
               <span className="font-semibold text-accent">
@@ -55,46 +50,46 @@ export default function Dashboard() {
               </span>
             </p>
           </div>
-          <span className="mt-4 md:mt-0 bg-primary/20 text-accent px-4 py-1.5 rounded-full text-sm font-medium uppercase tracking-wide border border-primary/30">
+          <span className="mt-4 md:mt-0 bg-primary/20 text-accent px-4 py-1.5 rounded-full text-sm font-medium uppercase border border-primary/30">
             {user.role} Account
           </span>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {/* LEFT: LEARNING */}
-          <div className="md:col-span-2 space-y-6">
+
+          {/* LEFT – COURSES */}
+          <div className="md:col-span-2">
             <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg border">
               <h3 className="text-xl font-bold mb-6 border-b pb-2">
                 My Learning
               </h3>
 
-              {courses.length > 0 ? (
+              {courses.length ? (
                 <div className="space-y-4">
                   {courses.map((course) => (
                     <div
                       key={course.id}
-                      className="border p-4 rounded-lg hover:bg-gray-50 transition"
+                      className="border p-4 rounded-lg hover:bg-gray-50"
                     >
-                      <div className="flex justify-between items-center mb-2">
+                      <div className="flex justify-between mb-2">
                         <h4 className="font-semibold text-lg">
                           {course.title}
                         </h4>
-                        <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded font-medium">
+                        <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
                           Active
                         </span>
                       </div>
 
-                      {/* PROGRESS */}
-                      <div className="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                      <div className="w-full bg-gray-200 h-2.5 rounded-full mt-3">
                         <div
-                          className="bg-accent h-2.5 rounded-full transition-all"
+                          className="bg-accent h-2.5 rounded-full"
                           style={{
                             width: `${course.Enrollment?.progress || 0}%`,
                           }}
                         />
                       </div>
 
-                      <p className="text-xs text-right mt-2 text-gray-600 font-medium">
+                      <p className="text-xs text-right mt-2 text-gray-600">
                         {course.Enrollment?.progress || 0}% Complete
                       </p>
                     </div>
@@ -107,7 +102,7 @@ export default function Dashboard() {
                   </p>
                   <Link
                     to="/courses"
-                    className="text-primary font-bold hover:underline text-lg"
+                    className="text-primary font-bold hover:underline"
                   >
                     Browse Courses →
                   </Link>
@@ -116,31 +111,19 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* RIGHT: PROFILE */}
+          {/* RIGHT – PROFILE */}
           <div className="space-y-6">
             <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg border">
               <h3 className="text-lg font-bold mb-4 border-b pb-2">
-                Profile
+                Student Profile
               </h3>
 
               <div className="space-y-4 text-sm">
-                <div>
-                  <span className="block text-xs text-gray-500 uppercase font-semibold">
-                    Email
-                  </span>
-                  <span className="font-medium break-all text-base">
-                    {user.email}
-                  </span>
-                </div>
-
-                <div>
-                  <span className="block text-xs text-gray-500 uppercase font-semibold">
-                    Role
-                  </span>
-                  <span className="font-medium capitalize text-base">
-                    {user.role}
-                  </span>
-                </div>
+                <ProfileRow label="Email" value={user.email} />
+                <ProfileRow label="Role" value={user.role} />
+                <ProfileRow label="College" value={user.college || "Not provided"} />
+                <ProfileRow label="Year / Standard" value={user.standard || "Not provided"} />
+                <ProfileRow label="Phone" value={user.phone || "Not provided"} />
 
                 <button className="w-full mt-6 border-2 py-2 rounded-lg text-gray-600 font-semibold hover:bg-gray-50">
                   Edit Profile (Coming Soon)
@@ -154,10 +137,7 @@ export default function Dashboard() {
               <p className="text-sm text-blue-100 mb-4">
                 Contact our security team for assistance or custom services.
               </p>
-              <Link
-                to="/services"
-                className="text-sm font-bold underline hover:text-blue-100"
-              >
+              <Link to="/services" className="font-bold underline">
                 Go to Services →
               </Link>
             </div>
@@ -167,3 +147,12 @@ export default function Dashboard() {
     </div>
   );
 }
+
+const ProfileRow = ({ label, value }) => (
+  <div>
+    <span className="block text-xs text-gray-500 uppercase font-semibold">
+      {label}
+    </span>
+    <span className="font-medium text-base">{value}</span>
+  </div>
+);

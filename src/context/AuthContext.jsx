@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
-
 const API = import.meta.env.VITE_API_URL;
 
 export const AuthProvider = ({ children }) => {
@@ -11,10 +10,12 @@ export const AuthProvider = ({ children }) => {
 
   const token = localStorage.getItem("token");
 
+  // 🔐 Auto logout if token missing
   useEffect(() => {
     if (!token && user) logout();
-  }, []);
+  }, [token]); // ✅ dependency fixed
 
+  /* ================= LOGIN ================= */
   const login = async (email, password) => {
     const res = await fetch(`${API}/api/auth/login`, {
       method: "POST",
@@ -38,6 +39,7 @@ export const AuthProvider = ({ children }) => {
     setUser(data.user);
   };
 
+  /* ================= REGISTER ================= */
   const register = async (email, password) => {
     const res = await fetch(`${API}/api/auth/register`, {
       method: "POST",
@@ -57,6 +59,26 @@ export const AuthProvider = ({ children }) => {
     if (!res.ok) throw new Error(data.message);
   };
 
+  /* ================= UPDATE PROFILE ================= */
+  const updateProfile = async (profileData) => {
+    const res = await fetch(`${API}/api/user/profile`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(profileData),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error("Profile update failed");
+
+    localStorage.setItem("user", JSON.stringify(data));
+    setUser(data);
+  };
+
+  /* ================= LOGOUT ================= */
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -65,7 +87,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, token, login, register, logout, isAuthenticated: !!user }}
+      value={{
+        user,
+        token,
+        login,
+        register,
+        logout,
+        updateProfile,
+        isAuthenticated: !!user && !!token, // ✅ FIXED
+      }}
     >
       {children}
     </AuthContext.Provider>
