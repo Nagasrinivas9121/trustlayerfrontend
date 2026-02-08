@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   // 🔐 Auto logout if token missing
   useEffect(() => {
     if (!token && user) logout();
-  }, [token]); // ✅ dependency fixed
+  }, [token]);
 
   /* ================= LOGIN ================= */
   const login = async (email, password) => {
@@ -23,15 +23,7 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({ email, password }),
     });
 
-    const text = await res.text();
-    let data;
-
-    try {
-      data = JSON.parse(text);
-    } catch {
-      throw new Error("Server error. Please try again.");
-    }
-
+    const data = await res.json();
     if (!res.ok) throw new Error(data.message);
 
     localStorage.setItem("token", data.token);
@@ -40,42 +32,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   /* ================= REGISTER ================= */
-  const register = async (email, password) => {
+  const register = async (payload) => {
     const res = await fetch(`${API}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const text = await res.text();
-    let data;
-
-    try {
-      data = JSON.parse(text);
-    } catch {
-      throw new Error("Server error. Please try again.");
-    }
-
-    if (!res.ok) throw new Error(data.message);
-  };
-
-  /* ================= UPDATE PROFILE ================= */
-  const updateProfile = async (profileData) => {
-    const res = await fetch(`${API}/api/user/profile`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(profileData),
+      body: JSON.stringify(payload),
     });
 
     const data = await res.json();
-
-    if (!res.ok) throw new Error("Profile update failed");
-
-    localStorage.setItem("user", JSON.stringify(data));
-    setUser(data);
+    if (!res.ok) throw new Error(data.message);
   };
 
   /* ================= LOGOUT ================= */
@@ -93,8 +58,7 @@ export const AuthProvider = ({ children }) => {
         login,
         register,
         logout,
-        updateProfile,
-        isAuthenticated: !!user && !!token, // ✅ FIXED
+        isAuthenticated: !!user && !!token, // ✅ FIX
       }}
     >
       {children}

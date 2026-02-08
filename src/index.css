@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@taailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @theme {
   --color-primary: #0f172a;   /* Slate 900 */
@@ -12,4 +15,12 @@ body {
   /* Add these two lines: */
   background-color: var(--color-primary); 
   color: white; 
+}
+
+input, select, textarea {
+  color: #111827 !important;        /* gray-900 */
+  background-color: #ffffff !important;
+}
+::placeholder {
+  color: #9ca3af !important;        /* gray-400 */
 }

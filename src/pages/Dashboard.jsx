@@ -28,9 +28,7 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-        <div className="text-gray-400 text-lg">
-          Loading your dashboard...
-        </div>
+        <p className="text-gray-400 text-lg">Loading dashboard...</p>
       </div>
     );
   }
@@ -50,26 +48,27 @@ export default function Dashboard() {
               </span>
             </p>
           </div>
-          <span className="mt-4 md:mt-0 bg-primary/20 text-accent px-4 py-1.5 rounded-full text-sm font-medium uppercase border border-primary/30">
-            {user.role} Account
+
+          <span className="mt-4 md:mt-0 bg-primary/20 text-accent px-4 py-1.5 rounded-full text-sm uppercase border border-primary/30">
+            {user.role}
           </span>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
 
-          {/* LEFT – COURSES */}
+          {/* LEFT — COURSES */}
           <div className="md:col-span-2">
-            <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg border">
+            <div className="bg-white text-gray-900 p-6 rounded-lg shadow border">
               <h3 className="text-xl font-bold mb-6 border-b pb-2">
                 My Learning
               </h3>
 
-              {courses.length ? (
+              {courses.length > 0 ? (
                 <div className="space-y-4">
                   {courses.map((course) => (
                     <div
                       key={course.id}
-                      className="border p-4 rounded-lg hover:bg-gray-50"
+                      className="border p-4 rounded-lg hover:bg-gray-50 transition"
                     >
                       <div className="flex justify-between mb-2">
                         <h4 className="font-semibold text-lg">
@@ -80,6 +79,7 @@ export default function Dashboard() {
                         </span>
                       </div>
 
+                      {/* Progress */}
                       <div className="w-full bg-gray-200 h-2.5 rounded-full mt-3">
                         <div
                           className="bg-accent h-2.5 rounded-full"
@@ -92,17 +92,29 @@ export default function Dashboard() {
                       <p className="text-xs text-right mt-2 text-gray-600">
                         {course.Enrollment?.progress || 0}% Complete
                       </p>
+
+                      {/* Drive Link (after payment) */}
+                      {course.driveLink && (
+                        <a
+                          href={course.driveLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-block mt-3 text-sm font-bold text-primary underline"
+                        >
+                          Access Course →
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-12 bg-gray-50 rounded-lg border border-dashed">
-                  <p className="text-gray-500 mb-4 text-lg">
+                <div className="text-center py-12 bg-gray-50 rounded border border-dashed">
+                  <p className="text-gray-500 mb-4">
                     You haven’t enrolled in any courses yet.
                   </p>
                   <Link
                     to="/courses"
-                    className="text-primary font-bold hover:underline"
+                    className="text-primary font-bold underline"
                   >
                     Browse Courses →
                   </Link>
@@ -111,37 +123,38 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* RIGHT – PROFILE */}
+          {/* RIGHT — PROFILE */}
           <div className="space-y-6">
-            <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg border">
+            <div className="bg-white text-gray-900 p-6 rounded-lg shadow border">
               <h3 className="text-lg font-bold mb-4 border-b pb-2">
                 Student Profile
               </h3>
 
-              <div className="space-y-4 text-sm">
-                <ProfileRow label="Email" value={user.email} />
-                <ProfileRow label="Role" value={user.role} />
-                <ProfileRow label="College" value={user.college || "Not provided"} />
-                <ProfileRow label="Year / Standard" value={user.standard || "Not provided"} />
-                <ProfileRow label="Phone" value={user.phone || "Not provided"} />
+              <ProfileRow label="Email" value={user.email} />
+              <ProfileRow label="College" value={user.college} />
+              <ProfileRow label="Year / Standard" value={user.year} />
+              <ProfileRow label="Phone" value={user.phone} />
 
-                <button className="w-full mt-6 border-2 py-2 rounded-lg text-gray-600 font-semibold hover:bg-gray-50">
-                  Edit Profile (Coming Soon)
-                </button>
-              </div>
+              <button
+                disabled
+                className="w-full mt-6 border py-2 rounded text-gray-500 font-semibold cursor-not-allowed"
+              >
+                Edit Profile (Coming Soon)
+              </button>
             </div>
 
             {/* HELP */}
-            <div className="bg-blue-600 p-6 rounded-lg shadow-lg">
+            <div className="bg-blue-600 p-6 rounded-lg shadow">
               <h3 className="font-bold text-lg mb-2">Need Help?</h3>
               <p className="text-sm text-blue-100 mb-4">
-                Contact our security team for assistance or custom services.
+                Contact our support team for assistance.
               </p>
               <Link to="/services" className="font-bold underline">
                 Go to Services →
               </Link>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -149,10 +162,12 @@ export default function Dashboard() {
 }
 
 const ProfileRow = ({ label, value }) => (
-  <div>
+  <div className="mb-3">
     <span className="block text-xs text-gray-500 uppercase font-semibold">
       {label}
     </span>
-    <span className="font-medium text-base">{value}</span>
+    <span className="font-medium text-base">
+      {value || "Not provided"}
+    </span>
   </div>
 );

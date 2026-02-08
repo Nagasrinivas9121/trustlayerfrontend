@@ -4,44 +4,41 @@ import { useNavigate, Link } from "react-router-dom";
 import logo from "../assets/logo.jpeg";
 
 export default function Register() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    if (error) setError("");
-  };
+  const [form, setForm] = useState({
+    email: "",
+    college: "",
+    year: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
 
-    const { email, password, confirmPassword } = formData;
+    const { email, college, year, phone, password, confirmPassword } = form;
 
-    // 🔒 Client-side validation
-    if (!email || !password || !confirmPassword) {
+    if (!email || !college || !year || !phone || !password || !confirmPassword)
       return setError("All fields are required");
-    }
 
-    if (password !== confirmPassword) {
+    if (!/^\d{10}$/.test(phone))
+      return setError("Phone must be 10 digits");
+
+    if (password !== confirmPassword)
       return setError("Passwords do not match");
-    }
-
-    if (password.length < 6) {
-      return setError("Password must be at least 6 characters");
-    }
 
     try {
       setLoading(true);
-      await register(email.trim(), password);
+      await register({ email, college, year, phone, password });
       navigate("/login");
     } catch (err) {
       setError(err.message || "Registration failed");
@@ -51,85 +48,95 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-100">
-        
-        {/* HEADER */}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-lg">
+
         <div className="text-center mb-6">
-          <img
-            src={logo}
-            alt="Trustlayer Labs"
-            className="h-12 w-auto mx-auto mb-4 rounded"
-          />
-          <h2 className="text-2xl font-bold text-gray-800">
-            Create Account
-          </h2>
-          <p className="text-gray-500 text-sm mt-1">
-            Join our cybersecurity community
+          <img src={logo} className="h-12 mx-auto mb-3 rounded" />
+          <h2 className="text-2xl font-bold">Create Account</h2>
+          <p className="text-sm text-gray-500">
+            Fill all details to continue
           </p>
         </div>
 
-        {/* ERROR */}
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm p-3 rounded mb-4 border border-red-100 text-center">
+          <div className="bg-red-100 text-red-600 text-sm p-2 rounded mb-4 text-center">
             {error}
           </div>
         )}
 
-        {/* FORM */}
         <form onSubmit={handleSubmit} className="space-y-4">
+
           <input
-            name="email"
             type="email"
+            name="email"
+            placeholder="Email"
+            className="w-full border border-gray-300 px-4 py-2 rounded-lg"
             required
-            autoComplete="email"
-            placeholder="Email address"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none text-gray-900 placeholder-gray-500 bg-white"
-            value={formData.email}
             onChange={handleChange}
           />
 
           <input
+            type="text"
+            name="college"
+            placeholder="College"
+            className="w-full border border-gray-300 px-4 py-2 rounded-lg"
+            required
+            onChange={handleChange}
+          />
+
+          <input
+            type="text"
+            name="year"
+            placeholder="Year / Standard"
+            className="w-full border border-gray-300 px-4 py-2 rounded-lg"
+            required
+            onChange={handleChange}
+          />
+
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone (10 digits)"
+            pattern="[0-9]{10}"
+            className="w-full border border-gray-300 px-4 py-2 rounded-lg"
+            required
+            onChange={handleChange}
+          />
+
+          <input
+            type="password"
             name="password"
-            type="password"
-            required
-            autoComplete="new-password"
             placeholder="Password"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none text-gray-900 placeholder-gray-500 bg-white"
-            value={formData.password}
+            className="w-full border border-gray-300 px-4 py-2 rounded-lg"
+            required
             onChange={handleChange}
           />
 
           <input
-            name="confirmPassword"
             type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            className="w-full border border-gray-300 px-4 py-2 rounded-lg"
             required
-            autoComplete="new-password"
-            placeholder="Confirm password"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none text-gray-900 placeholder-gray-500 bg-white"
-            value={formData.confirmPassword}
             onChange={handleChange}
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-accent text-primary font-bold py-2.5 rounded-lg hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full bg-blue-600 text-white py-2 rounded-lg font-bold hover:bg-blue-700"
           >
-            {loading ? "Creating account..." : "Create Account"}
+            {loading ? "Registering..." : "Register"}
           </button>
         </form>
 
-        {/* FOOTER */}
-        <div className="mt-6 text-center text-sm text-gray-600">
+        <p className="text-center text-sm mt-4">
           Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-primary font-semibold hover:underline"
-          >
-            Login here
+          <Link to="/login" className="text-blue-600 font-semibold">
+            Login
           </Link>
-        </div>
+        </p>
       </div>
     </div>
   );
