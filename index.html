@@ -2,14 +2,60 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.jpeg" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrustLayerLabs</title>
+    
+    <title>TrustLayer Labs | Cyber Security Services & EdTech Platform</title>
+    <meta name="title" content="TrustLayer Labs | Cyber Security Services & EdTech Platform" />
+    <meta name="description" content="Master the digital frontier with TrustLayer Labs. We provide elite VAPT services, SOC monitoring, and industry-leading cybersecurity courses for future-ready professionals." />
+    <meta name="keywords" content="Cybersecurity, VAPT, SOC Monitoring, Ethical Hacking, Web Development, EdTech, TrustLayer Labs, Security Audits" />
+    <meta name="author" content="TrustLayer Labs" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.trustlayerlabs.com/" />
+    <meta property="og:title" content="TrustLayer Labs | Fortifying the Digital Frontier" />
+    <meta property="og:description" content="Elite Cybersecurity services and professional EdTech training. Secure your enterprise or master the skill." />
+    <meta property="og:image" content="/logo.jpeg" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="TrustLayer Labs | Cybersecurity EdTech" />
+    <meta property="twitter:description" content="Master the skills to defend systems or let us secure them for you." />
+    <meta property="twitter:image" content="/logo.jpeg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+      /* Smooth loading background to prevent white flashes */
+      body {
+        background-color: #05080d;
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+      }
+
+      /* Animated Grainy Texture for high-end look */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        opacity: 0.03;
+        z-index: 9999;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      /* Custom Tech-styled Selection */
+      ::selection {
+        background: #00b7ff;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
   </body>
 </html>

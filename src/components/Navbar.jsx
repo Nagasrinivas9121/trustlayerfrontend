@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import logo from "../assets/logo.jpeg";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -10,118 +11,119 @@ export default function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
+  // Link styles with a high-tech indicator
   const getLinkClass = ({ isActive }) =>
-    isActive
-      ? "text-accent font-semibold"
-      : "hover:text-accent transition-colors";
+    `relative px-2 py-1 transition-all duration-300 uppercase tracking-widest text-[11px] font-black ${
+      isActive ? "text-accent" : "text-gray-400 hover:text-white"
+    }`;
 
   return (
-    <nav className="bg-primary text-white shadow-md sticky top-0 z-50">
-      <div className="px-6 py-4 flex justify-between items-center">
-
+    <nav className="bg-[#05080d]/80 backdrop-blur-md text-white border-b border-white/5 sticky top-0 z-[100]">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        
         {/* LOGO */}
-        <Link to="/" onClick={closeMenu} className="flex items-center space-x-3">
-          <img src={logo} alt="Trustlayer Labs" className="h-9 rounded-sm" />
-          <span className="font-bold text-lg tracking-wide">
-            Trustlayer Labs
+        <Link to="/" onClick={closeMenu} className="flex items-center space-x-3 group">
+          <motion.img 
+            whileHover={{ rotate: 180 }}
+            src={logo} 
+            alt="Trustlayer Labs" 
+            className="h-8 w-8 rounded-full border border-white/10 group-hover:border-accent/50 transition-colors" 
+          />
+          <span className="font-black text-sm uppercase tracking-tighter italic">
+            Trustlayer<span className="text-accent">_Labs</span>
           </span>
         </Link>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex space-x-6 text-sm items-center">
-          <NavLink to="/courses" className={getLinkClass}>EdTech</NavLink>
-          <NavLink to="/services" className={getLinkClass}>Services</NavLink>
-          <NavLink to="/privacy-policy" className={getLinkClass}>Privacy</NavLink>
-          <NavLink to="/terms-and-conditions" className={getLinkClass}>Terms</NavLink>
+        <div className="hidden md:flex space-x-8 items-center">
+          <NavLink to="/courses" className={getLinkClass}>
+            {({ isActive }) => (
+              <>
+                {isActive && <motion.span layoutId="nav-dot" className="absolute -left-2 text-accent">_</motion.span>}
+                EdTech
+              </>
+            )}
+          </NavLink>
+          <NavLink to="/services" className={getLinkClass}>
+             {({ isActive }) => (
+              <>
+                {isActive && <motion.span layoutId="nav-dot" className="absolute -left-2 text-accent">_</motion.span>}
+                Services
+              </>
+            )}
+          </NavLink>
+          <NavLink to="/dashboard" className={getLinkClass}>Dashboard</NavLink>
+
+          <div className="h-4 w-[1px] bg-white/10 mx-2" />
 
           {!user ? (
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
               <Link
                 to="/login"
-                className="px-4 py-2 border border-white rounded hover:bg-white hover:text-primary transition"
+                className="text-[11px] font-black uppercase tracking-widest hover:text-accent transition-colors"
               >
                 Login
               </Link>
               <Link
                 to="/register"
-                className="px-4 py-2 bg-accent text-white rounded hover:bg-opacity-90 transition"
+                className="px-5 py-2 bg-white text-black text-[11px] font-black uppercase tracking-widest rounded-full hover:bg-accent hover:text-white transition-all shadow-lg shadow-accent/5"
               >
-                Register
+                Enlist
               </Link>
             </div>
           ) : (
-            <div className="flex items-center space-x-4">
-              <Link
-                to={user.role === "admin" ? "/admin" : "/dashboard"}
-                className="hover:text-accent"
-              >
-                Dashboard
-              </Link>
+            <div className="flex items-center space-x-6">
               <button
-                onClick={() => {
-                  logout();
-                  closeMenu();
-                }}
-                className="bg-red-500 hover:bg-red-600 px-3 py-1.5 rounded text-xs transition"
+                onClick={logout}
+                className="text-[10px] font-black uppercase tracking-widest text-red-500/70 hover:text-red-400 transition-colors border border-red-500/20 px-3 py-1 rounded-md"
               >
-                Logout
+                Disconnect
               </button>
             </div>
           )}
         </div>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE TRIGGER */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 text-gray-400 hover:text-white transition-colors"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
       {/* MOBILE MENU */}
-      {isOpen && (
-        <div className="md:hidden bg-primary px-6 pb-4 pt-3 border-t border-gray-700 flex flex-col space-y-4 text-sm">
-          <NavLink to="/courses" className={getLinkClass} onClick={closeMenu}>
-            EdTech
-          </NavLink>
-          <NavLink to="/services" className={getLinkClass} onClick={closeMenu}>
-            Services
-          </NavLink>
-          <NavLink to="/privacy-policy" className={getLinkClass} onClick={closeMenu}>
-            Privacy Policy
-          </NavLink>
-          <NavLink to="/terms-and-conditions" className={getLinkClass} onClick={closeMenu}>
-            Terms & Conditions
-          </NavLink>
-
-          <div className="border-t border-gray-600 pt-3 flex flex-col space-y-3">
-            {!user ? (
-              <>
-                <Link to="/login" onClick={closeMenu}>Login</Link>
-                <Link to="/register" onClick={closeMenu}>Register</Link>
-              </>
-            ) : (
-              <>
-                <Link
-                  to={user.role === "admin" ? "/admin" : "/dashboard"}
-                  onClick={closeMenu}
-                >
-                  Dashboard
-                </Link>
-                <button
-                  onClick={() => {
-                    logout();
-                    closeMenu();
-                  }}
-                  className="text-left text-red-400"
-                >
-                  Logout
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#0a0f18] border-b border-white/5 overflow-hidden"
+          >
+            <div className="px-8 py-10 flex flex-col space-y-6">
+              <NavLink to="/courses" className="text-2xl font-black italic uppercase" onClick={closeMenu}>EdTech</NavLink>
+              <NavLink to="/services" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Services</NavLink>
+              <NavLink to="/dashboard" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Dashboard</NavLink>
+              
+              <div className="pt-6 border-t border-white/5 flex flex-col space-y-4">
+                {!user ? (
+                  <>
+                    <Link to="/login" className="text-accent font-black uppercase tracking-widest" onClick={closeMenu}>Login</Link>
+                    <Link to="/register" className="text-white font-black uppercase tracking-widest" onClick={closeMenu}>Register</Link>
+                  </>
+                ) : (
+                  <button onClick={() => { logout(); closeMenu(); }} className="text-left text-red-500 font-black uppercase tracking-widest">
+                    Terminate Session
+                  </button>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @taailwind base;
-@tailwind components;
 @tailwind utilities;
 
 @theme {
@@ -23,4 +22,26 @@ input, select, textarea {
 }
 ::placeholder {
   color: #9ca3af !important;        /* gray-400 */
+}
+html {
+  scroll-behavior: smooth;
+  background-color: #05080d;
+}
+
+/* Custom scrollbar to match the dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05080d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00b7ff;
 }
