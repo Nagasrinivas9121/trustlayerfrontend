@@ -129,15 +129,15 @@ export default function Courses() {
           <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase">
             Available <span className="text-accent">Modules</span>
           </h2>
-          <p className="text-gray-500 font-mono text-xs mt-2 uppercase tracking-widest">
+          <p className="text-gray-500 font-mono text-[10px] md:text-xs mt-2 uppercase tracking-widest leading-loose">
             // Select a curriculum to begin initialization
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course, index) => {
-            // Logic from notes: 2599 - X% = 499 (or current price)
-            const originalPrice = 2599;
+            // Updated Item #4: Dynamic Discount Logic
+            const originalPrice = 2599; // Baseline from investigator notes
             const discountPercent = Math.round(((originalPrice - course.price) / originalPrice) * 100);
 
             return (
@@ -148,7 +148,7 @@ export default function Courses() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 h-full flex flex-col justify-between hover:border-accent/50 transition-colors shadow-2xl shadow-black relative overflow-hidden"
                 >
-                  {/* Discount Badge */}
+                  {/* Item #4: Ribbon Discount Badge */}
                   {discountPercent > 0 && (
                     <div className="absolute top-6 right-[-35px] bg-accent text-white text-[10px] font-black px-10 py-1 rotate-45 uppercase tracking-tighter shadow-lg">
                       {discountPercent}% OFF
@@ -157,14 +157,14 @@ export default function Courses() {
 
                   <div>
                     <div className="h-1 w-12 bg-accent mb-6 rounded-full" />
-                    <h3 className="text-2xl font-bold tracking-tight mb-2 uppercase">{course.title}</h3>
+                    <h3 className="text-2xl font-bold tracking-tight mb-2 uppercase leading-tight">{course.title}</h3>
                     
                     <div className="flex flex-col mb-6">
                       <div className="flex items-center gap-3">
                         <span className="text-3xl font-black text-white">₹{course.price}</span>
                         <span className="text-gray-500 line-through text-sm font-mono">₹{originalPrice}</span>
                       </div>
-                      <span className="text-gray-500 text-[10px] font-mono uppercase mt-1 tracking-widest">
+                      <span className="text-gray-500 text-[10px] font-mono uppercase mt-1 tracking-widest leading-relaxed">
                         / security_clearance_access
                       </span>
                     </div>
@@ -178,7 +178,7 @@ export default function Courses() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => payNow(course)}
-                    className="w-full bg-white text-black font-black py-4 rounded-2xl text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                    className="w-full bg-white text-black font-black py-4 rounded-2xl text-[10px] md:text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                   >
                     Enroll Now
                   </motion.button>
@@ -190,7 +190,7 @@ export default function Courses() {
 
         {courses.length === 0 && (
           <div className="text-center py-20 border border-dashed border-white/10 rounded-3xl">
-            <p className="text-gray-600 font-mono italic">NO_DATA_FOUND: Please check back later.</p>
+            <p className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] italic">// NO_DATA_FOUND: CHECK_SECURE_NODE_LATER</p>
           </div>
         )}
       </div>
