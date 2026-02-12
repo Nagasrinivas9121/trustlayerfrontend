@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import logo from "../assets/logo.jpeg";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, Power } from "lucide-react"; // Swapped Terminal for Power for Logout feel
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -18,7 +18,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="bg-[#05080d]/80 backdrop-blur-md text-white border-b border-white/5 sticky top-0 z-[100]">
+    <nav className="bg-[#05080d]/80 backdrop-blur-md text-white border-b border-white/5 sticky top-0 z-[100] font-mono">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* LOGO */}
@@ -40,7 +40,7 @@ export default function Navbar() {
             {({ isActive }) => (
               <>
                 {isActive && <motion.span layoutId="nav-dot" className="absolute -left-2 text-accent">_</motion.span>}
-                EdTech
+                Curriculum
               </>
             )}
           </NavLink>
@@ -68,16 +68,18 @@ export default function Navbar() {
                 to="/register"
                 className="px-5 py-2 bg-white text-black text-[11px] font-black uppercase tracking-widest rounded-full hover:bg-accent hover:text-white transition-all shadow-lg shadow-accent/5"
               >
-                Enlist
+                Register
               </Link>
             </div>
           ) : (
             <div className="flex items-center space-x-6">
+              {/* Item #9: Changed "Disconnect" to "Logout" */}
               <button
                 onClick={logout}
-                className="text-[10px] font-black uppercase tracking-widest text-red-500/70 hover:text-red-400 transition-colors border border-red-500/20 px-3 py-1 rounded-md"
+                className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-red-500/70 hover:text-red-400 transition-colors border border-red-500/20 px-4 py-1.5 rounded-lg bg-red-500/5 group"
               >
-                Disconnect
+                <Power size={12} className="group-hover:animate-pulse" />
+                Logout
               </button>
             </div>
           )}
@@ -104,7 +106,7 @@ export default function Navbar() {
             className="md:hidden bg-[#0a0f18] border-b border-white/5 overflow-hidden"
           >
             <div className="px-8 py-10 flex flex-col space-y-6">
-              <NavLink to="/courses" className="text-2xl font-black italic uppercase" onClick={closeMenu}>EdTech</NavLink>
+              <NavLink to="/courses" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Curriculum</NavLink>
               <NavLink to="/services" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Services</NavLink>
               <NavLink to="/dashboard" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Dashboard</NavLink>
               
@@ -115,7 +117,9 @@ export default function Navbar() {
                     <Link to="/register" className="text-white font-black uppercase tracking-widest" onClick={closeMenu}>Register</Link>
                   </>
                 ) : (
-                  <button onClick={() => { logout(); closeMenu(); }} className="text-left text-red-500 font-black uppercase tracking-widest">
+                  // Item #9: Updated Mobile Logout Button
+                  <button onClick={() => { logout(); closeMenu(); }} className="flex items-center gap-3 text-left text-red-500 font-black uppercase tracking-widest">
+                    <Power size={18} />
                     Terminate Session
                   </button>
                 )}

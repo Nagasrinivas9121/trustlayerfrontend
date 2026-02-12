@@ -23,7 +23,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-[#05080d] text-white p-4 md:p-8 relative overflow-hidden">
+    <div className="min-h-screen bg-[#05080d] text-white p-4 md:p-8 relative overflow-hidden font-mono">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 blur-[100px] rounded-full pointer-events-none" />
       
@@ -34,9 +34,9 @@ export default function Profile() {
       >
         {/* Header */}
         <div className="mb-10 border-l-4 border-accent pl-6">
-          <h2 className="text-3xl font-black tracking-tighter uppercase italic">User_Settings</h2>
-          <p className="text-gray-500 font-mono text-xs mt-1 uppercase tracking-widest">
-            // Modify your digital signature
+          <h2 className="text-3xl font-black tracking-tighter uppercase italic">Personnel_Profile</h2>
+          <p className="text-gray-500 text-xs mt-1 uppercase tracking-widest">
+            // Modify your digital signature and credentials
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default function Profile() {
             {["name", "college", "course", "year", "phone", "city"].map((f) => (
               <div key={f} className="group">
                 <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 ml-1 group-focus-within:text-accent transition-colors">
-                  {f === "year" ? "Year / Standard" : f}
+                  {f === "year" ? "Year / Standard" : f === "college" ? "Institution" : f}
                 </label>
                 <input
                   type="text"
@@ -85,11 +85,11 @@ export default function Profile() {
           </form>
         </div>
 
-        {/* Footer Note */}
-        <div className="mt-8 bg-accent/5 border border-accent/10 p-4 rounded-xl">
+        {/* Footer Note with Updated Email */}
+        <div className="mt-8 bg-accent/5 border border-accent/10 p-6 rounded-xl">
           <p className="text-[10px] text-gray-400 font-mono text-center uppercase tracking-tighter">
             <span className="text-accent mr-2">NOTICE:</span> 
-            Profile updates may take a few seconds to propagate through the node network.
+            Profile updates propagate through the node network. Contact <span className="text-white">trustlayerlabs@gmail.com</span> for manual verification.
           </p>
         </div>
       </motion.div>

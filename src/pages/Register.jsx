@@ -36,7 +36,7 @@ export default function Register() {
       return setError("Phone must be exactly 10 digits.");
 
     if (password !== confirmPassword)
-      return setError("Access keys do not match.");
+      return setError("Passwords do not match."); // Updated from "Access keys"
 
     try {
       setLoading(true);
@@ -83,7 +83,6 @@ export default function Register() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              {/* Field Wrapper Component would be cleaner, but for copy-paste ease: */}
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-accent uppercase ml-1">Email_Address</label>
                 <input name="email" type="email" placeholder="name@domain.com" required onChange={handleChange}
@@ -108,14 +107,15 @@ export default function Register() {
                   className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-xl focus:border-accent/50 outline-none text-white transition-all" />
               </div>
 
+              {/* Updated Item #7: Access Key -> Password */}
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-accent uppercase ml-1">Access_Key</label>
+                <label className="text-[10px] font-black text-accent uppercase ml-1">Password</label>
                 <input name="password" type="password" placeholder="••••••••" required onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-xl focus:border-accent/50 outline-none text-white transition-all" />
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-accent uppercase ml-1">Confirm_Key</label>
+                <label className="text-[10px] font-black text-accent uppercase ml-1">Confirm_Password</label>
                 <input name="confirmPassword" type="password" placeholder="••••••••" required onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-xl focus:border-accent/50 outline-none text-white transition-all" />
               </div>

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -91,7 +90,7 @@ export default function Courses() {
           navigate("/dashboard");
         },
         prefill: { email: user.email },
-        theme: { color: "#00b7ff" }, // Matching your accent color
+        theme: { color: "#00b7ff" },
       };
 
       const razorpay = new window.Razorpay(options);
@@ -136,37 +135,57 @@ export default function Courses() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course, index) => (
-            <CourseTilt key={course.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 h-full flex flex-col justify-between hover:border-accent/50 transition-colors shadow-2xl shadow-black"
-              >
-                <div>
-                  <div className="h-1 w-12 bg-accent mb-6 rounded-full" />
-                  <h3 className="text-2xl font-bold tracking-tight mb-2 uppercase">{course.title}</h3>
-                  <div className="flex items-baseline gap-2 mb-6">
-                    <span className="text-3xl font-black text-white">₹{course.price}</span>
-                    <span className="text-gray-500 text-xs font-mono uppercase">/ lifetime_access</span>
-                  </div>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-8">
-                    Master professional-grade skills with our industry-vetted security curriculum.
-                  </p>
-                </div>
+          {courses.map((course, index) => {
+            // Logic from notes: 2599 - X% = 499 (or current price)
+            const originalPrice = 2599;
+            const discountPercent = Math.round(((originalPrice - course.price) / originalPrice) * 100);
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => payNow(course)}
-                  className="w-full bg-white text-black font-black py-4 rounded-2xl text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-all"
+            return (
+              <CourseTilt key={course.id}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 h-full flex flex-col justify-between hover:border-accent/50 transition-colors shadow-2xl shadow-black relative overflow-hidden"
                 >
-                  Enroll Now
-                </motion.button>
-              </motion.div>
-            </CourseTilt>
-          ))}
+                  {/* Discount Badge */}
+                  {discountPercent > 0 && (
+                    <div className="absolute top-6 right-[-35px] bg-accent text-white text-[10px] font-black px-10 py-1 rotate-45 uppercase tracking-tighter shadow-lg">
+                      {discountPercent}% OFF
+                    </div>
+                  )}
+
+                  <div>
+                    <div className="h-1 w-12 bg-accent mb-6 rounded-full" />
+                    <h3 className="text-2xl font-bold tracking-tight mb-2 uppercase">{course.title}</h3>
+                    
+                    <div className="flex flex-col mb-6">
+                      <div className="flex items-center gap-3">
+                        <span className="text-3xl font-black text-white">₹{course.price}</span>
+                        <span className="text-gray-500 line-through text-sm font-mono">₹{originalPrice}</span>
+                      </div>
+                      <span className="text-gray-500 text-[10px] font-mono uppercase mt-1 tracking-widest">
+                        / security_clearance_access
+                      </span>
+                    </div>
+
+                    <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                      Master professional-grade skills with our industry-vetted security curriculum.
+                    </p>
+                  </div>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => payNow(course)}
+                    className="w-full bg-white text-black font-black py-4 rounded-2xl text-xs uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                  >
+                    Enroll Now
+                  </motion.button>
+                </motion.div>
+              </CourseTilt>
+            );
+          })}
         </div>
 
         {courses.length === 0 && (

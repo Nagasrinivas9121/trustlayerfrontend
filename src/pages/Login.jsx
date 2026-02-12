@@ -58,7 +58,7 @@ export default function Login() {
               alt="Trustlayer Labs"
               className="h-16 w-16 mx-auto mb-4 rounded-full border-2 border-accent/30 shadow-[0_0_15px_rgba(0,183,255,0.2)]"
             />
-            <h2 className="text-3xl font-black text-white tracking-tighter uppercase">
+            <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic">
               Secure Access
             </h2>
             <p className="text-gray-500 text-xs font-mono mt-2 tracking-widest uppercase">
@@ -72,7 +72,7 @@ export default function Login() {
               initial={{ x: -10 }} animate={{ x: 0 }}
               className="mb-6 text-xs font-bold text-red-400 bg-red-500/10 border border-red-500/20 p-3 rounded-lg text-center uppercase tracking-tighter"
             >
-              Error: {error}
+              System Alert: {error}
             </motion.div>
           )}
 
@@ -93,8 +93,9 @@ export default function Login() {
             </div>
 
             <div>
+              {/* Updated Item #7: Changed to Password */}
               <label className="block text-[10px] font-black text-accent uppercase tracking-[0.2em] mb-2 ml-1">
-                Access Key (Password)
+                Password
               </label>
               <input
                 type="password"
@@ -124,7 +125,7 @@ export default function Login() {
                 to="/register"
                 className="text-accent font-black uppercase tracking-tighter hover:underline underline-offset-4"
               >
-                Register Credentials
+                Enlist Now
               </Link>
             </p>
           </div>
