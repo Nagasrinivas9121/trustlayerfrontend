@@ -114,7 +114,7 @@ export default function Login() {
               disabled={loading}
               className="w-full bg-white text-black font-black py-4 rounded-xl text-xs uppercase tracking-[0.2em] hover:bg-accent hover:text-white transition-all disabled:opacity-50"
             >
-              {loading ? "Decrypting..." : "Initialize Session"}
+              {loading ? "Decrypting..." : "Login to Dashboard"}
             </motion.button>
           </form>
 
@@ -125,7 +125,7 @@ export default function Login() {
                 to="/register"
                 className="text-accent font-black uppercase tracking-tighter hover:underline underline-offset-4"
               >
-                Enlist Now
+                Register
               </Link>
             </p>
           </div>

@@ -129,7 +129,7 @@ export default function Register() {
               disabled={loading}
               className="w-full bg-white text-black font-black py-4 rounded-xl text-xs uppercase tracking-[0.3em] hover:bg-accent hover:text-white transition-all shadow-xl shadow-accent/10 mt-4"
             >
-              {loading ? "Transmitting..." : "Finalize Enlistment"}
+              {loading ? "Transmitting..." : "Register"}
             </motion.button>
           </form>
 
