@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { Trash2, Plus, Users, BookOpen, Briefcase, ExternalLink, Activity, ShieldCheck, Target } from "lucide-react";
+import { Trash2, Plus, Users, BookOpen, Briefcase, ExternalLink, Activity, ShieldCheck, Target, Tag } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -12,13 +12,17 @@ export default function AdminDashboard() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Constants based on your requirements
+  const BASELINE_ORIGINAL_PRICE = 2599;
+
   const [newCourse, setNewCourse] = useState({
     title: "",
-    price: "",
+    price: "", // Current/Sale Price
+    originalPrice: BASELINE_ORIGINAL_PRICE,
     driveLink: "",
     expiryDays: "",
-    difficulty: "Beginner", // Added: Difficulty Level
-    highlights: "", // Added: Key learning points
+    difficulty: "Beginner",
+    highlights: "", 
   });
 
   useEffect(() => {
@@ -56,7 +60,15 @@ export default function AdminDashboard() {
       body: JSON.stringify(newCourse),
     });
 
-    setNewCourse({ title: "", price: "", driveLink: "", expiryDays: "", difficulty: "Beginner", highlights: "" });
+    setNewCourse({ 
+      title: "", 
+      price: "", 
+      originalPrice: BASELINE_ORIGINAL_PRICE, 
+      driveLink: "", 
+      expiryDays: "", 
+      difficulty: "Beginner", 
+      highlights: "" 
+    });
     fetchData();
   };
 
@@ -95,12 +107,10 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-[#05080d] text-white p-4 md:p-8 relative overflow-hidden">
-      {/* Background Decor */}
       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]"></div>
 
       <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         
-        {/* PAGE HEADER */}
         <header className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-8 gap-6">
           <div>
             <h2 className="text-4xl font-black tracking-tighter uppercase italic text-white">
@@ -118,7 +128,6 @@ export default function AdminDashboard() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           
-          {/* LEFT: USERS & SERVICES */}
           <div className="lg:col-span-1 space-y-8">
             <section className="bg-gray-900/40 backdrop-blur-xl p-6 rounded-[2rem] border border-white/5 shadow-2xl shadow-black">
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-accent mb-6 flex items-center gap-2">
@@ -168,22 +177,24 @@ export default function AdminDashboard() {
             </section>
           </div>
 
-          {/* RIGHT: COURSE MANAGEMENT */}
           <div className="lg:col-span-2 space-y-8">
             <section className="bg-gray-900/40 backdrop-blur-xl p-8 rounded-[2rem] border border-white/5 shadow-2xl shadow-black">
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-accent mb-8 flex items-center gap-2">
                 <BookOpen size={14} /> Curriculum_Architect
               </h3>
 
-              {/* ADD COURSE FORM */}
+              {/* UPDATED ADD COURSE FORM */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 bg-black/40 p-8 rounded-3xl border border-white/5">
                 <div className="space-y-2">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Module_Title</label>
                    <input placeholder="Ex: ADVANCED_FORENSICS" className="admin-input" value={newCourse.title} onChange={e => setNewCourse({ ...newCourse, title: e.target.value })} />
                 </div>
                 <div className="space-y-2">
-                   <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Final_Price (INR)</label>
-                   <input type="number" placeholder="499" className="admin-input" value={newCourse.price} onChange={e => setNewCourse({ ...newCourse, price: e.target.value })} />
+                   <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Current_Sale_Price (INR)</label>
+                   <div className="relative">
+                    <input type="number" placeholder="499" className="admin-input" value={newCourse.price} onChange={e => setNewCourse({ ...newCourse, price: e.target.value })} />
+                    <span className="absolute right-4 top-3.5 text-[8px] font-mono text-gray-600">WAS: ₹{BASELINE_ORIGINAL_PRICE}</span>
+                   </div>
                 </div>
                 <div className="space-y-2">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Difficulty_Level</label>
@@ -212,10 +223,10 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              {/* COURSE LIST */}
+              {/* COURSE LIST WITH PRICE UI */}
               <div className="grid md:grid-cols-2 gap-6">
                 {courses.map(c => {
-                  const originalPrice = 2599; // Baseline from your notes
+                  const discount = Math.round(((BASELINE_ORIGINAL_PRICE - c.price) / BASELINE_ORIGINAL_PRICE) * 100);
                   return (
                     <motion.div layout key={c.id} className="p-6 bg-white/5 rounded-3xl border border-white/5 group hover:border-accent/50 transition-all relative overflow-hidden flex flex-col justify-between">
                       <div>
@@ -224,7 +235,8 @@ export default function AdminDashboard() {
                             <h4 className="font-black text-white text-lg tracking-tighter uppercase italic">{c.title}</h4>
                             <div className="flex items-center gap-2 mt-1">
                               <span className="text-accent font-black text-sm">₹{c.price}</span>
-                              <span className="text-gray-600 line-through text-[10px]">₹{originalPrice}</span>
+                              <span className="text-gray-600 line-through text-[10px]">₹{BASELINE_ORIGINAL_PRICE}</span>
+                              <span className="text-green-500 font-bold text-[9px]">{discount}% OFF</span>
                             </div>
                           </div>
                           <button onClick={() => deleteCourse(c.id)} className="text-gray-700 hover:text-red-500 transition-colors">
@@ -238,7 +250,6 @@ export default function AdminDashboard() {
                            </span>
                         </div>
                         
-                        {/* Displaying Highlights if they exist */}
                         {c.highlights && (
                           <div className="space-y-1 mb-6">
                             {c.highlights.split(',').map((point, idx) => (

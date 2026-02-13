@@ -126,18 +126,18 @@ export default function Courses() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase">
+          <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase leading-tight">
             Available <span className="text-accent">Modules</span>
           </h2>
-          <p className="text-gray-500 font-mono text-[10px] md:text-xs mt-2 uppercase tracking-widest leading-loose">
+          <p className="text-gray-500 font-mono text-[10px] md:text-xs mt-2 uppercase tracking-[0.2em] leading-loose">
             // Select a curriculum to begin initialization
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course, index) => {
-            // Updated Item #4: Dynamic Discount Logic
-            const originalPrice = 2599; // Baseline from investigator notes
+            // Updated Item #4: Dynamic Discount Logic based on notes (2599 baseline)
+            const originalPrice = 2599; 
             const discountPercent = Math.round(((originalPrice - course.price) / originalPrice) * 100);
 
             return (
@@ -150,7 +150,7 @@ export default function Courses() {
                 >
                   {/* Item #4: Ribbon Discount Badge */}
                   {discountPercent > 0 && (
-                    <div className="absolute top-6 right-[-35px] bg-accent text-white text-[10px] font-black px-10 py-1 rotate-45 uppercase tracking-tighter shadow-lg">
+                    <div className="absolute top-6 right-[-35px] bg-accent text-white text-[10px] font-black px-10 py-1 rotate-45 uppercase tracking-tighter shadow-lg z-20">
                       {discountPercent}% OFF
                     </div>
                   )}
@@ -162,9 +162,11 @@ export default function Courses() {
                     <div className="flex flex-col mb-6">
                       <div className="flex items-center gap-3">
                         <span className="text-3xl font-black text-white">₹{course.price}</span>
-                        <span className="text-gray-500 line-through text-sm font-mono">₹{originalPrice}</span>
+                        {discountPercent > 0 && (
+                          <span className="text-gray-500 line-through text-sm font-mono">₹{originalPrice}</span>
+                        )}
                       </div>
-                      <span className="text-gray-500 text-[10px] font-mono uppercase mt-1 tracking-widest leading-relaxed">
+                      <span className="text-gray-500 text-[10px] font-mono uppercase mt-1 tracking-[0.15em] leading-relaxed">
                         / security_clearance_access
                       </span>
                     </div>
@@ -190,7 +192,7 @@ export default function Courses() {
 
         {courses.length === 0 && (
           <div className="text-center py-20 border border-dashed border-white/10 rounded-3xl">
-            <p className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] italic">// NO_DATA_FOUND: CHECK_SECURE_NODE_LATER</p>
+            <p className="text-gray-600 font-mono text-xs uppercase tracking-[0.2em] italic leading-loose">// NO_DATA_FOUND: CHECK_SECURE_NODE_LATER</p>
           </div>
         )}
       </div>
