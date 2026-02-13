@@ -12,13 +12,11 @@ export default function AdminDashboard() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Constants based on your requirements
-  const BASELINE_ORIGINAL_PRICE = 2599;
-
+  // Updated state to handle manual entry of both prices
   const [newCourse, setNewCourse] = useState({
     title: "",
-    price: "", // Current/Sale Price
-    originalPrice: BASELINE_ORIGINAL_PRICE,
+    price: "",         // Current Price (Manual)
+    originalPrice: "", // Original Price (Manual)
     driveLink: "",
     expiryDays: "",
     difficulty: "Beginner",
@@ -48,8 +46,8 @@ export default function AdminDashboard() {
   };
 
   const addCourse = async () => {
-    const { title, price, driveLink, expiryDays } = newCourse;
-    if (!title || !price || !driveLink || !expiryDays) return alert("All data streams required");
+    const { title, price, originalPrice, driveLink, expiryDays } = newCourse;
+    if (!title || !price || !originalPrice || !driveLink || !expiryDays) return alert("All data streams required");
 
     await fetch(`${API_URL}/api/admin/courses`, {
       method: "POST",
@@ -60,10 +58,11 @@ export default function AdminDashboard() {
       body: JSON.stringify(newCourse),
     });
 
+    // Reset with empty strings for manual entry next time
     setNewCourse({ 
       title: "", 
       price: "", 
-      originalPrice: BASELINE_ORIGINAL_PRICE, 
+      originalPrice: "", 
       driveLink: "", 
       expiryDays: "", 
       difficulty: "Beginner", 
@@ -183,19 +182,25 @@ export default function AdminDashboard() {
                 <BookOpen size={14} /> Curriculum_Architect
               </h3>
 
-              {/* UPDATED ADD COURSE FORM */}
+              {/* FORM: Manual Original & Current Price Entry */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 bg-black/40 p-8 rounded-3xl border border-white/5">
                 <div className="space-y-2">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Module_Title</label>
                    <input placeholder="Ex: ADVANCED_FORENSICS" className="admin-input" value={newCourse.title} onChange={e => setNewCourse({ ...newCourse, title: e.target.value })} />
                 </div>
+                
+                {/* Manual Original Price */}
+                <div className="space-y-2">
+                   <label className="text-[9px] font-black text-gray-500 uppercase tracking-widest ml-1">Original_Price (MRP)</label>
+                   <input type="number" placeholder="2599" className="admin-input border-gray-800" value={newCourse.originalPrice} onChange={e => setNewCourse({ ...newCourse, originalPrice: e.target.value })} />
+                </div>
+
+                {/* Manual Current Price */}
                 <div className="space-y-2">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Current_Sale_Price (INR)</label>
-                   <div className="relative">
-                    <input type="number" placeholder="499" className="admin-input" value={newCourse.price} onChange={e => setNewCourse({ ...newCourse, price: e.target.value })} />
-                    <span className="absolute right-4 top-3.5 text-[8px] font-mono text-gray-600">WAS: ₹{BASELINE_ORIGINAL_PRICE}</span>
-                   </div>
+                   <input type="number" placeholder="499" className="admin-input" value={newCourse.price} onChange={e => setNewCourse({ ...newCourse, price: e.target.value })} />
                 </div>
+
                 <div className="space-y-2">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Difficulty_Level</label>
                    <select className="admin-input" value={newCourse.difficulty} onChange={e => setNewCourse({ ...newCourse, difficulty: e.target.value })}>
@@ -204,14 +209,17 @@ export default function AdminDashboard() {
                       <option value="Advanced">ADVANCED</option>
                    </select>
                 </div>
+
                 <div className="space-y-2">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Active_Duration (Days)</label>
                    <input type="number" placeholder="365" className="admin-input" value={newCourse.expiryDays} onChange={e => setNewCourse({ ...newCourse, expiryDays: e.target.value })} />
                 </div>
-                <div className="space-y-2 md:col-span-2">
+                
+                <div className="space-y-2 md:col-span-1">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Resource_Uplink (Drive URL)</label>
                    <input placeholder="https://drive.google.com/..." className="admin-input" value={newCourse.driveLink} onChange={e => setNewCourse({ ...newCourse, driveLink: e.target.value })} />
                 </div>
+
                 <div className="space-y-2 md:col-span-2">
                    <label className="text-[9px] font-black text-accent uppercase tracking-widest ml-1">Curriculum_Highlights (Comma Separated)</label>
                    <div className="flex gap-4">
@@ -223,10 +231,12 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              {/* COURSE LIST WITH PRICE UI */}
+              {/* LIST: Displaying both manual prices */}
               <div className="grid md:grid-cols-2 gap-6">
                 {courses.map(c => {
-                  const discount = Math.round(((BASELINE_ORIGINAL_PRICE - c.price) / BASELINE_ORIGINAL_PRICE) * 100);
+                  // Discount calculation based on stored values
+                  const disc = c.originalPrice && c.price ? Math.round(((c.originalPrice - c.price) / c.originalPrice) * 100) : 0;
+                  
                   return (
                     <motion.div layout key={c.id} className="p-6 bg-white/5 rounded-3xl border border-white/5 group hover:border-accent/50 transition-all relative overflow-hidden flex flex-col justify-between">
                       <div>
@@ -235,8 +245,12 @@ export default function AdminDashboard() {
                             <h4 className="font-black text-white text-lg tracking-tighter uppercase italic">{c.title}</h4>
                             <div className="flex items-center gap-2 mt-1">
                               <span className="text-accent font-black text-sm">₹{c.price}</span>
-                              <span className="text-gray-600 line-through text-[10px]">₹{BASELINE_ORIGINAL_PRICE}</span>
-                              <span className="text-green-500 font-bold text-[9px]">{discount}% OFF</span>
+                              {c.originalPrice && (
+                                <>
+                                  <span className="text-gray-600 line-through text-[10px]">₹{c.originalPrice}</span>
+                                  <span className="text-green-500 font-bold text-[9px]">{disc}% OFF</span>
+                                </>
+                              )}
                             </div>
                           </div>
                           <button onClick={() => deleteCourse(c.id)} className="text-gray-700 hover:text-red-500 transition-colors">
