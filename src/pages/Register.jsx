@@ -65,7 +65,7 @@ export default function Register() {
           {/* Header */}
           <div className="text-center mb-10">
             <img src={logo} alt="Logo" className="h-16 w-16 mx-auto mb-4 rounded-full border-2 border-accent/20" />
-            <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic">Personnel_Enlistment</h2>
+            <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic">REGISTER</h2>
             <p className="text-gray-500 text-xs font-mono mt-2 tracking-[0.2em]">
               // Initialize your security profile
             </p>
@@ -102,7 +102,7 @@ export default function Register() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-accent uppercase ml-1">Comms_Phone</label>
+                <label className="text-[10px] font-black text-accent uppercase ml-1">Phone number</label>
                 <input name="phone" type="tel" placeholder="10-digit mobile" required onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 px-4 py-3 rounded-xl focus:border-accent/50 outline-none text-white transition-all" />
               </div>
