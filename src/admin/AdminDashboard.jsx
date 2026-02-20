@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
-import { Users, Briefcase, Activity } from "lucide-react";
+import { Users, Briefcase, Activity, Plus } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -12,6 +12,17 @@ export default function AdminDashboard() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [newCourse, setNewCourse] = useState({
+    title: "",
+    description: "",
+    price: "",
+    originalPrice: "",
+    driveLink: "",
+    expiryDays: "",
+    difficulty: "Beginner",
+    highlights: "",
+  });
+
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line
@@ -21,18 +32,12 @@ export default function AdminDashboard() {
 
   const fetchData = async () => {
     try {
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
+      const headers = { Authorization: `Bearer ${token}` };
 
       const [usersRes, servicesRes] = await Promise.all([
         fetch(`${API_URL}/api/admin/users`, { headers }),
         fetch(`${API_URL}/api/admin/services`, { headers }),
       ]);
-
-      if (!usersRes.ok || !servicesRes.ok) {
-        throw new Error("Admin API error");
-      }
 
       const usersData = await usersRes.json();
       const servicesData = await servicesRes.json();
@@ -41,33 +46,57 @@ export default function AdminDashboard() {
       setServices(Array.isArray(servicesData) ? servicesData : []);
     } catch (err) {
       console.error("Admin fetch failed:", err);
-      setUsers([]);
-      setServices([]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  /* ================= ADD COURSE ================= */
+
+  const addCourse = async () => {
+    try {
+      const res = await fetch(`${API_URL}/api/admin/courses`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(newCourse),
+      });
+
+      if (!res.ok) throw new Error("Course creation failed");
+
+      alert("✅ Course added successfully");
+
+      setNewCourse({
+        title: "",
+        description: "",
+        price: "",
+        originalPrice: "",
+        driveLink: "",
+        expiryDays: "",
+        difficulty: "Beginner",
+        highlights: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to add course");
     }
   };
 
   /* ================= UPDATE SERVICE STATUS ================= */
 
   const updateServiceStatus = async (id, status) => {
-    try {
-      await fetch(`${API_URL}/api/admin/services/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ status }),
-      });
-
-      fetchData();
-    } catch (err) {
-      console.error("Status update failed:", err);
-    }
+    await fetch(`${API_URL}/api/admin/services/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ status }),
+    });
+    fetchData();
   };
-
-  /* ================= LOADING ================= */
 
   if (loading) {
     return (
@@ -82,8 +111,6 @@ export default function AdminDashboard() {
       </div>
     );
   }
-
-  /* ================= UI ================= */
 
   return (
     <div className="min-h-screen bg-[#05080d] text-white p-6">
@@ -110,80 +137,108 @@ export default function AdminDashboard() {
           </div>
         </header>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        {/* ADD COURSE */}
+        <section className="bg-gray-900/40 p-6 rounded-2xl border border-white/5">
+          <h3 className="text-xs font-black text-accent mb-4 flex items-center gap-2">
+            <Plus size={14} /> ADD COURSE
+          </h3>
 
-          {/* USERS */}
-          <section className="bg-gray-900/40 p-6 rounded-2xl border border-white/5">
-            <h3 className="text-xs font-black text-accent mb-4 flex items-center gap-2">
-              <Users size={14} /> USERS
-            </h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <input placeholder="Title" className="admin-input"
+              value={newCourse.title}
+              onChange={e => setNewCourse({ ...newCourse, title: e.target.value })}
+            />
 
-            <div className="space-y-3 max-h-[400px] overflow-y-auto">
-              {users.map(user => (
-                <div key={user.id} className="p-3 bg-white/5 rounded-xl">
-                  <p className="text-xs font-bold truncate">{user.email}</p>
-                  <p className="text-[10px] text-gray-500 uppercase">
-                    {user.role}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
+            <select className="admin-input"
+              value={newCourse.difficulty}
+              onChange={e => setNewCourse({ ...newCourse, difficulty: e.target.value })}
+            >
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
 
-          {/* SERVICE REQUESTS */}
-          <section className="bg-gray-900/40 p-6 rounded-2xl border border-white/5 lg:col-span-2">
-            <h3 className="text-xs font-black text-accent mb-4 flex items-center gap-2">
-              <Briefcase size={14} /> SERVICE REQUESTS
-            </h3>
+            <textarea placeholder="Description" className="admin-input md:col-span-2"
+              value={newCourse.description}
+              onChange={e => setNewCourse({ ...newCourse, description: e.target.value })}
+            />
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {services.map(service => (
-                <div
-                  key={service.id}
-                  className="p-5 bg-white/5 rounded-2xl border border-white/10"
+            <input type="number" placeholder="Original Price" className="admin-input"
+              value={newCourse.originalPrice}
+              onChange={e => setNewCourse({ ...newCourse, originalPrice: e.target.value })}
+            />
+
+            <input type="number" placeholder="Current Price" className="admin-input"
+              value={newCourse.price}
+              onChange={e => setNewCourse({ ...newCourse, price: e.target.value })}
+            />
+
+            <input placeholder="Google Drive Link" className="admin-input md:col-span-2"
+              value={newCourse.driveLink}
+              onChange={e => setNewCourse({ ...newCourse, driveLink: e.target.value })}
+            />
+
+            <input type="number" placeholder="Expiry Days" className="admin-input"
+              value={newCourse.expiryDays}
+              onChange={e => setNewCourse({ ...newCourse, expiryDays: e.target.value })}
+            />
+
+            <input placeholder="Highlights (comma separated)" className="admin-input md:col-span-2"
+              value={newCourse.highlights}
+              onChange={e => setNewCourse({ ...newCourse, highlights: e.target.value })}
+            />
+
+            <button onClick={addCourse}
+              className="bg-white text-black font-black py-3 rounded-xl hover:bg-accent hover:text-white transition-all md:col-span-2">
+              DEPLOY COURSE
+            </button>
+          </div>
+        </section>
+
+        {/* SERVICES */}
+        <section className="bg-gray-900/40 p-6 rounded-2xl border border-white/5">
+          <h3 className="text-xs font-black text-accent mb-4 flex items-center gap-2">
+            <Briefcase size={14} /> SERVICE REQUESTS
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {services.map(s => (
+              <div key={s.id} className="p-4 bg-white/5 rounded-xl">
+                <p className="text-xs font-black">{s.service}</p>
+                <p className="text-[10px] text-accent break-all">{s.requesterEmail}</p>
+                <p className="text-[10px] text-gray-500 italic mb-2">
+                  “{s.description}”
+                </p>
+
+                <select
+                  value={s.status}
+                  onChange={e => updateServiceStatus(s.id, e.target.value)}
+                  className="admin-input"
                 >
-                  <div className="flex justify-between items-center mb-2">
-                    <p className="text-[11px] font-black uppercase">
-                      {service.service}
-                    </p>
-                    <span
-                      className={`text-[9px] px-2 py-0.5 rounded ${
-                        service.status === "pending"
-                          ? "bg-yellow-500/20 text-yellow-400"
-                          : "bg-green-500/20 text-green-400"
-                      }`}
-                    >
-                      {service.status}
-                    </span>
-                  </div>
+                  <option value="pending">PENDING</option>
+                  <option value="quoted">QUOTED</option>
+                  <option value="completed">COMPLETED</option>
+                </select>
+              </div>
+            ))}
+          </div>
+        </section>
 
-                  {/* REQUESTER EMAIL */}
-                  <p className="text-[10px] text-accent font-mono mb-2 break-all">
-                    {service.requesterEmail}
-                  </p>
-
-                  <p className="text-[10px] text-gray-500 italic mb-4">
-                    “{service.description}”
-                  </p>
-
-                  <select
-                    value={service.status}
-                    onChange={e =>
-                      updateServiceStatus(service.id, e.target.value)
-                    }
-                    className="w-full bg-black border border-white/10 text-xs p-2 rounded-lg uppercase"
-                  >
-                    <option value="pending">PENDING</option>
-                    <option value="quoted">QUOTED</option>
-                    <option value="completed">COMPLETED</option>
-                  </select>
-                </div>
-              ))}
-            </div>
-          </section>
-
-        </div>
       </div>
+
+      {/* INPUT STYLE */}
+      <style>{`
+        .admin-input {
+          width: 100%;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          padding: 12px;
+          border-radius: 12px;
+          font-size: 12px;
+          color: white;
+          outline: none;
+        }
+      `}</style>
     </div>
   );
 }
