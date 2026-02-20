@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
-import {
-  Users,
-  Briefcase,
-  Activity
-} from "lucide-react";
+import { Users, Briefcase, Activity } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -18,37 +14,60 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
+
+  /* ================= FETCH ADMIN DATA ================= */
 
   const fetchData = async () => {
     try {
-      const headers = { Authorization: `Bearer ${token}` };
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
 
-      const [u, s] = await Promise.all([
-        fetch(`${API_URL}/api/admin/users`, { headers }).then(r => r.json()),
-        fetch(`${API_URL}/api/admin/services`, { headers }).then(r => r.json()),
+      const [usersRes, servicesRes] = await Promise.all([
+        fetch(`${API_URL}/api/admin/users`, { headers }),
+        fetch(`${API_URL}/api/admin/services`, { headers }),
       ]);
 
-      setUsers(u || []);
-      setServices(s || []);
+      if (!usersRes.ok || !servicesRes.ok) {
+        throw new Error("Admin API error");
+      }
+
+      const usersData = await usersRes.json();
+      const servicesData = await servicesRes.json();
+
+      setUsers(Array.isArray(usersData) ? usersData : []);
+      setServices(Array.isArray(servicesData) ? servicesData : []);
     } catch (err) {
-      console.error("Admin fetch failed", err);
+      console.error("Admin fetch failed:", err);
+      setUsers([]);
+      setServices([]);
     } finally {
       setLoading(false);
     }
   };
 
+  /* ================= UPDATE SERVICE STATUS ================= */
+
   const updateServiceStatus = async (id, status) => {
-    await fetch(`${API_URL}/api/admin/services/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ status }),
-    });
-    fetchData();
+    try {
+      await fetch(`${API_URL}/api/admin/services/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ status }),
+      });
+
+      fetchData();
+    } catch (err) {
+      console.error("Status update failed:", err);
+    }
   };
+
+  /* ================= LOADING ================= */
 
   if (loading) {
     return (
@@ -63,6 +82,8 @@ export default function AdminDashboard() {
       </div>
     );
   }
+
+  /* ================= UI ================= */
 
   return (
     <div className="min-h-screen bg-[#05080d] text-white p-6">
@@ -98,11 +119,11 @@ export default function AdminDashboard() {
             </h3>
 
             <div className="space-y-3 max-h-[400px] overflow-y-auto">
-              {users.map(u => (
-                <div key={u.id} className="p-3 bg-white/5 rounded-xl">
-                  <p className="text-xs font-bold truncate">{u.email}</p>
+              {users.map(user => (
+                <div key={user.id} className="p-3 bg-white/5 rounded-xl">
+                  <p className="text-xs font-bold truncate">{user.email}</p>
                   <p className="text-[10px] text-gray-500 uppercase">
-                    {u.role}
+                    {user.role}
                   </p>
                 </div>
               ))}
@@ -116,38 +137,40 @@ export default function AdminDashboard() {
             </h3>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {services.map(s => (
+              {services.map(service => (
                 <div
-                  key={s.id}
+                  key={service.id}
                   className="p-5 bg-white/5 rounded-2xl border border-white/10"
                 >
                   <div className="flex justify-between items-center mb-2">
                     <p className="text-[11px] font-black uppercase">
-                      {s.service}
+                      {service.service}
                     </p>
                     <span
                       className={`text-[9px] px-2 py-0.5 rounded ${
-                        s.status === "pending"
+                        service.status === "pending"
                           ? "bg-yellow-500/20 text-yellow-400"
                           : "bg-green-500/20 text-green-400"
                       }`}
                     >
-                      {s.status}
+                      {service.status}
                     </span>
                   </div>
 
                   {/* REQUESTER EMAIL */}
                   <p className="text-[10px] text-accent font-mono mb-2 break-all">
-                    {s.email}
+                    {service.requesterEmail}
                   </p>
 
                   <p className="text-[10px] text-gray-500 italic mb-4">
-                    “{s.description}”
+                    “{service.description}”
                   </p>
 
                   <select
-                    value={s.status}
-                    onChange={e => updateServiceStatus(s.id, e.target.value)}
+                    value={service.status}
+                    onChange={e =>
+                      updateServiceStatus(service.id, e.target.value)
+                    }
                     className="w-full bg-black border border-white/10 text-xs p-2 rounded-lg uppercase"
                   >
                     <option value="pending">PENDING</option>
