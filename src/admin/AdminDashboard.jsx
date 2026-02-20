@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
-import { Users, Briefcase, Activity, BookPlus } from "lucide-react";
+import { Users, Briefcase, BookPlus, Activity } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -13,50 +13,48 @@ export default function AdminDashboard() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  /* ================= NEW COURSE FORM ================= */
-
+  /* ================= COURSE FORM ================= */
   const [courseForm, setCourseForm] = useState({
     title: "",
     description: "",
     price: "",
     originalPrice: "",
-    driveLink: "",
+    expiryDays: "",
     difficulty: "Beginner",
     highlights: "",
+    driveLink: "",
   });
 
   useEffect(() => {
-    fetchData();
+    fetchAll();
     // eslint-disable-next-line
   }, []);
 
-  /* ================= FETCH ADMIN DATA ================= */
-
-  const fetchData = async () => {
+  /* ================= FETCH ALL ADMIN DATA ================= */
+  const fetchAll = async () => {
     try {
       const headers = { Authorization: `Bearer ${token}` };
 
       const [u, s, c] = await Promise.all([
         fetch(`${API_URL}/api/admin/users`, { headers }),
         fetch(`${API_URL}/api/admin/services`, { headers }),
-        fetch(`${API_URL}/api/admin/courses`, { headers }),
+        fetch(`${API_URL}/api/courses`), // public (NO driveLink)
       ]);
 
-      setUsers(await u.json());
-      setServices(await s.json());
-      setCourses(await c.json());
+      setUsers(u.ok ? await u.json() : []);
+      setServices(s.ok ? await s.json() : []);
+      setCourses(c.ok ? await c.json() : []);
     } catch (err) {
-      console.error("Admin fetch failed:", err);
+      console.error("Admin fetch error:", err);
     } finally {
       setLoading(false);
     }
   };
 
-  /* ================= CREATE COURSE ================= */
-
-  const createCourse = async () => {
+  /* ================= ADD COURSE ================= */
+  const addCourse = async () => {
     try {
-      await fetch(`${API_URL}/api/admin/courses`, {
+      await fetch(`${API_URL}/api/courses`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,19 +68,19 @@ export default function AdminDashboard() {
         description: "",
         price: "",
         originalPrice: "",
-        driveLink: "",
+        expiryDays: "",
         difficulty: "Beginner",
         highlights: "",
+        driveLink: "",
       });
 
-      fetchData();
+      fetchAll();
     } catch (err) {
       console.error("Create course failed:", err);
     }
   };
 
   /* ================= UPDATE SERVICE STATUS ================= */
-
   const updateServiceStatus = async (id, status) => {
     await fetch(`${API_URL}/api/admin/services/${id}`, {
       method: "PUT",
@@ -93,11 +91,10 @@ export default function AdminDashboard() {
       body: JSON.stringify({ status }),
     });
 
-    fetchData();
+    fetchAll();
   };
 
   /* ================= LOADING ================= */
-
   if (loading) {
     return (
       <div className="min-h-screen bg-[#05080d] flex items-center justify-center">
@@ -113,10 +110,9 @@ export default function AdminDashboard() {
   }
 
   /* ================= UI ================= */
-
   return (
     <div className="min-h-screen bg-[#05080d] text-white p-6">
-      <div className="max-w-7xl mx-auto space-y-12">
+      <div className="max-w-7xl mx-auto space-y-10">
 
         {/* HEADER */}
         <header className="flex justify-between items-end border-b border-white/10 pb-6">
@@ -136,96 +132,75 @@ export default function AdminDashboard() {
               val={services.filter(s => s.status === "pending").length}
               icon={<Activity size={14} />}
             />
+            <StatCard
+              label="Courses"
+              val={courses.length}
+              icon={<BookPlus size={14} />}
+            />
           </div>
         </header>
 
-        {/* ================= COURSES ================= */}
-
+        {/* ADD COURSE */}
         <section className="bg-gray-900/40 p-6 rounded-2xl border border-white/5">
-          <h3 className="text-xs font-black text-accent mb-6 flex items-center gap-2">
-            <BookPlus size={14} /> COURSES
+          <h3 className="text-xs font-black text-accent mb-4">
+            DEPLOY COURSE
           </h3>
 
-          {/* ADD COURSE */}
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <div className="grid md:grid-cols-2 gap-4">
             {Object.keys(courseForm).map(key => (
               <input
                 key={key}
-                placeholder={key.toUpperCase()}
+                placeholder={key}
                 value={courseForm[key]}
                 onChange={e =>
                   setCourseForm({ ...courseForm, [key]: e.target.value })
                 }
-                className="bg-black border border-white/10 text-xs p-3 rounded-lg"
+                className="bg-black border border-white/10 p-2 text-xs rounded"
               />
             ))}
-
-            <button
-              onClick={createCourse}
-              className="md:col-span-2 bg-accent text-black font-black py-3 rounded-lg"
-            >
-              DEPLOY COURSE
-            </button>
           </div>
 
-          {/* COURSE LIST */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {courses.map(course => (
-              <div
-                key={course.id}
-                className="p-5 bg-white/5 rounded-xl border border-white/10"
-              >
-                <p className="text-sm font-black">{course.title}</p>
-
-                <p className="text-[11px] text-gray-400 mt-2">
-                  {course.description}
-                </p>
-
-                <div className="flex justify-between text-[11px] mt-3">
-                  <span>₹{course.price}</span>
-                  <span className="text-accent">{course.difficulty}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <button
+            onClick={addCourse}
+            className="mt-4 w-full bg-accent text-black font-black py-2 rounded"
+          >
+            DEPLOY COURSE
+          </button>
         </section>
-
-        {/* ================= USERS & SERVICES ================= */}
 
         <div className="grid lg:grid-cols-3 gap-8">
 
           {/* USERS */}
           <section className="bg-gray-900/40 p-6 rounded-2xl border border-white/5">
-            <h3 className="text-xs font-black text-accent mb-4">
-              USERS
+            <h3 className="text-xs font-black text-accent mb-4 flex gap-2">
+              <Users size={14} /> USERS
             </h3>
 
-            <div className="space-y-3 max-h-[400px] overflow-y-auto">
-              {users.map(u => (
-                <div key={u.id} className="p-3 bg-white/5 rounded-xl">
-                  <p className="text-xs font-bold">{u.email}</p>
-                  <p className="text-[10px] text-gray-500 uppercase">{u.role}</p>
-                </div>
-              ))}
-            </div>
+            {users.map(u => (
+              <div key={u.id} className="p-3 bg-white/5 rounded-xl mb-2">
+                <p className="text-xs font-bold">{u.email}</p>
+                <p className="text-[10px] text-gray-500 uppercase">{u.role}</p>
+              </div>
+            ))}
           </section>
 
-          {/* SERVICES */}
+          {/* SERVICE REQUESTS */}
           <section className="bg-gray-900/40 p-6 rounded-2xl border border-white/5 lg:col-span-2">
-            <h3 className="text-xs font-black text-accent mb-4">
-              SERVICE REQUESTS
+            <h3 className="text-xs font-black text-accent mb-4 flex gap-2">
+              <Briefcase size={14} /> SERVICE REQUESTS
             </h3>
 
             <div className="grid md:grid-cols-2 gap-6">
               {services.map(s => (
-                <div key={s.id} className="p-5 bg-white/5 rounded-xl">
-                  <p className="text-xs font-black">{s.service}</p>
-
-                  <p className="text-[10px] text-accent break-all mt-1">
+                <div
+                  key={s.id}
+                  className="p-5 bg-white/5 rounded-xl border border-white/10"
+                >
+                  <p className="text-xs font-black uppercase">{s.service}</p>
+                  <p className="text-[10px] text-accent font-mono break-all">
                     {s.requesterEmail}
                   </p>
-
-                  <p className="text-[10px] text-gray-500 italic mt-2">
+                  <p className="text-[10px] text-gray-500 italic my-2">
                     “{s.description}”
                   </p>
 
@@ -234,7 +209,7 @@ export default function AdminDashboard() {
                     onChange={e =>
                       updateServiceStatus(s.id, e.target.value)
                     }
-                    className="w-full bg-black border border-white/10 text-xs p-2 mt-3 rounded-lg"
+                    className="w-full bg-black border border-white/10 text-xs p-2 rounded"
                   >
                     <option value="pending">PENDING</option>
                     <option value="quoted">QUOTED</option>
@@ -252,7 +227,6 @@ export default function AdminDashboard() {
 }
 
 /* ================= STAT CARD ================= */
-
 const StatCard = ({ label, val, icon }) => (
   <div className="bg-white/5 border border-white/10 px-5 py-3 rounded-xl flex items-center gap-4">
     <div className="text-accent">{icon}</div>
