@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import logo from "../assets/logo.jpeg";
-import { Menu, X, Power } from "lucide-react"; // Swapped Terminal for Power for Logout feel
+import { Menu, X, Power } from "lucide-react"; 
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
@@ -11,26 +11,26 @@ export default function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
-  // Link styles with a high-tech indicator
+  // Link styles with the brand's golden indicator
   const getLinkClass = ({ isActive }) =>
     `relative px-2 py-1 transition-all duration-300 uppercase tracking-widest text-[11px] font-black ${
-      isActive ? "text-accent" : "text-gray-400 hover:text-white"
+      isActive ? "text-amber-500" : "text-gray-400 hover:text-white"
     }`;
 
   return (
-    <nav className="bg-[#05080d]/80 backdrop-blur-md text-white border-b border-white/5 sticky top-0 z-[100] font-mono">
+    <nav className="bg-[#05080d]/90 backdrop-blur-xl text-white border-b border-white/5 sticky top-0 z-[100] font-mono">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
-        {/* LOGO */}
+        {/* LOGO SECTION */}
         <Link to="/" onClick={closeMenu} className="flex items-center space-x-3 group">
           <motion.img 
-            whileHover={{ rotate: 180 }}
+            whileHover={{ rotate: 10, scale: 1.1 }}
             src={logo} 
             alt="Trustlayer Labs" 
-            className="h-8 w-8 rounded-full border border-white/10 group-hover:border-accent/50 transition-colors" 
+            className="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(212,175,55,0.3)]" 
           />
-          <span className="font-black text-sm uppercase tracking-tighter italic">
-            Trustlayer<span className="text-accent">_Labs</span>
+          <span className="font-black text-sm md:text-base uppercase tracking-tighter italic">
+            Trustlayer<span className="text-amber-500">_Labs</span>
           </span>
         </Link>
 
@@ -39,7 +39,7 @@ export default function Navbar() {
           <NavLink to="/courses" className={getLinkClass}>
             {({ isActive }) => (
               <>
-                {isActive && <motion.span layoutId="nav-dot" className="absolute -left-2 text-accent">_</motion.span>}
+                {isActive && <motion.span layoutId="nav-dot" className="absolute -left-3 text-amber-500 font-bold">_</motion.span>}
                 Curriculum
               </>
             )}
@@ -47,38 +47,44 @@ export default function Navbar() {
           <NavLink to="/services" className={getLinkClass}>
              {({ isActive }) => (
               <>
-                {isActive && <motion.span layoutId="nav-dot" className="absolute -left-2 text-accent">_</motion.span>}
+                {isActive && <motion.span layoutId="nav-dot" className="absolute -left-3 text-amber-500 font-bold">_</motion.span>}
                 Services
               </>
             )}
           </NavLink>
-          <NavLink to="/dashboard" className={getLinkClass}>Dashboard</NavLink>
+          <NavLink to="/dashboard" className={getLinkClass}>
+            {({ isActive }) => (
+              <>
+                {isActive && <motion.span layoutId="nav-dot" className="absolute -left-3 text-amber-500 font-bold">_</motion.span>}
+                Dashboard
+              </>
+            )}
+          </NavLink>
 
           <div className="h-4 w-[1px] bg-white/10 mx-2" />
 
           {!user ? (
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-6">
               <Link
                 to="/login"
-                className="text-[11px] font-black uppercase tracking-widest hover:text-accent transition-colors"
+                className="text-[11px] font-black uppercase tracking-widest hover:text-amber-500 transition-colors"
               >
                 Login
               </Link>
               <Link
                 to="/register"
-                className="px-5 py-2 bg-white text-black text-[11px] font-black uppercase tracking-widest rounded-full hover:bg-accent hover:text-white transition-all shadow-lg shadow-accent/5"
+                className="px-6 py-2 bg-gradient-to-r from-amber-500 to-amber-700 text-black text-[11px] font-black uppercase tracking-widest rounded-sm hover:brightness-110 transition-all shadow-lg shadow-amber-900/10"
               >
                 Register
               </Link>
             </div>
           ) : (
             <div className="flex items-center space-x-6">
-              {/* Item #9: Changed "Disconnect" to "Logout" */}
               <button
                 onClick={logout}
-                className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-red-500/70 hover:text-red-400 transition-colors border border-red-500/20 px-4 py-1.5 rounded-lg bg-red-500/5 group"
+                className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-red-500/80 hover:text-red-400 transition-colors border border-red-500/20 px-4 py-1.5 rounded-sm bg-red-500/5 group"
               >
-                <Power size={12} className="group-hover:animate-pulse" />
+                <Power size={12} className="group-hover:scale-110 transition-transform" />
                 Logout
               </button>
             </div>
@@ -89,9 +95,9 @@ export default function Navbar() {
         <div className="md:hidden">
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-gray-400 hover:text-white transition-colors"
+            className="p-2 text-amber-500 hover:text-white transition-colors"
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -100,27 +106,32 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0a0f18] border-b border-white/5 overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-[#0a0f18] border-b border-white/5 overflow-hidden absolute w-full shadow-2xl"
           >
-            <div className="px-8 py-10 flex flex-col space-y-6">
-              <NavLink to="/courses" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Curriculum</NavLink>
-              <NavLink to="/services" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Services</NavLink>
-              <NavLink to="/dashboard" className="text-2xl font-black italic uppercase" onClick={closeMenu}>Dashboard</NavLink>
+            <div className="px-8 py-12 flex flex-col space-y-8">
+              <NavLink to="/courses" className="text-3xl font-black italic uppercase tracking-tighter" onClick={closeMenu}>
+                Curriculum<span className="text-amber-500">.</span>
+              </NavLink>
+              <NavLink to="/services" className="text-3xl font-black italic uppercase tracking-tighter" onClick={closeMenu}>
+                Services<span className="text-amber-500">.</span>
+              </NavLink>
+              <NavLink to="/dashboard" className="text-3xl font-black italic uppercase tracking-tighter" onClick={closeMenu}>
+                Dashboard<span className="text-amber-500">.</span>
+              </NavLink>
               
-              <div className="pt-6 border-t border-white/5 flex flex-col space-y-4">
+              <div className="pt-8 border-t border-white/5 flex flex-col space-y-6">
                 {!user ? (
                   <>
-                    <Link to="/login" className="text-accent font-black uppercase tracking-widest" onClick={closeMenu}>Login</Link>
-                    <Link to="/register" className="text-white font-black uppercase tracking-widest" onClick={closeMenu}>Register</Link>
+                    <Link to="/login" className="text-amber-500 text-sm font-black uppercase tracking-widest" onClick={closeMenu}>&gt; Login_Access</Link>
+                    <Link to="/register" className="text-white text-sm font-black uppercase tracking-widest" onClick={closeMenu}>&gt; Register_Account</Link>
                   </>
                 ) : (
-                  // Item #9: Updated Mobile Logout Button
-                  <button onClick={() => { logout(); closeMenu(); }} className="flex items-center gap-3 text-left text-red-500 font-black uppercase tracking-widest">
+                  <button onClick={() => { logout(); closeMenu(); }} className="flex items-center gap-3 text-left text-red-500 text-sm font-black uppercase tracking-widest">
                     <Power size={18} />
-                    Terminate Session
+                    Terminate_Session
                   </button>
                 )}
               </div>

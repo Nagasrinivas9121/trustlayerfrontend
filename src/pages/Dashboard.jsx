@@ -38,19 +38,19 @@ export default function Dashboard() {
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-          className="w-10 h-10 border-2 border-accent border-t-transparent rounded-full mb-4"
+          className="w-10 h-10 border-2 border-amber-500 border-t-transparent rounded-full mb-4 shadow-[0_0_15px_rgba(245,158,11,0.2)]"
         />
-        <p className="text-accent font-mono text-[10px] tracking-[0.3em] uppercase">Initializing_Secure_Session...</p>
+        <p className="text-amber-500 font-mono text-[10px] tracking-[0.3em] uppercase">Initializing_Secure_Session...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#05080d] text-white selection:bg-accent/30 selection:text-white font-mono">
-      {/* Dynamic Background FX */}
+    <div className="min-h-screen bg-[#05080d] text-white selection:bg-amber-500/30 selection:text-white font-mono">
+      {/* Dynamic Background FX - Gold Nebula */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]" />
-        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/5 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-amber-500/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
@@ -63,15 +63,15 @@ export default function Dashboard() {
         >
           <div>
             <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter uppercase">
-              Student_Portal<span className="text-accent">_</span>
+              Student_Portal<span className="text-amber-500">_</span>
             </h2>
             <p className="text-gray-500 mt-2 font-mono text-[10px] md:text-[12px] uppercase tracking-[0.2em]">
-              Active_Investigator: <span className="text-white italic">{user.email}</span>
+              Active_Investigator: <span className="text-amber-200 italic">{user.email}</span>
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
-             <div className="bg-accent/10 text-accent px-5 py-2 rounded-xl border border-accent/20 text-[10px] font-black uppercase tracking-widest shadow-lg shadow-accent/5">
-                Clearance: {user.role || "Operator"}
+             <div className="bg-amber-500/10 text-amber-500 px-5 py-2 rounded-lg border border-amber-500/20 text-[10px] font-black uppercase tracking-widest shadow-lg shadow-amber-900/5">
+               Clearance: {user.role || "Operator"}
              </div>
           </div>
         </motion.header>
@@ -80,8 +80,8 @@ export default function Dashboard() {
           
           {/* LEFT COLUMN: ENROLLED MODULES */}
           <div className="lg:col-span-2 space-y-8">
-            <h3 className="text-[10px] font-black text-accent uppercase tracking-[0.4em] flex items-center gap-3">
-              <div className="w-8 h-[1px] bg-accent/30" /> Enrolled_Curriculum
+            <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] flex items-center gap-3">
+              <div className="w-8 h-[1px] bg-amber-500/30" /> Enrolled_Curriculum
             </h3>
 
             {courses.length > 0 ? (
@@ -92,35 +92,35 @@ export default function Dashboard() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="bg-gray-900/40 backdrop-blur-xl border border-white/5 p-8 rounded-3xl hover:border-accent/40 transition-all group relative overflow-hidden"
+                    className="bg-gray-900/40 backdrop-blur-xl border border-white/5 p-8 rounded-xl hover:border-amber-500/40 transition-all group relative overflow-hidden"
                   >
                     {/* Security Scanline Animation */}
                     <motion.div 
                       animate={{ top: ["-100%", "200%"] }} 
-                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-0 right-0 h-[1px] bg-accent/10 z-0 pointer-events-none"
+                      transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                      className="absolute left-0 right-0 h-[1px] bg-amber-500/10 z-0 pointer-events-none"
                     />
 
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 relative z-10">
-                      <h4 className="text-2xl font-black group-hover:text-accent transition-colors uppercase tracking-tighter italic">
+                      <h4 className="text-2xl font-black group-hover:text-amber-400 transition-colors uppercase tracking-tighter italic">
                         {course.title}
                       </h4>
-                      <span className="text-[9px] font-black text-green-500 border border-green-500/30 px-3 py-1 rounded-full uppercase tracking-widest bg-green-500/5">
-                        Verified_Uplink
+                      <span className="text-[9px] font-black text-amber-500 border border-amber-500/30 px-3 py-1 rounded-sm uppercase tracking-widest bg-amber-500/5">
+                        SECURE_UPLINK_ESTABLISHED
                       </span>
                     </div>
 
                     <div className="space-y-3 relative z-10">
                       <div className="flex justify-between text-[10px] font-mono text-gray-500 uppercase tracking-widest">
                         <span>Initialization_Progress</span>
-                        <span className="text-accent">{course.Enrollment?.progress || 0}%</span>
+                        <span className="text-amber-500">{course.Enrollment?.progress || 0}%</span>
                       </div>
-                      <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
+                      <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
                         <motion.div 
                           initial={{ width: 0 }}
                           animate={{ width: `${course.Enrollment?.progress || 0}%` }}
                           transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-accent shadow-[0_0_15px_rgba(0,183,255,0.6)]" 
+                          className="h-full bg-gradient-to-r from-amber-600 to-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.4)]" 
                         />
                       </div>
                     </div>
@@ -131,7 +131,7 @@ export default function Dashboard() {
                           href={course.driveLink} 
                           target="_blank" 
                           rel="noreferrer"
-                          className="text-[10px] font-black uppercase tracking-[0.2em] bg-white text-black px-8 py-4 rounded-2xl hover:bg-accent hover:text-white transition-all shadow-xl shadow-black"
+                          className="text-[10px] font-black uppercase tracking-[0.2em] bg-amber-500 text-black px-8 py-3 rounded-sm hover:bg-white transition-all shadow-xl shadow-black"
                         >
                           Launch_Environment
                         </a>
@@ -141,9 +141,9 @@ export default function Dashboard() {
                 ))}
               </div>
             ) : (
-              <div className="border border-dashed border-white/10 rounded-[2rem] p-16 text-center bg-white/2">
+              <div className="border border-dashed border-white/10 rounded-xl p-16 text-center bg-white/2">
                 <p className="text-gray-600 font-mono text-xs uppercase tracking-[0.3em] mb-8">// Zero_Enrollments_Detected</p>
-                <Link to="/courses" className="inline-block bg-accent/10 text-accent px-10 py-4 rounded-2xl border border-accent/20 font-black text-[10px] uppercase tracking-widest hover:bg-accent hover:text-white transition-all">
+                <Link to="/courses" className="inline-block bg-amber-500/10 text-amber-500 px-10 py-4 rounded-sm border border-amber-500/20 font-black text-[10px] uppercase tracking-widest hover:bg-amber-500 hover:text-white transition-all">
                   Access_Catalog
                 </Link>
               </div>
@@ -152,14 +152,14 @@ export default function Dashboard() {
 
           {/* RIGHT COLUMN: IDENTITY PANEL */}
           <div className="space-y-8">
-            <h3 className="text-[10px] font-black text-accent uppercase tracking-[0.4em] flex items-center gap-3">
-              <div className="w-8 h-[1px] bg-accent/30" /> Personnel_ID
+            <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] flex items-center gap-3">
+              <div className="w-8 h-[1px] bg-amber-500/30" /> Personnel_ID
             </h3>
 
             <motion.div 
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-gray-900/40 backdrop-blur-xl border border-white/5 p-10 rounded-[2rem] shadow-2xl relative"
+              className="bg-gray-900/40 backdrop-blur-xl border border-white/5 p-10 rounded-xl shadow-2xl relative"
             >
               <div className="space-y-8">
                 <ProfileItem label="Identity_Email" value={user.email} />
@@ -169,22 +169,21 @@ export default function Dashboard() {
               </div>
 
               <div className="mt-12 pt-8 border-t border-white/5 text-[9px] text-gray-600 font-mono leading-relaxed uppercase tracking-widest">
-                <span className="text-accent">Warning:</span> Security profile is locked. Manual modification requires senior investigator approval.
+                <span className="text-amber-600">Warning:</span> Security profile is locked. Manual modification requires senior investigator approval.
               </div>
             </motion.div>
             
             {/* SUPPORT ACTION CARD */}
             <Link to="/services">
               <div className="group relative cursor-pointer mt-8">
-                <div className="absolute -inset-1 bg-accent rounded-[2rem] blur opacity-10 group-hover:opacity-30 transition duration-500" />
-                <div className="relative bg-accent p-8 rounded-[2rem] overflow-hidden">
-                  {/* Decorative Elements */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-10 -translate-y-10" />
+                <div className="absolute -inset-1 bg-amber-500 rounded-xl blur opacity-10 group-hover:opacity-25 transition duration-500" />
+                <div className="relative bg-gradient-to-br from-[#F9E498] via-[#D4AF37] to-[#B8860B] p-8 rounded-xl overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full translate-x-10 -translate-y-10" />
                   
                   <h4 className="text-black font-black text-xl leading-none mb-2 uppercase tracking-tighter italic">Support_Uplink</h4>
-                  <p className="text-black/50 text-[10px] font-black mb-6 uppercase tracking-wider">Direct encrypted line to node engineers.</p>
+                  <p className="text-black/60 text-[10px] font-black mb-6 uppercase tracking-wider italic">Direct encrypted line to node engineers.</p>
                   
-                  <div className="bg-black text-white text-[10px] font-black uppercase py-4 text-center rounded-2xl group-hover:scale-[1.03] transition-transform tracking-widest">
+                  <div className="bg-black text-white text-[10px] font-black uppercase py-4 text-center rounded-sm group-hover:bg-gray-800 transition-colors tracking-widest">
                     Initialize_Ticket
                   </div>
                 </div>
@@ -200,7 +199,7 @@ export default function Dashboard() {
 
 const ProfileItem = ({ label, value }) => (
   <div className="group">
-    <span className="block text-[9px] text-accent font-black uppercase tracking-[0.2em] mb-2 opacity-60 group-hover:opacity-100 transition-opacity">
+    <span className="block text-[9px] text-amber-500 font-black uppercase tracking-[0.2em] mb-2 opacity-60 group-hover:opacity-100 transition-opacity">
       {label}
     </span>
     <span className="text-sm font-bold text-gray-200 tracking-tight">{value || "NULL_DATA"}</span>

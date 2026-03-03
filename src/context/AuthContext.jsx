@@ -8,15 +8,34 @@ export const AuthProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("user")) || null
   );
   
-  // Manage token in state so React reacts to changes
   const [token, setToken] = useState(localStorage.getItem("token") || null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Start true to verify session
 
-  // 🔐 Synchronize state with storage changes (optional but robust)
+  /* ================= SESSION VERIFICATION ================= */
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (!storedToken && user) logout();
-  }, [user]);
+    const verifySession = async () => {
+      const storedToken = localStorage.getItem("token");
+      if (storedToken) {
+        try {
+          // Optional: Verify token with backend on mount
+          const res = await fetch(`${API}/api/user/profile`, {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          });
+          if (!res.ok) throw new Error("Session Expired");
+          
+          const data = await res.json();
+          setUser(data.user);
+          setToken(storedToken);
+        } catch (err) {
+          console.error("// SECURITY_NOTICE: Session Invalidated");
+          logout();
+        }
+      }
+      setLoading(false);
+    };
+
+    verifySession();
+  }, []);
 
   /* ================= LOGIN ================= */
   const login = async (email, password) => {
@@ -29,7 +48,7 @@ export const AuthProvider = ({ children }) => {
       });
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "Authentication failed");
+      if (!res.ok) throw new Error(data.message || "Access Denied: Invalid Credentials");
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
@@ -53,7 +72,7 @@ export const AuthProvider = ({ children }) => {
       });
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "Registration failed");
+      if (!res.ok) throw new Error(data.message || "Enlistment Failed");
       return data;
     } finally {
       setLoading(false);
@@ -62,21 +81,25 @@ export const AuthProvider = ({ children }) => {
 
   /* ================= UPDATE PROFILE ================= */
   const updateProfile = async (updatedData) => {
-    // This allows the Edit Profile page to work
-    const res = await fetch(`${API}/api/user/profile`, {
-      method: "PUT",
-      headers: { 
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify(updatedData),
-    });
+    setLoading(true);
+    try {
+      const res = await fetch(`${API}/api/user/profile`, {
+        method: "PUT",
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(updatedData),
+      });
 
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Profile Sync Failed");
 
-    localStorage.setItem("user", JSON.stringify(data.user));
-    setUser(data.user);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      setUser(data.user);
+    } finally {
+      setLoading(false);
+    }
   };
 
   /* ================= LOGOUT ================= */
@@ -85,6 +108,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
     setToken(null);
     setUser(null);
+    // Force a clean state refresh if needed
+    window.location.href = "/login";
   };
 
   return (
