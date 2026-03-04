@@ -38,8 +38,8 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#05080d] px-4 relative overflow-hidden">
       {/* Background FX - Grid and Golden Nebula */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px] z-0"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-600/5 rounded-full blur-[140px] pointer-events-none z-0" />
 
       <motion.div 
         initial={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -49,7 +49,7 @@ export default function Login() {
       >
         <div className="bg-gray-900/40 backdrop-blur-3xl p-8 md:p-10 rounded-xl border border-white/5 shadow-2xl">
           
-          {/* Header - Gold Themed */}
+          {/* Header */}
           <div className="text-center mb-10">
             <motion.img
               whileHover={{ rotate: 10, scale: 1.05 }}
@@ -57,8 +57,15 @@ export default function Login() {
               alt="Trustlayer Labs"
               className="h-20 w-20 mx-auto mb-4 object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
             />
-            <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic">
-              Secure <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Access</span>
+            {/* Improved Visibility Header */}
+            <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic block">
+              Log
+              <span 
+                className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500"
+                style={{ WebkitBackgroundClip: 'text', backgroundClip: 'text' }}
+              >
+                in
+              </span>
             </h2>
             <p className="text-gray-500 text-[10px] font-mono mt-2 tracking-[0.3em] uppercase opacity-60">
               &gt; Identification_Required
@@ -107,7 +114,7 @@ export default function Login() {
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.01, brightness: 1.1 }}
+              whileHover={{ scale: 1.01, filter: "brightness(1.1)" }}
               whileTap={{ scale: 0.99 }}
               type="submit"
               disabled={loading}
