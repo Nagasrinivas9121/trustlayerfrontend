@@ -17,6 +17,7 @@ import AdminDashboard from "./admin/AdminDashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
+import About from "./pages/About";
 
 /**
  * TRUSTLAYER LABS - MAIN APPLICATION CORE
@@ -73,6 +74,7 @@ export default function App() {
                 <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
                 <Route path="/login" element={<PageWrapper><Login /></PageWrapper>} />
                 <Route path="/register" element={<PageWrapper><Register /></PageWrapper>} />
+                <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
                 
                 {/* PROTOCOL DOCUMENTS */}
                 <Route path="/privacy-policy" element={<PageWrapper><PrivacyPolicy /></PageWrapper>} />

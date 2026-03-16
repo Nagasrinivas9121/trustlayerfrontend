@@ -4,7 +4,8 @@ import { useAuth } from "../context/AuthContext";
 import logo from "../assets/logo.jpeg";
 import { Menu, X, Power } from "lucide-react"; 
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Shield, Target, Eye, Cpu, Award, Globe } from "lucide-react";
+import About from "../pages/About";
 export default function Navbar() {
   const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
@@ -118,6 +119,7 @@ export default function Navbar() {
               <NavLink to="/services" className="text-3xl font-black italic uppercase tracking-tighter" onClick={closeMenu}>
                 Services<span className="text-amber-500">.</span>
               </NavLink>
+              
               <NavLink to="/dashboard" className="text-3xl font-black italic uppercase tracking-tighter" onClick={closeMenu}>
                 Dashboard<span className="text-amber-500">.</span>
               </NavLink>
