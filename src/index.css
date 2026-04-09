@@ -1,22 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  /* Synced with TrustLayer Gold-Shield Identity */
-  --color-primary: #05080d;    /* Deep Space Black */
-  --color-secondary: #0a0f18;  /* Forensic Card Background */
-  --color-accent: #d4af37;     /* Metallic Gold (from Logo) */
-  --color-amber-glow: #ffd700; /* High-Intensity Gold */
-  
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Custom "Cyber" Animations */
+  /* CORE BRAND */
+  --color-primary: #030712;       /* deeper premium black */
+  --color-secondary: #0b1220;     /* card background */
+  --color-surface: #0f172a;       /* elevated sections */
+
+  /* GOLD SECURITY BRAND */
+  --color-accent: #d4af37;        /* main gold */
+  --color-accent-soft: #f9e498;   /* soft highlight */
+  --color-accent-deep: #8a6e2f;   /* dark gold */
+  --color-glow: rgba(212,175,55,0.25);
+
+  /* TEXT */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+
+  /* FONTS */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ANIMATIONS */
   --animate-gradient-x: gradient-x 6s ease infinite;
   --animate-scanline: scanline 8s linear infinite;
 
   @keyframes gradient-x {
-    0%, 100% { background-size: 200% 200%; background-position: left center; }
-    50% { background-size: 200% 200%; background-position: right center; }
+    0%,100% { background-position: left center; }
+    50% { background-position: right center; }
   }
 
   @keyframes scanline {
@@ -25,99 +37,76 @@
   }
 }
 
-/* --- Base Styles --- */
+
+/* BASE */
+
 @layer base {
+
   body {
-    /* Updated selection color to Gold */
-    @apply bg-primary text-white antialiased selection:bg-amber-500/30 selection:text-amber-200;
+
+    background:#030712;
+
+    color:white;
+
     font-family: var(--font-sans);
-    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+
   }
 
-  /* Investigator Terminal Font for Code/Status */
-  code, pre, .mono {
-    font-family: var(--font-mono);
-  }
 }
 
-/* --- Form Overrides --- */
-/* Sharpened to rounded-lg for a "Fortified" feel */
-input, select, textarea {
-  color: #ffffff !important;
-  background-color: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  @apply rounded-lg px-4 py-4 transition-all duration-300 font-mono text-sm;
+
+/* FORM STYLE */
+
+input, textarea, select {
+
+  background:#020617;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  color:white;
+
+  border-radius:12px;
+
+  padding:14px;
+
+  transition:0.25s;
+
 }
 
-input:focus {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border-color: #d4af37 !important; /* Gold Border */
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
-  @apply outline-none ring-0;
+
+input:focus,
+textarea:focus,
+select:focus {
+
+  border-color:#d4af37;
+
+  box-shadow:0 0 0 1px rgba(212,175,55,0.25);
+
+  outline:none;
+
 }
 
-::placeholder {
-  @apply text-gray-700 font-mono text-[10px] uppercase tracking-[0.2em];
-}
 
-/* --- Layout Utilities --- */
-html {
-  scroll-behavior: smooth;
-}
+/* SCROLLBAR */
 
-/* 3D Transform Utilities for Tilt Effects */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-/* --- Custom Investigator Scrollbar (Golden) --- */
 ::-webkit-scrollbar {
-  width: 4px;
-}
 
-::-webkit-scrollbar-track {
-  background: #05080d;
+  width:6px;
+
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 20px;
+
+  background:#1e293b;
+
+  border-radius:20px;
+
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4af37;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
 
-/* --- Global Forensic Overlays --- */
+  background:#d4af37;
 
-/* CRT / Scanline Effect Layer (Subtle Amber Tint) */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%, 
-    rgba(0, 0, 0, 0.15) 50%
-  ), linear-gradient(
-    90deg, 
-    rgba(212, 175, 55, 0.01), 
-    rgba(0, 0, 0, 0), 
-    rgba(212, 175, 55, 0.01)
-  );
-  background-size: 100% 4px, 4px 100%;
-  z-index: 9998;
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-/* High-End Digital Noise Overlay */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  opacity: 0.02;
-  z-index: 9999;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

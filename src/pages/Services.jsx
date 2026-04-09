@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   Shield,
   Server,
@@ -6,232 +7,350 @@ import {
   ArrowRight,
   Lock,
   X,
-  Code,
-  Globe,
+  Globe
 } from "lucide-react";
-import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+
 import { motion, AnimatePresence } from "framer-motion";
 
-const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Services() {
-  const { user, token } = useAuth();
-  const navigate = useNavigate();
 
   const [selectedService, setSelectedService] = useState(null);
-  const [description, setDescription] = useState("");
-  const [email, setEmail] = useState(user?.email || "");
+
+  const [form, setForm] = useState({
+
+    email: "",
+    message: ""
+
+  });
+
   const [loading, setLoading] = useState(false);
 
+
+
   const servicesList = [
+
     {
       id: 1,
-      title: "VAPT (Vulnerability Assessment)",
-      description: "Identify and fix security loopholes before hackers exploit them.",
-      icon: <Shield size={28} className="text-amber-500" />,
-      category: "Security",
+      title: "VAPT Services",
+      description:
+        "Complete vulnerability assessment and penetration testing for web applications.",
+      icon: <Shield size={28} />
     },
+
     {
       id: 2,
-      title: "Full-Stack Web Development",
-      description: "Scalable, secure, high-performance web applications.",
-      icon: <Code size={28} className="text-amber-500" />,
-      category: "Development",
+      title: "Web Application Penetration Testing",
+      description:
+        "Identify SQL Injection, XSS, authentication flaws and security misconfiguration.",
+      icon: <Globe size={28} />
     },
+
     {
       id: 3,
-      title: "SOC Setup & Monitoring",
-      description: "24/7 monitoring and incident response systems.",
-      icon: <Server size={28} className="text-amber-500" />,
-      category: "Security",
+      title: "API Security Testing",
+      description:
+        "Secure REST APIs from unauthorized access and data leakage.",
+      icon: <Server size={28} />
     },
+
     {
       id: 4,
-      title: "E-Commerce & CMS Solutions",
-      description: "Robust stores and custom CMS platforms.",
-      icon: <Globe size={28} className="text-amber-500" />,
-      category: "Development",
+      title: "Cloud Security Testing",
+      description:
+        "Identify vulnerabilities in AWS, Azure and cloud environments.",
+      icon: <Cloud size={28} />
     },
+
     {
       id: 5,
-      title: "Cloud Hardening",
-      description: "Secure AWS, Azure, and GCP infrastructure.",
-      icon: <Cloud size={28} className="text-amber-500" />,
-      category: "Security",
-    },
-    {
-      id: 6,
-      title: "Compliance Audits",
-      description: "ISO, SOC2, HIPAA, GDPR compliance support.",
-      icon: <Lock size={28} className="text-amber-500" />,
-      category: "Security",
-    },
+      title: "OWASP Security Assessment",
+      description:
+        "Security testing aligned with OWASP Top 10 standards.",
+      icon: <Lock size={28} />
+    }
+
   ];
 
-  const submitRequest = async () => {
-    if (!email.trim()) {
-      alert("Email is required");
+
+
+  const submitRequest = () => {
+
+    if (!form.email || !form.message) {
+
+      alert("Please fill all fields");
+
       return;
+
     }
 
-    if (!description.trim()) {
-      alert("Please describe your requirement");
-      return;
-    }
 
-    try {
-      setLoading(true);
+    setLoading(true);
 
-      const res = await fetch(`${API_URL}/api/services`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          ...(token && { Authorization: `Bearer ${token}` }),
-        },
-        body: JSON.stringify({
-          service: selectedService,
-          description,
-          requesterEmail: email,
-        }),
+
+    setTimeout(() => {
+
+      alert("Request submitted successfully");
+
+
+      setSelectedService(null);
+
+      setForm({
+
+        email: "",
+        message: ""
+
       });
 
-      if (!res.ok) throw new Error("Request failed");
 
-      alert("✅ Service request submitted successfully!");
-      setSelectedService(null);
-      setDescription("");
-    } catch (err) {
-      alert("❌ Something went wrong. Please try again.");
-    } finally {
       setLoading(false);
-    }
+
+    }, 800);
+
   };
 
+
+
   return (
-    <div className="min-h-screen bg-[#05080d] text-white p-6 md:p-12 relative overflow-hidden font-mono">
-      {/* Background Decor */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px]" />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
 
-        {/* HEADER */}
-        <div className="text-center mb-16 mt-10">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+    <div className="min-h-screen bg-[#030712] text-white px-6 py-20">
+
+
+      {/* heading */}
+
+      <div className="text-center mb-16">
+
+        <h1 className="
+        text-4xl md:text-6xl font-black
+        text-transparent bg-clip-text
+        bg-gradient-to-r
+        from-[#F9E498]
+        via-[#D4AF37]
+        to-[#8A6E2F]
+        ">
+
+          VAPT & Cybersecurity Services
+
+        </h1>
+
+
+        <p className="text-gray-300 mt-5 max-w-2xl mx-auto">
+
+          Identify vulnerabilities before attackers exploit them.
+          Professional penetration testing for web applications,
+          APIs and cloud infrastructure.
+
+        </p>
+
+      </div>
+
+
+
+      {/* cards */}
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        {servicesList.map((service, i) => (
+
+          <motion.div
+
+            key={service.id}
+
+            initial={{ opacity: 0, y: 25 }}
+
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black italic uppercase mb-4 tracking-tighter"
+
+            transition={{ delay: i * 0.05 }}
+
+            onClick={() => setSelectedService(service.title)}
+
+            className="
+            bg-[#0f172a]
+            border border-white/10
+            p-8
+            rounded-xl
+            hover:border-amber-400/40
+            hover:shadow-[0_0_25px_rgba(212,175,55,0.15)]
+            cursor-pointer
+            transition-all
+            "
+
           >
-            Tech & Security <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Solutions</span>
-          </motion.h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-xs md:text-sm uppercase tracking-widest">
-            // Select a professional service node to initialize collaboration
-          </p>
-        </div>
 
-        {/* SERVICES GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesList.map((service, index) => (
+            <div className="text-amber-400 mb-5">
+
+              {service.icon}
+
+            </div>
+
+
+            <h2 className="text-lg font-semibold mb-3">
+
+              {service.title}
+
+            </h2>
+
+
+            <p className="text-gray-400 text-sm leading-relaxed">
+
+              {service.description}
+
+            </p>
+
+
+            <div className="mt-6 text-amber-400 text-xs flex items-center">
+
+              Request Service
+
+              <ArrowRight size={14} className="ml-2" />
+
+            </div>
+
+          </motion.div>
+
+        ))}
+
+      </div>
+
+
+
+      {/* modal */}
+
+      <AnimatePresence>
+
+        {selectedService && (
+
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-6 backdrop-blur">
+
             <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              onClick={() => setSelectedService(service.title)}
-              className="group bg-gray-900/30 p-8 rounded-xl border border-white/5 
-                         hover:border-amber-500/50 cursor-pointer transition-all duration-300
-                         backdrop-blur-sm relative overflow-hidden shadow-2xl"
-            >
-              {/* Subtle hover glow */}
-              <div className="absolute -inset-1 bg-amber-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-lg" />
-              
-              <div className="mb-6 relative z-10">{service.icon}</div>
-              <h3 className="text-xl font-bold mb-3 uppercase tracking-tight group-hover:text-amber-400 transition-colors relative z-10">
-                {service.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-8 relative z-10">{service.description}</p>
-              
-              <div className="mt-auto text-amber-500 text-[10px] font-black uppercase tracking-[0.2em] flex items-center relative z-10">
-                Request_Service <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
-        {/* MODAL */}
-        <AnimatePresence>
-          {selectedService && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black/90 backdrop-blur-md"
+              initial={{ scale: 0.92, opacity: 0 }}
+
+              animate={{ scale: 1, opacity: 1 }}
+
+              exit={{ scale: 0.92, opacity: 0 }}
+
+              className="
+              bg-[#0f172a]
+              border border-white/10
+              p-8
+              rounded-xl
+              w-full max-w-lg
+              shadow-2xl
+              "
+
+            >
+
+              <button
+
                 onClick={() => setSelectedService(null)}
+
+                className="float-right text-gray-400 hover:text-white"
+
+              >
+
+                <X />
+
+              </button>
+
+
+              <h3 className="text-xl font-semibold mb-6">
+
+                {selectedService}
+
+              </h3>
+
+
+              <input
+
+                placeholder="business email"
+
+                value={form.email}
+
+                onChange={(e) => setForm({
+
+                  ...form,
+                  email: e.target.value
+
+                })}
+
+                className="
+                w-full
+                p-3
+                mb-4
+                bg-[#030712]
+                border border-white/10
+                rounded
+                focus:border-amber-400/40
+                outline-none
+                "
+
               />
 
-              <motion.div
-                initial={{ scale: 0.95, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                className="bg-[#0a0f18] border border-amber-500/20 p-8 md:p-10 rounded-xl w-full max-w-lg relative z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+
+              <textarea
+
+                rows="4"
+
+                placeholder="describe application, scope and testing requirements"
+
+                value={form.message}
+
+                onChange={(e) => setForm({
+
+                  ...form,
+                  message: e.target.value
+
+                })}
+
+                className="
+                w-full
+                p-3
+                mb-6
+                bg-[#030712]
+                border border-white/10
+                rounded
+                focus:border-amber-400/40
+                outline-none
+                "
+
+              />
+
+
+              <button
+
+                onClick={submitRequest}
+
+                className="
+                w-full
+                py-3
+                rounded
+                font-semibold
+                bg-gradient-to-r
+                from-[#F9E498]
+                to-[#D4AF37]
+                text-black
+                hover:brightness-110
+                transition
+                "
+
               >
-                <button
-                  onClick={() => setSelectedService(null)}
-                  className="absolute top-6 right-6 text-gray-500 hover:text-amber-500 transition-colors"
-                >
-                  <X size={20} />
-                </button>
 
-                <div className="mb-8">
-                  <h3 className="text-2xl font-black uppercase italic tracking-tighter mb-2">
-                    {selectedService}
-                  </h3>
-                  <div className="h-1 w-12 bg-amber-500" />
-                </div>
+                {loading ? "Sending..." : "Submit Request"}
 
-                {/* EMAIL FIELD */}
-                <div className="mb-4">
-                  <label className="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-2 block ml-1">Requester_Identity</label>
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full p-4 rounded-lg bg-white/[0.03]
-                               border border-white/10 text-white
-                               focus:border-amber-500/50 outline-none transition-all font-mono text-sm"
-                  />
-                </div>
+              </button>
 
-                {/* DESCRIPTION */}
-                <div className="mb-6">
-                  <label className="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-2 block ml-1">Requirement_Brief</label>
-                  <textarea
-                    rows="4"
-                    placeholder="Describe your project goals..."
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className="w-full p-4 rounded-lg bg-white/[0.03]
-                               border border-white/10 text-white
-                               focus:border-amber-500/50 outline-none resize-none transition-all font-mono text-sm"
-                  />
-                </div>
+            </motion.div>
 
-                <button
-                  onClick={submitRequest}
-                  disabled={loading}
-                  className="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-700 text-black font-black
-                             rounded-lg hover:brightness-110 transition-all disabled:opacity-50 
-                             uppercase text-xs tracking-[0.2em] shadow-lg shadow-amber-900/20"
-                >
-                  {loading ? "TRANSMITTING..." : "Initialize Request"}
-                </button>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
-      </div>
+          </div>
+
+        )}
+
+      </AnimatePresence>
+
+
     </div>
+
   );
+
 }

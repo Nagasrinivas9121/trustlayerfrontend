@@ -1,118 +1,269 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.jpeg"; 
+import logo from "../assets/logo.jpeg";
 import { motion } from "framer-motion";
 
-/**
- * TRUSTLAYER LABS - HOME COMPONENT
- * Final refined version matching gold/black brand identity.
- */
-
 export default function Home() {
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8 }
+    }
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.4 } }
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
   };
 
   return (
-    <main className="min-h-[calc(100vh-70px)] bg-[#05080d] flex items-center justify-center text-white relative overflow-hidden px-4 md:px-12">
-      
-      {/* BACKGROUND FX: Subtle Grid & Golden Nebula */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-      
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1], 
-          opacity: [0.05, 0.12, 0.05],
-          x: [0, 20, 0] 
+
+    <main className="min-h-[calc(100vh-70px)] bg-[#030712] flex items-center justify-center text-white relative overflow-hidden px-6">
+
+      {/* grid background */}
+      <div className="
+      absolute inset-0 opacity-[0.04] pointer-events-none
+      bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),
+      linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+      bg-[size:32px_32px]
+      "></div>
+
+
+      {/* golden glow */}
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.05, 0.12, 0.05]
         }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 left-1/4 w-96 h-96 bg-amber-600 rounded-full blur-[140px] pointer-events-none"
+        transition={{
+          duration: 12,
+          repeat: Infinity
+        }}
+        className="
+        absolute top-1/3 left-1/3
+        w-[420px] h-[420px]
+        bg-amber-500
+        rounded-full
+        blur-[160px]
+        opacity-10
+        "
       />
 
-      <motion.div 
+
+      <motion.div
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="text-center w-full max-w-5xl relative z-10"
+        className="text-center max-w-5xl relative z-10"
       >
-        {/* LOGO: Floating effect with Golden Drop Shadow */}
-        <motion.div 
-          animate={{ y: [0, -15, 0] }} 
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="relative inline-block mb-8 md:mb-10"
+
+
+        {/* logo */}
+
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 5, repeat: Infinity }}
+          className="mb-10"
         >
-          <img 
-            src={logo} 
-            alt="TrustLayer Labs" 
-            className="mx-auto w-28 h-28 md:w-48 md:h-48 object-contain drop-shadow-[0_0_30px_rgba(212,175,55,0.25)]" 
+
+          <img
+            src={logo}
+            alt="TrustLayerLabs VAPT Services"
+            className="
+            mx-auto
+            w-32 md:w-48
+            drop-shadow-[0_0_30px_rgba(212,175,55,0.25)]
+            "
           />
+
         </motion.div>
-        
-        {/* HERO TITLE: Utilizing the Gold Gradient from the Logo */}
-        <motion.h1 className="text-[11vw] sm:text-6xl md:text-8xl font-black mb-6 tracking-tighter leading-[0.95] md:leading-[0.9] uppercase">
-          <div className="overflow-hidden">
-            <motion.span variants={fadeInUp} className="block text-gray-400 font-light tracking-widest text-sm md:text-xl mb-2">
-              ESTABLISHING EXCELLENCE IN
-            </motion.span>
-          </div>
-          <div className="relative inline-block">
-            <motion.span 
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              animate={{ clipPath: "inset(0 0% 0 0)" }}
-              transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-transparent bg-clip-text bg-gradient-to-b from-[#F9E498] via-[#D4AF37] to-[#8A6E2F] block"
-            >
-              Digital Frontier
-            </motion.span>
-            
-            {/* Animated Scanning Line */}
-            <motion.div
-              initial={{ left: "0%" }}
-              animate={{ left: "100%" }}
-              transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-0 bottom-0 w-[2px] bg-[#FFD700] shadow-[0_0_20px_#FFD700] hidden sm:block"
-            />
-          </div>
+
+
+
+        {/* main heading */}
+
+        <motion.h1
+          variants={fadeInUp}
+          className="
+          text-[10vw] sm:text-6xl md:text-7xl
+          font-black
+          uppercase
+          leading-tight
+          mb-6
+          "
+        >
+
+          <span className="
+          block
+          text-gray-400
+          text-sm md:text-lg
+          tracking-widest
+          font-light
+          mb-2
+          ">
+
+            PROFESSIONAL CYBERSECURITY
+
+          </span>
+
+
+          <span className="
+          text-transparent
+          bg-clip-text
+          bg-gradient-to-r
+          from-[#F9E498]
+          via-[#D4AF37]
+          to-[#8A6E2F]
+          ">
+
+            VAPT & Penetration Testing
+
+          </span>
+
         </motion.h1>
-        
-        {/* SUBTEXT: Mono-spaced Tech font look */}
-        <motion.div variants={fadeInUp} className="space-y-4 mb-10 md:mb-14">
-          <p className="text-gray-400 text-sm md:text-xl max-w-2xl mx-auto font-medium tracking-tight">
-            Advanced EdTech solutions and elite Cybersecurity infrastructure.
-          </p>
-          <p className="text-[#D4AF37]/50 font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase">
-            &lt; system_status: secured /&gt;
-          </p>
-        </motion.div>
-        
-        {/* CTA BUTTONS: Metallic and Outline styles */}
-        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8">
-          <Link 
-            to="/courses" 
-            className="group relative w-full sm:w-auto overflow-hidden bg-gradient-to-br from-[#F9E498] via-[#D4AF37] to-[#B8860B] text-black px-10 py-4 rounded-sm font-black text-xs md:text-sm uppercase tracking-[0.2em] shadow-[0_10px_30px_rgba(212,175,55,0.15)] hover:shadow-amber-500/30 transition-all text-center"
+
+
+
+        {/* description */}
+
+        <motion.p
+          variants={fadeInUp}
+          className="
+          text-gray-300
+          max-w-2xl
+          mx-auto
+          text-sm md:text-lg
+          mb-10
+          "
+        >
+
+          Secure your web applications, APIs and cloud infrastructure with
+          professional Vulnerability Assessment and Penetration Testing (VAPT).
+          Identify OWASP Top 10 vulnerabilities before attackers exploit them.
+
+        </motion.p>
+
+
+
+        {/* keyword trust line */}
+
+        <motion.p
+          variants={fadeInUp}
+          className="
+          text-[#D4AF37]/70
+          text-xs
+          tracking-[0.35em]
+          font-mono
+          mb-12
+          uppercase
+          "
+        >
+
+          web security • api security • owasp testing • ethical hacking
+
+        </motion.p>
+
+
+
+        {/* CTA */}
+
+        <motion.div
+          variants={fadeInUp}
+          className="
+          flex flex-col sm:flex-row
+          gap-4
+          justify-center
+          "
+        >
+
+          <Link
+
+            to="/services"
+
+            className="
+            bg-gradient-to-r
+            from-[#F9E498]
+            to-[#D4AF37]
+            text-black
+            px-10 py-4
+            font-bold
+            text-xs
+            tracking-widest
+            uppercase
+            rounded
+            hover:brightness-110
+            transition
+            shadow-lg
+            "
           >
-            <span className="relative z-10">Start Learning</span>
-            <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-[-20deg]"></div>
+
+            Get Security Audit
+
           </Link>
-          
-          <Link 
-            to="/services" 
-            className="w-full sm:w-auto px-10 py-4 rounded-sm font-black text-xs md:text-sm uppercase tracking-[0.2em] border border-white/10 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all text-center backdrop-blur-sm"
+
+
+
+          <Link
+
+            to="/services"
+
+            className="
+            border border-white/10
+            px-10 py-4
+            text-xs
+            uppercase
+            tracking-widest
+            rounded
+            hover:border-amber-400
+            hover:text-amber-400
+            transition
+            "
           >
-            Our Services
+
+            View Services
+
           </Link>
+
         </motion.div>
+
+
+
+        {/* extra keywords */}
+
+        <motion.div
+          variants={fadeInUp}
+          className="
+          mt-16
+          text-gray-500
+          text-xs
+          space-y-2
+          "
+        >
+
+          <p>Web Application Penetration Testing</p>
+
+          <p>API Security Testing</p>
+
+          <p>OWASP Top 10 Vulnerability Assessment</p>
+
+          <p>Cybersecurity Consulting</p>
+
+        </motion.div>
+
+
+
       </motion.div>
 
-      {/* FOOTER-ISH ELEMENT (Mobile Bottom Decor) */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center opacity-20 md:hidden">
-        <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></div>
-      </div>
     </main>
+
   );
+
 }
