@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
   Shield,
@@ -12,20 +13,16 @@ import {
 
 import { motion, AnimatePresence } from "framer-motion";
 
-
 export default function Services() {
 
   const [selectedService, setSelectedService] = useState(null);
 
   const [form, setForm] = useState({
-
     email: "",
     message: ""
-
   });
 
   const [loading, setLoading] = useState(false);
-
 
 
   const servicesList = [
@@ -33,6 +30,7 @@ export default function Services() {
     {
       id: 1,
       title: "VAPT Services",
+      link: "/vapt-services",
       description:
         "Complete vulnerability assessment and penetration testing for web applications.",
       icon: <Shield size={28} />
@@ -41,6 +39,7 @@ export default function Services() {
     {
       id: 2,
       title: "Web Application Penetration Testing",
+      link: "/web-application-penetration-testing",
       description:
         "Identify SQL Injection, XSS, authentication flaws and security misconfiguration.",
       icon: <Globe size={28} />
@@ -49,6 +48,7 @@ export default function Services() {
     {
       id: 3,
       title: "API Security Testing",
+      link: "/api-security-testing",
       description:
         "Secure REST APIs from unauthorized access and data leakage.",
       icon: <Server size={28} />
@@ -57,6 +57,7 @@ export default function Services() {
     {
       id: 4,
       title: "Cloud Security Testing",
+      link: "/vapt-services",
       description:
         "Identify vulnerabilities in AWS, Azure and cloud environments.",
       icon: <Cloud size={28} />
@@ -65,6 +66,7 @@ export default function Services() {
     {
       id: 5,
       title: "OWASP Security Assessment",
+      link: "/owasp-top-10-testing",
       description:
         "Security testing aligned with OWASP Top 10 standards.",
       icon: <Lock size={28} />
@@ -73,42 +75,33 @@ export default function Services() {
   ];
 
 
-
   const submitRequest = () => {
 
     if (!form.email || !form.message) {
 
       alert("Please fill all fields");
-
       return;
 
     }
 
-
     setLoading(true);
-
 
     setTimeout(() => {
 
       alert("Request submitted successfully");
 
-
       setSelectedService(null);
 
       setForm({
-
         email: "",
         message: ""
-
       });
-
 
       setLoading(false);
 
     }, 800);
 
   };
-
 
 
   return (
@@ -136,9 +129,8 @@ export default function Services() {
 
         <p className="text-gray-300 mt-5 max-w-2xl mx-auto">
 
-          Identify vulnerabilities before attackers exploit them.
-          Professional penetration testing for web applications,
-          APIs and cloud infrastructure.
+          Professional Vulnerability Assessment and Penetration Testing (VAPT)
+          services for web applications, APIs and cloud infrastructure.
 
         </p>
 
@@ -162,8 +154,6 @@ export default function Services() {
 
             transition={{ delay: i * 0.05 }}
 
-            onClick={() => setSelectedService(service.title)}
-
             className="
             bg-[#0f172a]
             border border-white/10
@@ -171,7 +161,6 @@ export default function Services() {
             rounded-xl
             hover:border-amber-400/40
             hover:shadow-[0_0_25px_rgba(212,175,55,0.15)]
-            cursor-pointer
             transition-all
             "
 
@@ -198,13 +187,30 @@ export default function Services() {
             </p>
 
 
-            <div className="mt-6 text-amber-400 text-xs flex items-center">
+            {/* SEO internal link */}
 
-              Request Service
+            <Link
+              to={service.link}
+              className="mt-6 text-amber-400 text-xs flex items-center"
+            >
+
+              Learn More
 
               <ArrowRight size={14} className="ml-2" />
 
-            </div>
+            </Link>
+
+
+            {/* CTA */}
+
+            <button
+              onClick={() => setSelectedService(service.title)}
+              className="mt-4 text-xs text-gray-400 hover:text-white"
+            >
+
+              Request Quote
+
+            </button>
 
           </motion.div>
 

@@ -12,11 +12,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Contact from "./pages/Contact";
 
-/*
- TRUSTLAYER LABS
- FINAL APP STRUCTURE
- Optimized for VAPT services website
-*/
+/* SEO PAGES */
+import Vapt from "./pages/Vapt";
+import ApiSecurity from "./pages/ApiSecurity";
+import WebAppPentest from "./pages/WebAppPentest";
+import Owasp from "./pages/Owasp";
 
 
 function ScrollToTop() {
@@ -83,7 +83,6 @@ export default function App() {
                 }
               />
 
-
               <Route
                 path="/services"
                 element={
@@ -93,6 +92,45 @@ export default function App() {
                 }
               />
 
+              {/* SEO PAGES */}
+
+              <Route
+                path="/vapt-services"
+                element={
+                  <PageWrapper>
+                    <Vapt />
+                  </PageWrapper>
+                }
+              />
+
+              <Route
+                path="/api-security-testing"
+                element={
+                  <PageWrapper>
+                    <ApiSecurity />
+                  </PageWrapper>
+                }
+              />
+
+              <Route
+                path="/web-application-penetration-testing"
+                element={
+                  <PageWrapper>
+                    <WebAppPentest />
+                  </PageWrapper>
+                }
+              />
+
+              <Route
+                path="/owasp-top-10-testing"
+                element={
+                  <PageWrapper>
+                    <Owasp />
+                  </PageWrapper>
+                }
+              />
+
+              {/* OTHER PAGES */}
 
               <Route
                 path="/about"
@@ -103,7 +141,6 @@ export default function App() {
                 }
               />
 
-
               <Route
                 path="/contact"
                 element={
@@ -112,7 +149,6 @@ export default function App() {
                   </PageWrapper>
                 }
               />
-
 
               <Route
                 path="/privacy-policy"
@@ -123,7 +159,6 @@ export default function App() {
                 }
               />
 
-
               <Route
                 path="/terms-and-conditions"
                 element={
@@ -132,7 +167,6 @@ export default function App() {
                   </PageWrapper>
                 }
               />
-
 
             </Routes>
 
