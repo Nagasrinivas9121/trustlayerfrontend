@@ -90,9 +90,10 @@ export default function TermsAndConditions() {
 
         <div className="text-amber-400 font-semibold">
 
-          support@trustlayerlabs.co.in
+          security@trustlayerlabs.co.in
 
         </div>
+        
 
 
 
