@@ -32,13 +32,96 @@ export default function Footer() {
             </h2>
 
 
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed mb-6">
 
               Professional cybersecurity services focused on
               Vulnerability Assessment and Penetration Testing (VAPT)
               for web applications, APIs and cloud infrastructure.
 
             </p>
+
+
+            {/* social icons */}
+
+            <div className="flex gap-4">
+
+
+              {/* linkedin */}
+
+              <a
+                href="https://www.linkedin.com/company/trustlayerlabs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition"
+              >
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  className="text-gray-400 hover:text-amber-400"
+                >
+
+                  <path d="M20.447 20.452H17.21V14.8c0-1.347-.026-3.08-1.878-3.08-1.878 0-2.165 1.466-2.165 2.98v5.752H9.032V9h3.104v1.561h.045c.433-.82 1.492-1.685 3.07-1.685 3.285 0 3.888 2.163 3.888 4.977v6.599zM5.337 7.433c-1.002 0-1.814-.812-1.814-1.814S4.335 3.805 5.337 3.805s1.814.812 1.814 1.814-.812 1.814-1.814 1.814zm1.618 13.019H3.719V9h3.236v11.452z"/>
+
+                </svg>
+
+              </a>
+
+
+              {/* product hunt */}
+
+              <a
+                href="https://www.producthunt.com/@nagasrinivas"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition"
+              >
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="text-gray-400 hover:text-amber-400"
+                >
+
+                  <path d="M13.6 9.6h-2.4v4.8h2.4c1.32 0 2.4-1.08 2.4-2.4s-1.08-2.4-2.4-2.4zm0-7.2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 16.8h-4.8v-12h4.8c2.64 0 4.8 2.16 4.8 4.8s-2.16 4.8-4.8 4.8z"/>
+
+                </svg>
+
+              </a>
+
+
+              {/* medium */}
+
+              <a
+                href="https://medium.com/@trustlayerlabs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition"
+              >
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="text-gray-400 hover:text-amber-400"
+                >
+
+                  <path d="M2 4.5L7.5 10v7.5L2 20V4.5zM8.5 10.5l6 6V9l-6 1.5zM15.5 9l6-1.5v9L15.5 15V9z"/>
+
+                </svg>
+
+              </a>
+
+
+            </div>
 
           </div>
 
@@ -207,16 +290,7 @@ export default function Footer() {
 
 
 
-        {/* bottom */}
-
-        <div className="
-        border-t border-white/10
-        mt-12 pt-6
-        text-sm text-gray-500
-        flex flex-col md:flex-row
-        justify-between
-        gap-3
-        ">
+        <div className="border-t border-white/10 mt-12 pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between">
 
           <span>
 
