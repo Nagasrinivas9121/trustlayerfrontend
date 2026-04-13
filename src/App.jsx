@@ -12,12 +12,19 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Contact from "./pages/Contact";
 
-/* SEO PAGES */
+/* SEO SERVICE PAGES */
+
 import Vapt from "./pages/Vapt";
 import ApiSecurity from "./pages/ApiSecurity";
 import WebAppPentest from "./pages/WebAppPentest";
 import Owasp from "./pages/Owasp";
 
+/* TRUST PAGE */
+
+import Status from "./pages/Status";
+
+
+/* Scroll fix */
 
 function ScrollToTop() {
 
@@ -33,6 +40,8 @@ function ScrollToTop() {
 
 }
 
+
+/* page animation wrapper */
 
 const PageWrapper = ({ children }) => (
 
@@ -67,12 +76,13 @@ export default function App() {
 
         <Navbar />
 
-
         <main className="flex-grow">
 
           <AnimatePresence mode="wait">
 
             <Routes>
+
+              {/* MAIN */}
 
               <Route
                 path="/"
@@ -92,7 +102,8 @@ export default function App() {
                 }
               />
 
-              {/* SEO PAGES */}
+
+              {/* SEO SERVICE PAGES */}
 
               <Route
                 path="/vapt-services"
@@ -130,7 +141,8 @@ export default function App() {
                 }
               />
 
-              {/* OTHER PAGES */}
+
+              {/* COMPANY */}
 
               <Route
                 path="/about"
@@ -149,6 +161,21 @@ export default function App() {
                   </PageWrapper>
                 }
               />
+
+
+              {/* TRUST */}
+
+              <Route
+                path="/status"
+                element={
+                  <PageWrapper>
+                    <Status />
+                  </PageWrapper>
+                }
+              />
+
+
+              {/* LEGAL */}
 
               <Route
                 path="/privacy-policy"
@@ -173,7 +200,6 @@ export default function App() {
           </AnimatePresence>
 
         </main>
-
 
         <Footer />
 

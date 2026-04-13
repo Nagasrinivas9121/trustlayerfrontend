@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 export default function Footer() {
 
@@ -19,10 +18,8 @@ export default function Footer() {
           <div>
 
             <h2 className="
-            text-xl
-            font-black
-            text-transparent
-            bg-clip-text
+            text-xl font-black
+            text-transparent bg-clip-text
             bg-gradient-to-r
             from-[#F9E498]
             via-[#D4AF37]
@@ -35,11 +32,11 @@ export default function Footer() {
             </h2>
 
 
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm leading-relaxed">
 
               Professional cybersecurity services focused on
               Vulnerability Assessment and Penetration Testing (VAPT)
-              for web applications, APIs and cloud systems.
+              for web applications, APIs and cloud infrastructure.
 
             </p>
 
@@ -62,13 +59,7 @@ export default function Footer() {
 
               <li>
 
-                <Link
-
-                  to="/services"
-
-                  className="hover:text-amber-400 transition"
-
-                >
+                <Link to="/vapt-services" className="hover:text-amber-400">
 
                   VAPT Services
 
@@ -79,15 +70,9 @@ export default function Footer() {
 
               <li>
 
-                <Link
+                <Link to="/web-application-penetration-testing" className="hover:text-amber-400">
 
-                  to="/services"
-
-                  className="hover:text-amber-400 transition"
-
-                >
-
-                  Web Application Penetration Testing
+                  Web App Penetration Testing
 
                 </Link>
 
@@ -96,13 +81,7 @@ export default function Footer() {
 
               <li>
 
-                <Link
-
-                  to="/services"
-
-                  className="hover:text-amber-400 transition"
-
-                >
+                <Link to="/api-security-testing" className="hover:text-amber-400">
 
                   API Security Testing
 
@@ -113,13 +92,7 @@ export default function Footer() {
 
               <li>
 
-                <Link
-
-                  to="/services"
-
-                  className="hover:text-amber-400 transition"
-
-                >
+                <Link to="/owasp-top-10-testing" className="hover:text-amber-400">
 
                   OWASP Top 10 Testing
 
@@ -148,13 +121,7 @@ export default function Footer() {
 
               <li>
 
-                <Link
-
-                  to="/about"
-
-                  className="hover:text-amber-400 transition"
-
-                >
+                <Link to="/about" className="hover:text-amber-400">
 
                   About
 
@@ -165,15 +132,20 @@ export default function Footer() {
 
               <li>
 
-                <Link
-
-                  to="/contact"
-
-                  className="hover:text-amber-400 transition"
-
-                >
+                <Link to="/contact" className="hover:text-amber-400">
 
                   Contact
+
+                </Link>
+
+              </li>
+
+
+              <li>
+
+                <Link to="/status" className="hover:text-amber-400">
+
+                  System Status
 
                 </Link>
 
@@ -200,13 +172,7 @@ export default function Footer() {
 
               <li>
 
-                <Link
-
-                  to="/privacy-policy"
-
-                  className="hover:text-amber-400 transition"
-
-                >
+                <Link to="/privacy-policy" className="hover:text-amber-400">
 
                   Privacy Policy
 
@@ -217,13 +183,7 @@ export default function Footer() {
 
               <li>
 
-                <Link
-
-                  to="/terms-and-conditions"
-
-                  className="hover:text-amber-400 transition"
-
-                >
+                <Link to="/terms-and-conditions" className="hover:text-amber-400">
 
                   Terms & Conditions
 
@@ -267,7 +227,7 @@ export default function Footer() {
 
           <span>
 
-            VAPT • Penetration Testing • Cybersecurity
+            VAPT • Penetration Testing • API Security • OWASP Testing
 
           </span>
 
