@@ -1,5 +1,5 @@
 import API from "./api";
 
-export const sendContactForm = async (formData) => {
-  return await API.post("/contact", formData);
+export const sendContactForm = async (data) => {
+  return API.post("/contact", data);
 };

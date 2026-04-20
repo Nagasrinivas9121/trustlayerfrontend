@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
-import API from '../api/api';
+import { sendContactForm } from '../api/contactApi';
 
 export default function ContactForm() {
   const [formState, setFormState] = useState('idle');
@@ -25,12 +25,18 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState('submitting');
+    
+    console.log(form);
 
     try {
-      const response = await API.post("/contact", form);
-      console.log(response.data);
+      await sendContactForm({
+        name: form.name,
+        email: form.email,
+        message: form.message
+      });
+
       alert("Message sent successfully");
-      
+
       setForm({
         name: "",
         email: "",
@@ -82,6 +88,7 @@ export default function ContactForm() {
                 value={form.name}
                 onChange={handleChange}
                 required
+                autoComplete="name"
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="John Doe"
               />
@@ -95,6 +102,7 @@ export default function ContactForm() {
                 value={form.company}
                 onChange={handleChange}
                 required
+                autoComplete="organization"
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="Acme Corp"
               />
@@ -111,6 +119,7 @@ export default function ContactForm() {
                 value={form.email}
                 onChange={handleChange}
                 required
+                autoComplete="email"
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="john@example.com"
               />
@@ -123,6 +132,7 @@ export default function ContactForm() {
                 name="website"
                 value={form.website}
                 onChange={handleChange}
+                autoComplete="url"
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="https://example.com"
               />
@@ -137,6 +147,7 @@ export default function ContactForm() {
               value={form.service}
               onChange={handleChange}
               required
+              autoComplete="off"
               className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white appearance-none"
             >
               <option value="" disabled>Select a service</option>
@@ -157,6 +168,7 @@ export default function ContactForm() {
               value={form.message}
               onChange={handleChange}
               rows="4"
+              autoComplete="off"
               className="w-full border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white resize-none"
               placeholder="Tell us about your security testing requirements..."
             ></textarea>
