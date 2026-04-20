@@ -4,111 +4,96 @@ export default function TermsAndConditions() {
 
   return (
 
-    <div className="min-h-screen bg-[#030712] text-gray-300 py-20 px-6">
+    <section className="bg-[#020617] text-white py-32 px-6">
 
-      <div className="max-w-4xl mx-auto space-y-12">
+      <div className="max-w-4xl mx-auto">
 
+        {/* HEADER */}
+        <div className="mb-16">
 
-        {/* header */}
-
-        <div>
-
-          <h1 className="text-4xl font-bold
-          text-transparent bg-clip-text
-          bg-gradient-to-r
-          from-[#F9E498]
-          via-[#D4AF37]
-          to-[#8A6E2F]">
-
+          <h1 className="text-5xl font-bold tracking-tight mb-4">
             Terms and Conditions
-
           </h1>
 
-
-          <p className="text-gray-400 mt-3">
-
+          <p className="text-slate-400">
             Effective Date: {new Date().toLocaleDateString()}
-
           </p>
 
         </div>
 
 
 
-        <Section
-          title="1. Agreement"
-          text="By requesting services from TrustLayerLabs, you agree to these Terms and Conditions. These terms apply to all cybersecurity services including Vulnerability Assessment and Penetration Testing (VAPT)."
-        />
+        {/* CONTENT */}
+        <div className="space-y-8">
+
+          <Section
+            title="Agreement"
+            text="By requesting services from TrustLayerLabs, you agree to these Terms and Conditions. These terms apply to all cybersecurity services including Vulnerability Assessment and Penetration Testing (VAPT)."
+          />
+
+          <Section
+            title="Scope of Services"
+            list={[
+              "Web application penetration testing",
+              "API security testing",
+              "OWASP Top 10 vulnerability assessment",
+              "Security risk identification"
+            ]}
+          />
+
+          <Section
+            title="Client Authorization"
+            text="Clients must provide written authorization before any testing begins. Security testing will only be performed on systems owned or legally authorized by the client."
+          />
+
+          <Section
+            title="Responsible Use"
+            text="TrustLayerLabs performs testing ethically and responsibly. No unauthorized exploitation will be performed outside agreed scope."
+          />
+
+          <Section
+            title="Limitation of Liability"
+            text="TrustLayerLabs shall not be liable for indirect damages or losses related to vulnerabilities identified during testing."
+          />
+
+          <Section
+            title="Confidentiality"
+            text="All client data, findings and security reports remain confidential and will not be shared without permission."
+          />
+
+          <Section
+            title="Governing Law"
+            text="These terms are governed by the laws of India."
+          />
+
+          <Section
+            title="Contact"
+            text="For questions regarding these Terms contact:"
+          />
+
+        </div>
 
 
-        <Section
-          title="2. Scope of Services"
-          list={[
-            "Web application penetration testing",
-            "API security testing",
-            "OWASP Top 10 vulnerability assessment",
-            "Security risk identification"
-          ]}
-        />
 
-
-        <Section
-          title="3. Client Authorization"
-          text="Clients must provide written authorization before any testing begins. Security testing will only be performed on systems owned or legally authorized by the client."
-        />
-
-
-        <Section
-          title="4. Responsible Use"
-          text="TrustLayerLabs performs testing ethically and responsibly. No unauthorized exploitation will be performed outside agreed scope."
-        />
-
-
-        <Section
-          title="5. Limitation of Liability"
-          text="TrustLayerLabs shall not be liable for indirect damages or losses related to vulnerabilities identified during testing."
-        />
-
-
-        <Section
-          title="6. Confidentiality"
-          text="All client data, findings and security reports will remain confidential and will not be shared without permission."
-        />
-
-
-        <Section
-          title="7. Governing Law"
-          text="These terms are governed by the laws of India."
-        />
-
-
-        <Section
-          title="8. Contact"
-          text="For questions regarding these Terms contact:"
-        />
-
-
-        <div className="text-amber-400 font-semibold">
+        {/* EMAIL */}
+        <div className="mt-10 text-lg text-blue-400 font-medium">
 
           security@trustlayerlabs.co.in
 
         </div>
-        
 
 
 
-        {/* footer */}
+        {/* FOOTER */}
+        <div className="mt-20 pt-10 border-t border-white/10 text-sm text-slate-500">
 
-        <div className="pt-10 border-t border-white/5 text-gray-500 text-sm">
-
-          TrustLayerLabs • VAPT & Cybersecurity Services
+          TrustLayerLabs • Cybersecurity & VAPT Services
 
         </div>
 
-
       </div>
 
-    </div>
+    </section>
 
   );
 
@@ -120,33 +105,34 @@ function Section({ title, text, list }) {
 
   return (
 
-    <motion.section
+    <motion.div
 
       initial={{ opacity: 0, y: 15 }}
-
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
 
       className="
-      bg-[#0f172a]
-      border border-white/10
-      p-6
-      rounded-lg
-      space-y-4
-      shadow-lg
+      bg-[#0b1220]
+      border border-white/5
+      p-8
+      rounded-xl
+      hover:border-blue-500/40
+      transition
       "
 
     >
 
-      <h2 className="text-lg font-semibold text-white">
+      <h2 className="text-xl font-semibold mb-3">
 
         {title}
 
       </h2>
 
 
+
       {text && (
 
-        <p className="text-gray-300">
+        <p className="text-slate-300 leading-relaxed">
 
           {text}
 
@@ -155,9 +141,10 @@ function Section({ title, text, list }) {
       )}
 
 
+
       {list && (
 
-        <ul className="list-disc pl-6 space-y-2 text-gray-400">
+        <ul className="list-disc pl-5 space-y-2 text-slate-400">
 
           {list.map((item, i) => (
 
@@ -169,7 +156,7 @@ function Section({ title, text, list }) {
 
       )}
 
-    </motion.section>
+    </motion.div>
 
   );
 
