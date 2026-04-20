@@ -1,16 +1,46 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
+import { sendContactForm } from '../api/contactApi';
 
 export default function ContactForm() {
   const [formState, setFormState] = useState('idle');
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    website: "",
+    service: "",
+    message: ""
+  });
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState('submitting');
-    setTimeout(() => {
+    
+    try {
+      const payload = {
+        name: formData.name,
+        company: formData.company,
+        email: formData.email,
+        website: formData.website,
+        message: `Service Required: ${formData.service}\n\n${formData.message}`,
+      };
+      
+      await sendContactForm(payload);
       setFormState('success');
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+      setFormState('idle');
+      alert('Error sending message');
+    }
   };
 
   return (
@@ -43,6 +73,9 @@ export default function ContactForm() {
               <input 
                 type="text" 
                 id="name" 
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="John Doe"
@@ -53,6 +86,9 @@ export default function ContactForm() {
               <input 
                 type="text" 
                 id="company" 
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="Acme Corp"
@@ -66,6 +102,9 @@ export default function ContactForm() {
               <input 
                 type="email" 
                 id="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="john@example.com"
@@ -76,6 +115,9 @@ export default function ContactForm() {
               <input 
                 type="url" 
                 id="website" 
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="https://example.com"
               />
@@ -86,10 +128,13 @@ export default function ContactForm() {
             <label htmlFor="service" className="text-sm font-medium text-slate-700">Service Required</label>
             <select 
               id="service" 
+              name="service"
+              value={formData.service}
+              onChange={handleChange}
               required
               className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white appearance-none"
             >
-              <option value="" disabled selected>Select a service</option>
+              <option value="" disabled>Select a service</option>
               <option value="vapt">VAPT Testing</option>
               <option value="web-app">Web App Penetration Testing</option>
               <option value="api">API Security Testing</option>
@@ -103,6 +148,9 @@ export default function ContactForm() {
             <label htmlFor="message" className="text-sm font-medium text-slate-700">Message</label>
             <textarea 
               id="message" 
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               rows="4"
               className="w-full border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white resize-none"
               placeholder="Tell us about your security testing requirements..."
