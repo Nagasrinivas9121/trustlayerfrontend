@@ -1,251 +1,116 @@
-import { useState } from "react";
-
-import { Link, NavLink } from "react-router-dom";
-
-import logo from "../assets/logo.jpeg";
-
-import { Menu, X } from "lucide-react";
-
-import { motion, AnimatePresence } from "framer-motion";
-
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-
-  const closeMenu = () => setOpen(false);
-
-
-  const navClass = ({ isActive }) =>
-
-    `uppercase text-xs tracking-widest font-semibold transition
-
-    ${
-
-      isActive
-
-        ? "text-amber-400"
-
-        : "text-gray-400 hover:text-white"
-
-    }
-
-    `;
-
-
+  const navLinks = [
+    { name: 'Services', path: '/services' },
+    { name: 'Process', path: '/#process' },
+    { name: 'Industries', path: '/#industries' },
+    { name: 'FAQs', path: '/#faqs' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
+    <div className="fixed top-0 w-full z-50 pt-6 px-4 pointer-events-none transition-all duration-300">
+      <nav
+        className={`pointer-events-auto mx-auto max-w-5xl rounded-full transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white/80 backdrop-blur-md shadow-lg border border-slate-200/50 py-3 px-6' 
+            : 'bg-white/95 backdrop-blur-sm shadow-md py-4 px-6 border border-slate-100'
+        }`}
+      >
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
+            <img src="/logo.jpeg" alt="TrustLayer Labs Logo" className="w-10 h-10 object-contain rounded-full shadow-sm group-hover:scale-105 transition-transform" />
+            <span className="font-heading font-bold text-lg text-slate-900 tracking-tight hidden sm:block">
+              TrustLayer <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-400">Labs</span>
+            </span>
+          </Link>
 
-    <nav className="
-    bg-[#030712]/90
-    backdrop-blur-xl
-    border-b border-white/10
-    sticky top-0
-    z-50
-    ">
+          {/* Center Desktop Menu */}
+          <div className="hidden md:flex items-center justify-center space-x-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`text-sm font-medium transition-all hover:text-blue-600 ${
+                  location.pathname === link.path ? 'text-blue-600' : 'text-slate-600'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
 
-      <div className="
-      max-w-7xl mx-auto
-      px-6 py-4
-      flex justify-between items-center
-      ">
-
-
-        {/* logo */}
-
-        <Link
-
-          to="/"
-
-          className="flex items-center gap-3"
-
-        >
-
-          <motion.img
-
-            whileHover={{ rotate: 6, scale: 1.05 }}
-
-            src={logo}
-
-            alt="TrustLayerLabs VAPT Services"
-
-            className="
-            w-9
-            drop-shadow-[0_0_10px_rgba(212,175,55,0.25)]
-            "
-
-          />
-
-
-          <span className="
-          font-black
-          text-transparent
-          bg-clip-text
-          bg-gradient-to-r
-          from-[#F9E498]
-          via-[#D4AF37]
-          to-[#8A6E2F]
-          ">
-
-            TrustLayerLabs
-
-          </span>
-
-        </Link>
-
-
-
-        {/* desktop nav */}
-
-        <div className="hidden md:flex gap-8">
-
-          <NavLink to="/" className={navClass}>
-
-            Home
-
-          </NavLink>
-
-
-          <NavLink to="/services" className={navClass}>
-
-            Services
-
-          </NavLink>
-
-
-          <NavLink to="/about" className={navClass}>
-
-            About
-
-          </NavLink>
-
-
-          <NavLink to="/contact" className={navClass}>
-
-            Contact
-
-          </NavLink>
-
-        </div>
-
-
-
-        {/* mobile toggle */}
-
-        <button
-
-          onClick={() => setOpen(!open)}
-
-          className="
-          md:hidden
-          text-amber-400
-          hover:text-white
-          transition
-          "
-
-        >
-
-          {open ? <X size={22}/> : <Menu size={22}/>}
-
-        </button>
-
-      </div>
-
-
-
-      {/* mobile menu */}
-
-      <AnimatePresence>
-
-        {open && (
-
-          <motion.div
-
-            initial={{ opacity: 0, y: -10 }}
-
-            animate={{ opacity: 1, y: 0 }}
-
-            exit={{ opacity: 0, y: -10 }}
-
-            className="
-            md:hidden
-            bg-[#030712]
-            border-t border-white/10
-            px-6 py-8
-            flex flex-col gap-6
-            text-sm uppercase tracking-widest
-            "
-
-          >
-
+          {/* Right CTA Button */}
+          <div className="hidden md:flex items-center shrink-0">
             <Link
-
-              to="/"
-
-              onClick={closeMenu}
-
-              className="text-gray-300 hover:text-amber-400 transition"
-
-            >
-
-              Home
-
-            </Link>
-
-
-            <Link
-
-              to="/services"
-
-              onClick={closeMenu}
-
-              className="text-gray-300 hover:text-amber-400 transition"
-
-            >
-
-              Services
-
-            </Link>
-
-
-            <Link
-
-              to="/about"
-
-              onClick={closeMenu}
-
-              className="text-gray-300 hover:text-amber-400 transition"
-
-            >
-
-              About
-
-            </Link>
-
-
-            <Link
-
               to="/contact"
-
-              onClick={closeMenu}
-
-              className="text-gray-300 hover:text-amber-400 transition"
-
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
-
-              Contact
-
+              Book a Call
             </Link>
+          </div>
 
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-slate-600 hover:text-blue-600 focus:outline-none p-2 bg-slate-50 rounded-full"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="pointer-events-auto absolute top-24 left-4 right-4 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden md:hidden p-4"
+          >
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center mt-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3.5 rounded-xl font-medium transition-colors shadow-md"
+              >
+                Book a Call
+              </Link>
+            </div>
           </motion.div>
-
         )}
-
       </AnimatePresence>
-
-    </nav>
-
+    </div>
   );
-
 }

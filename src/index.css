@@ -1,112 +1,87 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Poppins", sans-serif;
 
-  /* CORE BRAND */
-  --color-primary: #030712;       /* deeper premium black */
-  --color-secondary: #0b1220;     /* card background */
-  --color-surface: #0f172a;       /* elevated sections */
-
-  /* GOLD SECURITY BRAND */
-  --color-accent: #d4af37;        /* main gold */
-  --color-accent-soft: #f9e498;   /* soft highlight */
-  --color-accent-deep: #8a6e2f;   /* dark gold */
-  --color-glow: rgba(212,175,55,0.25);
-
-  /* TEXT */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #6b7280;
-
-  /* FONTS */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-
-  /* ANIMATIONS */
-  --animate-gradient-x: gradient-x 6s ease infinite;
-  --animate-scanline: scanline 8s linear infinite;
-
-  @keyframes gradient-x {
-    0%,100% { background-position: left center; }
-    50% { background-position: right center; }
-  }
-
-  @keyframes scanline {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
-  }
+  /* Theme colors */
+  --color-primary-blue: #2563EB;
+  --color-primary-cyan: #38BDF8;
+  --color-secondary-blue: #0EA5E9;
+  --color-secondary-teal: #14B8A6;
+  
+  --color-bg-light: #F8FAFC;
+  --color-bg-dark: #0F172A;
+  
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  
+  --color-border-color: #E2E8F0;
 }
 
-
-/* BASE */
-
-@layer base {
-
-  body {
-
-    background:#030712;
-
-    color:white;
-
-    font-family: var(--font-sans);
-
-    -webkit-font-smoothing: antialiased;
-
-  }
-
+body {
+  @apply bg-[#F8FAFC] text-[#0F172A] font-sans antialiased overflow-x-hidden;
 }
 
-
-/* FORM STYLE */
-
-input, textarea, select {
-
-  background:#020617;
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  color:white;
-
-  border-radius:12px;
-
-  padding:14px;
-
-  transition:0.25s;
-
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading tracking-tight text-[#0F172A];
 }
 
-
-input:focus,
-textarea:focus,
-select:focus {
-
-  border-color:#d4af37;
-
-  box-shadow:0 0 0 1px rgba(212,175,55,0.25);
-
-  outline:none;
-
+/* Gradients */
+.text-gradient-primary {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2563EB] to-[#38BDF8];
 }
 
+.bg-gradient-primary {
+  @apply bg-gradient-to-r from-[#2563EB] to-[#38BDF8];
+}
 
-/* SCROLLBAR */
+.bg-gradient-secondary {
+  @apply bg-gradient-to-r from-[#0EA5E9] to-[#14B8A6];
+}
 
+/* Background Patterns */
+.bg-dots {
+  background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-dots-dark {
+  background-image: radial-gradient(#334155 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Floating Animations */
+.floating-shape {
+  animation: float 10s ease-in-out infinite;
+}
+
+.floating-shape-delayed {
+  animation: float 12s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.floating-fast {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-
-  width:6px;
-
+  width: 8px;
 }
-
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
 ::-webkit-scrollbar-thumb {
-
-  background:#1e293b;
-
-  border-radius:20px;
-
+  background: #CBD5E1;
+  border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-
-  background:#d4af37;
-
+  background: #94A3B8;
 }
