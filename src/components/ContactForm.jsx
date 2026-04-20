@@ -6,34 +6,45 @@ import API from '../api/api';
 export default function ContactForm() {
   const [formState, setFormState] = useState('idle');
   
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [websiteUrl, setWebsiteUrl] = useState("");
-  const [serviceRequired, setServiceRequired] = useState("");
-  const [messageText, setMessageText] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    website: "",
+    service: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState('submitting');
-    
-    const formData = {
-      name: fullName,
-      email: email,
-      company: companyName,
-      website: websiteUrl,
-      service: serviceRequired,
-      message: messageText
-    };
 
     try {
-      const response = await API.post("/contact", formData);
+      const response = await API.post("/contact", form);
       console.log(response.data);
+      alert("Message sent successfully");
+      
+      setForm({
+        name: "",
+        email: "",
+        company: "",
+        website: "",
+        service: "",
+        message: ""
+      });
       setFormState('success');
+      
     } catch (error) {
-      console.log(error.response?.data);
+      console.log(error);
+      alert("Error sending message");
       setFormState('idle');
-      alert('Error sending message');
     }
   };
 
@@ -63,26 +74,26 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label htmlFor="fullName" className="text-sm font-medium text-slate-700">Full Name</label>
+              <label htmlFor="name" className="text-sm font-medium text-slate-700">Full Name</label>
               <input 
                 type="text" 
-                id="fullName" 
-                name="fullName"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
+                id="name" 
+                name="name"
+                value={form.name}
+                onChange={handleChange}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="John Doe"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="companyName" className="text-sm font-medium text-slate-700">Company Name</label>
+              <label htmlFor="company" className="text-sm font-medium text-slate-700">Company Name</label>
               <input 
                 type="text" 
-                id="companyName" 
-                name="companyName"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
+                id="company" 
+                name="company"
+                value={form.company}
+                onChange={handleChange}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="Acme Corp"
@@ -97,21 +108,21 @@ export default function ContactForm() {
                 type="email" 
                 id="email" 
                 name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={form.email}
+                onChange={handleChange}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="john@example.com"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="websiteUrl" className="text-sm font-medium text-slate-700">Website URL</label>
+              <label htmlFor="website" className="text-sm font-medium text-slate-700">Website URL</label>
               <input 
                 type="url" 
-                id="websiteUrl" 
-                name="websiteUrl"
-                value={websiteUrl}
-                onChange={(e) => setWebsiteUrl(e.target.value)}
+                id="website" 
+                name="website"
+                value={form.website}
+                onChange={handleChange}
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="https://example.com"
               />
@@ -119,32 +130,32 @@ export default function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="serviceRequired" className="text-sm font-medium text-slate-700">Service Required</label>
+            <label htmlFor="service" className="text-sm font-medium text-slate-700">Service Required</label>
             <select 
-              id="serviceRequired" 
-              name="serviceRequired"
-              value={serviceRequired}
-              onChange={(e) => setServiceRequired(e.target.value)}
+              id="service" 
+              name="service"
+              value={form.service}
+              onChange={handleChange}
               required
               className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white appearance-none"
             >
               <option value="" disabled>Select a service</option>
-              <option value="vapt">VAPT Testing</option>
-              <option value="web-app">Web App Penetration Testing</option>
-              <option value="api">API Security Testing</option>
-              <option value="cloud">Cloud Security Testing</option>
-              <option value="network">Network Penetration Testing</option>
-              <option value="other">Other / Consulting</option>
+              <option value="VAPT Testing">VAPT Testing</option>
+              <option value="Web App Penetration Testing">Web App Penetration Testing</option>
+              <option value="API Security Testing">API Security Testing</option>
+              <option value="Cloud Security Testing">Cloud Security Testing</option>
+              <option value="Network Penetration Testing">Network Penetration Testing</option>
+              <option value="Other / Consulting">Other / Consulting</option>
             </select>
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="messageText" className="text-sm font-medium text-slate-700">Message</label>
+            <label htmlFor="message" className="text-sm font-medium text-slate-700">Message</label>
             <textarea 
-              id="messageText" 
-              name="messageText"
-              value={messageText}
-              onChange={(e) => setMessageText(e.target.value)}
+              id="message" 
+              name="message"
+              value={form.message}
+              onChange={handleChange}
               rows="4"
               className="w-full border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white resize-none"
               placeholder="Tell us about your security testing requirements..."
