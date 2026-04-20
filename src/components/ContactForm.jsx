@@ -25,6 +25,8 @@ export default function ContactForm() {
     e.preventDefault();
     setFormState('submitting');
     
+    console.log(formData);
+
     try {
       await sendContactForm(formData);
       setFormState('success');
