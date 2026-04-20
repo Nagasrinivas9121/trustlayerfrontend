@@ -1,34 +1,34 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
-import { sendContactForm } from '../api/contactApi';
+import API from '../api/api';
 
 export default function ContactForm() {
   const [formState, setFormState] = useState('idle');
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    website: "",
-    service: "",
-    message: ""
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [websiteUrl, setWebsiteUrl] = useState("");
+  const [serviceRequired, setServiceRequired] = useState("");
+  const [messageText, setMessageText] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState('submitting');
     
-    console.log(formData);
+    const formData = {
+      name: fullName,
+      email: email,
+      company: companyName,
+      website: websiteUrl,
+      service: serviceRequired,
+      message: messageText
+    };
 
     try {
-      await sendContactForm(formData);
+      const response = await API.post("/contact", formData);
+      console.log(response.data);
       setFormState('success');
     } catch (error) {
       console.log(error.response?.data);
@@ -63,26 +63,26 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-slate-700">Full Name</label>
+              <label htmlFor="fullName" className="text-sm font-medium text-slate-700">Full Name</label>
               <input 
                 type="text" 
-                id="name" 
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
+                id="fullName" 
+                name="fullName"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="John Doe"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="company" className="text-sm font-medium text-slate-700">Company Name</label>
+              <label htmlFor="companyName" className="text-sm font-medium text-slate-700">Company Name</label>
               <input 
                 type="text" 
-                id="company" 
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
+                id="companyName" 
+                name="companyName"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="Acme Corp"
@@ -97,21 +97,21 @@ export default function ContactForm() {
                 type="email" 
                 id="email" 
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="john@example.com"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="website" className="text-sm font-medium text-slate-700">Website URL</label>
+              <label htmlFor="websiteUrl" className="text-sm font-medium text-slate-700">Website URL</label>
               <input 
                 type="url" 
-                id="website" 
-                name="website"
-                value={formData.website}
-                onChange={handleChange}
+                id="websiteUrl" 
+                name="websiteUrl"
+                value={websiteUrl}
+                onChange={(e) => setWebsiteUrl(e.target.value)}
                 className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white"
                 placeholder="https://example.com"
               />
@@ -119,12 +119,12 @@ export default function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="service" className="text-sm font-medium text-slate-700">Service Required</label>
+            <label htmlFor="serviceRequired" className="text-sm font-medium text-slate-700">Service Required</label>
             <select 
-              id="service" 
-              name="service"
-              value={formData.service}
-              onChange={handleChange}
+              id="serviceRequired" 
+              name="serviceRequired"
+              value={serviceRequired}
+              onChange={(e) => setServiceRequired(e.target.value)}
               required
               className="w-full border border-slate-200 rounded-full px-5 py-3.5 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white appearance-none"
             >
@@ -139,12 +139,12 @@ export default function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium text-slate-700">Message</label>
+            <label htmlFor="messageText" className="text-sm font-medium text-slate-700">Message</label>
             <textarea 
-              id="message" 
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
+              id="messageText" 
+              name="messageText"
+              value={messageText}
+              onChange={(e) => setMessageText(e.target.value)}
               rows="4"
               className="w-full border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm bg-slate-50 focus:bg-white resize-none"
               placeholder="Tell us about your security testing requirements..."
