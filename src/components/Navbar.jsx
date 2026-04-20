@@ -25,20 +25,20 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="fixed top-0 w-full z-50 pt-6 px-4 pointer-events-none transition-all duration-300">
+    <div className="fixed top-0 w-full z-50 pt-4 px-4 pointer-events-none transition-all duration-300">
       <nav
-        className={`pointer-events-auto mx-auto max-w-5xl rounded-full transition-all duration-300 ${
+        className={`pointer-events-auto mx-auto max-w-5xl rounded-[40px] transition-all duration-300 h-[72px] flex items-center px-6 ${
           isScrolled 
-            ? 'bg-white/80 backdrop-blur-md shadow-lg border border-slate-200/50 py-3 px-6' 
-            : 'bg-white/95 backdrop-blur-sm shadow-md py-4 px-6 border border-slate-100'
+            ? 'nav-glass shadow-lg' 
+            : 'nav-glass shadow-md'
         }`}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
             <img src="/logo.jpeg" alt="TrustLayer Labs Logo" className="w-10 h-10 object-contain rounded-full shadow-sm group-hover:scale-105 transition-transform" />
-            <span className="font-heading font-bold text-lg text-slate-900 tracking-tight hidden sm:block">
-              TrustLayer <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-400">Labs</span>
+            <span className="font-heading font-bold text-lg text-white tracking-tight hidden sm:block">
+              TrustLayer <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#38bdf8]">Labs</span>
             </span>
           </Link>
 
@@ -48,8 +48,8 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-all hover:text-blue-600 ${
-                  location.pathname === link.path ? 'text-blue-600' : 'text-slate-600'
+                className={`text-sm font-medium transition-all hover:text-white ${
+                  location.pathname === link.path ? 'text-white' : 'text-slate-300'
                 }`}
               >
                 {link.name}
@@ -61,7 +61,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center shrink-0">
             <Link
               to="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="btn-primary text-sm font-semibold shadow-md"
             >
               Book a Call
             </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-600 hover:text-blue-600 focus:outline-none p-2 bg-slate-50 rounded-full"
+              className="text-slate-300 hover:text-white focus:outline-none p-2 rounded-full"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -87,7 +87,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="pointer-events-auto absolute top-24 left-4 right-4 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden md:hidden p-4"
+            className="pointer-events-auto absolute top-24 left-4 right-4 nav-glass rounded-2xl shadow-xl overflow-hidden md:hidden p-4"
           >
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
@@ -95,7 +95,7 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors"
+                  className="px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -103,7 +103,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center mt-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3.5 rounded-xl font-medium transition-colors shadow-md"
+                className="w-full text-center mt-2 btn-primary shadow-md"
               >
                 Book a Call
               </Link>
