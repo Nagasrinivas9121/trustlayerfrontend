@@ -26,18 +26,10 @@ export default function ContactForm() {
     setFormState('submitting');
     
     try {
-      const payload = {
-        name: formData.name,
-        company: formData.company,
-        email: formData.email,
-        website: formData.website,
-        message: `Service Required: ${formData.service}\n\n${formData.message}`,
-      };
-      
-      await sendContactForm(payload);
+      await sendContactForm(formData);
       setFormState('success');
     } catch (error) {
-      console.error(error);
+      console.log(error.response?.data);
       setFormState('idle');
       alert('Error sending message');
     }
