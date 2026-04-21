@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     company: '',
     website: '',
     service: '',
@@ -65,6 +66,22 @@ export default function ContactForm() {
                 />
               </div>
               <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  placeholder="john@example.com"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
                 <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-2">Company Name</label>
                 <input
                   type="text"
@@ -77,9 +94,6 @@ export default function ContactForm() {
                   placeholder="Acme Corp"
                 />
               </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="website" className="block text-sm font-semibold text-slate-700 mb-2">Website URL</label>
                 <input
@@ -92,27 +106,28 @@ export default function ContactForm() {
                   placeholder="https://example.com"
                 />
               </div>
-              <div>
-                <label htmlFor="service" className="block text-sm font-semibold text-slate-700 mb-2">Service Required</label>
-                <select
-                  id="service"
-                  name="service"
-                  required
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-slate-700 appearance-none"
-                >
-                  <option value="" disabled>Select a service</option>
-                  <option value="VAPT Testing">VAPT Testing</option>
-                  <option value="Web App Penetration Testing">Web App Penetration Testing</option>
-                  <option value="API Security Testing">API Security Testing</option>
-                  <option value="Cloud Security Testing">Cloud Security Testing</option>
-                  <option value="Network Penetration Testing">Network Penetration Testing</option>
-                  <option value="Red Team Assessment">Red Team Assessment</option>
-                  <option value="Security Audit">Security Audit</option>
-                  <option value="SOC Consulting">SOC Consulting</option>
-                </select>
-              </div>
+            </div>
+
+            <div>
+              <label htmlFor="service" className="block text-sm font-semibold text-slate-700 mb-2">Service Required</label>
+              <select
+                id="service"
+                name="service"
+                required
+                value={formData.service}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-slate-700 appearance-none"
+              >
+                <option value="" disabled>Select a service</option>
+                <option value="VAPT Testing">VAPT Testing</option>
+                <option value="Web App Penetration Testing">Web App Penetration Testing</option>
+                <option value="API Security Testing">API Security Testing</option>
+                <option value="Cloud Security Testing">Cloud Security Testing</option>
+                <option value="Network Penetration Testing">Network Penetration Testing</option>
+                <option value="Red Team Assessment">Red Team Assessment</option>
+                <option value="Security Audit">Security Audit</option>
+                <option value="SOC Consulting">SOC Consulting</option>
+              </select>
             </div>
 
             <div>
