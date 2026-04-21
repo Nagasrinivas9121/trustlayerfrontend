@@ -1,185 +1,90 @@
 import { motion } from 'framer-motion';
-import { Award, ShieldCheck, UserCheck, FileText, Lock, Clock } from 'lucide-react';
+import { Award, ShieldAlert, UserCheck, FileText, LockKeyhole, Zap } from 'lucide-react';
 
 const features = [
   {
-    id: 1,
-    title: 'MSME Registered',
-    description: 'Government recognized cybersecurity company ensuring trust and reliability.',
-<<<<<<< HEAD
-    icon: <Award size={32} />,
-=======
-    icon: <Award size={24} />,
-    logo: "https://www.pngkey.com/png/full/452-4521672_ministry-of-micro-small-medium-enterprises-udyog-aadhar.png"
->>>>>>> 4da9e8bea1f3d9e8bf380bab31be4974f552088e
+    icon: <Award size={24} className="text-white" />,
+    title: "MSME Registered",
+    description: "Government recognized and certified cybersecurity consulting firm you can trust.",
+    bg: "bg-blue-600"
   },
   {
-    id: 2,
-    title: 'OWASP Top 10',
-    description: 'Strict adherence to OWASP Top 10 methodology for web and API security.',
-    icon: <ShieldCheck size={32} />,
+    icon: <ShieldAlert size={24} className="text-white" />,
+    title: "OWASP Top 10",
+    description: "Adherence to global standards like OWASP, SANS, and NIST for comprehensive security testing.",
+    bg: "bg-sky-500"
   },
   {
-    id: 3,
-    title: 'Manual Testing',
-    description: 'Deep manual penetration testing beyond automated scans to find complex flaws.',
-    icon: <UserCheck size={32} />,
+    icon: <UserCheck size={24} className="text-white" />,
+    title: "Manual Testing",
+    description: "Deep manual exploitation beyond automated scanners to find complex business logic flaws.",
+    bg: "bg-teal-500"
   },
   {
-    id: 4,
-    title: 'Detailed Reports',
-    description: 'Comprehensive vulnerability reports with actionable remediation steps and PoCs.',
-    icon: <FileText size={32} />,
+    icon: <FileText size={24} className="text-white" />,
+    title: "Detailed Reports",
+    description: "Actionable reports with proof of concepts (PoCs) and clear remediation guidelines.",
+    bg: "bg-indigo-500"
   },
   {
-    id: 5,
-    title: 'Confidentiality',
-    description: 'Strict NDA backed engagements to ensure your sensitive data remains secure.',
-    icon: <Lock size={32} />,
+    icon: <LockKeyhole size={24} className="text-white" />,
+    title: "Confidentiality",
+    description: "Strict non-disclosure agreements (NDAs) ensuring your sensitive data remains completely secure.",
+    bg: "bg-slate-700"
   },
   {
-    id: 6,
-    title: 'Fast Turnaround',
-    description: 'Efficient testing processes ensuring you get reports without project delays.',
-    icon: <Clock size={32} />,
-  },
+    icon: <Zap size={24} className="text-white" />,
+    title: "Fast Turnaround",
+    description: "Agile methodologies to deliver high-quality security assessments within tight deadlines.",
+    bg: "bg-blue-500"
+  }
 ];
 
 export default function WhyChooseUs() {
   return (
-<<<<<<< HEAD
-    <section className="section-spacing relative z-10 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-20">
-        <div className="text-center max-w-[700px] mx-auto mb-24">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="section-title text-primary mb-6 tracking-[-0.5px]"
-=======
-    <section className="py-24 bg-slate-50 relative">
+    <section className="py-24 bg-white relative">
       <div className="max-w-6xl mx-auto px-6">
-
-        <div className="text-center max-w-3xl mx-auto mb-16">
-
+        <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
->>>>>>> 4da9e8bea1f3d9e8bf380bab31be4974f552088e
+            className="text-3xl md:text-5xl font-bold text-slate-900 mb-4"
           >
-            Why Choose TrustLayerLabs
+            Why Choose TrustLayer Labs
           </motion.h2>
-
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-<<<<<<< HEAD
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="body-text text-secondary"
-          >
-            We combine automated efficiency with deep manual expertise to deliver premium, intelligence-driven security assessments.
-=======
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg text-slate-600"
+            className="text-slate-600 max-w-2xl mx-auto text-lg"
           >
-            Trusted cybersecurity expertise aligned with industry standards.
->>>>>>> 4da9e8bea1f3d9e8bf380bab31be4974f552088e
+            We combine advanced methodologies with expert manual testing to deliver unparalleled security assurance.
           </motion.p>
-
         </div>
 
-<<<<<<< HEAD
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-spacing">
-=======
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
->>>>>>> 4da9e8bea1f3d9e8bf380bab31be4974f552088e
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-
             <motion.div
-              key={feature.id}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-<<<<<<< HEAD
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 group hover:-translate-y-2 transition-all duration-300"
-            >
-              <div className="text-[#facc15] mb-6 drop-shadow-[0_0_10px_rgba(250,204,21,0.3)] group-hover:scale-110 group-hover:text-amber-300 transition-all duration-300 origin-left">
-=======
-              transition={{ delay: index * 0.08 }}
               viewport={{ once: true }}
-
-              className="
-              relative
-              p-8
-              rounded-2xl
-              bg-white
-              border border-slate-200
-              shadow-sm
-              hover:shadow-xl
-              transition
-              "
+              transition={{ delay: index * 0.1 }}
+              className="flex gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
-
-              {/* MSME badge */}
-              {feature.logo && (
-                <div className="absolute top-4 right-4 bg-white border border-slate-200 rounded-lg px-2 py-1 shadow-sm">
-
-                  <img
-                    src={feature.logo}
-                    alt="MSME certified"
-                    className="h-6 object-contain"
-                  />
-
+              <div className="shrink-0">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${feature.bg} shadow-lg`}>
+                  {feature.icon}
                 </div>
-              )}
-
-              {/* icon */}
-              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6">
-
->>>>>>> 4da9e8bea1f3d9e8bf380bab31be4974f552088e
-                {feature.icon}
-
               </div>
-<<<<<<< HEAD
-              <h3 className="card-title text-primary mb-3">
-=======
-
-
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">
-
->>>>>>> 4da9e8bea1f3d9e8bf380bab31be4974f552088e
-                {feature.title}
-
-              </h3>
-<<<<<<< HEAD
-              <p className="body-text text-secondary">
-=======
-
-              <p className="text-slate-600 text-sm leading-relaxed">
-
->>>>>>> 4da9e8bea1f3d9e8bf380bab31be4974f552088e
-                {feature.description}
-
-              </p>
-
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
+              </div>
             </motion.div>
-
           ))}
-
         </div>
-
       </div>
     </section>
   );

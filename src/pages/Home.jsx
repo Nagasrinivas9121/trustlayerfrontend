@@ -5,14 +5,15 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Process from '../components/Process';
 import Industries from '../components/Industries';
 import CTA from '../components/CTA';
+import ContactForm from '../components/ContactForm';
 
 export default function Home() {
   return (
     <>
       <SEO 
-        title="TrustLayer Labs | VAPT & Penetration Testing Company India"
+        title="TrustLayer Labs | MSME Registered VAPT & Penetration Testing Company India"
         description="TrustLayer Labs provides VAPT, penetration testing, API security testing, cloud security assessment, and cybersecurity consulting services."
-        keywords="VAPT services India, penetration testing company India, cybersecurity services India, web application security testing services, API penetration testing services, cloud security assessment India, network penetration testing services"
+        keywords="VAPT services India, penetration testing company India, cybersecurity services India, web application security testing, API penetration testing services, cloud security assessment"
       />
       <Hero />
       <Services />
@@ -20,13 +21,14 @@ export default function Home() {
       <Process />
       <Industries />
       <CTA />
+      <ContactForm />
       
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/yourphonenumber" 
+        href="https://wa.me/918822402811" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 whatsapp-float text-white p-4 rounded-full z-50 flex items-center justify-center"
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 hover:scale-110 shadow-lg text-white p-4 rounded-full z-50 flex items-center justify-center transition-all duration-300"
         aria-label="Contact on WhatsApp"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
