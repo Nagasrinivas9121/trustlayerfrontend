@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="TrustLayer Labs | MSME Registered VAPT & Penetration Testing Company India"
+        title="TrustLayer Labs | VAPT & Penetration Testing Company India"
         description="TrustLayer Labs provides VAPT, penetration testing, API security testing, cloud security assessment, and cybersecurity consulting services."
         keywords="VAPT services India, penetration testing company India, cybersecurity services India, web application security testing, API penetration testing services, cloud security assessment"
       />
