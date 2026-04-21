@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const API_URL = import.meta.env.VITE_API_URL;
+import { sendContactForm } from "../api/contactApi";
 
 export default function Contact() {
 
@@ -41,22 +41,9 @@ export default function Contact() {
 
       setLoading(true);
 
-      const res = await fetch(`${API_URL}/api/contact`, {
+      const res = await sendContactForm(form);
 
-        method: "POST",
-
-        headers: {
-
-          "Content-Type": "application/json"
-
-        },
-
-        body: JSON.stringify(form)
-
-      });
-
-
-      if (!res.ok) throw new Error();
+      if (res.status !== 200 && res.status !== 201) throw new Error();
 
 
       setSuccess(true);

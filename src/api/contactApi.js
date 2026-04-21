@@ -1,5 +1,6 @@
 import API from "./api";
 
 export const sendContactForm = async (data) => {
-  return API.post("/contact", data);
+  // Use /api/contact as the base URL is likely just the domain
+  return API.post("/api/contact", data);
 };

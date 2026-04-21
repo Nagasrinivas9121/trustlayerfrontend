@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { sendContactForm } from '../api/contactApi';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,16 +11,25 @@ export default function ContactForm() {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-    alert('Thank you for reaching out! We will contact you soon.');
+    setIsSubmitting(true);
+    try {
+      await sendContactForm(formData);
+      alert('Thank you for reaching out! We will contact you soon.');
+      setFormData({ name: '', email: '', company: '', website: '', service: '', message: '' });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert('There was an error sending your request. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
