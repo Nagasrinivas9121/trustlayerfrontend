@@ -29,7 +29,7 @@ export default function ServicesPage() {
             transition={{ delay: 0.1 }}
             className="text-xl text-slate-300 max-w-3xl mx-auto"
           >
-            We identify, exploit, and help you remediate critical vulnerabilities before attackers do.
+            We help SaaS, AI & FinTech startups identify and fix security vulnerabilities before launch using VAPT & OWASP-based testing.
           </motion.p>
         </div>
       </section>

@@ -63,7 +63,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          We identify, exploit, and help you remediate critical vulnerabilities before attackers do.
+          We help SaaS, AI & FinTech startups identify and fix security vulnerabilities before launch using VAPT & OWASP-based testing.
         </motion.p>
 
         <motion.div 
