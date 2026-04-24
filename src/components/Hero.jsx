@@ -5,10 +5,8 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white">
       
-      {/* Dotted Background */}
+      {/* Background */}
       <div className="absolute inset-0 bg-dotted-pattern opacity-50"></div>
-      
-      {/* Background Gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
 
       {/* Floating Cards */}
@@ -43,70 +41,62 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-8"
         >
           <Shield size={16} />
           <span>VAPT & Penetration Testing Experts</span>
         </motion.div>
 
-        {/* Heading */}
+        {/* 🔥 Headline (IMPROVED) */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6"
         >
           Find critical security vulnerabilities
           <br />
-          <span className="gradient-text">before you launch</span>
+          <span className="gradient-text">
+            before attackers exploit them
+          </span>
         </motion.h1>
 
-        {/* Subtext */}
+        {/* 🔥 Subtext (IMPROVED) */}
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          We help SaaS & startups identify hidden security risks in APIs and applications before they become costly problems.
+          Get a free 15-minute security audit for your SaaS. We identify API flaws, authentication risks, and hidden vulnerabilities before they impact your users or revenue.
         </motion.p>
 
         {/* CTA */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col items-center gap-3"
         >
           <a 
             href="https://calendar.app.google/RyeMVZDQRiCvGpsT9"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary w-full sm:w-auto text-lg px-8 py-4"
+            className="btn-primary text-lg px-8 py-4 shadow-lg hover:scale-105 transition-transform"
           >
             Get Free Security Audit (15 mins)
           </a>
+
+          {/* 🔥 Micro trust + urgency */}
+          <p className="text-sm text-slate-500 font-medium">
+            ⚡ Limited slots this week • No commitment
+          </p>
         </motion.div>
 
-        {/* Urgency */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-3 text-sm text-slate-500"
-        >
-          Limited slots available this week
-        </motion.p>
-
-        {/* Trust line */}
+        {/* 🔥 Extra trust */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-6 text-sm text-slate-500 font-medium"
         >
-          Trusted cybersecurity partner for startups & enterprises.
+          Trusted by early-stage startups & growing SaaS teams
         </motion.div>
 
       </div>

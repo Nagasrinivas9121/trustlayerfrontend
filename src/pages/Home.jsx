@@ -6,6 +6,9 @@ import Process from '../components/Process';
 import Industries from '../components/Industries';
 import CTA from '../components/CTA';
 import ContactForm from '../components/ContactForm';
+import AuditBenefits from '../components/AuditBenefits';
+import CaseStudy from '../components/CaseStudy';
+
 
 export default function Home() {
   return (
@@ -16,6 +19,8 @@ export default function Home() {
         keywords="VAPT services India, penetration testing company India, cybersecurity services India, web application security testing, API penetration testing services, cloud security assessment"
       />
       <Hero />
+      <AuditBenefits />
+      <CaseStudy />
       <Services />
       <WhyChooseUs />
       <Process />
