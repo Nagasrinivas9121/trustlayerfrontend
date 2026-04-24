@@ -24,7 +24,7 @@ export default function CaseStudy() {
 
         {/* Subtext */}
         <p className="text-slate-600 mb-12 max-w-2xl mx-auto">
-          Example findings from a recent SaaS security review (details anonymized).
+          Findings from a recent SaaS security review (details anonymized).
         </p>
 
         {/* Card */}
