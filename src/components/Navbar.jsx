@@ -8,6 +8,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const BOOKING_LINK = "https://calendar.app.google/RyeMVZDQRiCvGpsT9";
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -21,7 +23,6 @@ export default function Navbar() {
     { name: 'Process', path: '/#process' },
     { name: 'Industries', path: '/#industries' },
     { name: 'FAQs', path: '/#faqs' },
-    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -34,22 +35,22 @@ export default function Navbar() {
         }`}
       >
         <div className="flex justify-between items-center w-full">
+
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
-            <img src="/logo.jpeg" alt="TrustLayer Labs Logo" className="w-10 h-10 object-contain rounded-full shadow-sm group-hover:scale-105 transition-transform" />
-            <span className="font-heading font-bold text-xl text-slate-900 tracking-tight">
+            <img src="/logo.jpeg" alt="TrustLayer Labs Logo" className="w-10 h-10 rounded-full shadow-sm group-hover:scale-105 transition-transform" />
+            <span className="font-bold text-xl text-slate-900">
               TrustLayer <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-400">Labs</span>
             </span>
           </Link>
 
-          {/* Center Desktop Menu */}
-          <div className="hidden md:flex items-center justify-center space-x-8">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
-                href={link.path.startsWith('/#') ? link.path : undefined}
-                onClick={link.path.startsWith('/#') ? undefined : (e) => { e.preventDefault(); window.location.href = link.path; }}
-                className={`text-sm font-medium transition-all hover:text-blue-600 ${
+                href={link.path}
+                className={`text-sm font-medium transition hover:text-blue-600 ${
                   location.pathname === link.path ? 'text-blue-600' : 'text-slate-600'
                 }`}
               >
@@ -58,21 +59,23 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Right CTA Button */}
-          <div className="hidden md:flex items-center shrink-0">
-            <Link
-              to="/contact"
+          {/* CTA */}
+          <div className="hidden md:flex items-center">
+            <a
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary text-sm shadow-md"
             >
-              Book a Call
-            </Link>
+              Free Security Check
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-full"
+              className="p-2 text-slate-600"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -80,34 +83,36 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-24 left-4 right-4 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden md:hidden p-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-24 left-4 right-4 bg-white rounded-2xl shadow-xl p-4 md:hidden"
           >
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors"
+                  className="px-4 py-3 rounded-lg text-slate-700 hover:bg-slate-50"
                 >
                   {link.name}
                 </a>
               ))}
-              <Link
-                to="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center mt-4 btn-primary"
+
+              {/* Mobile CTA */}
+              <a
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 text-center btn-primary"
               >
-                Book a Call
-              </Link>
+                Free Security Check
+              </a>
             </div>
           </motion.div>
         )}

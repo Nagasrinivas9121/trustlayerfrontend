@@ -25,7 +25,7 @@ export default function Home() {
       
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/918822402811" 
+        href="https://wa.me/918822402811?text=Hi%20I%20want%20a%20free%2015-min%20security%20audit"
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 hover:scale-110 shadow-lg text-white p-4 rounded-full z-50 flex items-center justify-center transition-all duration-300"
