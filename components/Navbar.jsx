@@ -30,9 +30,14 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-[1100px] mx-auto px-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 group">
-          <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-            <Shield className="w-6 h-6 text-white" />
+        <Link href="/" className="flex items-center space-x-3 group">
+          <div className="relative w-10 h-10 overflow-hidden rounded-xl">
+            <Image
+              src="/logo.jpeg"
+              alt="TrustLayer Labs Logo"
+              fill
+              className="object-cover group-hover:scale-110 transition-transform"
+            />
           </div>
           <div className="flex flex-col">
             <span className="text-lg font-black text-slate-900 tracking-tight leading-none uppercase">TrustLayer</span>
