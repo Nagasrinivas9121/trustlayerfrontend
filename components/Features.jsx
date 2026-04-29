@@ -24,7 +24,7 @@ const features = [
   },
   {
     title: "Fast turnaround (24–72 hrs)",
-    description: "Security shouldn't slow you down. Get your initial audit results in days, not weeks.",
+    description: "Security shouldn&apos;t slow you down. Get your initial audit results in days, not weeks.",
     icon: Timer,
     color: "bg-emerald-50 text-emerald-600"
   }

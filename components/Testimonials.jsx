@@ -49,7 +49,7 @@ export default function Testimonials() {
               <div>
                 <Quote className="w-10 h-10 text-blue-100 mb-6" />
                 <p className="text-slate-700 font-medium text-lg leading-relaxed mb-8 italic">
-                  "{t.quote}"
+                  &quot;{t.quote}&quot;
                 </p>
               </div>
               <div className="flex items-center space-x-4 pt-6 border-t border-slate-100">
