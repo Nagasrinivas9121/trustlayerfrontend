@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             <li>Request a Free Security Snapshot</li>
             <li>Submit a contact form</li>
             <li>Book a consultation call</li>
-          </li>
+          </ul>
           <p>This information may include your name, email address, company name, and website URL.</p>
         </section>
 
