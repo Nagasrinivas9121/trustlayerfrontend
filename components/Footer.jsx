@@ -1,74 +1,77 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Mail, Phone, MapPin, Shield, Globe, Lock } from "lucide-react";
+import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-white border-t border-slate-100 pt-20 pb-10 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
-      
-      <div className="max-w-[1100px] mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-          <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 mb-8 group">
-              <div className="w-10 h-10 relative rounded-lg overflow-hidden flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform bg-white">
-                <Image src="/logo.jpeg" alt="TrustLayer Labs Logo" fill className="object-contain" />
+    <footer className="bg-slate-50 pt-24 pb-12 border-t border-slate-100">
+      <div className="max-w-[1100px] mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center space-x-2 mb-8">
+              <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center">
+                <Shield className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold tracking-tight text-slate-900">
-                TrustLayer<span className="text-blue-600">Labs</span>
-              </span>
+              <span className="text-xl font-black text-slate-900 tracking-tight uppercase">TrustLayer</span>
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed mb-8">
-              Protecting the world&apos;s most innovative companies through expert-led security audits and manual penetration testing.
+            <p className="text-slate-500 font-medium leading-relaxed mb-8">
+              Professional penetration testing and VAPT services to secure your business against modern threats.
             </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Globe className="w-5 h-5" /></a>
-              <a href="https://www.linkedin.com/company/trustlayerlabs/" target="_blank" className="text-slate-400 hover:text-blue-600 transition-colors"><Shield className="w-5 h-5" /></a>
-              <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Lock className="w-5 h-5" /></a>
+            <div className="flex space-x-4">
+              {[Linkedin, Twitter, Github].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-200 transition-all">
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
-          
+
           <div>
-            <h3 className="text-slate-900 font-bold text-sm mb-6 uppercase tracking-widest">Services</h3>
+            <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-8">Company</h4>
             <ul className="space-y-4">
-              <li><Link href="/web-application-penetration-testing" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Web App Security</Link></li>
-              <li><Link href="/api-security-testing" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">API VAPT</Link></li>
-              <li><Link href="/cloud-security-testing" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Cloud Security Audit</Link></li>
-              <li><Link href="/owasp-top-10-testing" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">OWASP Top 10 Testing</Link></li>
+              <li><Link href="/about" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">About Us</Link></li>
+              <li><Link href="/services" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">VAPT Services</Link></li>
+              <li><Link href="/contact" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Contact</Link></li>
+              <li><Link href="/careers" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Careers</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-slate-900 font-bold text-sm mb-6 uppercase tracking-widest">Company</h3>
+            <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-8">Legal</h4>
             <ul className="space-y-4">
-              <li><Link href="/about" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">About Us</Link></li>
-              <li><Link href="/status" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">System Status</Link></li>
-              <li><Link href="/privacy-policy" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Privacy Policy</Link></li>
-              <li><Link href="/terms-and-conditions" className="text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium">Terms & Conditions</Link></li>
+              <li><Link href="/privacy" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/security-policy" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Security Policy</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-slate-900 font-bold text-sm mb-6 uppercase tracking-widest">Get in touch</h3>
-            <ul className="space-y-6">
-              <li className="flex items-center space-x-3 group">
-                <div className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center group-hover:bg-blue-50 transition-colors">
-                  <Mail className="w-5 h-5 text-slate-400 group-hover:text-blue-600" />
-                </div>
-                <span className="text-slate-600 font-medium text-sm">security@trustlayerlabs.co.in</span>
+            <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-8">Contact</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center text-slate-500 font-medium">
+                <Mail className="w-4 h-4 mr-3 text-slate-400" />
+                security@trustlayerlabs.co.in
               </li>
-
+              <li className="flex items-center text-slate-500 font-medium">
+                <Phone className="w-4 h-4 mr-3 text-slate-400" />
+                +91 91215 54064
+              </li>
+              <li className="flex items-start text-slate-500 font-medium">
+                <MapPin className="w-4 h-4 mr-3 mt-1 text-slate-400" />
+                Cyber Hub, Phase 2<br />Gurugram, India
+              </li>
             </ul>
           </div>
         </div>
-        
-        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-sm font-medium">
-            &copy; {new Date().getFullYear()} TrustLayer Labs. All rights reserved.
-          </p>
-          <div className="flex items-center space-x-2 text-slate-600 text-xs font-bold">
-            <Shield className="w-4 h-4 text-green-500" />
-            <span>Secure Enterprise Infrastructure</span>
+
+        <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm font-bold">
+          <p>© {currentYear} TrustLayer Labs. All rights reserved.</p>
+          <div className="flex items-center space-x-6 mt-4 md:mt-0">
+            <span className="flex items-center">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
+              All systems operational
+            </span>
           </div>
         </div>
       </div>

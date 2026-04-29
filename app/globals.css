@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --primary: 59, 130, 246; /* #3b82f6 */
-  --primary-indigo: 99, 102, 241; /* #6366f1 */
-  --bg-light: 248, 250, 252; /* #f8fafc */
+  --primary: 59, 130, 246;
+  --secondary: 99, 102, 241;
+  --bg-light: 255, 255, 255;
+  --text-dark: 15, 23, 42;
 }
 
 * {
@@ -14,68 +15,63 @@
 
 body {
   background-color: rgb(var(--bg-light));
-  color: #1e293b;
+  color: rgb(var(--text-dark));
   overflow-x: hidden;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Dotted Grid Background */
-.bg-dotted {
-  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-  background-size: 24px 24px;
+/* Premium Grid Pattern */
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.bg-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(210,100%,90%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,100%,90%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(240,100%,90%,1) 0, transparent 50%);
 }
 
 @layer components {
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent;
   }
 
-  .glass-pill {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
-  }
-
-  .soft-card {
-    @apply bg-white border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] rounded-2xl;
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.04)];
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all active:scale-95;
+    @apply px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl shadow-xl shadow-slate-900/10 hover:bg-blue-600 hover:shadow-blue-500/20 hover:-translate-y-1 transition-all active:scale-95;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all active:scale-95;
+    @apply px-8 py-4 bg-white text-slate-700 border border-slate-200 font-bold rounded-2xl hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-95;
+  }
+
+  .badge-trust {
+    @apply inline-flex items-center space-x-2 px-4 py-1.5 bg-slate-100/50 border border-slate-200/50 rounded-full text-xs font-bold text-slate-600 uppercase tracking-widest;
   }
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: 3s;
+  animation: float 8s ease-in-out infinite;
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #e2e8f0;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
   background: #cbd5e1;
+  border-radius: 10px;
 }
