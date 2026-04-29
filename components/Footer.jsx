@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Shield, Globe, Lock } from "lucide-react";
 
 export default function Footer() {
@@ -11,14 +12,14 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center space-x-2 mb-8 group">
               <div className="w-10 h-10 relative rounded-lg overflow-hidden flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform bg-white">
-                <img src="/logo.jpeg" alt="TrustLayer Labs Logo" className="w-full h-full object-contain" />
+                <Image src="/logo.jpeg" alt="TrustLayer Labs Logo" fill className="object-contain" />
               </div>
               <span className="text-xl font-bold tracking-tight text-slate-900">
                 TrustLayer<span className="text-blue-600">Labs</span>
               </span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed mb-8">
-              Protecting the world's most innovative companies through expert-led security audits and manual penetration testing.
+              Protecting the world&apos;s most innovative companies through expert-led security audits and manual penetration testing.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Globe className="w-5 h-5" /></a>

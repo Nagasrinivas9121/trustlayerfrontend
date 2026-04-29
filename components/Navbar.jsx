@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Shield, Menu, X, ArrowRight, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -39,7 +40,7 @@ export default function Navbar() {
           <div className="flex-1 flex items-center">
             <Link href="/" className="flex items-center space-x-2 group">
               <div className="w-10 h-10 relative rounded-lg overflow-hidden flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform bg-white">
-                <img src="/logo.jpeg" alt="TrustLayer Labs Logo" className="w-full h-full object-contain" />
+                <Image src="/logo.jpeg" alt="TrustLayer Labs Logo" fill className="object-contain" />
               </div>
               <span className="text-xl font-bold tracking-tight text-slate-900 hidden sm:block">
                 TrustLayer<span className="text-blue-600">Labs</span>

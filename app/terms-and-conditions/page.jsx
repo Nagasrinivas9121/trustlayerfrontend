@@ -17,7 +17,7 @@ export default function TermsOfService() {
 
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">2. Security Snapshot Tool</h2>
-          <p>Our \"Free Security Snapshot\" is an automated tool intended for educational and baseline testing purposes only. It does not constitute a full Vulnerability Assessment or Penetration Test (VAPT). We are not liable for any findings or lack thereof reported by the tool.</p>
+          <p>Our &quot;Free Security Snapshot&quot; is an automated tool intended for educational and baseline testing purposes only. It does not constitute a full Vulnerability Assessment or Penetration Test (VAPT). We are not liable for any findings or lack thereof reported by the tool.</p>
         </section>
 
         <section className="mb-10">

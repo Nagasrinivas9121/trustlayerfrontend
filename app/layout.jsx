@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsApp from "@/components/WhatsApp";
 import ExitPopup from "@/components/ExitPopup";
 import StickyCTA from "@/components/StickyCTA";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -81,20 +82,18 @@ export default function RootLayout({ children }) {
             })
           }}
         />
-        <script
-          async
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-51DXDHGGHS"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-51DXDHGGHS');
-            `,
-          }}
-        ></script>
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-51DXDHGGHS');
+          `}
+        </Script>
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

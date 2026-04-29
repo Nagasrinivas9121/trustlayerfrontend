@@ -39,7 +39,7 @@ export default function CTA() {
               transition={{ delay: 0.1 }}
               className="text-slate-400 text-xl leading-relaxed mb-10"
             >
-              Don't wait for a data breach to expose your vulnerabilities. Get a comprehensive snapshot of your security posture today.
+              Don&apos;t wait for a data breach to expose your vulnerabilities. Get a comprehensive snapshot of your security posture today.
             </motion.p>
 
             <motion.div 

@@ -39,7 +39,7 @@ export default function Testimonials() {
             Trusted by <span className="text-gradient">Industry Leaders</span>
           </h2>
           <p className="text-lg text-slate-500">
-            Don't just take our word for it. Here's what engineering leaders say about our VAPT services.
+            Don&apos;t just take our word for it. Here&apos;s what engineering leaders say about our VAPT services.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="text-slate-600 font-medium leading-relaxed mb-8 relative z-10">
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </p>
               <div className="flex items-center space-x-4 border-t border-slate-100 pt-6">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-black text-blue-700">

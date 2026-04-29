@@ -56,7 +56,7 @@ export default function ExitPopup() {
               <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <ShieldCheck className="w-8 h-8 text-blue-600" />
               </div>
-              <h2 className="text-3xl font-black text-slate-900 mb-4">Wait! Don't leave your app vulnerable.</h2>
+              <h2 className="text-3xl font-black text-slate-900 mb-4">Wait! Don&apos;t leave your app vulnerable.</h2>
               <p className="text-slate-500 mb-8 font-medium">
                 Get a free vulnerability snapshot of your domain in under 2 minutes. No credit card required.
               </p>
@@ -72,7 +72,7 @@ export default function ExitPopup() {
                 onClick={() => setShowPopup(false)}
                 className="mt-4 text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors"
               >
-                No thanks, I'll take the risk
+                No thanks, I&apos;ll take the risk
               </button>
             </div>
           </motion.div>

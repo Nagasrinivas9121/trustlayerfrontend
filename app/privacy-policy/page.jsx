@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
 
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Introduction</h2>
-          <p>TrustLayer Labs (\"we,\" \"us,\" or \"our\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website at trustlayerlabs.co.in.</p>
+          <p>TrustLayer Labs (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website at trustlayerlabs.co.in.</p>
         </section>
 
         <section className="mb-10">

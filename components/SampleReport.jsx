@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FileCheck, Download, CheckCircle, Shield } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SampleReport() {
   return (
@@ -22,7 +23,7 @@ export default function SampleReport() {
               Executive-Ready <br /><span className="text-gradient">Deliverables</span>
             </h2>
             <p className="text-lg text-slate-500 mb-8 leading-relaxed">
-              We don't just hand you an automated printout. Our final VAPT reports provide clear CVSS scoring, exact evidence, and developer-friendly remediation steps.
+              We don&apos;t just hand you an automated printout. Our final VAPT reports provide clear CVSS scoring, exact evidence, and developer-friendly remediation steps.
             </p>
             
             <ul className="space-y-4 mb-10">
@@ -64,7 +65,9 @@ export default function SampleReport() {
             <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 relative z-10 overflow-hidden group">
               <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-100">
                 <div className="flex items-center space-x-2">
-                  <img src="/logo.jpeg" alt="TrustLayer Labs Logo" className="w-8 h-8 rounded-md shadow-sm object-contain bg-slate-900" />
+                  <div className="w-8 h-8 relative rounded-md shadow-sm overflow-hidden bg-slate-900">
+                    <Image src="/logo.jpeg" alt="TrustLayer Labs Logo" fill className="object-contain" />
+                  </div>
                   <span className="font-black text-xl text-slate-900">TrustLayer<span className="text-blue-600">Labs</span></span>
                 </div>
                 <div className="text-right">
