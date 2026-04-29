@@ -9,8 +9,6 @@ const nextConfig = {
       },
     ],
   },
-  distDir: 'dist',
-  trailingSlash: false,
 };
 
 export default nextConfig;
