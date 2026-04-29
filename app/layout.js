@@ -13,6 +13,10 @@ export const metadata = {
   title: "VAPT Services in India | Penetration Testing Company - TrustLayer Labs",
   description: "TrustLayer Labs is a leading penetration testing company in India. We provide expert-led VAPT services, web application security, and cloud audits to secure your business.",
   keywords: "VAPT services India, penetration testing company India, web application security testing, api security testing, cybersecurity services india",
+  icons: {
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   verification: {
     google: [
       "O3NO3SF_l7xN6N9X0gzRJ84kqy7D2_I-dUrLxVRda5o",
