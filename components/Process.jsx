@@ -27,7 +27,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section id="process" className="py-24 bg-white overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">

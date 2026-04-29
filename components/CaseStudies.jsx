@@ -5,24 +5,31 @@ import { TrendingDown, TrendingUp, CheckCircle2 } from "lucide-react";
 
 const cases = [
   {
-    company: "Fintech Startup",
-    outcome: "Reduced critical vulnerabilities by 100% in 48 hours.",
-    before: 82,
-    after: 12,
-    benefit: "Passed external security audit for Series B funding."
+    company: "SaaS Startup",
+    outcome: "Fixed 12 critical vulnerabilities in 48 hours.",
+    before: 88,
+    after: 14,
+    benefit: "Achieved SOC2 readiness and secured enterprise contract."
   },
   {
-    company: "E-commerce Giant",
-    outcome: "Secured payment APIs against injection attacks.",
-    before: 64,
-    after: 8,
-    benefit: "Zero payment-related security incidents in 12 months."
+    company: "Fintech App",
+    outcome: "Secured payment APIs before major production launch.",
+    before: 76,
+    after: 9,
+    benefit: "Zero unauthorized API access reported since deployment."
+  },
+  {
+    company: "E-commerce Platform",
+    outcome: "Eliminated XSS & SQL Injection risks across 200+ endpoints.",
+    before: 62,
+    after: 5,
+    benefit: "Successfully protected customer data during peak sale season."
   }
 ];
 
 export default function CaseStudies() {
   return (
-    <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
+    <section id="cases" className="py-24 bg-slate-900 text-white overflow-hidden relative">
       <div className="absolute top-0 right-0 w-full h-full bg-grid opacity-10 pointer-events-none" />
       
       <div className="max-w-[1100px] mx-auto px-4 relative z-10">

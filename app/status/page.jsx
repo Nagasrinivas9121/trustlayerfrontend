@@ -43,7 +43,7 @@ export default function StatusPage() {
 
           <div className="mt-12 p-6 bg-blue-50 rounded-2xl border border-blue-100">
             <p className="text-sm text-blue-700 font-medium leading-relaxed">
-              We monitor our infrastructure 24/7 to ensure your security testing is never delayed. Last checked: {new Date().toLocaleString()}.
+              We monitor our infrastructure 24/7 to ensure your security testing is never delayed. Status is updated in real-time.
             </p>
           </div>
         </div>

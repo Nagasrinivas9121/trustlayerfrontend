@@ -1,12 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { blogPosts } from "@/lib/blogData";
 import { motion } from "framer-motion";
 import { Calendar, User, ArrowRight } from "lucide-react";
-
-export const metadata = {
-  title: "Cybersecurity Blog | TrustLayer Labs Insights",
-  description: "Stay updated with the latest in cybersecurity, VAPT methodologies, and web security best practices from TrustLayer Labs experts.",
-};
 
 export default function BlogListing() {
   return (

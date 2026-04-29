@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
+import { Shield, Mail, Phone, MapPin, Lock, Zap, Globe } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,7 +19,7 @@ export default function Footer() {
               Professional penetration testing and VAPT services to secure your business against modern threats.
             </p>
             <div className="flex space-x-4">
-              {[Linkedin, Twitter, Github].map((Icon, i) => (
+              {[Shield, Lock, Globe].map((Icon, i) => (
                 <a key={i} href="#" className="w-10 h-10 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-200 transition-all">
                   <Icon className="w-5 h-5" />
                 </a>
@@ -32,8 +32,8 @@ export default function Footer() {
             <ul className="space-y-4">
               <li><Link href="/about" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">About Us</Link></li>
               <li><Link href="/services" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">VAPT Services</Link></li>
-              <li><Link href="/contact" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Contact</Link></li>
-              <li><Link href="/careers" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Careers</Link></li>
+              <li><Link href="/#process" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Our Process</Link></li>
+              <li><Link href="/#cases" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Case Studies</Link></li>
             </ul>
           </div>
 
@@ -41,8 +41,8 @@ export default function Footer() {
             <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-8">Legal</h4>
             <ul className="space-y-4">
               <li><Link href="/privacy" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Terms of Service</Link></li>
-              <li><Link href="/security-policy" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Security Policy</Link></li>
+              <li><Link href="/terms-and-conditions" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/status" className="text-slate-500 font-medium hover:text-blue-600 transition-colors">System Status</Link></li>
             </ul>
           </div>
 

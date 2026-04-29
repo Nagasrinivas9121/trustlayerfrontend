@@ -56,7 +56,7 @@ export default function CTA() {
                 Talk to Expert <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
-                href="https://calendar.app.google/J2JjTsqSHMDWTNu4A" 
+                href="https://calendar.app.google/jnamj3gawxVunPJm9" 
                 target="_blank"
                 className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-2xl font-bold text-lg transition-all backdrop-blur-md flex items-center justify-center"
               >

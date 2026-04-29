@@ -5,6 +5,12 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import Script from "next/script";
 
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export async function generateMetadata({ params }) {
   const post = blogPosts.find((p) => p.slug === params.slug);
   if (!post) return { title: "Post Not Found" };

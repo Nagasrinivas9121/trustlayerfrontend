@@ -2,126 +2,139 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Shield, CheckCircle, Lock, BarChart3, Star } from "lucide-react";
-import Image from "next/image";
+import { Shield, ArrowRight, CheckCircle2, Zap, AlertCircle } from "lucide-react";
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
-  };
-
-  const badges = [
-    { name: "SOC2 Ready", icon: Shield },
-    { name: "ISO 27001 Aligned", icon: Lock },
-    { name: "OWASP Top 10 Coverage", icon: CheckCircle },
-  ];
-
   return (
-    <section className="relative pt-44 pb-32 overflow-hidden bg-grid">
-      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" />
+    <div className="relative pt-40 pb-20 overflow-hidden">
+      {/* Trust Badges */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="flex flex-wrap justify-center gap-4 mb-10"
+      >
+        {["SOC2 Ready", "ISO 27001 Aligned", "OWASP Top 10 Coverage"].map((badge, i) => (
+          <div key={i} className="flex items-center space-x-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-500 shadow-sm">
+             <Shield className="w-3 h-3 text-blue-600" />
+             <span>{badge}</span>
+          </div>
+        ))}
+      </motion.div>
+      {/* Subtle Dot Grid Background */}
+      <div className="absolute inset-0 bg-dot-grid opacity-[0.4] pointer-events-none" />
       
+      {/* Gradient Accents */}
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full" />
+      <div className="absolute top-1/2 -left-24 w-72 h-72 bg-purple-500/10 blur-[100px] rounded-full" />
+
       <div className="max-w-[1100px] mx-auto px-4 relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center text-center"
-        >
-          {/* Trust Badges */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 mb-10">
-            {badges.map((badge) => (
-              <div key={badge.name} className="badge-trust">
-                <badge.icon className="w-3 h-3 mr-2 text-blue-600" />
-                <span>{badge.name}</span>
-              </div>
-            ))}
+        <div className="flex flex-col items-center text-center">
+          {/* Trust Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center space-x-2 px-4 py-2 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full shadow-sm mb-8"
+          >
+            <Shield className="w-4 h-4 text-blue-600" />
+            <span className="text-xs font-black text-slate-600 uppercase tracking-widest">Enterprise-Grade VAPT</span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-[80px] font-black tracking-tight text-slate-900 mb-8 leading-[0.95] max-w-[900px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight leading-[1.1] max-w-[900px]"
           >
-            Fix Critical Security <br />
-            <span className="text-gradient">Vulnerabilities</span> Before <br />
-            Hackers Find Them
+            Fix Critical Security Vulnerabilities <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+              Before Hackers Exploit Them
+            </span>
           </motion.h1>
-
+          
           {/* Subheadline */}
           <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-slate-500 mb-12 max-w-[700px] leading-relaxed font-medium"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl text-slate-500 mb-12 max-w-[800px] font-medium leading-relaxed"
           >
             Manual penetration testing + real attack simulation. <br className="hidden md:block" />
-            Trusted by startups & growing companies to secure their future.
+            We uncover vulnerabilities automated tools miss — before they become breaches.
           </motion.p>
-
+          
           {/* CTAs */}
           <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-20 w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8"
           >
-            <Link href="#scan" className="btn-primary flex items-center group">
+            <Link href="#scan" className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl hover:bg-slate-800 hover:-translate-y-1 transition-all shadow-xl shadow-slate-900/20 flex items-center group">
               Run Free Security Scan <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/contact" className="btn-secondary">
-              Talk to a Security Expert
+            <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="px-10 py-5 bg-white text-slate-900 border border-slate-200 font-black rounded-2xl hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm">
+              Book a Security Audit Call
             </Link>
           </motion.div>
+          
+          {/* Safety Line */}
+          <motion.div
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             transition={{ delay: 0.4 }}
+             className="flex items-center space-x-2 text-slate-400 font-bold text-sm mb-16 uppercase tracking-widest"
+          >
+            <span>🔒 Safe read-only scan</span>
+            <span className="opacity-30">•</span>
+            <span>No downtime</span>
+            <span className="opacity-30">•</span>
+            <span>No sensitive data stored</span>
+          </motion.div>
+          
+          {/* Real Proof Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl"
+          >
+            {[
+              { label: "100+ vulnerabilities identified across client systems", icon: Zap, color: "text-amber-500" },
+              { label: "0 breaches after remediation", icon: CheckCircle2, color: "text-green-500" },
+              { label: "Reports delivered in 24–48 hours", icon: ArrowRight, color: "text-blue-500" },
+            ].map((stat, i) => (
+              <div key={i} className="flex items-center space-x-4 p-6 bg-white border border-slate-100 rounded-3xl shadow-sm text-left">
+                <div className={`w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0`}>
+                  <stat.icon className={`w-5 h-5 ${stat.color}`} />
+                </div>
+                <span className="text-sm font-bold text-slate-600 leading-tight">
+                  <span className="text-blue-600 mr-1">✔</span> {stat.label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
 
-          {/* Proof Metrics */}
-          <motion.div 
-            variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 py-12 border-y border-slate-100 w-full"
+          {/* Trust Badges */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="mt-20 flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all"
           >
             <div className="flex flex-col items-center">
-              <span className="text-4xl font-black text-slate-900 mb-2">100+</span>
-              <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Vulnerabilities Discovered</span>
+              <span className="text-lg font-black text-slate-900 tracking-tighter">SOC2 Ready</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-4xl font-black text-slate-900 mb-2">0</span>
-              <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Breaches After Remediation</span>
+              <span className="text-lg font-black text-slate-900 tracking-tighter">ISO 27001 Aligned</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-lg font-black text-slate-900 tracking-tighter">OWASP Top 10</span>
             </div>
           </motion.div>
-
-          {/* Social Proof */}
-          <motion.div variants={itemVariants} className="mt-16 flex flex-col items-center space-y-4">
-            <div className="flex -space-x-3">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-100 overflow-hidden shadow-sm relative">
-                  <Image
-                    src={`https://i.pravatar.cc/100?u=trust${i}`}
-                    alt="Customer"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="flex">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <span className="text-sm font-bold text-slate-700">Trusted by 100+ Security Teams</span>
-            </div>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-[20%] left-[-5%] w-72 h-72 bg-blue-400/10 rounded-full blur-[100px] animate-pulse" />
-      <div className="absolute bottom-[10%] right-[-5%] w-96 h-96 bg-purple-400/10 rounded-full blur-[120px] animate-pulse" />
-    </section>
+    </div>
   );
 }

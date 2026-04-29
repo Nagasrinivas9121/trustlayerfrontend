@@ -8,8 +8,8 @@ import Image from "next/image";
 
 const navLinks = [
   { name: "Services", href: "/services" },
-  { name: "Process", href: "#process" },
-  { name: "Case Studies", href: "#cases" },
+  { name: "Process", href: "/#process" },
+  { name: "Case Studies", href: "/#cases" },
   { name: "About", href: "/about" },
 ];
 
@@ -26,10 +26,18 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-4 bg-white/80 backdrop-blur-md border-b border-slate-200" : "py-6 bg-transparent"
+        scrolled ? "bg-white/80 backdrop-blur-md border-b border-slate-200" : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1100px] mx-auto px-4 flex items-center justify-between">
+      {/* Urgency Bar */}
+      <div className="bg-blue-600 text-white py-2.5">
+        <div className="max-w-[1100px] mx-auto px-4 flex items-center justify-center space-x-2 text-[10px] md:text-xs font-black uppercase tracking-[0.2em]">
+          <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+          <span>Only 3 audit slots available this week — book before Friday</span>
+        </div>
+      </div>
+
+      <div className={`max-w-[1100px] mx-auto px-4 flex items-center justify-between transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}>
         <Link href="/" className="flex items-center space-x-3 group">
           <div className="relative w-10 h-10 overflow-hidden rounded-xl">
             <Image
@@ -40,8 +48,8 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-black text-slate-900 tracking-tight leading-none uppercase">TrustLayer</span>
-            <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1">Labs</span>
+            <span className="text-xl font-black text-slate-900 tracking-tighter leading-none uppercase">TrustLayer</span>
+            <span className="text-sm font-black text-blue-600 uppercase tracking-[0.2em] mt-0.5 ml-0.5">Labs</span>
           </div>
         </Link>
 
@@ -56,7 +64,7 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary py-2.5 px-6 text-sm flex items-center group">
+          <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="btn-primary py-2.5 px-6 text-sm flex items-center group">
             Book a Fix Call <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -87,7 +95,7 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link href="/contact" className="btn-primary block text-center py-4">
+              <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="btn-primary block text-center py-4">
                 Book a Fix Call
               </Link>
             </div>

@@ -10,7 +10,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "VAPT Services in India | Penetration Testing Company - TrustLayer Labs",
+  title: "TrustLayer Labs VAPT Services in India | Penetration Testing Company",
   description: "TrustLayer Labs is a leading penetration testing company in India. We provide expert-led VAPT services, web application security, and cloud audits to secure your business.",
   keywords: "VAPT services India, penetration testing company India, web application security testing, api security testing, cybersecurity services india",
   icons: {

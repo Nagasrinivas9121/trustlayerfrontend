@@ -9,7 +9,7 @@ export default function PrivacyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-slate-900 mb-8">Privacy Policy</h1>
         <div className="prose prose-slate max-w-none text-slate-600">
-          <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>
+          <p className="mb-4">Last updated: April 29, 2026</p>
           <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">1. Information We Collect</h2>
           <p className="mb-4">We collect information that you provide directly to us when you request a consultation, use our contact form, or communicate with us about our services. This may include your name, email address, phone number, and company details.</p>
           
