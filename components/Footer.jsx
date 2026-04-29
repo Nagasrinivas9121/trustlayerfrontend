@@ -55,7 +55,6 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-slate-500 font-medium">
                 <Phone className="w-4 h-4 mr-3 text-slate-400" />
-                +91 91215 54064
               </li>
               <li className="flex items-start text-slate-500 font-medium">
                 <MapPin className="w-4 h-4 mr-3 mt-1 text-slate-400" />
