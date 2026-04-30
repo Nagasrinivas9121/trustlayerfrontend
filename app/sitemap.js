@@ -8,6 +8,7 @@ export default function sitemap() {
     "",
     "/services",
     "/vapt-services",
+    "/vapt-services-india",
     "/web-application-penetration-testing",
     "/api-security-testing",
     "/cloud-security-testing",

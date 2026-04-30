@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Shield, Mail, Phone, MapPin, Lock, Zap, Globe } from "lucide-react";
 
 export default function Footer() {
@@ -9,11 +10,19 @@ export default function Footer() {
       <div className="max-w-[1100px] mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 mb-8">
-              <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
+            <Link href="/" className="flex items-center space-x-3 group mb-8">
+              <div className="relative w-10 h-10 overflow-hidden rounded-xl">
+                <Image
+                  src="/logo.jpeg"
+                  alt="TrustLayer Labs Logo"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform"
+                />
               </div>
-              <span className="text-xl font-black text-slate-900 tracking-tight uppercase">TrustLayer</span>
+              <div className="flex flex-col">
+                <span className="text-xl font-black text-slate-900 tracking-tighter leading-none uppercase">TrustLayer</span>
+                <span className="text-sm font-black text-blue-600 uppercase tracking-[0.2em] mt-0.5 ml-0.5">Labs</span>
+              </div>
             </Link>
             <p className="text-slate-500 font-medium leading-relaxed mb-8">
               Professional penetration testing and VAPT services to secure your business against modern threats.
@@ -53,9 +62,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 mr-3 text-slate-400" />
                 security@trustlayerlabs.co.in
               </li>
-              <li className="flex items-center text-slate-500 font-medium">
-                <Phone className="w-4 h-4 mr-3 text-slate-400" />
-              </li>
+
               <li className="flex items-start text-slate-500 font-medium">
                 <MapPin className="w-4 h-4 mr-3 mt-1 text-slate-400" />
                 Cyber Hub, Phase 2<br />Gurugram, India
