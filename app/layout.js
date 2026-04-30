@@ -2,12 +2,19 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsApp from "@/components/WhatsApp";
-import ExitPopup from "@/components/ExitPopup";
-import StickyCTA from "@/components/StickyCTA";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+// Dynamic imports for non-critical components
+const WhatsApp = dynamic(() => import("@/components/WhatsApp"), { ssr: false });
+const ExitPopup = dynamic(() => import("@/components/ExitPopup"), { ssr: false });
+const StickyCTA = dynamic(() => import("@/components/StickyCTA"), { ssr: false });
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: "swap", // Enable font-display: swap
+  preload: true,
+});
 
 export const metadata = {
   title: "TrustLayer Labs VAPT Services in India | Penetration Testing Company",
@@ -88,9 +95,9 @@ export default function RootLayout({ children }) {
         />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-51DXDHGGHS"
-          strategy="afterInteractive"
+          strategy="lazyOnload" // Optimized for third-party scripts
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

@@ -44,6 +44,8 @@ export default function Navbar() {
               src="/logo.jpeg"
               alt="TrustLayer Labs Logo"
               fill
+              priority // Load instantly as it's in the header
+              sizes="40px"
               className="object-cover group-hover:scale-110 transition-transform"
             />
           </div>

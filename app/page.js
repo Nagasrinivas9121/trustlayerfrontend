@@ -1,11 +1,16 @@
 import Hero from "@/components/Hero";
-import ScannerFlow from "@/components/ScannerFlow";
-import Features from "@/components/Features";
-import Process from "@/components/Process";
-import CaseStudies from "@/components/CaseStudies";
-import Testimonials from "@/components/Testimonials";
-import SeoSections from "@/components/SeoSections";
-import FinalCTA from "@/components/FinalCTA";
+import dynamic from "next/dynamic";
+
+// Below the fold components - Dynamic Import
+const Features = dynamic(() => import("@/components/Features"));
+const Process = dynamic(() => import("@/components/Process"));
+const ScannerFlow = dynamic(() => import("@/components/ScannerFlow"), {
+  loading: () => <div className="h-96 animate-pulse bg-slate-50" />
+});
+const CaseStudies = dynamic(() => import("@/components/CaseStudies"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const SeoSections = dynamic(() => import("@/components/SeoSections"));
+const FinalCTA = dynamic(() => import("@/components/FinalCTA"));
 
 export const metadata = {
   title: "TrustLayerLabs | VAPT Services in India | Penetration Testing Company",

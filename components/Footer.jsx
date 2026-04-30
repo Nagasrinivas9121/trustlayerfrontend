@@ -16,6 +16,7 @@ export default function Footer() {
                   src="/logo.jpeg"
                   alt="TrustLayer Labs Logo"
                   fill
+                  sizes="40px"
                   className="object-cover group-hover:scale-110 transition-transform"
                 />
               </div>
