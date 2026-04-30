@@ -5,15 +5,16 @@ import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 
-// Dynamic imports for non-critical components
+// Dynamic imports for non-critical components with extra optimization
 const WhatsApp = dynamic(() => import("@/components/WhatsApp"), { ssr: false });
 const ExitPopup = dynamic(() => import("@/components/ExitPopup"), { ssr: false });
 const StickyCTA = dynamic(() => import("@/components/StickyCTA"), { ssr: false });
 
 const inter = Inter({ 
   subsets: ["latin"],
-  display: "swap", // Enable font-display: swap
+  display: "swap",
   preload: true,
+  // Using a more specific subset if possible, but latin is standard
 });
 
 export const metadata = {
@@ -61,6 +62,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Preload critical assets if any, though Inter is handled by next/font */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={`${inter.className} min-h-screen flex flex-col bg-slate-50`}>
         <script
           type="application/ld+json"
@@ -93,9 +99,11 @@ export default function RootLayout({ children }) {
             })
           }}
         />
+        
+        {/* Scripts optimized for non-blocking execution */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-51DXDHGGHS"
-          strategy="lazyOnload" // Optimized for third-party scripts
+          strategy="lazyOnload"
         />
         <Script id="google-analytics" strategy="lazyOnload">
           {`
@@ -105,9 +113,12 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-51DXDHGGHS');
           `}
         </Script>
+
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        
+        {/* Interaction-based / Deferred components */}
         <WhatsApp />
         <ExitPopup />
         <StickyCTA />

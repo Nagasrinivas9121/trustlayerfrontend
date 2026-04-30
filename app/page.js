@@ -2,15 +2,30 @@ import Hero from "@/components/Hero";
 import dynamic from "next/dynamic";
 
 // Below the fold components - Dynamic Import
-const Features = dynamic(() => import("@/components/Features"));
-const Process = dynamic(() => import("@/components/Process"));
-const ScannerFlow = dynamic(() => import("@/components/ScannerFlow"), {
-  loading: () => <div className="h-96 animate-pulse bg-slate-50" />
+const Features = dynamic(() => import("@/components/Features"), {
+  loading: () => <div className="h-[600px] bg-slate-50 animate-pulse" />
 });
-const CaseStudies = dynamic(() => import("@/components/CaseStudies"));
-const Testimonials = dynamic(() => import("@/components/Testimonials"));
-const SeoSections = dynamic(() => import("@/components/SeoSections"));
-const FinalCTA = dynamic(() => import("@/components/FinalCTA"));
+const Process = dynamic(() => import("@/components/Process"), {
+  loading: () => <div className="h-[600px] bg-slate-50 animate-pulse" />
+});
+const ScannerFlow = dynamic(() => import("@/components/ScannerFlow"), {
+  ssr: false,
+  loading: () => <div className="h-[800px] bg-slate-50 animate-pulse" />
+});
+const CaseStudies = dynamic(() => import("@/components/CaseStudies"), { 
+  ssr: false,
+  loading: () => <div className="h-[600px] bg-slate-900 animate-pulse" />
+});
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { 
+  ssr: false,
+  loading: () => <div className="h-[500px] bg-white animate-pulse" />
+});
+const SeoSections = dynamic(() => import("@/components/SeoSections"), {
+  loading: () => <div className="h-[1000px] bg-slate-50 animate-pulse" />
+});
+const FinalCTA = dynamic(() => import("@/components/FinalCTA"), {
+  loading: () => <div className="h-[400px] bg-white animate-pulse" />
+});
 
 export const metadata = {
   title: "TrustLayerLabs | VAPT Services in India | Penetration Testing Company",

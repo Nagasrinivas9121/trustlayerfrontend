@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
@@ -8,12 +5,7 @@ export default function FinalCTA() {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-slate-900 rounded-[48px] p-12 md:p-24 text-center relative overflow-hidden"
-        >
+        <div className="bg-slate-900 rounded-[48px] p-12 md:p-24 text-center relative overflow-hidden">
           {/* Decorative mesh */}
           <div className="absolute inset-0 bg-mesh opacity-10 pointer-events-none" />
           
@@ -31,7 +23,7 @@ export default function FinalCTA() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-500 hover:-translate-y-1 transition-all shadow-xl shadow-blue-500/20 flex items-center group">
+              <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20 flex items-center group">
                 Book Free Consultation <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link href="#scan" className="px-10 py-5 bg-white/10 text-white border border-white/20 font-black rounded-2xl hover:bg-white/20 transition-all backdrop-blur-md">
@@ -43,7 +35,7 @@ export default function FinalCTA() {
               No credit card required • Secure manual testing available
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

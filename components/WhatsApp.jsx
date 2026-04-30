@@ -9,7 +9,7 @@ export default function WhatsApp() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 3000); // 3-second delay
+    }, 5000); // 5-second delay to prioritize LCP/TBT
     return () => clearTimeout(timer);
   }, []);
 

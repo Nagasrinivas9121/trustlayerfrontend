@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ShieldAlert, Fingerprint, FileSearch, Timer } from "lucide-react";
 
 const features = [
@@ -45,12 +42,8 @@ export default function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((f, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="bg-white p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-colors group shadow-sm"
             >
               <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${f.color}`}>
@@ -62,7 +55,7 @@ export default function Features() {
               <p className="text-slate-500 font-medium leading-relaxed">
                 {f.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

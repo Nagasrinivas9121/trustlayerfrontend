@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 const steps = [
@@ -43,12 +40,8 @@ export default function Process() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {steps.map((step, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="relative flex flex-col items-center lg:items-start text-center lg:text-left"
               >
                 <div className="w-16 h-16 bg-white border-4 border-slate-50 rounded-full flex items-center justify-center mb-8 shadow-lg">
@@ -58,7 +51,7 @@ export default function Process() {
                 <p className="text-slate-500 font-medium leading-relaxed">
                   {step.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
