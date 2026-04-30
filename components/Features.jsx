@@ -36,7 +36,7 @@ export default function Features() {
       <div className="max-w-[1100px] mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Why We Are India's Trusted <br className="hidden md:block" /> Penetration Testing Company
+            Why We Are India&apos;s Trusted <br className="hidden md:block" /> Penetration Testing Company
           </h2>
           <p className="text-lg text-slate-500 font-medium max-w-[800px] mx-auto">
             We provide deep VAPT services that keep your business safe from sophisticated attacks, ensuring compliance and building trust.
