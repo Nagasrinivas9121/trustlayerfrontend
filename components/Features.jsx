@@ -5,26 +5,26 @@ import { ShieldAlert, Fingerprint, FileSearch, Timer } from "lucide-react";
 
 const features = [
   {
-    title: "Manual testing (not just automated)",
-    description: "We find business logic flaws and complex exploits that automated scanners consistently miss.",
+    title: "Manual Exploitation First",
+    description: "Beyond the scanner. Automated tools miss 60% of critical business logic flaws. Our OSCP-certified hackers manually probe your web applications to find the chained vulnerabilities that scanners ignore.",
     icon: ShieldAlert,
     color: "bg-blue-50 text-blue-600"
   },
   {
-    title: "Real hacker mindset",
-    description: "Our experts simulate real-world attacks using the same tools and techniques as actual threat actors.",
+    title: "Deep API Security Testing",
+    description: "APIs are the #1 target for hackers. We specialize in rigorous REST and GraphQL penetration testing to secure your backend against BOLA and broken access control.",
     icon: Fingerprint,
     color: "bg-purple-50 text-purple-600"
   },
   {
-    title: "Business-focused reports",
-    description: "Clear, actionable remediation guides that prioritize risk based on your specific business impact.",
+    title: "Actionable, Developer-Friendly Reports",
+    description: "No fluff, just fixes. You receive a prioritized, CVSS-scored report with exact proof-of-concept (PoC) videos and clear remediation code for your developers to patch immediately.",
     icon: FileSearch,
     color: "bg-indigo-50 text-indigo-600"
   },
   {
-    title: "Fast turnaround (24–72 hrs)",
-    description: "Security shouldn&apos;t slow you down. Get your initial audit results in days, not weeks.",
+    title: "Rapid 24-48 Hour Turnaround",
+    description: "Security at the speed of Agile. Startups can't wait weeks for an audit. We deliver your initial critical findings within 48 hours, allowing you to secure your platform faster.",
     icon: Timer,
     color: "bg-emerald-50 text-emerald-600"
   }
@@ -32,14 +32,14 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-white border-t border-slate-100">
       <div className="max-w-[1100px] mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Why Choose Us
+            Why We Are India's Trusted <br className="hidden md:block" /> Penetration Testing Company
           </h2>
-          <p className="text-lg text-slate-500 font-medium max-w-[600px] mx-auto">
-            We provide deep security insights that keep your business safe from sophisticated attacks.
+          <p className="text-lg text-slate-500 font-medium max-w-[800px] mx-auto">
+            We provide deep VAPT services that keep your business safe from sophisticated attacks, ensuring compliance and building trust.
           </p>
         </div>
 

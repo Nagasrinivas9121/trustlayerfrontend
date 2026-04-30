@@ -47,9 +47,9 @@ export default function Hero() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight leading-[1.1] max-w-[900px]"
           >
-            Fix Critical Security Vulnerabilities <br />
+            Enterprise-Grade VAPT Services <br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              Before Hackers Exploit Them
+              in India
             </span>
           </motion.h1>
           
@@ -58,10 +58,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-slate-500 mb-12 max-w-[800px] font-medium leading-relaxed"
+            className="text-xl md:text-2xl text-slate-500 mb-12 max-w-[900px] font-medium leading-relaxed"
           >
-            Manual penetration testing + real attack simulation. <br className="hidden md:block" />
-            We uncover vulnerabilities automated tools miss — before they become breaches.
+            Go beyond automated scanners. We are a premier <strong className="text-slate-700">penetration testing company in India</strong> specializing in deep, manual security testing. From <strong className="text-slate-700">web application security</strong> to complex <strong className="text-slate-700">API security testing</strong>, our ethical hackers identify critical flaws before attackers do.
           </motion.p>
           
           {/* CTAs */}
@@ -121,16 +120,19 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="mt-20 flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all"
+            className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full max-w-5xl"
           >
-            <div className="flex flex-col items-center">
-              <span className="text-lg font-black text-slate-900 tracking-tighter">SOC2 Ready</span>
+            <div className="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+              <span className="text-xl font-black text-slate-900 tracking-tighter mb-2">SOC2 Ready</span>
+              <p className="text-sm text-slate-500">Validated penetration testing reports that map directly to SOC2 compliance requirements.</p>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg font-black text-slate-900 tracking-tighter">ISO 27001 Aligned</span>
+            <div className="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+              <span className="text-xl font-black text-slate-900 tracking-tighter mb-2">ISO 27001</span>
+              <p className="text-sm text-slate-500">Adherence to international security management standards for maximum data protection.</p>
             </div>
-            <div className="flex flex-col items-center">
-              <span className="text-lg font-black text-slate-900 tracking-tighter">OWASP Top 10</span>
+            <div className="flex flex-col items-center p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+              <span className="text-xl font-black text-slate-900 tracking-tighter mb-2">OWASP Top 10</span>
+              <p className="text-sm text-slate-500">Comprehensive coverage against the most critical web and API security risks in 2026.</p>
             </div>
           </motion.div>
         </div>

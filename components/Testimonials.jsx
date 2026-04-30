@@ -3,25 +3,26 @@
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const testimonials = [
   {
-    quote: "Found critical bugs our scanners missed. The manual testing approach is a game-changer for our security posture.",
-    author: "Sarah Chen",
-    role: "CTO at Fintech Startup",
-    image: "https://i.pravatar.cc/100?u=sarah"
+    quote: "TrustLayer Labs didn't just run a Nessus scan; their manual API security testing found two critical logic flaws that our previous vendor completely missed. Their 48-hour turnaround is unmatched in India.",
+    author: "Rahul S.",
+    role: "CTO, Series B Fintech",
+    image: "https://i.pravatar.cc/100?img=11"
   },
   {
-    quote: "Helped us pass our SOC2 audit with flying colors. Their remediation guide was clear, actionable, and extremely professional.",
-    author: "Marcus Thorne",
-    role: "Head of Engineering",
-    image: "https://i.pravatar.cc/100?u=marcus"
+    quote: "The remediation report was exactly what our developers needed. Clear, concise, and actionable. They are our go-to penetration testing company for all future compliance audits.",
+    author: "Priya M.",
+    role: "VP of Engineering, HealthTech",
+    image: "https://i.pravatar.cc/100?img=47"
   },
   {
-    quote: "Saved us from a major breach by identifying an exposed API endpoint we didn't even know existed. Highly recommended.",
-    author: "Elena Rodriguez",
-    role: "Security Director",
-    image: "https://i.pravatar.cc/100?u=elena"
+    quote: "We required a rigorous VAPT service before launching our new AWS infrastructure. Their deep cloud security audit safely identified misconfigurations that saved us from massive data exposure.",
+    author: "Vikram K.",
+    role: "CISO, Enterprise E-commerce",
+    image: "https://i.pravatar.cc/100?img=33"
   }
 ];
 
@@ -63,6 +64,12 @@ export default function Testimonials() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center mt-20">
+          <Link href="/#scan" className="btn-primary inline-flex items-center">
+            Run Free Security Scan
+          </Link>
         </div>
       </div>
     </section>

@@ -88,11 +88,18 @@ export default function ScannerFlow() {
       <div className="max-w-[1100px] mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Run a Free Security Snapshot
+            See What Hackers See. Instantly.
           </h2>
-          <p className="text-lg text-slate-500 max-w-[600px] mx-auto font-medium">
-            Safe read-only scan • No downtime • No sensitive data stored
+          <p className="text-lg text-slate-500 max-w-[800px] mx-auto font-medium mb-6">
+            Our advanced reconnaissance scanner performs a high-speed, non-intrusive audit of your external attack surface. We check for <strong className="text-slate-700">SSL/TLS misconfigurations</strong>, <strong className="text-slate-700">missing security headers</strong>, <strong className="text-slate-700">exposed subdomains</strong>, and <strong className="text-slate-700">open API endpoints</strong>.
           </p>
+          <div className="flex items-center justify-center space-x-6 text-sm font-bold text-slate-400 uppercase tracking-widest">
+            <span>🔒 Safe read-only scan</span>
+            <span className="opacity-30">•</span>
+            <span>No downtime</span>
+            <span className="opacity-30">•</span>
+            <span>No sensitive data stored</span>
+          </div>
         </div>
 
         <div className="glass-card rounded-[32px] p-2 md:p-12 max-w-4xl mx-auto overflow-hidden">

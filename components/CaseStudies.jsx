@@ -1,29 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { TrendingDown, TrendingUp, CheckCircle2 } from "lucide-react";
 
 const cases = [
   {
-    company: "SaaS Startup",
-    outcome: "Fixed 12 critical vulnerabilities in 48 hours.",
+    company: "Fintech Platform",
+    outcome: "The Challenge: A fast-growing payment gateway needed rigorous API security testing before a major SOC2 audit. They suspected authorization flaws.",
     before: 88,
     after: 14,
-    benefit: "Achieved SOC2 readiness and secured enterprise contract."
+    benefit: "The Finding: Discovered a BOLA flaw allowing cross-user transaction access. Outcome: Patched in 12 hours. Zero data leaked. SOC2 achieved."
   },
   {
-    company: "Fintech App",
-    outcome: "Secured payment APIs before major production launch.",
+    company: "HealthTech SaaS",
+    outcome: "The Challenge: A B2B healthcare platform relied on complex role-based access control to protect sensitive Patient Health Information (PHI).",
     before: 76,
     after: 9,
-    benefit: "Zero unauthorized API access reported since deployment."
+    benefit: "The Finding: Manual testing revealed a hidden logic flaw escalating standard users to Admin. Outcome: Remediated instantly, securing 50k+ patients."
   },
   {
-    company: "E-commerce Platform",
-    outcome: "Eliminated XSS & SQL Injection risks across 200+ endpoints.",
+    company: "E-commerce Enterprise",
+    outcome: "The Challenge: High-volume platform preparing for the peak holiday season, facing constant automated bot attacks and credential stuffing.",
     before: 62,
     after: 5,
-    benefit: "Successfully protected customer data during peak sale season."
+    benefit: "The Finding: Found chained XSS and SQL Injection risks. Outcome: 200+ endpoints secured. 0 breaches during peak season."
   }
 ];
 
@@ -85,6 +86,12 @@ export default function CaseStudies() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center mt-20">
+          <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="btn-primary inline-flex items-center">
+            Book a Security Audit Call
+          </Link>
         </div>
       </div>
     </section>

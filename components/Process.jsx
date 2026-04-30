@@ -1,39 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const steps = [
   {
     number: "01",
-    title: "Scan",
-    description: "Automated discovery and mapping of your entire attack surface."
+    title: "Scoping & Recon",
+    description: "We define the rules of engagement and use advanced OSINT to map your external attack surface, identifying forgotten APIs and subdomains."
   },
   {
     number: "02",
-    title: "Exploit",
-    description: "Manual penetration testing to confirm and exploit vulnerabilities."
+    title: "Vulnerability Discovery",
+    description: "Combining premium automated vulnerability assessment tools with intense manual probing to identify potential entry points in your web apps and cloud infrastructure."
   },
   {
     number: "03",
-    title: "Report",
-    description: "Detailed findings with clear evidence and remediation guides."
+    title: "Safe Exploitation",
+    description: "Our ethical hackers safely exploit the findings to prove real-world impact (e.g., bypassing authentication) without disrupting your production systems."
   },
   {
     number: "04",
-    title: "Fix & Retest",
-    description: "We work with your team to fix bugs and re-verify your security."
+    title: "Reporting & Retest",
+    description: "You receive a comprehensive remediation roadmap. Once your team applies the patches, we perform a free retest to verify the vulnerabilities are fully resolved."
   }
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="py-24 bg-white overflow-hidden">
+    <section id="process" className="py-24 bg-slate-50 overflow-hidden border-t border-slate-100">
       <div className="max-w-[1100px] mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-            Our Security Process
+            Our VAPT Methodology: <br className="hidden md:block"/> Proven, Safe, and Deep
           </h2>
-          <p className="text-lg text-slate-500 font-medium">A systematic approach to hardening your defenses.</p>
+          <p className="text-lg text-slate-500 font-medium">A systematic, industry-standard approach to hardening your defenses.</p>
         </div>
 
         <div className="relative">
@@ -60,6 +61,12 @@ export default function Process() {
               </motion.div>
             ))}
           </div>
+        </div>
+
+        <div className="text-center mt-20">
+          <Link href="/#scan" className="btn-primary inline-flex items-center">
+            Run Free Security Scan
+          </Link>
         </div>
       </div>
     </section>
