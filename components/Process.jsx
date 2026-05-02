@@ -57,8 +57,8 @@ export default function Process() {
         </div>
 
         <div className="text-center mt-20">
-          <Link href="/#scan" className="btn-primary inline-flex items-center">
-            Run Free Security Scan
+          <Link href="/contact" className="btn-primary inline-flex items-center">
+            Talk to Expert
           </Link>
         </div>
       </div>

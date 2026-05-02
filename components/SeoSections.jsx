@@ -85,8 +85,8 @@ export default function SeoSections() {
             <p className="text-slate-600 mb-8">
               For modern startups and enterprises in India, regular VAPT services are critical to prevent data breaches, protect customer trust, and meet rigorous compliance standards like SOC2 and ISO 27001.
             </p>
-            <Link href="/#scan" className="btn-primary inline-flex items-center">
-              Run Free Security Scan <ArrowRight className="w-4 h-4 ml-2" />
+            <Link href="/contact" className="btn-primary inline-flex items-center">
+              Talk to Expert <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
           <div className="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
@@ -141,8 +141,8 @@ export default function SeoSections() {
               <div className="lg:col-span-1">
                 <h2 className="text-3xl md:text-4xl font-black mb-6">Specialized Security for High-Risk Sectors</h2>
                 <p className="text-slate-400 mb-8">We understand the unique regulatory and technical challenges of different industries in India and globally.</p>
-                <Link href="/#scan" className="btn-primary border-none shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)]">
-                  Run Free Security Scan
+                <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="btn-primary border-none shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)]">
+                  Book Consultation
                 </Link>
               </div>
               <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">

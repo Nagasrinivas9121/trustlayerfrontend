@@ -71,10 +71,6 @@ export default function VaptServicesIndia() {
         answer: "Absolutely. Automated tools cannot understand business logic, privilege escalation paths, or chained exploits."
       }
     ],
-    cta: {
-      primary: "Run Free Security Scan",
-      secondary: "Book Consultation"
-    }
   };
 
   return <ServiceLayout {...content} />;

@@ -26,9 +26,6 @@ export default function FinalCTA() {
               <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="px-10 py-5 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/20 flex items-center group">
                 Book Free Consultation <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="#scan" className="px-10 py-5 bg-white/10 text-white border border-white/20 font-black rounded-2xl hover:bg-white/20 transition-all backdrop-blur-md">
-                Run Instant Snapshot
-              </Link>
             </div>
             
             <p className="mt-12 text-sm text-slate-500 font-bold uppercase tracking-widest">

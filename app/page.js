@@ -1,16 +1,11 @@
 import Hero from "@/components/Hero";
 import dynamic from "next/dynamic";
 
-// Below the fold components - Dynamic Import
 const Features = dynamic(() => import("@/components/Features"), {
   loading: () => <div className="h-[600px] bg-slate-50 animate-pulse" />
 });
 const Process = dynamic(() => import("@/components/Process"), {
   loading: () => <div className="h-[600px] bg-slate-50 animate-pulse" />
-});
-const ScannerFlow = dynamic(() => import("@/components/ScannerFlow"), {
-  ssr: false,
-  loading: () => <div className="h-[800px] bg-slate-50 animate-pulse" />
 });
 const CaseStudies = dynamic(() => import("@/components/CaseStudies"), { 
   ssr: false,
@@ -37,7 +32,6 @@ export default function Home() {
   return (
     <div className="bg-white">
       <Hero />
-      <ScannerFlow />
       <Features />
       <Process />
       <CaseStudies />

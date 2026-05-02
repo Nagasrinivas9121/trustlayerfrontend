@@ -73,8 +73,8 @@ export default function Testimonials() {
         </div>
 
         <div className="text-center mt-20">
-          <Link href="/#scan" className="btn-primary inline-flex items-center">
-            Run Free Security Scan
+          <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="btn-primary inline-flex items-center">
+            Book Your Security Audit
           </Link>
         </div>
       </div>

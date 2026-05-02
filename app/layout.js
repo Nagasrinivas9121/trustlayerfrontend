@@ -7,8 +7,6 @@ import Script from "next/script";
 
 // Dynamic imports for non-critical components with extra optimization
 const WhatsApp = dynamic(() => import("@/components/WhatsApp"), { ssr: false });
-const ExitPopup = dynamic(() => import("@/components/ExitPopup"), { ssr: false });
-const StickyCTA = dynamic(() => import("@/components/StickyCTA"), { ssr: false });
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -120,8 +118,6 @@ export default function RootLayout({ children }) {
         
         {/* Interaction-based / Deferred components */}
         <WhatsApp />
-        <ExitPopup />
-        <StickyCTA />
       </body>
     </html>
   );
