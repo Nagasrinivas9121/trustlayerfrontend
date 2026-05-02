@@ -2,12 +2,12 @@ import { ShieldCheck, Activity, Server, Database, Globe } from "lucide-react";
 
 export const metadata = {
   title: "Service Status | TrustLayer Labs",
-  description: "Check the current status of TrustLayer Labs services and scanning infrastructure.",
+  description: "Check the current status of TrustLayer Labs services and security infrastructure.",
 };
 
 export default function StatusPage() {
   const systems = [
-    { name: "VAPT Scanning Engine", status: "Operational", icon: <Server className="w-5 h-5 text-green-500" /> },
+    { name: "Security Analysis Infrastructure", status: "Operational", icon: <Server className="w-5 h-5 text-green-500" /> },
     { name: "Reporting Dashboard", status: "Operational", icon: <Activity className="w-5 h-5 text-green-500" /> },
     { name: "Security Database", status: "Operational", icon: <Database className="w-5 h-5 text-green-500" /> },
     { name: "Public Website", status: "Operational", icon: <Globe className="w-5 h-5 text-green-500" /> },

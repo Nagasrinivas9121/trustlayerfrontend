@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Terms of Service | TrustLayer Labs",
-  description: "Read our terms of service for using TrustLayer Labs website and our security snapshot tool.",
+  description: "Read our terms of service for using TrustLayer Labs website and services.",
 };
 
 export default function TermsOfService() {
@@ -16,13 +16,13 @@ export default function TermsOfService() {
         </section>
 
         <section className="mb-10">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">2. Security Snapshot Tool</h2>
-          <p>Our &quot;Free Security Snapshot&quot; is an automated tool intended for educational and baseline testing purposes only. It does not constitute a full Vulnerability Assessment or Penetration Test (VAPT). We are not liable for any findings or lack thereof reported by the tool.</p>
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">2. Service Usage</h2>
+          <p>Our VAPT services are provided under specific engagement letters and service agreements. The content on this website is for informational purposes to help you understand our service offerings.</p>
         </section>
 
         <section className="mb-10">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">3. User Responsibility</h2>
-          <p>You agree to use our services only for lawful purposes and in a manner that does not infringe upon the rights of others. You must have authorization for any domain you enter into our scanning tool.</p>
+          <p>You agree to use our website only for lawful purposes and in a manner that does not infringe upon the rights of others. Unauthorized use of this website or our systems is strictly prohibited.</p>
         </section>
 
         <section className="mb-10">

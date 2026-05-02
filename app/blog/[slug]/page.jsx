@@ -77,10 +77,10 @@ export default function BlogPost({ params }) {
         <div className="mt-20 p-8 md:p-12 bg-blue-50 rounded-3xl border border-blue-100 text-center">
           <h3 className="text-2xl font-black text-slate-900 mb-4">Secure Your Assets Today</h3>
           <p className="text-slate-600 mb-8 max-w-lg mx-auto">
-            Ready to perform a deep-dive security audit? Get started with our free snapshot tool or talk to an expert.
+            Ready to perform a deep-dive security audit? Explore our VAPT services or talk to an expert today.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link href="/#scan" className="btn-primary w-full sm:w-auto">Get Free Snapshot</Link>
+            <Link href="/services" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all w-full sm:w-auto">View Our Services</Link>
             <Link href="/contact" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all w-full sm:w-auto">Talk to Expert</Link>
           </div>
         </div>
