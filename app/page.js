@@ -24,8 +24,8 @@ const FinalCTA = dynamic(() => import("@/components/FinalCTA"), {
 
 export const metadata = {
   title: "TrustLayerLabs | VAPT Services in India | Penetration Testing Company",
-  description: "Get expert VAPT services in India. Secure your web apps, APIs, and infrastructure with real penetration testing. Fast reports. Book a scan today.",
-  keywords: "VAPT services India, penetration testing company India, web application security testing, API security testing",
+  description: "Get expert VAPT services in India. Secure your web apps, APIs, and infrastructure with deep manual penetration testing. Get audit reports in 48 hours. Book a consultation today.",
+  keywords: "VAPT services India, penetration testing company India, manual penetration testing, web application security audit, API security testing",
 };
 
 export default function Home() {
