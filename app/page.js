@@ -8,11 +8,9 @@ const Process = dynamic(() => import("@/components/Process"), {
   loading: () => <div className="h-[600px] bg-slate-50 animate-pulse" />
 });
 const CaseStudies = dynamic(() => import("@/components/CaseStudies"), { 
-  ssr: false,
   loading: () => <div className="h-[600px] bg-slate-900 animate-pulse" />
 });
 const Testimonials = dynamic(() => import("@/components/Testimonials"), { 
-  ssr: false,
   loading: () => <div className="h-[500px] bg-white animate-pulse" />
 });
 const SeoSections = dynamic(() => import("@/components/SeoSections"), {

@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import Script from "next/script";
 
 // Dynamic imports for non-critical components with extra optimization
-const WhatsApp = dynamic(() => import("@/components/WhatsApp"), { ssr: false });
+const WhatsApp = dynamic(() => import("@/components/WhatsApp"));
 
 const inter = Inter({ 
   subsets: ["latin"],
