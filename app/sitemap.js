@@ -3,38 +3,26 @@ import { blogPosts } from "@/lib/blogData";
 export default function sitemap() {
   const baseUrl = "https://www.trustlayerlabs.co.in";
 
-  // Core pages from live site
+  // Core pages
   const corePages = [
-    "",
-    "/services",
-    "/vapt-services",
-    "/vapt-services-india",
-    "/web-application-penetration-testing",
-    "/api-security-testing",
-    "/cloud-security-testing",
-    "/owasp-top-10-testing",
-    "/about",
-    "/contact",
-    "/blog",
-    "/privacy-policy",
-    "/terms-and-conditions",
-    "/status"
+    { url: "", priority: 1, frequency: "daily" },
+    { url: "/blog", priority: 0.8, frequency: "weekly" },
   ];
 
-  const serviceUrls = corePages.map((route) => ({
-    url: `${baseUrl}${route}`,
+  const coreUrls = corePages.map((page) => ({
+    url: `${baseUrl}${page.url}`,
     lastModified: new Date(),
-    changeFrequency: route === "" ? "daily" : "weekly",
-    priority: route === "" ? 1 : 0.8,
+    changeFrequency: page.frequency,
+    priority: page.priority,
   }));
 
   // Blog pages
   const blogUrls = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(),
-    changeFrequency: "weekly",
+    changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  return [...serviceUrls, ...blogUrls];
+  return [...coreUrls, ...blogUrls];
 }
