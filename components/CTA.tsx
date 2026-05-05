@@ -19,7 +19,7 @@ export default function CTA() {
             Get your API tested <br /> before <span className="text-primary">attackers</span> do
           </h2>
           <p className="body-text text-lg mb-12 max-w-xl mx-auto">
-            Our manual security audits identify the logical vulnerabilities that automated scanners miss. Secure your platform today.
+            Our manual security audits identify the logical vulnerabilities and compliance gaps that automated scanners miss. Secure your platform today.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
             <Link 

@@ -24,9 +24,9 @@ const vulnerabilities = [
     bg: "bg-yellow-400/5"
   },
   {
-    type: "MEDIUM",
-    title: "API Rate Limit Bypass",
-    impact: "Circumventing request throttles leading to potential auth brute-forcing.",
+    type: "COMPLIANCE",
+    title: "SOC2 & ISO 27001 Gaps",
+    impact: "Unsecured PII exposure and lack of audit logging in critical data pipelines.",
     icon: Info,
     color: "text-blue-400",
     border: "border-blue-400/20",
@@ -53,7 +53,7 @@ export default function Proof() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {vulnerabilities.map((v, i) => (
             <motion.div
               key={i}
@@ -74,6 +74,22 @@ export default function Proof() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center text-center pt-8 border-t border-border/40"
+        >
+          <p className="text-slate-400 mb-8 font-medium italic">These are real flaws we've identified in scaling platforms. Don't let yours be next.</p>
+          <a 
+            href="https://calendar.app.google/jnamj3gawxVunPJm9" 
+            target="_blank" 
+            className="btn-primary"
+          >
+            Schedule a Free Vulnerability Consultation
+          </a>
+        </motion.div>
       </div>
     </section>
   );

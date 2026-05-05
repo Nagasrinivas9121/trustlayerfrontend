@@ -46,6 +46,12 @@ export const SERVICES = [
     description: "Securing the LLM layer and data pipelines of your AI-driven startup.",
     outcome: "Prevent prompt injection and training data leakage.",
     whatWeTest: ["Prompt injection", "Output sanitization", "Model rate limiting"]
+  },
+  {
+    title: "GRC & Compliance",
+    description: "Gap analysis and readiness for SOC2, ISO/IEC 27001:2022, and GDPR to build institutional trust.",
+    outcome: "Streamline audits and satisfy enterprise procurement requirements.",
+    whatWeTest: ["Gap analysis", "Policy review", "Audit readiness"]
   }
 ];
 

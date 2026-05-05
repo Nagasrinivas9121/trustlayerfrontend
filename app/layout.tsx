@@ -11,13 +11,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "API Security Testing for SaaS & AI | TrustLayerLabs",
-  description: "Identify vulnerabilities before attackers do. Expert VAPT and API security testing for SaaS and AI startups. Manual logic testing with 48h report delivery.",
-  keywords: "API security testing India, VAPT services, penetration testing SaaS, API vulnerability testing, TrustLayerLabs security",
+  title: "API Security Testing & GRC for SaaS & AI | TrustLayerLabs",
+  description: "Identify vulnerabilities before attackers do. Expert VAPT, GRC, and API security testing for SaaS and AI startups. Manual logic testing with 48h report delivery.",
+  keywords: "API security testing India, VAPT services, GRC compliance, SOC2 readiness, penetration testing SaaS, API vulnerability testing, TrustLayerLabs security",
   metadataBase: new URL("https://trustlayerlabs.co.in"),
   openGraph: {
-    title: "TrustLayerLabs | VAPT & API Security",
-    description: "Expert security audits for SaaS & AI products.",
+    title: "TrustLayerLabs | VAPT, API Security & GRC",
+    description: "Expert security audits and compliance for SaaS & AI products.",
     url: "https://trustlayerlabs.co.in",
     siteName: "TrustLayerLabs",
     images: [
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TrustLayerLabs | API & AI Security Testing",
-    description: "Manual security audits for startups in 48 hours.",
+    title: "TrustLayerLabs | API, AI Security & GRC",
+    description: "Manual security audits and compliance for startups in 48 hours.",
     images: ["/og-image.jpg"],
   },
 };

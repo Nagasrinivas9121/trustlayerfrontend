@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Code2, Globe2, Layers, Cpu } from "lucide-react";
+import { Code2, Globe2, Layers, Cpu, ShieldCheck } from "lucide-react";
 
 const services = [
   {
@@ -32,6 +32,13 @@ const services = [
     why: "AI models introduce new, untested logical attack surfaces.",
     outcome: "Secure the model layer against adversarial input.",
     icon: Cpu
+  },
+  {
+    title: "GRC & Compliance",
+    what: "Gap analysis and readiness for SOC2, ISO/IEC 27001:2022, and GDPR.",
+    why: "Compliance is a mandatory requirement for enterprise SaaS adoption.",
+    outcome: "Streamline audits and build institutional trust.",
+    icon: ShieldCheck
   }
 ];
 
@@ -44,7 +51,7 @@ export default function Services() {
           <p className="body-text">We thinking like attackers to identify critical flaws before they can be exploited by real-world adversaries.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <motion.div
               key={i}

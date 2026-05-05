@@ -11,6 +11,7 @@ const footerLinks = [
       { name: "Web App Testing", href: "#services" },
       { name: "SaaS Audit", href: "#services" },
       { name: "AI Security", href: "#services" },
+      { name: "GRC Compliance", href: "#services" },
     ]
   },
   {

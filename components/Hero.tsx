@@ -31,7 +31,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="heading-1 mb-6"
             >
-              API Security Testing for <br />
+              API Security & GRC for <br />
               <span className="text-primary">SaaS & AI Startups</span>
             </motion.h1>
             
@@ -41,7 +41,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="body-text text-lg max-w-[580px] mb-10"
             >
-              Prevent breaches before they happen. We find real vulnerabilities in your APIs — <span className="text-white font-medium italic underline decoration-primary/30 underline-offset-4">in 48 hours.</span>
+              Prevent breaches and accelerate enterprise deals. Expert manual API testing and GRC readiness (SOC2, ISO 27001) — <span className="text-white font-medium italic underline decoration-primary/30 underline-offset-4">delivered in 48 hours.</span>
             </motion.p>
 
             <motion.div 
@@ -76,8 +76,8 @@ export default function Hero() {
             >
               {[
                 "100+ vulnerabilities identified",
-                "SaaS & AI systems tested",
-                "Manual testing (not scanners)",
+                "SOC2 & ISO 27001 Readiness",
+                "Manual logic testing",
               ].map((item, i) => (
                 <div key={i} className="flex items-center space-x-2.5 text-[12px] font-medium text-slate-500 uppercase tracking-widest">
                   <ShieldCheck size={14} className="text-primary" />
