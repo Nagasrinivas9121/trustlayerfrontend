@@ -12,7 +12,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const resolvedParams = await params;
+  const decodedSlug = decodeURIComponent(resolvedParams.slug).replace(/\s+/g, '-').toLowerCase();
+  const post = blogPosts.find((p) => p.slug === resolvedParams.slug || p.slug === decodedSlug);
   if (!post) return { title: "Post Not Found" };
 
   return {
@@ -21,8 +23,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BlogPost({ params }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function BlogPost({ params }) {
+  const resolvedParams = await params;
+  const decodedSlug = decodeURIComponent(resolvedParams.slug).replace(/\s+/g, '-').toLowerCase();
+  const post = blogPosts.find((p) => p.slug === resolvedParams.slug || p.slug === decodedSlug);
 
   if (!post) {
     notFound();
@@ -80,8 +84,8 @@ export default function BlogPost({ params }) {
             Ready to perform a deep-dive security audit? Explore our VAPT services or talk to an expert today.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link href="/services" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all w-full sm:w-auto">View Our Services</Link>
-            <Link href="/contact" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all w-full sm:w-auto">Talk to Expert</Link>
+            <Link href="/#services" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all w-full sm:w-auto">View Our Services</Link>
+            <Link href="mailto:security@trustlayerlabs.co.in" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all w-full sm:w-auto">Talk to Expert</Link>
           </div>
         </div>
       </div>

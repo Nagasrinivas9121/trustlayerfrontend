@@ -81,7 +81,7 @@ export default function Proof() {
           viewport={{ once: true }}
           className="flex flex-col items-center text-center pt-8 border-t border-border/40"
         >
-          <p className="text-slate-400 mb-8 font-medium italic">These are real flaws we've identified in scaling platforms. Don't let yours be next.</p>
+          <p className="text-slate-400 mb-8 font-medium italic">These are real flaws we&apos;ve identified in scaling platforms. Don&apos;t let yours be next.</p>
           <a 
             href="https://calendar.app.google/jnamj3gawxVunPJm9" 
             target="_blank" 

@@ -20,13 +20,13 @@ export default function BlogPage() {
             <div key={post.slug} className="premium-card p-10 group">
               <div className="flex flex-wrap items-center gap-6 mb-8">
                 <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-md text-[10px] font-bold uppercase tracking-widest">
-                  {post.category}
+                  {post.category || "Security Guide"}
                 </span>
                 <span className="flex items-center text-[10px] text-slate-500 font-bold uppercase tracking-widest">
                   <Calendar className="w-3 h-3 mr-2" /> {post.date}
                 </span>
                 <span className="flex items-center text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-                  <Clock className="w-3 h-3 mr-2" /> {post.readTime}
+                  <Clock className="w-3 h-3 mr-2" /> {post.readTime || "5 Min Read"}
                 </span>
               </div>
               <h2 className="text-2xl font-bold text-white mb-6 group-hover:text-primary transition-colors leading-tight">
