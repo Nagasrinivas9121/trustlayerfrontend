@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldAlert, AlertCircle, Info, CheckCircle2, Award, Rocket, Database, Network, Briefcase, ThumbsUp, Cpu, ListChecks, Star, FileText } from "lucide-react";
+import { ShieldAlert, AlertCircle, Info, CheckCircle2, Award, Rocket, Database, Network, Briefcase, ThumbsUp, Cpu, ListChecks, Star, FileText, BadgeCheck } from "lucide-react";
 
 const vulnerabilities = [
   {
@@ -43,7 +43,8 @@ const platforms = [
   { name: "TechBehemoths", icon: Cpu, color: "text-[#6366f1]", href: "https://techbehemoths.com/company/trustlayerlabs" },
   { name: "Sortlist", icon: ListChecks, color: "text-[#f59e0b]", href: "https://www.sortlist.com/agency/trustlayerlabs" },
   { name: "Clutch", icon: Star, color: "text-[#ef4444]", href: "https://clutch.co/profile/trustlayerlabs" },
-  { name: "The Manifest", icon: FileText, color: "text-[#f97316]" }
+  { name: "The Manifest", icon: FileText, color: "text-[#f97316]" },
+  { name: "DesignRush", icon: BadgeCheck, color: "text-[#38bdf8]", href: "https://www.designrush.com/agency/profile/trustlayer-labs" }
 ];
 
 export default function Proof() {
@@ -106,6 +107,13 @@ export default function Proof() {
             <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
               <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '40px', width: 'auto' }} />
             </a>
+            
+            <a href="https://www.designrush.com/agency/profile/trustlayer-labs" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 bg-slate-900 border border-slate-700/60 rounded-lg px-4 h-[40px] hover:bg-slate-800 transition-colors shadow-sm">
+               <span className="text-white font-bold text-[14px] tracking-tight">Design<span className="text-[#38bdf8]">Rush</span></span>
+               <div className="h-4 w-[1px] bg-slate-700"></div>
+               <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Verified</span>
+            </a>
+
             <div className="flex items-center space-x-3 bg-secondary/40 border border-border/40 rounded-lg px-4 h-[40px] hover:bg-secondary/60 transition-colors cursor-default">
               <Award size={20} className="text-primary" />
               <div className="flex flex-col justify-center text-left">
