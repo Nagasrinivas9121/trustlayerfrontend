@@ -102,6 +102,20 @@ export default function Proof() {
               </div>
             </div>
           </div>
+          
+          <div className="mt-8 pt-6 border-t border-border/30 w-full max-w-4xl">
+            <p className="text-[11px] text-slate-500 font-semibold mb-4 uppercase tracking-widest">Also Recognized & Listed On</p>
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
+              {["ProductHunt", "Crunchbase", "F6S", "Contra", "GoodFirms", "TechBehemoths", "Shortlist.be", "Clutch", "The Manifest"].map((platform, i) => (
+                <div key={i} className="flex items-center gap-x-6">
+                  <span className="text-sm text-slate-400 font-medium hover:text-primary transition-colors cursor-default">
+                    {platform}
+                  </span>
+                  {i < 8 && <span className="text-slate-700 text-xs hidden md:inline-block">•</span>}
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
