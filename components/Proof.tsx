@@ -90,9 +90,18 @@ export default function Proof() {
             Schedule a Free Vulnerability Consultation
           </a>
           
-          <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '40px', width: 'auto' }} />
-          </a>
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
+              <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '40px', width: 'auto' }} />
+            </a>
+            <div className="flex items-center space-x-3 bg-secondary/40 border border-border/40 rounded-lg px-4 h-[40px] hover:bg-secondary/60 transition-colors">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Micro%2C_Small_and_Medium_Enterprises_logo.svg" alt="MSME Logo" className="h-5 w-auto object-contain" />
+              <div className="flex flex-col justify-center text-left">
+                <span className="text-[10px] font-bold text-slate-300 uppercase leading-none mb-1">MSME</span>
+                <span className="text-[9px] text-slate-500 font-medium leading-none tracking-wide">REGISTERED</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
