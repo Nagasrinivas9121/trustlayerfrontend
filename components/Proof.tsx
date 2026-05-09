@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldAlert, AlertCircle, Info, CheckCircle2, Award } from "lucide-react";
+import { ShieldAlert, AlertCircle, Info, CheckCircle2, Award, Rocket, Database, Network, Briefcase, ThumbsUp, Cpu, ListChecks, Star, FileText } from "lucide-react";
 
 const vulnerabilities = [
   {
@@ -35,9 +35,15 @@ const vulnerabilities = [
 ];
 
 const platforms = [
-  "ProductHunt", "Crunchbase", "F6S", "Contra", 
-  "GoodFirms", "TechBehemoths", "Shortlist.be", 
-  "Clutch", "The Manifest"
+  { name: "ProductHunt", icon: Rocket, color: "text-[#da552f]" },
+  { name: "Crunchbase", icon: Database, color: "text-[#1483c2]" },
+  { name: "F6S", icon: Network, color: "text-[#2e8c4a]" },
+  { name: "Contra", icon: Briefcase, color: "text-[#ff6b6b]" },
+  { name: "GoodFirms", icon: ThumbsUp, color: "text-[#1a73e8]" },
+  { name: "TechBehemoths", icon: Cpu, color: "text-[#6366f1]" },
+  { name: "Shortlist.be", icon: ListChecks, color: "text-[#f59e0b]" },
+  { name: "Clutch", icon: Star, color: "text-[#ef4444]" },
+  { name: "The Manifest", icon: FileText, color: "text-[#f97316]" }
 ];
 
 export default function Proof() {
@@ -123,9 +129,12 @@ export default function Proof() {
               >
                 {[...platforms, ...platforms].map((platform, i) => (
                   <div key={i} className="flex items-center gap-x-12">
-                    <span className="text-sm text-slate-400 font-medium hover:text-primary transition-colors cursor-default">
-                      {platform}
-                    </span>
+                    <div className="flex items-center gap-x-2 group cursor-default">
+                      <platform.icon size={16} className={`opacity-60 group-hover:opacity-100 transition-opacity ${platform.color}`} />
+                      <span className="text-sm text-slate-400 font-medium group-hover:text-slate-200 transition-colors">
+                        {platform.name}
+                      </span>
+                    </div>
                     <span className="text-slate-700 text-xs">•</span>
                   </div>
                 ))}
