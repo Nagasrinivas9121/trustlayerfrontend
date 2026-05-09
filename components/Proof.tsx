@@ -34,6 +34,12 @@ const vulnerabilities = [
   }
 ];
 
+const platforms = [
+  "ProductHunt", "Crunchbase", "F6S", "Contra", 
+  "GoodFirms", "TechBehemoths", "Shortlist.be", 
+  "Clutch", "The Manifest"
+];
+
 export default function Proof() {
   return (
     <section className="py-24 bg-background border-t border-border/40" id="trust">
@@ -103,17 +109,27 @@ export default function Proof() {
             </div>
           </div>
           
-          <div className="mt-8 pt-6 border-t border-border/30 w-full max-w-4xl">
-            <p className="text-[11px] text-slate-500 font-semibold mb-4 uppercase tracking-widest">Also Recognized & Listed On</p>
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
-              {["ProductHunt", "Crunchbase", "F6S", "Contra", "GoodFirms", "TechBehemoths", "Shortlist.be", "Clutch", "The Manifest"].map((platform, i) => (
-                <div key={i} className="flex items-center gap-x-6">
-                  <span className="text-sm text-slate-400 font-medium hover:text-primary transition-colors cursor-default">
-                    {platform}
-                  </span>
-                  {i < 8 && <span className="text-slate-700 text-xs hidden md:inline-block">•</span>}
-                </div>
-              ))}
+          <div className="mt-8 pt-6 border-t border-border/30 w-full max-w-5xl overflow-hidden">
+            <p className="text-[11px] text-slate-500 font-semibold mb-6 uppercase tracking-widest">Also Recognized & Listed On</p>
+            
+            <div 
+              className="relative flex overflow-hidden w-full"
+              style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
+            >
+              <motion.div 
+                className="flex items-center gap-x-12 whitespace-nowrap py-2 min-w-max"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+              >
+                {[...platforms, ...platforms].map((platform, i) => (
+                  <div key={i} className="flex items-center gap-x-12">
+                    <span className="text-sm text-slate-400 font-medium hover:text-primary transition-colors cursor-default">
+                      {platform}
+                    </span>
+                    <span className="text-slate-700 text-xs">•</span>
+                  </div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </motion.div>
