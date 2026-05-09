@@ -36,12 +36,12 @@ const vulnerabilities = [
 
 const platforms = [
   { name: "ProductHunt", icon: Rocket, color: "text-[#da552f]" },
-  { name: "Crunchbase", icon: Database, color: "text-[#1483c2]" },
+  { name: "Crunchbase", icon: Database, color: "text-[#1483c2]", href: "https://www.crunchbase.com/organization/trustlayerlabs" },
   { name: "F6S", icon: Network, color: "text-[#2e8c4a]" },
-  { name: "Contra", icon: Briefcase, color: "text-[#ff6b6b]" },
-  { name: "GoodFirms", icon: ThumbsUp, color: "text-[#1a73e8]" },
-  { name: "TechBehemoths", icon: Cpu, color: "text-[#6366f1]" },
-  { name: "Shortlist.be", icon: ListChecks, color: "text-[#f59e0b]" },
+  { name: "Contra", icon: Briefcase, color: "text-[#ff6b6b]", href: "https://contra.com/trustlayer_labs_6c8shdzq/about" },
+  { name: "GoodFirms", icon: ThumbsUp, color: "text-[#1a73e8]", href: "https://www.goodfirms.co/company/trustlayerlabs" },
+  { name: "TechBehemoths", icon: Cpu, color: "text-[#6366f1]", href: "https://techbehemoths.com/company/trustlayerlabs" },
+  { name: "Sortlist", icon: ListChecks, color: "text-[#f59e0b]", href: "https://www.sortlist.com/agency/trustlayerlabs" },
   { name: "Clutch", icon: Star, color: "text-[#ef4444]" },
   { name: "The Manifest", icon: FileText, color: "text-[#f97316]" }
 ];
@@ -129,12 +129,21 @@ export default function Proof() {
               >
                 {[...platforms, ...platforms].map((platform, i) => (
                   <div key={i} className="flex items-center gap-x-12">
-                    <div className="flex items-center gap-x-2 group cursor-default">
-                      <platform.icon size={16} className={`opacity-60 group-hover:opacity-100 transition-opacity ${platform.color}`} />
-                      <span className="text-sm text-slate-400 font-medium group-hover:text-slate-200 transition-colors">
-                        {platform.name}
-                      </span>
-                    </div>
+                    {platform.href ? (
+                      <a href={platform.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-x-2 group cursor-pointer hover:-translate-y-0.5 transition-transform">
+                        <platform.icon size={16} className={`opacity-80 group-hover:opacity-100 transition-opacity ${platform.color}`} />
+                        <span className="text-sm text-slate-400 font-medium group-hover:text-slate-200 transition-colors">
+                          {platform.name}
+                        </span>
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-x-2 group cursor-default">
+                        <platform.icon size={16} className={`opacity-60 group-hover:opacity-100 transition-opacity ${platform.color}`} />
+                        <span className="text-sm text-slate-400 font-medium group-hover:text-slate-200 transition-colors">
+                          {platform.name}
+                        </span>
+                      </div>
+                    )}
                     <span className="text-slate-700 text-xs">•</span>
                   </div>
                 ))}
