@@ -42,7 +42,7 @@ const platforms = [
   { name: "GoodFirms", icon: ThumbsUp, color: "text-[#1a73e8]", href: "https://www.goodfirms.co/company/trustlayerlabs" },
   { name: "TechBehemoths", icon: Cpu, color: "text-[#6366f1]", href: "https://techbehemoths.com/company/trustlayerlabs" },
   { name: "Sortlist", icon: ListChecks, color: "text-[#f59e0b]", href: "https://www.sortlist.com/agency/trustlayerlabs" },
-  { name: "Clutch", icon: Star, color: "text-[#ef4444]" },
+  { name: "Clutch", icon: Star, color: "text-[#ef4444]", href: "https://clutch.co/profile/trustlayerlabs" },
   { name: "The Manifest", icon: FileText, color: "text-[#f97316]" }
 ];
 
