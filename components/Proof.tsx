@@ -85,9 +85,13 @@ export default function Proof() {
           <a 
             href="https://calendar.app.google/jnamj3gawxVunPJm9" 
             target="_blank" 
-            className="btn-primary"
+            className="btn-primary mb-6"
           >
             Schedule a Free Vulnerability Consultation
+          </a>
+          
+          <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '40px', width: 'auto' }} />
           </a>
         </motion.div>
       </div>
