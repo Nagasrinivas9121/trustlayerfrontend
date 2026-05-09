@@ -35,7 +35,7 @@ const vulnerabilities = [
 ];
 
 const platforms = [
-  { name: "ProductHunt", icon: Rocket, color: "text-[#da552f]" },
+  { name: "ProductHunt", icon: Rocket, color: "text-[#da552f]", href: "https://www.producthunt.com/@nagasrinivas" },
   { name: "Crunchbase", icon: Database, color: "text-[#1483c2]", href: "https://www.crunchbase.com/organization/trustlayerlabs" },
   { name: "F6S", icon: Network, color: "text-[#2e8c4a]" },
   { name: "Contra", icon: Briefcase, color: "text-[#ff6b6b]", href: "https://contra.com/trustlayer_labs_6c8shdzq/about" },
