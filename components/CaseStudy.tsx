@@ -1,77 +1,150 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Terminal } from "lucide-react";
+import React, { useState } from "react";
+import { CASE_STUDIES } from "@/lib/constants";
+import { ArrowRight, CheckSquare, Database } from "lucide-react";
 import Link from "next/link";
 
-const study = {
-  client: "Series B FinTech Startup",
-  title: "Preventing Unauthorized Account Takeovers in production",
-  problem: "Undocumented administrative endpoints were exposed to the public internet without proper authorization checks.",
-  exploit: "BOLA vulnerability allowed an attacker to enumerate user account IDs and extract session tokens via the `/api/v2/admin/debug` endpoint.",
-  impact: "Potential exposure of 42,000+ user financial records and severe regulatory non-compliance risk.",
-  fix: "Implemented resource-level authorization validation and removed debug endpoints from the production build."
-};
-
 export default function CaseStudy() {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const currentCase = CASE_STUDIES[activeIdx];
+
   return (
-    <section className="py-24 bg-secondary/10 border-y border-border/40" id="cases">
+    <section className="py-24 bg-background border-y border-border relative" id="cases">
+      {/* Background Radial Glow */}
+      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+
       <div className="section-container">
-        <div className="max-w-2xl mb-16">
-          <h2 className="heading-2 mb-6">Technical <span className="text-primary">Case Study</span></h2>
-          <p className="body-text text-lg">A detailed breakdown of how we identified and neutralized a critical vulnerability in a scaling FinTech ecosystem.</p>
+        
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
+              <span>Security Portfolio</span>
+            </div>
+            <h2 className="heading-2 mb-6 font-sans">
+              Battle-Tested <span className="text-primary">VAPT Case Studies</span>
+            </h2>
+            <p className="body-text text-textSecondary">
+              Real-world vulnerability highlights discovered by our team and fixed for scaling tech platforms.
+            </p>
+          </div>
+
+          {/* Tabs Selector */}
+          <div className="flex space-x-2 p-1 bg-surface border border-border rounded-xl self-start md:self-auto font-sans text-xs font-semibold uppercase tracking-wider shadow-sm">
+            {CASE_STUDIES.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIdx(idx)}
+                className={`px-4 py-2 rounded-lg transition-all ${
+                  activeIdx === idx 
+                    ? "bg-primary text-white shadow-sm" 
+                    : "text-textSecondary hover:text-textPrimary"
+                }`}
+              >
+                {item.category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="premium-card p-10 md:p-16 border-border/60"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center space-x-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-10">
-                <Terminal size={12} className="text-primary" />
-                <span>Client: {study.client}</span>
+        {/* Case Study Body */}
+        <div className="premium-card p-8 md:p-12 border border-border relative overflow-hidden bg-surface shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-8">
+              <div>
+                <span className="text-xs font-sans font-bold text-textSecondary uppercase tracking-wider flex items-center gap-1.5 mb-2.5">
+                  <Database size={12} className="text-primary" /> TARGET INFRASTRUCTURE: {currentCase.category}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-textPrimary leading-tight font-sans tracking-tight">
+                  {currentCase.title}
+                </h3>
               </div>
-              <h3 className="text-3xl font-semibold text-white mb-12 leading-tight tracking-tight">
-                {study.title}
-              </h3>
 
-              <div className="space-y-10">
-                {[
-                  { label: "The Problem", text: study.problem },
-                  { label: "The Exploit", text: study.exploit, isMono: true },
-                  { label: "The Impact", text: study.impact },
-                ].map((item, i) => (
-                  <div key={i} className="flex flex-col space-y-3">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.label}</span>
-                    <p className={`text-base text-slate-300 leading-relaxed ${item.isMono ? "font-mono text-sm bg-secondary/50 p-4 rounded-lg border border-border/40 text-slate-400" : "font-medium"}`}>
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
+              <div className="space-y-6">
+                <div>
+                  <span className="text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5 block">
+                    The Problem
+                  </span>
+                  <p className="text-sm text-textSecondary leading-relaxed font-sans">
+                    {currentCase.problem}
+                  </p>
+                </div>
+
+                <div>
+                  <span className="text-xs font-bold font-sans text-primary uppercase tracking-wider mb-1.5 block">
+                    Control Gap Analysis
+                  </span>
+                  <p className="text-sm font-mono bg-background text-textPrimary p-4 rounded-xl border border-border leading-relaxed">
+                    {currentCase.exploit}
+                  </p>
+                </div>
+
+                <div>
+                  <span className="text-xs font-bold font-sans text-warning uppercase tracking-wider mb-1.5 block">
+                    Business Impact
+                  </span>
+                  <p className="text-sm text-textSecondary leading-relaxed font-sans">
+                    {currentCase.impact}
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col justify-end">
-              <div className="p-8 bg-primary/5 rounded-2xl border border-primary/20 mb-10">
-                <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-4">The Final Resolution</div>
-                <p className="text-base font-bold text-slate-200 leading-relaxed mb-6">
-                  {study.fix}
+            {/* Right Content */}
+            <div className="lg:col-span-5 space-y-6 lg:border-l lg:border-border/60 lg:pl-10 h-full flex flex-col justify-between">
+              
+              <div className="p-6 bg-primary/5 border border-primary/20 rounded-xl space-y-4">
+                <div className="text-xs font-bold font-sans text-primary uppercase tracking-wider flex items-center gap-1.5">
+                  <CheckSquare size={13} className="text-primary" /> Security Improvement & Fix
+                </div>
+                <p className="text-sm text-textPrimary leading-relaxed font-semibold font-sans">
+                  {currentCase.fix}
                 </p>
-                <div className="flex items-center space-x-2 text-[11px] font-black text-primary uppercase tracking-widest">
-                   <span>Platform Status: Hardened</span>
+              </div>
+
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4 border-y border-border/40 py-4 text-sm font-sans">
+                  <div>
+                    <span className="text-xs uppercase tracking-wider text-textSecondary block mb-1">Impact Metric:</span>
+                    <span className="text-sm text-success font-bold font-sans uppercase tracking-wide block">{currentCase.metrics}</span>
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-wider text-textSecondary block mb-1">Key Results:</span>
+                    <span className="text-sm text-textPrimary font-bold block">{currentCase.results}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-xs font-bold font-sans text-textSecondary uppercase tracking-wider block mb-2">
+                    Technologies Audited:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {currentCase.technologies.map((tech, i) => (
+                      <span key={i} className="px-2 py-0.5 bg-background border border-border rounded text-xs font-mono text-textPrimary">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="btn-secondary flex items-center justify-center group w-full">
-                View Full Audit Details <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="pt-4">
+                <Link 
+                  href="/case-studies"
+                  className="w-full inline-flex items-center justify-center py-3.5 bg-primary hover:bg-primary-hover text-sm uppercase font-sans font-semibold tracking-wider rounded-lg text-white shadow-sm transition-all group"
+                >
+                  View All Technical Portfolios <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
             </div>
+
           </div>
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );

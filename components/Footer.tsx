@@ -1,79 +1,84 @@
 import React from "react";
 import Link from "next/link";
-import { Linkedin, Github, Mail, Shield } from "lucide-react";
+import { Linkedin, Mail, Shield, ShieldCheck } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 const footerLinks = [
   {
     title: "Services",
     links: [
-      { name: "API Security", href: "#services" },
-      { name: "Web App Testing", href: "#services" },
-      { name: "SaaS Audit", href: "#services" },
-      { name: "AI Security", href: "#services" },
-      { name: "GRC Compliance", href: "#services" },
+      { name: "API Security Testing", href: "/services#api-security" },
+      { name: "VAPT Audit Services", href: "/services#vapt" },
+      { name: "Cloud Configuration Audit", href: "/services#cloud-security" },
+      { name: "SOC2 & ISO 27001 readiness", href: "/services#soc2-readiness" },
+      { name: "Secure Code Review", href: "/services#secure-code-review" },
     ]
   },
   {
-    title: "Company",
+    title: "Resources & GRC",
     links: [
-      { name: "Case Studies", href: "#cases" },
-      { name: "Blog", href: "/blog" },
-      { name: "Trust", href: "#trust" },
+      { name: "Case Studies Portfolio", href: "/case-studies" },
+      { name: "Security Checklist", href: "/checklist" },
+      { name: "LinkedIn Post Templates", href: "/linkedin" },
+      { name: "VAPT Bangalore Hub", href: "/vapt-bangalore" },
+      { name: "VAPT Hyderabad Hub", href: "/vapt-hyderabad" },
     ]
   },
   {
-    title: "Legal",
+    title: "Legal & Attestation",
     links: [
-      { name: "Privacy Policy", href: "/privacy" },
-      { name: "Terms of Service", href: "/terms" },
+      { name: "Privacy Policy Document", href: "/privacy" },
+      { name: "Terms of Service Agreement", href: "/terms" },
+      { name: "Intake Consultation", href: "/contact" }
     ]
   }
 ];
 
-import Image from "next/image";
-
 export default function Footer() {
   return (
-    <footer className="py-20 bg-background border-t border-border/40">
+    <footer className="py-20 bg-background border-t border-border relative">
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
-          <div className="lg:col-span-5">
-            <Link href="/" className="flex items-center space-x-3 mb-8 group">
-              <div className="relative w-10 h-10 overflow-hidden rounded-md border border-border/50 group-hover:border-primary/50 transition-colors">
-                <Image 
-                  src="/logo.jpeg" 
-                  alt="TrustLayerLabs Logo" 
-                  fill 
-                  className="object-cover"
-                />
+          
+          {/* Logo & Description */}
+          <div className="lg:col-span-4 space-y-6">
+            <Link href="/" className="flex items-center space-x-2.5 group">
+              <div className="w-8 h-8 flex items-center justify-center rounded-full overflow-hidden border border-border bg-black shadow-sm transition-all group-hover:scale-105">
+                <img src="/logo.jpeg" alt="TrustLayerLabs Logo" className="w-full h-full object-cover scale-[1.3]" />
               </div>
-              <span className="text-lg font-semibold text-white tracking-tight uppercase">{BRAND.name}</span>
+              <span className="text-sm font-bold text-textPrimary tracking-wider uppercase">
+                Trust<span className="text-primary">Layer</span><span className="text-[10px] text-textSecondary font-light lowercase font-sans">.labs</span>
+              </span>
             </Link>
-            <p className="body-text max-w-sm mb-10">
-              Expert-led offensive security for scaling SaaS and AI platforms. Protect your innovation with deep manual analysis.
+            
+            <p className="text-xs text-textSecondary leading-relaxed max-w-sm font-sans">
+              Premium expert-led manual logic reviews, API scoping, and GRC readiness consulting for fast-growing SaaS, fintech, and AI platforms.
             </p>
-            <div className="flex items-center space-x-6">
-              <Link href={BRAND.contact.linkedin} target="_blank" className="text-slate-500 hover:text-white transition-colors">
-                <Linkedin size={20} />
+
+            <div className="flex items-center space-x-5 pt-2">
+              <Link href={BRAND.contact.linkedin} target="_blank" className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="LinkedIn Profile">
+                <Linkedin size={18} />
               </Link>
-              <Link href="#" className="text-slate-500 hover:text-white transition-colors">
-                <Github size={20} />
-              </Link>
-              <Link href={`mailto:${BRAND.contact.email}`} className="text-slate-500 hover:text-white transition-colors">
-                <Mail size={20} />
+              <Link href={`mailto:${BRAND.contact.email}`} className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="Email support">
+                <Mail size={18} />
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
+          {/* Links Grid */}
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
             {footerLinks.map((section) => (
-              <div key={section.title}>
-                <h4 className="text-[11px] font-bold text-white uppercase tracking-widest mb-8">{section.title}</h4>
-                <ul className="space-y-4">
+              <div key={section.title} className="space-y-6">
+                <h4 className="text-[11px] font-semibold text-textPrimary uppercase tracking-wider font-sans">
+                  {section.title}
+                </h4>
+                <ul className="space-y-3.5 font-sans text-xs">
                   {section.links.map((link) => (
                     <li key={link.name}>
-                      <Link href={link.href} className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">
+                      <Link 
+                        href={link.href} 
+                        className="text-textSecondary hover:text-primary transition-colors font-sans text-xs font-medium"
+                      >
                         {link.name}
                       </Link>
                     </li>
@@ -82,17 +87,20 @@ export default function Footer() {
               </div>
             ))}
           </div>
+
         </div>
 
-        <div className="pt-12 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+        {/* Bottom Bar */}
+        <div className="pt-12 border-t border-border/60 flex flex-col sm:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] font-semibold text-textSecondary uppercase tracking-wider font-sans">
             &copy; {new Date().getFullYear()} TRUSTLAYERLABS. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex items-center space-x-2 text-[10px] font-bold text-slate-600 uppercase tracking-widest">
-            <Shield size={12} className="text-primary/60" />
-            <span>Secured via offensive research</span>
+          <div className="flex flex-wrap items-center gap-4 text-[10px] font-semibold text-textSecondary uppercase tracking-wider font-sans">
+            <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> PENTEST ATTESTATION ISSUED</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> ISO 27001 READY</span>
           </div>
         </div>
+
       </div>
     </footer>
   );
