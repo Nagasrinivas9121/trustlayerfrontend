@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -235,6 +236,42 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              
+              var savedConsent = null;
+              try {
+                savedConsent = localStorage.getItem('cookie-consent');
+              } catch(e) {}
+              
+              if (savedConsent) {
+                var parsed = JSON.parse(savedConsent);
+                gtag('consent', 'default', {
+                  'ad_storage': parsed.marketing ? 'granted' : 'denied',
+                  'ad_user_data': parsed.marketing ? 'granted' : 'denied',
+                  'ad_personalization': parsed.marketing ? 'granted' : 'denied',
+                  'analytics_storage': parsed.analytics ? 'granted' : 'denied',
+                  'personalization_storage': parsed.functional ? 'granted' : 'denied',
+                  'functionality_storage': parsed.functional ? 'granted' : 'denied',
+                  'security_storage': 'granted'
+                });
+              } else {
+                gtag('consent', 'default', {
+                  'ad_storage': 'denied',
+                  'ad_user_data': 'denied',
+                  'ad_personalization': 'denied',
+                  'analytics_storage': 'denied',
+                  'personalization_storage': 'denied',
+                  'functionality_storage': 'denied',
+                  'security_storage': 'granted'
+                });
+              }
+            `
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
             __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
 o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
 o.onload=function(){window.trackingFunctions.onLoad({appId:"69fd616911fb0a00115c74ca"})},
@@ -258,6 +295,7 @@ document.head.appendChild(o)}initApollo();`
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
