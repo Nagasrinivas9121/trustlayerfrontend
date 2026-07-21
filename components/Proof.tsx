@@ -95,6 +95,28 @@ export default function Proof() {
           ))}
         </div>
 
+        {/* Security Certifications Badges */}
+        <div className="flex flex-col items-center mb-12">
+          <p className="text-xs text-textSecondary font-semibold mb-6 uppercase tracking-wider">Certified Team Credentials</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
+            {[
+              { name: "OSCP", full: "Offensive Security Certified Professional", authority: "Offensive Security" },
+              { name: "CEH", full: "Certified Ethical Hacker", authority: "EC-Council" },
+              { name: "eWPT", full: "Web Application Penetration Tester", authority: "eLearnSecurity" }
+            ].map((cert) => (
+              <div key={cert.name} className="flex items-center gap-3.5 p-4 bg-surface border border-border/80 rounded-xl text-left shadow-sm hover:border-primary/40 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold font-mono text-sm flex-shrink-0">
+                  {cert.name}
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-textPrimary block">{cert.name}</span>
+                  <span className="text-[10px] text-textSecondary block leading-normal">{cert.full}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* MSME & Verification Badges */}
         <div className="flex flex-col items-center text-center pt-8 border-t border-border/40">
           <p className="text-textSecondary mb-8 text-sm max-w-xl leading-relaxed">
