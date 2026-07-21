@@ -35,6 +35,16 @@ export const NAV_LINKS = [
       { name: "Kubernetes Security", href: "/services/kubernetes-security", description: "Pod policies, RBAC, container image & cluster security" },
       { name: "AI Application Security", href: "/services/ai-security", description: "OWASP Top 10 for LLMs, prompt injection, & RAG data safety" },
       { name: "Startup Security & GRC", href: "/services/startup-security", description: "SOC2 Type II, ISO 27001, and enterprise vendor audit prep" },
+      { name: "SaaS VAPT & Pentests", href: "/services/saas-vapt", description: "Multi-tenant tenant isolation and privilege scaling audits" },
+      { name: "SOC 2 Compliance Pentest", href: "/services/soc2-pentesting", description: "Attestation & technical controls verification for SOC 2 Type II" },
+      { name: "FinTech Compliance Pentest", href: "/services/fintech-vapt", description: "RBI, SEBI, NPCI guidelines, and banking compliance audits" },
+      { name: "AWS Cloud Security Audit", href: "/services/aws-security", description: "AWS IAM policies, S3 exposure, and KMS credential hardening" },
+      { name: "Smart Contract & Web3 Audit", href: "/services/smart-contract-audit", description: "Staking logic, reentrancy vulnerabilities, and Solidity audits" },
+      { name: "ISO 27001 VAPT Audit", href: "/services/iso-27001-vapt", description: "Annex A technical controls and network perimeter security reviews" },
+      { name: "HIPAA Security Audit", href: "/services/hipaa-vapt", description: "ePHI encryption, access controls, and hospital vendor audits" },
+      { name: "Active Directory Audit", href: "/services/active-directory-pentesting", description: "Domain controller exploits, credential dumping, and AD hardening" },
+      { name: "External Attack Surface Audit", href: "/services/external-attack-surface", description: "Perimeter threat detection, subdomain takeovers, and open ports checks" },
+      { name: "PCI-DSS Compliance Pentest", href: "/services/pci-dss-pentesting", description: "Cardholder data environments (CDE) segmentation validation audits" }
     ]
   },
   { name: "Methodology", href: "/methodology" },
@@ -173,6 +183,166 @@ export const SERVICES = [
       "Warm intro to trusted compliance auditors"
     ],
     outcome: "Close enterprise deals faster by presenting verified SOC2 readiness and pentest attestations."
+  },
+  {
+    id: "saas-vapt",
+    slug: "saas-vapt",
+    title: "SaaS Penetration Testing",
+    description: "Deep audit of multi-tenant SaaS platforms focusing on tenant isolation boundaries, horizontal privilege scaling, and account takeover vectors.",
+    duration: "5-7 Days",
+    severity: "critical",
+    technologies: ["Tenant Isolation", "Burp Suite Pro", "OWASP WSTG", "Privilege Scaling", "React", "NodeJS"],
+    deliverables: [
+      "Tenant boundary isolation PoC",
+      "API privilege escalation walkthroughs",
+      "Executive summary for B2B procurement",
+      "30-day retesting attestation"
+    ],
+    outcome: "Ensure Customer A can never access Customer B's datasets under any parameter tampering conditions."
+  },
+  {
+    id: "soc2-pentesting",
+    slug: "soc2-pentesting",
+    title: "SOC 2 Compliance Pentesting",
+    description: "Specialized penetration testing fulfilling Technical Security Control requirements for SOC 2 Type II attestation audits.",
+    duration: "5-7 Days",
+    severity: "high",
+    technologies: ["SOC 2 CC6.1-CC6.3", "Vanta/Drata Integrations", "AWS/GCP Audits", "IAM Review", "Nessus"],
+    deliverables: [
+      "SOC 2 aligned penetration test report",
+      "Technical control gaps validation",
+      "Signed auditor-ready attestation letter",
+      "Free retesting for identified flaws"
+    ],
+    outcome: "Close trust gaps for compliance auditors and fast-track your SOC 2 Type II audit certificate."
+  },
+  {
+    id: "fintech-vapt",
+    slug: "fintech-vapt",
+    title: "FinTech Compliance Pentesting",
+    description: "Cybersecurity audit tailored for Indian financial startups adhering to RBI, SEBI, IRDAI, and NPCI security guidelines.",
+    duration: "7-10 Days",
+    severity: "critical",
+    technologies: ["RBI Guidelines", "SEBI Cybersecurity framework", "NPCI guidelines", "AES-256", "TLS 1.3", "HSM"],
+    deliverables: [
+      "SEBI/RBI regulatory compliance report",
+      "Data localization & encryption audit",
+      "Vulnerability assessment attestation",
+      "NPCI UPI integration safety checks"
+    ],
+    outcome: "Satisfy Indian banking and regulatory compliance audits to launch and process financial data."
+  },
+  {
+    id: "aws-security",
+    slug: "aws-security",
+    title: "AWS Cloud Security Assessment",
+    description: "Deep dive audit of AWS Cloud architecture, least-privilege IAM mapping, secure credential storage, and CIS benchmark conformance.",
+    duration: "5-7 Days",
+    severity: "high",
+    technologies: ["AWS IAM", "KMS Encryption", "CloudTrail", "AWS Config", "Trivy", "S3 Bucket Audits"],
+    deliverables: [
+      "AWS IAM privilege mapping matrix",
+      "S3 storage bucket leakage checks",
+      "CIS AWS Benchmark compliance score",
+      "Cloud Security Posture (CSPM) fixes"
+    ],
+    outcome: "Prevent credential leakage, S3 bucket exposures, and cloud privilege escalation attacks."
+  },
+  {
+    id: "smart-contract-audit",
+    slug: "smart-contract-audit",
+    title: "Smart Contract & Web3 Audit",
+    description: "Offensive security review of Ethereum/EVM Solidity smart contracts targeting staking logic, reentrancy, and flash loan attacks.",
+    duration: "6-8 Days",
+    severity: "critical",
+    technologies: ["Solidity", "Slither", "Mythril", "Hardhat", "EVM bytecode", "ERC-20/721/1155"],
+    deliverables: [
+      "Line-by-line Solidity code review",
+      "Formal verification logic report",
+      "Reentrancy & state exploitation PoC",
+      "Gas optimization recommendations"
+    ],
+    outcome: "Protect decentralized protocols and token pools from catastrophic staking logic bypasses."
+  },
+  {
+    id: "iso-27001-vapt",
+    slug: "iso-27001-vapt",
+    title: "ISO 27001 VAPT Audit",
+    description: "Annex A.12 technical security vulnerability assessment validating infrastructure, networks, and perimeter configurations.",
+    duration: "5-7 Days",
+    severity: "high",
+    technologies: ["ISO 27001 controls", "Nmap", "OpenVAS", "Qualys", "Network perimeter scans"],
+    deliverables: [
+      "Technical control alignment index",
+      "External/Internal network VAPT report",
+      "Signed penetration test attestation",
+      "Remediation support commits"
+    ],
+    outcome: "Secure the technical control benchmarks required to pass ISO 27001 certification audits."
+  },
+  {
+    id: "hipaa-vapt",
+    slug: "hipaa-vapt",
+    title: "HIPAA Security & Healthcare Audit",
+    description: "Vulnerability assessment for healthcare portals and ePHI databases ensuring compliant patient records isolation.",
+    duration: "5-7 Days",
+    severity: "critical",
+    technologies: ["HIPAA security rules", "ePHI safeguards", "AWS CloudFront", "Cognito", "SSL/TLS audits"],
+    deliverables: [
+      "HIPAA Technical Safeguards Gap Index",
+      "Storage bucket & patient file audit",
+      "Executive summary for hospital vendors",
+      "30-day free retesting validation"
+    ],
+    outcome: "Pass hospital cybersecurity reviews and onboard enterprise medical clients securely."
+  },
+  {
+    id: "active-directory-pentesting",
+    slug: "active-directory-pentesting",
+    title: "Active Directory Security Audit",
+    description: "Internal network security testing mimicking ransomware routes, lateral movement, Kerberoasting, and AD privilege escalations.",
+    duration: "5-7 Days",
+    severity: "high",
+    technologies: ["Active Directory", "BloodHound", "Mimikatz", "Responder", "Impacket", "Kerberoasting"],
+    deliverables: [
+      "AD Trust relationship map graph",
+      "Credential dumping exposure report",
+      "Privilege escalation path fixes",
+      "GPO hardening guidelines"
+    ],
+    outcome: "Prevent lateral movement, domain takeovers, and internal ransomware execution routes."
+  },
+  {
+    id: "external-attack-surface",
+    slug: "external-attack-surface",
+    title: "External Attack Surface Audit",
+    description: "Continuous passive and active perimeter assessment mapping all company internet-facing servers, subdomains, and exposed ports.",
+    duration: "4-6 Days",
+    severity: "high",
+    technologies: ["Subfinder", "Amass", "Shodan", "Nuclei", "Subdomain Takeover check", "Nmap"],
+    deliverables: [
+      "Exposed assets registry inventory",
+      "Subdomain takeover risk audit",
+      "Outdated public-facing software CVE map",
+      "Port scanner vulnerability report"
+    ],
+    outcome: "Eliminate low-hanging entry points like shadow IT servers or leaked staging endpoints."
+  },
+  {
+    id: "pci-dss-pentesting",
+    slug: "pci-dss-pentesting",
+    title: "PCI-DSS Compliance Pentesting",
+    description: "Required annual penetration testing validating segmentation boundaries of your Cardholder Data Environment (CDE).",
+    duration: "6-8 Days",
+    severity: "critical",
+    technologies: ["PCI-DSS v4.0", "CDE segmentation", "Nmap", "Burp Suite", "Nessus Professional"],
+    deliverables: [
+      "PCI-DSS aligned penetration test report",
+      "CDE network segmentation audit proof",
+      "ASV vulnerability check attestation",
+      "Remediation verification letter"
+    ],
+    outcome: "Meet PCI-DSS requirements to securely process credit card transactions without audit blocks."
   }
 ];
 
@@ -235,6 +405,54 @@ export const CASE_STUDIES = [
     technologies: ["PostgreSQL RLS", "AWS RDS", "Next.js", "Docker", "Kubernetes"],
     metrics: "100% tenant isolation verified. Checked with 15,000 concurrent simulated threads.",
     results: "Security attestation report delivered to enterprise buyers, reducing sales cycles by 40%."
+  },
+  {
+    slug: "ai-llm-data-leak",
+    title: "Prevented RAG Data Leakage in AI-Agent Platform",
+    category: "AI Startup",
+    problem: "An AI-powered SaaS startup built on LangChain and pgvector had complex agent queries that did not validate user tenant boundaries inside RAG vector search context pools.",
+    exploit: "Exploited prompt injection vector to force the LLM context query to leak confidential databases and document uploads from separate tenants.",
+    impact: "Exposed private corporate strategy files of enterprise accounts, risking contract breach and trust loss.",
+    fix: "Configured metadata filtering in vector searches to restrict database query scopes strictly by the tenant ID context.",
+    technologies: ["LangChain", "pgvector", "Pinecone", "OpenAI APIs", "Python", "FastAPI"],
+    metrics: "100% vector boundary isolation. Zero prompt injection leakage.",
+    results: "Passed enterprise AI safety questionnaire and closed $120k pilot contract."
+  },
+  {
+    slug: "kubernetes-pod-breakout",
+    title: "Remediated Kubernetes Pod Breakout in E-Commerce Cluster",
+    category: "Cloud Security",
+    problem: "An e-commerce gateway ran merchant integrations in isolated Docker containers, but the Kubernetes configuration allowed host namespace access.",
+    exploit: "Bypassed cluster boundaries through hostPath mounting exploit to gain root privileges on the control plane node.",
+    impact: "Potential complete takeover of payment processing containers and cloud service credentials.",
+    fix: "Enforced Pod Security Standards to 'restricted', disabled privileged pods, and configured read-only root filesystems.",
+    technologies: ["Kubernetes", "Docker", "AWS EKS", "Kube-bench", "IAM Policies"],
+    metrics: "Secured 85 worker nodes. Hardened pod admission controller policies.",
+    results: "Secured PCI-DSS compliance verification and decreased developer privilege creep."
+  },
+  {
+    slug: "web3-defi-reentrancy",
+    title: "Secured DeFi Staking Smart Contracts from Reentrancy Attack",
+    category: "Web3/DeFi",
+    problem: "A decentralized liquidity staking protocol was prepping for launch, but custom payout calculation triggers were vulnerable to state reentrancy.",
+    exploit: "Identified logic path where contract payout transactions executed external calls before updating the internal ledger balance state.",
+    impact: "Potential drainage of the entire $4.2M staking token pool on mainnet deploy.",
+    fix: "Restructured Solidity methods to apply Checks-Effects-Interactions pattern and integrated OpenZeppelin ReentrancyGuard.",
+    technologies: ["Solidity", "Slither", "EVM bytecode", "Hardhat", "ERC-20"],
+    metrics: "$4.2M pools protected. Verified with Solidity formal tests.",
+    results: "Attained certified audit report attestation, helping bootstrap token staking launch."
+  },
+  {
+    slug: "mobile-banking-key-leak",
+    title: "Fixed Hardcoded Decryption Key in Android/iOS Banking Wallet",
+    category: "Mobile VAPT",
+    problem: "A mobile banking wallet app stored local user cache databases encrypted, but the decryption key seed was compiled inside the binary files.",
+    exploit: "Decompiled the Android APK and iOS IPA files using Jadx and Hopper, extracted the cryptographic key, and decrypted local files.",
+    impact: "Loss of transaction telemetry and local authorization cookies on compromised client devices.",
+    fix: "Migrated local storage encryption to Android KeyStore and iOS Keychain services using hardware-backed key seeds.",
+    technologies: ["Frida", "Jadx", "Hopper", "Android KeyStore", "iOS Keychain", "React Native"],
+    metrics: "200k user wallets hardened. Extracted key vector patched.",
+    results: "Satisfied Indian regulatory standards for financial transaction security apps."
   }
 ];
 

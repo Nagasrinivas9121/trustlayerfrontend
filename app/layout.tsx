@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
+import LiveChat from "@/components/LiveChat";
 import { FAQS } from "@/lib/constants";
 
 const inter = Inter({ 
@@ -310,6 +311,7 @@ document.head.appendChild(o)}initApollo();`
         <main>{children}</main>
         <Footer />
         <CookieConsent />
+        <LiveChat />
       </body>
     </html>
   );

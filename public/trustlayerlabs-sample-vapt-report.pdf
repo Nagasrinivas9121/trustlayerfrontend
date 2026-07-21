@@ -1,0 +1,92 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1864 >>
+stream
+BT
+/F2 20 Tf
+50 780 Td
+(TrustLayerLabs - Redacted VAPT Audit Report) Tj
+/F1 11 Tf
+0 -30 Td
+(Date: June 2026) Tj
+0 -15 Td
+(Target Client: Redacted SaaS Technologies) Tj
+0 -15 Td
+(Scoping: REST/GraphQL APIs + AWS Cloud Infrastructure) Tj
+0 -15 Td
+(Lead Pentester: Nagasrinivasa Rao, OSCP) Tj
+0 -30 Td
+/F2 14 Tf
+(1. Executive Summary & Attestation) Tj
+/F1 11 Tf
+0 -20 Td
+(TrustLayerLabs conducted a comprehensive vulnerability assessment and manual penetration) Tj
+0 -15 Td
+(testing (VAPT) audit of the target SaaS platform. The audit targeted multi-tenant security,) Tj
+0 -15 Td
+(API authorization, JWT validation, and cloud infrastructure access boundaries.) Tj
+0 -15 Td
+(All findings have been remediated, retested, and verified to be fully patched.) Tj
+0 -30 Td
+/F2 14 Tf
+(2. Discovered Vulnerability Registry) Tj
+/F1 11 Tf
+0 -20 Td
+(Finding 1: Broken Object Level Authorization (BOLA) - Severity: CRITICAL (CVSS 9.8)) Tj
+0 -15 Td
+(Description: Row-level tenant querying boundaries were missing on account transfer routes.) Tj
+0 -15 Td
+(Remediation: Enforced token identity validation against record identifiers.) Tj
+0 -20 Td
+(Finding 2: Unsigned Database Storage URL Query - Severity: HIGH (CVSS 8.2)) Tj
+0 -15 Td
+(Description: Diagnostic storage buckets allowed resource queries without pre-signed validation.) Tj
+0 -15 Td
+(Remediation: Integrated AWS CloudFront pre-signed URL configurations.) Tj
+0 -30 Td
+/F2 14 Tf
+(3. Scoping Checklist Verification) Tj
+/F1 11 Tf
+0 -20 Td
+([PASS] Enforce TLS 1.3 encryption protocols globally.) Tj
+0 -15 Td
+([PASS] Set authentication cookie SameSite flags to Strict/Lax.) Tj
+0 -15 Td
+([PASS] Audit AWS IAM roles against CIS Foundation Benchmarks.) Tj
+0 -30 Td
+/F2 12 Tf
+(For secure intake scheduling, visit: https://trustlayerlabs.co.in/free-assessment) Tj
+0 -20 Td
+(Copyright 2026 TrustLayerLabs. All Rights Reserved.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000249 00000 n 
+0000000249 00000 n 
+0000000249 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2363
+%%EOF

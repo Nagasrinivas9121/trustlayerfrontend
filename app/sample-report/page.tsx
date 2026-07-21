@@ -6,12 +6,48 @@ import { ArrowLeft, ShieldCheck, FileText, Download, CheckCircle, Code } from "l
 import SecurityReportPreview from "@/components/SecurityReportPreview";
 
 export default function SampleReportPage() {
+  const [email, setEmail] = React.useState("");
+  const [downloaded, setDownloaded] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Sample VAPT Report — TrustLayerLabs",
     "url": "https://www.trustlayerlabs.co.in/sample-report",
     "description": "Interactive redacted VAPT audit report preview and lead magnet.",
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1200));
+      
+      // Save lead details to localStorage
+      const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+      existingLeads.push({
+        email,
+        scope: "sample-report",
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+
+      // Trigger automatic PDF download
+      const link = document.createElement("a");
+      link.href = "/trustlayerlabs-sample-vapt-report.pdf";
+      link.download = "trustlayerlabs-sample-vapt-report.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      setDownloaded(true);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,26 +91,61 @@ export default function SampleReportPage() {
           <p className="text-xs text-textSecondary leading-relaxed max-w-xl mx-auto">
             Need to show a sample report structure to your engineering team or compliance auditor? Enter your email to download the redacted PDF report bundle.
           </p>
-          <form 
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thank you! The sample report bundle has been sent to your email.");
-            }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              required
-              placeholder="Enter work email..."
-              className="w-full sm:w-2/3 px-4 py-3 bg-black/40 border border-border rounded-full text-xs text-textPrimary placeholder:text-textSecondary focus:outline-none focus:border-primary"
-            />
-            <button
-              type="submit"
-              className="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-primary/90 text-white font-bold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
+
+          {downloaded ? (
+            <div className="space-y-4 max-w-md mx-auto py-2 animate-fade-in">
+              <p className="text-xs text-success font-bold font-sans flex items-center justify-center gap-1.5">
+                <CheckCircle size={16} className="text-success" /> Report PDF download initialized!
+              </p>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                If the file download did not start automatically, please click the button below to retrieve the PDF file.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href="/trustlayerlabs-sample-vapt-report.pdf"
+                  download
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm transition-colors"
+                >
+                  <Download size={14} /> Download PDF File
+                </a>
+                <Link
+                  href="/free-assessment"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-surface border border-border hover:border-zinc-400 text-textPrimary font-bold text-xs uppercase tracking-wider rounded-full shadow-sm"
+                >
+                  Request Scoping Intake
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <form 
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto"
             >
-              <Download size={14} /> Download PDF
-            </button>
-          </form>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter work email..."
+                className="w-full sm:w-2/3 px-4 py-3 bg-black/40 border border-border rounded-full text-xs text-textPrimary placeholder:text-textSecondary focus:outline-none focus:border-primary font-sans"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 disabled:opacity-50 font-sans"
+              >
+                {loading ? (
+                  <>
+                    <span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> Verifying...
+                  </>
+                ) : (
+                  <>
+                    <Download size={14} /> Download PDF
+                  </>
+                )}
+              </button>
+            </form>
+          )}
         </div>
 
       </div>

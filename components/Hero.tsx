@@ -1,10 +1,31 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Star, CheckCircle, Quote } from "lucide-react";
 
 export default function Hero() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+
+  const handleLeadSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    // Save lead details
+    const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+    existingLeads.push({
+      email,
+      scope: "hero-inline",
+      timestamp: new Date().toISOString()
+    });
+    localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+
+    // Redirect
+    router.push(`/free-assessment?email=${encodeURIComponent(email)}`);
+  };
+
   return (
     <section className="relative pt-40 pb-28 overflow-hidden min-h-[92vh] flex items-center justify-center bg-background">
       {/* Subtle Dot Grid Background Pattern */}
@@ -40,22 +61,45 @@ export default function Hero() {
             TrustLayerLabs helps <strong className="text-textPrimary font-semibold">AI, SaaS, and FinTech startups</strong> secure their applications before launch through expert-led VAPT and manual API security testing.
           </p>
 
-          {/* Action CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-            <Link 
-              href="https://calendar.app.google/jnamj3gawxVunPJm9" 
-              target="_blank" 
-              className="w-full sm:w-auto text-center flex items-center justify-center bg-[#0A0A0A] hover:bg-zinc-800 text-white text-sm uppercase tracking-wider font-sans font-semibold py-3.5 px-8 rounded-full shadow-md transition-all active:scale-[0.98] gap-1.5"
+          {/* Action CTAs & Inline Lead Capture Form */}
+          <div className="w-full max-w-lg mx-auto space-y-4">
+            <form 
+              onSubmit={handleLeadSubmit}
+              className="flex flex-col sm:flex-row items-center gap-2.5 bg-surface border border-border p-2 rounded-2xl sm:rounded-full shadow-lg w-full"
             >
-              Book Free Security Review
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link 
-              href="/sample-report" 
-              className="w-full sm:w-auto text-center bg-surface border border-border hover:border-zinc-400 text-textPrimary text-sm uppercase tracking-wider font-sans font-semibold py-3.5 px-8 rounded-full shadow-sm transition-all"
-            >
-              Sample VAPT Report
-            </Link>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter work email..."
+                className="w-full sm:flex-1 px-4 py-2.5 sm:py-1.5 bg-transparent border-0 text-xs text-textPrimary placeholder:text-textSecondary focus:outline-none font-sans"
+              />
+              <button
+                type="submit"
+                className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-6 rounded-xl sm:rounded-full shadow-md transition-all active:scale-[0.98] gap-1.5 flex-shrink-0"
+              >
+                Free VAPT Consultation
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-1">
+              <Link 
+                href="/sample-report" 
+                className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
+              >
+                📄 Sample VAPT Report
+              </Link>
+              <span className="text-border">•</span>
+              <Link 
+                href="https://calendar.app.google/jnamj3gawxVunPJm9" 
+                target="_blank"
+                className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
+              >
+                📅 Calendar Intake
+              </Link>
+            </div>
           </div>
 
           {/* Overlapping customer avatars, stars, reviews count */}
