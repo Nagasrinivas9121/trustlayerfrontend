@@ -35,7 +35,7 @@ const auditFocusAreas = [
 ];
 
 const platforms = [
-  { name: "ProductHunt", icon: Rocket, color: "text-[#da552f]", href: "https://www.producthunt.com/@nagasrinivas" },
+  { name: "ProductHunt", icon: Rocket, color: "text-[#da552f]", href: "https://www.producthunt.com/@trustlayerlabs" },
   { name: "Crunchbase", icon: Database, color: "text-[#1483c2]", href: "https://www.crunchbase.com/organization/trustlayerlabs" },
   { name: "F6S", icon: Network, color: "text-[#2e8c4a]" },
   { name: "Contra", icon: Briefcase, color: "text-[#ff6b6b]", href: "https://contra.com/trustlayer_labs_6c8shdzq/about" },
@@ -51,7 +51,7 @@ export default function Proof() {
   return (
     <section className="py-24 bg-background border-t border-border" id="trust">
       <div className="section-container">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
@@ -122,16 +122,16 @@ export default function Proof() {
           <p className="text-textSecondary mb-8 text-sm max-w-xl leading-relaxed">
             All audits are signed by OSCP, CEH, and eWPT certified security architects. We operate out of Bangalore and Hyderabad tech hubs.
           </p>
-          
+
           <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
             <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
               <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '32px', width: 'auto' }} />
             </a>
-            
+
             <a href="https://www.designrush.com/agency/profile/trustlayer-labs" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 bg-surface border border-border rounded-lg px-4 h-[36px] hover:bg-zinc-100 transition-colors shadow-sm">
-               <span className="text-textPrimary font-bold text-[12px] tracking-tight">Design<span className="text-primary">Rush</span></span>
-               <div className="h-4 w-[1px] bg-border"></div>
-               <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider">Verified</span>
+              <span className="text-textPrimary font-bold text-[12px] tracking-tight">Design<span className="text-primary">Rush</span></span>
+              <div className="h-4 w-[1px] bg-border"></div>
+              <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider">Verified</span>
             </a>
 
             <div className="flex items-center space-x-3 bg-surface border border-border rounded-lg px-4 h-[36px] cursor-default">
@@ -142,16 +142,16 @@ export default function Proof() {
               </div>
             </div>
           </div>
-          
+
           {/* Slider list of listings */}
           <div className="mt-4 pt-6 border-t border-border/30 w-full max-w-5xl overflow-hidden">
             <p className="text-xs text-textSecondary font-semibold mb-6 uppercase tracking-wider">Audit Attestations Recognized & Listed On</p>
-            
-            <div 
+
+            <div
               className="relative flex overflow-hidden w-full"
               style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
             >
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-x-12 whitespace-nowrap py-2 min-w-max"
                 animate={{ x: ["0%", "-50%"] }}
                 transition={{ ease: "linear", duration: 35, repeat: Infinity }}
