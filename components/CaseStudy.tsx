@@ -107,13 +107,13 @@ export default function CaseStudy() {
 
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4 border-y border-border/40 py-4 text-sm font-sans">
-                  <div>
-                    <span className="text-xs uppercase tracking-wider text-textSecondary block mb-1">Impact Metric:</span>
-                    <span className="text-sm text-success font-bold font-sans uppercase tracking-wide block">{currentCase.metrics}</span>
+                  <div className="bg-success/5 border border-success/20 rounded-xl p-3 shadow-sm">
+                    <span className="text-[10px] uppercase tracking-wider text-textSecondary block mb-1">Impact Metric</span>
+                    <span className="text-sm text-success font-bold font-sans tracking-wide block">{currentCase.metrics}</span>
                   </div>
-                  <div>
-                    <span className="text-xs uppercase tracking-wider text-textSecondary block mb-1">Key Results:</span>
-                    <span className="text-sm text-textPrimary font-bold block">{currentCase.results}</span>
+                  <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 shadow-sm">
+                    <span className="text-[10px] uppercase tracking-wider text-textSecondary block mb-1">Key Results</span>
+                    <span className="text-sm text-textPrimary font-bold block leading-snug">{currentCase.results}</span>
                   </div>
                 </div>
 

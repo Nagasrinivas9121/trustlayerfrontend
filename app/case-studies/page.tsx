@@ -94,13 +94,13 @@ export default function CaseStudiesPage() {
 
                     <div className="space-y-4">
                       <div className="grid grid-cols-2 gap-4 border-y border-border/40 py-4 text-xs font-sans">
-                        <div>
-                          <span className="text-[9px] uppercase tracking-wider text-textSecondary block mb-1">Audit Metric:</span>
-                          <span className="text-success font-bold font-sans uppercase tracking-wide block">{item.metrics}</span>
+                        <div className="bg-success/5 border border-success/20 rounded-xl p-3 shadow-sm">
+                          <span className="text-[9px] uppercase tracking-wider text-textSecondary block mb-1">Impact Metric</span>
+                          <span className="text-xs text-success font-bold font-sans tracking-wide block">{item.metrics}</span>
                         </div>
-                        <div>
-                          <span className="text-[9px] uppercase tracking-wider text-textSecondary block mb-1">Business Impact:</span>
-                          <span className="text-textPrimary font-bold block">{item.results}</span>
+                        <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 shadow-sm">
+                          <span className="text-[9px] uppercase tracking-wider text-textSecondary block mb-1">Key Results</span>
+                          <span className="text-xs text-textPrimary font-bold block leading-snug">{item.results}</span>
                         </div>
                       </div>
 

@@ -1,39 +1,9 @@
 "use client";
-
 import React from "react";
-import { Award, ShieldCheck, Mail, Target, ArrowRight } from "lucide-react";
+import { Award, ShieldCheck, Mail, Target, ArrowRight, Linkedin } from "lucide-react";
 import Link from "next/link";
+import { TEAM } from "@/lib/constants";
 
-const team = [
-  {
-    name: "Nagasrinivasa Rao",
-    role: "Founder & Lead Security Architect",
-    bio: "Offensive security professional with 8+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
-    initials: "NR",
-    credentials: ["OSCP", "CEH", "eWPT"]
-  },
-  {
-    name: "Ramineni Teja",
-    role: "Co-Founder & CMO",
-    bio: "GRC consultant leading compliance roadmaps, ISO 27001 gaps audits, and automated SOC2 readiness configurations for client platforms.",
-    initials: "RT",
-    credentials: ["ISO 27001 LA", "SOC2 Auditor"]
-  },
-  {
-    name: "Nayansi Anand",
-    role: "Security Engineer & Lead VAPT Consultant",
-    bio: "Pentester specializing in manual application penetration testing, OWASP Top 10 web vulnerabilities, and security research.",
-    initials: "NA",
-    credentials: ["CEH", "VAPT Specialist"]
-  },
-  {
-    name: "Muskan Jha",
-    role: "HR & Operations Lead",
-    bio: "Manages organizational recruitment, onboarding workflows, and corporate administrative client relationships.",
-    initials: "MJ",
-    credentials: ["HR Lead"]
-  }
-];
 
 export default function Founder() {
   return (
@@ -55,13 +25,24 @@ export default function Founder() {
 
         {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-16">
-          {team.map((member) => (
+          {TEAM.map((member) => (
             <div 
               key={member.name} 
               className="premium-card p-6 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-sm hover:border-zinc-500 transition-colors"
             >
               <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
               
+              <div className="absolute top-4 right-4 z-20">
+                <a 
+                  href={member.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-textSecondary hover:text-primary transition-colors"
+                >
+                  <Linkedin size={14} />
+                </a>
+              </div>
+
               <div>
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-lg font-bold font-sans text-primary shadow-sm mb-6">
                   {member.initials}

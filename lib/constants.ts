@@ -462,21 +462,24 @@ export const TESTIMONIALS = [
     name: "Siddharth Sharma",
     role: "Co-Founder & CTO",
     company: "PayFlow India",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200",
+    linkedin: "https://www.linkedin.com/in/siddharth-payflow"
   },
   {
     quote: "Enterprise procurement used to take months for us. Thanks to TrustLayerLabs' SOC2 readiness program and manual penetration testing attestation, we cleared our largest enterprise audit in just 3 days.",
     name: "Ananya Roy",
     role: "VP of Engineering",
     company: "CareOS",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200"
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200",
+    linkedin: "https://www.linkedin.com/in/ananya-careos"
   },
   {
     quote: "Outstanding experience. Unlike automated tools that throw hundreds of false positives, TrustLayerLabs focused on logical issues. They found an IDOR that could have cost us our Series A.",
     name: "Rohan Deshmukh",
     role: "CEO & Founder",
     company: "LogixLabs",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200"
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
+    linkedin: "https://www.linkedin.com/in/rohan-logixlabs"
   }
 ];
 
@@ -562,4 +565,40 @@ export const FAQS = [
     answer: "We guarantee that our manual testing will uncover logic flaws or configuration vulnerabilities. If we run a full VAPT audit and find zero issues of any severity, and your code is proved to be 100% hardened, we offer a 50% discount on your next scoping round."
   }
 ];
+
+export const TEAM = [
+  {
+    name: "Nagasrinivasa Rao",
+    role: "Founder & Lead Security Architect",
+    bio: "Offensive security professional with 8+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
+    initials: "NR",
+    credentials: ["OSCP", "CEH", "eWPT"],
+    linkedin: "https://www.linkedin.com/in/nagasrinivasa-rao-a9b08493"
+  },
+  {
+    name: "Ramineni Teja",
+    role: "Co-Founder & CMO",
+    bio: "GRC consultant leading compliance roadmaps, ISO 27001 gaps audits, and automated SOC2 readiness configurations for client platforms.",
+    initials: "RT",
+    credentials: ["ISO 27001 LA", "SOC2 Auditor"],
+    linkedin: "https://www.linkedin.com/in/ramineniteja"
+  },
+  {
+    name: "Nayansi Anand",
+    role: "Security Engineer & Lead VAPT Consultant",
+    bio: "Pentester specializing in manual application penetration testing, OWASP Top 10 web vulnerabilities, and security research.",
+    initials: "NA",
+    credentials: ["CEH", "VAPT Specialist"],
+    linkedin: "https://www.linkedin.com/in/nayansi-anand"
+  },
+  {
+    name: "Muskan Jha",
+    role: "HR & Operations Lead",
+    bio: "Manages organizational recruitment, onboarding workflows, and corporate administrative client relationships.",
+    initials: "MJ",
+    credentials: ["HR Lead"],
+    linkedin: "https://www.linkedin.com/in/muskan-jha"
+  }
+];
+
 

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { TESTIMONIALS } from "@/lib/constants";
-import { Quote } from "lucide-react";
+import { Quote, Linkedin } from "lucide-react";
 
 export default function Testimonials() {
   return (
@@ -45,9 +45,22 @@ export default function Testimonials() {
                   <div className="w-10 h-10 rounded-full overflow-hidden bg-background border border-border flex-shrink-0 flex items-center justify-center font-sans font-bold text-xs text-primary">
                     {item.name.split(" ").map(n => n[0]).join("")}
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">{item.name}</h4>
-                    <p className="text-xs font-sans text-textSecondary uppercase tracking-wider mt-0.5">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans truncate">{item.name}</h4>
+                      {item.linkedin && (
+                        <a 
+                          href={item.linkedin} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-textSecondary hover:text-primary transition-colors flex-shrink-0"
+                          title="Verify Profile on LinkedIn"
+                        >
+                          <Linkedin size={11} />
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-xs font-sans text-textSecondary uppercase tracking-wider mt-0.5 truncate">
                       {item.role}, <span className="text-primary">{item.company}</span>
                     </p>
                   </div>
@@ -62,3 +75,4 @@ export default function Testimonials() {
     </section>
   );
 }
+
