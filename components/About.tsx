@@ -70,22 +70,42 @@ export default function About() {
               </div>
             </div>
 
-            {/* Certifications badges grid */}
-            <div>
-              <p className="text-[10px] font-mono uppercase tracking-widest text-textSecondary mb-4">
-                Elite Certifications & Standards:
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {certifications.map((cert) => (
-                  <div 
-                    key={cert.name} 
-                    className={`px-3 py-1.5 border rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 ${cert.color}`}
-                    title={cert.authority}
-                  >
-                    <Award className="w-3.5 h-3.5" />
-                    {cert.name}
+            {/* Certifications & Research badges */}
+            <div className="space-y-6">
+              <div>
+                <p className="text-[10px] font-mono uppercase tracking-widest text-textSecondary mb-3">
+                  Elite Certifications & Standards:
+                </p>
+                <div className="flex flex-wrap gap-2.5">
+                  {certifications.map((cert) => (
+                    <div 
+                      key={cert.name} 
+                      className={`px-3 py-1.5 border rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 ${cert.color}`}
+                      title={cert.authority}
+                    >
+                      <Award className="w-3.5 h-3.5" />
+                      {cert.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[10px] font-mono uppercase tracking-widest text-textSecondary mb-3">
+                  Research Contributions & Hall of Fame:
+                </p>
+                <div className="flex flex-wrap gap-2.5 text-xs text-textPrimary font-mono">
+                  <div className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 rounded-lg flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                    <span>12+ Disclosed CVEs</span>
                   </div>
-                ))}
+                  <div className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 rounded-lg flex items-center gap-1">
+                    <span>Google Hall of Fame</span>
+                  </div>
+                  <div className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 rounded-lg flex items-center gap-1">
+                    <span>Apple Security Disclosures</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { TESTIMONIALS } from "@/lib/constants";
-import { Quote, Linkedin, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { Quote, Linkedin, ArrowUpRight, ShieldCheck, Check } from "lucide-react";
 
 export default function Testimonials() {
   return (
@@ -30,7 +30,7 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TESTIMONIALS.map((item, i) => (
             <div 
               key={i} 
@@ -57,10 +57,10 @@ export default function Testimonials() {
                           href={item.linkedin} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="inline-flex items-center gap-1 text-[9px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-2 py-0.5 rounded-md flex-shrink-0"
+                          className="inline-flex items-center gap-1 text-[9px] text-emerald-500 hover:text-emerald-400 font-semibold tracking-wider transition-colors bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 px-2 py-0.5 rounded-md flex-shrink-0"
                           title="Verify Profile on LinkedIn"
                         >
-                          <Linkedin size={9} className="fill-current" />
+                          <Check size={9} className="text-emerald-500" />
                           Verify
                         </a>
                       )}

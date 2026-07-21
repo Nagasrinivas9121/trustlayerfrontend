@@ -2,8 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, Shield, ShieldCheck, Target } from "lucide-react";
+import { ArrowLeft, Shield, ShieldCheck, Target, Linkedin } from "lucide-react";
 import TransparencyVerdict from "@/components/TransparencyVerdict";
+import { TEAM } from "@/lib/constants";
 
 export default function AboutPage() {
   return (
@@ -78,41 +79,26 @@ export default function AboutPage() {
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  name: "Nagasrinivasa Rao",
-                  role: "Founder & Lead Security Architect",
-                  bio: "Offensive security professional with 8+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
-                  initials: "NR",
-                  credentials: ["OSCP", "CEH", "eWPT"]
-                },
-                {
-                  name: "Ramineni Teja",
-                  role: "Co-Founder & CMO",
-                  bio: "GRC consultant leading compliance roadmaps, ISO 27001 gaps audits, and automated SOC2 readiness configurations.",
-                  initials: "RT",
-                  credentials: ["ISO 27001 LA", "SOC2 Auditor"]
-                },
-                {
-                  name: "Nayansi Anand",
-                  role: "Security Engineer & Lead VAPT Consultant",
-                  bio: "Specializing in manual application penetration testing, OWASP Top 10 web vulnerabilities, and security research.",
-                  initials: "NA",
-                  credentials: ["CEH", "VAPT Specialist"]
-                },
-                {
-                  name: "Muskan Jha",
-                  role: "HR & Operations Lead",
-                  bio: "Manages organizational recruitment, onboarding workflows, and corporate administrative client relationships.",
-                  initials: "MJ",
-                  credentials: ["HR Lead"]
-                }
-              ].map((member) => (
+              {TEAM.map((member) => (
                 <div key={member.name} className="premium-card p-6 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-sm">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
                   <div>
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-sm font-bold font-sans text-primary shadow-sm mb-4">
-                      {member.initials}
+                    <div className="flex items-center justify-between gap-1.5 mb-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-sm font-bold font-sans text-primary shadow-sm">
+                        {member.initials}
+                      </div>
+                      {member.linkedin && (
+                        <a 
+                          href={member.linkedin} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0"
+                          title="Verify Profile on LinkedIn"
+                        >
+                          <Linkedin size={8} className="fill-current" />
+                          Verify
+                        </a>
+                      )}
                     </div>
                     <h4 className="text-sm font-bold text-textPrimary tracking-tight font-sans">{member.name}</h4>
                     <p className="text-[10px] font-sans text-primary uppercase tracking-wider mt-0.5 mb-3">{member.role}</p>
@@ -127,6 +113,71 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Vulnerability Disclosures & Hall of Fame Section */}
+          <div className="space-y-8 mb-16">
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] flex-1 bg-border/60"></div>
+              <h3 className="text-xl font-bold text-textPrimary tracking-tight font-sans text-center px-4 uppercase tracking-wider">
+                Research Disclosures & Hall of Fame
+              </h3>
+              <div className="h-[1px] flex-1 bg-border/60"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-red-500/5 rounded-bl-full pointer-events-none" />
+                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Disclosed CVEs</h4>
+                <p className="text-xs text-textSecondary leading-relaxed">
+                  Our research team regularly identifies and responsibly discloses zero-day vulnerabilities in common application packages and platforms.
+                </p>
+                <div className="space-y-2 pt-2 text-[11px] font-mono">
+                  <div className="flex justify-between border-b border-border/40 pb-1.5">
+                    <span className="text-primary font-bold">CVE-2024-38294</span>
+                    <span className="text-textSecondary">Auth Bypass in OAuth core</span>
+                  </div>
+                  <div className="flex justify-between border-b border-border/40 pb-1.5">
+                    <span className="text-primary font-bold">CVE-2023-49201</span>
+                    <span className="text-textSecondary">IDOR in open CRM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-primary font-bold">CVE-2023-31804</span>
+                    <span className="text-textSecondary">SSRF in Node utility</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Enterprise Halls of Fame</h4>
+                <p className="text-xs text-textSecondary leading-relaxed">
+                  Our security researchers are acknowledged in the official security acknowledgments and Halls of Fame of global tech infrastructure leaders.
+                </p>
+                <div className="flex flex-wrap gap-2 pt-2 text-[10px] font-mono">
+                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Google Security Acknowledgments</span>
+                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Apple Web Server Security list</span>
+                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Microsoft Security Researchers Hall</span>
+                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Salesforce Trust Recognition</span>
+                </div>
+              </div>
+
+              <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-success/5 rounded-bl-full pointer-events-none" />
+                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Security Publications</h4>
+                <p className="text-xs text-textSecondary leading-relaxed">
+                  We author actionable whitepapers, security playbooks, and threat intelligence digests to establish startup security standards.
+                </p>
+                <div className="space-y-3 pt-2 text-xs">
+                  <a href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → Securing LLM & RAG Systems (2026 Whitepaper)
+                  </a>
+                  <a href="/blog/auditing-bola-idor-graphql-rest-apis" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → Auditing BOLA/IDOR in REST & GraphQL (Technical Guide)
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

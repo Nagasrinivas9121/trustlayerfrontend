@@ -31,12 +31,12 @@ export default function CaseStudy() {
           </div>
 
           {/* Tabs Selector */}
-          <div className="flex space-x-2 p-1 bg-surface border border-border rounded-xl self-start md:self-auto font-sans text-xs font-semibold uppercase tracking-wider shadow-sm">
+          <div className="flex overflow-x-auto max-w-full scrollbar-none space-x-2 p-1 bg-surface border border-border rounded-xl self-start md:self-auto font-sans text-xs font-semibold uppercase tracking-wider shadow-sm whitespace-nowrap">
             {CASE_STUDIES.map((item, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
-                className={`px-4 py-2 rounded-lg transition-all ${
+                className={`px-4 py-2 rounded-lg transition-all flex-shrink-0 ${
                   activeIdx === idx 
                     ? "bg-primary text-white shadow-sm" 
                     : "text-textSecondary hover:text-textPrimary"
@@ -103,6 +103,26 @@ export default function CaseStudy() {
                 <p className="text-sm text-textPrimary leading-relaxed font-semibold font-sans">
                   {currentCase.fix}
                 </p>
+              </div>
+
+              {/* Actionable Outcomes Metrics */}
+              <div className="grid grid-cols-2 gap-3.5 font-sans">
+                <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-3 shadow-sm">
+                  <span className="text-[9px] font-bold text-red-500/80 uppercase tracking-wider block mb-1">Vulnerabilities Found</span>
+                  <span className="text-xs text-textPrimary font-extrabold block leading-snug">{currentCase.vulnerabilitiesIdentified || "Identified"}</span>
+                </div>
+                <div className="bg-amber-500/5 border border-amber-500/10 rounded-xl p-3 shadow-sm">
+                  <span className="text-[9px] font-bold text-amber-500/80 uppercase tracking-wider block mb-1">Remediation Time</span>
+                  <span className="text-xs text-textPrimary font-extrabold block leading-snug">{currentCase.remediationTime || "N/A"}</span>
+                </div>
+                <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-3 shadow-sm">
+                  <span className="text-[9px] font-bold text-emerald-500/80 uppercase tracking-wider block mb-1">Security Score</span>
+                  <span className="text-xs text-emerald-500 font-extrabold block leading-snug">{currentCase.securityImprovement || "A+ Grade"}</span>
+                </div>
+                <div className="bg-primary/5 border border-primary/10 rounded-xl p-3 shadow-sm">
+                  <span className="text-[9px] font-bold text-primary uppercase tracking-wider block mb-1">Retest Verification</span>
+                  <span className="text-xs text-primary font-extrabold block leading-snug">{currentCase.retestStatus || "Patched"}</span>
+                </div>
               </div>
 
               <div className="space-y-4">

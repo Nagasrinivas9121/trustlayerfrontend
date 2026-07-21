@@ -93,6 +93,26 @@ export default function CaseStudiesPage() {
                     </div>
 
                     <div className="space-y-4">
+                      {/* Detailed Outcomes Metrics */}
+                      <div className="grid grid-cols-2 gap-3 text-[11px] font-sans">
+                        <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-2.5 shadow-sm">
+                          <span className="text-[8px] font-bold text-red-500/80 uppercase tracking-wider block mb-1">Vulnerabilities Found</span>
+                          <span className="text-[11px] text-textPrimary font-extrabold block leading-snug">{item.vulnerabilitiesIdentified || "Identified"}</span>
+                        </div>
+                        <div className="bg-amber-500/5 border border-amber-500/10 rounded-xl p-2.5 shadow-sm">
+                          <span className="text-[8px] font-bold text-amber-500/80 uppercase tracking-wider block mb-1">Remediation Time</span>
+                          <span className="text-[11px] text-textPrimary font-extrabold block leading-snug">{item.remediationTime || "N/A"}</span>
+                        </div>
+                        <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-2.5 shadow-sm">
+                          <span className="text-[8px] font-bold text-emerald-500/80 uppercase tracking-wider block mb-1">Security Score</span>
+                          <span className="text-[11px] text-emerald-500 font-extrabold block leading-snug">{item.securityImprovement || "A+ Grade"}</span>
+                        </div>
+                        <div className="bg-primary/5 border border-primary/10 rounded-xl p-2.5 shadow-sm">
+                          <span className="text-[8px] font-bold text-primary uppercase tracking-wider block mb-1">Retest Verification</span>
+                          <span className="text-[11px] text-primary font-extrabold block leading-snug">{item.retestStatus || "Patched"}</span>
+                        </div>
+                      </div>
+
                       <div className="grid grid-cols-2 gap-4 border-y border-border/40 py-4 text-xs font-sans">
                         <div className="bg-success/5 border border-success/20 rounded-xl p-3 shadow-sm">
                           <span className="text-[9px] uppercase tracking-wider text-textSecondary block mb-1">Impact Metric</span>

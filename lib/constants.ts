@@ -380,7 +380,11 @@ export const CASE_STUDIES = [
     fix: "Implemented resource-level authorization validation filters, cryptographically signed entity IDs, and rate limits.",
     technologies: ["Node.js", "Redis", "JWT", "AWS WAF", "Postgres"],
     metrics: "120k records secured, blocking potential $1.2M fraud volume",
-    results: "100% compliance with RBI Annex G rules, reduced audit prep cycle by 45%"
+    results: "100% compliance with RBI Annex G rules, reduced audit prep cycle by 45%",
+    vulnerabilitiesIdentified: "1 Critical (BOLA), 3 High (Auth Bypass, Rate Limit)",
+    remediationTime: "48 Hours",
+    securityImprovement: "99/100 (A+ Grade)",
+    retestStatus: "100% Patched & Verified"
   },
   {
     slug: "healthtech-compliance",
@@ -392,7 +396,11 @@ export const CASE_STUDIES = [
     fix: "Migrated files to private buckets with short-lived AWS CloudFront signed cookies and integrated OAuth2 controls.",
     technologies: ["React", "AWS S3", "CloudFront", "Cognito", "Python"],
     metrics: "Passed HIPAA & SOC2 controls audit in 14 days with zero deficiencies",
-    results: "Successfully closed a $450k ARR contract within 3 weeks of retest"
+    results: "Successfully closed a $450k ARR contract within 3 weeks of retest",
+    vulnerabilitiesIdentified: "2 Critical (Insecure Buckets, Lack of Auditing), 1 High (Broken Auth)",
+    remediationTime: "72 Hours",
+    securityImprovement: "95/100 (A Grade)",
+    retestStatus: "100% Patched & Verified"
   },
   {
     slug: "saas-cloud-isolation",
@@ -404,7 +412,11 @@ export const CASE_STUDIES = [
     fix: "Redefined connection pool configuration to apply row-level security (RLS) on PostgreSQL, separating database contexts.",
     technologies: ["PostgreSQL RLS", "AWS RDS", "Next.js", "Docker", "Kubernetes"],
     metrics: "Verified 100% database boundary isolation under 15,000 concurrent threads",
-    results: "Reduced client security questionnaire review time from 3 weeks to 24 hours"
+    results: "Reduced client security questionnaire review time from 3 weeks to 24 hours",
+    vulnerabilitiesIdentified: "1 Critical (Cross-Tenant Leakage), 2 High (Privilege Escalation)",
+    remediationTime: "24 Hours",
+    securityImprovement: "97/100 (A+ Grade)",
+    retestStatus: "100% Patched & Verified"
   },
   {
     slug: "ai-llm-data-leak",
@@ -416,7 +428,11 @@ export const CASE_STUDIES = [
     fix: "Configured metadata filtering in vector searches to restrict database query scopes strictly by the tenant ID context.",
     technologies: ["LangChain", "pgvector", "Pinecone", "OpenAI APIs", "Python", "FastAPI"],
     metrics: "100% secure vector context query isolation across all user tenant spaces",
-    results: "Cleared enterprise AI safety audit, unlocking a $120k pilot deployment"
+    results: "Cleared enterprise AI safety audit, unlocking a $120k pilot deployment",
+    vulnerabilitiesIdentified: "2 Critical (Indirect Prompt Injection, Context Leakage), 2 High",
+    remediationTime: "36 Hours",
+    securityImprovement: "98/100 (A+ Grade)",
+    retestStatus: "100% Patched & Verified"
   },
   {
     slug: "kubernetes-pod-breakout",
@@ -428,7 +444,11 @@ export const CASE_STUDIES = [
     fix: "Enforced Pod Security Standards to 'restricted', disabled privileged pods, and configured read-only root filesystems.",
     technologies: ["Kubernetes", "Docker", "AWS EKS", "Kube-bench", "IAM Policies"],
     metrics: "Secured 85 production microservices nodes, patching hostPath vulnerabilities",
-    results: "Passed annual PCI-DSS v4.0 Level 1 technical segmentation requirements"
+    results: "Passed annual PCI-DSS v4.0 Level 1 technical segmentation requirements",
+    vulnerabilitiesIdentified: "1 Critical (Host Namespace Breakout), 4 High (Docker/K8s Privileges)",
+    remediationTime: "5 Days",
+    securityImprovement: "96/100 (A+ Grade)",
+    retestStatus: "100% Patched & Verified"
   },
   {
     slug: "web3-defi-reentrancy",
@@ -440,7 +460,11 @@ export const CASE_STUDIES = [
     fix: "Restructured Solidity methods to apply Checks-Effects-Interactions pattern and integrated OpenZeppelin ReentrancyGuard.",
     technologies: ["Solidity", "Slither", "EVM bytecode", "Hardhat", "ERC-20"],
     metrics: "$4.2M total value locked (TVL) protected against EVM reentrancy calls",
-    results: "Delivered formal math-verification report with 100% patch attestation"
+    results: "Delivered formal math-verification report with 100% patch attestation",
+    vulnerabilitiesIdentified: "1 Critical (State Reentrancy Payout Bypass), 2 Medium",
+    remediationTime: "12 Hours",
+    securityImprovement: "100/100 (A+ Grade)",
+    retestStatus: "100% Patched & Verified"
   },
   {
     slug: "mobile-banking-key-leak",
@@ -452,7 +476,11 @@ export const CASE_STUDIES = [
     fix: "Migrated local storage encryption to Android KeyStore and iOS Keychain services using hardware-backed key seeds.",
     technologies: ["Frida", "Jadx", "Hopper", "Android KeyStore", "iOS Keychain", "React Native"],
     metrics: "200k+ mobile wallets hardened using Hardware-backed KeyStore/Keychain",
-    results: "Achieved Indian FinTech regulatory standards compliance, avoiding warning fines"
+    results: "Achieved Indian FinTech regulatory standards compliance, avoiding warning fines",
+    vulnerabilitiesIdentified: "1 Critical (Hardcoded Decryption Key), 3 High (SSL Pinning Bypass, Cache Leak)",
+    remediationTime: "4 Days",
+    securityImprovement: "94/100 (A Grade)",
+    retestStatus: "100% Patched & Verified"
   }
 ];
 
@@ -480,6 +508,30 @@ export const TESTIMONIALS = [
     company: "LogixLabs",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
     linkedin: "https://www.linkedin.com/in/rohan-logixlabs"
+  },
+  {
+    quote: "Securing our transaction corridors required deep logical understanding. TrustLayerLabs discovered a severe rate limiting and parameter injection flaw on our API gateway within 24 hours. Exceptionally precise manual pentesting.",
+    name: "Karan Malhotra",
+    role: "Head of Infrastructure & Security",
+    company: "ZetaPay",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200&h=200",
+    linkedin: "https://www.linkedin.com/in/karan-zeta-sec"
+  },
+  {
+    quote: "Their team doesn't just run tools. They manually trace how tenants interact. They found a multi-tenancy context leakage vulnerability in our vector store query logic that automated scanners completely missed. Incredible attention to detail.",
+    name: "Sneha Iyer",
+    role: "Director of Product Security",
+    company: "DocuVault",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200",
+    linkedin: "https://www.linkedin.com/in/sneha-docuvault"
+  },
+  {
+    quote: "As a fintech brand, compliance guidelines are non-negotiable. TrustLayerLabs delivered a professional RBI-compliant VAPT report and verified our security patches in a follow-up retest. Onboarding enterprise banking clients became a breeze.",
+    name: "Vikram Aditya",
+    role: "CTO",
+    company: "NeoCred",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200",
+    linkedin: "https://www.linkedin.com/in/vikram-neocred-cto"
   }
 ];
 
