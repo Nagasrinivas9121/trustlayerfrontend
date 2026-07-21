@@ -91,13 +91,19 @@ export default function Services() {
                 </div>
 
                 {/* Card CTA */}
-                <div className="pt-2">
+                <div className="pt-2 flex items-center gap-2">
+                  <Link 
+                    href={`/services/${service.slug}`}
+                    className="flex-1 text-center py-2.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-textPrimary hover:text-primary transition-all duration-200"
+                  >
+                    View Details →
+                  </Link>
                   <Link 
                     href="https://calendar.app.google/jnamj3gawxVunPJm9"
                     target="_blank"
-                    className="w-full inline-flex items-center justify-center py-2.5 bg-surface border border-border hover:border-zinc-700 text-sm uppercase font-sans font-semibold tracking-wider rounded-lg hover:bg-primary hover:text-white hover:border-primary transition-all duration-200"
+                    className="flex-1 text-center py-2.5 bg-primary text-white text-xs uppercase font-sans font-semibold tracking-wider rounded-lg hover:bg-primary/90 transition-all duration-200"
                   >
-                    Request Proposal
+                    Book Audit
                   </Link>
                 </div>
               </div>

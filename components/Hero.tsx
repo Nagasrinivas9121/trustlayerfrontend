@@ -37,7 +37,7 @@ export default function Hero() {
 
           {/* Subheadline */}
           <p className="text-sm sm:text-base md:text-lg text-textSecondary max-w-2xl mx-auto leading-relaxed font-sans">
-            Manual API security testing, VAPT, cloud reviews, and compliance readiness for high-growth startups.
+            TrustLayerLabs helps <strong className="text-textPrimary font-semibold">AI, SaaS, and FinTech startups</strong> secure their applications before launch through expert-led VAPT and manual API security testing.
           </p>
 
           {/* Action CTAs */}
@@ -47,14 +47,14 @@ export default function Hero() {
               target="_blank" 
               className="w-full sm:w-auto text-center flex items-center justify-center bg-[#0A0A0A] hover:bg-zinc-800 text-white text-sm uppercase tracking-wider font-sans font-semibold py-3.5 px-8 rounded-full shadow-md transition-all active:scale-[0.98] gap-1.5"
             >
-              Book Security Review
+              Book Free Security Review
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link 
-              href="/case-studies" 
+              href="/sample-report" 
               className="w-full sm:w-auto text-center bg-surface border border-border hover:border-zinc-400 text-textPrimary text-sm uppercase tracking-wider font-sans font-semibold py-3.5 px-8 rounded-full shadow-sm transition-all"
             >
-              View Case Studies
+              Sample VAPT Report
             </Link>
           </div>
 

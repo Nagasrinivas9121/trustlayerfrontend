@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
+import { FAQS } from "@/lib/constants";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -22,6 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.trustlayerlabs.co.in"),
+  manifest: "/manifest.json",
   title: {
     default: "TrustLayerLabs | API Security Testing & VAPT for SaaS & AI Startups",
     template: "%s | TrustLayerLabs",
@@ -223,6 +225,18 @@ export default function RootLayout({
           "query-input": "required name=search_term_string",
         },
         "inLanguage": "en-IN",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.trustlayerlabs.co.in/#faq",
+        "mainEntity": FAQS.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
       },
     ],
   };

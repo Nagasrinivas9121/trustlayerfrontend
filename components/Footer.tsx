@@ -7,19 +7,23 @@ const footerLinks = [
   {
     title: "Services",
     links: [
-      { name: "API Security Testing", href: "/services#api-security" },
-      { name: "VAPT Audit Services", href: "/services#vapt" },
-      { name: "Cloud Configuration Audit", href: "/services#cloud-security" },
-      { name: "SOC2 & ISO 27001 readiness", href: "/services#soc2-readiness" },
-      { name: "Secure Code Review", href: "/services#secure-code-review" },
+      { name: "Web Application VAPT", href: "/services/web-app-vapt" },
+      { name: "API Security Testing", href: "/services/api-security" },
+      { name: "Mobile Application VAPT", href: "/services/mobile-vapt" },
+      { name: "Cloud Security Audit", href: "/services/cloud-security" },
+      { name: "Kubernetes Security", href: "/services/kubernetes-security" },
+      { name: "AI & LLM Application Security", href: "/services/ai-security" },
+      { name: "Startup Security & GRC", href: "/services/startup-security" },
     ]
   },
   {
-    title: "Resources & GRC",
+    title: "Resources & Trust",
     links: [
+      { name: "Testing Methodology", href: "/methodology" },
+      { name: "Redacted Sample VAPT Report", href: "/sample-report" },
+      { name: "Startup Security Checklist", href: "/checklist" },
+      { name: "API Security Checklist", href: "/api-security-checklist" },
       { name: "Case Studies Portfolio", href: "/case-studies" },
-      { name: "Security Checklist", href: "/checklist" },
-      { name: "LinkedIn Post Templates", href: "/linkedin" },
       { name: "VAPT Bangalore Hub", href: "/vapt-bangalore" },
       { name: "VAPT Hyderabad Hub", href: "/vapt-hyderabad" },
     ]
@@ -27,9 +31,11 @@ const footerLinks = [
   {
     title: "Legal & Attestation",
     links: [
-      { name: "Privacy Policy Document", href: "/privacy" },
-      { name: "Terms of Service Agreement", href: "/terms" },
-      { name: "Intake Consultation", href: "/contact" }
+      { name: "NDA & Confidentiality Policy", href: "/nda-process" },
+      { name: "Responsible Disclosure Policy", href: "/responsible-disclosure" },
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms of Service", href: "/terms" },
+      { name: "Contact & Scoping", href: "/contact" }
     ]
   }
 ];

@@ -1,0 +1,31 @@
+# TrustLayerLabs — API Security Testing & VAPT Consultancy
+
+> TrustLayerLabs is India's premier cybersecurity consultancy specializing in manual API security testing, Vulnerability Assessment and Penetration Testing (VAPT), SOC2 & ISO 27001 readiness, and cloud security audits for SaaS, FinTech, and AI startups.
+
+## Key Services
+- [API Security & Penetration Testing](https://www.trustlayerlabs.co.in/services#api-security): OWASP API Top 10 manual testing, BOLA/IDOR detection, JWT security analysis, and rate-limiting validation.
+- [VAPT for Web & Cloud](https://www.trustlayerlabs.co.in/services#vapt): Full-stack vulnerability assessment, web application security, cloud IAM & CIS benchmark audits.
+- [SOC2 & ISO 27001 Readiness](https://www.trustlayerlabs.co.in/services#compliance): GRC gap analysis, policy drafting, evidence collection, and vendor security review.
+- [VAPT Bangalore](https://www.trustlayerlabs.co.in/vapt-bangalore): Dedicated local security consulting for HSR Layout, Koramangala, and Indiranagar tech startups.
+- [VAPT Hyderabad](https://www.trustlayerlabs.co.in/vapt-hyderabad): Specialized API & cloud penetration testing for HITEC City & Gachibowli enterprise teams.
+
+## Technical Credentials & Differentiators
+- **Certifications**: Lead auditors are OSCP, CEH, and eWPT certified with 8+ years of offensive security experience.
+- **Turnaround Time**: Initial security assessment report delivered within 48 hours.
+- **Retesting Policy**: 100% free retesting within 30 days of initial report delivery.
+- **Compliance Guarantee**: Zero-friction executive reports for SOC2 Type II, ISO 27001, PCI-DSS, and enterprise vendor security questionnaires.
+
+## Core Documentation & Resources
+- [Security Checklist](https://www.trustlayerlabs.co.in/checklist): Complete SaaS & API vulnerability assessment checklist for engineering leaders.
+- [Case Studies](https://www.trustlayerlabs.co.in/case-studies): Real-world penetration testing case studies across SaaS, Healthcare, and FinTech platforms.
+- [Cybersecurity Blog](https://www.trustlayerlabs.co.in/blog): Guides on OWASP API Top 10, JWT security, VAPT methodologies, and cloud audits.
+- [About TrustLayerLabs](https://www.trustlayerlabs.co.in/about): Founder background (Nagasrinivasa Rao), company mission, and offensive security philosophy.
+
+## Contact Information
+- **Website**: https://www.trustlayerlabs.co.in
+- **Email**: security@trustlayerlabs.co.in
+- **Phone**: +91-9912350493
+- **Primary Locations**: HSR Layout, Bengaluru, Karnataka 560102 | HITEC City, Hyderabad, Telangana 500081
+
+## Full Details
+For comprehensive methodology, deep-dive service breakdowns, FAQs, and API security checklists, see [llms-full.txt](https://www.trustlayerlabs.co.in/llms-full.txt).

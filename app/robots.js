@@ -7,13 +7,25 @@ export default function robots() {
         disallow: ["/api/", "/_next/", "/static/"],
       },
       {
-        // Allow Google's AI Overview and indexing bots
-        userAgent: "Googlebot",
+        // Explicitly allow primary search engines
+        userAgent: ["Googlebot", "Bingbot", "DuckDuckBot", "YandexBot"],
         allow: "/",
         disallow: ["/api/"],
       },
       {
-        userAgent: "Bingbot",
+        // Explicitly allow AI Search Engine & Retrieval Bots (AEO)
+        userAgent: [
+          "GPTBot",
+          "ChatGPT-User",
+          "PerplexityBot",
+          "ClaudeBot",
+          "Anthropic-AI",
+          "Google-Extended",
+          "Applebot-Extended",
+          "Bytespider",
+          "CCBot",
+          "Cohere-ai",
+        ],
         allow: "/",
         disallow: ["/api/"],
       },

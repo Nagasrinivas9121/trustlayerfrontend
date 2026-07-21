@@ -30,7 +30,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
             {/* Left Content */}
-            <div className="lg:col-span-8 space-y-8">
+            <div className="lg:col-span-12 space-y-8">
               <div className="premium-card p-8 bg-surface border border-border/85 rounded-2xl space-y-4 shadow-sm">
                 <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans">
                   Our Mission Statement
@@ -68,31 +68,64 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Right Team Card */}
-            <div className="lg:col-span-4 space-y-6">
-              <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl text-center space-y-6 relative overflow-hidden shadow-sm">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
-                
-                <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-primary/30 mx-auto flex items-center justify-center bg-primary/10 text-2xl font-bold font-sans text-primary shadow-sm">
-                  NS
+          {/* Team Section */}
+          <div className="space-y-8 mb-16">
+            <h3 className="text-xl font-bold text-textPrimary tracking-tight font-sans">
+              Our Leadership & Advisory Team
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  name: "Nagasrinivasa Rao",
+                  role: "Founder & Lead Security Architect",
+                  bio: "Offensive security professional with 8+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
+                  initials: "NR",
+                  credentials: ["OSCP", "CEH", "eWPT"]
+                },
+                {
+                  name: "Ramineni Teja",
+                  role: "Co-Founder & CMO",
+                  bio: "GRC consultant leading compliance roadmaps, ISO 27001 gaps audits, and automated SOC2 readiness configurations.",
+                  initials: "RT",
+                  credentials: ["ISO 27001 LA", "SOC2 Auditor"]
+                },
+                {
+                  name: "Nayansi Anand",
+                  role: "Security Engineer & Lead VAPT Consultant",
+                  bio: "Specializing in manual application penetration testing, OWASP Top 10 web vulnerabilities, and security research.",
+                  initials: "NA",
+                  credentials: ["CEH", "VAPT Specialist"]
+                },
+                {
+                  name: "Muskan Jha",
+                  role: "HR & Operations Lead",
+                  bio: "Manages organizational recruitment, onboarding workflows, and corporate administrative client relationships.",
+                  initials: "MJ",
+                  credentials: ["HR Lead"]
+                }
+              ].map((member) => (
+                <div key={member.name} className="premium-card p-6 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-sm">
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+                  <div>
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-sm font-bold font-sans text-primary shadow-sm mb-4">
+                      {member.initials}
+                    </div>
+                    <h4 className="text-sm font-bold text-textPrimary tracking-tight font-sans">{member.name}</h4>
+                    <p className="text-[10px] font-sans text-primary uppercase tracking-wider mt-0.5 mb-3">{member.role}</p>
+                    <p className="text-xs text-textSecondary leading-relaxed font-sans mb-4">{member.bio}</p>
+                  </div>
+                  <div className="border-t border-border/40 pt-3 flex flex-wrap gap-1">
+                    {member.credentials.map((cred) => (
+                      <span key={cred} className="px-1.5 py-0.5 border border-primary/20 text-primary bg-primary/5 rounded text-[8px] font-mono font-bold uppercase tracking-wider">
+                        {cred}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-
-                <div>
-                  <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider">Nagasrinivasa Rao</h4>
-                  <p className="text-[10px] font-sans text-primary uppercase tracking-wider mt-0.5">Founder & Lead Pentester</p>
-                </div>
-
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                  Offensive security professional with 8+ years auditing API architectures, financial transaction portals, and cloud integrations. CEH, OSCP, eWPT certified.
-                </p>
-
-                <div className="border-t border-border/40 pt-4 text-xs font-sans text-textPrimary flex flex-col items-center gap-1.5">
-                  <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> CEH Certified</span>
-                  <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> OSCP Certified</span>
-                  <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> eWPT Certified</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 

@@ -3,9 +3,9 @@ export const BRAND = {
   website: "https://trustlayerlabs.co.in",
   contact: {
     email: "security@trustlayerlabs.co.in",
-    phone: "+91 80 4991 2288",
-    whatsapp: "https://wa.me/919121000000",
-    linkedin: "https://linkedin.com/company/trustlayerlabs",
+    phone: "+91 99123 50493",
+    whatsapp: "https://wa.me/919912350493",
+    linkedin: "https://www.linkedin.com/company/trustlayerlabs",
     twitter: "https://twitter.com/trustlayerlabs",
   },
   colors: {
@@ -23,51 +23,84 @@ export const BRAND = {
 };
 
 export const NAV_LINKS = [
-  { name: "Services", href: "/services" },
+  { 
+    name: "Services", 
+    href: "/services",
+    children: [
+      { name: "Web Application VAPT", href: "/services/web-app-vapt", description: "OWASP Top 10, XSS, SQLi, and authentication audits" },
+      { name: "API Security Testing", href: "/services/api-security", description: "REST, GraphQL, gRPC, BOLA/IDOR, & JWT penetration testing" },
+      { name: "Mobile App VAPT", href: "/services/mobile-vapt", description: "iOS & Android dynamic/static security assessment" },
+      { name: "Cloud Security Audit", href: "/services/cloud-security", description: "AWS, GCP, & Azure CIS Benchmark and IAM audits" },
+      { name: "Network Pentesting", href: "/services/network-pentesting", description: "External & internal network perimeter penetration testing" },
+      { name: "Kubernetes Security", href: "/services/kubernetes-security", description: "Pod policies, RBAC, container image & cluster security" },
+      { name: "AI Application Security", href: "/services/ai-security", description: "OWASP Top 10 for LLMs, prompt injection, & RAG data safety" },
+      { name: "Startup Security & GRC", href: "/services/startup-security", description: "SOC2 Type II, ISO 27001, and enterprise vendor audit prep" },
+    ]
+  },
+  { name: "Methodology", href: "/methodology" },
+  { name: "Sample Report", href: "/sample-report" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
-  { name: "Security Checklist", href: "/checklist" },
-  { name: "Contact", href: "/contact" },
+  { name: "Checklist", href: "/checklist" },
 ];
 
 export const SERVICES = [
   {
-    id: "api-security",
-    title: "API Security Testing",
-    description: "Deep manual penetration testing targeting your REST, GraphQL, and gRPC endpoints to uncover logical, authentication, and authorization flaws.",
+    id: "web-app-vapt",
+    slug: "web-app-vapt",
+    title: "Web Application VAPT",
+    description: "Deep manual penetration testing for modern single-page apps (React, Next.js, Vue), server-side rendering, and web applications.",
     duration: "5-7 Days",
-    severity: "critical", // Critical = red
+    severity: "critical",
+    technologies: ["OWASP Top 10", "Burp Suite Pro", "SQLMap", "Nmap", "React", "Next.js"],
+    deliverables: [
+      "Manual logic vulnerability PoCs",
+      "Exact reproduction steps & code snippets",
+      "Redacted executive summary for investors/clients",
+      "Free retesting within 30 days"
+    ],
+    outcome: "Identify and patch web application vulnerabilities like XSS, SQLi, auth bypass, and CSRF before production release."
+  },
+  {
+    id: "api-security",
+    slug: "api-security",
+    title: "API Security Testing",
+    description: "Manual OWASP API Top 10 vulnerability assessment for REST, GraphQL, and gRPC microservices targeting BOLA, BFLA, and auth flaws.",
+    duration: "5-7 Days",
+    severity: "critical",
     technologies: ["GraphQL", "REST APIs", "gRPC", "OAuth 2.0", "JWT", "Postman", "Burp Suite"],
     deliverables: [
-      "Step-by-step PoC for logic bypasses",
+      "Step-by-step PoC for logic bypasses & BOLA",
       "Remediation code snippets (Node, Python, Go)",
       "Redacted executive summary for stakeholders",
       "Free retesting within 30 days"
     ],
-    outcome: "Prevent BOLA/IDOR, broken object authorization, rate-limiting bypass, and data leakage."
+    outcome: "Prevent BOLA/IDOR, broken object authorization, rate-limiting bypass, and tenant data leaks."
   },
   {
-    id: "vapt",
-    title: "Vulnerability Assessment & Pen Testing (VAPT)",
-    description: "Full-scale black box and gray box penetration testing of your web applications, network interfaces, and external infrastructure assets.",
-    duration: "7-10 Days",
+    id: "mobile-vapt",
+    slug: "mobile-vapt",
+    title: "Mobile Application VAPT",
+    description: "Static and dynamic penetration testing for iOS (IPA) and Android (APK) applications following OWASP MASVS standards.",
+    duration: "6-8 Days",
     severity: "critical",
-    technologies: ["OWASP Top 10", "Nmap", "Metasploit", "Burp Suite Pro", "Nessus"],
+    technologies: ["Frida", "Objection", "MobSF", "Burp Suite", "Android APK", "iOS IPA"],
     deliverables: [
-      "Comprehensive VAPT audit report",
-      "Developer walkthrough meeting",
-      "Attestation of pentest certificate",
-      "Vulnerability tracking spreadsheet"
+      "Dynamic SSL Pinning bypass analysis",
+      "Insecure local storage & key extraction PoC",
+      "Decompiled code vulnerability mapping",
+      "Retesting verification certificate"
     ],
-    outcome: "Identify and patch OWASP Top 10 vulnerabilities like SQLi, XSS, and broken access controls."
+    outcome: "Protect mobile clients against reverse engineering, hardcoded secret leaks, and insecure data storage."
   },
   {
     id: "cloud-security",
-    title: "Cloud Security Audit",
-    description: "Configuration and IAM architecture review across AWS, GCP, and Azure to eliminate privilege creep, data exposure, and insecure container configurations.",
+    slug: "cloud-security",
+    title: "Cloud Security Assessment",
+    description: "Configuration and IAM architecture review across AWS, GCP, and Azure against CIS Benchmarks to eliminate privilege creep.",
     duration: "4-6 Days",
-    severity: "high", // High = amber
+    severity: "high",
     technologies: ["AWS IAM", "GCP Cloud IAM", "Kubernetes", "Docker", "Terraform", "CloudTrail"],
     deliverables: [
       "Infrastructure-as-code security checks",
@@ -78,11 +111,60 @@ export const SERVICES = [
     outcome: "Hardened AWS/GCP architecture conforming to CIS benchmarks and least-privilege principles."
   },
   {
-    id: "soc2-readiness",
-    title: "SOC2 & ISO27001 Readiness",
-    description: "Establish robust information security policies, configure compliance evidence pipelines, and pass enterprise security audits with speed.",
+    id: "network-pentesting",
+    slug: "network-pentesting",
+    title: "Network Penetration Testing",
+    description: "External perimeter and internal network security audits targeting exposed services, weak VPNs, and unpatched infrastructure.",
+    duration: "4-6 Days",
+    severity: "high",
+    technologies: ["Nmap", "Metasploit", "Nessus", "Wireshark", "OpenVPN", "Active Directory"],
+    deliverables: [
+      "Perimeter service vulnerability report",
+      "Port scanning & service exposure audit",
+      "Patch priority & CVE remediation guide",
+      "Retesting verification"
+    ],
+    outcome: "Eliminate external network attack vectors and secure remote access infrastructure."
+  },
+  {
+    id: "kubernetes-security",
+    slug: "kubernetes-security",
+    title: "Kubernetes & Container Security",
+    description: "Security assessment for K8s clusters, container images, RBAC roles, and pod security admission controls.",
+    duration: "5-7 Days",
+    severity: "high",
+    technologies: ["Kubernetes", "Docker", "Trivy", "Kube-bench", "Kube-hunter", "Helm"],
+    deliverables: [
+      "K8s RBAC permission matrix audit",
+      "Container image CVE scan analysis",
+      "Pod Security Admission policy fixes",
+      "Cluster hardening guide"
+    ],
+    outcome: "Prevent container breakouts, privilege escalation, and unauthorized cluster control plane access."
+  },
+  {
+    id: "ai-security",
+    slug: "ai-security",
+    title: "AI & LLM Application Security",
+    description: "Vulnerability assessment for AI applications, LLM integrations, RAG vector stores, and prompt injection vectors (OWASP Top 10 for LLMs).",
+    duration: "5-7 Days",
+    severity: "critical",
+    technologies: ["LangChain", "LlamaIndex", "Pinecone", "OpenAI APIs", "Prompt Injection", "Burp Suite"],
+    deliverables: [
+      "Direct & Indirect Prompt Injection PoCs",
+      "RAG Vector Database data leakage audit",
+      "LLM System Prompt bypass analysis",
+      "Remediation guide for GenAI apps"
+    ],
+    outcome: "Secure AI startup products against prompt injection, model inversion, and sensitive data leakage."
+  },
+  {
+    id: "startup-security",
+    slug: "startup-security",
+    title: "Startup Security & GRC Readiness",
+    description: "SOC2 Type II, ISO 27001, and enterprise vendor security audit preparation for fast-growing SaaS startups.",
     duration: "2-4 Weeks",
-    severity: "compliance", // Compliance = blue
+    severity: "compliance",
     technologies: ["Vanta", "Drata", "Slack", "AWS", "Jira", "GitHub"],
     deliverables: [
       "Custom security policy templates",
@@ -90,37 +172,7 @@ export const SERVICES = [
       "Gap analysis and remediation roadmap",
       "Warm intro to trusted compliance auditors"
     ],
-    outcome: "Close larger enterprise deals by showing a robust, audited security posture."
-  },
-  {
-    id: "secure-code-review",
-    title: "Secure Code Review",
-    description: "Comprehensive static and dynamic analysis of your application codebase to detect implementation flaws and supply-chain vulnerabilities.",
-    duration: "5-8 Days",
-    severity: "high",
-    technologies: ["GitHub", "GitLab", "SonarQube", "Snyk", "Semgrep", "JavaScript/TS", "Python", "Go"],
-    deliverables: [
-      "Line-by-line vulnerable code references",
-      "Remediation commits / Pull Requests",
-      "Dependency vulnerability report",
-      "SAST/DAST pipeline integration"
-    ],
-    outcome: "Remediate SQL injection, logic flaws, and supply chain threats before pushing to production."
-  },
-  {
-    id: "compliance-assessment",
-    title: "Compliance Assessment",
-    description: "Align your business security architecture with RBI guidelines, GDPR, HIPAA, and DPDP rules for Indian startups operating globally.",
-    duration: "6-8 Days",
-    severity: "compliance",
-    technologies: ["GDPR", "DPDP Act", "RBI Cybersecurity Framework", "HIPAA", "ISO 27001"],
-    deliverables: [
-      "Data protection impact assessment (DPIA)",
-      "Regulatory compliance gap report",
-      "Data inventory & flow diagrams",
-      "Legal counsel review templates"
-    ],
-    outcome: "Full legal compliance for data processing, avoiding steep regulatory fines."
+    outcome: "Close enterprise deals faster by presenting verified SOC2 readiness and pentest attestations."
   }
 ];
 

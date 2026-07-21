@@ -379,5 +379,154 @@ Once inside, the attacker attempts to escalate privileges or access sensitive da
 ## Phase 5: Data Exfiltration
 The final goal is often stealing sensitive customer data or intellectual property.
     `
+  },
+  {
+    slug: "owasp-api-security-top-10-guide-2026",
+    title: "OWASP API Security Top 10: Complete Exploitation & Patching Guide (2026)",
+    date: "May 12, 2026",
+    author: "Nagasrinivasa Rao (OSCP, CEH)",
+    excerpt: "A deep technical breakdown of the OWASP API Security Top 10 vulnerabilities including BOLA, IDOR, BFLA, and JWT signature flaws with real code patches.",
+    content: `
+# OWASP API Security Top 10: Complete Technical Breakdown (2026)
+
+APIs are the core foundation of modern web, mobile, and AI applications. However, over 80% of enterprise web traffic now flows through APIs, making them the #1 attack vector for malicious threat actors.
+
+At **TrustLayerLabs**, our offensive security team manually audits thousands of API endpoints every year. Here is a technical breakdown of the top API vulnerabilities and how to fix them in production.
+
+---
+
+## 1. API1:2023 — Broken Object Level Authorization (BOLA / IDOR)
+BOLA occurs when an API endpoint exposes an object identifier (e.g., \`/api/v1/invoices/94821\`) but fails to verify if the requesting user owns that object.
+
+### The Attack Vector
+An attacker changes the invoice ID parameter from \`94821\` to \`94822\` in Burp Suite to view another customer's sensitive financial data.
+
+### Remediation Code (Node.js/TypeScript)
+\`\`\`typescript
+// VULNERABLE CODE
+app.get('/api/v1/invoices/:id', async (req, res) => {
+  const invoice = await db.invoices.findById(req.params.id);
+  return res.json(invoice); // No ownership check!
+});
+
+// PATCHED CODE
+app.get('/api/v1/invoices/:id', async (req, res) => {
+  const invoice = await db.invoices.findOne({
+    _id: req.params.id,
+    tenantId: req.user.tenantId // Enforce row-level tenant boundary
+  });
+  if (!invoice) return res.status(404).json({ error: "Invoice not found" });
+  return res.json(invoice);
+});
+\`\`\`
+
+---
+
+## 2. API2:2023 — Broken Authentication & JWT Signature Exploits
+API authentication flaws allow attackers to compromise auth tokens or exploit weak JWT implementations (e.g., accepting \`"alg": "none"\` or failing to check token expiration).
+
+### Remediation Best Practices
+- Never use symmetric secret keys weaker than 256 bits (HS256). Prefer asymmetric RS256 / ES256 signatures.
+- Enforce strict audience (\`aud\`) and issuer (\`iss\`) claims verification.
+- Implement short token lifetimes (15 minutes max) paired with secure HTTP-only refresh cookies.
+
+---
+
+## 3. API5:2023 — Broken Function Level Authorization (BFLA)
+BFLA happens when administrative endpoints (e.g., \`/api/admin/delete-user\`) are accessible to low-privilege standard accounts simply by guessing or brute-forcing administrative URLs.
+
+### How We Test BFLA
+Our pentesters capture normal user session cookies and execute requests against administrative REST and GraphQL endpoints to verify role-based access control (RBAC) boundaries.
+
+---
+
+## Conclusion & Next Steps
+Preventing API breaches requires more than static vulnerability scanners. Manual penetration testing is essential to discover complex business logic flaws.
+
+Read our full [API Security Testing Service](/services/api-security) page or download our free [Redacted Sample VAPT Report](/sample-report).
+    `
+  },
+  {
+    slug: "jwt-security-best-practices-attack-vectors",
+    title: "JWT Security Best Practices & Attack Vectors: Developer Guide",
+    date: "June 2, 2026",
+    author: "Offensive Security Lead",
+    excerpt: "Learn how hackers forge, tamper, and hijack JSON Web Tokens (JWT) and how to harden Node.js, Python, and Go microservices.",
+    content: `
+# JWT Security Best Practices & Common Vulnerabilities
+
+JSON Web Tokens (JWTs) are the standard mechanism for stateless authentication in modern microservice architectures. However, improper JWT handling can compromise your entire backend.
+
+---
+
+## Top 3 JWT Security Vulnerabilities
+
+### 1. Algorithm Confusion Attack (RS256 to HS256)
+If your server accepts both RS256 (asymmetric) and HS256 (symmetric) algorithms, an attacker can obtain your public key (which is public), re-sign a forged token using HS256 with the public key as the secret, and bypass authentication.
+
+### 2. Token Storage in LocalStorage (XSS Risk)
+Storing JWTs in \`localStorage\` or \`sessionStorage\` exposes them to Cross-Site Scripting (XSS) attacks. If an attacker injects malicious JS into your page, they can extract the JWT token instantly.
+
+### 3. Missing Expiration (& Revocation Void)
+JWTs are stateless; once issued, they remain valid until expiration. Without an active token revocation list (or Redis blacklist), revoked user accounts retain access.
+
+---
+
+## Recommended Architecture
+- Store tokens inside **HTTP-Only, SameSite=Strict, Secure cookies**.
+- Use asymmetric RS256/ES256 algorithms with regular key rotation.
+- Keep JWT payload minimal (never store PII or passwords inside JWT claims).
+    `
+  },
+  {
+    slug: "kubernetes-hardening-container-security-guide",
+    title: "Kubernetes Hardening & Pod Security: Production Guide (2026)",
+    date: "June 18, 2026",
+    author: "Cloud Infrastructure Architect",
+    excerpt: "Step-by-step guide to hardening Kubernetes clusters against pod breakouts, unauthorized RBAC privileges, and unpatched container images.",
+    content: `
+# Kubernetes Hardening & Pod Security
+
+Deploying containers on Kubernetes without proper hardening exposes your internal cloud network to container breakout attacks and privilege escalation.
+
+---
+
+## Key K8s Hardening Checkpoints
+
+1. **Enforce Pod Security Admission (PSA)**: Restrict containers from running as \`root\` or with \`privileged: true\`.
+2. **Restrict K8s RBAC Roles**: Eliminate wildcard permissions (\`*\`) on secrets, configmaps, and pods.
+3. **Scan Container Base Images**: Integrate Trivy or Snyk in your CI/CD pipeline to catch OS-level CVEs before cluster deployment.
+4. **Isolate Control Plane Access**: Never expose the API server (\`:6443\`) publicly without strict IP whitelisting or VPN access.
+
+Explore our dedicated [Kubernetes Security Audit Service](/services/kubernetes-security) to get a full CIS benchmark audit.
+    `
+  },
+  {
+    slug: "ai-and-llm-security-risks-prompt-injection",
+    title: "AI & LLM Application Security: Preventing Prompt Injection & RAG Data Leaks",
+    date: "July 10, 2026",
+    author: "Nagasrinivasa Rao (OSCP)",
+    excerpt: "Understand the OWASP Top 10 for LLM Applications and how to defend GenAI products against direct prompt injections and RAG data leaks.",
+    content: `
+# AI & LLM Security: Defending GenAI Applications
+
+As SaaS startups embed GenAI agents, LLMs, and RAG vector search into their platforms, a new class of cybersecurity threats has emerged: **OWASP Top 10 for LLMs**.
+
+---
+
+## Top AI Security Risks
+
+### 1. Direct & Indirect Prompt Injection
+Attackers manipulate system prompts or embed hidden malicious instructions in untrusted documents (e.g., PDF attachments parsed by RAG) to force the LLM to execute unauthorized commands or bypass security filters.
+
+### 2. Sensitive Information Disclosure (RAG Leakage)
+When vector databases (Pinecone, Qdrant, PGVector) lack tenant-level authorization filters, an LLM query from User A can retrieve confidential context data belonging to User B.
+
+### 3. Excessive Agency
+Granting LLM agents autonomous access to write to databases or execute shell commands without human-in-the-loop authorization creates extreme risk.
+
+Learn more on our [AI Application Security Service](/services/ai-security) page.
+    `
   }
 ];
+

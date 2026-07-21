@@ -4,96 +4,115 @@ import React from "react";
 import { Award, ShieldCheck, Mail, Target, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const certifications = [
-  { name: "OSCP", authority: "Offensive Security Certified Professional", color: "border-primary/20 text-primary bg-primary/5" },
-  { name: "CEH", authority: "Certified Ethical Hacker", color: "border-primary/20 text-primary bg-primary/5" },
-  { name: "eWPT", authority: "eLearnSecurity Web Penetration Tester", color: "border-primary/20 text-primary bg-primary/5" }
+const team = [
+  {
+    name: "Nagasrinivasa Rao",
+    role: "Founder & Lead Security Architect",
+    bio: "Offensive security professional with 8+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
+    initials: "NR",
+    credentials: ["OSCP", "CEH", "eWPT"]
+  },
+  {
+    name: "Ramineni Teja",
+    role: "Co-Founder & CMO",
+    bio: "GRC consultant leading compliance roadmaps, ISO 27001 gaps audits, and automated SOC2 readiness configurations for client platforms.",
+    initials: "RT",
+    credentials: ["ISO 27001 LA", "SOC2 Auditor"]
+  },
+  {
+    name: "Nayansi Anand",
+    role: "Security Engineer & Lead VAPT Consultant",
+    bio: "Pentester specializing in manual application penetration testing, OWASP Top 10 web vulnerabilities, and security research.",
+    initials: "NA",
+    credentials: ["CEH", "VAPT Specialist"]
+  },
+  {
+    name: "Muskan Jha",
+    role: "HR & Operations Lead",
+    bio: "Manages organizational recruitment, onboarding workflows, and corporate administrative client relationships.",
+    initials: "MJ",
+    credentials: ["HR Lead"]
+  }
 ];
 
 export default function Founder() {
   return (
-    <section className="py-24 bg-background border-t border-border relative" id="founder">
+    <section className="py-24 bg-background border-t border-border relative" id="team">
       <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
-          {/* Left Column: Image Placeholder & Credentials */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="relative aspect-square w-full max-w-[400px] mx-auto bg-surface border border-border rounded-2xl overflow-hidden flex items-center justify-center group shadow-md">
-              {/* Monogram or professional vector outline placeholder */}
-              <div className="absolute inset-0 bg-gradient-to-b from-zinc-50 to-white flex flex-col items-center justify-center p-8 text-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden border border-border bg-black flex items-center justify-center mb-6 shadow-sm">
-                  <img src="/logo.jpeg" alt="TrustLayerLabs Logo" className="w-full h-full object-cover scale-[1.3]" />
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
+            <span>Leadership & Engineering</span>
+          </div>
+          <h2 className="heading-2 mb-6">
+            Meet the <span className="text-primary">Security Team</span>
+          </h2>
+          <p className="body-text text-textSecondary font-sans">
+            OSCP-certified pentesters, GRC auditors, and operations leads working to make SaaS and FinTech startups enterprise-ready.
+          </p>
+        </div>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-16">
+          {team.map((member) => (
+            <div 
+              key={member.name} 
+              className="premium-card p-6 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-sm hover:border-zinc-500 transition-colors"
+            >
+              <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+              
+              <div>
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-lg font-bold font-sans text-primary shadow-sm mb-6">
+                  {member.initials}
                 </div>
-                <h3 className="text-sm font-bold text-textPrimary uppercase tracking-wider font-mono">Nagasrinivasa Rao</h3>
-                <p className="text-[10px] font-mono text-primary uppercase tracking-widest mt-1">Founder & Lead Security Architect</p>
-                <p className="text-xs text-textSecondary mt-4 leading-relaxed font-sans max-w-[280px]">
-                  Offensive security professional with 8+ years auditing enterprise APIs, cloud architectures, and financial systems.
+
+                <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans">
+                  {member.name}
+                </h3>
+                <p className="text-[11px] font-sans text-primary uppercase tracking-wider mt-1 mb-4">
+                  {member.role}
+                </p>
+
+                <p className="text-xs text-textSecondary leading-relaxed font-sans mb-6">
+                  {member.bio}
                 </p>
               </div>
-            </div>
 
-            {/* Certifications list */}
-            <div className="space-y-4 max-w-[400px] mx-auto lg:mx-0">
-              <span className="text-[9px] font-mono uppercase tracking-wider text-textSecondary block">
-                Professional Accreditations
-              </span>
-              <div className="flex flex-wrap gap-2.5">
-                {certifications.map((cert) => (
-                  <div 
-                    key={cert.name}
-                    className={`px-3 py-1.5 border rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 ${cert.color}`}
-                    title={cert.authority}
+              {/* Credentials list */}
+              <div className="border-t border-border/40 pt-4 flex flex-wrap gap-1.5">
+                {member.credentials.map((cred) => (
+                  <span 
+                    key={cred}
+                    className="px-2 py-0.5 border border-primary/20 text-primary bg-primary/5 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
                   >
-                    <Award className="w-3.5 h-3.5" />
-                    {cert.name}
-                  </div>
+                    {cred}
+                  </span>
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Right Column: Mission & Philosophy */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
-                <span>Founder&apos;s Perspective</span>
-              </div>
-              <h2 className="heading-2">
-                Why We Build <span className="text-primary">TrustLayerLabs</span>
-              </h2>
-            </div>
-
-            <div className="space-y-6 text-sm text-textSecondary leading-relaxed font-sans">
-              <p>
-                As tech platforms scale, automated scanners are often deployed to satisfy basic compliance. However, automated systems only check for signatures—they cannot comprehend business logic boundaries. 
-              </p>
-              <p>
-                We founded TrustLayerLabs because startups deserve a dedicated partner who manually reviews application logic, maps threat paths, and helps developers write correct code.
-              </p>
-            </div>
-
-            {/* Core Philosophy Card */}
-            <div className="premium-card p-6 bg-surface border border-border rounded-xl space-y-4 shadow-sm">
-              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-mono flex items-center gap-2">
-                <Target size={14} className="text-primary" /> Our Testing Philosophy
-              </h4>
-              <p className="text-xs text-textSecondary leading-relaxed">
-                We focus on row-level security parameters, database multi-tenancy verification, token state handling, and endpoint validation. Our goal is to make startups enterprise-ready with attestation badges that stand up to institutional vendor audits.
-              </p>
-            </div>
-
-            <div className="pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center text-xs uppercase font-mono font-bold text-textPrimary hover:text-primary tracking-widest gap-2 group"
-              >
-                Schedule scoping inquiry
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform text-primary" />
-              </Link>
-            </div>
-          </div>
-
+          ))}
         </div>
+
+        {/* Philosophy CTA */}
+        <div className="max-w-3xl mx-auto p-8 bg-surface border border-border rounded-2xl text-center space-y-4 shadow-sm">
+          <h4 className="text-sm font-bold text-textPrimary uppercase tracking-wider font-mono flex items-center justify-center gap-2">
+            <Target size={14} className="text-primary" /> Our Testing & Advisory Promise
+          </h4>
+          <p className="text-xs text-textSecondary leading-relaxed">
+            We focus on row-level security parameters, database multi-tenancy verification, token state handling, and compliance alignment. Our goal is to make startups enterprise-ready with attestation badges that stand up to institutional vendor audits.
+          </p>
+          <div className="pt-2">
+            <Link
+              href="/contact"
+              className="inline-flex items-center text-xs uppercase font-mono font-bold text-textPrimary hover:text-primary tracking-widest gap-2 group"
+            >
+              Schedule Scoping Inquiry
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform text-primary" />
+            </Link>
+          </div>
+        </div>
+
       </div>
     </section>
   );

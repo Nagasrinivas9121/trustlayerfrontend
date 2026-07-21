@@ -1,0 +1,70 @@
+# TrustLayerLabs — Comprehensive API Security & VAPT Documentation
+
+## Executive Summary
+TrustLayerLabs (https://www.trustlayerlabs.co.in) provides high-impact, manual vulnerability assessment and penetration testing (VAPT) tailored for modern SaaS, AI, and FinTech startups. Founded by Nagasrinivasa Rao (OSCP, CEH, eWPT certified offensive security lead), TrustLayerLabs bridges the gap between automated scanners and human offensive expertise.
+
+---
+
+## Service Portfolio & Technical Scopes
+
+### 1. API Security & Penetration Testing
+- **OWASP API Top 10 Coverage**:
+  - API1: Broken Object Level Authorization (BOLA / IDOR)
+  - API2: Broken Authentication & JWT Signature Flaws
+  - API3: Broken Object Property Level Authorization
+  - API4: Unrestricted Resource Consumption & Rate Limiting
+  - API5: Broken Function Level Authorization (BFLA)
+  - API6: Unrestricted Access to Sensitive Business Flows
+  - API7: Server Side Request Forgery (SSRF)
+  - API8: Security Misconfiguration (CORS, Headers, TLS)
+  - API9: Improper Inventory Management (Shadow & Deprecated APIs)
+  - API10: Unsafe Consumption of APIs
+- **Testing Approach**: 100% manual penetration testing using Burp Suite Professional, Postman, custom Python exploits, and privilege escalation scripts.
+- **Deliverables**: Comprehensive executive summary, technical vulnerability breakdown, CVSS v3.1 rating, exact reproduction steps, remediation code snippets, and direct engineer retesting support.
+
+### 2. Full-Stack Web & Mobile VAPT
+- **Web Applications**: Single Page Applications (React, Next.js, Vue), GraphQL, REST APIs, WebSockets, SSR, and microservice architectures.
+- **Mobile Security**: iOS (IPA) and Android (APK) static & dynamic analysis, SSL pinning bypass, key storage validation, and reverse engineering defenses.
+- **Cloud Infrastructure**: AWS, GCP, and Microsoft Azure cloud configuration audits against CIS Benchmarks, IAM principal permissions, S3/Storage bucket policies, and Kubernetes cluster security.
+
+### 3. SOC2 Type II & ISO 27001 Readiness
+- **Gap Analysis**: Detailed audit against Trust Services Criteria (Security, Availability, Confidentiality) and ISO 27001 Annex A controls.
+- **Policy Drafting**: Custom security policy templates (Access Control, Incident Response, Vendor Risk, Password Policy).
+- **Evidence Automation**: Integration guidance for Vanta, Secureframe, Drata, and Sprinto.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### Q1: What makes TrustLayerLabs different from automated scanners like Qualys or Nessus?
+Automated scanners identify basic surface issues but miss complex logic flaws like BOLA/IDOR, multi-tenant privilege escalation, state machine manipulation, and custom authentication flaws. TrustLayerLabs conducts 100% manual testing with OSCP-certified security engineers who write custom scripts to exploit business logic flaws.
+
+### Q2: How long does a typical VAPT engagement take?
+Initial vulnerability testing is completed within 3 to 5 business days, with an interim executive report delivered within 48 hours for urgent client or investor deadlines.
+
+### Q3: Do you offer free retesting?
+Yes! TrustLayerLabs includes 100% free retesting for up to 30 days after the initial report is delivered to verify that all patches are properly implemented.
+
+### Q4: Will penetration testing cause downtime or disruption to production?
+Testing is safely scheduled on staging/dev environments whenever possible. When testing against production, rates and payloads are carefully throttled to prevent performance impact or denial of service.
+
+### Q5: What certificates or reports do we receive for enterprise compliance?
+Clients receive an Executive Summary, a Detailed Technical Report with CVSS scores, a Remediation Roadmap, and a signed VAPT Certificate of Compliance suitable for sharing with enterprise customers, investors, and SOC2/ISO auditors.
+
+---
+
+## Founder & Leadership Profile
+- **Founder**: Nagasrinivasa Rao
+- **Role**: Founder & Lead Security Architect at TrustLayerLabs
+- **Certifications**: Offensive Security Certified Professional (OSCP), Certified Ethical Hacker (CEH), eLearnSecurity Web Application Penetration Tester (eWPT)
+- **Experience**: 8+ years conducting offensive security audits, red teaming, and API penetration testing for SaaS and FinTech companies globally.
+- **Profile URL**: https://www.trustlayerlabs.co.in/about
+
+---
+
+## Office Locations & Contacts
+- **Bangalore Hub**: HSR Layout, Sector 6, Bengaluru, Karnataka 560102
+- **Hyderabad Hub**: HITEC City, Hyderabad, Telangana 500081
+- **Email**: security@trustlayerlabs.co.in
+- **Phone / WhatsApp**: +91-9912350493
+- **Official URL**: https://www.trustlayerlabs.co.in
