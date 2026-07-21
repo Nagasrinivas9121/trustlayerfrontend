@@ -66,5 +66,5 @@ Clients receive an Executive Summary, a Detailed Technical Report with CVSS scor
 - **Bangalore Hub**: HSR Layout, Sector 6, Bengaluru, Karnataka 560102
 - **Hyderabad Hub**: HITEC City, Hyderabad, Telangana 500081
 - **Email**: security@trustlayerlabs.co.in
-- **Phone / WhatsApp**: +91-9912350493
+- **Phone / WhatsApp**: +91-8822402811
 - **Official URL**: https://www.trustlayerlabs.co.in

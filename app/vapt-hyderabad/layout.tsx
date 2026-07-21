@@ -46,7 +46,7 @@ export default function VaptHyderabadLayout({ children }: { children: React.Reac
       "latitude": "17.4484",
       "longitude": "78.3747",
     },
-    "telephone": "+91-9912350493",
+    "telephone": "+91-8822402811",
     "areaServed": "Hyderabad",
   };
 

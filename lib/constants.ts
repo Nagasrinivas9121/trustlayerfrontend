@@ -3,8 +3,8 @@ export const BRAND = {
   website: "https://trustlayerlabs.co.in",
   contact: {
     email: "security@trustlayerlabs.co.in",
-    phone: "+91 99123 50493",
-    whatsapp: "https://wa.me/919912350493",
+    phone: "+91 88224 02811",
+    whatsapp: "https://wa.me/918822402811",
     linkedin: "https://www.linkedin.com/company/trustlayerlabs",
     twitter: "https://twitter.com/trustlayerlabs",
   },

@@ -115,7 +115,7 @@ export default function RootLayout({
         },
         "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
         "description": "India's premier VAPT and API security consultancy for SaaS, AI, and FinTech startups. Manual penetration testing, SOC2 readiness, cloud security audits by OSCP & CEH certified security architects.",
-        "telephone": "+91-9912350493",
+        "telephone": "+91-8822402811",
         "email": "security@trustlayerlabs.co.in",
         "address": [
           {

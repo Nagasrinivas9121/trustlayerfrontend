@@ -46,7 +46,7 @@ export default function VaptBangaloreLayout({ children }: { children: React.Reac
       "latitude": "12.9116",
       "longitude": "77.6370",
     },
-    "telephone": "+91-9912350493",
+    "telephone": "+91-8822402811",
     "areaServed": "Bangalore",
   };
 
