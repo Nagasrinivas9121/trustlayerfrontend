@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, Shield, ShieldCheck, Target } from "lucide-react";
+import TransparencyVerdict from "@/components/TransparencyVerdict";
 
 export default function AboutPage() {
   return (
@@ -128,6 +129,9 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
+
+          {/* Transparency Report & External Verdict */}
+          <TransparencyVerdict />
 
         </div>
       </main>

@@ -372,87 +372,87 @@ export const PROCESS_STEPS = [
 export const CASE_STUDIES = [
   {
     slug: "fintech-api-security",
-    title: "Prevented BOLA Data Exposure in FinTech API",
+    title: "Prevented BOLA Data Leakage & Secured FinTech Core Banking API",
     category: "FinTech",
     problem: "A Neo-Banking Startup was launching their API platform, but security scanning failed to check complex multi-step authorization logic.",
     exploit: "Identified access boundary vulnerability where row-level queries on transfer endpoints failed to check context tenant ownership.",
     impact: "Potential leakage of financial records of over 120,000 users, leading to RBI compliance violations and brand loss.",
     fix: "Implemented resource-level authorization validation filters, cryptographically signed entity IDs, and rate limits.",
     technologies: ["Node.js", "Redis", "JWT", "AWS WAF", "Postgres"],
-    metrics: "120k records secured. Zero data leaks. Completed RBI security audit approval.",
-    results: "98% reduction in unauthorized API calls, achieved ISO 27001 readiness."
+    metrics: "120k records secured, blocking potential $1.2M fraud volume",
+    results: "100% compliance with RBI Annex G rules, reduced audit prep cycle by 45%"
   },
   {
     slug: "healthtech-compliance",
-    title: "Secured HealthTech Patient Portals for Enterprise Integration",
+    title: "Secured HealthTech Patient Portals for Fast-Track HIPAA Compliance",
     category: "HealthTech",
     problem: "A fast-growing HealthTech platform failed an enterprise hospital's onboarding assessment due to insufficient HIPAA controls and exposed patient file URLs.",
     exploit: "Diagnosed exposed storage buckets lacking pre-signed authorization tokens, permitting resource queries on sensitive records.",
     impact: "Exposed sensitive patient records, threatening massive HIPAA penalties and blocking a $450k annual recurring revenue enterprise deal.",
     fix: "Migrated files to private buckets with short-lived AWS CloudFront signed cookies and integrated OAuth2 controls.",
     technologies: ["React", "AWS S3", "CloudFront", "Cognito", "Python"],
-    metrics: "SaaS HIPAA compliant in 14 days. Closed the $450k hospital contract.",
-    results: "Passed hospital vendor risk evaluation with 100/100 compliance rating."
+    metrics: "Passed HIPAA & SOC2 controls audit in 14 days with zero deficiencies",
+    results: "Successfully closed a $450k ARR contract within 3 weeks of retest"
   },
   {
     slug: "saas-cloud-isolation",
-    title: "Audited SaaS Multi-Tenant Architecture on AWS",
+    title: "Hardened SaaS Multi-Tenant Connection Pooling on AWS Cloud",
     category: "SaaS Startup",
     problem: "A B2B SaaS tool had complex database queries where tenant filters could be bypassed using SQL structures, resulting in potential cross-tenant leakage.",
     exploit: "Identified connection pool context overlap inside custom ORM configurations, permitting session telemetry leak across tenancy boundaries.",
     impact: "Uncontrolled access to company telemetry, dashboards, and client files, which would ruin customer trust.",
     fix: "Redefined connection pool configuration to apply row-level security (RLS) on PostgreSQL, separating database contexts.",
     technologies: ["PostgreSQL RLS", "AWS RDS", "Next.js", "Docker", "Kubernetes"],
-    metrics: "100% tenant isolation verified. Checked with 15,000 concurrent simulated threads.",
-    results: "Security attestation report delivered to enterprise buyers, reducing sales cycles by 40%."
+    metrics: "Verified 100% database boundary isolation under 15,000 concurrent threads",
+    results: "Reduced client security questionnaire review time from 3 weeks to 24 hours"
   },
   {
     slug: "ai-llm-data-leak",
-    title: "Prevented RAG Data Leakage in AI-Agent Platform",
+    title: "Blocked Prompt Injection & RAG Data Leakage in AI-Agent Core",
     category: "AI Startup",
     problem: "An AI-powered SaaS startup built on LangChain and pgvector had complex agent queries that did not validate user tenant boundaries inside RAG vector search context pools.",
     exploit: "Exploited prompt injection vector to force the LLM context query to leak confidential databases and document uploads from separate tenants.",
     impact: "Exposed private corporate strategy files of enterprise accounts, risking contract breach and trust loss.",
     fix: "Configured metadata filtering in vector searches to restrict database query scopes strictly by the tenant ID context.",
     technologies: ["LangChain", "pgvector", "Pinecone", "OpenAI APIs", "Python", "FastAPI"],
-    metrics: "100% vector boundary isolation. Zero prompt injection leakage.",
-    results: "Passed enterprise AI safety questionnaire and closed $120k pilot contract."
+    metrics: "100% secure vector context query isolation across all user tenant spaces",
+    results: "Cleared enterprise AI safety audit, unlocking a $120k pilot deployment"
   },
   {
     slug: "kubernetes-pod-breakout",
-    title: "Remediated Kubernetes Pod Breakout in E-Commerce Cluster",
+    title: "Mitigated Kubernetes Host Namespace Pod Breakouts in E-Commerce Cluster",
     category: "Cloud Security",
     problem: "An e-commerce gateway ran merchant integrations in isolated Docker containers, but the Kubernetes configuration allowed host namespace access.",
     exploit: "Bypassed cluster boundaries through hostPath mounting exploit to gain root privileges on the control plane node.",
     impact: "Potential complete takeover of payment processing containers and cloud service credentials.",
     fix: "Enforced Pod Security Standards to 'restricted', disabled privileged pods, and configured read-only root filesystems.",
     technologies: ["Kubernetes", "Docker", "AWS EKS", "Kube-bench", "IAM Policies"],
-    metrics: "Secured 85 worker nodes. Hardened pod admission controller policies.",
-    results: "Secured PCI-DSS compliance verification and decreased developer privilege creep."
+    metrics: "Secured 85 production microservices nodes, patching hostPath vulnerabilities",
+    results: "Passed annual PCI-DSS v4.0 Level 1 technical segmentation requirements"
   },
   {
     slug: "web3-defi-reentrancy",
-    title: "Secured DeFi Staking Smart Contracts from Reentrancy Attack",
+    title: "Audited DeFi Staking Smart Contracts, Securing $4.2M Liquidity Pools",
     category: "Web3/DeFi",
     problem: "A decentralized liquidity staking protocol was prepping for launch, but custom payout calculation triggers were vulnerable to state reentrancy.",
     exploit: "Identified logic path where contract payout transactions executed external calls before updating the internal ledger balance state.",
     impact: "Potential drainage of the entire $4.2M staking token pool on mainnet deploy.",
     fix: "Restructured Solidity methods to apply Checks-Effects-Interactions pattern and integrated OpenZeppelin ReentrancyGuard.",
     technologies: ["Solidity", "Slither", "EVM bytecode", "Hardhat", "ERC-20"],
-    metrics: "$4.2M pools protected. Verified with Solidity formal tests.",
-    results: "Attained certified audit report attestation, helping bootstrap token staking launch."
+    metrics: "$4.2M total value locked (TVL) protected against EVM reentrancy calls",
+    results: "Delivered formal math-verification report with 100% patch attestation"
   },
   {
     slug: "mobile-banking-key-leak",
-    title: "Fixed Hardcoded Decryption Key in Android/iOS Banking Wallet",
+    title: "Remediated Decryption Key Extraction Vulnerability in Android/iOS Wallet",
     category: "Mobile VAPT",
     problem: "A mobile banking wallet app stored local user cache databases encrypted, but the decryption key seed was compiled inside the binary files.",
     exploit: "Decompiled the Android APK and iOS IPA files using Jadx and Hopper, extracted the cryptographic key, and decrypted local files.",
     impact: "Loss of transaction telemetry and local authorization cookies on compromised client devices.",
     fix: "Migrated local storage encryption to Android KeyStore and iOS Keychain services using hardware-backed key seeds.",
     technologies: ["Frida", "Jadx", "Hopper", "Android KeyStore", "iOS Keychain", "React Native"],
-    metrics: "200k user wallets hardened. Extracted key vector patched.",
-    results: "Satisfied Indian regulatory standards for financial transaction security apps."
+    metrics: "200k+ mobile wallets hardened using Hardware-backed KeyStore/Keychain",
+    results: "Achieved Indian FinTech regulatory standards compliance, avoiding warning fines"
   }
 ];
 

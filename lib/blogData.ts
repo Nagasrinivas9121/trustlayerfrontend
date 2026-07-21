@@ -1318,6 +1318,135 @@ app.use('/graphql', graphqlHTTP({
 \`\`\`
 2. **Disable Introspection in Production:** Prevent attackers from mapping your GraphQL schema.
 `
+  },
+  {
+    slug: "auditing-bola-idor-graphql-rest-apis",
+    title: "Auditing BOLA/IDOR in GraphQL and REST Endpoints: A Practical Guide",
+    date: "September 12, 2026",
+    author: "Lead Security Researcher",
+    excerpt: "Broken Object Level Authorization (BOLA) remains the #1 vulnerability on the OWASP API Security list. Learn how to identify and secure logical flaws in REST and GraphQL APIs.",
+    content: `
+# Auditing BOLA/IDOR in GraphQL and REST Endpoints: A Practical Guide
+
+In modern application security, traditional network and signature-based scanners are failing startup engineering teams. Why? Because they are designed to find known software bugs (like outdated packages) rather than business logic flaws. 
+
+The most common logical flaw found in VAPT audits is **Broken Object Level Authorization (BOLA)**, historically known as **Insecure Direct Object Reference (IDOR)**. It occupies the #1 spot on the OWASP API Security Top 10 list for a reason: it is easy to exploit, hard to detect with automated scanners, and leads to massive data breaches.
+
+---
+
+## What is BOLA/IDOR?
+
+BOLA occurs when an API endpoint uses an identifier (such as a database ID or UUID) to access a resource, but fails to check whether the requesting user has the authorization to access that resource.
+
+If a client can change \`/api/v1/billing/10243\` to \`/api/v1/billing/10244\` and successfully view another tenant's financial statements, you have a critical BOLA vulnerability.
+
+---
+
+## 1. BOLA in REST APIs
+
+In RESTful architectures, developers often fetch records directly by parsing query parameters or route variables without checking ownership constraints.
+
+### Vulnerable Express.js Controller Logic
+\`\`\`javascript
+// VULNERABLE CONTROLLER
+app.get('/api/v1/tenants/:tenantId/invoices/:invoiceId', async (req, res) => {
+  const { invoiceId } = req.params;
+  
+  // Vulnerability: The query returns the invoice solely by its ID,
+  // without verifying that the invoice belongs to the authenticated user's tenant scope.
+  const invoice = await db.Invoice.findOne({ where: { id: invoiceId } });
+  
+  if (!invoice) {
+    return res.status(404).json({ error: 'Invoice not found' });
+  }
+  
+  return res.json(invoice);
+});
+\`\`\`
+
+### Secured Express.js Controller Logic
+To secure the REST endpoint, you must validate ownership context explicitly using the user session data (e.g., extracted from JWT credentials):
+\`\`\`javascript
+// SECURED CONTROLLER
+app.get('/api/v1/tenants/:tenantId/invoices/:invoiceId', async (req, res) => {
+  const { invoiceId } = req.params;
+  const authenticatedUser = req.user; // Set by authentication middleware
+
+  // Resolution: Constrain the database lookup to require BOTH the resource ID
+  // and the authenticated user's tenant ID scope.
+  const invoice = await db.Invoice.findOne({ 
+    where: { 
+      id: invoiceId,
+      tenantId: authenticatedUser.tenantId 
+    } 
+  });
+  
+  if (!invoice) {
+    return res.status(404).json({ error: 'Invoice not found or access denied' });
+  }
+  
+  return res.json(invoice);
+});
+\`\`\`
+
+---
+
+## 2. BOLA in GraphQL Resolvers
+
+BOLA is highly prevalent in GraphQL environments. Because GraphQL allows complex nested selections, security controls often secure root queries but miss checks on nested relational nodes.
+
+### Vulnerable GraphQL Resolver Schema
+\`\`\`javascript
+// VULNERABLE RESOLVER
+const resolvers = {
+  Query: {
+    getInvoice: async (_, { id }, context) => {
+      // Vulnerability: Root level fetch is authenticated,
+      // but lacks validation of tenant scope for this invoice.
+      return await db.Invoice.findByPk(id);
+    }
+  }
+};
+\`\`\`
+
+### Secured GraphQL Resolver Schema
+Ensure that resolver execution matches authorization scopes provided by the context object:
+\`\`\`javascript
+// SECURED RESOLVER
+const resolvers = {
+  Query: {
+    getInvoice: async (_, { id }, context) => {
+      const { user } = context; // Extracted from authorization headers
+      
+      if (!user) {
+        throw new Error("Authentication required");
+      }
+      
+      const invoice = await db.Invoice.findByPk(id);
+      
+      if (!invoice) {
+        throw new Error("Invoice not found");
+      }
+
+      // Resolution: Perform logical validation before returning data
+      if (invoice.tenantId !== user.tenantId) {
+        throw new Error("Unauthorized access to resource");
+      }
+      
+      return invoice;
+    }
+  }
+};
+\`\`\`
+
+---
+
+## Best Practices for BOLA Remediation
+
+1. **Use Non-Sequential Identifiers:** Never expose auto-incrementing integer IDs in URLs. Use cryptographically secure random values (such as UUID v4) to prevent easy enumerations.
+2. **Context-Driven Queries:** Always map database queries using filters derived from the authenticated session context (e.g., matching the tenant ID metadata) rather than relying on query inputs sent by the client.
+3. **Write Unit Tests for Logical Auth:** Create automated tests that simulate requests using Token A trying to query Resource B. Assert that the request returns a \`403 Forbidden\` or \`404 Not Found\`.
+`
   }
 ];
 
