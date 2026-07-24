@@ -22,7 +22,12 @@ export async function generateStaticParams() {
     "hipaa-vapt",
     "active-directory-pentesting",
     "external-attack-surface",
-    "pci-dss-pentesting"
+    "pci-dss-pentesting",
+    "source-code-review",
+    "azure-security",
+    "gcp-security",
+    "graphql-security",
+    "owasp-api-security"
   ];
   return customSlugs.map((slug) => ({ slug }));
 }

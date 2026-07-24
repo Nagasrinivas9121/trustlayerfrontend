@@ -12,8 +12,34 @@ export const metadata: Metadata = {
 };
 
 export default function AiSecurityPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "AI & LLM Application Security Testing",
+        "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
+        "serviceType": "AI Application Security Auditing",
+        "description": "Vulnerability assessment for AI applications, LLM agents, RAG vector databases, and prompt injection vectors (OWASP Top 10 for LLMs).",
+        "areaServed": ["India", "Global"],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.trustlayerlabs.co.in/services" },
+          { "@type": "ListItem", "position": 3, "name": "AI & LLM Application Security Testing", "item": "https://www.trustlayerlabs.co.in/services/ai-security" },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="section-container max-w-5xl mx-auto">
         <Link href="/services" className="inline-flex items-center text-xs uppercase tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" /> Back to All Services

@@ -1,31 +1,15 @@
 import { blogPosts } from "@/lib/blogData";
+import { SERVICES } from "@/lib/constants";
 
 export default function sitemap() {
   const baseUrl = "https://www.trustlayerlabs.co.in";
   const now = new Date();
 
-  // Core pages with priorities
-  const corePages = [
+  // Core static pages (excluding individual service pages)
+  const coreStaticPages = [
     { url: "",                         priority: 1.0, frequency: "daily"   }, // Homepage
     { url: "/services",                priority: 0.95, frequency: "weekly"  },
-    { url: "/services/web-app-vapt",   priority: 0.9, frequency: "weekly"  },
-    { url: "/services/api-security",   priority: 0.9, frequency: "weekly"  },
-    { url: "/services/mobile-vapt",    priority: 0.9, frequency: "weekly"  },
-    { url: "/services/cloud-security", priority: 0.9, frequency: "weekly"  },
-    { url: "/services/network-pentesting", priority: 0.85, frequency: "weekly" },
-    { url: "/services/kubernetes-security", priority: 0.85, frequency: "weekly" },
-    { url: "/services/ai-security",    priority: 0.9, frequency: "weekly"  },
-    { url: "/services/startup-security", priority: 0.9, frequency: "weekly"  },
-    { url: "/services/saas-vapt",      priority: 0.9, frequency: "weekly"  },
-    { url: "/services/soc2-pentesting", priority: 0.9, frequency: "weekly"  },
-    { url: "/services/fintech-vapt",   priority: 0.9, frequency: "weekly"  },
-    { url: "/services/aws-security",   priority: 0.9, frequency: "weekly"  },
-    { url: "/services/smart-contract-audit", priority: 0.9, frequency: "weekly"  },
-    { url: "/services/iso-27001-vapt", priority: 0.9, frequency: "weekly"  },
-    { url: "/services/hipaa-vapt",     priority: 0.9, frequency: "weekly"  },
-    { url: "/services/active-directory-pentesting", priority: 0.9, frequency: "weekly"  },
-    { url: "/services/external-attack-surface", priority: 0.9, frequency: "weekly"  },
-    { url: "/services/pci-dss-pentesting", priority: 0.9, frequency: "weekly"  },
+    { url: "/tools/jwt-decoder",        priority: 0.9, frequency: "daily"   }, // JWT Decoder Tool
     { url: "/free-assessment",         priority: 0.95, frequency: "weekly" },
     // Trust & Lead Magnets
     { url: "/methodology",             priority: 0.85, frequency: "monthly" },
@@ -46,12 +30,23 @@ export default function sitemap() {
     { url: "/terms",                   priority: 0.3, frequency: "yearly"  },
   ];
 
-  const coreUrls = corePages.map((page) => ({
+  const coreUrls = coreStaticPages.map((page) => ({
     url: `${baseUrl}${page.url}`,
     lastModified: now,
     changeFrequency: page.frequency,
     priority: page.priority,
   }));
+
+  // Dynamic Service pages from constants.ts
+  const serviceUrls = SERVICES.map((service) => {
+    const priority = service.severity === "critical" ? 0.9 : 0.85;
+    return {
+      url: `${baseUrl}/services/${service.slug}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: priority,
+    };
+  });
 
   // Blog pages
   const blogUrls = blogPosts.map((post) => ({
@@ -61,5 +56,5 @@ export default function sitemap() {
     priority: 0.65,
   }));
 
-  return [...coreUrls, ...blogUrls];
+  return [...coreUrls, ...serviceUrls, ...blogUrls];
 }

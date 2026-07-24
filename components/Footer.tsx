@@ -23,6 +23,7 @@ const footerLinks = [
       { name: "Redacted Sample VAPT Report", href: "/sample-report" },
       { name: "Startup Security Checklist", href: "/checklist" },
       { name: "API Security Checklist", href: "/api-security-checklist" },
+      { name: "Free JWT Decoder Tool", href: "/tools/jwt-decoder" },
       { name: "Case Studies Portfolio", href: "/case-studies" },
       { name: "VAPT Bangalore Hub", href: "/vapt-bangalore" },
       { name: "VAPT Hyderabad Hub", href: "/vapt-hyderabad" },

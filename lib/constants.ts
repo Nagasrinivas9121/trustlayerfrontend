@@ -343,6 +343,86 @@ export const SERVICES = [
       "Remediation verification letter"
     ],
     outcome: "Meet PCI-DSS requirements to securely process credit card transactions without audit blocks."
+  },
+  {
+    id: "source-code-review",
+    slug: "source-code-review",
+    title: "Source Code Security Review",
+    description: "Line-by-line manual and automated security review of your application source code (SAST) to uncover hidden backdoors, hardcoded secrets, and injection points.",
+    duration: "5-7 Days",
+    severity: "critical",
+    technologies: ["GitHub Actions", "Semgrep", "SonarQube", "Manual Code Review", "Node.js", "Python", "Go", "Java"],
+    deliverables: [
+      "Line-by-line code vulnerability mapping",
+      "Secure coding remediation code blocks",
+      "Secrets/credential scan analysis report",
+      "Retesting verification of fixed commits"
+    ],
+    outcome: "Harden application architecture and address vulnerabilities directly within the codebase before deployment."
+  },
+  {
+    id: "azure-security",
+    slug: "azure-security",
+    title: "Azure Cloud Security Audit",
+    description: "Security posture assessment (CSPM) of your Microsoft Azure environment. We evaluate Entra ID (Azure AD), Virtual Network configurations, and App Service security settings.",
+    duration: "5-7 Days",
+    severity: "high",
+    technologies: ["Microsoft Azure", "Entra ID", "Azure Key Vault", "Defender for Cloud", "ARM Templates", "Prowler"],
+    deliverables: [
+      "Entra ID permission & privilege mapping",
+      "Storage account & database exposure logs",
+      "CIS Microsoft Azure Benchmark score",
+      "Azure networking configuration audit"
+    ],
+    outcome: "Secure Azure storage buckets, Entra ID tenants, and cloud API endpoints from credential misuse."
+  },
+  {
+    id: "gcp-security",
+    slug: "gcp-security",
+    title: "GCP Cloud Security Audit",
+    description: "Deep security audit of Google Cloud Platform deployments, including IAM permissions, Google Kubernetes Engine (GKE) clusters, and Cloud Storage bucket access controls.",
+    duration: "5-7 Days",
+    severity: "high",
+    technologies: ["Google Cloud Platform", "GCP Cloud IAM", "Google Kubernetes Engine", "Cloud KMS", "Terraform", "Scout Suite"],
+    deliverables: [
+      "GCP IAM least-privilege policy mapping",
+      "Cloud Storage public access validation checks",
+      "CIS GCP Benchmark audit report",
+      "GKE cluster control plane configuration check"
+    ],
+    outcome: "Verify and harden GCP workloads, IAM policies, and cloud networking boundaries."
+  },
+  {
+    id: "graphql-security",
+    slug: "graphql-security",
+    title: "GraphQL API Security Testing",
+    description: "Offensive security assessment tailored for GraphQL API endpoints. We test for query depth limit bypass, circular queries, resolver injection, and field-level auth (BOLA).",
+    duration: "4-6 Days",
+    severity: "critical",
+    technologies: ["GraphQL Schema", "Apollo Server", "InQL", "Burp Suite", "Postman", "JWT", "Introspection"],
+    deliverables: [
+      "GraphQL schema injection PoCs",
+      "Query recursion and depth vulnerability logs",
+      "Field-level authorization bypass reports",
+      "Remediation code snippets for Apollo/Graphql-go"
+    ],
+    outcome: "Prevent denial-of-service, user data scraping, and authorization boundary bypasses on GraphQL APIs."
+  },
+  {
+    id: "owasp-api-security",
+    slug: "owasp-api-security",
+    title: "OWASP API Top 10 Security Testing",
+    description: "Specialized pentest verifying your APIs against the entire OWASP API Security Top 10 list (BOLA, broken authentication, mass assignment, SSRF, etc.).",
+    duration: "5-7 Days",
+    severity: "critical",
+    technologies: ["OWASP API Top 10", "REST APIs", "JWT", "OAuth 2.0", "Postman", "Burp Suite Pro"],
+    deliverables: [
+      "BOLA/IDOR exploit steps and PoCs",
+      "Authentication & token abuse reports",
+      "Rate-limit & resources exhaustion logs",
+      "Remediation commits for Node, Python, and Go"
+    ],
+    outcome: "Complete compliance validation against the industry standard API security framework."
   }
 ];
 

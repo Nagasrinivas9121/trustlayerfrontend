@@ -12,8 +12,34 @@ export const metadata: Metadata = {
 };
 
 export default function CloudSecurityPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Cloud Security Assessment",
+        "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
+        "serviceType": "Cloud Security Auditing",
+        "description": "Comprehensive AWS, GCP, and Azure cloud security configuration audits. Eliminate IAM privilege creep, S3 bucket exposure, and unencrypted data assets.",
+        "areaServed": ["India", "Global"],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.trustlayerlabs.co.in/services" },
+          { "@type": "ListItem", "position": 3, "name": "Cloud Security Assessment", "item": "https://www.trustlayerlabs.co.in/services/cloud-security" },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="section-container max-w-5xl mx-auto">
         <Link href="/services" className="inline-flex items-center text-xs uppercase tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" /> Back to All Services
