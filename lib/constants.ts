@@ -710,7 +710,7 @@ export const TEAM = [
   {
     name: "Bakkina Pavan Kumar",
     role: "CTO",
-    bio: "Lead technology officer specializing in secure application architectures, cloud systems hardening, and network vulnerability assessment.",
+    bio: "Lead technology officer with 2+ years of experience specializing in secure application architectures, cloud systems hardening, and network vulnerability assessment.",
     initials: "BP",
     credentials: ["CEH", "VAPT", "Network Pentesting"],
     linkedin: "https://www.linkedin.com/in/bakkina-pavan-kumar"
