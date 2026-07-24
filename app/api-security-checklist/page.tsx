@@ -85,7 +85,7 @@ export default function ApiSecurityChecklistPage() {
         <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4">
           <h3 className="text-xl font-bold text-textPrimary font-sans">Need a Manual API Penetration Test?</h3>
           <p className="text-xs text-textSecondary max-w-xl mx-auto">
-            Our OSCP-certified security engineers manually test your APIs for BOLA, authentication flaws, and logic bypasses in 5 to 7 days.
+            Our VAPT and Network Pentesting certified security engineers manually test your APIs for BOLA, authentication flaws, and logic bypasses in 5 to 7 days.
           </p>
           <div className="pt-2">
             <Link

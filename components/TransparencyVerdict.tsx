@@ -23,7 +23,7 @@ export default function TransparencyVerdict() {
       area: "Greater visibility of team members, certifications, or industry recognition",
       feedback: "Greater visibility of team members, certifications, or industry recognition.",
       status: "Implemented",
-      resolution: "Moved our OSCP, CEH, and eWPT certified engineering team section to the main homepage. Prominently featured our MSME Government of India registration.",
+      resolution: "Moved our CEH, eWPT, VAPT, and Network Pentesting certified engineering team section to the main homepage. Prominently featured our MSME Government of India registration.",
       detailsLink: "/#team"
     },
     {

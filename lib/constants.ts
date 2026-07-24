@@ -702,10 +702,18 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security professional with 2+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
+    bio: "Offensive security professional with 2+ years auditing enterprise APIs, SaaS, and financial transaction portals. CEH, eWPT, VAPT, and Network Pentesting certified.",
     initials: "NR",
-    credentials: ["OSCP", "CEH", "eWPT"],
+    credentials: ["CEH", "eWPT", "VAPT", "Network Pentesting"],
     linkedin: "https://www.linkedin.com/in/nagasrinivasa-rao-a9b08493"
+  },
+  {
+    name: "Bakkina Pavan Kumar",
+    role: "CTO",
+    bio: "Lead technology officer specializing in secure application architectures, cloud systems hardening, and network vulnerability assessment.",
+    initials: "BP",
+    credentials: ["CEH", "VAPT", "Network Pentesting"],
+    linkedin: "https://www.linkedin.com/in/bakkina-pavan-kumar"
   },
   {
     name: "Ramineni Teja",

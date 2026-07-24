@@ -52,7 +52,7 @@ export default function NdaProcessPage() {
               2. Encrypted Data Handling & Storage
             </h3>
             <p className="text-xs text-textSecondary leading-relaxed">
-              All vulnerability notes, API logs, and test data are stored in AES-256 encrypted vaults. Access is strictly limited to assigned OSCP-certified security auditors.
+              All vulnerability notes, API logs, and test data are stored in AES-256 encrypted vaults. Access is strictly limited to assigned VAPT and Network Pentesting certified security auditors.
             </p>
           </div>
 

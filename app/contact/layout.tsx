@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact TrustLayerLabs | Book a Security Review",
     description:
-      "Schedule your free security scoping session. OSCP certified team available for VAPT, API security, and SOC2 readiness consultations.",
+      "Schedule your free security scoping session. VAPT & Network pentesting certified team available for VAPT, API security, and SOC2 readiness consultations.",
     url: "https://www.trustlayerlabs.co.in/contact",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact TrustLayerLabs" }],
   },

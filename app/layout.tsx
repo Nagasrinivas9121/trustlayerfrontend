@@ -154,7 +154,7 @@ export default function RootLayout({
           "GRC",
           "OWASP",
         ],
-        "hasCredential": ["OSCP", "CEH", "eWPT"],
+        "hasCredential": ["CEH", "eWPT", "VAPT", "Network Pentesting"],
         "sameAs": [
           "https://www.linkedin.com/company/trustlayerlabs",
           "https://clutch.co/profile/trustlayerlabs",
@@ -165,13 +165,14 @@ export default function RootLayout({
           "@type": "Person",
           "name": "Nagasrinivasa Rao",
           "jobTitle": "Founder & Lead Security Architect",
-          "description": "Offensive security professional with 2+ years auditing enterprise APIs, cloud architectures, and financial systems. OSCP, CEH, and eWPT certified.",
+          "description": "Offensive security professional with 2+ years auditing enterprise APIs, cloud architectures, and financial systems. CEH, eWPT, VAPT, and Network Pentesting certified.",
           "url": "https://www.trustlayerlabs.co.in/about",
           "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP"],
           "hasCredential": [
-            { "@type": "EducationalOccupationalCredential", "name": "OSCP" },
             { "@type": "EducationalOccupationalCredential", "name": "CEH" },
             { "@type": "EducationalOccupationalCredential", "name": "eWPT" },
+            { "@type": "EducationalOccupationalCredential", "name": "VAPT" },
+            { "@type": "EducationalOccupationalCredential", "name": "Network Pentesting" },
           ],
         },
         "hasOfferCatalog": {

@@ -81,7 +81,7 @@ export default function LiveChat() {
           ...prev,
           {
             sender: "bot",
-            text: "Sure thing! Please write your question or enter your email address below, and our lead OSCP security engineer will respond within 4 hours."
+            text: "Sure thing! Please write your question or enter your email address below, and our lead VAPT & Network pentesting engineer will respond within 4 hours."
           }
         ]);
       }

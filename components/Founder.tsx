@@ -19,12 +19,12 @@ export default function Founder() {
             Meet the <span className="text-primary">Security Team</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            OSCP-certified pentesters, GRC auditors, and operations leads working to make SaaS and FinTech startups enterprise-ready.
+            VAPT & Network Pentesting certified security analysts, GRC auditors, and operations leads working to make SaaS and FinTech startups enterprise-ready.
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-stretch mb-16">
           {TEAM.map((member) => (
             <div 
               key={member.name} 

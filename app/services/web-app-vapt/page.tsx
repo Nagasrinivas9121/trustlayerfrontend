@@ -73,7 +73,7 @@ export default function WebAppVaptPage() {
           <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
             <h3 className="text-sm font-bold text-textPrimary font-sans">Manual Business Logic Testing</h3>
             <p className="text-xs text-textSecondary leading-relaxed">
-              Automated tools miss multi-step privilege escalation and state machine bypasses. Our OSCP pentesters manually analyze session state boundaries.
+              Automated tools miss multi-step privilege escalation and state machine bypasses. Our VAPT & Network pentesting certified engineers manually analyze session state boundaries.
             </p>
           </div>
         </div>

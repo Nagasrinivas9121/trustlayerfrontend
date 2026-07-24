@@ -6,9 +6,10 @@ import { Shield, Target, Lock, Award, CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 const certifications = [
-  { name: "OSCP", authority: "Offensive Security Certified Professional", color: "border-critical/30 text-critical bg-critical/5" },
   { name: "CEH", authority: "Certified Ethical Hacker", color: "border-primary/30 text-accent bg-primary/5" },
   { name: "eWPT", authority: "eLearnSecurity Web Penetration Tester", color: "border-success/30 text-success bg-success/5" },
+  { name: "VAPT", authority: "Vulnerability Assessment & Penetration Testing", color: "border-critical/30 text-critical bg-critical/5" },
+  { name: "NetPentest", authority: "Network Penetration Testing Specialist", color: "border-purple-300/40 text-purple-400 bg-purple-500/5" },
   { name: "Security+", authority: "CompTIA Security+", color: "border-warning/30 text-warning bg-warning/5" }
 ];
 

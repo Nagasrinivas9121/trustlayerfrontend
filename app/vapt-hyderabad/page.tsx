@@ -68,7 +68,7 @@ export default function VaptHyderabad() {
                   Why TrustLayerLabs?
                 </h3>
                 <p className="text-xs text-textSecondary leading-relaxed mt-2 font-sans">
-                  Hyderabad&apos;s tech space is growing fast. Automated tools miss authorization flaws. Our OSCP and CEH certified red team engineers manually audit all endpoints.
+                  Hyderabad&apos;s tech space is growing fast. Automated tools miss authorization flaws. Our VAPT, Network pentesting and CEH certified red team engineers manually audit all endpoints.
                 </p>
               </div>
 

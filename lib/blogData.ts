@@ -384,7 +384,7 @@ The final goal is often stealing sensitive customer data or intellectual propert
     slug: "owasp-api-security-top-10-guide-2026",
     title: "OWASP API Security Top 10: Complete Exploitation & Patching Guide (2026)",
     date: "May 12, 2026",
-    author: "Nagasrinivasa Rao (OSCP, CEH)",
+    author: "Nagasrinivasa Rao (VAPT, Network Pentesting, CEH)",
     excerpt: "A deep technical breakdown of the OWASP API Security Top 10 vulnerabilities including BOLA, IDOR, BFLA, and JWT signature flaws with real code patches.",
     content: `
 # OWASP API Security Top 10: Complete Technical Breakdown (2026)
@@ -505,7 +505,7 @@ Explore our dedicated [Kubernetes Security Audit Service](/services/kubernetes-s
     slug: "ai-and-llm-security-risks-prompt-injection",
     title: "AI & LLM Application Security: Preventing Prompt Injection & RAG Data Leaks",
     date: "July 10, 2026",
-    author: "Nagasrinivasa Rao (OSCP)",
+    author: "Nagasrinivasa Rao (VAPT, Network Pentesting)",
     excerpt: "Understand the OWASP Top 10 for LLM Applications and how to defend GenAI products against direct prompt injections and RAG data leaks.",
     content: `
 # AI & LLM Security: Defending GenAI Applications
@@ -533,7 +533,7 @@ Learn more on our [AI Application Security Service](/services/ai-security) page.
     slug: "owasp-llm-top-10-prompt-injection",
     title: "OWASP LLM Top 10: Defending Prompt Injection & Jailbreaks",
     date: "July 12, 2026",
-    author: "Nagasrinivasa Rao (OSCP)",
+    author: "Nagasrinivasa Rao (VAPT, Network Pentesting)",
     excerpt: "Explore the mechanics of direct and indirect prompt injection attacks on GenAI apps and how to implement structural mitigations.",
     content: `
 # OWASP LLM Top 10: Defending Prompt Injection & Jailbreaks
