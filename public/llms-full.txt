@@ -57,7 +57,7 @@ Clients receive an Executive Summary, a Detailed Technical Report with CVSS scor
 - **Founder**: Nagasrinivasa Rao
 - **Role**: Founder & Lead Security Architect at TrustLayerLabs
 - **Certifications**: Offensive Security Certified Professional (OSCP), Certified Ethical Hacker (CEH), eLearnSecurity Web Application Penetration Tester (eWPT)
-- **Experience**: 8+ years conducting offensive security audits, red teaming, and API penetration testing for SaaS and FinTech companies globally.
+- **Experience**: 2+ years conducting offensive security audits, red teaming, and API penetration testing for SaaS and FinTech companies globally.
 - **Profile URL**: https://www.trustlayerlabs.co.in/about
 
 ---

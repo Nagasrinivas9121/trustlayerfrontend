@@ -65,7 +65,7 @@ export default function About() {
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">Nagasrinivasa Rao</h4>
                 <p className="text-[10px] font-mono text-accent uppercase tracking-widest">Founder & Lead Security Architect</p>
                 <p className="text-xs text-textSecondary mt-2 leading-relaxed">
-                  Offensive security specialist with 8+ years auditing SaaS applications, core payment gateways, and container systems. Ex-enterprise red team lead.
+                  Offensive security specialist with 2+ years auditing SaaS applications, core payment gateways, and container systems. Ex-enterprise red team lead.
                 </p>
               </div>
             </div>

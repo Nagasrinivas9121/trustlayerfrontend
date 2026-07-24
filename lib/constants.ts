@@ -702,7 +702,7 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security professional with 8+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
+    bio: "Offensive security professional with 2+ years auditing enterprise APIs, SaaS, and financial transaction portals. OSCP, CEH, and eWPT certified.",
     initials: "NR",
     credentials: ["OSCP", "CEH", "eWPT"],
     linkedin: "https://www.linkedin.com/in/nagasrinivasa-rao-a9b08493"
