@@ -105,16 +105,16 @@ export default function Hero() {
           {/* Overlapping customer avatars, stars, reviews count */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
             <div className="flex -space-x-2.5 overflow-hidden">
-              <div className="w-7 h-7 rounded-full bg-zinc-100 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-zinc-600 shadow-sm">PF</div>
-              <div className="w-7 h-7 rounded-full bg-zinc-200 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-zinc-700 shadow-sm">CO</div>
-              <div className="w-7 h-7 rounded-full bg-zinc-300 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-zinc-800 shadow-sm">NB</div>
+              <div className="w-7 h-7 rounded-full bg-primary/10 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">CEH</div>
+              <div className="w-7 h-7 rounded-full bg-primary/20 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">eWPT</div>
+              <div className="w-7 h-7 rounded-full bg-primary/30 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">VAPT</div>
             </div>
             <div className="flex flex-col items-center sm:items-start">
               <div className="flex items-center text-amber-500 gap-0.5">
                 {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-current" />)}
               </div>
               <span className="text-xs font-sans text-textSecondary uppercase tracking-wider font-semibold mt-0.5">
-                From 12+ SaaS & FinTech Teams
+                Newly Founded, Certified Team
               </span>
             </div>
           </div>
@@ -144,15 +144,15 @@ export default function Hero() {
             <Quote size={20} className="text-primary/10 fill-current" />
           </div>
           <p className="text-sm text-textPrimary leading-relaxed italic font-sans mb-4">
-            &ldquo;We passed enterprise procurement after TrustLayerLabs completed our API security review.&rdquo;
+            &ldquo;We&apos;re a founder-led offensive security team based in Bangalore & Hyderabad.&rdquo;
           </p>
           <div className="flex items-center gap-3 pt-3 border-t border-border/40">
             <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
-              PF
+              TL
             </div>
             <div>
-              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">PayFlow India</h4>
-              <p className="text-[11px] font-sans text-textSecondary uppercase">CTO Office</p>
+              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
+              <p className="text-[11px] font-sans text-textSecondary uppercase">Founder-Led Team</p>
             </div>
           </div>
         </div>
@@ -166,15 +166,15 @@ export default function Hero() {
             <Quote size={20} className="text-primary/10 fill-current" />
           </div>
           <p className="text-sm text-textPrimary leading-relaxed italic font-sans mb-4">
-            &ldquo;TrustLayerLabs helped us prepare for SOC2 readiness and infrastructure hardening.&rdquo;
+            &ldquo;Certified security architects (CEH, eWPT, VAPT) auditing API logic & code.&rdquo;
           </p>
           <div className="flex items-center gap-3 pt-3 border-t border-border/40">
             <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
-              CO
+              CS
             </div>
             <div>
-              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">CareOS Tech</h4>
-              <p className="text-[11px] font-sans text-textSecondary uppercase">VP of Engineering</p>
+              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Certified Team</h4>
+              <p className="text-[11px] font-sans text-textSecondary uppercase">Security Architects</p>
             </div>
           </div>
         </div>
@@ -190,15 +190,15 @@ export default function Hero() {
               <Quote size={20} className="text-primary/10 fill-current" />
             </div>
             <p className="text-sm text-textPrimary leading-relaxed italic font-sans">
-              &ldquo;We passed enterprise procurement after TrustLayerLabs completed our API security review.&rdquo;
+              &ldquo;We&apos;re a founder-led offensive security team based in Bangalore & Hyderabad.&rdquo;
             </p>
             <div className="flex items-center gap-3 pt-3 border-t border-border/40">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
-                PF
+                TL
               </div>
               <div>
-                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">PayFlow India</h4>
-                <p className="text-[11px] font-sans text-textSecondary uppercase">CTO Office</p>
+                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
+                <p className="text-[11px] font-sans text-textSecondary uppercase">Founder-Led Team</p>
               </div>
             </div>
           </div>
@@ -212,15 +212,15 @@ export default function Hero() {
               <Quote size={20} className="text-primary/10 fill-current" />
             </div>
             <p className="text-sm text-textPrimary leading-relaxed italic font-sans">
-              &ldquo;TrustLayerLabs helped us prepare for SOC2 readiness and infrastructure hardening.&rdquo;
+              &ldquo;Certified security architects (CEH, eWPT, VAPT) auditing API logic & code.&rdquo;
             </p>
             <div className="flex items-center gap-3 pt-3 border-t border-border/40">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
-                CO
+                CS
               </div>
               <div>
-                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">CareOS Tech</h4>
-                <p className="text-[11px] font-sans text-textSecondary uppercase">VP of Engineering</p>
+                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Certified Team</h4>
+                <p className="text-[11px] font-sans text-textSecondary uppercase">Security Architects</p>
               </div>
             </div>
           </div>

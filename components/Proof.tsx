@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { ShieldCheck, Info, CheckCircle2, Award, Rocket, Database, Network, Briefcase, ThumbsUp, Cpu, ListChecks, Star, FileText, BadgeCheck } from "lucide-react";
+import { ShieldCheck, Info, CheckCircle2, Award, Database } from "lucide-react";
 
 const auditFocusAreas = [
   {
@@ -32,19 +31,6 @@ const auditFocusAreas = [
     border: "border-primary/20",
     bg: "bg-primary/5"
   }
-];
-
-const platforms = [
-  { name: "ProductHunt", icon: Rocket, color: "text-[#da552f]", href: "https://www.producthunt.com/@trustlayerlabs" },
-  { name: "Crunchbase", icon: Database, color: "text-[#1483c2]", href: "https://www.crunchbase.com/organization/trustlayerlabs" },
-  { name: "F6S", icon: Network, color: "text-[#2e8c4a]" },
-  { name: "Contra", icon: Briefcase, color: "text-[#ff6b6b]", href: "https://contra.com/trustlayer_labs_6c8shdzq/about" },
-  { name: "GoodFirms", icon: ThumbsUp, color: "text-[#1a73e8]", href: "https://www.goodfirms.co/company/trustlayerlabs" },
-  { name: "TechBehemoths", icon: Cpu, color: "text-[#6366f1]", href: "https://techbehemoths.com/company/trustlayerlabs" },
-  { name: "Sortlist", icon: ListChecks, color: "text-[#f59e0b]", href: "https://www.sortlist.com/agency/trustlayerlabs" },
-  { name: "Clutch", icon: Star, color: "text-[#ef4444]", href: "https://clutch.co/profile/trustlayerlabs" },
-  { name: "The Manifest", icon: FileText, color: "text-[#f97316]" },
-  { name: "DesignRush", icon: BadgeCheck, color: "text-[#38bdf8]", href: "https://www.designrush.com/agency/profile/trustlayer-labs" }
 ];
 
 export default function Proof() {
@@ -124,15 +110,9 @@ export default function Proof() {
             All audits are signed by CEH, eWPT, VAPT, and Network Pentesting certified security architects. We operate out of Bangalore and Hyderabad tech hubs.
           </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center items-center gap-4">
             <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
               <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '32px', width: 'auto' }} />
-            </a>
-
-            <a href="https://www.designrush.com/agency/profile/trustlayer-labs" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 bg-surface border border-border rounded-lg px-4 h-[36px] hover:bg-zinc-100 transition-colors shadow-sm">
-              <span className="text-textPrimary font-bold text-[12px] tracking-tight">Design<span className="text-primary">Rush</span></span>
-              <div className="h-4 w-[1px] bg-border"></div>
-              <span className="text-xs text-textSecondary font-semibold uppercase tracking-wider">Verified</span>
             </a>
 
             <div className="flex items-center space-x-3 bg-surface border border-border rounded-lg px-4 h-[36px] cursor-default">
@@ -141,43 +121,6 @@ export default function Proof() {
                 <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5">MSME REGISTERED</span>
                 <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">GOVT OF INDIA</span>
               </div>
-            </div>
-          </div>
-
-          {/* Slider list of listings */}
-          <div className="mt-4 pt-6 border-t border-border/30 w-full max-w-5xl overflow-hidden">
-            <p className="text-xs text-textSecondary font-semibold mb-6 uppercase tracking-wider">Audit Attestations Recognized & Listed On</p>
-
-            <div
-              className="relative flex overflow-hidden w-full"
-              style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
-            >
-              <motion.div
-                className="flex items-center gap-x-12 whitespace-nowrap py-2 min-w-max"
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{ ease: "linear", duration: 35, repeat: Infinity }}
-              >
-                {[...platforms, ...platforms].map((platform, i) => (
-                  <div key={i} className="flex items-center gap-x-12">
-                    {platform.href ? (
-                      <a href={platform.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-x-2 group cursor-pointer hover:translate-y-[-1px] transition-transform">
-                        <platform.icon size={14} className="text-textSecondary group-hover:text-primary transition-colors" />
-                        <span className="text-xs text-textSecondary group-hover:text-textPrimary transition-colors">
-                          {platform.name}
-                        </span>
-                      </a>
-                    ) : (
-                      <div className="flex items-center gap-x-2 group cursor-default">
-                        <platform.icon size={14} className="text-textSecondary group-hover:text-primary transition-colors" />
-                        <span className="text-xs text-textSecondary group-hover:text-textPrimary transition-colors">
-                          {platform.name}
-                        </span>
-                      </div>
-                    )}
-                    <span className="text-border text-xs">•</span>
-                  </div>
-                ))}
-              </motion.div>
             </div>
           </div>
         </div>

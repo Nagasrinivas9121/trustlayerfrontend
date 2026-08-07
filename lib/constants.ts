@@ -29,6 +29,7 @@ export const NAV_LINKS = [
     children: [
       { name: "Web Application VAPT", href: "/services/web-app-vapt", description: "OWASP Top 10, XSS, SQLi, and authentication audits" },
       { name: "API Security Testing", href: "/services/api-security", description: "REST, GraphQL, gRPC, BOLA/IDOR, & JWT penetration testing" },
+      { name: "Web Development", href: "/services/web-development", description: "Secure-by-design web apps with OWASP security baseline" },
       { name: "Mobile App VAPT", href: "/services/mobile-vapt", description: "iOS & Android dynamic/static security assessment" },
       { name: "Cloud Security Audit", href: "/services/cloud-security", description: "AWS, GCP, & Azure CIS Benchmark and IAM audits" },
       { name: "Network Pentesting", href: "/services/network-pentesting", description: "External & internal network perimeter penetration testing" },
@@ -87,6 +88,21 @@ export const SERVICES = [
       "Free retesting within 30 days"
     ],
     outcome: "Prevent BOLA/IDOR, broken object authorization, rate-limiting bypass, and tenant data leaks."
+  },
+  {
+    id: "web-development",
+    slug: "web-development",
+    title: "Web Development",
+    description: "Secure-by-design web application development for startups — fast, modern, production-ready sites and apps with security best practices built in from day one, not bolted on after launch.",
+    duration: "2-4 Weeks",
+    severity: "high",
+    technologies: ["React", "Next.js", "Node.js", "WordPress", "Tailwind CSS", "AWS / Vercel"],
+    deliverables: [
+      "Responsive, production-ready site or web app",
+      "Security-hardened by default (OWASP baseline, secure headers, input validation)",
+      "SEO-optimized structure and performance tuning"
+    ],
+    outcome: "Launch secure, high-performance web applications built to scale with OWASP security best practices integrated from day one."
   },
   {
     id: "mobile-vapt",
@@ -451,19 +467,35 @@ export const PROCESS_STEPS = [
 
 export const CASE_STUDIES = [
   {
-    slug: "fintech-api-security",
-    title: "Prevented BOLA Data Leakage & Secured FinTech Core Banking API",
-    category: "FinTech",
-    problem: "A Neo-Banking Startup was launching their API platform, but security scanning failed to check complex multi-step authorization logic.",
-    exploit: "Identified access boundary vulnerability where row-level queries on transfer endpoints failed to check context tenant ownership.",
-    impact: "Potential leakage of financial records of over 120,000 users, leading to RBI compliance violations and brand loss.",
-    fix: "Implemented resource-level authorization validation filters, cryptographically signed entity IDs, and rate limits.",
-    technologies: ["Node.js", "Redis", "JWT", "AWS WAF", "Postgres"],
-    metrics: "120k records secured, blocking potential $1.2M fraud volume",
-    results: "100% compliance with RBI Annex G rules, reduced audit prep cycle by 45%",
-    vulnerabilitiesIdentified: "1 Critical (BOLA), 3 High (Auth Bypass, Rate Limit)",
+    slug: "saas-api-bola-finding",
+    title: "Discovered Broken Object Level Authorization (BOLA) on SaaS API Platform",
+    category: "SaaS API Platform",
+    problem: "A multi-tenant SaaS API platform allowed authenticated users to query workspace profiles without strict tenant ownership checks.",
+    exploit: "Manipulated account identifiers in API parameters (GET /api/v1/workspaces/{workspace_id}), bypassing authorization checks to view other organization records.",
+    impact: "Potential risk of unauthorized exposure of organization workspace metadata and user contact information across tenant accounts.",
+    fix: "Implemented server-side middleware for strict authorization checks, validating user session ownership against requested workspace object IDs.",
+    technologies: ["REST API", "Node.js", "Express", "JWT", "PostgreSQL"],
+    metrics: "100% cross-tenant authorization boundary verified",
+    results: "Reported via bug bounty program; vulnerability patched and retested within 48 hours",
+    vulnerabilitiesIdentified: "1 Critical (BOLA / IDOR)",
     remediationTime: "48 Hours",
-    securityImprovement: "99/100 (A+ Grade)",
+    securityImprovement: "Verified Hardened",
+    retestStatus: "100% Patched & Verified"
+  },
+  {
+    slug: "jwt-privilege-escalation",
+    title: "Identified Privilege Escalation Flaw in Cloud Portal Authentication",
+    category: "Cloud Web Portal",
+    problem: "An administration portal trusted unverified role claims inside JSON Web Tokens (JWT) issued during session authentication.",
+    exploit: "Modified algorithm header parameters and role claim values in session tokens, attempting administrative access without valid credentials.",
+    impact: "Potential administrative privilege escalation leading to unauthorized access to tenant management controls.",
+    fix: "Enforced strict RSA signature validation on all incoming JWTs, enforced server-side secret validation, and rejected unassigned algorithm headers.",
+    technologies: ["JWT", "OAuth 2.0", "Python", "FastAPI", "React"],
+    metrics: "Session token validation hardened across 100% of endpoints",
+    results: "Reported via bug bounty program; token verification refactored and retested",
+    vulnerabilitiesIdentified: "1 Critical (JWT Auth Bypass)",
+    remediationTime: "24 Hours",
+    securityImprovement: "Verified Hardened",
     retestStatus: "100% Patched & Verified"
   },
   {
@@ -472,11 +504,11 @@ export const CASE_STUDIES = [
     category: "HealthTech",
     problem: "A fast-growing HealthTech platform failed an enterprise hospital's onboarding assessment due to insufficient HIPAA controls and exposed patient file URLs.",
     exploit: "Diagnosed exposed storage buckets lacking pre-signed authorization tokens, permitting resource queries on sensitive records.",
-    impact: "Exposed sensitive patient records, threatening massive HIPAA penalties and blocking a $450k annual recurring revenue enterprise deal.",
+    impact: "Exposed sensitive patient records, threatening massive HIPAA penalties and blocking an enterprise deployment.",
     fix: "Migrated files to private buckets with short-lived AWS CloudFront signed cookies and integrated OAuth2 controls.",
     technologies: ["React", "AWS S3", "CloudFront", "Cognito", "Python"],
     metrics: "Passed HIPAA & SOC2 controls audit in 14 days with zero deficiencies",
-    results: "Successfully closed a $450k ARR contract within 3 weeks of retest",
+    results: "Successfully cleared enterprise vendor review",
     vulnerabilitiesIdentified: "2 Critical (Insecure Buckets, Lack of Auditing), 1 High (Broken Auth)",
     remediationTime: "72 Hours",
     securityImprovement: "95/100 (A Grade)",
@@ -508,7 +540,7 @@ export const CASE_STUDIES = [
     fix: "Configured metadata filtering in vector searches to restrict database query scopes strictly by the tenant ID context.",
     technologies: ["LangChain", "pgvector", "Pinecone", "OpenAI APIs", "Python", "FastAPI"],
     metrics: "100% secure vector context query isolation across all user tenant spaces",
-    results: "Cleared enterprise AI safety audit, unlocking a $120k pilot deployment",
+    results: "Cleared enterprise AI safety audit, unlocking pilot deployment",
     vulnerabilitiesIdentified: "2 Critical (Indirect Prompt Injection, Context Leakage), 2 High",
     remediationTime: "36 Hours",
     securityImprovement: "98/100 (A+ Grade)",
@@ -532,14 +564,14 @@ export const CASE_STUDIES = [
   },
   {
     slug: "web3-defi-reentrancy",
-    title: "Audited DeFi Staking Smart Contracts, Securing $4.2M Liquidity Pools",
+    title: "Audited DeFi Staking Smart Contracts, Securing Liquidity Pools",
     category: "Web3/DeFi",
     problem: "A decentralized liquidity staking protocol was prepping for launch, but custom payout calculation triggers were vulnerable to state reentrancy.",
     exploit: "Identified logic path where contract payout transactions executed external calls before updating the internal ledger balance state.",
-    impact: "Potential drainage of the entire $4.2M staking token pool on mainnet deploy.",
+    impact: "Potential drainage of the entire staking token pool on mainnet deploy.",
     fix: "Restructured Solidity methods to apply Checks-Effects-Interactions pattern and integrated OpenZeppelin ReentrancyGuard.",
     technologies: ["Solidity", "Slither", "EVM bytecode", "Hardhat", "ERC-20"],
-    metrics: "$4.2M total value locked (TVL) protected against EVM reentrancy calls",
+    metrics: "Liquidity pools protected against EVM reentrancy calls",
     results: "Delivered formal math-verification report with 100% patch attestation",
     vulnerabilitiesIdentified: "1 Critical (State Reentrancy Payout Bypass), 2 Medium",
     remediationTime: "12 Hours",
@@ -555,8 +587,8 @@ export const CASE_STUDIES = [
     impact: "Loss of transaction telemetry and local authorization cookies on compromised client devices.",
     fix: "Migrated local storage encryption to Android KeyStore and iOS Keychain services using hardware-backed key seeds.",
     technologies: ["Frida", "Jadx", "Hopper", "Android KeyStore", "iOS Keychain", "React Native"],
-    metrics: "200k+ mobile wallets hardened using Hardware-backed KeyStore/Keychain",
-    results: "Achieved Indian FinTech regulatory standards compliance, avoiding warning fines",
+    metrics: "Mobile wallets hardened using Hardware-backed KeyStore/Keychain",
+    results: "Achieved regulatory standards compliance, avoiding warning fines",
     vulnerabilitiesIdentified: "1 Critical (Hardcoded Decryption Key), 3 High (SSL Pinning Bypass, Cache Leak)",
     remediationTime: "4 Days",
     securityImprovement: "94/100 (A Grade)",
@@ -566,52 +598,12 @@ export const CASE_STUDIES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "TrustLayerLabs was a game-changer. They identified a critical auth bypass in our billing API within 12 hours. Their report was incredibly clear, and they even retested our fixes overnight. Absolute lifesavers.",
-    name: "Siddharth Sharma",
-    role: "Co-Founder & CTO",
-    company: "PayFlow India",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200",
-    linkedin: "https://www.linkedin.com/in/siddharth-payflow"
-  },
-  {
-    quote: "Enterprise procurement used to take months for us. Thanks to TrustLayerLabs' SOC2 readiness program and manual penetration testing attestation, we cleared our largest enterprise audit in just 3 days.",
-    name: "Ananya Roy",
-    role: "VP of Engineering",
-    company: "CareOS",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200",
-    linkedin: "https://www.linkedin.com/in/ananya-careos"
-  },
-  {
-    quote: "Outstanding experience. Unlike automated tools that throw hundreds of false positives, TrustLayerLabs focused on logical issues. They found an IDOR that could have cost us our Series A.",
-    name: "Rohan Deshmukh",
-    role: "CEO & Founder",
-    company: "LogixLabs",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
-    linkedin: "https://www.linkedin.com/in/rohan-logixlabs"
-  },
-  {
-    quote: "Securing our transaction corridors required deep logical understanding. TrustLayerLabs discovered a severe rate limiting and parameter injection flaw on our API gateway within 24 hours. Exceptionally precise manual pentesting.",
-    name: "Karan Malhotra",
-    role: "Head of Infrastructure & Security",
-    company: "ZetaPay",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200&h=200",
-    linkedin: "https://www.linkedin.com/in/karan-zeta-sec"
-  },
-  {
-    quote: "Their team doesn't just run tools. They manually trace how tenants interact. They found a multi-tenancy context leakage vulnerability in our vector store query logic that automated scanners completely missed. Incredible attention to detail.",
-    name: "Sneha Iyer",
-    role: "Director of Product Security",
-    company: "DocuVault",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200",
-    linkedin: "https://www.linkedin.com/in/sneha-docuvault"
-  },
-  {
-    quote: "As a fintech brand, compliance guidelines are non-negotiable. TrustLayerLabs delivered a professional RBI-compliant VAPT report and verified our security patches in a follow-up retest. Onboarding enterprise banking clients became a breeze.",
-    name: "Vikram Aditya",
-    role: "CTO",
-    company: "NeoCred",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200",
-    linkedin: "https://www.linkedin.com/in/vikram-neocred-cto"
+    quote: "We're a founder-led offensive security team based in Bangalore and Hyderabad, currently onboarding our first clients. Check our sample VAPT report and methodology below to see how we work.",
+    name: "TrustLayerLabs Team",
+    role: "Founder-Led Team",
+    company: "Bangalore & Hyderabad",
+    image: "/logo.jpeg",
+    linkedin: ""
   }
 ];
 
@@ -702,7 +694,7 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security professional with 2+ years auditing enterprise APIs, SaaS, and financial transaction portals. CEH, eWPT, VAPT, and Network Pentesting certified.",
+    bio: "Offensive security professional auditing enterprise APIs, SaaS, and financial transaction portals. CEH, eWPT, VAPT, and Network Pentesting certified.",
     initials: "NR",
     credentials: ["CEH", "eWPT", "VAPT", "Network Pentesting"],
     linkedin: "https://www.linkedin.com/in/nagasrinivasa-rao-a9b08493"
@@ -710,7 +702,7 @@ export const TEAM = [
   {
     name: "Bakkina Pavan Kumar",
     role: "CTO",
-    bio: "Lead technology officer with 2+ years of experience specializing in secure application architectures, cloud systems hardening, and network vulnerability assessment.",
+    bio: "Lead technology officer specializing in secure application architectures, cloud systems hardening, and network vulnerability assessment.",
     initials: "BP",
     credentials: ["CEH", "VAPT", "Network Pentesting"],
     linkedin: "https://www.linkedin.com/in/bakkina-pavan-kumar"

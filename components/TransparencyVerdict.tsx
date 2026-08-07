@@ -9,7 +9,7 @@ export default function TransparencyVerdict() {
       area: "Independently verifiable customer reviews & testimonials",
       feedback: "More independently verifiable customer reviews and testimonials.",
       status: "Implemented",
-      resolution: "LinkedIn links added to all client testimonials for direct executive verification, alongside linked directory profiles on Clutch, GoodFirms, and DesignRush.",
+      resolution: "Founder-led team credentials and sample VAPT report & methodology published for direct verification.",
       detailsLink: "/#testimonials"
     },
     {
