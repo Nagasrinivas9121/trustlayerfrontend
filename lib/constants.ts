@@ -889,7 +889,7 @@ export const TEAM = [
     bio: "Offensive security practitioner specializing in manual API penetration testing, authorization logic, and cloud security architectures. CEH, eWPT, and VAPT certified.",
     initials: "NR",
     credentials: ["CEH", "eWPT", "VAPT Specialist", "Network Pentesting"],
-    linkedin: "https://www.linkedin.com/in/nagasrinivasa-rao-a9b08493"
+    linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/"
   },
   {
     name: "Bakkina Pavan Kumar",
@@ -913,7 +913,7 @@ export const TEAM = [
     bio: "Application security engineer focused on manual web application testing, OWASP Top 10 vulnerabilities, and developer remediation support.",
     initials: "NA",
     credentials: ["CEH", "VAPT Specialist"],
-    linkedin: "https://www.linkedin.com/in/nayansi-anand"
+    linkedin: "https://www.linkedin.com/in/nayansi-anand-35a99a31b/"
   },
   {
     name: "Muskan Jha",
@@ -921,7 +921,7 @@ export const TEAM = [
     bio: "Coordinates scoping, mutual NDAs, scheduling, and client onboarding workflows for seamless assessment delivery.",
     initials: "MJ",
     credentials: ["Operations Lead"],
-    linkedin: "https://www.linkedin.com/in/muskan-jha"
+    linkedin: "https://www.linkedin.com/in/muskan-jha-795828350/"
   }
 ];
 
