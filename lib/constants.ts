@@ -23,8 +23,8 @@ export const BRAND = {
 };
 
 export const NAV_LINKS = [
-  { 
-    name: "Services", 
+  {
+    name: "Services",
     href: "/services",
     children: [
       { name: "Web Application VAPT", href: "/services/web-app-vapt", description: "OWASP Top 10, XSS, SQLi, and authentication audits" },
@@ -888,7 +888,7 @@ export const TEAM = [
     role: "Founder & Lead Security Architect",
     bio: "Offensive security practitioner specializing in manual API penetration testing, authorization logic, and cloud security architectures. CEH, eWPT, and VAPT certified.",
     initials: "NR",
-    credentials: ["CEH", "eWPT", "VAPT Specialist", "Network Pentesting"],
+    credentials: ["CEH", "VAPT Specialist", "Network Pentesting"],
     linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/"
   },
   {
