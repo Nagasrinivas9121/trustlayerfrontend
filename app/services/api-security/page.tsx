@@ -77,18 +77,27 @@ export default function ApiSecurityPage() {
           </div>
         </div>
 
-        <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4">
-          <h3 className="text-xl font-bold text-textPrimary">Book API Security Audit</h3>
-          <p className="text-xs text-textSecondary max-w-xl mx-auto">
-            Get an interim vulnerability snapshot in 48 hours. Includes free 30-day retesting and signed certificate.
+        <div className="mb-12 p-4 bg-surface border border-border/80 rounded-xl flex items-center justify-between gap-4">
+          <p className="text-xs text-textSecondary font-sans">
+            Building a payment gateway, banking interface, or financial application? Explore our specialized <Link href="/fintech-security" className="text-primary font-bold hover:underline">FinTech API Security Testing</Link> services.
+          </p>
+          <Link href="/fintech-security" className="text-xs font-bold font-mono text-primary flex items-center gap-1 uppercase tracking-wider flex-shrink-0">
+            Learn More →
+          </Link>
+        </div>
+
+        <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4 shadow-sm">
+          <h3 className="text-xl font-bold text-textPrimary font-sans">Book API Security Review</h3>
+          <p className="text-xs text-textSecondary max-w-xl mx-auto font-sans leading-relaxed">
+            Get an interim vulnerability snapshot in 48 hours. Includes comprehensive remediation guidance and a verified Retest Verification Letter.
           </p>
           <div className="pt-2">
             <Link
               href="https://calendar.app.google/jnamj3gawxVunPJm9"
               target="_blank"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-[#0a0a0a] text-white font-bold text-xs uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-full transition-colors shadow-sm"
             >
-              Book API Pentest <ArrowRight size={14} />
+              Book 20-Min Review <ArrowRight size={14} />
             </Link>
           </div>
         </div>

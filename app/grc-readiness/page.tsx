@@ -174,6 +174,16 @@ export default function GrcReadinessPage() {
           </div>
         </div>
 
+        {/* FinTech GRC Cross-Link Banner */}
+        <div className="mb-12 p-4 bg-surface border border-border/80 rounded-xl flex items-center justify-between gap-4 shadow-sm">
+          <p className="text-xs text-textSecondary font-sans">
+            Operating a payment platform or banking integration? Combine GRC readiness with our specialized <Link href="/fintech-security" className="text-primary font-bold hover:underline">FinTech security assessments</Link> and technical VAPT.
+          </p>
+          <Link href="/fintech-security" className="text-xs font-bold font-mono text-primary flex items-center gap-1 uppercase tracking-wider flex-shrink-0">
+            View FinTech VAPT →
+          </Link>
+        </div>
+
         {/* Capabilities Grid */}
         <div className="py-12 border-t border-border">
           <div className="mb-12">
