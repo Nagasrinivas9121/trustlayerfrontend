@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { Shield, Target, Lock, Award, CheckCircle } from "lucide-react";
 import Image from "next/image";
 
-const certifications = [
-  { name: "CEH", authority: "Certified Ethical Hacker", color: "border-primary/30 text-accent bg-primary/5" },
-  { name: "eWPT", authority: "eLearnSecurity Web Penetration Tester", color: "border-success/30 text-success bg-success/5" },
-  { name: "VAPT", authority: "Vulnerability Assessment & Penetration Testing", color: "border-critical/30 text-critical bg-critical/5" },
-  { name: "NetPentest", authority: "Network Penetration Testing Specialist", color: "border-purple-300/40 text-purple-400 bg-purple-500/5" },
-  { name: "Security+", authority: "CompTIA Security+", color: "border-warning/30 text-warning bg-warning/5" }
+const specializations = [
+  { name: "Web App VAPT", authority: "OWASP Top 10 Manual Testing", color: "border-primary/30 text-accent bg-primary/5" },
+  { name: "API Security", authority: "BOLA & Logic Vulnerability Auditing", color: "border-success/30 text-success bg-success/5" },
+  { name: "Cloud Audit", authority: "IAM & Container Security Reviews", color: "border-critical/30 text-critical bg-critical/5" },
+  { name: "GRC Readiness", authority: "ISO 27001 & SOC 2 Mapping", color: "border-purple-300/40 text-purple-400 bg-purple-500/5" },
+  { name: "Network Pentest", authority: "Perimeter & Network Security", color: "border-warning/30 text-warning bg-warning/5" }
 ];
 
 const highlights = [
@@ -51,7 +51,7 @@ export default function About() {
             </h2>
 
             <p className="body-text text-base mb-8">
-              TrustLayerLabs is an elite boutique cybersecurity firm founded by seasoned security researchers. We partner with fast-growing Indian startups to protect API pathways, secure multi-tenant architectures, and achieve institutional trust.
+              TrustLayerLabs is an offensive cybersecurity consultancy founded by security practitioners. We partner with fast-growing startups to protect API pathways, secure multi-tenant architectures, and achieve institutional trust.
             </p>
 
             {/* Founder Profile Card */}
@@ -66,7 +66,7 @@ export default function About() {
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">Nagasrinivasa Rao</h4>
                 <p className="text-[10px] font-mono text-accent uppercase tracking-widest">Founder & Lead Security Architect</p>
                 <p className="text-xs text-textSecondary mt-2 leading-relaxed">
-                  Offensive security specialist with 2+ years auditing SaaS applications, core payment gateways, and container systems. Ex-enterprise red team lead.
+                  Offensive security practitioner specializing in manual application security testing, API vulnerability assessments, and developer remediation guidance.
                 </p>
               </div>
             </div>
@@ -75,17 +75,17 @@ export default function About() {
             <div className="space-y-6">
               <div>
                 <p className="text-[10px] font-mono uppercase tracking-widest text-textSecondary mb-3">
-                  Elite Certifications & Standards:
+                  Practitioner Specializations & Standards:
                 </p>
                 <div className="flex flex-wrap gap-2.5">
-                  {certifications.map((cert) => (
+                  {specializations.map((spec) => (
                     <div 
-                      key={cert.name} 
-                      className={`px-3 py-1.5 border rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 ${cert.color}`}
-                      title={cert.authority}
+                      key={spec.name} 
+                      className={`px-3 py-1.5 border rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 ${spec.color}`}
+                      title={spec.authority}
                     >
                       <Award className="w-3.5 h-3.5" />
-                      {cert.name}
+                      {spec.name}
                     </div>
                   ))}
                 </div>
@@ -93,19 +93,17 @@ export default function About() {
 
               <div>
                 <p className="text-[10px] font-mono uppercase tracking-widest text-textSecondary mb-3">
-                  Research Contributions & Hall of Fame:
+                  Technical Guides & Security Research:
                 </p>
                 <div className="flex flex-wrap gap-2.5 text-xs text-textPrimary font-mono">
-                  <div className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 rounded-lg flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                    <span>12+ Disclosed CVEs</span>
-                  </div>
-                  <div className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 rounded-lg flex items-center gap-1">
-                    <span>Google Hall of Fame</span>
-                  </div>
-                  <div className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 rounded-lg flex items-center gap-1">
-                    <span>Apple Security Disclosures</span>
-                  </div>
+                  <a href="/blog/auditing-bola-idor-graphql-rest-apis" className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 hover:border-primary/40 rounded-lg flex items-center gap-1.5 transition-colors">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    <span>BOLA & API Security Guide</span>
+                  </a>
+                  <a href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 hover:border-primary/40 rounded-lg flex items-center gap-1.5 transition-colors">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    <span>LLM & RAG Security Whitepaper</span>
+                  </a>
                 </div>
               </div>
             </div>

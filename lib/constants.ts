@@ -886,17 +886,17 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security practitioner specializing in manual API penetration testing, authorization logic, and cloud security architectures. CEH, eWPT, and VAPT certified.",
+    bio: "Offensive security practitioner specializing in manual API penetration testing, authorization logic, and web application security assessments.",
     initials: "NR",
-    credentials: ["CEH", "VAPT Specialist", "Network Pentesting"],
+    credentials: ["Web App Security", "VAPT Specialist", "API Security"],
     linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/"
   },
   {
     name: "Bakkina Pavan Kumar",
     role: "CTO & Cloud Security Lead",
-    bio: "Systems architect and security engineer leading cloud infrastructure audits, Kubernetes hardening, and network vulnerability assessments.",
+    bio: "Systems architect and security engineer leading cloud infrastructure reviews, Kubernetes hardening, and network vulnerability assessments.",
     initials: "BP",
-    credentials: ["CEH", "VAPT Specialist", "Cloud Security"],
+    credentials: ["Cloud Security", "VAPT Specialist", "Infrastructure Security"],
     linkedin: "https://www.linkedin.com/in/bakkina-pavan-kumar"
   },
   {
@@ -904,7 +904,7 @@ export const TEAM = [
     role: "Co-Founder & GRC Lead",
     bio: "Compliance and risk management practitioner assisting high-growth startups with ISO 27001 gap analysis, SOC 2 readiness roadmaps, and security governance.",
     initials: "RT",
-    credentials: ["ISO 27001", "SOC 2 Readiness", "GRC Practitioner"],
+    credentials: ["ISO 27001 Readiness", "SOC 2 Readiness", "GRC Practitioner"],
     linkedin: "https://www.linkedin.com/in/ramineniteja"
   },
   {
@@ -912,7 +912,7 @@ export const TEAM = [
     role: "Security Engineer & VAPT Consultant",
     bio: "Application security engineer focused on manual web application testing, OWASP Top 10 vulnerabilities, and developer remediation support.",
     initials: "NA",
-    credentials: ["CEH", "VAPT Specialist"],
+    credentials: ["Web App Security", "VAPT Specialist"],
     linkedin: "https://www.linkedin.com/in/nayansi-anand-35a99a31b/"
   },
   {

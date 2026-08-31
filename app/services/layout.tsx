@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "VAPT & API Security Services | TrustLayerLabs",
     description:
-      "Comprehensive manual security services: API pen testing, VAPT, SOC2 readiness, cloud security audits and more. VAPT & Network pentesting certified team. 48-hour report delivery.",
+      "Comprehensive manual security services: API penetration testing, VAPT, SOC 2 readiness, cloud security audits, and developer remediation support.",
     url: "https://www.trustlayerlabs.co.in/services",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "TrustLayerLabs Security Services" }],
   },

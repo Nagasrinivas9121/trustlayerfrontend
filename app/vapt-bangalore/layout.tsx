@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "VAPT & API Security Testing in Bangalore",
   description:
-    "TrustLayerLabs offers expert VAPT, API penetration testing, and cloud security audits for tech startups in Bangalore — HSR Layout, Koramangala, and Whitefield. VAPT & Network pentesting certified team. NDA in 2 hours.",
+    "TrustLayerLabs provides manual VAPT, API penetration testing, and cloud security audits for tech startups in Bangalore — HSR Layout, Koramangala, and Whitefield.",
   keywords: [
     "VAPT Bangalore",
     "API security testing Bangalore",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "VAPT & API Security Testing in Bangalore | TrustLayerLabs",
     description:
-      "Expert API pen testing and VAPT for Bangalore tech startups. VAPT & Network pentesting certified security team in HSR Layout. Fast intake, signed NDA in 2 hours.",
+      "Manual API penetration testing and VAPT for Bangalore tech startups. Experienced offensive security team.",
     url: "https://www.trustlayerlabs.co.in/vapt-bangalore",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "VAPT Services Bangalore" }],
   },

@@ -81,47 +81,57 @@ export default function Proof() {
           ))}
         </div>
 
-        {/* Security Certifications Badges */}
+        {/* Practitioner Core Competencies */}
         <div className="flex flex-col items-center mb-12">
-          <p className="text-xs text-textSecondary font-semibold mb-6 uppercase tracking-wider font-sans">Team Security & GRC Credentials</p>
+          <p className="text-xs text-textSecondary font-semibold mb-6 uppercase tracking-wider font-sans">Practitioner Specializations & Capabilities</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl font-sans">
             {[
-              { name: "CEH", full: "Certified Ethical Hacker", authority: "EC-Council" },
-              { name: "eWPT", full: "Web App Penetration Tester", authority: "eLearnSecurity" },
-              { name: "ISO 27001", full: "Implementation & Audit Prep", authority: "GRC Standards" },
-              { name: "VAPT", full: "Vulnerability Assessment & Pentest", authority: "Offensive Security" }
-            ].map((cert) => (
-              <div key={cert.name} className="flex items-center gap-3.5 p-4 bg-surface border border-border/80 rounded-xl text-left shadow-sm hover:border-primary/40 transition-colors">
+              { name: "Web App VAPT", full: "Manual Application Security", authority: "OWASP Top 10" },
+              { name: "API Security", full: "BOLA & Authorization Logic", authority: "OWASP API Top 10" },
+              { name: "Cloud Security", full: "IAM & Infrastructure Hardening", authority: "CIS Benchmarks" },
+              { name: "GRC Readiness", full: "ISO 27001 & SOC 2 Alignment", authority: "Compliance Mapping" }
+            ].map((spec) => (
+              <div key={spec.name} className="flex items-center gap-3.5 p-4 bg-surface border border-border/80 rounded-xl text-left shadow-sm hover:border-primary/40 transition-colors">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold font-mono text-xs flex-shrink-0">
-                  {cert.name}
+                  {spec.name.split(" ")[0]}
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-textPrimary block">{cert.name}</span>
-                  <span className="text-[10px] text-textSecondary block leading-normal">{cert.full}</span>
+                  <span className="text-xs font-bold text-textPrimary block">{spec.name}</span>
+                  <span className="text-[10px] text-textSecondary block leading-normal">{spec.full}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* MSME & Verification Badges */}
+        {/* Business Registration & Verification Badges */}
         <div className="flex flex-col items-center text-center pt-8 border-t border-border/40">
           <p className="text-textSecondary mb-8 text-xs max-w-xl leading-relaxed font-sans">
-            Our security engineers and GRC practitioners hold industry credentials including CEH, eWPT, and ISO 27001 certifications. We operate distributed across Bangalore and Hyderabad.
+            TrustLayerLabs is an offensive security consultancy providing manual VAPT, API security reviews, and GRC readiness advisory for tech teams across India.
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
-              <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '32px', width: 'auto' }} />
+            <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity" title="Skill With Boost Ecosystem Listing">
+              <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Skill With Boost" style={{ height: '32px', width: 'auto' }} />
             </a>
 
-            <div className="flex items-center space-x-3 bg-surface border border-border rounded-lg px-4 h-[36px] cursor-default">
-              <Award size={16} className="text-primary" />
+            <a 
+              href="/trustlayerlabs-udyam-registration-certificate.jpg" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="View Official Govt. of India Udyam Registration Certificate (UDYAM-AP-21-0044317)"
+              className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm"
+            >
+              <Award size={16} className="text-primary group-hover:scale-110 transition-transform" />
               <div className="flex flex-col justify-center text-left">
-                <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5">MSME REGISTERED</span>
-                <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">GOVT OF INDIA</span>
+                <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5 flex items-center gap-1.5">
+                  MSME / UDYAM REGISTERED <span className="text-[9px] font-mono text-primary lowercase tracking-normal font-normal">↗ view certificate</span>
+                </span>
+                <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">
+                  UDYAM-AP-21-0044317 • GOVT OF INDIA
+                </span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

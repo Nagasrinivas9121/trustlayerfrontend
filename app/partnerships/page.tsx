@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const partnerTypes = [
   {
     title: "Software & Web Development Agencies",
-    description: "Offer certified manual VAPT and API security testing to your enterprise and startup clients prior to project handover and production launch.",
+    description: "Offer manual VAPT and API security testing to your enterprise and startup clients prior to project handover and production launch.",
     icon: Code,
     badge: "Agency Partner"
   },
@@ -59,8 +59,8 @@ const partnerTypes = [
 
 const partnerBenefits = [
   {
-    title: "Direct Access to Certified Architects",
-    desc: "Work directly with CEH, eWPT, and ISO 27001 certified security engineers who understand modern codebases and cloud architectures."
+    title: "Direct Access to Offensive Security Practitioners",
+    desc: "Work directly with experienced security engineers who understand modern codebases and cloud architectures."
   },
   {
     title: "Developer-First Remediation Support",
@@ -152,7 +152,7 @@ export default function PartnershipsPage() {
               Built for Modern <span className="text-primary">Technology Ecosystems</span>
             </h2>
             <p className="body-text text-textSecondary font-sans">
-              Enhance your core client offerings with certified technical penetration testing and compliance readiness.
+              Enhance your core client offerings with manual technical penetration testing and compliance readiness.
             </p>
           </div>
 

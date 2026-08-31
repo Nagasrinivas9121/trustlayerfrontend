@@ -107,11 +107,11 @@ export default function ContactForm() {
               </div>
             </div>
 
-            {/* Tech Hub Locations */}
+            {/* Team Operations & Presence */}
             <div className="p-5 bg-surface border border-border/80 rounded-xl space-y-2 text-xs font-sans shadow-sm">
-              <div className="text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-2">Tech Operations:</div>
-              <p className="text-textPrimary font-semibold">📍 Bangalore Hub: <span className="text-textSecondary font-normal">HSR Layout, Bengaluru, KA 560102</span></p>
-              <p className="text-textPrimary font-semibold">📍 Hyderabad Hub: <span className="text-textSecondary font-normal">HITEC City, Hyderabad, TG 500081</span></p>
+              <div className="text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-2">Team Operations:</div>
+              <p className="text-textPrimary font-semibold">📍 Distributed Team: <span className="text-textSecondary font-normal">Bangalore & Hyderabad</span></p>
+              <p className="text-textPrimary font-semibold">🇮🇳 Scope of Delivery: <span className="text-textSecondary font-normal">Serving technology teams across India</span></p>
             </div>
           </div>
 

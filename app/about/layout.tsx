@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — Nagasrinivasa Rao, VAPT & Network Pentesting Certified Security Architect",
+  title: "About — Nagasrinivasa Rao & TrustLayerLabs Security Team",
   description:
-    "Meet the founder of TrustLayerLabs — Nagasrinivasa Rao, a CEH, eWPT, VAPT & Network pentesting certified offensive security professional with 2+ years auditing enterprise APIs, cloud architectures, and financial systems.",
+    "Meet the founder and team behind TrustLayerLabs — offensive security practitioners specializing in manual API penetration testing, web application VAPT, and compliance readiness.",
   keywords: [
-    "VAPT and Network pentesting certified security architect India",
-    "CEH penetration tester",
+    "VAPT offensive security practitioner India",
+    "API security testing specialist",
     "TrustLayerLabs founder",
     "offensive security professional India",
     "API security expert Bangalore",
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     canonical: "https://www.trustlayerlabs.co.in/about",
   },
   openGraph: {
-    title: "About TrustLayerLabs | VAPT & Network Pentesting Certified Security Team",
+    title: "About TrustLayerLabs | Founder & Offensive Security Team",
     description:
-      "Nagasrinivasa Rao — CEH, eWPT, VAPT & Network pentesting certified. 2+ years securing APIs, cloud infrastructure, and financial systems for enterprise clients.",
+      "Nagasrinivasa Rao and the TrustLayerLabs team — manual application security testing, API penetration testing, and GRC readiness.",
     url: "https://www.trustlayerlabs.co.in/about",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "TrustLayerLabs About" }],
   },

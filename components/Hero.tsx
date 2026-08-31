@@ -102,16 +102,10 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Verified team credentials row */}
+          {/* Verified team practitioner focus row */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
-            <div className="flex -space-x-2.5 overflow-hidden">
-              <div className="w-7 h-7 rounded-full bg-primary/10 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">CEH</div>
-              <div className="w-7 h-7 rounded-full bg-primary/20 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">eWPT</div>
-              <div className="w-7 h-7 rounded-full bg-primary/30 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">ISO</div>
-            </div>
             <div className="flex items-center gap-1.5 text-xs font-sans text-textSecondary uppercase tracking-wider font-semibold">
-              <span className="text-primary font-bold font-mono">CEH • eWPT • ISO 27001</span>
-              <span>Credentials</span>
+              <span className="text-primary font-bold font-mono">Manual VAPT • API Security • SOC 2 & ISO 27001 Readiness</span>
             </div>
           </div>
 

@@ -14,16 +14,16 @@ stream
 BT
 /F2 20 Tf
 50 780 Td
-(TrustLayerLabs - Redacted VAPT Audit Report) Tj
+(TrustLayerLabs - Illustrative Sample VAPT Audit Report) Tj
 /F1 11 Tf
 0 -30 Td
 (Date: June 2026) Tj
 0 -15 Td
-(Target Client: Redacted SaaS Technologies) Tj
+(Target Client: Illustrative SaaS Platform [Sample Scope]) Tj
 0 -15 Td
 (Scoping: REST/GraphQL APIs + AWS Cloud Infrastructure) Tj
 0 -15 Td
-(Lead Pentester: Nagasrinivasa Rao, OSCP) Tj
+(Lead Pentester: Nagasrinivasa Rao, Offensive Security Lead) Tj
 0 -30 Td
 /F2 14 Tf
 (1. Executive Summary & Attestation) Tj

@@ -58,7 +58,7 @@ export default function VaptBangalore() {
               </div>
               
               <div className="pt-4 border-t border-border/60 text-xs font-sans text-textPrimary">
-                📍 Hub: HSR Layout, Bengaluru, KA 560102
+                📍 Serving Teams: Bangalore & Across India
               </div>
             </div>
 
@@ -73,8 +73,8 @@ export default function VaptBangalore() {
               </div>
 
               <div className="pt-4 border-t border-border/60 flex flex-wrap gap-3 text-[9px] font-sans font-bold text-textPrimary">
-                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> RBI COMPLIANCE</span>
-                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> SOC2 CERT READY</span>
+                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> RBI BASELINE ALIGN</span>
+                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> SOC 2 READINESS</span>
               </div>
             </div>
 

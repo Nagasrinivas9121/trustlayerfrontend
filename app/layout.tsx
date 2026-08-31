@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: "TrustLayerLabs | Application Security, API Security & GRC for FinTech, SaaS & AI",
     template: "%s | TrustLayerLabs",
   },
-  description: "Manual application security testing, API penetration testing, FinTech security audits, and GRC readiness (SOC 2, ISO 27001) for growing technology teams. CEH, eWPT & ISO certified security architects.",
+  description: "Manual application security testing, API penetration testing, FinTech security audits, and GRC readiness (SOC 2, ISO 27001) for growing technology teams.",
   keywords: [
     "Application Security FinTech India",
     "API security testing India",
@@ -106,6 +106,8 @@ export default function RootLayout({
         "@id": "https://www.trustlayerlabs.co.in/#organization",
         "name": "TrustLayerLabs",
         "alternateName": "TrustLayer Labs",
+        "legalName": "TRUSTLAYER LABS",
+        "identifier": "UDYAM-AP-21-0044317",
         "url": "https://www.trustlayerlabs.co.in",
         "logo": {
           "@type": "ImageObject",
@@ -114,7 +116,7 @@ export default function RootLayout({
           "height": 200,
         },
         "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
-        "description": "Application security, manual API penetration testing, and GRC readiness consulting for FinTech, SaaS, and AI teams by CEH, eWPT, and ISO 27001 certified practitioners.",
+        "description": "Application security, manual API penetration testing, and GRC readiness consulting for FinTech, SaaS, and AI teams by offensive security and compliance practitioners.",
         "telephone": "+91-8822402811",
         "email": "security@trustlayerlabs.co.in",
         "address": [
@@ -153,7 +155,6 @@ export default function RootLayout({
           "GRC",
           "OWASP",
         ],
-        "hasCredential": ["CEH", "eWPT", "VAPT", "Network Pentesting"],
         "sameAs": [
           "https://www.linkedin.com/company/trustlayerlabs1/",
           "https://clutch.co/profile/trustlayerlabs",
@@ -164,15 +165,9 @@ export default function RootLayout({
           "@type": "Person",
           "name": "Nagasrinivasa Rao",
           "jobTitle": "Founder & Lead Security Architect",
-          "description": "Offensive security professional with 2+ years auditing enterprise APIs, cloud architectures, and financial systems. CEH, eWPT, VAPT, and Network Pentesting certified.",
+          "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews.",
           "url": "https://www.trustlayerlabs.co.in/about",
           "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP"],
-          "hasCredential": [
-            { "@type": "EducationalOccupationalCredential", "name": "CEH" },
-            { "@type": "EducationalOccupationalCredential", "name": "eWPT" },
-            { "@type": "EducationalOccupationalCredential", "name": "VAPT" },
-            { "@type": "EducationalOccupationalCredential", "name": "Network Pentesting" },
-          ],
         },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",

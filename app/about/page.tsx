@@ -116,69 +116,90 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Vulnerability Disclosures & Hall of Fame Section */}
+          {/* Technical Research & Publications Section */}
           <div className="space-y-8 mb-16">
             <div className="flex items-center gap-3">
               <div className="h-[1px] flex-1 bg-border/60"></div>
               <h3 className="text-xl font-bold text-textPrimary tracking-tight font-sans text-center px-4 uppercase tracking-wider">
-                Research Disclosures & Hall of Fame
+                Technical Research & Publications
               </h3>
               <div className="h-[1px] flex-1 bg-border/60"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-red-500/5 rounded-bl-full pointer-events-none" />
-                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Disclosed CVEs</h4>
+                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
+                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">API & Application Research</h4>
                 <p className="text-xs text-textSecondary leading-relaxed">
-                  Our research team regularly identifies and responsibly discloses zero-day vulnerabilities in common application packages and platforms.
+                  We document common API authorization gaps, broken object-level access patterns, and developer remediation best practices.
                 </p>
-                <div className="space-y-2 pt-2 text-[11px] font-mono">
-                  <div className="flex justify-between border-b border-border/40 pb-1.5">
-                    <span className="text-primary font-bold">CVE-2024-38294</span>
-                    <span className="text-textSecondary">Auth Bypass in OAuth core</span>
-                  </div>
-                  <div className="flex justify-between border-b border-border/40 pb-1.5">
-                    <span className="text-primary font-bold">CVE-2023-49201</span>
-                    <span className="text-textSecondary">IDOR in open CRM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-primary font-bold">CVE-2023-31804</span>
-                    <span className="text-textSecondary">SSRF in Node utility</span>
-                  </div>
+                <div className="space-y-3 pt-2 text-xs">
+                  <a href="/blog/auditing-bola-idor-graphql-rest-apis" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → Auditing BOLA/IDOR in REST & GraphQL
+                  </a>
+                  <a href="/blog/jwt-security-best-practices-attack-vectors" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → JWT Security Best Practices & Exploits
+                  </a>
                 </div>
               </div>
 
               <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
-                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Enterprise Halls of Fame</h4>
+                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">AI & Infrastructure Security</h4>
                 <p className="text-xs text-textSecondary leading-relaxed">
-                  Our security researchers are acknowledged in the official security acknowledgments and Halls of Fame of global tech infrastructure leaders.
+                  Technical guides on defending Generative AI applications, RAG pipelines, and containerized cloud architectures.
                 </p>
-                <div className="flex flex-wrap gap-2 pt-2 text-[10px] font-mono">
-                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Google Security Acknowledgments</span>
-                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Apple Web Server Security list</span>
-                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Microsoft Security Researchers Hall</span>
-                  <span className="px-2 py-1 bg-primary/5 border border-primary/20 text-primary rounded-md">Salesforce Trust Recognition</span>
+                <div className="space-y-3 pt-2 text-xs">
+                  <a href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → Securing LLM & RAG Systems Whitepaper
+                  </a>
+                  <a href="/blog/kubernetes-hardening-container-security-guide" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → Kubernetes Hardening Production Guide
+                  </a>
                 </div>
               </div>
 
               <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-success/5 rounded-bl-full pointer-events-none" />
-                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Security Publications</h4>
+                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Developer Security Playbooks</h4>
                 <p className="text-xs text-textSecondary leading-relaxed">
-                  We author actionable whitepapers, security playbooks, and threat intelligence digests to establish startup security standards.
+                  Actionable security checklists and engineering playbooks to help startup development teams build secure-by-default software.
                 </p>
                 <div className="space-y-3 pt-2 text-xs">
-                  <a href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="block text-primary hover:text-accent font-semibold transition-colors">
-                    → Securing LLM & RAG Systems (2026 Whitepaper)
+                  <a href="/checklist" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → Interactive SaaS & API Security Checklist
                   </a>
-                  <a href="/blog/auditing-bola-idor-graphql-rest-apis" className="block text-primary hover:text-accent font-semibold transition-colors">
-                    → Auditing BOLA/IDOR in REST & GraphQL (Technical Guide)
+                  <a href="/sample-report" className="block text-primary hover:text-accent font-semibold transition-colors">
+                    → Illustrative Sample Security Report
                   </a>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Official Business Registration Card */}
+          <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-primary/10 border border-primary/20 rounded-md text-[10px] font-mono font-bold text-primary uppercase tracking-wider">
+                Govt. of India MSME Registration
+              </div>
+              <h3 className="text-base font-bold text-textPrimary font-sans">
+                Official Enterprise Registration: TRUSTLAYER LABS
+              </h3>
+              <p className="text-xs text-textSecondary leading-relaxed max-w-2xl font-sans">
+                Registered under the Ministry of Micro, Small and Medium Enterprises (MSME), Government of India. 
+                <span className="font-mono text-textPrimary ml-1 font-semibold">Udyam No: UDYAM-AP-21-0044317</span> • Classification: Micro Enterprise (Services — IT & Computer Security).
+              </p>
+            </div>
+            <a 
+              href="/trustlayerlabs-udyam-registration-certificate.jpg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 rounded-xl text-xs font-bold uppercase tracking-wider font-sans transition-all flex-shrink-0"
+            >
+              <span>View Udyam Certificate</span>
+              <span>↗</span>
+            </a>
           </div>
 
           {/* Transparency Report & External Verdict */}

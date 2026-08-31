@@ -53,12 +53,12 @@ export default function VaptHyderabad() {
                   HITEC City Presence
                 </h3>
                 <p className="text-xs text-textSecondary leading-relaxed mt-2 font-sans">
-                  Our Hyderabad team supports security scopes in HITEC City and Gachibowli. We offer fast intake, signed NDAs within 2 hours, and expert manual validation meetings.
+                  Our Hyderabad team supports security scopes in HITEC City and Gachibowli. We offer fast intake, rapid mutual NDA turnaround, and expert manual validation meetings.
                 </p>
               </div>
               
               <div className="pt-4 border-t border-border/60 text-xs font-sans text-textPrimary">
-                📍 Hub: HITEC City, Hyderabad, TG 500081
+                📍 Serving Teams: Hyderabad & Across India
               </div>
             </div>
 
@@ -68,13 +68,13 @@ export default function VaptHyderabad() {
                   Why TrustLayerLabs?
                 </h3>
                 <p className="text-xs text-textSecondary leading-relaxed mt-2 font-sans">
-                  Hyderabad&apos;s tech space is growing fast. Automated tools miss authorization flaws. Our VAPT, Network pentesting and CEH certified red team engineers manually audit all endpoints.
+                  Hyderabad&apos;s tech space is growing fast. Automated tools miss authorization flaws. Our offensive security practitioners manually audit all endpoints.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-border/60 flex flex-wrap gap-3 text-[9px] font-sans font-bold text-textPrimary">
-                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> GDPR COMPLIANT</span>
-                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> SOC2 CERT READY</span>
+                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> GDPR BASELINE ALIGN</span>
+                <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> SOC 2 READINESS</span>
               </div>
             </div>
 

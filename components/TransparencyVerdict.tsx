@@ -23,7 +23,7 @@ export default function TransparencyVerdict() {
       area: "Greater visibility of team members, certifications, or industry recognition",
       feedback: "Greater visibility of team members, certifications, or industry recognition.",
       status: "Implemented",
-      resolution: "Moved our CEH, eWPT, VAPT, and Network Pentesting certified engineering team section to the main homepage. Prominently featured our MSME Government of India registration.",
+      resolution: "Featured our offensive security engineering team with verified LinkedIn profiles on the main homepage. Prominently highlighted our MSME Government of India registration.",
       detailsLink: "/#team"
     },
     {

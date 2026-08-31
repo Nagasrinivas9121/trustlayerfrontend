@@ -95,7 +95,7 @@ export default function ManualTestingMatters() {
               </div>
 
               <p className="text-xs text-textSecondary leading-relaxed font-sans mb-6">
-                Certified security architects actively analyzing session contexts, tenant boundaries, and multi-role API parameters.
+                Offensive security practitioners actively analyzing session contexts, tenant boundaries, and multi-role API parameters.
               </p>
 
               <ul className="space-y-3 border-t border-border/60 pt-5">

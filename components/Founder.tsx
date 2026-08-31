@@ -19,7 +19,7 @@ export default function Founder() {
             Security Assessments <span className="text-primary">Led by Practitioners</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            Certified security architects, penetration testers, and GRC practitioners working directly with engineering leadership to harden applications and prepare for enterprise audits.
+            Offensive security architects, penetration testers, and GRC practitioners working directly with engineering leadership to harden applications and prepare for enterprise audits.
           </p>
         </div>
 

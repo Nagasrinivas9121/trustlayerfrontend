@@ -101,7 +101,7 @@ export default function MethodologyPage() {
               {
                 step: "Phase 3",
                 title: "Deep Manual Logic & Authorization Penetration",
-                desc: "Our VAPT and Network Pentesting certified security architects manually intercept API queries in Burp Suite, test row-level tenant authorization (BOLA/IDOR), bypass JWT tokens, and validate session privileges."
+                desc: "Our security architects and offensive practitioners manually intercept API queries in Burp Suite, test row-level tenant authorization (BOLA/IDOR), inspect JWT token integrity, and validate session privileges."
               },
               {
                 step: "Phase 4",

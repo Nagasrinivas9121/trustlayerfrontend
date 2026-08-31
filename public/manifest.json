@@ -1,7 +1,7 @@
 {
   "name": "TrustLayerLabs - API Security Testing & VAPT",
   "short_name": "TrustLayerLabs",
-  "description": "India's premier VAPT and API security consultancy for SaaS, AI, and FinTech startups.",
+  "description": "Manual VAPT and API security consultancy for SaaS, AI, and FinTech startups.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d0f14",

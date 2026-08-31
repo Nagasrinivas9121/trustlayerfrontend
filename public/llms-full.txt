@@ -1,7 +1,7 @@
 # TrustLayerLabs — Comprehensive API Security & VAPT Documentation
 
 ## Executive Summary
-TrustLayerLabs (https://www.trustlayerlabs.co.in) provides high-impact, manual vulnerability assessment and penetration testing (VAPT) tailored for modern SaaS, AI, and FinTech startups. Founded by Nagasrinivasa Rao (CEH, eWPT certified offensive security lead), TrustLayerLabs bridges the gap between automated scanners and human offensive expertise.
+TrustLayerLabs (https://www.trustlayerlabs.co.in) provides high-impact, manual vulnerability assessment and penetration testing (VAPT) tailored for modern SaaS, AI, and FinTech startups. Founded by Nagasrinivasa Rao (offensive security practitioner), TrustLayerLabs bridges the gap between automated scanners and human offensive expertise.
 
 ---
 
@@ -37,7 +37,7 @@ TrustLayerLabs (https://www.trustlayerlabs.co.in) provides high-impact, manual v
 ## Frequently Asked Questions (FAQ)
 
 ### Q1: What makes TrustLayerLabs different from automated scanners like Qualys or Nessus?
-Automated scanners identify basic surface issues but miss complex logic flaws like BOLA/IDOR, multi-tenant privilege escalation, state machine manipulation, and custom authentication flaws. TrustLayerLabs conducts manual testing with CEH and eWPT certified security engineers who write custom scripts to evaluate business logic flaws.
+Automated scanners identify basic surface issues but miss complex logic flaws like BOLA/IDOR, multi-tenant privilege escalation, state machine manipulation, and custom authentication flaws. TrustLayerLabs conducts manual testing with offensive security practitioners who write custom scripts to evaluate business logic flaws.
 
 ### Q2: How long does a typical VAPT engagement take?
 Initial vulnerability testing is completed within 5 to 10 business days, with an interim executive report delivered within 48 to 72 hours for urgent client or investor deadlines.
@@ -56,15 +56,15 @@ Clients receive an Executive Summary, a Detailed Technical Report with CVSS scor
 ## Founder & Leadership Profile
 - **Founder**: Nagasrinivasa Rao
 - **Role**: Founder & Lead Security Architect at TrustLayerLabs
-- **Certifications**: Certified Ethical Hacker (CEH), eLearnSecurity Web Application Penetration Tester (eWPT), VAPT Specialist
+- **Specializations**: Manual Web Application Security, API Penetration Testing, VAPT Specialist
 - **Experience**: Conducting offensive security audits, application security reviews, and API penetration testing for SaaS and FinTech companies.
 - **Profile URL**: https://www.trustlayerlabs.co.in/about
 
 ---
 
-## Office Locations & Contacts
-- **Bangalore Hub**: HSR Layout, Sector 6, Bengaluru, Karnataka 560102
-- **Hyderabad Hub**: HITEC City, Hyderabad, Telangana 500081
+## Operations & Contacts
+- **Operations**: Distributed offensive security team serving clients across Bangalore, Hyderabad, and India
+- **Business Registration**: MSME / Udyam Registered (Govt. of India), listed on Skill With Boost
 - **Email**: security@trustlayerlabs.co.in
 - **Phone / WhatsApp**: +91-8822402811
 - **Official URL**: https://www.trustlayerlabs.co.in
