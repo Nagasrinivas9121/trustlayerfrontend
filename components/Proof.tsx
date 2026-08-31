@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
-import { ShieldCheck, Info, CheckCircle2, Award, Database } from "lucide-react";
+import React, { useState } from "react";
+import { ShieldCheck, Info, CheckCircle2, Award, Database, X, ExternalLink, FileCheck } from "lucide-react";
+import Image from "next/image";
 
 const auditFocusAreas = [
   {
@@ -34,6 +35,8 @@ const auditFocusAreas = [
 ];
 
 export default function Proof() {
+  const [showCertificate, setShowCertificate] = useState(false);
+
   return (
     <section className="py-24 bg-background border-t border-border" id="trust">
       <div className="section-container">
@@ -115,26 +118,87 @@ export default function Proof() {
               <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Skill With Boost" style={{ height: '32px', width: 'auto' }} />
             </a>
 
-            <a 
-              href="/trustlayerlabs-udyam-registration-certificate.jpg" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              title="View Official Govt. of India Udyam Registration Certificate (UDYAM-AP-21-0044317)"
-              className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm"
+            <button 
+              onClick={() => setShowCertificate(true)}
+              type="button"
+              title="Click to view Official Govt. of India Udyam Registration Certificate"
+              className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm text-left cursor-pointer"
             >
               <Award size={16} className="text-primary group-hover:scale-110 transition-transform" />
-              <div className="flex flex-col justify-center text-left">
+              <div className="flex flex-col justify-center">
                 <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5 flex items-center gap-1.5">
-                  MSME / UDYAM REGISTERED <span className="text-[9px] font-mono text-primary lowercase tracking-normal font-normal">↗ view certificate</span>
+                  MSME / UDYAM REGISTERED <span className="text-[9px] font-mono text-primary lowercase tracking-normal font-normal">🔍 preview certificate</span>
                 </span>
                 <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">
                   UDYAM-AP-21-0044317 • GOVT OF INDIA
                 </span>
               </div>
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Certificate Modal Showcase */}
+      {showCertificate && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+          <div className="relative w-full max-w-2xl bg-surface border border-border/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-border/60 bg-surface">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <FileCheck size={18} />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-textPrimary font-sans">Udyam Registration Certificate</h3>
+                  <p className="text-[10px] font-mono text-textSecondary">UDYAM-AP-21-0044317 • Ministry of MSME, Govt. of India</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href="/trustlayerlabs-udyam-registration-certificate.jpg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-textSecondary hover:text-primary transition-colors rounded-lg hover:bg-white/5"
+                  title="Open Full Image in New Tab"
+                >
+                  <ExternalLink size={16} />
+                </a>
+                <button
+                  onClick={() => setShowCertificate(false)}
+                  className="p-2 text-textSecondary hover:text-textPrimary transition-colors rounded-lg hover:bg-white/5"
+                  title="Close Preview"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Image Body */}
+            <div className="p-4 overflow-y-auto flex-1 flex justify-center bg-black/40">
+              <div className="relative w-full max-w-lg border border-border/60 rounded-xl overflow-hidden shadow-inner bg-white">
+                <img
+                  src="/trustlayerlabs-udyam-registration-certificate.jpg"
+                  alt="Udyam Registration Certificate - TRUSTLAYER LABS (UDYAM-AP-21-0044317)"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="px-6 py-3 border-t border-border/60 bg-surface/50 flex flex-col sm:flex-row items-center justify-between text-xs text-textSecondary gap-2">
+              <span>Enterprise: <strong>TRUSTLAYER LABS</strong> (Micro Enterprise — Services)</span>
+              <a
+                href="/trustlayerlabs-udyam-registration-certificate.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-semibold font-mono text-[11px]"
+              >
+                Open Original Certificate ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

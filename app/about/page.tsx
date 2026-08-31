@@ -177,29 +177,77 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Official Business Registration Card */}
-          <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-primary/10 border border-primary/20 rounded-md text-[10px] font-mono font-bold text-primary uppercase tracking-wider">
-                Govt. of India MSME Registration
+          {/* Official Business Registration & Certificate Display */}
+          <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Details */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-primary/10 border border-primary/20 rounded-md text-[10px] font-mono font-bold text-primary uppercase tracking-wider">
+                  Govt. of India MSME Registration
+                </div>
+                <h3 className="text-xl font-bold text-textPrimary font-sans">
+                  Official Enterprise Registration: TRUSTLAYER LABS
+                </h3>
+                <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                  TrustLayerLabs is officially registered as a Micro Enterprise with the Ministry of Micro, Small and Medium Enterprises (MSME), Government of India.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
+                  <div className="p-3 bg-background border border-border/60 rounded-xl">
+                    <span className="text-[10px] text-textSecondary block uppercase">Udyam Registration No</span>
+                    <span className="text-primary font-bold">UDYAM-AP-21-0044317</span>
+                  </div>
+                  <div className="p-3 bg-background border border-border/60 rounded-xl">
+                    <span className="text-[10px] text-textSecondary block uppercase">Enterprise Classification</span>
+                    <span className="text-textPrimary font-bold">Micro (Services)</span>
+                  </div>
+                  <div className="p-3 bg-background border border-border/60 rounded-xl">
+                    <span className="text-[10px] text-textSecondary block uppercase">National Industry Classification</span>
+                    <span className="text-textPrimary font-bold">NIC 6209 (IT & Computer Services)</span>
+                  </div>
+                  <div className="p-3 bg-background border border-border/60 rounded-xl">
+                    <span className="text-[10px] text-textSecondary block uppercase">Registration Authority</span>
+                    <span className="text-textPrimary font-bold">Ministry of MSME, Govt. of India</span>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <a 
+                    href="/trustlayerlabs-udyam-registration-certificate.jpg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 rounded-xl text-xs font-bold uppercase tracking-wider font-sans transition-all"
+                  >
+                    <span>Open Full Certificate Image</span>
+                    <span>↗</span>
+                  </a>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-textPrimary font-sans">
-                Official Enterprise Registration: TRUSTLAYER LABS
-              </h3>
-              <p className="text-xs text-textSecondary leading-relaxed max-w-2xl font-sans">
-                Registered under the Ministry of Micro, Small and Medium Enterprises (MSME), Government of India. 
-                <span className="font-mono text-textPrimary ml-1 font-semibold">Udyam No: UDYAM-AP-21-0044317</span> • Classification: Micro Enterprise (Services — IT & Computer Security).
-              </p>
+
+              {/* Right Column: Certificate Image Frame */}
+              <div className="lg:col-span-5 flex justify-center">
+                <a 
+                  href="/trustlayerlabs-udyam-registration-certificate.jpg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group relative block w-full max-w-sm rounded-xl overflow-hidden border-2 border-border/80 hover:border-primary/60 transition-all shadow-md bg-white"
+                  title="Click to view full certificate"
+                >
+                  <img
+                    src="/trustlayerlabs-udyam-registration-certificate.jpg"
+                    alt="Official Udyam Registration Certificate - TRUSTLAYER LABS (UDYAM-AP-21-0044317)"
+                    className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors flex items-center justify-center pointer-events-none">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity px-3 py-1.5 bg-black/80 text-white rounded-lg text-xs font-sans font-bold shadow-lg">
+                      🔍 Click to Enlarge
+                    </span>
+                  </div>
+                </a>
+              </div>
+
             </div>
-            <a 
-              href="/trustlayerlabs-udyam-registration-certificate.jpg" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 rounded-xl text-xs font-bold uppercase tracking-wider font-sans transition-all flex-shrink-0"
-            >
-              <span>View Udyam Certificate</span>
-              <span>↗</span>
-            </a>
           </div>
 
           {/* Transparency Report & External Verdict */}
