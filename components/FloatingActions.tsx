@@ -23,10 +23,10 @@ export default function FloatingActions() {
 
   return (
     <>
-      {/* Floating WhatsApp Action Button */}
-      <div className="fixed bottom-24 sm:bottom-8 right-6 z-40 group">
+      {/* Floating WhatsApp Action Button (positioned above Chatbot so they don't overlap) */}
+      <div className="fixed bottom-24 sm:bottom-24 right-6 z-40 group">
         <div className="absolute -left-36 top-1/2 -translate-y-1/2 bg-surface border border-border text-[11px] font-bold text-textPrimary px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none uppercase tracking-widest shadow-md">
-          Chat with Security
+          Chat on WhatsApp
         </div>
         <Link
           href={BRAND.contact.whatsapp}
