@@ -13,13 +13,13 @@ export default function Founder() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-            <span>Leadership & Engineering</span>
+            <span>Practitioner-Led Security</span>
           </div>
-          <h2 className="heading-2 mb-6">
-            Meet the <span className="text-primary">Security Team</span>
+          <h2 className="heading-2 mb-6 font-sans">
+            Security Assessments <span className="text-primary">Led by Practitioners</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            VAPT & Network Pentesting certified security analysts, GRC auditors, and operations leads working to make SaaS and FinTech startups enterprise-ready.
+            Certified security architects, penetration testers, and GRC practitioners working directly with engineering leadership to harden applications and prepare for enterprise audits.
           </p>
         </div>
 
@@ -77,11 +77,11 @@ export default function Founder() {
 
         {/* Philosophy CTA */}
         <div className="max-w-3xl mx-auto p-8 bg-surface border border-border rounded-2xl text-center space-y-4 shadow-sm">
-          <h4 className="text-sm font-bold text-textPrimary uppercase tracking-wider font-mono flex items-center justify-center gap-2">
-            <Target size={14} className="text-primary" /> Our Testing & Advisory Promise
+          <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-mono flex items-center justify-center gap-2">
+            <Target size={14} className="text-primary" /> Our Testing & Advisory Approach
           </h4>
-          <p className="text-xs text-textSecondary leading-relaxed">
-            We focus on row-level security parameters, database multi-tenancy verification, token state handling, and compliance alignment. Our goal is to make startups enterprise-ready with attestation badges that stand up to institutional vendor audits.
+          <p className="text-xs text-textSecondary leading-relaxed font-sans">
+            We focus on row-level security parameters, database multi-tenancy verification, token state handling, and compliance alignment. Our goal is to assist engineering teams with thorough technical assessments and retest verification letters that support institutional vendor reviews.
           </p>
           <div className="pt-2">
             <Link

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { CASE_STUDIES } from "@/lib/constants";
-import { ArrowRight, CheckSquare, Database } from "lucide-react";
+import { ArrowRight, ShieldCheck, Database, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 
 export default function CaseStudy() {
@@ -10,23 +10,20 @@ export default function CaseStudy() {
   const currentCase = CASE_STUDIES[activeIdx];
 
   return (
-    <section className="py-24 bg-background border-y border-border relative" id="cases">
-      {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
-
+    <section className="py-24 bg-background border-y border-border relative" id="scenarios">
       <div className="section-container">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-              <span>Security Portfolio</span>
+              <span>Technical Knowledge Base</span>
             </div>
-            <h2 className="heading-2 mb-6 font-sans">
-              Battle-Tested <span className="text-primary">VAPT Case Studies</span>
+            <h2 className="heading-2 mb-4 font-sans">
+              Illustrative <span className="text-primary">Security Scenarios</span>
             </h2>
-            <p className="body-text text-textSecondary">
-              Real-world vulnerability highlights discovered by our team and fixed for scaling tech platforms.
+            <p className="body-text text-textSecondary font-sans">
+              Technical breakdowns of real-world vulnerability patterns, exploit vectors, and recommended engineering fixes.
             </p>
           </div>
 
@@ -48,45 +45,53 @@ export default function CaseStudy() {
           </div>
         </div>
 
+        {/* Disclaimer */}
+        <div className="p-3.5 bg-amber-500/5 border border-amber-500/20 rounded-xl mb-8 flex items-start gap-2.5">
+          <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+          <p className="text-xs text-textSecondary font-sans leading-relaxed">
+            <strong className="text-textPrimary font-semibold">Educational Scenario:</strong> This is an illustrative scenario designed to explain a security risk. It does not represent a specific TrustLayerLabs customer engagement.
+          </p>
+        </div>
+
         {/* Case Study Body */}
         <div className="premium-card p-8 md:p-12 border border-border relative overflow-hidden bg-surface shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-8">
+            <div className="lg:col-span-7 space-y-6">
               <div>
                 <span className="text-xs font-sans font-bold text-textSecondary uppercase tracking-wider flex items-center gap-1.5 mb-2.5">
-                  <Database size={12} className="text-primary" /> TARGET INFRASTRUCTURE: {currentCase.category}
+                  <Database size={12} className="text-primary" /> CATEGORY: {currentCase.category}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-textPrimary leading-tight font-sans tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-bold text-textPrimary leading-tight font-sans tracking-tight">
                   {currentCase.title}
                 </h3>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div>
                   <span className="text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5 block">
-                    The Problem
+                    Scenario Context
                   </span>
-                  <p className="text-sm text-textSecondary leading-relaxed font-sans">
+                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
                     {currentCase.problem}
                   </p>
                 </div>
 
                 <div>
                   <span className="text-xs font-bold font-sans text-primary uppercase tracking-wider mb-1.5 block">
-                    Control Gap Analysis
+                    Vulnerability Vector & Exploit Analysis
                   </span>
-                  <p className="text-sm font-mono bg-background text-textPrimary p-4 rounded-xl border border-border leading-relaxed">
+                  <p className="text-xs font-mono bg-background text-textPrimary p-4 rounded-xl border border-border leading-relaxed">
                     {currentCase.exploit}
                   </p>
                 </div>
 
                 <div>
                   <span className="text-xs font-bold font-sans text-warning uppercase tracking-wider mb-1.5 block">
-                    Business Impact
+                    Potential Risk Impact
                   </span>
-                  <p className="text-sm text-textSecondary leading-relaxed font-sans">
+                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
                     {currentCase.impact}
                   </p>
                 </div>
@@ -98,52 +103,30 @@ export default function CaseStudy() {
               
               <div className="p-6 bg-primary/5 border border-primary/20 rounded-xl space-y-4">
                 <div className="text-xs font-bold font-sans text-primary uppercase tracking-wider flex items-center gap-1.5">
-                  <CheckSquare size={13} className="text-primary" /> Security Improvement & Fix
+                  <ShieldCheck size={14} className="text-primary" /> Recommended Engineering Fix
                 </div>
-                <p className="text-sm text-textPrimary leading-relaxed font-semibold font-sans">
+                <p className="text-xs text-textPrimary leading-relaxed font-medium font-sans">
                   {currentCase.fix}
                 </p>
               </div>
 
-              {/* Actionable Outcomes Metrics */}
-              <div className="grid grid-cols-2 gap-3.5 font-sans">
-                <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-3 shadow-sm">
-                  <span className="text-[9px] font-bold text-red-500/80 uppercase tracking-wider block mb-1">Vulnerabilities Found</span>
-                  <span className="text-xs text-textPrimary font-extrabold block leading-snug">{currentCase.vulnerabilitiesIdentified || "Identified"}</span>
-                </div>
-                <div className="bg-amber-500/5 border border-amber-500/10 rounded-xl p-3 shadow-sm">
-                  <span className="text-[9px] font-bold text-amber-500/80 uppercase tracking-wider block mb-1">Remediation Time</span>
-                  <span className="text-xs text-textPrimary font-extrabold block leading-snug">{currentCase.remediationTime || "N/A"}</span>
-                </div>
-                <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-3 shadow-sm">
-                  <span className="text-[9px] font-bold text-emerald-500/80 uppercase tracking-wider block mb-1">Security Score</span>
-                  <span className="text-xs text-emerald-500 font-extrabold block leading-snug">{currentCase.securityImprovement || "A+ Grade"}</span>
-                </div>
-                <div className="bg-primary/5 border border-primary/10 rounded-xl p-3 shadow-sm">
-                  <span className="text-[9px] font-bold text-primary uppercase tracking-wider block mb-1">Retest Verification</span>
-                  <span className="text-xs text-primary font-extrabold block leading-snug">{currentCase.retestStatus || "Patched"}</span>
-                </div>
-              </div>
-
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4 border-y border-border/40 py-4 text-sm font-sans">
-                  <div className="bg-success/5 border border-success/20 rounded-xl p-3 shadow-sm">
-                    <span className="text-[10px] uppercase tracking-wider text-textSecondary block mb-1">Impact Metric</span>
-                    <span className="text-sm text-success font-bold font-sans tracking-wide block">{currentCase.metrics}</span>
-                  </div>
-                  <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 shadow-sm">
-                    <span className="text-[10px] uppercase tracking-wider text-textSecondary block mb-1">Key Results</span>
-                    <span className="text-sm text-textPrimary font-bold block leading-snug">{currentCase.results}</span>
-                  </div>
+                <div className="p-4 bg-background border border-border rounded-xl space-y-2 font-sans text-xs">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-textSecondary block">
+                    Mitigation Pattern
+                  </span>
+                  <p className="text-xs text-textPrimary font-sans">
+                    {currentCase.mitigationStrategy || "Strict server-side validation and access controls."}
+                  </p>
                 </div>
 
                 <div>
                   <span className="text-xs font-bold font-sans text-textSecondary uppercase tracking-wider block mb-2">
-                    Technologies Audited:
+                    Technologies Analyzed:
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {currentCase.technologies.map((tech, i) => (
-                      <span key={i} className="px-2 py-0.5 bg-background border border-border rounded text-xs font-mono text-textPrimary">
+                      <span key={i} className="px-2 py-0.5 bg-background border border-border rounded text-[10px] font-mono text-textPrimary">
                         {tech}
                       </span>
                     ))}
@@ -154,9 +137,9 @@ export default function CaseStudy() {
               <div className="pt-4">
                 <Link 
                   href="/case-studies"
-                  className="w-full inline-flex items-center justify-center py-3.5 bg-primary hover:bg-primary-hover text-sm uppercase font-sans font-semibold tracking-wider rounded-lg text-white shadow-sm transition-all group"
+                  className="w-full inline-flex items-center justify-center py-3 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary shadow-sm transition-all group"
                 >
-                  View All Technical Portfolios <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  View All Illustrative Scenarios <ArrowRight size={13} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 

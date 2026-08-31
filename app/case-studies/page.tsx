@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ShieldCheck, AlertTriangle, CheckCircle2, Code2, Terminal } from "lucide-react";
 import { CASE_STUDIES } from "@/lib/constants";
 
 export default function CaseStudiesPage() {
@@ -12,7 +12,7 @@ export default function CaseStudiesPage() {
         <div className="section-container">
           
           {/* Breadcrumb & Header */}
-          <div className="mb-16">
+          <div className="mb-12">
             <Link 
               href="/" 
               className="inline-flex items-center text-xs uppercase font-sans tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group"
@@ -21,118 +21,112 @@ export default function CaseStudiesPage() {
               Back to Home
             </Link>
 
+            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
+              <Code2 size={13} className="text-primary" />
+              <span>Technical Security Knowledge Base</span>
+            </div>
+
             <h1 className="heading-1 mb-6 text-textPrimary font-extrabold font-sans tracking-tight">
-              Technical <span className="text-primary">Audit Portfolios</span>
+              Illustrative <span className="text-primary">Security Scenarios</span>
             </h1>
-            <p className="body-text text-base max-w-3xl text-textSecondary">
-              Deep dive reports detailing critical logic bugs discovered during our VAPT audits and secure validation patches implemented for client builds.
+            <p className="body-text text-base max-w-3xl text-textSecondary font-sans">
+              Educational breakdowns of common authorization flaws, authentication bypasses, and cloud misconfigurations observed in modern tech platforms, along with developer remediation patterns.
+            </p>
+          </div>
+
+          {/* Prominent Credibility Disclaimer */}
+          <div className="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl mb-12 flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+            <p className="text-xs text-textSecondary leading-relaxed font-sans">
+              <strong className="text-textPrimary font-semibold">Educational Notice:</strong> These are illustrative security scenarios designed to explain vulnerability vectors, exploit mechanisms, and remediation patterns. They do not represent specific TrustLayerLabs customer engagements or confidential data.
             </p>
           </div>
 
           {/* Cards List */}
-          <div className="space-y-12">
+          <div className="space-y-10">
             {CASE_STUDIES.map((item, i) => (
               <div 
                 key={item.slug}
-                className="premium-card p-8 md:p-12 relative overflow-hidden bg-surface border border-border rounded-2xl shadow-sm"
+                className="premium-card p-8 md:p-10 relative overflow-hidden bg-surface border border-border rounded-2xl shadow-sm hover:border-zinc-400 transition-colors"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   
                   {/* Left Main Details */}
                   <div className="lg:col-span-7 space-y-6">
-                    <div className="flex items-center gap-3">
-                      <span className="px-2.5 py-0.5 bg-primary/10 border border-primary/20 text-[9px] font-bold uppercase font-sans tracking-wider text-primary rounded-md">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <span className="px-2.5 py-0.5 bg-primary/10 border border-primary/20 text-[10px] font-bold uppercase font-mono tracking-wider text-primary rounded-md">
                         {item.category}
+                      </span>
+                      <span className="px-2.5 py-0.5 bg-red-500/10 border border-red-500/20 text-[10px] font-bold uppercase font-mono tracking-wider text-red-600 rounded-md">
+                        {item.vulnerabilityClass || "Vulnerability Vector"}
                       </span>
                     </div>
 
-                    <h2 className="text-2xl md:text-3xl font-extrabold text-textPrimary leading-snug font-sans tracking-tight">
+                    <h2 className="text-xl md:text-2xl font-bold text-textPrimary leading-snug font-sans tracking-tight">
                       {item.title}
                     </h2>
 
                     <div className="space-y-4 text-xs font-sans">
                       <div>
                         <span className="text-[10px] font-bold font-sans text-textSecondary uppercase tracking-wider block mb-1">
-                          The Scoping Challenge:
+                          Scenario & Architecture Context:
                         </span>
-                        <p className="text-textSecondary leading-relaxed">
+                        <p className="text-textSecondary leading-relaxed font-sans">
                           {item.problem}
                         </p>
                       </div>
 
                       <div>
                         <span className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider block mb-1">
-                          Control Gap Analysis:
+                          Vulnerability Vector & Exploit Path:
                         </span>
-                        <p className="font-mono bg-zinc-50 border border-border text-textPrimary p-4 rounded-xl leading-relaxed">
+                        <p className="font-mono bg-background border border-border text-textPrimary p-3.5 rounded-xl leading-relaxed text-xs">
                           {item.exploit}
                         </p>
                       </div>
 
                       <div>
                         <span className="text-[10px] font-bold font-sans text-warning uppercase tracking-wider block mb-1">
-                          Calculated Exposure:
+                          Potential Impact & Risk Exposure:
                         </span>
-                        <p className="text-textSecondary leading-relaxed">
+                        <p className="text-textSecondary leading-relaxed font-sans">
                           {item.impact}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Right Metrics & Fix Details */}
-                  <div className="lg:col-span-5 space-y-6 lg:border-l lg:border-border/40 lg:pl-8 flex flex-col justify-between">
+                  {/* Right Remediation Details */}
+                  <div className="lg:col-span-5 space-y-6 lg:border-l lg:border-border/60 lg:pl-8 flex flex-col justify-between h-full">
                     
                     <div className="p-5 bg-primary/5 border border-primary/20 rounded-xl space-y-3 font-sans">
                       <h4 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider flex items-center gap-1.5">
-                        <ShieldCheck size={14} className="text-primary" /> Applied Solution Patch
+                        <ShieldCheck size={14} className="text-primary" /> Recommended Engineering Fix
                       </h4>
-                      <p className="text-xs text-textPrimary leading-relaxed font-semibold">
+                      <p className="text-xs text-textPrimary leading-relaxed font-medium font-sans">
                         {item.fix}
                       </p>
                     </div>
 
-                    <div className="space-y-4">
-                      {/* Detailed Outcomes Metrics */}
-                      <div className="grid grid-cols-2 gap-3 text-[11px] font-sans">
-                        <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-2.5 shadow-sm">
-                          <span className="text-[8px] font-bold text-red-500/80 uppercase tracking-wider block mb-1">Vulnerabilities Found</span>
-                          <span className="text-[11px] text-textPrimary font-extrabold block leading-snug">{item.vulnerabilitiesIdentified || "Identified"}</span>
-                        </div>
-                        <div className="bg-amber-500/5 border border-amber-500/10 rounded-xl p-2.5 shadow-sm">
-                          <span className="text-[8px] font-bold text-amber-500/80 uppercase tracking-wider block mb-1">Remediation Time</span>
-                          <span className="text-[11px] text-textPrimary font-extrabold block leading-snug">{item.remediationTime || "N/A"}</span>
-                        </div>
-                        <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-2.5 shadow-sm">
-                          <span className="text-[8px] font-bold text-emerald-500/80 uppercase tracking-wider block mb-1">Security Score</span>
-                          <span className="text-[11px] text-emerald-500 font-extrabold block leading-snug">{item.securityImprovement || "A+ Grade"}</span>
-                        </div>
-                        <div className="bg-primary/5 border border-primary/10 rounded-xl p-2.5 shadow-sm">
-                          <span className="text-[8px] font-bold text-primary uppercase tracking-wider block mb-1">Retest Verification</span>
-                          <span className="text-[11px] text-primary font-extrabold block leading-snug">{item.retestStatus || "Patched"}</span>
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-4 border-y border-border/40 py-4 text-xs font-sans">
-                        <div className="bg-success/5 border border-success/20 rounded-xl p-3 shadow-sm">
-                          <span className="text-[9px] uppercase tracking-wider text-textSecondary block mb-1">Impact Metric</span>
-                          <span className="text-xs text-success font-bold font-sans tracking-wide block">{item.metrics}</span>
-                        </div>
-                        <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 shadow-sm">
-                          <span className="text-[9px] uppercase tracking-wider text-textSecondary block mb-1">Key Results</span>
-                          <span className="text-xs text-textPrimary font-bold block leading-snug">{item.results}</span>
-                        </div>
+                    <div className="space-y-4 font-sans text-xs">
+                      <div className="p-4 bg-background border border-border rounded-xl space-y-2">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-textSecondary block">
+                          Mitigation Pattern:
+                        </span>
+                        <p className="text-xs text-textPrimary font-sans">
+                          {item.mitigationStrategy || "Enforce strict server-side validation and access control."}
+                        </p>
                       </div>
 
                       <div>
                         <span className="text-[10px] font-bold font-sans text-textSecondary uppercase tracking-wider block mb-2">
-                          Environment Scope:
+                          Associated Technologies:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
                           {item.technologies.map((tech) => (
                             <span 
                               key={tech} 
-                              className="px-2 py-0.5 bg-zinc-100 border border-border rounded-md text-[9px] font-mono text-textPrimary"
+                              className="px-2 py-0.5 bg-surface border border-border rounded-md text-[10px] font-mono text-textPrimary"
                             >
                               {tech}
                             </span>
@@ -143,10 +137,11 @@ export default function CaseStudiesPage() {
 
                     <div className="pt-2">
                       <Link 
-                        href="/contact"
-                        className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-white shadow-sm transition-all"
+                        href="https://calendar.app.google/jnamj3gawxVunPJm9"
+                        target="_blank"
+                        className="w-full inline-flex items-center justify-center py-2.5 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-bold tracking-wider rounded-xl text-white shadow-sm transition-all"
                       >
-                        Schedule Similar Audit
+                        Book a 20-Min Security Review
                       </Link>
                     </div>
                   </div>

@@ -91,20 +91,28 @@ export default function ColdOutreachPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-success">✓</span>
-                  <span>Attestation certificates for enterprise buyers</span>
+                  <span>Retest verification documentation for enterprise buyers</span>
                 </li>
               </ul>
             </div>
 
           </div>
 
-          {/* Social Proof */}
-          <div className="p-8 bg-surface border border-border rounded-2xl text-center space-y-6 shadow-sm">
-            <p className="text-xs text-textSecondary italic leading-relaxed">
-              &ldquo;TrustLayerLabs was a lifesaver. They identified an auth bypass in our payments gateway in under 12 hours. We patched it overnight and passed our hospital procurement review the following morning.&rdquo;
+          {/* Transparent Testing Commitment */}
+          <div className="p-8 bg-surface border border-border rounded-2xl text-center space-y-4 shadow-sm">
+            <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-mono">
+              Confidential & Practitioner-Led Reviews
+            </h4>
+            <p className="text-xs text-textSecondary max-w-xl mx-auto leading-relaxed font-sans">
+              All scoping and security evaluations are executed under a mutual Non-Disclosure Agreement (NDA). We review your API authorization architecture, token state handling, and business logic without disrupting production traffic.
             </p>
-            <div className="font-sans text-[10px] text-textSecondary uppercase tracking-wider font-bold">
-              — Siddharth Sharma, Co-Founder & CTO at PayFlow India
+            <div className="pt-2">
+              <Link
+                href="/sample-report"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline uppercase tracking-wider font-sans"
+              >
+                <span>View Redacted Sample Report</span> →
+              </Link>
             </div>
           </div>
 

@@ -15,21 +15,29 @@ export default function CTA() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-8 leading-tight">
-            Get your API tested <br /> before <span className="text-primary">attackers</span> do
+          <h2 className="heading-1 mb-6 font-sans">
+            Ready to Harden Your Application <br className="hidden md:inline" />
+            <span className="text-primary">& Clear Enterprise Security Reviews?</span>
           </h2>
-          <p className="body-text text-lg mb-12 max-w-xl mx-auto">
-            Our manual security audits identify the logical vulnerabilities and compliance gaps that automated scanners miss. Secure your platform today.
+          <p className="body-text text-base md:text-lg mb-10 max-w-2xl mx-auto font-sans">
+            Schedule a confidential 20-minute scoping review with our lead security architects. We review your architecture, endpoints, and timelines under mutual NDA.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
               href="https://calendar.app.google/jnamj3gawxVunPJm9" 
               target="_blank"
-              className="btn-primary flex items-center justify-center group px-10 py-4 text-base"
+              className="btn-primary flex items-center justify-center group px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto"
               aria-label="Book your security review on Google Calendar"
             >
-              <Calendar size={18} className="mr-3" />
-              Book Security Review <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <Calendar size={16} className="mr-2.5" />
+              Book a 20-Min Security Review 
+              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="/sample-report"
+              className="btn-secondary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-semibold w-full sm:w-auto"
+            >
+              View Sample Report
             </Link>
           </div>
         </motion.div>

@@ -7,13 +7,13 @@ const footerLinks = [
   {
     title: "Services",
     links: [
-      { name: "Web Application VAPT", href: "/services/web-app-vapt" },
       { name: "API Security Testing", href: "/services/api-security" },
-      { name: "Mobile Application VAPT", href: "/services/mobile-vapt" },
+      { name: "FinTech Security Testing", href: "/fintech-security" },
+      { name: "GRC & Enterprise Readiness", href: "/grc-readiness" },
+      { name: "Web Application VAPT", href: "/services/web-app-vapt" },
+      { name: "SaaS VAPT & Pentesting", href: "/services/saas-vapt" },
       { name: "Cloud Security Audit", href: "/services/cloud-security" },
-      { name: "Kubernetes Security", href: "/services/kubernetes-security" },
-      { name: "AI & LLM Application Security", href: "/services/ai-security" },
-      { name: "Startup Security & GRC", href: "/services/startup-security" },
+      { name: "AI Application Security", href: "/services/ai-security" },
     ]
   },
   {
@@ -24,13 +24,14 @@ const footerLinks = [
       { name: "Startup Security Checklist", href: "/checklist" },
       { name: "API Security Checklist", href: "/api-security-checklist" },
       { name: "Free JWT Decoder Tool", href: "/tools/jwt-decoder" },
-      { name: "Case Studies Portfolio", href: "/case-studies" },
+      { name: "Security Scenarios", href: "/case-studies" },
+      { name: "Partner Program", href: "/partnerships" },
       { name: "VAPT Bangalore Hub", href: "/vapt-bangalore" },
       { name: "VAPT Hyderabad Hub", href: "/vapt-hyderabad" },
     ]
   },
   {
-    title: "Legal & Attestation",
+    title: "Legal & Policies",
     links: [
       { name: "NDA & Confidentiality Policy", href: "/nda-process" },
       { name: "Responsible Disclosure Policy", href: "/responsible-disclosure" },
@@ -103,7 +104,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} TRUSTLAYERLABS. ALL RIGHTS RESERVED.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-[10px] font-semibold text-textSecondary uppercase tracking-wider font-sans">
-            <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> PENTEST ATTESTATION ISSUED</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> RETEST VERIFICATION AVAILABLE</span>
             <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> ISO 27001 READY</span>
           </div>
         </div>

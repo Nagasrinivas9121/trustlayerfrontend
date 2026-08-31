@@ -1,41 +1,16 @@
-"use client";
-
 import React from "react";
-import { Search, ShieldCheck, FileText, CheckCircle2, RefreshCw } from "lucide-react";
+import { ASSESSMENT_PROCESS_STEPS } from "@/lib/constants";
+import { Search, Compass, ShieldAlert, Cpu, CheckCircle2, FileCode2, MessagesSquare, Award } from "lucide-react";
 
-const icons = [Search, ShieldCheck, FileText, RefreshCw, CheckCircle2];
-
-const steps = [
-  {
-    phase: "01",
-    title: "Discovery",
-    description: "Initial scoping, asset discovery, architecture walkthroughs, credential handover, and threat modeling."
-  },
-  {
-    phase: "02",
-    title: "Assessment",
-    description: "Deep manual logical review and compliance gaps assessment targeting access boundaries and controls."
-  },
-  {
-    phase: "03",
-    title: "Testing",
-    description: "Rigorous testing of access logic, token payloads, and database boundary isolation constraints."
-  },
-  {
-    phase: "04",
-    title: "Reporting",
-    description: "Compiling findings into an actionable report mapping gaps directly to SOC2 and ISO compliance controls."
-  },
-  {
-    phase: "05",
-    title: "Remediation",
-    description: "Direct engineering collaboration to explain controls gaps, suggest resolutions, and review code fixes."
-  },
-  {
-    phase: "06",
-    title: "Retesting",
-    description: "Manual re-validation of applied patches before issuing signed attestation badges."
-  }
+const stepIcons = [
+  Search,
+  Compass,
+  ShieldAlert,
+  Cpu,
+  CheckCircle2,
+  FileCode2,
+  MessagesSquare,
+  Award
 ];
 
 export default function HowItWorks() {
@@ -47,50 +22,53 @@ export default function HowItWorks() {
       <div className="section-container">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-            <span>Audit Lifecycle</span>
+            <span>Assessment Lifecycle</span>
           </div>
-          <h2 className="heading-2 mb-6">
-            Our Collaborative <span className="text-primary">Execution Workflow</span>
+          <h2 className="heading-2 mb-6 font-sans">
+            How Our Security <span className="text-primary">Assessments Work</span>
           </h2>
-          <p className="body-text text-textSecondary">
-            We work as an extension of your engineering team to identify gaps and verify fixes without interrupting deployment cycles.
+          <p className="body-text text-textSecondary font-sans">
+            A transparent, 8-phase collaborative methodology designed to pinpoint deep logic flaws without slowing down your product shipping roadmap.
           </p>
         </div>
 
-        {/* Timeline Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative mt-12">
-          
-          {steps.map((step, i) => {
-            const Icon = icons[i] || Search;
+        {/* 8-Step Timeline Grid (2 rows of 4 on lg, 2 cols on sm, 1 col on mobile) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ASSESSMENT_PROCESS_STEPS.map((step, i) => {
+            const Icon = stepIcons[i] || Search;
             return (
               <div 
-                key={i} 
-                className="flex flex-col items-center lg:items-start text-center lg:text-left bg-surface border border-border p-6 rounded-2xl relative group hover:border-zinc-400 transition-colors duration-300 shadow-sm"
+                key={step.phase}
+                className="flex flex-col justify-between bg-surface border border-border p-6 rounded-2xl relative group hover:border-zinc-400 transition-colors duration-300 shadow-sm"
               >
-                {/* Step Icon */}
-                <div className="w-10 h-10 bg-background border border-border rounded-xl flex items-center justify-center mb-5 shadow-sm group-hover:border-primary transition-colors">
-                  <Icon size={16} className="text-primary" />
+                <div>
+                  {/* Step Icon & Phase Number */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-10 h-10 bg-background border border-border rounded-xl flex items-center justify-center shadow-sm group-hover:border-primary transition-colors">
+                      <Icon size={18} className="text-primary" />
+                    </div>
+                    <span className="text-xs font-bold font-mono uppercase tracking-wider text-primary px-2.5 py-1 bg-primary/10 rounded-md">
+                      Phase {step.phase}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-bold text-textPrimary tracking-tight mb-2 font-sans">
+                    {step.title}
+                  </h3>
+                  
+                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                    {step.description}
+                  </p>
                 </div>
-
-                {/* Phase Number */}
-                <span className="text-xs font-bold font-mono uppercase tracking-wider text-primary mb-2 block">
-                  Phase {step.phase}
-                </span>
-
-                <h3 className="text-base font-bold text-textPrimary tracking-tight mb-2 font-sans">
-                  {step.title}
-                </h3>
-                
-                <p className="text-sm text-textSecondary leading-relaxed">
-                  {step.description}
-                </p>
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
 }
+

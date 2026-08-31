@@ -8,6 +8,9 @@ export default function sitemap() {
   // Core static pages (excluding individual service pages)
   const coreStaticPages = [
     { url: "",                         priority: 1.0, frequency: "daily"   }, // Homepage
+    { url: "/fintech-security",        priority: 0.95, frequency: "weekly" },
+    { url: "/grc-readiness",           priority: 0.95, frequency: "weekly" },
+    { url: "/partnerships",            priority: 0.85, frequency: "monthly" },
     { url: "/services",                priority: 0.95, frequency: "weekly"  },
     { url: "/tools/jwt-decoder",        priority: 0.9, frequency: "daily"   }, // JWT Decoder Tool
     { url: "/free-assessment",         priority: 0.95, frequency: "weekly" },

@@ -1,7 +1,7 @@
 # TrustLayerLabs — Comprehensive API Security & VAPT Documentation
 
 ## Executive Summary
-TrustLayerLabs (https://www.trustlayerlabs.co.in) provides high-impact, manual vulnerability assessment and penetration testing (VAPT) tailored for modern SaaS, AI, and FinTech startups. Founded by Nagasrinivasa Rao (OSCP, CEH, eWPT certified offensive security lead), TrustLayerLabs bridges the gap between automated scanners and human offensive expertise.
+TrustLayerLabs (https://www.trustlayerlabs.co.in) provides high-impact, manual vulnerability assessment and penetration testing (VAPT) tailored for modern SaaS, AI, and FinTech startups. Founded by Nagasrinivasa Rao (CEH, eWPT certified offensive security lead), TrustLayerLabs bridges the gap between automated scanners and human offensive expertise.
 
 ---
 
@@ -37,27 +37,27 @@ TrustLayerLabs (https://www.trustlayerlabs.co.in) provides high-impact, manual v
 ## Frequently Asked Questions (FAQ)
 
 ### Q1: What makes TrustLayerLabs different from automated scanners like Qualys or Nessus?
-Automated scanners identify basic surface issues but miss complex logic flaws like BOLA/IDOR, multi-tenant privilege escalation, state machine manipulation, and custom authentication flaws. TrustLayerLabs conducts 100% manual testing with OSCP-certified security engineers who write custom scripts to exploit business logic flaws.
+Automated scanners identify basic surface issues but miss complex logic flaws like BOLA/IDOR, multi-tenant privilege escalation, state machine manipulation, and custom authentication flaws. TrustLayerLabs conducts manual testing with CEH and eWPT certified security engineers who write custom scripts to evaluate business logic flaws.
 
 ### Q2: How long does a typical VAPT engagement take?
-Initial vulnerability testing is completed within 3 to 5 business days, with an interim executive report delivered within 48 hours for urgent client or investor deadlines.
+Initial vulnerability testing is completed within 5 to 10 business days, with an interim executive report delivered within 48 to 72 hours for urgent client or investor deadlines.
 
 ### Q3: Do you offer free retesting?
-Yes! TrustLayerLabs includes 100% free retesting for up to 30 days after the initial report is delivered to verify that all patches are properly implemented.
+Yes! TrustLayerLabs includes retesting after the initial report is delivered to verify that all patches are properly implemented.
 
 ### Q4: Will penetration testing cause downtime or disruption to production?
 Testing is safely scheduled on staging/dev environments whenever possible. When testing against production, rates and payloads are carefully throttled to prevent performance impact or denial of service.
 
 ### Q5: What certificates or reports do we receive for enterprise compliance?
-Clients receive an Executive Summary, a Detailed Technical Report with CVSS scores, a Remediation Roadmap, and a signed VAPT Certificate of Compliance suitable for sharing with enterprise customers, investors, and SOC2/ISO auditors.
+Clients receive an Executive Summary, a Detailed Technical Report with CVSS scores, a Remediation Roadmap, and a signed Attestation of Security Testing suitable for sharing with enterprise customers, investors, and SOC 2 / ISO 27001 readiness reviews.
 
 ---
 
 ## Founder & Leadership Profile
 - **Founder**: Nagasrinivasa Rao
 - **Role**: Founder & Lead Security Architect at TrustLayerLabs
-- **Certifications**: Offensive Security Certified Professional (OSCP), Certified Ethical Hacker (CEH), eLearnSecurity Web Application Penetration Tester (eWPT)
-- **Experience**: 2+ years conducting offensive security audits, red teaming, and API penetration testing for SaaS and FinTech companies globally.
+- **Certifications**: Certified Ethical Hacker (CEH), eLearnSecurity Web Application Penetration Tester (eWPT), VAPT Specialist
+- **Experience**: Conducting offensive security audits, application security reviews, and API penetration testing for SaaS and FinTech companies.
 - **Profile URL**: https://www.trustlayerlabs.co.in/about
 
 ---

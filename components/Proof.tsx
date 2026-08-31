@@ -42,18 +42,18 @@ export default function Proof() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-              <span>Enterprise Attestations</span>
+              <span>Compliance Alignment</span>
             </div>
             <h2 className="heading-2 mb-6 font-sans">
               Compliance Frameworks & <br />
               <span className="text-primary">Industry Security Standards</span>
             </h2>
             <p className="body-text text-textSecondary">
-              We align our manual penetration testing and configuration reviews with leading global compliance frameworks to ensure you pass institutional risk reviews.
+              We align our manual penetration testing and configuration reviews with leading global compliance frameworks to support your institutional risk reviews.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
-            {["SOC2 Readiness", "ISO 27001 Align", "RBI Compliance"].map((item, i) => (
+            {["SOC 2 Readiness", "ISO 27001 Align", "RBI Guidelines"].map((item, i) => (
               <div key={i} className="flex items-center space-x-2 text-xs font-bold text-textSecondary uppercase tracking-wider">
                 <CheckCircle2 size={14} className="text-primary" />
                 <span>{item}</span>
@@ -83,16 +83,16 @@ export default function Proof() {
 
         {/* Security Certifications Badges */}
         <div className="flex flex-col items-center mb-12">
-          <p className="text-xs text-textSecondary font-semibold mb-6 uppercase tracking-wider">Certified Team Credentials</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl">
+          <p className="text-xs text-textSecondary font-semibold mb-6 uppercase tracking-wider font-sans">Team Security & GRC Credentials</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-4xl font-sans">
             {[
               { name: "CEH", full: "Certified Ethical Hacker", authority: "EC-Council" },
-              { name: "eWPT", full: "Web Application Penetration Tester", authority: "eLearnSecurity" },
-              { name: "VAPT", full: "Vulnerability Assessment & Pentest", authority: "Certified Auditor" },
-              { name: "NetPentest", full: "Network Penetration Testing Specialist", authority: "Certified Specialist" }
+              { name: "eWPT", full: "Web App Penetration Tester", authority: "eLearnSecurity" },
+              { name: "ISO 27001", full: "Implementation & Audit Prep", authority: "GRC Standards" },
+              { name: "VAPT", full: "Vulnerability Assessment & Pentest", authority: "Offensive Security" }
             ].map((cert) => (
               <div key={cert.name} className="flex items-center gap-3.5 p-4 bg-surface border border-border/80 rounded-xl text-left shadow-sm hover:border-primary/40 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold font-mono text-sm flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold font-mono text-xs flex-shrink-0">
                   {cert.name}
                 </div>
                 <div>
@@ -106,8 +106,8 @@ export default function Proof() {
 
         {/* MSME & Verification Badges */}
         <div className="flex flex-col items-center text-center pt-8 border-t border-border/40">
-          <p className="text-textSecondary mb-8 text-sm max-w-xl leading-relaxed">
-            All audits are signed by CEH, eWPT, VAPT, and Network Pentesting certified security architects. We operate out of Bangalore and Hyderabad tech hubs.
+          <p className="text-textSecondary mb-8 text-xs max-w-xl leading-relaxed font-sans">
+            Our security engineers and GRC practitioners hold industry credentials including CEH, eWPT, and ISO 27001 certifications. We operate distributed across Bangalore and Hyderabad.
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">

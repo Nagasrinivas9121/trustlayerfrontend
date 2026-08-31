@@ -33,8 +33,9 @@ export default function LiveChat() {
         text: "How can I help you secure your APIs, Cloud settings, or Web Application today?",
         type: "options",
         options: [
-          "📋 Request Free VAPT Scoping",
+          "📋 Book 20-Min Security Review",
           "📄 Download Redacted VAPT PDF",
+          "📱 Chat on WhatsApp (+91 88224 02811)",
           "💬 Ask a Security Question"
         ]
       }
@@ -52,14 +53,24 @@ export default function LiveChat() {
     setMessages((prev) => [...prev, { sender: "user", text: option }]);
 
     setTimeout(() => {
-      if (option.includes("Scoping")) {
+      if (option.includes("Security Review") || option.includes("Scoping")) {
         setMessages((prev) => [
           ...prev,
           {
             sender: "bot",
-            text: "Excellent! We provide free offensive security reviews to map your attack surfaces. You can launch a scoping request directly using our consultation form:",
+            text: "Excellent! You can schedule a confidential 20-minute scoping review directly on our calendar under mutual NDA:",
             type: "links",
-            links: [{ label: "Request Free VAPT Scoping Form", url: "/free-assessment" }]
+            links: [{ label: "Open Security Review Calendar", url: "https://calendar.app.google/jnamj3gawxVunPJm9" }]
+          }
+        ]);
+      } else if (option.includes("WhatsApp")) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            sender: "bot",
+            text: "You can start a direct chat with our lead security architects right away on WhatsApp:",
+            type: "links",
+            links: [{ label: "Open WhatsApp (+91 88224 02811)", url: "https://wa.me/918822402811" }]
           }
         ]);
       } else if (option.includes("PDF")) {
@@ -67,7 +78,7 @@ export default function LiveChat() {
           ...prev,
           {
             sender: "bot",
-            text: "Certainly! You can download our full redacted PDF report bundle to examine our CVSS scoping methods and remediation code patches:",
+            text: "Certainly! You can download our full redacted PDF report bundle or view the live interactive preview:",
             type: "links",
             links: [
               { label: "Download Sample PDF Report", url: "/trustlayerlabs-sample-vapt-report.pdf", download: true },
@@ -81,7 +92,7 @@ export default function LiveChat() {
           ...prev,
           {
             sender: "bot",
-            text: "Sure thing! Please write your question or enter your email address below, and our lead VAPT & Network pentesting engineer will respond within 4 hours."
+            text: "Sure thing! Please write your question or enter your email address below, and our lead security team will respond promptly."
           }
         ]);
       }

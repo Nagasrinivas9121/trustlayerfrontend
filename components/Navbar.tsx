@@ -147,9 +147,9 @@ export default function Navbar() {
               href="https://calendar.app.google/jnamj3gawxVunPJm9" 
               target="_blank"
               onClick={() => setIsOpen(false)}
-              className="block text-center py-2 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all"
+              className="block text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md"
             >
-              Book Free Review
+              Book a 20-Min Security Review
             </Link>
           </div>
         )}

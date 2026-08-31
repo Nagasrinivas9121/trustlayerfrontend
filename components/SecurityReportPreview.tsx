@@ -2,31 +2,31 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Code, CheckCircle, AlertTriangle, FileText, ChevronRight } from "lucide-react";
+import { ShieldCheck, Code, CheckCircle, AlertTriangle, FileText, ChevronRight, Info } from "lucide-react";
 
 export default function SecurityReportPreview() {
   const [activeTab, setActiveTab] = useState<"summary" | "vulnerabilities" | "tracking">("summary");
   
   const vulns = [
     {
-      id: "TTL-2026-01",
+      id: "SAMPLE-FINDING-01",
       title: "Broken Object Level Authorization (BOLA)",
       class: "API Security",
       severity: "Critical",
       score: "9.8",
-      analysis: "API routes failed to verify row-level tenancy permissions against token attributes.",
-      patch: "Enforce row-level check: req.user.accountId === req.body.account_id",
-      status: "Patched & Verified"
+      analysis: "Illustrative example: API routes failed to verify resource-level tenancy boundaries against session claims.",
+      patch: "Enforce ownership validation: req.user.accountId === req.body.account_id",
+      status: "Example Retest Status: Verified"
     },
     {
-      id: "TTL-2026-02",
-      title: "Unsigned S3 Diagnostic Attachment URLs",
-      class: "Cloud Configuration",
+      id: "SAMPLE-FINDING-02",
+      title: "Direct Public Storage Bucket Access",
+      class: "Cloud Infrastructure",
       severity: "High",
       score: "8.2",
-      analysis: "Data storage vault permitted resource URL queries without validation signature signatures.",
-      patch: "Generate pre-signed URL with 15 minutes expiration limits.",
-      status: "Patched & Verified"
+      analysis: "Illustrative example: Cloud storage objects accessible without signed token parameters.",
+      patch: "Generate pre-signed URLs with a 15-minute expiration limit.",
+      status: "Example Retest Status: Verified"
     }
   ];
 
@@ -38,16 +38,27 @@ export default function SecurityReportPreview() {
       <div className="section-container">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-widest mb-6">
-            <span>Redacted Sample Report</span>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
+            <span>Illustrative Sample</span>
           </div>
-          <h2 className="heading-2 mb-6">
+          <h2 className="heading-2 mb-4 font-sans">
             Actionable Reports Built for <span className="text-primary">Engineering Teams</span>
           </h2>
-          <p className="body-text text-base">
-            No page-filler. We deliver clear, reproducible vulnerability reports containing remediation code commits, direct API payload maps, and attestation statuses.
+          <p className="body-text text-base text-textSecondary font-sans">
+            Clear, developer-focused reports designed for efficient remediation with root-cause analysis, reproduction steps, and suggested code fixes.
           </p>
+        </div>
+
+        {/* Prominent Educational Notice */}
+        <div className="max-w-5xl mx-auto p-4 bg-amber-500/5 border border-amber-500/20 rounded-2xl mb-12 flex items-start gap-3 shadow-sm">
+          <Info className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+          <div className="text-xs text-textSecondary leading-relaxed font-sans">
+            <span className="font-bold text-textPrimary uppercase tracking-wider block mb-0.5">
+              ILLUSTRATIVE SAMPLE — NOT A CLIENT ENGAGEMENT
+            </span>
+            This sample demonstrates the structure and level of technical detail that may appear in a TrustLayerLabs security assessment. The application, findings, identifiers, and results shown here are illustrative and do not represent a customer engagement.
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch max-w-5xl mx-auto">
@@ -55,11 +66,11 @@ export default function SecurityReportPreview() {
           {/* Left Column: Report Controls / Summary */}
           <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <h3 className="text-xs font-bold text-white font-mono uppercase tracking-widest">
-                Interactive Report Preview
+              <h3 className="text-xs font-bold text-textPrimary font-mono uppercase tracking-wider">
+                Sample Report Sections
               </h3>
               <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                Review the structure of a live TrustLayer VAPT audit. Select sections on the right to examine vulnerability parameters and code fixes.
+                Explore the structure of a TrustLayerLabs report. Select a section to view example findings and remediation guidance.
               </p>
             </div>
 
@@ -69,8 +80,8 @@ export default function SecurityReportPreview() {
                 onClick={() => setActiveTab("summary")}
                 className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left ${
                   activeTab === "summary"
-                    ? "bg-surface border-primary text-white"
-                    : "bg-surface/30 border-border hover:border-zinc-700 text-textSecondary hover:text-white"
+                    ? "bg-surface border-primary text-textPrimary shadow-sm"
+                    : "bg-surface/40 border-border hover:border-zinc-400 text-textSecondary hover:text-textPrimary"
                 }`}
               >
                 <span>1. Executive Summary</span>
@@ -81,11 +92,11 @@ export default function SecurityReportPreview() {
                 onClick={() => setActiveTab("vulnerabilities")}
                 className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left ${
                   activeTab === "vulnerabilities"
-                    ? "bg-surface border-primary text-white"
-                    : "bg-surface/30 border-border hover:border-zinc-700 text-textSecondary hover:text-white"
+                    ? "bg-surface border-primary text-textPrimary shadow-sm"
+                    : "bg-surface/40 border-border hover:border-zinc-400 text-textSecondary hover:text-textPrimary"
                 }`}
               >
-                <span>2. Controls & Gap Analysis</span>
+                <span>2. Technical Findings & PoCs</span>
                 <ChevronRight size={14} className={activeTab === "vulnerabilities" ? "text-primary" : "text-textSecondary"} />
               </button>
 
@@ -93,29 +104,29 @@ export default function SecurityReportPreview() {
                 onClick={() => setActiveTab("tracking")}
                 className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left ${
                   activeTab === "tracking"
-                    ? "bg-surface border-primary text-white"
-                    : "bg-surface/30 border-border hover:border-zinc-700 text-textSecondary hover:text-white"
+                    ? "bg-surface border-primary text-textPrimary shadow-sm"
+                    : "bg-surface/40 border-border hover:border-zinc-400 text-textSecondary hover:text-textPrimary"
                 }`}
               >
-                <span>3. Remediation Checklist</span>
+                <span>3. Remediation & Retest Log</span>
                 <ChevronRight size={14} className={activeTab === "tracking" ? "text-primary" : "text-textSecondary"} />
               </button>
             </div>
 
-            {/* Bottom attestation card */}
-            <div className="p-4 bg-surface border border-border rounded-xl flex items-center space-x-3.5">
-              <div className="w-8 h-8 rounded bg-success/15 border border-success/30 flex items-center justify-center text-success">
-                <CheckCircle size={16} />
+            {/* Deliverables Info Box */}
+            <div className="p-4 bg-surface border border-border rounded-xl flex items-center space-x-3.5 shadow-sm">
+              <div className="w-8 h-8 rounded bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                <FileText size={16} />
               </div>
               <div className="font-mono text-xs">
-                <span className="text-white block font-bold">Scope Attestation</span>
-                <span className="text-textSecondary block mt-0.5">Approved & Issued</span>
+                <span className="text-textPrimary block font-bold">Standard Deliverable</span>
+                <span className="text-textSecondary block mt-0.5 text-[10px]">Technical Report + Exec Summary</span>
               </div>
             </div>
           </div>
 
           {/* Right Column: Dynamic Preview Container */}
-          <div className="lg:col-span-8 bg-surface border border-border rounded-xl p-6 md:p-8 flex flex-col justify-between min-h-[380px]">
+          <div className="lg:col-span-8 bg-surface border border-border rounded-2xl p-6 md:p-8 flex flex-col justify-between min-h-[380px] shadow-sm">
             
             <AnimatePresence mode="wait">
               {activeTab === "summary" && (
@@ -129,39 +140,39 @@ export default function SecurityReportPreview() {
                 >
                   <div className="flex items-center justify-between border-b border-border/60 pb-4">
                     <div>
-                      <span className="text-xs font-mono text-primary font-bold uppercase tracking-wider border border-primary/20 bg-primary/10 px-2 py-0.5 rounded">
-                        Audit attestation details
+                      <span className="text-[10px] font-mono text-primary font-bold uppercase tracking-wider border border-primary/20 bg-primary/10 px-2 py-0.5 rounded">
+                        Illustrative Summary Template
                       </span>
-                      <h4 className="text-sm font-bold text-white font-mono uppercase tracking-wider mt-2">
-                        Ref: TTL-2026-AUDIT-SUMMARY
+                      <h4 className="text-sm font-bold text-textPrimary font-mono uppercase tracking-wider mt-2">
+                        Ref: TTL-SAMPLE-ASSESSMENT
                       </h4>
                     </div>
-                    <div className="text-right font-mono text-xs text-textSecondary">
-                      <p>Date: June 2026</p>
-                      <p>Class: API + Cloud Audit</p>
+                    <div className="text-right font-mono text-[11px] text-textSecondary">
+                      <p>Scope: API & Cloud Assessment</p>
+                      <p>Target: Multi-Tenant Web App</p>
                     </div>
                   </div>
 
-                  <p className="text-sm text-textSecondary leading-relaxed">
-                    Our team conducted a manual logic audit and cloud security audit on the production infrastructure of the target SaaS platform. The scoping targeted multi-tenant tenant isolation, JWT validation mechanisms, pre-signed attachment configurations, and AWS IAM policies.
+                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                    Illustrative assessment scope: a hypothetical multi-tenant SaaS application with REST/GraphQL APIs and cloud infrastructure. Testing focuses on tenant isolation boundaries, authorization (BOLA/IDOR), authentication token validation, and cloud configuration hygiene.
                   </p>
 
-                  <div className="p-4 bg-black/40 border border-border rounded-lg space-y-2">
-                    <h5 className="text-xs font-bold text-white font-mono uppercase tracking-wider">
-                      Audit Scopes & Outcome:
+                  <div className="p-4 bg-background border border-border rounded-xl space-y-2 font-sans">
+                    <h5 className="text-xs font-bold text-textPrimary font-mono uppercase tracking-wider">
+                      Assessment Scopes & Structure:
                     </h5>
-                    <ul className="space-y-1.5 text-xs text-textSecondary">
+                    <ul className="space-y-1.5 text-xs text-textSecondary font-sans">
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        <span>All REST & GraphQL endpoints reviewed manually.</span>
+                        <span>All API endpoints evaluated for resource ownership and authorization logic.</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        <span>AWS IAM configurations mapped against CIS benchmarks.</span>
+                        <span>Cloud IAM configurations mapped against security best practices.</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        <span>2 vulnerabilities discovered, patched, and verified.</span>
+                        <span>Example findings included in this sample: 2 illustrative items.</span>
                       </li>
                     </ul>
                   </div>
@@ -178,29 +189,29 @@ export default function SecurityReportPreview() {
                   className="space-y-6"
                 >
                   <div className="text-xs font-mono text-textSecondary uppercase tracking-wider border-b border-border/60 pb-3">
-                    Security Findings & Remediation Control Commit
+                    Example Vulnerability Findings (Illustrative)
                   </div>
 
                   <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1">
                     {vulns.map((v, idx) => (
-                      <div key={idx} className="p-4 bg-black/30 border border-border rounded-lg space-y-3">
+                      <div key={idx} className="p-4 bg-background border border-border rounded-xl space-y-3 font-sans">
                         <div className="flex justify-between items-center">
-                          <span className="text-xs font-bold text-white font-mono">{v.id} : {v.title}</span>
+                          <span className="text-xs font-bold text-textPrimary font-mono">{v.id} : {v.title}</span>
                           <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold font-mono ${
-                            v.severity === "Critical" ? "bg-critical/10 border border-critical/20 text-critical" : "bg-warning/10 border border-warning/20 text-warning"
+                            v.severity === "Critical" ? "bg-red-500/10 border border-red-500/20 text-red-600" : "bg-amber-500/10 border border-amber-500/20 text-amber-600"
                           }`}>
-                            {v.severity} ({v.score})
+                            {v.severity} (CVSS {v.score})
                           </span>
                         </div>
 
-                        <div className="text-sm text-textSecondary font-sans leading-relaxed">
-                          <span className="text-xs font-mono uppercase tracking-wider text-textSecondary block mb-0.5">Gap Analysis:</span>
+                        <div className="text-xs text-textSecondary font-sans leading-relaxed">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-textSecondary block mb-0.5">Example Analysis:</span>
                           {v.analysis}
                         </div>
 
-                        <div className="p-3 bg-[#050505] border border-border/60 rounded font-mono text-xs text-textPrimary">
-                          <div className="flex items-center gap-1.5 text-xs text-success font-bold uppercase tracking-wider mb-1.5">
-                            <Code size={12} /> Applied Patch Commit:
+                        <div className="p-3 bg-surface border border-border rounded-lg font-mono text-xs text-textPrimary">
+                          <div className="flex items-center gap-1.5 text-xs text-primary font-bold uppercase tracking-wider mb-1.5">
+                            <Code size={12} /> Suggested Remediation:
                           </div>
                           {v.patch}
                         </div>
@@ -220,20 +231,20 @@ export default function SecurityReportPreview() {
                   className="space-y-6"
                 >
                   <div className="text-xs font-mono text-textSecondary uppercase tracking-wider border-b border-border/60 pb-3">
-                    Remediation Tracking Checklist
+                    Example Remediation & Retesting Log
                   </div>
 
-                  <div className="space-y-3.5">
+                  <div className="space-y-3">
                     {[
-                      { item: "Implement resource-level validation check on /v1/accounts/transfers", status: "complete" },
-                      { item: "Set up private storage bucket configuration for patient diagnostic reports", status: "complete" },
-                      { item: "Enforce pre-signed cookies/URLs for media download assets", status: "complete" },
-                      { item: "Review and restrict IAM policy rights on developer access keys", status: "complete" }
+                      { item: "Implement resource-level validation check on account endpoints", status: "Verified" },
+                      { item: "Configure private storage bucket with signed URL access controls", status: "Verified" },
+                      { item: "Enforce short-lived expiration on generated media tokens", status: "Verified" },
+                      { item: "Restrict IAM policy permissions to least-privilege principles", status: "Verified" }
                     ].map((row, idx) => (
-                      <div key={idx} className="flex items-start justify-between p-3.5 bg-black/30 border border-border/60 rounded-xl font-mono text-xs">
+                      <div key={idx} className="flex items-start justify-between p-3.5 bg-background border border-border rounded-xl font-mono text-xs">
                         <span className="text-textSecondary leading-relaxed pr-6">{row.item}</span>
-                        <span className="flex-shrink-0 px-2 py-0.5 bg-success/15 border border-success/30 rounded text-xs font-bold text-success uppercase">
-                          Patched
+                        <span className="flex-shrink-0 px-2 py-0.5 bg-primary/10 border border-primary/20 rounded text-[10px] font-bold text-primary uppercase">
+                          Example Status: {row.status}
                         </span>
                       </div>
                     ))}
@@ -242,8 +253,8 @@ export default function SecurityReportPreview() {
               )}
             </AnimatePresence>
 
-            <div className="border-t border-border/60 pt-4 mt-6 text-right font-mono text-xs text-textSecondary uppercase">
-              <span>Verification attestation complete.</span>
+            <div className="border-t border-border/60 pt-4 mt-6 text-right font-mono text-[11px] text-textSecondary">
+              <span>Standard assessment format for developer and audit reviews.</span>
             </div>
             
           </div>

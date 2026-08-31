@@ -131,24 +131,37 @@ export default async function BlogPost({ params }) {
         {/* Bottom CTA Block */}
         <div className="mt-20 p-8 md:p-12 bg-surface rounded-2xl border border-border text-center space-y-6 relative overflow-hidden shadow-sm">
           <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none" />
-          <h3 className="text-lg font-bold text-textPrimary tracking-tight font-sans">Secure Your SaaS Assets Today</h3>
-          <p className="text-xs text-textSecondary mb-8 max-w-lg mx-auto leading-relaxed">
-            Ready to perform a deep-dive manual logical security audit? Schedule a scoping review with our lead architects.
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-bold uppercase tracking-wider font-mono">
+            <span>Next Step for Engineering Teams</span>
+          </div>
+          <h3 className="text-xl font-bold text-textPrimary tracking-tight font-sans">
+            Ready to Identify & Fix Vulnerabilities in Your Platform?
+          </h3>
+          <p className="text-xs text-textSecondary max-w-lg mx-auto leading-relaxed font-sans">
+            Schedule a confidential 20-minute scoping review with our lead security architects under mutual NDA. We evaluate your APIs, business logic, and enterprise readiness.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
               href="https://calendar.app.google/jnamj3gawxVunPJm9" 
               target="_blank"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-semibold tracking-wider rounded-full shadow-lg w-full sm:w-auto text-center transition-all active:scale-[0.98]"
+              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
             >
-              Book Scoping Call
+              Book a 20-Min Security Review
             </Link>
             <Link 
-              href="/contact" 
-              className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:bg-zinc-50 text-xs uppercase font-sans font-semibold tracking-wider rounded-full w-full sm:w-auto text-center shadow-sm transition-all"
+              href="/sample-report" 
+              className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase font-sans font-semibold tracking-wider rounded-xl w-full sm:w-auto text-center shadow-sm transition-all"
             >
-              Request Proposal
+              View Sample Report
             </Link>
+          </div>
+
+          <div className="pt-4 border-t border-border/40 flex flex-wrap justify-center gap-4 text-xs font-sans text-textSecondary">
+            <Link href="/fintech-security" className="hover:text-primary transition-colors">→ FinTech Security</Link>
+            <span className="text-border">•</span>
+            <Link href="/grc-readiness" className="hover:text-primary transition-colors">→ GRC & SOC 2 Readiness</Link>
+            <span className="text-border">•</span>
+            <Link href="/api-security-checklist" className="hover:text-primary transition-colors">→ API Security Checklist</Link>
           </div>
         </div>
       </div>

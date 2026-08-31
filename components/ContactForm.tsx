@@ -60,7 +60,7 @@ export default function ContactForm() {
               </h3>
               
               <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                Connect with us for immediate assistance, scoping advice, or to sign mutual NDAs. We generally reply to all emails within 4 business hours.
+                Connect with us for scoping advice, questions, or to execute a mutual NDA. We aim to respond within one business day.
               </p>
 
               <div className="space-y-4 font-sans">
@@ -86,8 +86,8 @@ export default function ContactForm() {
                     <MessageSquare size={18} />
                   </div>
                   <div>
-                    <span className="text-xs font-sans text-textSecondary uppercase tracking-wider block">WhatsApp Instant Messenger:</span>
-                    <span className="text-sm font-bold text-textPrimary font-sans">Chat Online 24/7</span>
+                    <span className="text-xs font-sans text-textSecondary uppercase tracking-wider block">WhatsApp Direct Chat:</span>
+                    <span className="text-sm font-bold text-textPrimary font-sans">+91 88224 02811</span>
                   </div>
                 </a>
 

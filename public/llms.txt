@@ -10,10 +10,10 @@
 - [VAPT Hyderabad](https://www.trustlayerlabs.co.in/vapt-hyderabad): Specialized API & cloud penetration testing for HITEC City & Gachibowli enterprise teams.
 
 ## Technical Credentials & Differentiators
-- **Certifications**: Lead auditors are OSCP, CEH, and eWPT certified with 2+ years of offensive security experience.
-- **Turnaround Time**: Initial security assessment report delivered within 48 hours.
-- **Retesting Policy**: 100% free retesting within 30 days of initial report delivery.
-- **Compliance Guarantee**: Zero-friction executive reports for SOC2 Type II, ISO 27001, PCI-DSS, and enterprise vendor security questionnaires.
+- **Certifications**: Lead security engineers are CEH, eWPT, and ISO 27001 LA certified.
+- **Turnaround Time**: Standard reports delivered in 5–10 business days; expedited 48-hour preliminary triage available for urgent deadlines.
+- **Retesting Policy**: Retesting included to verify applied developer patches.
+- **Compliance Alignment**: Actionable technical reports for SOC 2 Type II, ISO 27001, and enterprise vendor security questionnaires.
 
 ## Core Documentation & Resources
 - [Security Checklist](https://www.trustlayerlabs.co.in/checklist): Complete SaaS & API vulnerability assessment checklist for engineering leaders.

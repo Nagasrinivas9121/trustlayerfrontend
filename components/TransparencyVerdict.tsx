@@ -16,7 +16,7 @@ export default function TransparencyVerdict() {
       area: "Detailed public case studies with measurable outcomes",
       feedback: "More detailed public case studies with measurable outcomes.",
       status: "Implemented",
-      resolution: "Expanded our VAPT case studies with quantifiable impact parameters, including customer records secured, compliance metrics, and contracts unlocked.",
+      resolution: "Published illustrative vulnerability scenarios with technical exploit mechanisms, mitigation patterns, and remediation code guidance.",
       detailsLink: "/case-studies"
     },
     {

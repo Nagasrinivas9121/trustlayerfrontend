@@ -110,8 +110,8 @@ export default function MethodologyPage() {
               },
               {
                 step: "Phase 5",
-                title: "Free Retesting & Scope Attestation Certificate",
-                desc: "After your developers apply code patches, we retest 100% of discovered vulnerabilities for free within 30 days and issue your signed Attestation Certificate."
+                title: "Retesting & Remediation Verification Letter",
+                desc: "After your developers apply code patches, we re-evaluate fixed vulnerabilities and issue an updated final report and Retest Verification Letter."
               }
             ].map((phase, idx) => (
               <div key={idx} className="p-6 bg-surface border border-border/80 rounded-xl space-y-2 shadow-sm">

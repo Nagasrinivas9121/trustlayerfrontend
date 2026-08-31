@@ -47,22 +47,22 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-success"></span>
             </span>
-            <span>Only 2 Audit Slots Open This Month →</span>
+            <span>Manual API & Application Security Testing →</span>
           </Link>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.1] max-w-4xl mx-auto font-sans">
-            Security Reviews That Help Startups <br className="hidden md:inline" />
-            <span className="text-primary">Win Enterprise Customers.</span>
+            Application Security, API Security & GRC for <br className="hidden md:inline" />
+            <span className="text-primary">Growing FinTech, SaaS and AI Teams</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-sm sm:text-base md:text-lg text-textSecondary max-w-2xl mx-auto leading-relaxed font-sans">
-            TrustLayerLabs helps <strong className="text-textPrimary font-semibold">AI, SaaS, and FinTech startups</strong> secure their applications before launch through expert-led VAPT and manual API security testing.
+            Identify authorization, authentication, business-logic and security-control gaps before they become customer, compliance or production risks.
           </p>
 
           {/* Action CTAs & Inline Lead Capture Form */}
-          <div className="w-full max-w-lg mx-auto space-y-4">
+          <div className="w-full max-w-xl mx-auto space-y-4">
             <form 
               onSubmit={handleLeadSubmit}
               className="flex flex-col sm:flex-row items-center gap-2.5 bg-surface border border-border p-2 rounded-2xl sm:rounded-full shadow-lg w-full"
@@ -72,14 +72,14 @@ export default function Hero() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter work email..."
+                placeholder="Enter your work email..."
                 className="w-full sm:flex-1 px-4 py-2.5 sm:py-1.5 bg-transparent border-0 text-xs text-textPrimary placeholder:text-textSecondary focus:outline-none font-sans"
               />
               <button
                 type="submit"
                 className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-6 rounded-xl sm:rounded-full shadow-md transition-all active:scale-[0.98] gap-1.5 flex-shrink-0"
               >
-                Free VAPT Consultation
+                Book a 20-Min Security Review
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
@@ -89,39 +89,35 @@ export default function Hero() {
                 href="/sample-report" 
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
               >
-                📄 Sample VAPT Report
+                📄 View Sample Report
               </Link>
               <span className="text-border">•</span>
               <Link 
                 href="https://calendar.app.google/jnamj3gawxVunPJm9" 
                 target="_blank"
-                className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
+                className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary"
               >
-                📅 Calendar Intake
+                📅 Schedule 20-Min Intake Call
               </Link>
             </div>
           </div>
 
-          {/* Overlapping customer avatars, stars, reviews count */}
+          {/* Verified team credentials row */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
             <div className="flex -space-x-2.5 overflow-hidden">
               <div className="w-7 h-7 rounded-full bg-primary/10 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">CEH</div>
               <div className="w-7 h-7 rounded-full bg-primary/20 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">eWPT</div>
-              <div className="w-7 h-7 rounded-full bg-primary/30 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">VAPT</div>
+              <div className="w-7 h-7 rounded-full bg-primary/30 border-2 border-surface flex items-center justify-center font-bold text-[10px] text-primary shadow-sm">ISO</div>
             </div>
-            <div className="flex flex-col items-center sm:items-start">
-              <div className="flex items-center text-amber-500 gap-0.5">
-                {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-current" />)}
-              </div>
-              <span className="text-xs font-sans text-textSecondary uppercase tracking-wider font-semibold mt-0.5">
-                Newly Founded, Certified Team
-              </span>
+            <div className="flex items-center gap-1.5 text-xs font-sans text-textSecondary uppercase tracking-wider font-semibold">
+              <span className="text-primary font-bold font-mono">CEH • eWPT • ISO 27001</span>
+              <span>Credentials</span>
             </div>
           </div>
 
           {/* Tiny Floating Badges row */}
           <div className="pt-4 flex flex-wrap justify-center items-center gap-2.5">
-            {["SOC2 Readiness", "ISO 27001", "API Security", "VAPT Auditing"].map((badge, idx) => (
+            {["Manual API Security", "FinTech Testing", "SaaS Multi-Tenancy", "SOC 2 Readiness", "ISO 27001 Alignment"].map((badge, idx) => (
               <span 
                 key={idx} 
                 className="px-3 py-1 bg-surface/50 border border-border/80 text-xs font-sans text-textSecondary uppercase tracking-wider rounded-full flex items-center gap-1.5 shadow-sm"
@@ -136,15 +132,16 @@ export default function Hero() {
         {/* Floating Testimonial Cards Layout - Absolute Positioned on Desktop */}
         
         {/* Left Floating Card */}
+        {/* Left Floating Card */}
         <div className="hidden lg:block absolute left-0 xl:left-4 top-[50%] -translate-y-1/2 w-[280px] rotate-[-3deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 shadow-md bg-surface border border-border p-6 rounded-2xl z-10">
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-1 text-primary">
-              {[...Array(5)].map((_, i) => <Star key={i} size={10} className="fill-current" />)}
-            </div>
-            <Quote size={20} className="text-primary/10 fill-current" />
+            <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+              Offensive Security
+            </span>
+            <CheckCircle size={16} className="text-primary" />
           </div>
-          <p className="text-sm text-textPrimary leading-relaxed italic font-sans mb-4">
-            &ldquo;We&apos;re a founder-led offensive security team based in Bangalore & Hyderabad.&rdquo;
+          <p className="text-xs text-textPrimary leading-relaxed font-sans mb-4">
+            Manual authorization, BOLA & business-logic security testing for high-growth tech teams.
           </p>
           <div className="flex items-center gap-3 pt-3 border-t border-border/40">
             <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
@@ -152,7 +149,7 @@ export default function Hero() {
             </div>
             <div>
               <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
-              <p className="text-[11px] font-sans text-textSecondary uppercase">Founder-Led Team</p>
+              <p className="text-[11px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
             </div>
           </div>
         </div>
@@ -160,37 +157,37 @@ export default function Hero() {
         {/* Right Floating Card */}
         <div className="hidden lg:block absolute right-0 xl:right-4 top-[52%] -translate-y-1/2 w-[280px] rotate-[3deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 shadow-md bg-surface border border-border p-6 rounded-2xl z-10">
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-1 text-primary">
-              {[...Array(5)].map((_, i) => <Star key={i} size={10} className="fill-current" />)}
-            </div>
-            <Quote size={20} className="text-primary/10 fill-current" />
+            <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+              Technical GRC
+            </span>
+            <CheckCircle size={16} className="text-primary" />
           </div>
-          <p className="text-sm text-textPrimary leading-relaxed italic font-sans mb-4">
-            &ldquo;Certified security architects (CEH, eWPT, VAPT) auditing API logic & code.&rdquo;
+          <p className="text-xs text-textPrimary leading-relaxed font-sans mb-4">
+            SOC 2 & ISO 27001 readiness, technical control mapping, and retest verification reports.
           </p>
           <div className="flex items-center gap-3 pt-3 border-t border-border/40">
             <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
-              CS
+              GRC
             </div>
             <div>
-              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Certified Team</h4>
-              <p className="text-[11px] font-sans text-textSecondary uppercase">Security Architects</p>
+              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
+              <p className="text-[11px] font-sans text-textSecondary uppercase">Governance Advisory</p>
             </div>
           </div>
         </div>
 
         {/* Mobile/Tablet Fallback Grid */}
         <div className="lg:hidden mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {/* Left testimonial card */}
+          {/* Left card */}
           <div className="bg-surface border border-border p-6 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-2px] transition-transform duration-300">
             <div className="flex justify-between items-center">
-              <div className="flex items-center space-x-1 text-primary">
-                {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-current" />)}
-              </div>
-              <Quote size={20} className="text-primary/10 fill-current" />
+              <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+                Offensive Security
+              </span>
+              <CheckCircle size={16} className="text-primary" />
             </div>
-            <p className="text-sm text-textPrimary leading-relaxed italic font-sans">
-              &ldquo;We&apos;re a founder-led offensive security team based in Bangalore & Hyderabad.&rdquo;
+            <p className="text-xs text-textPrimary leading-relaxed font-sans">
+              Manual authorization, BOLA & business-logic security testing for high-growth tech teams.
             </p>
             <div className="flex items-center gap-3 pt-3 border-t border-border/40">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
@@ -198,29 +195,29 @@ export default function Hero() {
               </div>
               <div>
                 <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
-                <p className="text-[11px] font-sans text-textSecondary uppercase">Founder-Led Team</p>
+                <p className="text-[11px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
               </div>
             </div>
           </div>
 
-          {/* Right testimonial card */}
+          {/* Right card */}
           <div className="bg-surface border border-border p-6 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-2px] transition-transform duration-300">
             <div className="flex justify-between items-center">
-              <div className="flex items-center space-x-1 text-primary">
-                {[...Array(5)].map((_, i) => <Star key={i} size={11} className="fill-current" />)}
-              </div>
-              <Quote size={20} className="text-primary/10 fill-current" />
+              <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+                Technical GRC
+              </span>
+              <CheckCircle size={16} className="text-primary" />
             </div>
-            <p className="text-sm text-textPrimary leading-relaxed italic font-sans">
-              &ldquo;Certified security architects (CEH, eWPT, VAPT) auditing API logic & code.&rdquo;
+            <p className="text-xs text-textPrimary leading-relaxed font-sans">
+              SOC 2 & ISO 27001 readiness, technical control mapping, and retest verification reports.
             </p>
             <div className="flex items-center gap-3 pt-3 border-t border-border/40">
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
-                CS
+                GRC
               </div>
               <div>
-                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Certified Team</h4>
-                <p className="text-[11px] font-sans text-textSecondary uppercase">Security Architects</p>
+                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
+                <p className="text-[11px] font-sans text-textSecondary uppercase">Governance Advisory</p>
               </div>
             </div>
           </div>

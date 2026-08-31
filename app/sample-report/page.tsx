@@ -67,13 +67,13 @@ export default function SampleReportPage() {
 
         <div className="mb-12">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-widest mb-4">
-            <span>Engineering-First Reporting</span>
+            <span>Illustrative Deliverable Sample</span>
           </div>
           <h1 className="heading-1 mb-6 text-textPrimary font-extrabold tracking-tight">
-            Redacted Sample <span className="text-primary">VAPT Report</span>
+            Illustrative Sample <span className="text-primary">Security Assessment Report</span>
           </h1>
-          <p className="body-text text-base max-w-3xl text-textSecondary leading-relaxed">
-            Examine the structure, CVSS scoring, PoC exploit scripts, and developer remediation commits delivered in a live TrustLayerLabs security audit.
+          <p className="body-text text-base max-w-3xl text-textSecondary leading-relaxed font-sans">
+            Examine the structure, CVSS scoring criteria, proof-of-concept breakdown, and developer remediation code guidance delivered in a TrustLayerLabs security assessment.
           </p>
         </div>
 
@@ -86,10 +86,10 @@ export default function SampleReportPage() {
             <FileText size={24} />
           </div>
           <h3 className="text-xl font-bold text-textPrimary font-sans">
-            Request Full PDF Sample Report & Attestation Template
+            Download Sample PDF Report Bundle
           </h3>
-          <p className="text-xs text-textSecondary leading-relaxed max-w-xl mx-auto">
-            Need to show a sample report structure to your engineering team or compliance auditor? Enter your email to download the redacted PDF report bundle.
+          <p className="text-xs text-textSecondary leading-relaxed max-w-xl mx-auto font-sans">
+            Need to review the format and technical depth of our deliverables with your engineering or compliance team? Enter your email to download the illustrative sample PDF report.
           </p>
 
           {downloaded ? (
