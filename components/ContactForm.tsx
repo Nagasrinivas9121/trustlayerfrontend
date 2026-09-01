@@ -193,8 +193,9 @@ export default function ContactForm() {
                       onChange={(e) => setFormData({...formData, scope: e.target.value})}
                       className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-sm text-textPrimary focus:outline-none transition-all font-sans"
                     >
+                      <option value="mobile-vapt">Mobile Application VAPT</option>
                       <option value="api">API Pen Testing</option>
-                      <option value="vapt">Application VAPT</option>
+                      <option value="vapt">Web Application VAPT</option>
                       <option value="cloud">Cloud Security Audit</option>
                       <option value="soc2">SOC2 / ISO Readiness</option>
                     </select>

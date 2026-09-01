@@ -77,13 +77,24 @@ export default function ApiSecurityPage() {
           </div>
         </div>
 
-        <div className="mb-12 p-4 bg-surface border border-border/80 rounded-xl flex items-center justify-between gap-4">
-          <p className="text-xs text-textSecondary font-sans">
-            Building a payment gateway, banking interface, or financial application? Explore our specialized <Link href="/fintech-security" className="text-primary font-bold hover:underline">FinTech API Security Testing</Link> services.
-          </p>
-          <Link href="/fintech-security" className="text-xs font-bold font-mono text-primary flex items-center gap-1 uppercase tracking-wider flex-shrink-0">
-            Learn More →
-          </Link>
+        <div className="space-y-4 mb-12">
+          <div className="p-4 bg-surface border border-border/80 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-xs text-textSecondary font-sans">
+              Securing APIs powering iOS or Android apps? Explore our <Link href="/services/mobile-vapt" className="text-primary font-bold hover:underline">Mobile Application VAPT</Link> services covering client apps, local storage, and mobile backend endpoints.
+            </p>
+            <Link href="/services/mobile-vapt" className="text-xs font-bold font-mono text-primary flex items-center gap-1 uppercase tracking-wider flex-shrink-0">
+              Mobile VAPT →
+            </Link>
+          </div>
+
+          <div className="p-4 bg-surface border border-border/80 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-xs text-textSecondary font-sans">
+              Building a payment gateway, banking interface, or financial application? Explore our specialized <Link href="/fintech-security" className="text-primary font-bold hover:underline">FinTech API Security Testing</Link> services.
+            </p>
+            <Link href="/fintech-security" className="text-xs font-bold font-mono text-primary flex items-center gap-1 uppercase tracking-wider flex-shrink-0">
+              Learn More →
+            </Link>
+          </div>
         </div>
 
         <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4 shadow-sm">

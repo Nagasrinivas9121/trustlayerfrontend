@@ -103,10 +103,16 @@ export default function ServicesPage() {
                         </ul>
                       </div>
 
-                      <div className="pt-2">
+                      <div className="pt-2 space-y-2">
+                        <Link 
+                          href={`/services/${service.slug}`}
+                          className="w-full inline-flex items-center justify-center py-2.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-textPrimary hover:text-primary transition-all"
+                        >
+                          Explore {service.title} Details →
+                        </Link>
                         <Link 
                           href="/contact"
-                          className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-white shadow-sm transition-all"
+                          className="w-full inline-flex items-center justify-center py-2.5 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-white shadow-sm transition-all"
                         >
                           Request Scoping Document
                         </Link>

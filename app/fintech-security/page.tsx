@@ -453,12 +453,18 @@ export default function FinTechSecurityPage() {
                 APIs are the primary data conduit for financial technology. We assess REST, GraphQL, and microservice interfaces against critical authorization and logic vulnerabilities.
               </p>
             </div>
-            <div>
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 href="/services/api-security"
                 className="inline-flex items-center gap-1.5 text-xs uppercase font-sans font-bold tracking-wider text-primary hover:underline"
               >
                 <span>Explore Dedicated API Security Testing →</span>
+              </Link>
+              <Link 
+                href="/services/mobile-vapt"
+                className="inline-flex items-center gap-1.5 text-xs uppercase font-sans font-bold tracking-wider text-primary hover:underline"
+              >
+                <span>Explore Mobile Application VAPT →</span>
               </Link>
             </div>
           </div>
