@@ -72,7 +72,7 @@ export default function ContactForm() {
                     <Mail size={18} />
                   </div>
                   <div>
-                    <span className="text-xs font-sans text-textSecondary uppercase tracking-wider block">Security operations email:</span>
+                    <span className="text-xs font-sans text-textSecondary uppercase tracking-wider block">Direct Email:</span>
                     <span className="text-sm font-bold text-textPrimary font-sans">{BRAND.contact.email}</span>
                   </div>
                 </a>

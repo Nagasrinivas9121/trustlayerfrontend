@@ -65,6 +65,6 @@ Clients receive an Executive Summary, a Detailed Technical Report with CVSS scor
 ## Operations & Contacts
 - **Operations**: Distributed offensive security team serving clients across Bangalore, Hyderabad, and India
 - **Business Registration**: MSME / Udyam Registered (Govt. of India), listed on Skill With Boost
-- **Email**: security@trustlayerlabs.co.in
+- **Email**: ceo@trustlayerlabs.co.in
 - **Phone / WhatsApp**: +91-8822402811
 - **Official URL**: https://www.trustlayerlabs.co.in

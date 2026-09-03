@@ -270,7 +270,7 @@ export default function FinTechSecurityPage() {
           "name": "TrustLayerLabs",
           "url": "https://www.trustlayerlabs.co.in",
           "telephone": "+91-8822402811",
-          "email": "security@trustlayerlabs.co.in"
+          "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Manual FinTech VAPT services for APIs, web applications, payment workflows and cloud infrastructure with actionable remediation guidance and retesting.",
         "areaServed": ["India", "Global"],

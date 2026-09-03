@@ -70,7 +70,7 @@ export default function NdaProcessPage() {
         <div className="mt-12 p-6 bg-surface/50 border border-border rounded-xl text-center space-y-3">
           <p className="text-xs text-textSecondary">
             Need an NDA executed prior to your scoping call? Contact our team directly at{" "}
-            <a href="mailto:security@trustlayerlabs.co.in" className="text-primary underline">security@trustlayerlabs.co.in</a>.
+            <a href="mailto:ceo@trustlayerlabs.co.in" className="text-primary underline">ceo@trustlayerlabs.co.in</a>.
           </p>
         </div>
       </div>

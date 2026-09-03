@@ -212,7 +212,7 @@ Always include a version number (e.g., /v1/) in your URL or header to manage sec
 ## 10. Conduct Regular API Penetration Testing
 Schedule a manual [API Security Audit](/#services) at least once a year. A human tester will find logic flaws that scanners miss.
 
-*Need an expert eye on your API? [Contact TrustLayer Labs](mailto:security@trustlayerlabs.co.in) for a deep-dive security audit.*
+*Need an expert eye on your API? [Contact TrustLayer Labs](mailto:ceo@trustlayerlabs.co.in) for a deep-dive security audit.*
     `
   },
   {
