@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.trustlayerlabs.co.in"),
   manifest: "/manifest.json",
   title: {
-    default: "TrustLayerLabs | Application Security, API Security & GRC for FinTech, SaaS & AI",
+    default: "API Security & GRC for SaaS, FinTech and AI | TrustLayerLabs",
     template: "%s | TrustLayerLabs",
   },
   description: "Manual application security testing, API penetration testing, FinTech security audits, and GRC readiness (SOC 2, ISO 27001) for growing technology teams.",

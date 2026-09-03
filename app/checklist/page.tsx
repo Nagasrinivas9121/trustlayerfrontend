@@ -162,6 +162,9 @@ export default function ChecklistPage() {
                   <form onSubmit={handleDownload} className="space-y-3.5">
                     <input 
                       type="email" 
+                      id="checklist-email"
+                      name="email"
+                      autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required

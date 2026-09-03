@@ -31,8 +31,8 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Mobile Application VAPT Services | Android & iOS Pentesting | TrustLayerLabs",
-  description: "Mobile application VAPT services for Android and iOS apps, APIs, authentication, data storage and business logic. Manual security testing with actionable remediation guidance and retesting.",
+  title: "Mobile App VAPT & iOS/Android Pentesting",
+  description: "Manual mobile application VAPT services for iOS and Android. Inspect auth, data storage, deep links, and APIs with retesting and remediation guidance.",
   keywords: [
     "mobile application vapt",
     "mobile application VAPT services",
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
     canonical: "https://www.trustlayerlabs.co.in/services/mobile-vapt",
   },
   openGraph: {
-    title: "Mobile Application VAPT Services | Android & iOS Pentesting | TrustLayerLabs",
-    description: "Mobile application VAPT services for Android and iOS apps, APIs, authentication, data storage and business logic. Manual security testing with actionable remediation guidance and retesting.",
+    title: "Mobile App VAPT & iOS/Android Pentesting | TrustLayerLabs",
+    description: "Manual mobile application VAPT services for iOS and Android. Inspect auth, data storage, deep links, and APIs with retesting and remediation guidance.",
     url: "https://www.trustlayerlabs.co.in/services/mobile-vapt",
     siteName: "TrustLayerLabs",
     locale: "en_IN",
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mobile Application VAPT Services | Android & iOS Pentesting | TrustLayerLabs",
-    description: "Mobile application VAPT services for Android and iOS apps, APIs, authentication, data storage and business logic. Manual security testing with actionable remediation guidance and retesting.",
+    title: "Mobile App VAPT & iOS/Android Pentesting | TrustLayerLabs",
+    description: "Manual mobile application VAPT services for iOS and Android. Inspect auth, data storage, deep links, and APIs with retesting and remediation guidance.",
   },
 };
 

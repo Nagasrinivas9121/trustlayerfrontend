@@ -4,7 +4,7 @@ import { ArrowLeft, CheckSquare, Download, Shield, Code, CheckCircle } from "luc
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "API Security Checklist 2026 | Free Developer Resource",
+  title: "API Security Checklist 2026",
   description: "Comprehensive 2026 API Security Checklist covering BOLA, JWT authentication, CORS, rate limiting, and OWASP API Top 10 vulnerabilities.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/api-security-checklist",

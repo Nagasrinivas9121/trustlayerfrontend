@@ -4,7 +4,7 @@ import { ArrowLeft, Shield, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "API Security Testing & BOLA Pentesting Services",
+  title: "API Security Testing & BOLA Pentesting",
   description: "Manual API penetration testing targeting OWASP API Top 10 vulnerabilities: BOLA, IDOR, JWT flaws, BFLA, and GraphQL rate-limiting bypasses.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/api-security",

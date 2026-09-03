@@ -4,7 +4,7 @@ import { ArrowLeft, Shield, CheckCircle, Target, FileText, Code, Lock } from "lu
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "VAPT Testing Methodology | OWASP, NIST & PTES Standards",
+  title: "VAPT Testing Methodology & Standards",
   description: "Learn TrustLayerLabs' manual vulnerability assessment & penetration testing methodology combining OWASP Top 10, NIST SP 800-115, and PTES standards.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/methodology",

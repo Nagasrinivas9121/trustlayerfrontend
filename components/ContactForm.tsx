@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Mail, MessageSquare, Linkedin, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
-export default function ContactForm() {
+export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,20 +20,30 @@ export default function ContactForm() {
     setLoading(true);
     try {
       // Simulate form post
-      await new Promise((res) => setTimeout(res, 1500));
+      await new Promise((res) => setTimeout(res, 1200));
+
+      // Save lead details
+      const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+      existingLeads.push({
+        ...formData,
+        source: "contact-form",
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+
       setSuccess(true);
       setFormData({ name: "", email: "", startup: "", scope: "api", message: "" });
     } catch (err) {
-      // error handling
+      console.error("Form submit error:", err);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="py-24 bg-background border-t border-border relative" id="contact">
+    <section className="py-24 bg-background border-t border-border relative overflow-hidden" id="contact">
       {/* Background Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] max-w-[100vw] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="section-container">
         
@@ -42,9 +52,15 @@ export default function ContactForm() {
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
             <span>Contact Security Team</span>
           </div>
-          <h2 className="heading-2 mb-6 font-sans">
-            Initiate Your <span className="text-primary">Security Assessment</span>
-          </h2>
+          {asH1 ? (
+            <h1 className="heading-2 mb-6 font-sans">
+              Initiate Your <span className="text-primary">Security Assessment</span>
+            </h1>
+          ) : (
+            <h2 className="heading-2 mb-6 font-sans">
+              Initiate Your <span className="text-primary">Security Assessment</span>
+            </h2>
+          )}
           <p className="body-text text-textSecondary font-sans">
             Request a scope review or book an intake call directly with our lead pentesting team.
           </p>
@@ -145,6 +161,8 @@ export default function ContactForm() {
                     <input 
                       type="text" 
                       id="name"
+                      name="name"
+                      autoComplete="name"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
@@ -159,6 +177,8 @@ export default function ContactForm() {
                     <input 
                       type="email" 
                       id="email"
+                      name="email"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required
@@ -176,6 +196,8 @@ export default function ContactForm() {
                     <input 
                       type="text" 
                       id="startup"
+                      name="startup"
+                      autoComplete="organization"
                       value={formData.startup}
                       onChange={(e) => setFormData({...formData, startup: e.target.value})}
                       required
@@ -189,6 +211,7 @@ export default function ContactForm() {
                     </label>
                     <select 
                       id="scope"
+                      name="scope"
                       value={formData.scope}
                       onChange={(e) => setFormData({...formData, scope: e.target.value})}
                       className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-sm text-textPrimary focus:outline-none transition-all font-sans"
@@ -208,6 +231,7 @@ export default function ContactForm() {
                   </label>
                   <textarea 
                     id="message"
+                    name="message"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required

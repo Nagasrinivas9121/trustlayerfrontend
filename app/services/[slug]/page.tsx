@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return {};
 
   return {
-    title: `${service.title} | Elite VAPT & CyberSecurity Audit Services`,
+    title: service.title,
     description: service.description,
     alternates: {
       canonical: `https://www.trustlayerlabs.co.in/services/${slug}`,

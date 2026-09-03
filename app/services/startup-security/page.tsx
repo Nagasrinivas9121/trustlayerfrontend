@@ -4,8 +4,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Startup Security & SOC2 / ISO 27001 Readiness",
-  description: "Fast-track SOC2 Type II, ISO 27001, and enterprise vendor audit readiness for SaaS, AI, and FinTech startups. GRC controls mapping and pentest attestation.",
+  title: "Startup Security & SOC 2 Readiness",
+  description: "Fast-track SOC 2 Type II, ISO 27001, and enterprise vendor audit readiness for SaaS, AI, and FinTech startups. GRC controls mapping and pentest attestation.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/startup-security",
   },

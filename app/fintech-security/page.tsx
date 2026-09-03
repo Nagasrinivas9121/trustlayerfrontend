@@ -25,8 +25,8 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "FinTech VAPT Services | API & Application Pentesting | TrustLayerLabs",
-  description: "FinTech VAPT services for APIs, web applications, payment workflows and cloud infrastructure. Manual security testing with actionable remediation guidance and retesting.",
+  title: "FinTech VAPT and API Security Testing",
+  description: "Manual FinTech VAPT services for APIs, payment workflows, and cloud infra. Actionable remediation guidance, developer PoCs, and free retesting.",
   keywords: [
     "fintech vapt services",
     "fintech penetration testing services",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     canonical: "https://www.trustlayerlabs.co.in/fintech-security",
   },
   openGraph: {
-    title: "FinTech VAPT Services | API & Application Pentesting | TrustLayerLabs",
-    description: "FinTech VAPT services for APIs, web applications, payment workflows and cloud infrastructure. Manual security testing with actionable remediation guidance and retesting.",
+    title: "FinTech VAPT and API Security Testing | TrustLayerLabs",
+    description: "Manual FinTech VAPT services for APIs, payment workflows, and cloud infra. Actionable remediation guidance, developer PoCs, and free retesting.",
     url: "https://www.trustlayerlabs.co.in/fintech-security",
     siteName: "TrustLayerLabs",
     locale: "en_IN",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FinTech VAPT Services | API & Application Pentesting | TrustLayerLabs",
-    description: "FinTech VAPT services for APIs, web applications, payment workflows and cloud infrastructure. Manual security testing with actionable remediation guidance and retesting.",
+    title: "FinTech VAPT and API Security Testing | TrustLayerLabs",
+    description: "Manual FinTech VAPT services for APIs, payment workflows, and cloud infra. Actionable remediation guidance, developer PoCs, and free retesting.",
   },
 };
 

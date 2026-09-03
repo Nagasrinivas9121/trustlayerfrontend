@@ -4,7 +4,7 @@ import { ArrowLeft, ShieldCheck, Lock, FileText, CheckCircle } from "lucide-reac
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NDA & Confidentiality Policy | TrustLayerLabs",
+  title: "NDA & Confidentiality Policy",
   description: "Learn how TrustLayerLabs protects customer confidentiality with mutual NDAs, encrypted report storage, and zero-retention security protocols.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/nda-process",

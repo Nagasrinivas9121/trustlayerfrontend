@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Illustrative Sample VAPT Report | TrustLayerLabs",
+  title: "Illustrative Sample VAPT Report",
   description: "Explore an illustrative sample VAPT report from TrustLayerLabs. See CVSS scores, reproduction steps, code patches, and assessment report structures.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/sample-report",

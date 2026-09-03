@@ -16,8 +16,8 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Security Assessment Partner Program | TrustLayerLabs",
-  description: "Partner with TrustLayerLabs as your dedicated technical offensive security and VAPT partner for agencies, cloud consultancies, MSPs, and SOC 2 advisors.",
+  title: "Security Partner Program",
+  description: "Partner with TrustLayerLabs as your dedicated technical offensive security and VAPT partner for agencies, MSPs, and SOC 2 advisors.",
   keywords: [
     "cybersecurity partner program",
     "white label VAPT partner",

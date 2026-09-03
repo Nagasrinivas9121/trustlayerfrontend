@@ -4,7 +4,7 @@ import { ArrowLeft, ShieldCheck, Mail, Lock } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Responsible Disclosure Policy | TrustLayerLabs Security",
+  title: "Responsible Disclosure Policy",
   description: "TrustLayerLabs Vulnerability Disclosure Policy. How security researchers can report potential vulnerabilities safely and responsibly.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/responsible-disclosure",

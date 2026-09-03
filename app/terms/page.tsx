@@ -1,6 +1,14 @@
-import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Shield } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Terms of service, rules of engagement, and scoping agreements for TrustLayerLabs manual VAPT and GRC consulting engagements.",
+  alternates: {
+    canonical: "https://www.trustlayerlabs.co.in/terms",
+  },
+};
 
 export default function TermsPage() {
   return (

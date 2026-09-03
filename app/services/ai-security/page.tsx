@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI & LLM Application Security Testing Services",
+  title: "AI & LLM Application Security",
   description: "Vulnerability assessment for AI applications, LLM agents, RAG vector databases, and prompt injection vectors (OWASP Top 10 for LLMs).",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/ai-security",

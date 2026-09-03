@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "VAPT Case Studies — Real API Security Findings",
+  title: "VAPT Case Studies & Security Findings",
   description:
-    "Read real-world VAPT case studies from TrustLayerLabs: BOLA/IDOR vulnerabilities discovered in FinTech APIs, broken authentication in SaaS platforms, and cloud misconfigurations that put customer data at risk.",
+    "Real-world VAPT case studies: BOLA vulnerabilities in FinTech APIs, broken auth in SaaS, and cloud misconfigurations resolved with developer PoCs.",
   keywords: [
     "VAPT case studies India",
     "API security case study",

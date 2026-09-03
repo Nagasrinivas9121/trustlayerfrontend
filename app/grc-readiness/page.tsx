@@ -17,8 +17,8 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "GRC & Enterprise Security Readiness | SOC 2 & ISO 27001 | TrustLayerLabs",
-  description: "Get security-review ready before your enterprise customers ask. SOC 2 Type II readiness, ISO 27001 gap analysis, custom security policies, and technical penetration testing.",
+  title: "SOC 2 and ISO 27001 Readiness",
+  description: "SOC 2 Type II readiness, ISO 27001 gap analysis, custom security policies, and technical penetration testing for growing tech teams.",
   keywords: [
     "SOC 2 readiness consulting",
     "ISO 27001 gap analysis India",

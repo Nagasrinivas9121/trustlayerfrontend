@@ -1,6 +1,14 @@
-import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Shield } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "TrustLayerLabs privacy policy and data protection commitments for security testing client engagements and vulnerability assessment data.",
+  alternates: {
+    canonical: "https://www.trustlayerlabs.co.in/privacy",
+  },
+};
 
 export default function PrivacyPage() {
   return (

@@ -57,7 +57,7 @@ export default function FreeAssessmentPage() {
   return (
     <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] max-w-[100vw] h-[700px] bg-primary/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
       <div className="section-container max-w-xl mx-auto px-4 relative z-10">
         
@@ -137,6 +137,8 @@ export default function FreeAssessmentPage() {
                     <input 
                       type="text" 
                       id="name"
+                      name="name"
+                      autoComplete="name"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
@@ -151,6 +153,8 @@ export default function FreeAssessmentPage() {
                     <input 
                       type="email" 
                       id="email"
+                      name="email"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required
@@ -165,6 +169,8 @@ export default function FreeAssessmentPage() {
                     <input 
                       type="text" 
                       id="company"
+                      name="company"
+                      autoComplete="organization"
                       value={formData.company}
                       onChange={(e) => setFormData({...formData, company: e.target.value})}
                       required
@@ -179,6 +185,8 @@ export default function FreeAssessmentPage() {
                     <input 
                       type="url" 
                       id="website"
+                      name="website"
+                      autoComplete="url"
                       value={formData.website}
                       onChange={(e) => setFormData({...formData, website: e.target.value})}
                       required
@@ -198,6 +206,7 @@ export default function FreeAssessmentPage() {
                     </label>
                     <select 
                       id="scope"
+                      name="scope"
                       value={formData.scope}
                       onChange={(e) => setFormData({...formData, scope: e.target.value})}
                       className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
@@ -217,6 +226,7 @@ export default function FreeAssessmentPage() {
                     </label>
                     <select 
                       id="size"
+                      name="size"
                       value={formData.size}
                       onChange={(e) => setFormData({...formData, size: e.target.value})}
                       className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
@@ -239,6 +249,7 @@ export default function FreeAssessmentPage() {
                     </label>
                     <select 
                       id="urgency"
+                      name="urgency"
                       value={formData.urgency}
                       onChange={(e) => setFormData({...formData, urgency: e.target.value})}
                       className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
@@ -257,6 +268,7 @@ export default function FreeAssessmentPage() {
                     </label>
                     <textarea 
                       id="message"
+                      name="message"
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       rows={4}

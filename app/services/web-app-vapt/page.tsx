@@ -4,7 +4,7 @@ import { ArrowLeft, Shield, CheckCircle, Code, ArrowRight, Lock } from "lucide-r
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web Application VAPT | Manual Web Pentesting Services",
+  title: "Web Application VAPT & Pentesting",
   description: "Manual Vulnerability Assessment & Penetration Testing (VAPT) for web apps. OWASP Top 10, XSS, SQLi, authentication bypasses, and 48-hour report delivery.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/web-app-vapt",

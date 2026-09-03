@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kubernetes & Container Security Audit Services",
+  title: "Kubernetes & Container Security",
   description: "Security assessments for Kubernetes clusters, RBAC roles, container base images, and Pod Security Admission policies.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/kubernetes-security",

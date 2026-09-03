@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cloud Security Assessment | AWS, GCP & Azure IAM Audits",
+  title: "Cloud Security Assessment & IAM Audits",
   description: "Comprehensive AWS, GCP, and Azure cloud security configuration audits. Eliminate IAM privilege creep, S3 bucket exposure, and unencrypted data assets.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/cloud-security",

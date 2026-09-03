@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — Nagasrinivasa Rao & TrustLayerLabs Security Team",
+  title: "About Our Security Team & Leadership",
   description:
     "Meet the founder and team behind TrustLayerLabs — offensive security practitioners specializing in manual API penetration testing, web application VAPT, and compliance readiness.",
   keywords: [

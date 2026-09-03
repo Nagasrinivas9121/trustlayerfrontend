@@ -17,7 +17,16 @@ export default function LeadMagnet() {
     setLoading(true);
     try {
       // Simulate/trigger lead API capture
-      await new Promise((res) => setTimeout(res, 1200));
+      await new Promise((res) => setTimeout(res, 1000));
+      
+      const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+      existingLeads.push({
+        email,
+        source: "lead-magnet-playbook",
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+
       setSuccess(true);
       setMessage("Download links have been sent to your email address!");
       setEmail("");
@@ -94,6 +103,8 @@ export default function LeadMagnet() {
                     <input 
                       type="email" 
                       id="lead-email"
+                      name="email"
+                      autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required

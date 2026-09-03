@@ -125,7 +125,13 @@ export default async function BlogPost({ params }) {
           prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg
           prose-strong:text-textPrimary prose-code:text-primary prose-code:bg-zinc-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-border
           prose-pre:bg-zinc-50 prose-pre:border prose-pre:border-border prose-pre:p-4 prose-pre:rounded-xl">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              h1: ({ node, ...props }) => <h2 {...props} />,
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </div>
 
         {/* Bottom CTA Block */}

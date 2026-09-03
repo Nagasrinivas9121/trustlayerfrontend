@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Security Blog — API Vulnerability Research & GRC Guides",
+  title: "Security Blog & Vulnerability Research",
   description:
     "Expert API security research, VAPT playbooks, penetration testing guides, and GRC compliance articles from TrustLayerLabs. Stay ahead of OWASP API Top 10 threats.",
   keywords: [

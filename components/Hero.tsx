@@ -32,10 +32,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none -z-10" />
       
       {/* Soft Center Radial Highlights */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] max-w-[100vw] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="section-container w-full relative z-10 max-w-6xl mx-auto">
-        <div className="flex flex-col items-center text-center space-y-10 max-w-3xl mx-auto relative z-20">
+        <div className="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto relative z-20">
           
           {/* Top Floating Pill Badge (Slot Limiter style) */}
           <Link 
@@ -62,13 +62,16 @@ export default function Hero() {
           </p>
 
           {/* Action CTAs & Inline Lead Capture Form */}
-          <div className="w-full max-w-xl mx-auto space-y-4">
+          <div className="w-full max-w-xl mx-auto space-y-3">
             <form 
               onSubmit={handleLeadSubmit}
               className="flex flex-col sm:flex-row items-center gap-2.5 bg-surface border border-border p-2 rounded-2xl sm:rounded-full shadow-lg w-full"
             >
               <input
                 type="email"
+                id="hero-email"
+                name="email"
+                autoComplete="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -83,6 +86,10 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
+
+            <p className="text-[11px] font-sans text-textSecondary text-center">
+              ⚡ Free intake scoping review under mutual NDA • Direct meeting with lead practitioner
+            </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-1">
               <Link 
@@ -102,23 +109,34 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Verified team practitioner focus row */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in">
-            <div className="flex items-center gap-1.5 text-xs font-sans text-textSecondary uppercase tracking-wider font-semibold">
-              <span className="text-primary font-bold font-mono">Manual VAPT • API Security • SOC 2 & ISO 27001 Readiness</span>
+          {/* Above-the-Fold Verifiable Trust Strip */}
+          <div className="pt-2 w-full max-w-2xl mx-auto border-t border-border/40">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-left sm:text-center text-[11px] font-sans text-textSecondary">
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+                <span>MSME/Udyam Registered</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+                <span>Developer-Ready PoCs</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+                <span>30-Day Retest Included</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+                <span>Mutual NDA Upfront</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+                <span>Sample Report Available</span>
+              </div>
+              <div className="flex items-center gap-1.5 font-medium">
+                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+                <span>Practitioner-Led VAPT</span>
+              </div>
             </div>
-          </div>
-
-          {/* Tiny Floating Badges row */}
-          <div className="pt-4 flex flex-wrap justify-center items-center gap-2.5">
-            {["Manual API Security", "FinTech Testing", "SaaS Multi-Tenancy", "SOC 2 Readiness", "ISO 27001 Alignment"].map((badge, idx) => (
-              <span 
-                key={idx} 
-                className="px-3 py-1 bg-surface/50 border border-border/80 text-xs font-sans text-textSecondary uppercase tracking-wider rounded-full flex items-center gap-1.5 shadow-sm"
-              >
-                <CheckCircle size={10} className="text-primary" /> {badge}
-              </span>
-            ))}
           </div>
 
         </div>
