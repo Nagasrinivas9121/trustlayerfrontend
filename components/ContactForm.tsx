@@ -62,7 +62,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
             </h2>
           )}
           <p className="body-text text-textSecondary font-sans">
-            Request a scope review or book an intake call directly with our lead pentesting team.
+            Request a scope review or connect directly with our security practitioners.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
               </h3>
               
               <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                Connect with us for scoping advice, questions, or to execute a mutual NDA. We aim to respond within one business day.
+                Connect with us for scoping advice, security assessment enquiries, or to execute a mutual NDA. We aim to respond within one business day.
               </p>
 
               <div className="space-y-4 font-sans">
@@ -142,7 +142,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 </div>
                 <h4 className="text-lg font-bold text-textPrimary uppercase font-sans tracking-wide">Scoping Request Logged</h4>
                 <p className="text-xs text-textSecondary max-w-sm leading-relaxed">
-                  Thank you! Our security architect will review your scope details and contact you via email shortly to schedule a kickoff meeting.
+                  Thank you! Our security practitioners will review your scope details and contact you via email to discuss next steps.
                 </p>
                 <button 
                   onClick={() => setSuccess(false)}
@@ -236,7 +236,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
                     rows={4}
-                    placeholder="Describe your architecture (e.g. GraphQL, AWS configuration, number of API endpoints) or urgency deadline details..."
+                    placeholder="Describe your architecture (e.g. GraphQL, AWS configuration, number of API endpoints) or target timeline details..."
                     className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg p-3 text-sm text-textPrimary placeholder-textSecondary/40 focus:outline-none transition-all font-sans"
                   />
                 </div>
@@ -248,11 +248,11 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 >
                   {loading ? (
                     <>
-                      <Loader2 size={13} className="animate-spin" /> Transmitting Scopes...
+                      <Loader2 size={13} className="animate-spin" /> Transmitting Details...
                     </>
                   ) : (
                     <>
-                      Transmit Secure Scopes <Send size={12} />
+                      Submit Scoping Details <Send size={12} />
                     </>
                   )}
                 </button>

@@ -122,18 +122,14 @@ export default function RootLayout({
         "address": [
           {
             "@type": "PostalAddress",
-            "streetAddress": "HSR Layout",
             "addressLocality": "Bengaluru",
             "addressRegion": "Karnataka",
-            "postalCode": "560102",
             "addressCountry": "IN",
           },
           {
             "@type": "PostalAddress",
-            "streetAddress": "HITEC City",
             "addressLocality": "Hyderabad",
             "addressRegion": "Telangana",
-            "postalCode": "500081",
             "addressCountry": "IN",
           },
         ],
