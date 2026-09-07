@@ -28,13 +28,14 @@ export default function Navbar() {
         }`}>
           
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2.5 group flex-shrink-0" aria-label="TrustLayerLabs Home">
-            <div className="relative w-7 h-7 flex items-center justify-center rounded-full overflow-hidden border border-border bg-black shadow-sm transition-all group-hover:scale-105">
-              <img src="/logo.jpeg" alt="TrustLayerLabs Logo" className="w-full h-full object-cover scale-[1.3]" />
+          <Link href="/" className="flex items-center group flex-shrink-0" aria-label="TrustLayerLabs Home">
+            <div className="bg-white px-2.5 py-1 rounded-lg shadow-sm border border-white/20 transition-all duration-300 group-hover:shadow-md group-hover:scale-105 flex items-center">
+              <img 
+                src="/logo-banner.png" 
+                alt="TrustLayerLabs - The Verified Trust Layer" 
+                className="h-6 sm:h-7 w-auto object-contain" 
+              />
             </div>
-            <span className="text-xs font-bold text-textPrimary tracking-wider uppercase font-sans flex-shrink-0">
-              Trust<span className="text-primary">Layer</span><span className="text-[11px] text-textSecondary font-light lowercase font-sans">.labs</span>
-            </span>
           </Link>
 
           {/* Desktop Navigation Links */}

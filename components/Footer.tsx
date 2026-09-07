@@ -50,13 +50,14 @@ export default function Footer() {
           
           {/* Logo & Description */}
           <div className="lg:col-span-4 space-y-6">
-            <Link href="/" className="flex items-center space-x-2.5 group">
-              <div className="w-8 h-8 flex items-center justify-center rounded-full overflow-hidden border border-border bg-black shadow-sm transition-all group-hover:scale-105">
-                <img src="/logo.jpeg" alt="TrustLayerLabs Logo" className="w-full h-full object-cover scale-[1.3]" />
+            <Link href="/" className="inline-block group" aria-label="TrustLayerLabs Home">
+              <div className="rounded-xl overflow-hidden border border-border/80 bg-[#0d0f14] shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-primary/50 inline-flex items-center">
+                <img 
+                  src="/logo-footer-dark.png" 
+                  alt="TrustLayerLabs - The Verified Trust Layer" 
+                  className="h-10 sm:h-12 w-auto object-contain" 
+                />
               </div>
-              <span className="text-sm font-bold text-textPrimary tracking-wider uppercase">
-                Trust<span className="text-primary">Layer</span><span className="text-[10px] text-textSecondary font-light lowercase font-sans">.labs</span>
-              </span>
             </Link>
             
             <p className="text-xs text-textSecondary leading-relaxed max-w-sm font-sans">

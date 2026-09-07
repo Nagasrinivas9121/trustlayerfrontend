@@ -91,6 +91,18 @@ export const metadata: Metadata = {
   verification: {
     google: "O3NO3SF_l7xN6N9X0gzRJ84kqy7D2_I-dUrLxVRda5o",
   },
+  icons: {
+    icon: [
+      { url: "/symbol.png?v=3", type: "image/png" },
+      { url: "/icon.png?v=3", type: "image/png" },
+      { url: "/favicon.ico?v=3" },
+    ],
+    apple: [
+      { url: "/symbol.png?v=3" },
+      { url: "/apple-touch-icon.png?v=3" }
+    ],
+    shortcut: ["/symbol.png?v=3"],
+  },
 };
 
 export default function RootLayout({
@@ -236,6 +248,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
       <head>
+        <link rel="icon" type="image/png" href="/symbol.png?v=3" />
+        <link rel="shortcut icon" href="/symbol.png?v=3" />
+        <link rel="apple-touch-icon" href="/symbol.png?v=3" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
