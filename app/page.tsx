@@ -30,7 +30,7 @@ export default function Home() {
       {/* 3. PROOF OF WORK / SAMPLE SECURITY REPORT */}
       <SecurityReportPreview />
 
-      {/* 4. SECURITY RESEARCH & TECHNICAL CASE STUDIES */}
+      {/* 4. SECURITY RESEARCH & TECHNICAL INSIGHTS */}
       <CaseStudy />
 
       {/* 5. WHO WE HELP & PROBLEMS WE SOLVE */}

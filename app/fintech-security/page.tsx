@@ -27,17 +27,6 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "FinTech VAPT and API Security Testing",
   description: "Manual FinTech VAPT services for APIs, payment workflows, and cloud infra. Actionable remediation guidance, developer PoCs, and free retesting.",
-  keywords: [
-    "fintech vapt services",
-    "fintech penetration testing services",
-    "fintech security testing",
-    "fintech application security testing",
-    "fintech API security testing",
-    "VAPT for fintech companies",
-    "payment API security testing",
-    "fintech cybersecurity assessment",
-    "financial application penetration testing"
-  ],
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/fintech-security",
   },

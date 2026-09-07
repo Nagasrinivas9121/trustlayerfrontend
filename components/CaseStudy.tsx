@@ -20,7 +20,7 @@ export default function CaseStudy() {
               <span>Technical Research</span>
             </div>
             <h2 className="heading-2 mb-4 font-sans">
-              Security Research & <span className="text-primary">Technical Case Studies</span>
+              Security Research & <span className="text-primary">Technical Insights</span>
             </h2>
             <p className="body-text text-textSecondary font-sans">
               Practical security research focused on the vulnerabilities modern SaaS, FinTech and AI teams actually face.

@@ -4,16 +4,6 @@ export const metadata: Metadata = {
   title: "VAPT & API Security Testing in Bangalore",
   description:
     "TrustLayerLabs provides manual VAPT, API penetration testing, and cloud security audits for tech startups in Bangalore — HSR Layout, Koramangala, and Whitefield.",
-  keywords: [
-    "VAPT Bangalore",
-    "API security testing Bangalore",
-    "penetration testing HSR Layout",
-    "cybersecurity company Bangalore",
-    "SOC2 audit Bangalore",
-    "cloud security Bangalore",
-    "fintech security audit Bangalore",
-    "startup security testing Bengaluru",
-  ],
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/vapt-bangalore",
   },

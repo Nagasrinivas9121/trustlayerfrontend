@@ -4,13 +4,6 @@ export const metadata: Metadata = {
   title: "About Our Security Team & Leadership",
   description:
     "Meet the founder and team behind TrustLayerLabs — offensive security practitioners specializing in manual API penetration testing, web application VAPT, and compliance readiness.",
-  keywords: [
-    "VAPT offensive security practitioner India",
-    "API security testing specialist",
-    "TrustLayerLabs founder",
-    "offensive security professional India",
-    "API security expert Bangalore",
-  ],
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/about",
   },

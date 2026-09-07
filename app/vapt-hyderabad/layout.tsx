@@ -4,16 +4,6 @@ export const metadata: Metadata = {
   title: "VAPT & API Security Testing in Hyderabad",
   description:
     "TrustLayerLabs provides manual VAPT, API penetration testing, and compliance readiness for tech startups in Hyderabad — HITEC City, Gachibowli, and Madhapur.",
-  keywords: [
-    "VAPT Hyderabad",
-    "API security testing Hyderabad",
-    "penetration testing HITEC City",
-    "cybersecurity company Hyderabad",
-    "SOC2 audit Hyderabad",
-    "cloud security Hyderabad",
-    "fintech security Gachibowli",
-    "startup security testing Telangana",
-  ],
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/vapt-hyderabad",
   },

@@ -4,15 +4,6 @@ export const metadata: Metadata = {
   title: "VAPT & API Security Testing Services",
   description:
     "Explore TrustLayerLabs' full range of security services: API penetration testing, VAPT, cloud security audits, SOC2 readiness, secure code review, and infrastructure hardening for SaaS and FinTech startups.",
-  keywords: [
-    "VAPT services India",
-    "API penetration testing",
-    "cloud security audit",
-    "SOC2 readiness services",
-    "secure code review",
-    "infrastructure security audit",
-    "OWASP API Top 10 testing",
-  ],
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services",
   },

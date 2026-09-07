@@ -136,7 +136,7 @@ export default function RootLayout({
         },
         "areaServed": ["Bangalore", "Hyderabad", "India", "Global"],
         "priceRange": "₹₹₹",
-        "foundingDate": "2023",
+        "foundingDate": "2026-04-24",
         "knowsAbout": [
           "API Security Testing",
           "Penetration Testing",

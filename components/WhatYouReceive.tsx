@@ -23,7 +23,7 @@ const deliverables = [
   },
   {
     title: "Detailed Technical Findings",
-    subtitle: "CVSS Scored & Categorized",
+    subtitle: "Detailed Technical Findings & Severity Ratings",
     description: "Comprehensive vulnerability catalog with affected endpoints, authorization scopes, root-cause analysis, and threat severity ratings.",
     icon: Terminal,
     badge: "Engineering Deep-Dive"
@@ -36,7 +36,7 @@ const deliverables = [
     badge: "PoC & Reproduction"
   },
   {
-    title: "Developer-Ready Remediation",
+    title: "Developer-Ready Remediation Guidance",
     subtitle: "Code Fixes & Config Guidance",
     description: "Actionable code snippets (Node, Python, Go, Java), framework configurations, and architectural recommendations to patch root causes.",
     icon: CheckCircle2,
@@ -50,9 +50,9 @@ const deliverables = [
     badge: "Included Free"
   },
   {
-    title: "Final Security Report & Attestation",
+    title: "Final Security Assessment Report",
     subtitle: "Auditor & Customer Ready",
-    description: "Formal, signed VAPT assessment report and Retest Verification Letter suitable for enterprise vendor onboarding, SOC 2, and ISO 27001.",
+    description: "Formal, signed VAPT assessment report and Retest Verification summary suitable for enterprise vendor onboarding, SOC 2, and ISO 27001 readiness.",
     icon: FileCheck2,
     badge: "Compliance Deliverable"
   }

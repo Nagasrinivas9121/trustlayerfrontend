@@ -19,15 +19,6 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "SOC 2 and ISO 27001 Readiness",
   description: "SOC 2 Type II readiness, ISO 27001 gap analysis, custom security policies, and technical penetration testing for growing tech teams.",
-  keywords: [
-    "SOC 2 readiness consulting",
-    "ISO 27001 gap analysis India",
-    "enterprise security review readiness",
-    "vendor security questionnaire help",
-    "startup GRC consulting",
-    "SOC 2 penetration testing",
-    "security policy templates SaaS"
-  ],
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/grc-readiness",
   },

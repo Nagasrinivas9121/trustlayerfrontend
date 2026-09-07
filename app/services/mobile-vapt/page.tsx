@@ -33,19 +33,6 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Mobile App VAPT & iOS/Android Pentesting",
   description: "Manual mobile application VAPT services for iOS and Android. Inspect auth, data storage, deep links, and APIs with retesting and remediation guidance.",
-  keywords: [
-    "mobile application vapt",
-    "mobile application VAPT services",
-    "mobile app penetration testing",
-    "mobile application penetration testing",
-    "mobile application security testing",
-    "Android application penetration testing",
-    "Android VAPT",
-    "iOS application penetration testing",
-    "iOS security testing",
-    "mobile API security testing",
-    "mobile app security assessment"
-  ],
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/mobile-vapt",
   },
