@@ -93,15 +93,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/symbol.png?v=3", type: "image/png" },
-      { url: "/icon.png?v=3", type: "image/png" },
-      { url: "/favicon.ico?v=3" },
+      { url: "/favicon.ico?v=4", sizes: "any" },
+      { url: "/symbol.png?v=4", type: "image/png" },
+      { url: "/icon.png?v=4", type: "image/png" },
     ],
     apple: [
-      { url: "/symbol.png?v=3" },
-      { url: "/apple-touch-icon.png?v=3" }
+      { url: "/apple-touch-icon.png?v=4" },
+      { url: "/symbol.png?v=4" },
     ],
-    shortcut: ["/symbol.png?v=3"],
+    shortcut: ["/favicon.ico?v=4"],
   },
 };
 
@@ -248,9 +248,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
       <head>
-        <link rel="icon" type="image/png" href="/symbol.png?v=3" />
-        <link rel="shortcut icon" href="/symbol.png?v=3" />
-        <link rel="apple-touch-icon" href="/symbol.png?v=3" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=4" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/symbol.png?v=4" />
+        <link rel="shortcut icon" href="/favicon.ico?v=4" />
+        <link rel="apple-touch-icon" href="/symbol.png?v=4" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
