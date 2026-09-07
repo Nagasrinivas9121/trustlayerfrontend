@@ -27,32 +27,32 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-40 pb-28 overflow-hidden min-h-[92vh] flex items-center justify-center bg-background">
+    <section className="relative pt-36 md:pt-40 pb-24 overflow-hidden min-h-[90vh] flex items-center justify-center bg-background">
       {/* Subtle Dot Grid Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none -z-10" />
       
       {/* Soft Center Radial Highlights */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] max-w-[100vw] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] max-w-[100vw] h-[550px] bg-primary/5 rounded-full blur-[130px] pointer-events-none -z-10" />
 
       <div className="section-container w-full relative z-10 max-w-6xl mx-auto">
-        <div className="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto relative z-20">
+        <div className="flex flex-col items-center text-center space-y-7 max-w-3xl mx-auto relative z-20">
           
-          {/* Top Floating Pill Badge (Slot Limiter style) */}
+          {/* Top Category Eyebrow Label */}
           <Link 
             href="https://calendar.app.google/jnamj3gawxVunPJm9"
             target="_blank"
-            className="inline-flex items-center space-x-2 px-3.5 py-1 bg-surface border border-border rounded-full text-xs font-bold text-textPrimary uppercase tracking-wider shadow-sm animate-fade-in hover:border-zinc-400 transition-colors"
+            className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-medium text-textSecondary uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all"
           >
             <span className="relative flex h-1.5 w-1.5 mr-1">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-success"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
             </span>
             <span>Manual API & Application Security Testing →</span>
           </Link>
 
-          {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.1] max-w-4xl mx-auto font-sans">
-            Security Verified. <br className="hidden md:inline" />
+          {/* Main Headline - Refined Vertical Rhythm */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.08] max-w-4xl mx-auto font-sans">
+            Security Verified. <br className="hidden sm:inline" />
             <span className="text-primary">Not Assumed.</span>
           </h1>
 
@@ -67,10 +67,10 @@ export default function Hero() {
           </div>
 
           {/* Action CTAs & Inline Lead Capture Form */}
-          <div className="w-full max-w-xl mx-auto space-y-3">
+          <div className="w-full max-w-lg mx-auto space-y-3">
             <form 
               onSubmit={handleLeadSubmit}
-              className="flex flex-col sm:flex-row items-center gap-2.5 bg-surface border border-border p-2 rounded-2xl sm:rounded-full shadow-lg w-full"
+              className="flex flex-col sm:flex-row items-center gap-2 bg-surface/90 border border-border/80 p-1.5 rounded-xl sm:rounded-full shadow-sm hover:border-border focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary/20 transition-all w-full"
             >
               <input
                 type="email"
@@ -81,14 +81,14 @@ export default function Hero() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your work email..."
-                className="w-full sm:flex-1 px-4 py-2.5 sm:py-1.5 bg-transparent border-0 text-xs text-textPrimary placeholder:text-textSecondary focus:outline-none font-sans"
+                className="w-full sm:flex-1 px-4 py-2 sm:py-1.5 bg-transparent border-0 text-xs text-textPrimary placeholder:text-textSecondary/70 focus:outline-none font-sans"
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-6 rounded-xl sm:rounded-full shadow-md transition-all active:scale-[0.98] gap-1.5 flex-shrink-0"
+                className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-5 rounded-lg sm:rounded-full shadow-sm transition-all active:scale-[0.98] gap-1.5 flex-shrink-0"
               >
                 Request a Security Assessment
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </form>
 
@@ -96,49 +96,49 @@ export default function Hero() {
               ⚡ Free scoping intake under mutual NDA • Direct review with lead offensive practitioner
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-1">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-0.5">
               <Link 
                 href="/sample-report" 
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
               >
-                📄 View Sample Report
+                <span>View Sample Report</span>
               </Link>
-              <span className="text-border">•</span>
+              <span className="text-border/60">•</span>
               <Link 
                 href="https://calendar.app.google/jnamj3gawxVunPJm9" 
                 target="_blank" 
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary"
               >
-                📅 Schedule 20-Min Intake Call
+                <span>Schedule 20-Min Intake Call</span>
               </Link>
             </div>
           </div>
 
           {/* Above-the-Fold Verifiable Trust Strip */}
-          <div className="pt-2 w-full max-w-2xl mx-auto border-t border-border/40">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-left sm:text-center text-[11px] font-sans text-textSecondary">
-              <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+          <div className="pt-4 w-full max-w-2xl mx-auto border-t border-border/50">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-2.5 gap-x-4 text-left sm:text-center text-[11px] font-sans text-textSecondary">
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
+                <CheckCircle size={12} className="text-primary flex-shrink-0" />
                 <span>MSME/Udyam Registered</span>
               </div>
-              <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
+                <CheckCircle size={12} className="text-primary flex-shrink-0" />
                 <span>Developer-Ready PoCs</span>
               </div>
-              <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
+                <CheckCircle size={12} className="text-primary flex-shrink-0" />
                 <span>30-Day Retest Included</span>
               </div>
-              <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
+                <CheckCircle size={12} className="text-primary flex-shrink-0" />
                 <span>Mutual NDA Upfront</span>
               </div>
-              <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
+                <CheckCircle size={12} className="text-primary flex-shrink-0" />
                 <span>Sample Report Available</span>
               </div>
-              <div className="flex items-center gap-1.5 font-medium">
-                <CheckCircle size={13} className="text-primary flex-shrink-0" />
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
+                <CheckCircle size={12} className="text-primary flex-shrink-0" />
                 <span>Practitioner-Led VAPT</span>
               </div>
             </div>
@@ -146,95 +146,94 @@ export default function Hero() {
 
         </div>
 
-        {/* Floating Testimonial Cards Layout - Absolute Positioned on Desktop */}
+        {/* Floating Information Cards Layout - Subdued for Visual Balance */}
         
         {/* Left Floating Card */}
-        {/* Left Floating Card */}
-        <div className="hidden lg:block absolute left-0 xl:left-4 top-[50%] -translate-y-1/2 w-[280px] rotate-[-3deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 shadow-md bg-surface border border-border p-6 rounded-2xl z-10">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+        <div className="hidden lg:block absolute left-[-8px] xl:left-2 top-[50%] -translate-y-1/2 w-[240px] xl:w-[255px] rotate-[-2.5deg] hover:rotate-0 hover:scale-[1.02] opacity-80 hover:opacity-100 transition-all duration-300 shadow-sm bg-surface/85 backdrop-blur-sm border border-border/70 p-5 rounded-2xl z-10">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
               Offensive Security
             </span>
-            <CheckCircle size={16} className="text-primary" />
+            <CheckCircle size={14} className="text-primary" />
           </div>
-          <p className="text-xs text-textPrimary leading-relaxed font-sans mb-4">
+          <p className="text-[11px] text-textPrimary leading-relaxed font-sans mb-3.5">
             Manual authorization, BOLA & business-logic security testing for high-growth tech teams.
           </p>
-          <div className="flex items-center gap-3 pt-3 border-t border-border/40">
-            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
+          <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
+            <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
               TL
             </div>
             <div>
-              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
-              <p className="text-[11px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
+              <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
+              <p className="text-[10px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
             </div>
           </div>
         </div>
 
         {/* Right Floating Card */}
-        <div className="hidden lg:block absolute right-0 xl:right-4 top-[52%] -translate-y-1/2 w-[280px] rotate-[3deg] hover:rotate-0 hover:scale-[1.03] transition-all duration-300 shadow-md bg-surface border border-border p-6 rounded-2xl z-10">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+        <div className="hidden lg:block absolute right-[-8px] xl:right-2 top-[52%] -translate-y-1/2 w-[240px] xl:w-[255px] rotate-[2.5deg] hover:rotate-0 hover:scale-[1.02] opacity-80 hover:opacity-100 transition-all duration-300 shadow-sm bg-surface/85 backdrop-blur-sm border border-border/70 p-5 rounded-2xl z-10">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
               Technical GRC
             </span>
-            <CheckCircle size={16} className="text-primary" />
+            <CheckCircle size={14} className="text-primary" />
           </div>
-          <p className="text-xs text-textPrimary leading-relaxed font-sans mb-4">
+          <p className="text-[11px] text-textPrimary leading-relaxed font-sans mb-3.5">
             SOC 2 & ISO 27001 readiness, technical control mapping, and retest verification reports.
           </p>
-          <div className="flex items-center gap-3 pt-3 border-t border-border/40">
-            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
+          <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
+            <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
               GRC
             </div>
             <div>
-              <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
-              <p className="text-[11px] font-sans text-textSecondary uppercase">Governance Advisory</p>
+              <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
+              <p className="text-[10px] font-sans text-textSecondary uppercase">Governance Advisory</p>
             </div>
           </div>
         </div>
 
         {/* Mobile/Tablet Fallback Grid */}
-        <div className="lg:hidden mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="lg:hidden mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto opacity-90">
           {/* Left card */}
-          <div className="bg-surface border border-border p-6 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-2px] transition-transform duration-300">
+          <div className="bg-surface/90 border border-border/80 p-5 rounded-2xl shadow-sm space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+              <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
                 Offensive Security
               </span>
-              <CheckCircle size={16} className="text-primary" />
+              <CheckCircle size={14} className="text-primary" />
             </div>
-            <p className="text-xs text-textPrimary leading-relaxed font-sans">
+            <p className="text-[11px] text-textPrimary leading-relaxed font-sans">
               Manual authorization, BOLA & business-logic security testing for high-growth tech teams.
             </p>
-            <div className="flex items-center gap-3 pt-3 border-t border-border/40">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
+            <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
+              <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
                 TL
               </div>
               <div>
-                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
-                <p className="text-[11px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
+                <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
+                <p className="text-[10px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
               </div>
             </div>
           </div>
 
           {/* Right card */}
-          <div className="bg-surface border border-border p-6 rounded-2xl shadow-sm space-y-4 hover:translate-y-[-2px] transition-transform duration-300">
+          <div className="bg-surface/90 border border-border/80 p-5 rounded-2xl shadow-sm space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+              <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
                 Technical GRC
               </span>
-              <CheckCircle size={16} className="text-primary" />
+              <CheckCircle size={14} className="text-primary" />
             </div>
-            <p className="text-xs text-textPrimary leading-relaxed font-sans">
+            <p className="text-[11px] text-textPrimary leading-relaxed font-sans">
               SOC 2 & ISO 27001 readiness, technical control mapping, and retest verification reports.
             </p>
-            <div className="flex items-center gap-3 pt-3 border-t border-border/40">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-xs text-primary">
+            <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
+              <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
                 GRC
               </div>
               <div>
-                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
-                <p className="text-[11px] font-sans text-textSecondary uppercase">Governance Advisory</p>
+                <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
+                <p className="text-[10px] font-sans text-textSecondary uppercase">Governance Advisory</p>
               </div>
             </div>
           </div>

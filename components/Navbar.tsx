@@ -29,11 +29,11 @@ export default function Navbar() {
           
           {/* Logo */}
           <Link href="/" className="flex items-center group flex-shrink-0" aria-label="TrustLayerLabs Home">
-            <div className="bg-white px-2.5 py-1 rounded-lg shadow-sm border border-white/20 transition-all duration-300 group-hover:shadow-md group-hover:scale-105 flex items-center">
+            <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-white/30 transition-all duration-200 group-hover:shadow-md flex items-center">
               <img 
                 src="/logo-banner.png" 
                 alt="TrustLayerLabs - The Verified Trust Layer" 
-                className="h-6 sm:h-7 w-auto object-contain" 
+                className="h-7 sm:h-8 w-auto object-contain" 
               />
             </div>
           </Link>
