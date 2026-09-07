@@ -9,6 +9,8 @@ interface CertificateModalProps {
 }
 
 export default function CertificateModal({ isOpen, onClose }: CertificateModalProps) {
+  const [activeCert, setActiveCert] = React.useState<"msme" | "iso27001">("msme");
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -29,6 +31,23 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
 
   if (!isOpen) return null;
 
+  const certData = {
+    msme: {
+      title: "Govt. MSME / Udyam Certificate",
+      badge: "VERIFIED",
+      id: "UDYAM-AP-21-0044317 • Ministry of MSME, Govt. of India",
+      src: "/trustlayerlabs-udyam-registration-certificate.jpg",
+      footer: "Enterprise: TRUSTLAYER LABS (Micro Enterprise — Services)"
+    },
+    iso27001: {
+      title: "ISO/IEC 27001:2022 Information Security Associate",
+      badge: "ACCREDITED",
+      id: "ID: 92536562840015 • Awarded to Ramineni Teja (SkillFront)",
+      src: "/iso-27001-ramineni-teja.png",
+      footer: "Certification: ISO/IEC 27001:2022 Information Security Associate™"
+    }
+  }[activeCert];
+
   return (
     <div 
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-fade-in"
@@ -40,42 +59,68 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
         className="relative w-full max-w-2xl bg-surface border border-border/90 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col max-h-[92vh] animate-scale-up"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header */}
-        <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border/80 bg-[#0A0D14]">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <ShieldCheck size={20} />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-sm font-bold text-textPrimary font-sans">Govt. MSME / Udyam Certificate</h3>
-                <span className="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
-                  VERIFIED
-                </span>
+        {/* Modal Header & Tabs */}
+        <div className="px-5 sm:px-6 py-4 border-b border-border/80 bg-[#0A0D14]">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                <ShieldCheck size={20} />
               </div>
-              <p className="text-[11px] font-mono text-textSecondary mt-0.5">
-                UDYAM-AP-21-0044317 • Ministry of MSME, Govt. of India
-              </p>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-textPrimary font-sans">{certData.title}</h3>
+                  <span className="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                    {certData.badge}
+                  </span>
+                </div>
+                <p className="text-[11px] font-mono text-textSecondary mt-0.5">
+                  {certData.id}
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-1.5">
+              <a
+                href={certData.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-textSecondary hover:text-emerald-400 transition-colors rounded-lg hover:bg-white/5"
+                title="Open Full Image in New Tab"
+              >
+                <ExternalLink size={18} />
+              </a>
+              <button
+                onClick={onClose}
+                className="p-2 text-textSecondary hover:text-textPrimary transition-colors rounded-lg hover:bg-white/5"
+                title="Close Preview (Esc)"
+                aria-label="Close Preview"
+              >
+                <X size={18} />
+              </button>
             </div>
           </div>
-          
-          <div className="flex items-center gap-1.5">
-            <a
-              href="/trustlayerlabs-udyam-registration-certificate.jpg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-textSecondary hover:text-emerald-400 transition-colors rounded-lg hover:bg-white/5"
-              title="Open Full Image in New Tab"
-            >
-              <ExternalLink size={18} />
-            </a>
+
+          {/* Certificate Switcher Tabs */}
+          <div className="flex gap-2 font-sans text-xs">
             <button
-              onClick={onClose}
-              className="p-2 text-textSecondary hover:text-textPrimary transition-colors rounded-lg hover:bg-white/5"
-              title="Close Preview (Esc)"
-              aria-label="Close Preview"
+              onClick={() => setActiveCert("msme")}
+              className={`px-3 py-1.5 rounded-lg border font-semibold transition-all ${
+                activeCert === "msme"
+                  ? "bg-primary text-white border-primary shadow-sm"
+                  : "bg-surface text-textSecondary border-border hover:border-zinc-400"
+              }`}
             >
-              <X size={18} />
+              Govt. MSME Certificate
+            </button>
+            <button
+              onClick={() => setActiveCert("iso27001")}
+              className={`px-3 py-1.5 rounded-lg border font-semibold transition-all ${
+                activeCert === "iso27001"
+                  ? "bg-primary text-white border-primary shadow-sm"
+                  : "bg-surface text-textSecondary border-border hover:border-zinc-400"
+              }`}
+            >
+              ISO/IEC 27001 Certificate (Teja)
             </button>
           </div>
         </div>
@@ -84,10 +129,10 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
         <div className="p-4 sm:p-6 overflow-y-auto flex-1 flex justify-center bg-black/60 items-center">
           <div className="relative w-full max-w-lg border border-border/80 rounded-xl overflow-hidden shadow-2xl bg-white">
             <img
-              src="/trustlayerlabs-udyam-registration-certificate.jpg"
-              alt="Udyam Registration Certificate - TRUSTLAYER LABS (UDYAM-AP-21-0044317)"
+              src={certData.src}
+              alt={certData.title}
               className="w-full h-auto object-contain cursor-zoom-in"
-              onClick={() => window.open("/trustlayerlabs-udyam-registration-certificate.jpg", "_blank")}
+              onClick={() => window.open(certData.src, "_blank")}
             />
           </div>
         </div>
@@ -97,12 +142,12 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
           <div className="flex items-center gap-2">
             <FileCheck size={14} className="text-emerald-400" />
             <span className="font-sans text-[11px]">
-              Enterprise: <strong className="text-textPrimary">TRUSTLAYER LABS</strong> (Micro Enterprise — Services)
+              {certData.footer}
             </span>
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="/trustlayerlabs-udyam-registration-certificate.jpg"
+              href={certData.src}
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-400 hover:text-emerald-300 font-semibold font-mono text-[11px] flex items-center gap-1"

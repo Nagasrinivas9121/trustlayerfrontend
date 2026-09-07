@@ -61,15 +61,29 @@ export default function Founder() {
               </div>
 
               {/* Credentials list */}
-              <div className="border-t border-border/40 pt-4 flex flex-wrap gap-1.5">
-                {member.credentials.map((cred) => (
-                  <span 
-                    key={cred}
-                    className="px-2 py-0.5 border border-primary/20 text-primary bg-primary/5 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
+              <div className="border-t border-border/40 pt-4 flex flex-col gap-2">
+                <div className="flex flex-wrap gap-1.5">
+                  {member.credentials.map((cred) => (
+                    <span 
+                      key={cred}
+                      className="px-2 py-0.5 border border-primary/20 text-primary bg-primary/5 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
+                    >
+                      {cred}
+                    </span>
+                  ))}
+                </div>
+                {member.certificateUrl && (
+                  <a
+                    href={member.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors pt-1"
+                    title={member.certificateName || "View Accredited Certificate"}
                   >
-                    {cred}
-                  </span>
-                ))}
+                    <Award size={11} className="text-emerald-400" />
+                    <span>View ISO 27001 Certificate →</span>
+                  </a>
+                )}
               </div>
             </div>
           ))}
