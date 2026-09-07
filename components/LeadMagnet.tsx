@@ -60,7 +60,7 @@ export default function LeadMagnet() {
               </h3>
 
               <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                Get immediate access to our internal 2026 API Security Checklist (OWASP aligned) and a complete redacted VAPT audit report to see how we trace business logic bypasses.
+                Get immediate access to our internal API Security Checklist (OWASP aligned) and a complete sample security assessment report to see how we trace business logic bypasses.
               </p>
 
               <div className="space-y-3.5 text-xs font-sans">

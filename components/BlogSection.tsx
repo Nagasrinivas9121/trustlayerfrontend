@@ -17,13 +17,13 @@ export default function BlogSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-              <span>Security Library</span>
+              <span>Security Research & Guides</span>
             </div>
-            <h2 className="heading-2 mb-6 font-sans">
-              Expert Insights & <span className="text-primary">Penetration Playbooks</span>
+            <h2 className="heading-2 mb-4 font-sans">
+              Security Research & <span className="text-primary">Insights</span>
             </h2>
             <p className="body-text text-textSecondary font-sans">
-              Remediation guides, API vulnerability write-ups, and GRC compliance playbooks from our security desk.
+              Practical security guidance for SaaS, FinTech, API and AI teams.
             </p>
           </div>
           

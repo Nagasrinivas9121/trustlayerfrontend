@@ -16,28 +16,27 @@ export default function CTA() {
           className="max-w-3xl mx-auto"
         >
           <h2 className="heading-1 mb-6 font-sans">
-            Ready to Harden Your Application <br className="hidden md:inline" />
-            <span className="text-primary">& Clear Enterprise Security Reviews?</span>
+            Know Where Your <br className="hidden md:inline" />
+            <span className="text-primary">Security Stands.</span>
           </h2>
           <p className="body-text text-base md:text-lg mb-10 max-w-2xl mx-auto font-sans">
-            Schedule a confidential 20-minute scoping review with our lead security architects. We review your architecture, endpoints, and timelines under mutual NDA.
+            Find the weaknesses before your customers, auditors, or attackers do. Schedule a confidential 20-minute scoping review under mutual NDA.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              href="https://calendar.app.google/jnamj3gawxVunPJm9" 
-              target="_blank"
+              href="/free-assessment" 
               className="btn-primary flex items-center justify-center group px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto"
-              aria-label="Book your security review on Google Calendar"
             >
-              <Calendar size={16} className="mr-2.5" />
-              Book a 20-Min Security Review 
+              Request a Security Assessment
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="/sample-report"
-              className="btn-secondary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-semibold w-full sm:w-auto"
+              href="https://calendar.app.google/jnamj3gawxVunPJm9"
+              target="_blank"
+              className="btn-secondary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-semibold w-full sm:w-auto gap-2"
             >
-              View Sample Report
+              <Calendar size={16} />
+              Schedule a 20-Min Intake Call
             </Link>
           </div>
         </motion.div>

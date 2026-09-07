@@ -1,5 +1,10 @@
 export const BRAND = {
   name: "TrustLayerLabs",
+  tagline: "THE VERIFIED TRUST LAYER",
+  positioning: "ASSESS / VERIFY / STRENGTHEN / SCALE",
+  headline: "Security Verified. Not Assumed.",
+  subheadline: "Manual security testing for SaaS, FinTech & AI teams.",
+  supportingText: "Find critical vulnerabilities before your customers, auditors, or attackers do.",
   website: "https://trustlayerlabs.co.in",
   contact: {
     email: "ceo@trustlayerlabs.co.in",
@@ -746,61 +751,61 @@ export const PROBLEMS_WE_SOLVE = [
 export const CORE_PILLARS = [
   {
     id: "api-web-security",
-    title: "API & Web Application Security",
-    tagline: "Deep Manual Testing for Modern Architectures",
-    description: "Comprehensive vulnerability assessment and penetration testing targeting OWASP Top 10, API security flaws, BOLA/IDOR, and authentication logic across modern React, Next.js, and API microservices.",
+    title: "Web & API Security Testing",
+    tagline: "Manual Logic, BOLA/IDOR & Authentication Testing",
+    description: "Deep manual penetration testing for REST, GraphQL, and web applications. We discover broken object authorization, authentication bypasses, tenant boundary leaks, and multi-step logic flaws that automated scanners overlook.",
     deliverables: [
-      "Manual API logic & authorization testing",
-      "Step-by-step reproduction PoCs & code fixes",
-      "Executive summary for leadership & buyers",
-      "30-day retesting and signed attestation"
+      "Manual authorization (BOLA/BFLA) discovery",
+      "Reproducible exploit PoCs & code-level fixes",
+      "Executive risk summary for buyers & leadership",
+      "30-day verified retest & attestation letter"
     ],
-    badge: "Core Technical Pillar",
+    badge: "Offensive Security",
     href: "/services/api-security",
-    ctaText: "Explore API & Web Testing"
-  },
-  {
-    id: "fintech-security-testing",
-    title: "FinTech Security Testing",
-    tagline: "Purpose-Built for Financial Workflows & APIs",
-    description: "Offensive security testing tailored for financial platforms, payment integrations, KYC pipelines, and regulatory frameworks (RBI, NPCI, SEBI) to safeguard monetary transactions and sensitive customer data.",
-    deliverables: [
-      "Financial API & payment logic verification",
-      "Transaction tampering & race condition tests",
-      "Regulatory baseline security mapping",
-      "Remediation support & retesting letter"
-    ],
-    badge: "Specialized Industry Pillar",
-    href: "/fintech-security",
-    ctaText: "Explore FinTech Security"
+    ctaText: "Explore Web & API Testing"
   },
   {
     id: "cloud-infrastructure-security",
     title: "Cloud & Infrastructure Security",
-    tagline: "CIS Benchmarks & Least-Privilege IAM",
-    description: "Rigorous configuration and IAM audits across AWS, GCP, Azure, Kubernetes clusters, and external network perimeters to eliminate privilege creep, data exposure, and container breakouts.",
+    tagline: "IAM Hardening, CIS Benchmarks & Attack Surface Defense",
+    description: "Rigorous infrastructure and identity audits across AWS, GCP, Azure, and Kubernetes. We uncover privilege escalation paths, open storage buckets, insecure container configurations, and perimeter attack surfaces.",
     deliverables: [
-      "Cloud IAM least-privilege matrix review",
-      "Storage bucket & database exposure checks",
-      "Kubernetes RBAC & pod security audit",
-      "External perimeter attack surface audit"
+      "IAM least-privilege & credential exposure audit",
+      "Cloud storage & database boundary checks",
+      "Kubernetes RBAC & container security review",
+      "External attack surface & perimeter analysis"
     ],
-    badge: "Infrastructure Pillar",
+    badge: "Cloud & Perimeter",
     href: "/services/cloud-security",
     ctaText: "Explore Cloud Security"
   },
   {
-    id: "grc-enterprise-readiness",
-    title: "Governance, Risk & Compliance (GRC)",
-    tagline: "SOC 2, ISO 27001 & Enterprise Security Reviews",
-    description: "Strategic readiness advisory and technical control alignment to help fast-growing SaaS and FinTech startups pass enterprise customer security assessments and prepare for accredited compliance audits.",
+    id: "ai-application-security",
+    title: "AI Application Security",
+    tagline: "LLM Guardrails, Prompt Injection & RAG Data Protection",
+    description: "Specialized offensive security assessments for LLM integrations, AI agents, and RAG pipelines. We evaluate indirect prompt injection, training data leakage, model parameter manipulation, and unauthorized vector database querying.",
     deliverables: [
-      "SOC 2 Type II & ISO 27001 control gap analysis",
-      "Custom security policy templates & risk registers",
-      "Vendor security questionnaire assistance",
-      "Technical pentest evidence documentation"
+      "Prompt injection & jailbreak vulnerability testing",
+      "RAG vector database tenant isolation audit",
+      "Agent execution privilege & API boundary review",
+      "Remediation guidelines for AI guardrails"
     ],
-    badge: "Enterprise Readiness Pillar",
+    badge: "AI & LLM Security",
+    href: "/services/ai-security",
+    ctaText: "Explore AI Security"
+  },
+  {
+    id: "grc-enterprise-readiness",
+    title: "GRC & Enterprise Readiness",
+    tagline: "SOC 2, ISO 27001 & Enterprise Vendor Security Reviews",
+    description: "Practical readiness consulting and technical control verification to unblock enterprise deals. We close compliance gaps, assist with vendor security questionnaires, and deliver attestation letters for enterprise buyers.",
+    deliverables: [
+      "SOC 2 Type II & ISO 27001 technical control mapping",
+      "Enterprise vendor questionnaire support",
+      "Security policy reviews & evidence collection",
+      "Verified retest letter for customer assurance"
+    ],
+    badge: "Governance & Assurance",
     href: "/grc-readiness",
     ctaText: "Explore GRC Readiness"
   }

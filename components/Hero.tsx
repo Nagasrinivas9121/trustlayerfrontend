@@ -52,14 +52,19 @@ export default function Hero() {
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.1] max-w-4xl mx-auto font-sans">
-            Application Security, API Security & GRC for <br className="hidden md:inline" />
-            <span className="text-primary">Growing FinTech, SaaS and AI Teams</span>
+            Security Verified. <br className="hidden md:inline" />
+            <span className="text-primary">Not Assumed.</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-sm sm:text-base md:text-lg text-textSecondary max-w-2xl mx-auto leading-relaxed font-sans">
-            Identify authorization, authentication, business-logic and security-control gaps before they become customer, compliance or production risks.
-          </p>
+          {/* Subheadline & Supporting Text */}
+          <div className="space-y-2 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-textPrimary font-sans">
+              Manual security testing for SaaS, FinTech & AI teams.
+            </p>
+            <p className="text-xs sm:text-sm md:text-base text-textSecondary leading-relaxed font-sans">
+              Find critical vulnerabilities before your customers, auditors, or attackers do.
+            </p>
+          </div>
 
           {/* Action CTAs & Inline Lead Capture Form */}
           <div className="w-full max-w-xl mx-auto space-y-3">
@@ -82,13 +87,13 @@ export default function Hero() {
                 type="submit"
                 className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-6 rounded-xl sm:rounded-full shadow-md transition-all active:scale-[0.98] gap-1.5 flex-shrink-0"
               >
-                Book a 20-Min Security Review
+                Request a Security Assessment
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
 
             <p className="text-[11px] font-sans text-textSecondary text-center">
-              ⚡ Free intake scoping review under mutual NDA • Direct meeting with lead practitioner
+              ⚡ Free scoping intake under mutual NDA • Direct review with lead offensive practitioner
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-1">
@@ -101,7 +106,7 @@ export default function Hero() {
               <span className="text-border">•</span>
               <Link 
                 href="https://calendar.app.google/jnamj3gawxVunPJm9" 
-                target="_blank"
+                target="_blank" 
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary"
               >
                 📅 Schedule 20-Min Intake Call

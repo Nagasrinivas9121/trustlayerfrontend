@@ -237,10 +237,10 @@ export default function JwtDecoderPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <h1 className="heading-1 font-extrabold tracking-tight mb-3">
-                JWT Decoder & <span className="text-primary">Security Analyzer</span>
+                Free JWT <span className="text-primary">Security Analyzer</span>
               </h1>
               <p className="body-text text-sm md:text-base max-w-3xl text-textSecondary leading-relaxed">
-                Decode Json Web Tokens (JWT) locally and run instant vulnerability audits. Detect authentication flaws, algorithm bypasses, and validation gaps.
+                Inspect JWT structure, claims, algorithms and common configuration risks before they become authentication weaknesses.
               </p>
             </div>
 
@@ -513,6 +513,26 @@ export default function JwtDecoderPage() {
             <p className="text-xs text-textSecondary leading-relaxed">
               In modern B2B SaaS applications, public keys are dynamically exposed on a JWKS endpoint (e.g., `/.well-known/jwks.json`). This permits distributed API resource servers to verify token signatures asynchronously.
             </p>
+          </div>
+        </div>
+
+        {/* Deeper Assessment CTA Card */}
+        <div className="mt-16 p-8 bg-surface border border-border rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="space-y-1.5 text-center md:text-left">
+            <h4 className="text-base font-bold text-textPrimary uppercase tracking-wider font-sans">
+              Need a Deeper Authentication Review?
+            </h4>
+            <p className="text-xs text-textSecondary font-sans max-w-xl">
+              Automated token decoding is only step one. Our lead practitioners manually audit token issuance flows, authorization parameters, multi-tenant boundaries, and session lifecycles.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 flex-shrink-0 w-full md:w-auto">
+            <Link
+              href="/services/api-security"
+              className="w-full md:w-auto text-center py-2.5 px-6 bg-primary hover:bg-primary/90 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-sm transition-all"
+            >
+              Request an API Security Assessment
+            </Link>
           </div>
         </div>
 

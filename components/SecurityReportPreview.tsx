@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Code, CheckCircle, AlertTriangle, FileText, ChevronRight, Info } from "lucide-react";
+import { ShieldCheck, Code, CheckCircle, AlertTriangle, FileText, ChevronRight, Info, ArrowRight } from "lucide-react";
 
 export default function SecurityReportPreview() {
   const [activeTab, setActiveTab] = useState<"summary" | "vulnerabilities" | "tracking">("summary");
@@ -40,24 +41,24 @@ export default function SecurityReportPreview() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-            <span>Illustrative Sample</span>
+            <span>Representative Assessment</span>
           </div>
           <h2 className="heading-2 mb-4 font-sans">
-            Actionable Reports Built for <span className="text-primary">Engineering Teams</span>
+            See How We Report <span className="text-primary">Security Findings</span>
           </h2>
-          <p className="body-text text-base text-textSecondary font-sans">
-            Clear, developer-focused reports designed for efficient remediation with root-cause analysis, reproduction steps, and suggested code fixes.
+          <p className="body-text text-base text-textSecondary font-sans max-w-2xl mx-auto">
+            Explore a representative security assessment showing how TrustLayerLabs documents vulnerabilities, business impact, developer-ready remediation guidance, and retest results.
           </p>
         </div>
 
         {/* Prominent Educational Notice */}
-        <div className="max-w-5xl mx-auto p-4 bg-amber-500/5 border border-amber-500/20 rounded-2xl mb-12 flex items-start gap-3 shadow-sm">
-          <Info className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+        <div className="max-w-5xl mx-auto p-4 bg-surface border border-border/80 rounded-2xl mb-12 flex items-start gap-3 shadow-sm">
+          <Info className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
           <div className="text-xs text-textSecondary leading-relaxed font-sans">
             <span className="font-bold text-textPrimary uppercase tracking-wider block mb-0.5">
-              ILLUSTRATIVE SAMPLE — NOT A CLIENT ENGAGEMENT
+              Representative example — not a client engagement.
             </span>
-            This sample demonstrates the structure and level of technical detail that may appear in a TrustLayerLabs security assessment. The application, findings, identifiers, and results shown here are illustrative and do not represent a customer engagement.
+            This sample demonstrates how TrustLayerLabs structures findings, severity scoring (CVSS), reproducible exploit steps, code-level remediation snippets, and retest verification. The target application and findings shown are representative examples.
           </div>
         </div>
 
@@ -123,6 +124,15 @@ export default function SecurityReportPreview() {
                 <span className="text-textSecondary block mt-0.5 text-[10px]">Technical Report + Exec Summary</span>
               </div>
             </div>
+
+            {/* Request Assessment CTA */}
+            <Link
+              href="/free-assessment"
+              className="w-full text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-3 px-4 rounded-xl shadow-md transition-all active:scale-[0.98] gap-1.5"
+            >
+              Request a Real Assessment
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           {/* Right Column: Dynamic Preview Container */}

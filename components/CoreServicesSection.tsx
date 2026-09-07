@@ -3,12 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { CORE_PILLARS } from "@/lib/constants";
-import { ArrowRight, CheckCircle2, Shield, Calendar, Layers, Lock, ShieldCheck, Cloud, FileText } from "lucide-react";
+import { ArrowRight, CheckCircle2, Shield, Calendar, Layers, Lock, ShieldCheck, Cloud, FileText, Cpu } from "lucide-react";
 
 const icons: Record<string, React.ElementType> = {
   "api-web-security": Lock,
   "fintech-security-testing": ShieldCheck,
   "cloud-infrastructure-security": Cloud,
+  "ai-application-security": Cpu,
   "grc-enterprise-readiness": FileText,
 };
 

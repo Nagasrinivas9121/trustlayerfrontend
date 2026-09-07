@@ -17,13 +17,13 @@ export default function CaseStudy() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-              <span>Technical Knowledge Base</span>
+              <span>Technical Research</span>
             </div>
             <h2 className="heading-2 mb-4 font-sans">
-              Illustrative <span className="text-primary">Security Scenarios</span>
+              Security Research & <span className="text-primary">Technical Case Studies</span>
             </h2>
             <p className="body-text text-textSecondary font-sans">
-              Technical breakdowns of real-world vulnerability patterns, exploit vectors, and recommended engineering fixes.
+              Practical security research focused on the vulnerabilities modern SaaS, FinTech and AI teams actually face.
             </p>
           </div>
 
@@ -45,11 +45,11 @@ export default function CaseStudy() {
           </div>
         </div>
 
-        {/* Disclaimer */}
-        <div className="p-3.5 bg-amber-500/5 border border-amber-500/20 rounded-xl mb-8 flex items-start gap-2.5">
-          <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+        {/* Research Disclaimer */}
+        <div className="p-3.5 bg-surface border border-border/80 rounded-xl mb-8 flex items-start gap-2.5 shadow-sm">
+          <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
           <p className="text-xs text-textSecondary font-sans leading-relaxed">
-            <strong className="text-textPrimary font-semibold">Educational Scenario:</strong> This is an illustrative scenario designed to explain a security risk. It does not represent a specific TrustLayerLabs customer engagement.
+            <strong className="text-textPrimary font-semibold">Technical Research & Representative Scenarios:</strong> Vulnerability analyses and reproduction logic developed by offensive practitioners to demonstrate real attack paths and developer-ready mitigations without disclosing confidential client data.
           </p>
         </div>
 
