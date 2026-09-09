@@ -23,20 +23,20 @@ export default function CTA() {
             Find the weaknesses before your customers, auditors, or attackers do. Schedule a confidential 20-minute scoping review under mutual NDA.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link 
-              href="/free-assessment" 
-              className="btn-primary flex items-center justify-center group px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto"
-            >
-              Request a Security Assessment
-              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
             <Link
               href="https://calendar.app.google/jnamj3gawxVunPJm9"
               target="_blank"
-              className="btn-secondary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-semibold w-full sm:w-auto gap-2"
+              className="btn-primary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto gap-2"
             >
               <Calendar size={16} />
-              Schedule a 20-Min Intake Call
+              Book a 20-Min Security Review
+            </Link>
+            <Link 
+              href="/free-assessment" 
+              className="btn-secondary flex items-center justify-center group px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-semibold w-full sm:w-auto"
+            >
+              Request a Security Assessment
+              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </motion.div>

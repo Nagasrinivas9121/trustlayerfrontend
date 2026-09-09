@@ -93,23 +93,23 @@ export default function Hero() {
             </form>
 
             <p className="text-[11px] font-sans text-textSecondary text-center">
-              ⚡ Free scoping intake under mutual NDA • Direct review with lead offensive practitioner
+              ⚡ 20-min scoping review under mutual NDA • Direct consultation with lead offensive practitioner
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-0.5">
-              <Link 
-                href="/sample-report" 
-                className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
-              >
-                <span>View Sample Report</span>
-              </Link>
-              <span className="text-border/60">•</span>
               <Link 
                 href="https://calendar.app.google/jnamj3gawxVunPJm9" 
                 target="_blank" 
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary"
               >
-                <span>Schedule 20-Min Intake Call</span>
+                <span>Book a 20-Min Security Review →</span>
+              </Link>
+              <span className="text-border/60">•</span>
+              <Link 
+                href="/sample-report" 
+                className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
+              >
+                <span>View Sample Report</span>
               </Link>
             </div>
           </div>

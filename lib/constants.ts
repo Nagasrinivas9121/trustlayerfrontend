@@ -585,7 +585,7 @@ export const PRICING_TIERS = [
       "Email support",
       "Attestation of Pen Test Certificate"
     ],
-    cta: "Book Free Review",
+    cta: "Book a 20-Min Review",
     popular: false
   },
   {
@@ -603,7 +603,7 @@ export const PRICING_TIERS = [
       "Slack security channel with our pentesters",
       "Attestation Certificate & Trust Badge"
     ],
-    cta: "Secure My Growth",
+    cta: "Book a 20-Min Review",
     popular: true
   },
   {

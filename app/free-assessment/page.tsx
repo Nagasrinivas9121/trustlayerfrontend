@@ -74,13 +74,13 @@ export default function FreeAssessmentPage() {
         <div className="mb-10 text-center">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider mb-3">
             <ShieldCheck size={12} className="text-primary" />
-            <span>Complimentary Intake Audit</span>
+            <span>20-Min Scoping Intake • Mutual NDA</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-textPrimary tracking-tight">
-            Free VAPT <span className="text-primary">Consultation</span>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-textPrimary tracking-tight font-sans">
+            Request a <span className="text-primary">Security Assessment</span>
           </h1>
-          <p className="text-xs text-textSecondary mt-2 max-w-sm mx-auto leading-relaxed">
-            Request an offensive security scoping review and receive an initial vulnerability snapshot for your build.
+          <p className="text-xs text-textSecondary mt-2 max-w-md mx-auto leading-relaxed font-sans">
+            Share your application architecture and testing objectives. Our lead security architect will evaluate your scope and provide a transparent, fixed proposal within 24 hours.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ export default function FreeAssessmentPage() {
                     target="_blank"
                     className="w-full inline-flex items-center justify-center py-3 bg-[#0a0a0a] hover:bg-zinc-800 text-white text-xs font-semibold uppercase tracking-wider rounded-lg gap-2"
                   >
-                    <Calendar size={14} /> Schedule Meeting on Calendar
+                    <Calendar size={14} /> Book a 20-Min Security Review
                   </Link>
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default function FreeAssessmentPage() {
                     </>
                   ) : (
                     <>
-                      Request Free Scoping <Send size={12} />
+                      Submit Assessment Request <Send size={12} />
                     </>
                   )}
                 </button>

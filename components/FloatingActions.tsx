@@ -50,7 +50,7 @@ export default function FloatingActions() {
             target="_blank"
             className="flex-1 bg-primary hover:bg-primary-hover text-white py-2 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm"
           >
-            <Calendar className="w-3.5 h-3.5" /> Book Review
+            <Calendar className="w-3.5 h-3.5" /> Book 20-Min Review
           </Link>
           <Link
             href={`tel:${BRAND.contact.phone}`}
