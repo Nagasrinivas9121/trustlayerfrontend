@@ -7,6 +7,7 @@ import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
 import LiveChat from "@/components/LiveChat";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import { FAQS } from "@/lib/constants";
 
 const inter = Inter({ 
@@ -316,6 +317,7 @@ document.head.appendChild(o)}initApollo();`
         <CookieConsent />
         <LiveChat />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
