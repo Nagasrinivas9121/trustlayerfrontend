@@ -41,7 +41,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://assets.apollo.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://i.pravatar.cc https://sellwithboost.com https://www.trustlayerlabs.co.in; connect-src 'self' https://www.google-analytics.com https://assets.apollo.io http://localhost:5000 https://www.googletagmanager.com; font-src 'self' data:;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://assets.apollo.io https://*.apollo.io https://va.vercel-scripts.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://images.unsplash.com https://i.pravatar.cc https://sellwithboost.com https://www.trustlayerlabs.co.in https://assets.apollo.io https://aplo-evnt.com https://*.aplo-evnt.com https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://assets.apollo.io https://*.apollo.io https://aplo-evnt.com https://*.aplo-evnt.com https://vitals.vercel-insights.com https://*.vercel-insights.com https://va.vercel-scripts.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com http://localhost:5000; font-src 'self' data:;",
           },
         ],
       },
