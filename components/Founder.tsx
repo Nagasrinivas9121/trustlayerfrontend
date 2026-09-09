@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Award, ShieldCheck, Mail, Target, ArrowRight, Linkedin } from "lucide-react";
+import { ShieldCheck, Mail, Target, ArrowRight, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { TEAM } from "@/lib/constants";
 
@@ -72,18 +72,6 @@ export default function Founder() {
                     </span>
                   ))}
                 </div>
-                {member.certificateUrl && (
-                  <a
-                    href={member.certificateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors pt-1"
-                    title={member.certificateName || "View Accredited Certificate"}
-                  >
-                    <Award size={11} className="text-emerald-400" />
-                    <span>View ISO 27001 Certificate →</span>
-                  </a>
-                )}
               </div>
             </div>
           ))}

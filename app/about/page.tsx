@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, Shield, ShieldCheck, Target, Linkedin, Award } from "lucide-react";
+import { ArrowLeft, Shield, ShieldCheck, Target, Linkedin } from "lucide-react";
 import TransparencyVerdict from "@/components/TransparencyVerdict";
 import { TEAM } from "@/lib/constants";
 
@@ -112,18 +112,6 @@ export default function AboutPage() {
                         </span>
                       ))}
                     </div>
-                    {member.certificateUrl && (
-                      <a
-                        href={member.certificateUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors pt-0.5"
-                        title={member.certificateName || "View Accredited Certificate"}
-                      >
-                        <Award size={10} className="text-emerald-400" />
-                        <span>View ISO 27001 Certificate →</span>
-                      </a>
-                    )}
                   </div>
                 </div>
               ))}

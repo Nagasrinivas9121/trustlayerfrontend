@@ -288,9 +288,9 @@ export default function ThreatDashboard() {
 
           {/* Bottom Security Assurance Badges */}
           <div className="border-t border-border/40 pt-4 flex flex-wrap gap-x-6 gap-y-2 text-[10px] font-bold font-mono uppercase tracking-widest text-textSecondary">
-            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> ISO 27001 COMPLIANT</span>
-            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> SOC2 CERT READY</span>
-            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> OWASP COMPLIANT</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> ISO 27001 READINESS</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> SOC 2 READINESS</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-primary" /> OWASP ALIGNED</span>
           </div>
         </div>
 

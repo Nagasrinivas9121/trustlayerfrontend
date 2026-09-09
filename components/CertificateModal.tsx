@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { FileCheck, ExternalLink, X, ShieldCheck, Download } from "lucide-react";
+import { FileCheck, ExternalLink, X, ShieldCheck } from "lucide-react";
 
 interface CertificateModalProps {
   isOpen: boolean;
@@ -9,8 +9,6 @@ interface CertificateModalProps {
 }
 
 export default function CertificateModal({ isOpen, onClose }: CertificateModalProps) {
-  const [activeCert, setActiveCert] = React.useState<"msme" | "iso27001">("msme");
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -32,21 +30,12 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
   if (!isOpen) return null;
 
   const certData = {
-    msme: {
-      title: "Govt. MSME / Udyam Certificate",
-      badge: "VERIFIED",
-      id: "UDYAM-AP-21-0044317 • Ministry of MSME, Govt. of India",
-      src: "/trustlayerlabs-udyam-registration-certificate.jpg",
-      footer: "Enterprise: TRUSTLAYER LABS (Micro Enterprise — Services)"
-    },
-    iso27001: {
-      title: "ISO/IEC 27001:2022 Information Security Associate",
-      badge: "ACCREDITED",
-      id: "ID: 92536562840015 • Awarded to Ramineni Teja (SkillFront)",
-      src: "/iso-27001-ramineni-teja.png",
-      footer: "Certification: ISO/IEC 27001:2022 Information Security Associate™"
-    }
-  }[activeCert];
+    title: "Govt. MSME / Udyam Certificate",
+    badge: "VERIFIED",
+    id: "UDYAM-AP-21-0044317 • Ministry of MSME, Govt. of India",
+    src: "/trustlayerlabs-udyam-registration-certificate.jpg",
+    footer: "Enterprise: TRUSTLAYER LABS (Micro Enterprise — Services)"
+  };
 
   return (
     <div 
@@ -59,9 +48,9 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
         className="relative w-full max-w-2xl bg-surface border border-border/90 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col max-h-[92vh] animate-scale-up"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header & Tabs */}
+        {/* Modal Header */}
         <div className="px-5 sm:px-6 py-4 border-b border-border/80 bg-[#0A0D14]">
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                 <ShieldCheck size={20} />
@@ -98,30 +87,6 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
                 <X size={18} />
               </button>
             </div>
-          </div>
-
-          {/* Certificate Switcher Tabs */}
-          <div className="flex gap-2 font-sans text-xs">
-            <button
-              onClick={() => setActiveCert("msme")}
-              className={`px-3 py-1.5 rounded-lg border font-semibold transition-all ${
-                activeCert === "msme"
-                  ? "bg-primary text-white border-primary shadow-sm"
-                  : "bg-surface text-textSecondary border-border hover:border-zinc-400"
-              }`}
-            >
-              Govt. MSME Certificate
-            </button>
-            <button
-              onClick={() => setActiveCert("iso27001")}
-              className={`px-3 py-1.5 rounded-lg border font-semibold transition-all ${
-                activeCert === "iso27001"
-                  ? "bg-primary text-white border-primary shadow-sm"
-                  : "bg-surface text-textSecondary border-border hover:border-zinc-400"
-              }`}
-            >
-              ISO/IEC 27001 Certificate (Teja)
-            </button>
           </div>
         </div>
 

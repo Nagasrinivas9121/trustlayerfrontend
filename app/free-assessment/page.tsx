@@ -94,7 +94,7 @@ export default function FreeAssessmentPage() {
               <div className="space-y-2">
                 <h3 className="text-lg font-bold text-textPrimary font-sans">Scoping Intake Registered!</h3>
                 <p className="text-xs text-textSecondary max-w-sm mx-auto leading-relaxed">
-                  Thank you! Our security architect is evaluating your details. We will email you with your custom audit snapshot scope within 4 hours.
+                  Thank you! Our security architect is evaluating your details. We will email you with your custom audit snapshot scope within one business day.
                 </p>
               </div>
 

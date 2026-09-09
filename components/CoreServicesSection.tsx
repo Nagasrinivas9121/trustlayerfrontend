@@ -113,7 +113,7 @@ export default function CoreServicesSection() {
             href="/services"
             className="inline-flex items-center gap-2 px-6 py-3 bg-surface border border-border hover:border-zinc-400 rounded-full text-xs font-sans font-bold uppercase tracking-wider text-textPrimary hover:text-primary transition-all shadow-sm group"
           >
-            <span>View Complete Catalogue (Specialized Security Services)</span>
+            <span>View Complete Security Services Catalogue</span>
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-primary" />
           </Link>
         </div>
