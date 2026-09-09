@@ -909,7 +909,7 @@ export const TEAM = [
     role: "Co-Founder & GRC Lead",
     bio: "Compliance and risk management practitioner assisting high-growth startups with ISO 27001 gap analysis, SOC 2 readiness roadmaps, and security governance.",
     initials: "RT",
-    credentials: ["ISO/IEC 27001:2022 Certified", "SOC 2 Readiness", "GRC Practitioner"],
+    credentials: ["ISO 27001 Readiness", "SOC 2 Readiness", "GRC Practitioner"],
     certificateUrl: "/iso-27001-ramineni-teja.png",
     certificateName: "ISO/IEC 27001:2022 Information Security Associate (ID: 92536562840015)",
     linkedin: "https://www.linkedin.com/in/ramineniteja"

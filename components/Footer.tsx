@@ -26,8 +26,8 @@ const footerLinks = [
       { name: "Free JWT Decoder Tool", href: "/tools/jwt-decoder" },
       { name: "Security Scenarios", href: "/case-studies" },
       { name: "Partner Program", href: "/partnerships" },
-      { name: "VAPT Bangalore Hub", href: "/vapt-bangalore" },
-      { name: "VAPT Hyderabad Hub", href: "/vapt-hyderabad" },
+      { name: "VAPT Services — Bangalore", href: "/vapt-bangalore" },
+      { name: "VAPT Services — Hyderabad", href: "/vapt-hyderabad" },
     ]
   },
   {

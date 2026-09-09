@@ -22,7 +22,7 @@ export default function VaptHyderabad() {
 
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
               <MapPin size={12} className="text-primary" />
-              <span>Hyderabad Security Hub</span>
+              <span>VAPT Services — Hyderabad</span>
             </div>
 
             <h1 className="heading-1 text-textPrimary text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
