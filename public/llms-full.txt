@@ -48,7 +48,7 @@ Yes! TrustLayerLabs includes retesting after the initial report is delivered to 
 ### Q4: Will penetration testing cause downtime or disruption to production?
 Testing is safely scheduled on staging/dev environments whenever possible. When testing against production, rates and payloads are carefully throttled to prevent performance impact or denial of service.
 
-### Q5: What certificates or reports do we receive for enterprise compliance?
+### Q5: What attestations or reports do we receive for enterprise compliance?
 Clients receive an Executive Summary, a Detailed Technical Report with CVSS scores, a Remediation Roadmap, and a signed Attestation of Security Testing suitable for sharing with enterprise customers, investors, and SOC 2 / ISO 27001 readiness reviews.
 
 ---

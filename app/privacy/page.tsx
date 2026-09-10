@@ -45,7 +45,7 @@ export default function PrivacyPage() {
 
             <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">3. Retention Policies</h2>
             <p>
-              Following the conclusion of a VAPT assessment and final attestation certificate issue, all client environment credentials, configurations, and connection channels are purged from our analysis machines. Technical logs are archived for 30 days to facilitate re-scans and then deleted securely.
+              Following the conclusion of a VAPT assessment and final retest verification letter issue, all client environment credentials, configurations, and connection channels are purged from our analysis machines. Technical logs are archived for 30 days to facilitate re-scans and then deleted securely.
             </p>
 
             <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">4. GDPR and Regulatory Compliance</h2>

@@ -21,7 +21,7 @@ const lines: LogLine[] = [
   { text: "    > Mitigation: Replaced with short-lived CloudFront cookies", type: "detail" },
   { text: "[*] Running cloud configuration audit [AWS / IAM]", type: "info" },
   { text: "[SUCCESS] SOC2 control CC6.1 (Access Controls) - verified", type: "success" },
-  { text: "[*] Security scan completed. Attestation Certificate issued.", type: "success" }
+  { text: "[*] Security scan completed. Retest Verification Letter issued.", type: "success" }
 ];
 
 export default function Terminal() {

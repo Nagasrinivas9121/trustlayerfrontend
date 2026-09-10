@@ -62,7 +62,7 @@ export default function NdaProcessPage() {
               3. Secure Evidence Purging Post-Audit
             </h3>
             <p className="text-xs text-textSecondary leading-relaxed">
-              Once the 30-day free retesting window expires and the final Attestation Certificate is issued, all temporary staging credentials and raw exploit payloads are permanently purged.
+              Once the 30-day free retesting window expires and the final Retest Verification Letter is issued, all temporary staging credentials and raw exploit payloads are permanently purged.
             </p>
           </div>
         </div>

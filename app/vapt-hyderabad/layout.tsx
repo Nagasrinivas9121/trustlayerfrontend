@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "VAPT & API Security Testing in Hyderabad",
   description:
-    "TrustLayerLabs provides manual VAPT, API penetration testing, and compliance readiness for tech startups in Hyderabad — HITEC City, Gachibowli, and Madhapur.",
+    "TrustLayerLabs provides manual VAPT, API penetration testing, and compliance readiness for tech startups in Hyderabad and across India.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/vapt-hyderabad",
   },
   openGraph: {
     title: "VAPT & API Security Testing in Hyderabad | TrustLayerLabs",
     description:
-      "Manual API pen testing and VAPT for Hyderabad tech startups in HITEC City and Gachibowli. Experienced offensive security team.",
+      "Manual API pen testing and VAPT for Hyderabad tech startups. Experienced offensive security team.",
     url: "https://www.trustlayerlabs.co.in/vapt-hyderabad",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "VAPT Services Hyderabad" }],
   },
@@ -19,22 +19,15 @@ export const metadata: Metadata = {
 export default function VaptHyderabadLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "name": "TrustLayerLabs — Hyderabad",
     "description": "VAPT and API security testing services in Hyderabad, Telangana.",
     "url": "https://www.trustlayerlabs.co.in/vapt-hyderabad",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "HITEC City",
       "addressLocality": "Hyderabad",
       "addressRegion": "Telangana",
-      "postalCode": "500081",
       "addressCountry": "IN",
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "17.4484",
-      "longitude": "78.3747",
     },
     "telephone": "+91-8822402811",
     "areaServed": "Hyderabad",

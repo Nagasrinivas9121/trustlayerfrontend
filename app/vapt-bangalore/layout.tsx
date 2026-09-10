@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "VAPT & API Security Testing in Bangalore",
   description:
-    "TrustLayerLabs provides manual VAPT, API penetration testing, and cloud security audits for tech startups in Bangalore — HSR Layout, Koramangala, and Whitefield.",
+    "TrustLayerLabs provides manual VAPT, API penetration testing, and cloud security audits for tech startups in Bangalore and across India.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/vapt-bangalore",
   },
@@ -19,22 +19,15 @@ export const metadata: Metadata = {
 export default function VaptBangaloreLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "name": "TrustLayerLabs — Bangalore",
     "description": "VAPT and API security testing services in Bangalore, Karnataka.",
     "url": "https://www.trustlayerlabs.co.in/vapt-bangalore",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "HSR Layout",
       "addressLocality": "Bengaluru",
       "addressRegion": "Karnataka",
-      "postalCode": "560102",
       "addressCountry": "IN",
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "12.9116",
-      "longitude": "77.6370",
     },
     "telephone": "+91-8822402811",
     "areaServed": "Bangalore",

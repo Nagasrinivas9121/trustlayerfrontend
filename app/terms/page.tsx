@@ -48,9 +48,9 @@ export default function TermsPage() {
               Retesting guarantees cover only the specific vulnerabilities discovered and highlighted in our initial VAPT report. Retesting must be requested within 30 to 60 days of report delivery depending on the selected pricing tier.
             </p>
 
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">4. Attestation Certificate</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">4. Retest Verification Letter & Security Badge</h2>
             <p>
-              An Attestation Certificate and Security Badge are issued only after validation retesting confirms that all critical and high severity flaws identified during scoping have been patched successfully.
+              A Retest Verification Letter and Security Badge are issued only after validation retesting confirms that all critical and high severity flaws identified during scoping have been patched successfully.
             </p>
           </div>
 

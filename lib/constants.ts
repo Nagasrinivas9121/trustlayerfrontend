@@ -123,7 +123,7 @@ export const SERVICES = [
       "Dynamic SSL Pinning bypass analysis",
       "Insecure local storage & key extraction PoC",
       "Decompiled code vulnerability mapping",
-      "Retesting verification certificate"
+      "Retesting verification letter"
     ],
     outcome: "Protect mobile clients against reverse engineering, hardcoded secret leaks, and insecure data storage."
   },
@@ -237,7 +237,7 @@ export const SERVICES = [
       "Signed auditor-ready attestation letter",
       "Free retesting for identified flaws"
     ],
-    outcome: "Close trust gaps for compliance auditors and fast-track your SOC 2 Type II audit certificate."
+    outcome: "Close trust gaps for compliance auditors and fast-track your SOC 2 Type II audit attestation."
   },
   {
     id: "fintech-vapt",
@@ -248,12 +248,12 @@ export const SERVICES = [
     severity: "critical",
     technologies: ["RBI Guidelines", "SEBI Cybersecurity framework", "NPCI guidelines", "AES-256", "TLS 1.3", "HSM"],
     deliverables: [
-      "SEBI/RBI regulatory compliance report",
+      "RBI/SEBI security controls assessment report",
       "Data localization & encryption audit",
       "Vulnerability assessment attestation",
       "NPCI UPI integration safety checks"
     ],
-    outcome: "Satisfy Indian banking and regulatory compliance audits to launch and process financial data."
+    outcome: "Align technical security controls with Indian banking and regulatory compliance guidelines."
   },
   {
     id: "aws-security",
@@ -301,7 +301,7 @@ export const SERVICES = [
       "Signed penetration test attestation",
       "Remediation support commits"
     ],
-    outcome: "Secure the technical control benchmarks required to pass ISO 27001 certification audits."
+    outcome: "Secure the technical control benchmarks required to support ISO 27001 certification audits."
   },
   {
     id: "hipaa-vapt",
@@ -365,7 +365,7 @@ export const SERVICES = [
       "ASV vulnerability check attestation",
       "Remediation verification letter"
     ],
-    outcome: "Meet PCI-DSS requirements to securely process credit card transactions without audit blocks."
+    outcome: "Validate technical security controls to support PCI-DSS compliance requirements."
   },
   {
     id: "source-code-review",
@@ -583,7 +583,7 @@ export const PRICING_TIERS = [
       "Detailed PDF audit report",
       "1 Free re-test within 30 days",
       "Email support",
-      "Attestation of Pen Test Certificate"
+      "Signed VAPT Attestation Letter"
     ],
     cta: "Book a 20-Min Review",
     popular: false
@@ -601,7 +601,7 @@ export const PRICING_TIERS = [
       "Remediation commits support",
       "2 Free re-tests within 60 days",
       "Slack security channel with our pentesters",
-      "Attestation Certificate & Trust Badge"
+      "Signed Attestation Letter & Security Badge"
     ],
     cta: "Book a 20-Min Review",
     popular: true

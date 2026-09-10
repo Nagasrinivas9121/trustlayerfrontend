@@ -61,7 +61,7 @@ If your developers are writing APIs, make sure they perform resource-level autho
   },
   {
     title: "3. The 48-Hour Attestation (Conversion Focused)",
-    topic: "Close enterprise sales cycles by showing VAPT certificates.",
+    topic: "Close enterprise sales cycles by showing VAPT attestation letters.",
     copy: `Is security compliance holding back your sales pipeline?
 
 We see it all the time with Indian B2B SaaS startups. 
@@ -74,7 +74,7 @@ At TrustLayerLabs, we help fast-growing startups clear procurement roadblocks.
 We deliver:
 - Thorough manual logic VAPT (OWASP Top 10)
 - In-depth developer walkthrough calls
-- Attestation Certificates for your buyers
+- Signed Attestation Letters for your buyers
 - Complete retesting guarantees
 
 Get your snapshot report in 48 hours. 
@@ -111,7 +111,7 @@ Get your snapshot report in 48 hours.
   {
     title: "9. Passing Enterprise Security Reviews (Founders)",
     topic: "How startups can speed up sales cycles by pre-empting vendor assessments.",
-    copy: "Indian SaaS Founders: Enterprise buyers stalling your sales pipeline with 300-question security surveys? 📋\n\nHere is how to pre-empt GRC blocks and close deals 40% faster:\n\n1. Have a mutual NDA ready to share scoping sheets.\n2. Maintain an updated security attestation portal (listing SOC2 status, backup frequencies).\n3. Share a third-party manual VAPT attestation certificate.\n\nEnterprise procurement officers don't expect you to have 100-man security teams. \nThey want proof that you manually audit your code boundaries.\n\n👉 Book a scoping intake call: https://trustlayerlabs.co.in/free-assessment\n\n#Startup #Sales #Compliance #SOC2"
+    copy: "Indian SaaS Founders: Enterprise buyers stalling your sales pipeline with 300-question security surveys? 📋\n\nHere is how to pre-empt GRC blocks and close deals 40% faster:\n\n1. Have a mutual NDA ready to share scoping sheets.\n2. Maintain an updated security attestation portal (listing SOC2 status, backup frequencies).\n3. Share a third-party manual VAPT attestation report.\n\nEnterprise procurement officers don't expect you to have 100-man security teams. \nThey want proof that you manually audit your code boundaries.\n\n👉 Book a scoping intake call: https://trustlayerlabs.co.in/free-assessment\n\n#Startup #Sales #Compliance #SOC2"
   },
   {
     title: "10. The Insecure CORS Wildcard Trap (API Security)",
@@ -121,7 +121,7 @@ Get your snapshot report in 48 hours.
   {
     title: "11. RBI VAPT Guidelines for FinTech (Regulatory)",
     topic: "Navigating the SEBI, RBI, and IRDAI compliance audits in India.",
-    copy: "Indian FinTech Founders: Preparing to launch payment integrations or NPCI UPI interfaces? 🇮🇳\n\nAdhering to the RBI Guidelines on Information Security and NPCI security benchmarks is non-negotiable.\n\nYour audit checklist:\n- Encrypt PII fields (Aadhaar, Account numbers) at the database layer (AES-256).\n- Disable legacy TLS (v1.0/v1.1) on API gateways; enforce TLS 1.2 minimum.\n- Retain detailed immutable application security logs for GRC reviews.\n- Conduct a third-party VAPT audit with signed attestation certificates.\n\nAvoid compliance delays. Harden your builds early.\n\n#FinTech #RBI #Compliance #VAPT #IndiaStartups"
+    copy: "Indian FinTech Founders: Preparing to launch payment integrations or NPCI UPI interfaces? 🇮🇳\n\nAdhering to the RBI Guidelines on Information Security and NPCI security benchmarks is non-negotiable.\n\nYour audit checklist:\n- Encrypt PII fields (Aadhaar, Account numbers) at the database layer (AES-256).\n- Disable legacy TLS (v1.0/v1.1) on API gateways; enforce TLS 1.2 minimum.\n- Retain detailed immutable application security logs for GRC reviews.\n- Conduct a third-party VAPT audit with signed attestation letters.\n\nAvoid compliance delays. Harden your builds early.\n\n#FinTech #RBI #Compliance #VAPT #IndiaStartups"
   },
   {
     title: "12. The Hardcoded JWT Secret Exploit (Authentication)",

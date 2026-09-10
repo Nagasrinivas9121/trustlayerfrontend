@@ -130,11 +130,6 @@ export default function RootLayout({
             "addressCountry": "IN",
           },
         ],
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "12.9116",
-          "longitude": "77.6370",
-        },
         "areaServed": ["Bangalore", "Hyderabad", "India", "Global"],
         "priceRange": "₹₹₹",
         "foundingDate": "2026-04-24",
