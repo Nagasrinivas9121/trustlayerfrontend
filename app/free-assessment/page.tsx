@@ -109,7 +109,7 @@ export default function FreeAssessmentPage() {
                     <Download size={14} /> Download Sample VAPT PDF
                   </a>
                   <Link
-                    href="https://calendar.app.google/jnamj3gawxVunPJm9"
+                    href="https://calendly.com/nagasrinivasaraoeevuri/30min"
                     target="_blank"
                     className="w-full inline-flex items-center justify-center py-3 bg-[#0a0a0a] hover:bg-zinc-800 text-white text-xs font-semibold uppercase tracking-wider rounded-lg gap-2"
                   >

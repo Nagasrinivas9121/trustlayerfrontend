@@ -60,7 +60,7 @@ export default function LiveChat() {
             sender: "bot",
             text: "Excellent! You can schedule a confidential 20-minute scoping review directly on our calendar under mutual NDA:",
             type: "links",
-            links: [{ label: "Open Security Review Calendar", url: "https://calendar.app.google/jnamj3gawxVunPJm9" }]
+            links: [{ label: "Open Security Review Calendar", url: "https://calendly.com/nagasrinivasaraoeevuri/30min" }]
           }
         ]);
       } else if (option.includes("WhatsApp")) {

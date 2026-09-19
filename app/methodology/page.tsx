@@ -134,7 +134,7 @@ export default function MethodologyPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <Link
-              href="https://calendar.app.google/jnamj3gawxVunPJm9"
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
               target="_blank"
               className="px-6 py-3 bg-[#0a0a0a] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors"
             >

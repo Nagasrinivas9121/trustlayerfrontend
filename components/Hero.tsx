@@ -39,7 +39,7 @@ export default function Hero() {
           
           {/* Top Category Eyebrow Label */}
           <Link 
-            href="https://calendar.app.google/jnamj3gawxVunPJm9"
+            href="https://calendly.com/nagasrinivasaraoeevuri/30min"
             target="_blank"
             className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-medium text-textSecondary uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all"
           >
@@ -98,7 +98,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-0.5">
               <Link 
-                href="https://calendar.app.google/jnamj3gawxVunPJm9" 
+                href="https://calendly.com/nagasrinivasaraoeevuri/30min" 
                 target="_blank" 
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary"
               >

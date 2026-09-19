@@ -148,7 +148,7 @@ export default async function BlogPost({ params }) {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              href="https://calendar.app.google/jnamj3gawxVunPJm9" 
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min" 
               target="_blank"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
             >

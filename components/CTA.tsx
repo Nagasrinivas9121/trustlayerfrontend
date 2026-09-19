@@ -24,7 +24,7 @@ export default function CTA() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="https://calendar.app.google/jnamj3gawxVunPJm9"
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
               target="_blank"
               className="btn-primary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto gap-2"
             >

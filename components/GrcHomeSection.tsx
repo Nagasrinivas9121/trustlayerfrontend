@@ -65,7 +65,7 @@ export default function GrcHomeSection() {
                 </Link>
 
                 <Link 
-                  href="https://calendar.app.google/jnamj3gawxVunPJm9"
+                  href="https://calendly.com/nagasrinivasaraoeevuri/30min"
                   target="_blank"
                   className="px-6 py-2.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-lg transition-all flex items-center gap-2 shadow-sm"
                 >

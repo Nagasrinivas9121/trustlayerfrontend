@@ -89,7 +89,7 @@ export default function ApiSecurityChecklistPage() {
           </p>
           <div className="pt-2">
             <Link
-              href="https://calendar.app.google/jnamj3gawxVunPJm9"
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
               target="_blank"
               className="inline-block px-8 py-3 bg-[#0a0a0a] text-white font-bold text-xs uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors"
             >

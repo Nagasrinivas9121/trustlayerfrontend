@@ -46,7 +46,7 @@ export default function FloatingActions() {
       >
         <div className="flex items-center gap-3">
           <Link
-            href="https://calendar.app.google/jnamj3gawxVunPJm9"
+            href="https://calendly.com/nagasrinivasaraoeevuri/30min"
             target="_blank"
             className="flex-1 bg-primary hover:bg-primary-hover text-white py-2 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm"
           >

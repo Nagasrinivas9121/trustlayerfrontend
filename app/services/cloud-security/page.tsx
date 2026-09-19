@@ -251,7 +251,7 @@ export default function CloudSecurityPage() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://calendar.app.google/jnamj3gawxVunPJm9"
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
               target="_blank"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
@@ -410,7 +410,7 @@ export default function CloudSecurityPage() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link 
-              href="https://calendar.app.google/jnamj3gawxVunPJm9"
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
               target="_blank"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >

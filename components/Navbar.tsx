@@ -108,7 +108,7 @@ export default function Navbar() {
           {/* Desktop CTA Button */}
           <div className="hidden md:block flex-shrink-0">
             <Link 
-              href="https://calendar.app.google/jnamj3gawxVunPJm9" 
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min" 
               target="_blank"
               className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all active:scale-95 flex items-center gap-1.5 shadow-sm"
             >
@@ -175,7 +175,7 @@ export default function Navbar() {
               </div>
 
               <Link 
-                href="https://calendar.app.google/jnamj3gawxVunPJm9" 
+                href="https://calendly.com/nagasrinivasaraoeevuri/30min" 
                 target="_blank"
                 onClick={() => setIsOpen(false)}
                 className="block text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md"

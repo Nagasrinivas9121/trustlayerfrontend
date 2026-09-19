@@ -12,6 +12,7 @@ export const BRAND = {
     whatsapp: "https://wa.me/918822402811",
     linkedin: "https://www.linkedin.com/company/trustlayerlabs1/",
     twitter: "https://twitter.com/trustlayerlabs",
+    calendly: "https://calendly.com/nagasrinivasaraoeevuri/30min",
   },
   colors: {
     bg: "#0D0F14",

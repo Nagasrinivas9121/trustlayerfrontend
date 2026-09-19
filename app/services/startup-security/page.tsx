@@ -75,7 +75,7 @@ export default function StartupSecurityPage() {
             Clear your enterprise security questionnaires in days with our startup readiness program.
           </p>
           <div className="pt-2">
-            <Link href="https://calendar.app.google/jnamj3gawxVunPJm9" target="_blank" className="inline-flex items-center gap-2 px-8 py-3 bg-[#0a0a0a] text-white font-bold text-xs uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors">
+            <Link href="https://calendly.com/nagasrinivasaraoeevuri/30min" target="_blank" className="inline-flex items-center gap-2 px-8 py-3 bg-[#0a0a0a] text-white font-bold text-xs uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors">
               Book Readiness Review <ArrowRight size={14} />
             </Link>
           </div>

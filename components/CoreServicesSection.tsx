@@ -93,7 +93,7 @@ export default function CoreServicesSection() {
                     {pillar.ctaText} →
                   </Link>
                   <Link 
-                    href="https://calendar.app.google/jnamj3gawxVunPJm9"
+                    href="https://calendly.com/nagasrinivasaraoeevuri/30min"
                     target="_blank"
                     className="w-full sm:flex-1 text-center py-2.5 px-4 bg-primary text-white text-xs uppercase font-sans font-semibold tracking-wider rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-1.5"
                   >
