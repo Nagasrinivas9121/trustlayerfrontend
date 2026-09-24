@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Linkedin, Mail, Shield, ShieldCheck } from "lucide-react";
@@ -55,6 +57,8 @@ export default function Footer() {
                 <img 
                   src="/logo-footer-dark.png" 
                   alt="TrustLayerLabs - The Verified Trust Layer" 
+                  width={180}
+                  height={48}
                   className="h-10 sm:h-12 w-auto object-contain" 
                 />
               </div>
@@ -101,9 +105,21 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-border/60 flex flex-col sm:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] font-semibold text-textSecondary uppercase tracking-wider font-sans">
-            &copy; {new Date().getFullYear()} TRUSTLAYERLABS. ALL RIGHTS RESERVED.
-          </p>
+          <div className="flex flex-wrap items-center gap-4 text-[10px] font-semibold text-textSecondary uppercase tracking-wider font-sans">
+            <span>&copy; {new Date().getFullYear()} TRUSTLAYERLABS. ALL RIGHTS RESERVED.</span>
+            <span>•</span>
+            <button
+              type="button"
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(new Event("open-cookie-settings"));
+                }
+              }}
+              className="hover:text-primary transition-colors underline underline-offset-2"
+            >
+              Cookie Preferences
+            </button>
+          </div>
           <div className="flex flex-wrap items-center gap-4 text-[10px] font-semibold text-textSecondary uppercase tracking-wider font-sans">
             <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> RETEST VERIFICATION AVAILABLE</span>
             <span className="flex items-center gap-1.5"><ShieldCheck size={12} className="text-primary" /> ISO 27001 READINESS</span>

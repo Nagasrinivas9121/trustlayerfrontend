@@ -87,13 +87,19 @@ export default function ApiSecurityChecklistPage() {
           <p className="text-xs text-textSecondary max-w-xl mx-auto">
             Our offensive security practitioners manually test your APIs for BOLA, authentication flaws, and business logic bypasses in 5 to 7 days.
           </p>
-          <div className="pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
               href="https://calendly.com/nagasrinivasaraoeevuri/30min"
               target="_blank"
-              className="inline-block px-8 py-3 bg-[#0a0a0a] text-white font-bold text-xs uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors"
+              className="px-8 py-3 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
             >
-              Book Free API Security Review
+              Book a 20-Min Review
+            </Link>
+            <Link
+              href="/sample-report"
+              className="px-8 py-3 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:text-primary font-semibold text-xs uppercase tracking-wider rounded-xl transition-all shadow-sm"
+            >
+              View Sample Report
             </Link>
           </div>
         </div>

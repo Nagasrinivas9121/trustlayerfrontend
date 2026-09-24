@@ -33,6 +33,8 @@ export default function Navbar() {
               <img 
                 src="/logo-banner.png" 
                 alt="TrustLayerLabs - The Verified Trust Layer" 
+                width={160}
+                height={32}
                 className="h-7 sm:h-8 w-auto object-contain" 
               />
             </div>

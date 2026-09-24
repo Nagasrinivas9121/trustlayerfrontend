@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
 import LiveChat from "@/components/LiveChat";
+import CalendlyTracker from "@/components/CalendlyTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { FAQS } from "@/lib/constants";
@@ -257,7 +258,8 @@ export default function RootLayout({
                   'analytics_storage': parsed.analytics ? 'granted' : 'denied',
                   'personalization_storage': parsed.functional ? 'granted' : 'denied',
                   'functionality_storage': parsed.functional ? 'granted' : 'denied',
-                  'security_storage': 'granted'
+                  'security_storage': 'granted',
+                  'wait_for_update': 500
                 });
               } else {
                 gtag('consent', 'default', {
@@ -267,18 +269,34 @@ export default function RootLayout({
                   'analytics_storage': 'denied',
                   'personalization_storage': 'denied',
                   'functionality_storage': 'denied',
-                  'security_storage': 'granted'
+                  'security_storage': 'granted',
+                  'wait_for_update': 500
                 });
               }
+              gtag('set', 'ads_data_redaction', true);
+              gtag('set', 'url_passthrough', true);
             `
           }}
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-o.onload=function(){window.trackingFunctions.onLoad({appId:"69fd616911fb0a00115c74ca"})},
-document.head.appendChild(o)}initApollo();`
+            __html: `
+              if (typeof window !== "undefined") {
+                window.addEventListener("load", function() {
+                  setTimeout(function() {
+                    var o = document.createElement("script");
+                    o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js";
+                    o.async = true;
+                    o.onload = function() {
+                      if (window.trackingFunctions && window.trackingFunctions.onLoad) {
+                        window.trackingFunctions.onLoad({ appId: "69fd616911fb0a00115c74ca" });
+                      }
+                    };
+                    document.head.appendChild(o);
+                  }, 1500);
+                });
+              }
+            `
           }}
         />
       </head>
@@ -296,7 +314,7 @@ document.head.appendChild(o)}initApollo();`
           `}
         </Script>
         {process.env.NEXT_PUBLIC_CLARITY_ID && (
-          <Script id="microsoft-clarity" strategy="afterInteractive">
+          <Script id="microsoft-clarity" strategy="lazyOnload">
             {`
               (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -310,6 +328,7 @@ document.head.appendChild(o)}initApollo();`
         <main>{children}</main>
         <Footer />
         <CookieConsent />
+        <CalendlyTracker />
         <LiveChat />
         <SpeedInsights />
         <Analytics />

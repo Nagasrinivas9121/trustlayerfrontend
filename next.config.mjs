@@ -56,6 +56,100 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/fintech',
+        destination: '/fintech-security',
+        permanent: true,
+      },
+      {
+        source: '/api-security',
+        destination: '/services/api-security',
+        permanent: true,
+      },
+      {
+        source: '/web-security',
+        destination: '/services/web-app-vapt',
+        permanent: true,
+      },
+      {
+        source: '/web-vapt',
+        destination: '/services/web-app-vapt',
+        permanent: true,
+      },
+      {
+        source: '/mobile-security',
+        destination: '/services/mobile-vapt',
+        permanent: true,
+      },
+      {
+        source: '/mobile-vapt',
+        destination: '/services/mobile-vapt',
+        permanent: true,
+      },
+      {
+        source: '/cloud-security',
+        destination: '/services/cloud-security',
+        permanent: true,
+      },
+      {
+        source: '/report',
+        destination: '/sample-report',
+        permanent: true,
+      },
+      {
+        source: '/assessment',
+        destination: '/free-assessment',
+        permanent: true,
+      },
+      {
+        source: '/audit',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/vapt',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/pentest',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/pricing',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/soc2',
+        destination: '/grc-readiness',
+        permanent: true,
+      },
+      {
+        source: '/iso27001',
+        destination: '/grc-readiness',
+        permanent: true,
+      },
+      {
+        source: '/schedule',
+        destination: 'https://calendly.com/nagasrinivasaraoeevuri/30min',
+        permanent: false,
+      },
+      {
+        source: '/book',
+        destination: 'https://calendly.com/nagasrinivasaraoeevuri/30min',
+        permanent: false,
+      },
+      {
+        source: '/cal',
+        destination: 'https://calendly.com/nagasrinivasaraoeevuri/30min',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

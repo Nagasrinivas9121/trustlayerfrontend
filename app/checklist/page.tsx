@@ -267,14 +267,43 @@ Compliance Verification: Confirmed multi-tenant boundary checks`}
                   Verified using manual security governance audit controls.
                 </span>
                 <Link
-                  href="/contact"
+                  href="https://calendly.com/nagasrinivasaraoeevuri/30min"
+                  target="_blank"
                   className="px-4 py-2 bg-primary hover:bg-primary-hover text-xs uppercase font-sans tracking-wider font-bold text-white rounded-lg shadow-sm transition-all"
                 >
-                  Book intake audit call
+                  Book a 20-Min Review
                 </Link>
               </div>
             </div>
           )}
+
+          {/* Explicit Bottom CTA */}
+          <div className="mt-16 p-8 md:p-12 bg-surface rounded-2xl border border-primary/30 text-center space-y-6 relative overflow-hidden shadow-sm">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold uppercase tracking-wider font-mono">
+              <span>Next Step for Fast-Moving Teams</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-textPrimary tracking-tight font-sans">
+              Need Help Reviewing Your Architecture Against This Checklist?
+            </h3>
+            <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto leading-relaxed font-sans">
+              Schedule a direct 20-minute architecture and scoping call with our lead security architects under mutual NDA. We will evaluate your attack surface and outline high-priority test vectors.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="https://calendly.com/nagasrinivasaraoeevuri/30min"
+                target="_blank"
+                className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
+              >
+                Book a 20-Min Review
+              </Link>
+              <Link
+                href="/sample-report"
+                className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase font-sans font-semibold tracking-wider rounded-xl w-full sm:w-auto text-center shadow-sm transition-all"
+              >
+                View Sample Report
+              </Link>
+            </div>
+          </div>
 
         </div>
       </main>
