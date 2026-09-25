@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Calendar, ChevronDown, Award } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
+import { openCalendly } from "@/lib/calendly";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -109,13 +110,12 @@ export default function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:block flex-shrink-0">
-            <Link 
-              href="https://calendly.com/nagasrinivasaraoeevuri/30min" 
-              target="_blank"
-              className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all active:scale-95 flex items-center gap-1.5 shadow-sm"
+            <button 
+              onClick={() => openCalendly()}
+              className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all active:scale-95 flex items-center gap-1.5 shadow-sm cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5" /> Book Review
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -176,14 +176,15 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <Link 
-                href="https://calendly.com/nagasrinivasaraoeevuri/30min" 
-                target="_blank"
-                onClick={() => setIsOpen(false)}
-                className="block text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md"
+              <button 
+                onClick={() => {
+                  setIsOpen(false);
+                  openCalendly();
+                }}
+                className="w-full text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md cursor-pointer"
               >
                 Book a 20-Min Security Review
-              </Link>
+              </button>
             </div>
           )}
         </nav>

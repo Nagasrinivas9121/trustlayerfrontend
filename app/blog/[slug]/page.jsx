@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
       type: "article",
       publishedTime: post.date,
       authors: [post.author || "TrustLayerLabs Security Team"],
-      tags: ["cybersecurity", "VAPT", "API security", "penetration testing", "India"],
+      tags: post.tags || ["cybersecurity", "VAPT", "API security", "penetration testing", "SaaS security"],
       images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
@@ -109,7 +109,7 @@ export default async function BlogPost({ params }) {
 
         <div className="flex items-center space-x-6 text-[10px] font-sans font-semibold text-textSecondary mb-6 uppercase tracking-wider border-b border-border/20 pb-4">
           <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {post.date}</span>
-          <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> 8 min read</span>
+          <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.readTime || "8 min read"}</span>
           <span className="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary rounded-md">
             {post.category || "Security Analysis"}
           </span>

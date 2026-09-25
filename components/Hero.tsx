@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Star, CheckCircle, Quote } from "lucide-react";
+import { openCalendly } from "@/lib/calendly";
 
 export default function Hero() {
   const router = useRouter();
@@ -38,17 +39,17 @@ export default function Hero() {
         <div className="flex flex-col items-center text-center space-y-7 max-w-3xl mx-auto relative z-20">
           
           {/* Top Category Eyebrow Label */}
-          <Link 
-            href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-            target="_blank"
-            className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-medium text-textSecondary uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all"
+          <button 
+            type="button"
+            onClick={() => openCalendly()}
+            className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-medium text-textSecondary uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all cursor-pointer"
           >
             <span className="relative flex h-1.5 w-1.5 mr-1">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
             </span>
             <span>Manual API & Application Security Testing →</span>
-          </Link>
+          </button>
 
           {/* Main Headline - Refined Vertical Rhythm */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.08] max-w-4xl mx-auto font-sans">
@@ -97,13 +98,13 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-0.5">
-              <Link 
-                href="https://calendly.com/nagasrinivasaraoeevuri/30min" 
-                target="_blank" 
-                className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary"
+              <button 
+                type="button"
+                onClick={() => openCalendly()}
+                className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary cursor-pointer"
               >
                 <span>Book a 20-Min Security Review →</span>
-              </Link>
+              </button>
               <span className="text-border/60">•</span>
               <Link 
                 href="/sample-report" 

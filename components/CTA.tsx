@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
+import { openCalendly } from "@/lib/calendly";
 
 export default function CTA() {
   return (
@@ -23,14 +24,14 @@ export default function CTA() {
             Find the weaknesses before your customers, auditors, or attackers do. Schedule a confidential 20-minute scoping review under mutual NDA.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-              target="_blank"
-              className="btn-primary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto gap-2"
+            <button
+              type="button"
+              onClick={() => openCalendly()}
+              className="btn-primary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto gap-2 cursor-pointer"
             >
               <Calendar size={16} />
               Book a 20-Min Security Review
-            </Link>
+            </button>
             <Link 
               href="/free-assessment" 
               className="btn-secondary flex items-center justify-center group px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-semibold w-full sm:w-auto"

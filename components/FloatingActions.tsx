@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { MessageSquare, Phone, Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { BRAND } from "@/lib/constants";
+import { openCalendly } from "@/lib/calendly";
 
 export default function FloatingActions() {
   const [visible, setVisible] = useState(false);
@@ -45,13 +46,13 @@ export default function FloatingActions() {
         }`}
       >
         <div className="flex items-center gap-3">
-          <Link
-            href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-            target="_blank"
-            className="flex-1 bg-primary hover:bg-primary-hover text-white py-2 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm"
+          <button
+            type="button"
+            onClick={() => openCalendly()}
+            className="flex-1 bg-primary hover:bg-primary-hover text-white py-2 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm cursor-pointer"
           >
             <Calendar className="w-3.5 h-3.5" /> Book 20-Min Review
-          </Link>
+          </button>
           <Link
             href={`tel:${BRAND.contact.phone}`}
             className="bg-surface border border-border hover:border-zinc-400 text-textPrimary py-2 text-xs font-bold px-4 flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm"

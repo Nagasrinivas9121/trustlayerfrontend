@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { openCalendly } from "@/lib/calendly";
 
 export default function CalendlyTracker() {
   useEffect(() => {
@@ -36,36 +37,21 @@ export default function CalendlyTracker() {
 
     window.addEventListener("message", handleCalendlyMessage);
 
-    // 2. Click delegation for all Calendly outbound links
+    // 2. Click delegation for all Calendly outbound links -> open in popup widget
     const handleCalendlyClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a");
       if (target && target.href && target.href.includes("calendly.com")) {
-        if (typeof window !== "undefined") {
-          const w = window as any;
-          w.dataLayer = w.dataLayer || [];
-          w.dataLayer.push({
-            event: "calendly_click",
-            event_category: "conversion",
-            event_label: target.href,
-            page_location: window.location.pathname,
-          });
-
-          if (typeof w.gtag === "function") {
-            w.gtag("event", "calendly_click", {
-              event_category: "conversion",
-              event_label: target.href,
-              page_location: window.location.pathname,
-            });
-          }
-        }
+        // Prevent opening in a new tab; open as embedded Calendly popup
+        e.preventDefault();
+        openCalendly(target.href);
       }
     };
 
-    document.addEventListener("click", handleCalendlyClick);
+    document.addEventListener("click", handleCalendlyClick, true);
 
     return () => {
       window.removeEventListener("message", handleCalendlyMessage);
-      document.removeEventListener("click", handleCalendlyClick);
+      document.removeEventListener("click", handleCalendlyClick, true);
     };
   }, []);
 
