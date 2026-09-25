@@ -150,17 +150,12 @@ const nextConfig = {
       },
       {
         source: '/schedule',
-        destination: 'https://calendly.com/nagasrinivasaraoeevuri/30min',
-        permanent: false,
-      },
-      {
-        source: '/book',
-        destination: 'https://calendly.com/nagasrinivasaraoeevuri/30min',
+        destination: '/book',
         permanent: false,
       },
       {
         source: '/cal',
-        destination: 'https://calendly.com/nagasrinivasaraoeevuri/30min',
+        destination: '/book',
         permanent: false,
       },
     ];
