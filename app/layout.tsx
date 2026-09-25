@@ -282,19 +282,41 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               if (typeof window !== "undefined") {
-                window.addEventListener("load", function() {
-                  setTimeout(function() {
-                    var o = document.createElement("script");
-                    o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js";
-                    o.async = true;
-                    o.onload = function() {
-                      if (window.trackingFunctions && window.trackingFunctions.onLoad) {
-                        window.trackingFunctions.onLoad({ appId: "69fd616911fb0a00115c74ca" });
+                function loadApolloTracker() {
+                  if (window.__apollo_initialized) return;
+                  window.__apollo_initialized = true;
+                  var o = document.createElement("script");
+                  o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js";
+                  o.async = true;
+                  o.onload = function() {
+                    if (window.trackingFunctions && window.trackingFunctions.onLoad) {
+                      window.trackingFunctions.onLoad({ appId: "69fd616911fb0a00115c74ca" });
+                    }
+                  };
+                  document.head.appendChild(o);
+                }
+
+                function checkApolloConsent(e) {
+                  try {
+                    var consent = (e && e.detail) ? e.detail : null;
+                    if (!consent) {
+                      var savedConsent = localStorage.getItem('cookie-consent');
+                      if (savedConsent) consent = JSON.parse(savedConsent);
+                    }
+                    if (consent && (consent.marketing || consent.ad_storage)) {
+                      if (document.readyState === "complete") {
+                        setTimeout(loadApolloTracker, 1500);
+                      } else {
+                        window.addEventListener("load", function() {
+                          setTimeout(loadApolloTracker, 1500);
+                        });
                       }
-                    };
-                    document.head.appendChild(o);
-                  }, 1500);
-                });
+                    }
+                  } catch(err) {}
+                }
+
+                checkApolloConsent();
+                window.addEventListener("cookie_consent_update", checkApolloConsent);
               }
             `
           }}
@@ -316,11 +338,31 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_CLARITY_ID && (
           <Script id="microsoft-clarity" strategy="lazyOnload">
             {`
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_ID}");
+              function loadClarity() {
+                if (window.__clarity_initialized) return;
+                window.__clarity_initialized = true;
+                (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_ID}");
+              }
+
+              function checkClarityConsent(e) {
+                try {
+                  var consent = (e && e.detail) ? e.detail : null;
+                  if (!consent) {
+                    var savedConsent = localStorage.getItem('cookie-consent');
+                    if (savedConsent) consent = JSON.parse(savedConsent);
+                  }
+                  if (consent && (consent.analytics || consent.analytics_storage)) {
+                    loadClarity();
+                  }
+                } catch(err) {}
+              }
+
+              checkClarityConsent();
+              window.addEventListener("cookie_consent_update", checkClarityConsent);
             `}
           </Script>
         )}

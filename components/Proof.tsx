@@ -111,7 +111,7 @@ export default function Proof() {
         {/* Business Registration & Verification Badges */}
         <div className="flex flex-col items-center text-center pt-8 border-t border-border/40">
           <p className="text-textSecondary mb-8 text-xs max-w-xl leading-relaxed font-sans">
-            TrustLayerLabs is an offensive security consultancy providing manual VAPT, API security reviews, and GRC readiness advisory for tech teams across India.
+            TrustLayerLabs is an offensive security consultancy providing manual VAPT, API security reviews, and GRC readiness advisory for SaaS, FinTech, and AI teams globally.
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">

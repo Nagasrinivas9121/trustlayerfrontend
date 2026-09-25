@@ -68,6 +68,8 @@ export default function CookieConsent() {
           personalization_storage: prefs.functional ? "granted" : "denied",
         },
       });
+
+      window.dispatchEvent(new CustomEvent("cookie_consent_update", { detail: prefs }));
     }
   };
 
