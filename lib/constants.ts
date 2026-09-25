@@ -673,6 +673,7 @@ export const WHO_WE_HELP = [
       "Authentication & Multi-Factor Mechanisms",
       "BOLA / IDOR on Account Balances",
       "KYC & Onboarding Data Pipelines",
+      "SOC 2, GDPR & PCI-DSS Alignment",
       "RBI & NPCI Technical Baseline Alignment"
     ],
     cta: "Explore FinTech Security",

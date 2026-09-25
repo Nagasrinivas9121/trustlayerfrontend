@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         alt: "TrustLayerLabs — Application Security, API Security & GRC",
       },
     ],
-    locale: "en_IN",
+    locale: "en",
     type: "website",
   },
   twitter: {
