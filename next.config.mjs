@@ -74,6 +74,21 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/web-application-penetration-testing',
+        destination: '/services/web-app-vapt',
+        permanent: true,
+      },
+      {
+        source: '/courses',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/status',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/web-vapt',
         destination: '/services/web-app-vapt',
         permanent: true,
