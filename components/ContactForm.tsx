@@ -127,7 +127,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
             <div className="p-5 bg-surface border border-border/80 rounded-xl space-y-2 text-xs font-sans shadow-sm">
               <div className="text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-2">Team Operations:</div>
               <p className="text-textPrimary font-semibold">📍 Distributed Team: <span className="text-textSecondary font-normal">Bangalore & Hyderabad</span></p>
-              <p className="text-textPrimary font-semibold">🌐 Scope of Delivery: <span className="text-textSecondary font-normal">Serving SaaS, FinTech & AI teams globally — remote-first engagements</span></p>
+              <p className="text-textPrimary font-semibold">Scope of Delivery: <span className="text-textSecondary font-normal">Serving SaaS, FinTech & AI teams globally — remote-first engagements</span></p>
             </div>
           </div>
 
