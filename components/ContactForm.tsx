@@ -134,46 +134,46 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
           </div>
 
           {/* Right Column: Calendar Booking or Scoping Form */}
-          <div className="lg:col-span-7 bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 relative flex flex-col justify-between shadow-sm">
+          <div className="lg:col-span-7 bg-surface border border-border/80 rounded-2xl p-4 sm:p-6 lg:p-8 relative flex flex-col justify-between shadow-sm">
             <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none -z-10" />
 
             {/* Mode Switcher */}
-            <div className="flex items-center gap-2 p-1.5 bg-background border border-border/80 rounded-xl mb-6 font-sans">
+            <div className="flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-background border border-border/80 rounded-xl mb-6 font-sans">
               <button
                 type="button"
                 onClick={() => setMode("calendar")}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all ${
                   mode === "calendar"
                     ? "bg-primary text-white shadow-sm"
                     : "text-textSecondary hover:text-textPrimary"
                 }`}
               >
-                <Calendar size={14} />
-                <span>Book 30-Min Call</span>
+                <Calendar size={13} className="shrink-0" />
+                <span className="truncate">Book 30-Min Call</span>
               </button>
               <button
                 type="button"
                 onClick={() => setMode("form")}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all ${
                   mode === "form"
                     ? "bg-primary text-white shadow-sm"
                     : "text-textSecondary hover:text-textPrimary"
                 }`}
               >
-                <FileText size={14} />
-                <span>Request Written Scope</span>
+                <FileText size={13} className="shrink-0" />
+                <span className="truncate">Request Written Scope</span>
               </button>
             </div>
 
             {mode === "calendar" ? (
               <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs font-sans px-1">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs font-sans px-1 gap-1">
                   <span className="text-textSecondary font-medium">Select a slot with an offensive security practitioner:</span>
-                  <span className="text-emerald-600 font-semibold flex items-center gap-1.5">
+                  <span className="text-emerald-600 font-semibold flex items-center gap-1.5 shrink-0">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> Live Availability
                   </span>
                 </div>
-                <CalendlyEmbed minHeight="660px" />
+                <CalendlyEmbed minHeight="660px" className="min-h-[580px] sm:min-h-[660px]" />
               </div>
             ) : success ? (
               <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 py-12 font-sans">

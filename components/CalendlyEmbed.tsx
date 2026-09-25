@@ -72,12 +72,12 @@ export default function CalendlyEmbed({
   }, [url]);
 
   return (
-    <div className={`w-full overflow-hidden rounded-xl bg-surface border border-border/80 shadow-sm ${className}`}>
+    <div className={`w-full max-w-full overflow-hidden rounded-xl bg-surface border border-border/80 shadow-sm ${className}`}>
       <div
         ref={containerRef}
-        className="calendly-inline-widget w-full"
+        className="calendly-inline-widget w-full max-w-full"
         data-url={url}
-        style={{ minWidth: "320px", height: minHeight }}
+        style={{ minWidth: "100%", width: "100%", height: minHeight }}
       />
     </div>
   );

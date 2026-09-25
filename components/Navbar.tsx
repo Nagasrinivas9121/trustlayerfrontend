@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <>
       <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
-        <nav className={`w-full max-w-5xl flex items-center justify-between px-6 py-3 rounded-full border bg-surface/80 backdrop-blur-md border-border/80 transition-all duration-300 ${
+        <nav className={`w-full max-w-5xl flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 rounded-full border bg-surface/80 backdrop-blur-md border-border/80 transition-all duration-300 ${
           scrolled ? "shadow-md" : "shadow-sm"
         }`}>
           
