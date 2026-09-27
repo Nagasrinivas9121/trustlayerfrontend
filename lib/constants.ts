@@ -904,7 +904,7 @@ export const TEAM = [
     bio: "Systems architect and security engineer leading cloud infrastructure reviews, Kubernetes hardening, and network vulnerability assessments.",
     initials: "BP",
     credentials: ["Cloud Security", "VAPT Specialist", "Infrastructure Security"],
-    linkedin: "https://www.linkedin.com/in/bakkina-pavan-kumar"
+    linkedin: "https://www.linkedin.com/in/bikkina-pavankumar-898964223/"
   },
   {
     name: "Ramineni Teja",
