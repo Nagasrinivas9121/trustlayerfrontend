@@ -37,21 +37,23 @@ export default function Founder() {
                   href={member.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-textSecondary hover:text-primary transition-colors"
+                  className="text-textSecondary hover:text-primary transition-colors p-1"
+                  aria-label={`${member.name} on LinkedIn`}
                 >
                   <Linkedin size={14} />
+                  <span className="sr-only">{member.name} on LinkedIn</span>
                 </a>
               </div>
 
               <div>
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-lg font-bold font-sans text-primary shadow-sm mb-6">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-200 flex items-center justify-center bg-blue-50 text-lg font-bold font-sans text-blue-800 shadow-sm mb-6">
                   {member.initials}
                 </div>
 
                 <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans">
                   {member.name}
                 </h3>
-                <p className="text-[11px] font-sans text-primary uppercase tracking-wider mt-1 mb-4">
+                <p className="text-[11px] font-sans text-blue-800 font-bold uppercase tracking-wider mt-1 mb-4">
                   {member.role}
                 </p>
 
@@ -66,7 +68,7 @@ export default function Founder() {
                   {member.credentials.map((cred) => (
                     <span 
                       key={cred}
-                      className="px-2 py-0.5 border border-primary/20 text-primary bg-primary/5 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
+                      className="px-2 py-0.5 border border-blue-200/80 text-blue-800 bg-blue-50 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
                     >
                       {cred}
                     </span>
@@ -79,9 +81,9 @@ export default function Founder() {
 
         {/* Philosophy CTA */}
         <div className="max-w-3xl mx-auto p-8 bg-surface border border-border rounded-2xl text-center space-y-4 shadow-sm">
-          <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-mono flex items-center justify-center gap-2">
+          <h3 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-mono flex items-center justify-center gap-2">
             <Target size={14} className="text-primary" /> Our Testing & Advisory Approach
-          </h4>
+          </h3>
           <p className="text-xs text-textSecondary leading-relaxed font-sans">
             We focus on row-level security parameters, database multi-tenancy verification, token state handling, and compliance alignment. Our goal is to assist engineering teams with thorough technical assessments and retest verification letters that support institutional vendor reviews.
           </p>

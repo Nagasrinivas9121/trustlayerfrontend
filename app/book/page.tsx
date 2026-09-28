@@ -111,7 +111,7 @@ export default function BookPage() {
 
           {/* Right Column: Embedded Calendly Widget */}
           <div className="lg:col-span-7 w-full max-w-full overflow-hidden">
-            <CalendlyEmbed minHeight="700px" className="min-h-[620px] sm:min-h-[700px]" />
+            <CalendlyEmbed minHeight="700px" className="min-h-[620px] sm:min-h-[700px]" immediate={true} />
           </div>
         </div>
       </div>

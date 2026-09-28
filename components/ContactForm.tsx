@@ -169,8 +169,8 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs font-sans px-1 gap-1">
                   <span className="text-textSecondary font-medium">Select a slot with an offensive security practitioner:</span>
-                  <span className="text-emerald-600 font-semibold flex items-center gap-1.5 shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> Live Availability
+                  <span className="text-emerald-800 font-bold flex items-center gap-1.5 shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" /> Live Availability
                   </span>
                 </div>
                 <CalendlyEmbed minHeight="660px" className="min-h-[580px] sm:min-h-[660px]" />

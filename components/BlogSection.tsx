@@ -44,7 +44,7 @@ export default function BlogSection() {
             >
               <div>
                 <div className="flex items-center gap-3.5 mb-5 text-xs font-sans font-bold uppercase tracking-wider text-textSecondary">
-                  <span className="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary rounded">
+                  <span className="px-2 py-0.5 bg-blue-50 border border-blue-200/80 text-blue-800 font-bold rounded">
                     {post.category || "Security Guide"}
                   </span>
                   <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
@@ -65,6 +65,7 @@ export default function BlogSection() {
                 <Link 
                   href={`/blog/${post.slug}`}
                   className="text-textPrimary hover:text-primary transition-colors inline-flex items-center gap-1"
+                  aria-label={`Read analysis: ${post.title}`}
                 >
                   Read Analysis <ArrowRight size={12} />
                 </Link>

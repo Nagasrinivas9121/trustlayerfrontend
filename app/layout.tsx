@@ -241,7 +241,6 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/symbol.png?v=4" />
         <link rel="shortcut icon" href="/favicon.ico?v=4" />
         <link rel="apple-touch-icon" href="/symbol.png?v=4" />
-        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -374,11 +373,6 @@ export default function RootLayout({
             `}
           </Script>
         )}
-        <Script
-          id="calendly-widget"
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
-        />
         <Navbar />
         <main>{children}</main>
         <Footer />

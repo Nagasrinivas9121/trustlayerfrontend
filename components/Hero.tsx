@@ -42,7 +42,7 @@ export default function Hero() {
           <button 
             type="button"
             onClick={() => openCalendly()}
-            className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-medium text-textSecondary uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all cursor-pointer"
+            className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-semibold text-zinc-700 uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all cursor-pointer"
           >
             <span className="relative flex h-1.5 w-1.5 mr-1">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
@@ -152,7 +152,7 @@ export default function Hero() {
         {/* Left Floating Card */}
         <div className="hidden lg:block absolute left-[-8px] xl:left-2 top-[50%] -translate-y-1/2 w-[240px] xl:w-[255px] rotate-[-2.5deg] hover:rotate-0 hover:scale-[1.02] opacity-80 hover:opacity-100 transition-all duration-300 shadow-sm bg-surface/85 backdrop-blur-sm border border-border/70 p-5 rounded-2xl z-10">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+            <span className="text-[9px] font-mono font-bold text-blue-800 uppercase tracking-wider bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">
               Offensive Security
             </span>
             <CheckCircle size={14} className="text-primary" />
@@ -161,11 +161,11 @@ export default function Hero() {
             Manual authorization, BOLA & business-logic security testing for high-growth tech teams.
           </p>
           <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
-            <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
+            <div className="w-7 h-7 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-sans font-bold text-[10px] text-blue-900">
               TL
             </div>
             <div>
-              <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
+              <p className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</p>
               <p className="text-[10px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Hero() {
         {/* Right Floating Card */}
         <div className="hidden lg:block absolute right-[-8px] xl:right-2 top-[52%] -translate-y-1/2 w-[240px] xl:w-[255px] rotate-[2.5deg] hover:rotate-0 hover:scale-[1.02] opacity-80 hover:opacity-100 transition-all duration-300 shadow-sm bg-surface/85 backdrop-blur-sm border border-border/70 p-5 rounded-2xl z-10">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+            <span className="text-[9px] font-mono font-bold text-blue-800 uppercase tracking-wider bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">
               Technical GRC
             </span>
             <CheckCircle size={14} className="text-primary" />
@@ -183,11 +183,11 @@ export default function Hero() {
             SOC 2 & ISO 27001 readiness, technical control mapping, and retest verification reports.
           </p>
           <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
-            <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
+            <div className="w-7 h-7 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-sans font-bold text-[10px] text-blue-900">
               GRC
             </div>
             <div>
-              <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
+              <p className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</p>
               <p className="text-[10px] font-sans text-textSecondary uppercase">Governance Advisory</p>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function Hero() {
           {/* Left card */}
           <div className="bg-surface/90 border border-border/80 p-5 rounded-2xl shadow-sm space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+              <span className="text-[9px] font-mono font-bold text-blue-800 uppercase tracking-wider bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">
                 Offensive Security
               </span>
               <CheckCircle size={14} className="text-primary" />
@@ -207,11 +207,11 @@ export default function Hero() {
               Manual authorization, BOLA & business-logic security testing for high-growth tech teams.
             </p>
             <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
-              <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
+              <div className="w-7 h-7 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-sans font-bold text-[10px] text-blue-900">
                 TL
               </div>
               <div>
-                <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</h4>
+                <p className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</p>
                 <p className="text-[10px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
               </div>
             </div>
@@ -220,7 +220,7 @@ export default function Hero() {
           {/* Right card */}
           <div className="bg-surface/90 border border-border/80 p-5 rounded-2xl shadow-sm space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-[9px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+              <span className="text-[9px] font-mono font-bold text-blue-800 uppercase tracking-wider bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">
                 Technical GRC
               </span>
               <CheckCircle size={14} className="text-primary" />
@@ -229,11 +229,11 @@ export default function Hero() {
               SOC 2 & ISO 27001 readiness, technical control mapping, and retest verification reports.
             </p>
             <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
-              <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center font-sans font-bold text-[10px] text-primary">
+              <div className="w-7 h-7 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-sans font-bold text-[10px] text-blue-900">
                 GRC
               </div>
               <div>
-                <h4 className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</h4>
+                <p className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</p>
                 <p className="text-[10px] font-sans text-textSecondary uppercase">Governance Advisory</p>
               </div>
             </div>

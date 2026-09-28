@@ -49,7 +49,7 @@ export default function HowItWorks() {
                     <div className="w-10 h-10 bg-background border border-border rounded-xl flex items-center justify-center shadow-sm group-hover:border-primary transition-colors">
                       <Icon size={18} className="text-primary" />
                     </div>
-                    <span className="text-xs font-bold font-mono uppercase tracking-wider text-primary px-2.5 py-1 bg-primary/10 rounded-md">
+                    <span className="text-xs font-bold font-mono uppercase tracking-wider text-blue-800 px-2.5 py-1 bg-blue-50 border border-blue-200/80 rounded-md">
                       Phase {step.phase}
                     </span>
                   </div>

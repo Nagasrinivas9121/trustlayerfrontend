@@ -150,12 +150,12 @@ export default function SecurityReportPreview() {
                 >
                   <div className="flex items-center justify-between border-b border-border/60 pb-4">
                     <div>
-                      <span className="text-[10px] font-mono text-primary font-bold uppercase tracking-wider border border-primary/20 bg-primary/10 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono text-blue-800 font-bold uppercase tracking-wider border border-blue-200/80 bg-blue-50 px-2 py-0.5 rounded">
                         Illustrative Summary Template
                       </span>
-                      <h4 className="text-sm font-bold text-textPrimary font-mono uppercase tracking-wider mt-2">
+                      <h3 className="text-sm font-bold text-textPrimary font-mono uppercase tracking-wider mt-2">
                         Ref: TTL-SAMPLE-ASSESSMENT
-                      </h4>
+                      </h3>
                     </div>
                     <div className="text-right font-mono text-[11px] text-textSecondary">
                       <p>Scope: API & Cloud Assessment</p>
@@ -168,9 +168,9 @@ export default function SecurityReportPreview() {
                   </p>
 
                   <div className="p-4 bg-background border border-border rounded-xl space-y-2 font-sans">
-                    <h5 className="text-xs font-bold text-textPrimary font-mono uppercase tracking-wider">
+                    <p className="text-xs font-bold text-textPrimary font-mono uppercase tracking-wider">
                       Assessment Scopes & Structure:
-                    </h5>
+                    </p>
                     <ul className="space-y-1.5 text-xs text-textSecondary font-sans">
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full" />
@@ -208,7 +208,7 @@ export default function SecurityReportPreview() {
                         <div className="flex justify-between items-center">
                           <span className="text-xs font-bold text-textPrimary font-mono">{v.id} : {v.title}</span>
                           <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold font-mono ${
-                            v.severity === "Critical" ? "bg-red-500/10 border border-red-500/20 text-red-600" : "bg-amber-500/10 border border-amber-500/20 text-amber-600"
+                            v.severity === "Critical" ? "bg-red-50 border border-red-200 text-red-700" : "bg-amber-50 border border-amber-200 text-amber-800"
                           }`}>
                             {v.severity} (CVSS {v.score})
                           </span>
@@ -253,7 +253,7 @@ export default function SecurityReportPreview() {
                     ].map((row, idx) => (
                       <div key={idx} className="flex items-start justify-between p-3.5 bg-background border border-border rounded-xl font-mono text-xs">
                         <span className="text-textSecondary leading-relaxed pr-6">{row.item}</span>
-                        <span className="flex-shrink-0 px-2 py-0.5 bg-primary/10 border border-primary/20 rounded text-[10px] font-bold text-primary uppercase">
+                        <span className="flex-shrink-0 px-2 py-0.5 bg-blue-50 border border-blue-200/80 rounded text-[10px] font-bold text-blue-800 uppercase">
                           Example Status: {row.status}
                         </span>
                       </div>

@@ -73,7 +73,7 @@ export default function Proof() {
               key={i}
               className="premium-card p-8 bg-surface border border-border hover:border-zinc-400 transition-all rounded-xl shadow-sm"
             >
-              <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary text-xs font-sans font-semibold tracking-wider mb-6">
+              <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-md bg-blue-50 border border-blue-200/80 text-blue-800 text-xs font-sans font-bold tracking-wider mb-6">
                 <v.icon size={12} />
                 <span>{v.type}</span>
               </div>
@@ -96,7 +96,7 @@ export default function Proof() {
               { name: "GRC Readiness", full: "ISO 27001 & SOC 2 Alignment", authority: "Compliance Mapping" }
             ].map((spec) => (
               <div key={spec.name} className="flex items-center gap-3.5 p-4 bg-surface border border-border/80 rounded-xl text-left shadow-sm hover:border-primary/40 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold font-mono text-xs flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200/80 flex items-center justify-center text-blue-800 font-bold font-mono text-xs flex-shrink-0">
                   {spec.name.split(" ")[0]}
                 </div>
                 <div>
@@ -116,7 +116,14 @@ export default function Proof() {
 
           <div className="flex flex-wrap justify-center items-center gap-4">
             <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity" title="Skill With Boost Ecosystem Listing">
-              <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Skill With Boost" style={{ height: '32px', width: 'auto' }} />
+              <img 
+                src="https://sellwithboost.com/badge/listing.svg" 
+                alt="Listed on Skill With Boost" 
+                width={150} 
+                height={32} 
+                loading="lazy"
+                style={{ height: '32px', width: 'auto' }} 
+              />
             </a>
 
             <button 

@@ -162,20 +162,21 @@ export default function LiveChat() {
           {/* Header */}
           <div className="p-4 bg-[#0A0A0A] border-b border-border/80 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+              <div className="w-8 h-8 rounded-lg bg-blue-950/80 border border-blue-800 flex items-center justify-center text-blue-400">
                 <Shield size={16} />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider">Security Desk</h4>
+                <p className="text-xs font-bold text-white uppercase tracking-wider">Security Desk</p>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></span>
-                  <span className="text-[10px] text-textSecondary uppercase tracking-widest font-semibold">Architect Online</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span className="text-[10px] text-zinc-300 uppercase tracking-widest font-semibold">Architect Online</span>
                 </div>
               </div>
             </div>
             <button 
               onClick={() => setIsOpen(false)}
-              className="text-textSecondary hover:text-textPrimary p-1"
+              className="text-zinc-300 hover:text-white p-1 transition-colors"
+              aria-label="Close live security chat"
             >
               <X size={16} />
             </button>

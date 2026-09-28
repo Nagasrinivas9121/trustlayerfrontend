@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Mail, Shield, ShieldCheck } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
@@ -54,11 +55,12 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block group" aria-label="TrustLayerLabs Home">
               <div className="rounded-xl overflow-hidden border border-border/80 bg-[#0d0f14] shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-primary/50 inline-flex items-center">
-                <img 
+                <Image 
                   src="/logo-footer-dark.png" 
                   alt="TrustLayerLabs - The Verified Trust Layer" 
                   width={180}
                   height={48}
+                  loading="lazy"
                   className="h-10 sm:h-12 w-auto object-contain" 
                 />
               </div>

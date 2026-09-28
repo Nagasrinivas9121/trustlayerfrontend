@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Calendar, ChevronDown, Award } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
@@ -31,11 +32,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center group flex-shrink-0" aria-label="TrustLayerLabs Home">
             <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-white/30 transition-all duration-200 group-hover:shadow-md flex items-center">
-              <img 
+              <Image 
                 src="/logo-banner.png" 
                 alt="TrustLayerLabs - The Verified Trust Layer" 
                 width={160}
                 height={32}
+                priority
                 className="h-7 sm:h-8 w-auto object-contain" 
               />
             </div>

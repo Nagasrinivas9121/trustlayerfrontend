@@ -31,10 +31,10 @@ export default function ProblemsWeSolve() {
             const Icon = icons[idx] || AlertCircle;
             const isCritical = problem.severity === "Critical";
             const badgeClass = isCritical
-              ? "bg-critical/10 text-critical border-critical/25"
+              ? "bg-red-50 text-red-800 border-red-200 font-bold"
               : problem.severity === "High"
-              ? "bg-warning/10 text-warning border-warning/25"
-              : "bg-primary/10 text-primary border-primary/25";
+              ? "bg-amber-50 text-amber-900 border-amber-200 font-bold"
+              : "bg-blue-50 text-blue-900 border-blue-200 font-bold";
 
             return (
               <div 

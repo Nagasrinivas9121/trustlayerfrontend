@@ -79,7 +79,7 @@ export default function CaseStudy() {
                 </div>
 
                 <div>
-                  <span className="text-xs font-bold font-sans text-primary uppercase tracking-wider mb-1.5 block">
+                  <span className="text-xs font-bold font-sans text-blue-800 uppercase tracking-wider mb-1.5 block">
                     Vulnerability Vector & Exploit Analysis
                   </span>
                   <p className="text-xs font-mono bg-background text-textPrimary p-4 rounded-xl border border-border leading-relaxed">
@@ -88,7 +88,7 @@ export default function CaseStudy() {
                 </div>
 
                 <div>
-                  <span className="text-xs font-bold font-sans text-warning uppercase tracking-wider mb-1.5 block">
+                  <span className="text-xs font-bold font-sans text-amber-900 uppercase tracking-wider mb-1.5 block">
                     Potential Risk Impact
                   </span>
                   <p className="text-xs text-textSecondary leading-relaxed font-sans">
@@ -101,9 +101,9 @@ export default function CaseStudy() {
             {/* Right Content */}
             <div className="lg:col-span-5 space-y-6 lg:border-l lg:border-border/60 lg:pl-10 h-full flex flex-col justify-between">
               
-              <div className="p-6 bg-primary/5 border border-primary/20 rounded-xl space-y-4">
-                <div className="text-xs font-bold font-sans text-primary uppercase tracking-wider flex items-center gap-1.5">
-                  <ShieldCheck size={14} className="text-primary" /> Recommended Engineering Fix
+              <div className="p-6 bg-blue-50/60 border border-blue-200/80 rounded-xl space-y-4">
+                <div className="text-xs font-bold font-sans text-blue-800 uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldCheck size={14} className="text-blue-800" /> Recommended Engineering Fix
                 </div>
                 <p className="text-xs text-textPrimary leading-relaxed font-medium font-sans">
                   {currentCase.fix}

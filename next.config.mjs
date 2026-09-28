@@ -32,6 +32,10 @@ const nextConfig = {
             value: 'max-age=31536000; includeSubDomains; preload',
           },
           {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin-allow-popups',
+          },
+          {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },

@@ -39,10 +39,10 @@ export default function GrcHomeSection() {
                   { title: "Vendor Security Questionnaires", desc: "Assisting founders and CTOs with enterprise procurement questionnaires." }
                 ].map((item, idx) => (
                   <div key={idx} className="p-4 bg-background border border-border/80 rounded-xl space-y-1.5">
-                    <h4 className="text-xs font-bold text-textPrimary font-sans flex items-center gap-1.5">
+                    <h3 className="text-xs font-bold text-textPrimary font-sans flex items-center gap-1.5">
                       <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
                       {item.title}
-                    </h4>
+                    </h3>
                     <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
                       {item.desc}
                     </p>
@@ -82,7 +82,7 @@ export default function GrcHomeSection() {
                   <Lock size={15} className="text-primary" />
                   <span className="text-xs font-bold text-textPrimary font-sans uppercase tracking-wider">Assessment Deliverables</span>
                 </div>
-                <span className="text-[10px] font-mono font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">Standard Package</span>
+                <span className="text-[10px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">Standard Package</span>
               </div>
 
               <div className="space-y-3 font-sans">

@@ -125,9 +125,9 @@ export default function WhatYouReceive() {
         {/* Deliverables Action Callout */}
         <div className="max-w-4xl mx-auto p-8 bg-surface border border-border rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-sm font-bold text-textPrimary uppercase tracking-wider font-sans">
+            <h3 className="text-sm font-bold text-textPrimary uppercase tracking-wider font-sans">
               Need a Custom Scoping Review?
-            </h4>
+            </h3>
             <p className="text-xs text-textSecondary font-sans">
               We review your target architecture, API surface, and compliance requirements under mutual NDA.
             </p>
