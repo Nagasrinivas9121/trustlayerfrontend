@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { Check, X, Shield, ArrowRight, UserCheck, Bot } from "lucide-react";
 
+import { trackSampleReportClick } from "@/lib/analytics";
+
 export default function ManualTestingMatters() {
   return (
     <section className="py-24 bg-background border-t border-border relative" id="manual-testing">
@@ -16,13 +18,14 @@ export default function ManualTestingMatters() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
             <UserCheck size={12} className="text-primary" />
-            <span>Methodology Comparison</span>
+            <span>Human Reasoning vs Automated Scanners</span>
           </div>
           <h2 className="heading-2 mb-6 font-sans">
-            Why Human-Led Testing <span className="text-primary">Finds What Scanners Miss</span>
+            Automated Scanners Find Known Signatures. <br className="hidden md:inline" />
+            <span className="text-primary">Manual Testing Uncovers Vulnerabilities Requiring Human Reasoning.</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            Automated tools provide fast baseline scans for known CVEs. However, critical vulnerabilities in modern apps reside in business logic, authorization, and workflows.
+            Automated tools provide fast baseline scans for known CVEs. However, critical vulnerabilities in modern SaaS, FinTech, and AI applications reside in business logic, authorization boundaries, and multi-step workflows.
           </p>
         </div>
 
@@ -49,30 +52,34 @@ export default function ManualTestingMatters() {
               <ul className="space-y-3 border-t border-border/60 pt-5">
                 <li className="text-xs text-textSecondary flex items-start gap-2.5">
                   <Check size={14} className="text-success mt-0.5 flex-shrink-0" />
-                  <span>Rapid detection of known CVEs and outdated packages</span>
+                  <span>Rapid detection of known CVEs and outdated software packages</span>
                 </li>
                 <li className="text-xs text-textSecondary flex items-start gap-2.5">
                   <Check size={14} className="text-success mt-0.5 flex-shrink-0" />
-                  <span>Basic port scanning and SSL/TLS cipher reviews</span>
+                  <span>Basic port scanning and SSL/TLS configuration reviews</span>
                 </li>
                 <li className="text-xs text-textSecondary flex items-start gap-2.5">
                   <X size={14} className="text-critical mt-0.5 flex-shrink-0" />
-                  <span>Cannot understand multi-step business logic or workflow rules</span>
+                  <span>Cannot reason through multi-step business logic or workflow rules</span>
                 </li>
                 <li className="text-xs text-textSecondary flex items-start gap-2.5">
                   <X size={14} className="text-critical mt-0.5 flex-shrink-0" />
-                  <span>Blind to object-level authorization (BOLA/IDOR) across user roles</span>
+                  <span>Blind to object-level authorization (BOLA/IDOR) across user tenants</span>
                 </li>
                 <li className="text-xs text-textSecondary flex items-start gap-2.5">
                   <X size={14} className="text-critical mt-0.5 flex-shrink-0" />
-                  <span>High false-positive rate requiring heavy developer triage time</span>
+                  <span>Cannot determine if an AI/RAG system leaks protected context</span>
+                </li>
+                <li className="text-xs text-textSecondary flex items-start gap-2.5">
+                  <X size={14} className="text-critical mt-0.5 flex-shrink-0" />
+                  <span>High false-positive rate requiring heavy developer triage overhead</span>
                 </li>
               </ul>
             </div>
 
             <div className="pt-6 border-t border-border/40 mt-6">
               <span className="text-[11px] font-mono text-textSecondary block">
-                Best used for: CI/CD baseline scans & dependency monitoring
+                Best used for: Scheduled CI/CD syntax checks & dependency monitoring
               </span>
             </div>
           </div>
@@ -95,29 +102,33 @@ export default function ManualTestingMatters() {
               </div>
 
               <p className="text-xs text-textSecondary leading-relaxed font-sans mb-6">
-                Offensive security practitioners actively analyzing session contexts, tenant boundaries, and multi-role API parameters.
+                Offensive security practitioners actively testing the critical attack paths that require human reasoning:
               </p>
 
               <ul className="space-y-3 border-t border-border/60 pt-5">
                 <li className="text-xs text-textPrimary flex items-start gap-2.5">
                   <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span><strong>BOLA / IDOR Testing:</strong> Verifying whether User A can query User B&apos;s data</span>
+                  <span><strong>Can User A access User B&apos;s data?</strong> Probing object-level authorization (BOLA/IDOR) on every resource parameter</span>
                 </li>
                 <li className="text-xs text-textPrimary flex items-start gap-2.5">
                   <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span><strong>Business-Logic Flaws:</strong> Testing discount stacking, transaction flows & race conditions</span>
+                  <span><strong>Can one tenant access another tenant?</strong> Validating database row-level boundaries and ORM scoping in SaaS</span>
                 </li>
                 <li className="text-xs text-textPrimary flex items-start gap-2.5">
                   <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span><strong>Multi-Tenant Isolation:</strong> Validating database row-level boundaries in SaaS</span>
+                  <span><strong>Can auth boundaries be bypassed?</strong> Testing JWT session handling, token forging & privilege escalation</span>
                 </li>
                 <li className="text-xs text-textPrimary flex items-start gap-2.5">
                   <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span><strong>Validated Findings:</strong> Every finding is manually validated with reproducible PoC scripts and code fixes</span>
+                  <span><strong>Can a workflow be manipulated?</strong> Testing multi-step order logic, race conditions & approval bypasses</span>
                 </li>
                 <li className="text-xs text-textPrimary flex items-start gap-2.5">
                   <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                  <span><strong>Retesting Verification:</strong> Verifying deployed patches before issuing the final verification letter</span>
+                  <span><strong>Can an AI/RAG system expose protected data?</strong> Probing vector store scoping and prompt injection</span>
+                </li>
+                <li className="text-xs text-textPrimary flex items-start gap-2.5">
+                  <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                  <span><strong>Verified PoCs & 30-Day Retest:</strong> Developer-ready reproduction scripts and patch verification included</span>
                 </li>
               </ul>
             </div>
@@ -125,9 +136,10 @@ export default function ManualTestingMatters() {
             <div className="pt-6 border-t border-border/40 mt-6">
               <Link 
                 href="/sample-report"
+                onClick={() => trackSampleReportClick("manual_testing_card")}
                 className="inline-flex items-center gap-1.5 text-xs font-bold uppercase font-sans tracking-wider text-primary hover:underline"
               >
-                <span>See PoC reproduction in our Sample Report</span>
+                <span>View Sample Report →</span>
                 <ArrowRight size={13} />
               </Link>
             </div>

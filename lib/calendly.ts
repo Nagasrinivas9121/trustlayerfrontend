@@ -18,6 +18,12 @@ export function openCalendly(url: string = CALENDLY_URL) {
   const w = window as any;
   w.dataLayer = w.dataLayer || [];
   w.dataLayer.push({
+    event: "calendar_click",
+    event_category: "conversion",
+    event_label: targetUrl,
+    page_location: window.location.pathname,
+  });
+  w.dataLayer.push({
     event: "calendly_click",
     event_category: "conversion",
     event_label: targetUrl,
@@ -25,6 +31,11 @@ export function openCalendly(url: string = CALENDLY_URL) {
   });
 
   if (typeof w.gtag === "function") {
+    w.gtag("event", "calendar_click", {
+      event_category: "conversion",
+      event_label: targetUrl,
+      page_location: window.location.pathname,
+    });
     w.gtag("event", "calendly_click", {
       event_category: "conversion",
       event_label: targetUrl,

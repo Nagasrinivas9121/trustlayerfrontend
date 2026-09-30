@@ -8,6 +8,7 @@ import { Menu, X, Calendar, ChevronDown, Award } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
 import { openCalendly } from "@/lib/calendly";
+import { trackCalendarClick } from "@/lib/analytics";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -113,10 +114,13 @@ export default function Navbar() {
           {/* Desktop CTA Button */}
           <div className="hidden md:block flex-shrink-0">
             <button 
-              onClick={() => openCalendly()}
+              onClick={() => {
+                trackCalendarClick("navbar_desktop");
+                openCalendly();
+              }}
               className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all active:scale-95 flex items-center gap-1.5 shadow-sm cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5" /> Book Review
+              <Calendar className="w-3.5 h-3.5" /> Free Security Review
             </button>
           </div>
 
@@ -181,11 +185,12 @@ export default function Navbar() {
               <button 
                 onClick={() => {
                   setIsOpen(false);
+                  trackCalendarClick("navbar_mobile");
                   openCalendly();
                 }}
                 className="w-full text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md cursor-pointer"
               >
-                Book a 20-Min Security Review
+                Get a Free Security Review
               </button>
             </div>
           )}

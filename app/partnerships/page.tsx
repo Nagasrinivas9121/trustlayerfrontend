@@ -117,12 +117,11 @@ export default function PartnershipsPage() {
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-              target="_blank"
+              href="#contact"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Schedule Partner Discussion</span>
+              <Handshake size={15} />
+              <span>Become a Security Partner</span>
             </Link>
 
             <Link 

@@ -1,11 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle, ShieldCheck, ArrowRight, Loader2, Send, Calendar, Download } from "lucide-react";
+import { ArrowLeft, CheckCircle, ShieldCheck, ArrowRight, Loader2, Send, Calendar, Download, AlertCircle, Shield } from "lucide-react";
+import { openCalendly } from "@/lib/calendly";
+import { 
+  trackFreeSecurityReviewStart, 
+  trackFreeSecurityReviewSubmit, 
+  trackCalendarClick, 
+  trackSampleReportClick 
+} from "@/lib/analytics";
 
 export default function FreeAssessmentPage() {
-  const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -14,31 +20,37 @@ export default function FreeAssessmentPage() {
     email: "",
     company: "",
     website: "",
-    scope: "web-app",
-    size: "micro",
-    urgency: "procurement",
+    productType: "b2b-saas",
+    securityRequirement: "api-authorization-bola",
+    timeline: "within-2-weeks",
     message: ""
   });
 
+  useEffect(() => {
+    trackFreeSecurityReviewStart("free_assessment_page");
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (step < 3) {
-      setStep(step + 1);
-      return;
-    }
-    
     setLoading(true);
     try {
       // Simulate transmitting lead details
-      await new Promise((res) => setTimeout(res, 1800));
+      await new Promise((res) => setTimeout(res, 1200));
       
       // Save lead details to localStorage
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
         ...formData,
+        source: "free-security-review-intake",
         timestamp: new Date().toISOString()
       });
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+
+      trackFreeSecurityReviewSubmit({
+        product_type: formData.productType,
+        security_requirement: formData.securityRequirement,
+        timeline: formData.timeline
+      });
 
       setSuccess(true);
     } catch (err) {
@@ -48,18 +60,12 @@ export default function FreeAssessmentPage() {
     }
   };
 
-  const handleBack = () => {
-    if (step > 1) {
-      setStep(step - 1);
-    }
-  };
-
   return (
     <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] max-w-[100vw] h-[700px] bg-primary/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-      <div className="section-container max-w-xl mx-auto px-4 relative z-10">
+      <div className="section-container max-w-2xl mx-auto px-4 relative z-10">
         
         {/* Back Link */}
         <Link 
@@ -70,17 +76,61 @@ export default function FreeAssessmentPage() {
           Back to Home
         </Link>
 
-        {/* Heading */}
-        <div className="mb-10 text-center">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider mb-3">
+        {/* Heading & CRO Framing */}
+        <div className="mb-10 text-center space-y-3">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
             <ShieldCheck size={12} className="text-primary" />
-            <span>20-Min Scoping Intake • Mutual NDA</span>
+            <span>Mutual NDA Upfront • Practitioner-Led</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-textPrimary tracking-tight font-sans">
-            Request a <span className="text-primary">Security Assessment</span>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight font-sans">
+            Free 20-Minute <span className="text-primary">Security Review</span>
           </h1>
-          <p className="text-xs text-textSecondary mt-2 max-w-md mx-auto leading-relaxed font-sans">
-            Share your application architecture and testing objectives. Our lead security architect will evaluate your scope and provide a transparent, fixed proposal within 24 hours.
+          <p className="text-sm font-semibold text-textPrimary max-w-md mx-auto">
+            For SaaS, FinTech & AI startups.
+          </p>
+          <p className="text-xs text-textSecondary max-w-lg mx-auto leading-relaxed font-sans">
+            A high-signal, confidential 20-minute consultation with an offensive security practitioner to review your attack surface and identify potential security blockers before production launch, audits, or enterprise deals.
+          </p>
+        </div>
+
+        {/* Value Proposition Highlights */}
+        <div className="mb-8 p-5 bg-surface border border-border/80 rounded-2xl shadow-sm">
+          <div className="text-[11px] font-mono font-bold text-textPrimary uppercase tracking-wider mb-3 flex items-center gap-1.5">
+            <Shield size={14} className="text-primary" />
+            <span>What We Identify During Your 20-Minute Review:</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-textSecondary">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span>External Attack Surface & Open Endpoints</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span>API Authorization & BOLA / IDOR Risks</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span>Authentication & JWT Token Vulnerabilities</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span>Multi-Tenant Database Isolation Weaknesses</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span>Business-Logic & Multi-Step Workflow Flaws</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span>AI / RAG Data Safety & Prompt Boundaries</span>
+            </div>
+            <div className="flex items-center gap-2 sm:col-span-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              <span>Enterprise Vendor Security-Review & Questionnaire Blockers</span>
+            </div>
+          </div>
+          <p className="text-[11px] text-textSecondary/80 mt-3 pt-3 border-t border-border/60">
+            * This review is a qualification and scoping consultation under mutual NDA, not an automated sales pitch or paid pentest.
           </p>
         </div>
 
@@ -92,223 +142,212 @@ export default function FreeAssessmentPage() {
                 <CheckCircle size={26} />
               </div>
               <div className="space-y-2">
-                <h3 className="text-lg font-bold text-textPrimary font-sans">Scoping Intake Registered!</h3>
+                <h3 className="text-lg font-bold text-textPrimary font-sans">Security Review Request Received!</h3>
                 <p className="text-xs text-textSecondary max-w-sm mx-auto leading-relaxed">
-                  Thank you! Our security architect is evaluating your details. We will email you with your custom audit snapshot scope within one business day.
+                  Thank you, {formData.name || "founder"}! Our lead offensive security practitioner is reviewing your product architecture. We will email you within one business day with scoping availability under mutual NDA.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-border/40 space-y-3">
                 <p className="text-[10px] text-textSecondary uppercase tracking-widest font-bold">Recommended Next Steps:</p>
                 <div className="flex flex-col gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      trackCalendarClick("post_submit_calendar");
+                      openCalendly();
+                    }}
+                    className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-white text-xs font-semibold uppercase tracking-wider rounded-lg gap-2 cursor-pointer shadow-sm"
+                  >
+                    <Calendar size={14} /> Schedule 20-Min Review On Calendar Now
+                  </button>
                   <a 
                     href="/trustlayerlabs-sample-vapt-report.pdf" 
                     download
-                    className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-white text-xs font-semibold uppercase tracking-wider rounded-lg gap-2 shadow-sm"
+                    onClick={() => trackSampleReportClick("post_submit_pdf")}
+                    className="w-full inline-flex items-center justify-center py-3 bg-background border border-border hover:border-zinc-400 text-textPrimary text-xs font-semibold uppercase tracking-wider rounded-lg gap-2 transition-colors"
                   >
-                    <Download size={14} /> Download Sample VAPT PDF
+                    <Download size={14} /> Download Sample Assessment PDF
                   </a>
-                  <Link
-                    href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-                    target="_blank"
-                    className="w-full inline-flex items-center justify-center py-3 bg-[#0a0a0a] hover:bg-zinc-800 text-white text-xs font-semibold uppercase tracking-wider rounded-lg gap-2"
-                  >
-                    <Calendar size={14} /> Book a 20-Min Security Review
-                  </Link>
                 </div>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               
-              {/* Step indicator */}
-              <div className="flex items-center justify-between border-b border-border/40 pb-4 mb-2 text-[10px] font-mono uppercase tracking-wider text-textSecondary">
-                <span>Step {step} of 3</span>
-                <span>{step === 1 ? "Profile Details" : step === 2 ? "System Scoping" : "Urgency & Scope"}</span>
+              {/* Row 1: Name & Work Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                    Your Name:
+                  </label>
+                  <input 
+                    type="text" 
+                    id="name"
+                    name="name"
+                    autoComplete="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    required
+                    placeholder="e.g. Siddharth Sharma"
+                    className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                    Work Email:
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email"
+                    name="email"
+                    autoComplete="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    required
+                    placeholder="e.g. alex@company.com"
+                    className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
+                  />
+                </div>
               </div>
 
-              {/* Step 1 Fields */}
-              {step === 1 && (
-                <div className="space-y-4 animate-fade-in">
-                  <div>
-                    <label htmlFor="name" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      Full Name:
-                    </label>
-                    <input 
-                      type="text" 
-                      id="name"
-                      name="name"
-                      autoComplete="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      required
-                      placeholder="e.g. Siddharth Sharma"
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      Work Email:
-                    </label>
-                    <input 
-                      type="email" 
-                      id="email"
-                      name="email"
-                      autoComplete="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      required
-                      placeholder="e.g. cto@startup.com"
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      Company Name:
-                    </label>
-                    <input 
-                      type="text" 
-                      id="company"
-                      name="company"
-                      autoComplete="organization"
-                      value={formData.company}
-                      onChange={(e) => setFormData({...formData, company: e.target.value})}
-                      required
-                      placeholder="e.g. PayFlow"
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="website" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      App / Website URL:
-                    </label>
-                    <input 
-                      type="url" 
-                      id="website"
-                      name="website"
-                      autoComplete="url"
-                      value={formData.website}
-                      onChange={(e) => setFormData({...formData, website: e.target.value})}
-                      required
-                      placeholder="e.g. https://play.google.com/store or https://yourdomain.com"
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
-                    />
-                  </div>
+              {/* Row 2: Company & Website */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="company" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                    Company Name:
+                  </label>
+                  <input 
+                    type="text" 
+                    id="company"
+                    name="company"
+                    autoComplete="organization"
+                    value={formData.company}
+                    onChange={(e) => setFormData({...formData, company: e.target.value})}
+                    required
+                    placeholder="e.g. CloudScale"
+                    className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
+                  />
                 </div>
-              )}
-
-              {/* Step 2 Fields */}
-              {step === 2 && (
-                <div className="space-y-4 animate-fade-in">
-                  <div>
-                    <label htmlFor="scope" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      Audit Scoping Area:
-                    </label>
-                    <select 
-                      id="scope"
-                      name="scope"
-                      value={formData.scope}
-                      onChange={(e) => setFormData({...formData, scope: e.target.value})}
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
-                    >
-                      <option value="web-app">Web App Pentesting (React/NextJS/SaaS)</option>
-                      <option value="api">API Security Review (REST/GraphQL/gRPC)</option>
-                      <option value="mobile">Mobile App VAPT (iOS/Android)</option>
-                      <option value="cloud">Cloud Security Audit (AWS/GCP least-privilege)</option>
-                      <option value="smart-contract">Smart Contract Audit (Solidity/Web3)</option>
-                      <option value="soc2">SOC 2 / ISO GRC Attestation Readiness</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="size" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      Application Scope Size:
-                    </label>
-                    <select 
-                      id="size"
-                      name="size"
-                      value={formData.size}
-                      onChange={(e) => setFormData({...formData, size: e.target.value})}
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
-                    >
-                      <option value="micro">Early build (1-5 main API routes / static site)</option>
-                      <option value="small">Standard build (6-15 main API routes / basic dashboard)</option>
-                      <option value="medium">Growth build (16-40 API routes / complex database hooks)</option>
-                      <option value="large">Enterprise scale (40+ endpoints / multi-microservices / multi-cloud)</option>
-                    </select>
-                  </div>
+                <div>
+                  <label htmlFor="website" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                    Website / App URL:
+                  </label>
+                  <input 
+                    type="text" 
+                    id="website"
+                    name="website"
+                    autoComplete="url"
+                    value={formData.website}
+                    onChange={(e) => setFormData({...formData, website: e.target.value})}
+                    required
+                    placeholder="e.g. https://cloudscale.io"
+                    className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
+                  />
                 </div>
-              )}
+              </div>
 
-              {/* Step 3 Fields */}
-              {step === 3 && (
-                <div className="space-y-4 animate-fade-in">
-                  <div>
-                    <label htmlFor="urgency" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      Primary Review Driver:
-                    </label>
-                    <select 
-                      id="urgency"
-                      name="urgency"
-                      value={formData.urgency}
-                      onChange={(e) => setFormData({...formData, urgency: e.target.value})}
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-4 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
-                    >
-                      <option value="procurement">Blocking an Enterprise vendor deal procurement review</option>
-                      <option value="compliance">Prepping for SOC 2 Type II or ISO 27001 audit attestation</option>
-                      <option value="funding">Investment / Funding due diligence check</option>
-                      <option value="launch">Harden application code before production launch</option>
-                      <option value="scheduled">Periodic scheduled security assessment</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">
-                      Scoping Brief (Optional):
-                    </label>
-                    <textarea 
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      rows={4}
-                      placeholder="Specify single tenant vs multi-tenant parameters, Swagger JSON references, or any specific vulnerability targets..."
-                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg p-3.5 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Action buttons */}
-              <div className="flex items-center gap-3 pt-4 border-t border-border/40">
-                {step > 1 && (
-                  <button 
-                    type="button"
-                    onClick={handleBack}
-                    className="flex-1 py-3 border border-border hover:border-zinc-400 rounded-lg text-xs uppercase font-sans tracking-wider font-semibold text-textPrimary transition-colors"
+              {/* Row 3: Product Type & Security Requirement */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="productType" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                    Product Type:
+                  </label>
+                  <select 
+                    id="productType"
+                    name="productType"
+                    value={formData.productType}
+                    onChange={(e) => setFormData({...formData, productType: e.target.value})}
+                    className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
                   >
-                    Back
-                  </button>
-                )}
+                    <option value="b2b-saas">B2B SaaS (Multi-Tenant Platform)</option>
+                    <option value="ai-startup">AI Startup / GenAI Application</option>
+                    <option value="fintech-payments">FinTech / Payment Platform</option>
+                    <option value="web-mobile-app">Web & Mobile Application</option>
+                    <option value="enterprise-api">API-First Microservices</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="securityRequirement" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                    Primary Security Focus:
+                  </label>
+                  <select 
+                    id="securityRequirement"
+                    name="securityRequirement"
+                    value={formData.securityRequirement}
+                    onChange={(e) => setFormData({...formData, securityRequirement: e.target.value})}
+                    className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
+                  >
+                    <option value="api-authorization-bola">API Authorization & BOLA/IDOR</option>
+                    <option value="tenant-isolation">Multi-Tenant Isolation Review</option>
+                    <option value="enterprise-procurement">Enterprise Customer Security Review Blocker</option>
+                    <option value="soc2-iso-readiness">SOC 2 / ISO 27001 Audit Readiness</option>
+                    <option value="pre-launch-vapt">Pre-Production Launch VAPT</option>
+                    <option value="ai-rag-security">AI / RAG Security & Prompt Guardrails</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Row 4: Approximate Timeline */}
+              <div>
+                <label htmlFor="timeline" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                  Approximate Timeline:
+                </label>
+                <select 
+                  id="timeline"
+                  name="timeline"
+                  value={formData.timeline}
+                  onChange={(e) => setFormData({...formData, timeline: e.target.value})}
+                  className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
+                >
+                  <option value="immediately">Immediate (Deal blocker / Urgent review required)</option>
+                  <option value="within-2-weeks">Within 2 weeks</option>
+                  <option value="within-1-month">Within 1 month</option>
+                  <option value="exploring">Exploring / Next quarter roadmap</option>
+                </select>
+              </div>
+
+              {/* Row 5: Optional Message */}
+              <div>
+                <label htmlFor="message" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                  Specific Objectives or Context (Optional):
+                </label>
+                <textarea 
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  rows={3}
+                  placeholder="e.g. Preparing for enterprise buyer review next week, looking to test multi-tenant API boundaries under mutual NDA..."
+                  className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg p-3 text-xs text-textPrimary placeholder:text-textSecondary/40 focus:outline-none transition-all font-sans"
+                />
+              </div>
+
+              {/* Submit CTA */}
+              <div className="pt-2">
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="flex-[2] inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-white shadow-sm transition-all gap-1.5 disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center py-3.5 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-bold tracking-wider rounded-lg text-white shadow-sm transition-all gap-1.5 disabled:opacity-50 cursor-pointer"
                 >
                   {loading ? (
                     <>
-                      <Loader2 size={13} className="animate-spin" /> Analyzing Specs...
-                    </>
-                  ) : step < 3 ? (
-                    <>
-                      Next Step <ArrowRight size={12} />
+                      <Loader2 size={14} className="animate-spin" /> Transmitting Details...
                     </>
                   ) : (
                     <>
-                      Submit Assessment Request <Send size={12} />
+                      Get My Free Security Review →
                     </>
                   )}
                 </button>
+              </div>
+
+              <div className="flex items-center justify-center gap-3 pt-2 text-[11px] text-textSecondary text-center">
+                <span>🔒 Strict Mutual NDA</span>
+                <span>•</span>
+                <span>No automated spam</span>
+                <span>•</span>
+                <span>Lead practitioner response within 24h</span>
               </div>
 
             </form>

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowLeft, ShieldCheck, FileText, Download, CheckCircle, Code } from "lucide-react";
 import SecurityReportPreview from "@/components/SecurityReportPreview";
 
+import { trackSampleReportClick, trackCalendarClick } from "@/lib/analytics";
+
 export default function SampleReportPage() {
   const [email, setEmail] = React.useState("");
   const [downloaded, setDownloaded] = React.useState(false);
@@ -23,6 +25,7 @@ export default function SampleReportPage() {
     if (!email) return;
     setLoading(true);
     try {
+      trackSampleReportClick("sample_report_page_download");
       await new Promise(resolve => setTimeout(resolve, 1200));
       
       // Save lead details to localStorage
@@ -146,6 +149,32 @@ export default function SampleReportPage() {
               </button>
             </form>
           )}
+        </div>
+
+        {/* Next Step / Conversion Callout */}
+        <div className="mt-12 p-8 bg-surface border border-primary/20 rounded-2xl max-w-3xl mx-auto text-center space-y-4 shadow-sm">
+          <h4 className="text-lg font-bold text-textPrimary font-sans">
+            Ready to find what automated scanners miss in your own stack?
+          </h4>
+          <p className="text-xs text-textSecondary max-w-xl mx-auto font-sans leading-relaxed">
+            Get an actionable 20-minute architecture review with our senior practitioners under mutual NDA. We'll identify high-risk logic flaws and give you clear remediation paths.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <Link
+              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
+              target="_blank"
+              onClick={() => trackCalendarClick("sample_report_page_footer")}
+              className="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md"
+            >
+              Get a Free Security Review
+            </Link>
+            <Link
+              href="/free-assessment"
+              className="px-6 py-3 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all"
+            >
+              Request Assessment Scope
+            </Link>
+          </div>
         </div>
 
       </div>

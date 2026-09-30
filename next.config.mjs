@@ -73,6 +73,21 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/saas-security',
+        destination: '/services/saas-vapt',
+        permanent: true,
+      },
+      {
+        source: '/ai-security',
+        destination: '/services/ai-security',
+        permanent: true,
+      },
+      {
+        source: '/enterprise-vapt',
+        destination: '/services/soc2-pentesting',
+        permanent: true,
+      },
+      {
         source: '/web-security',
         destination: '/services/web-app-vapt',
         permanent: true,

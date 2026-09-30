@@ -5,7 +5,7 @@ import Link from "next/link";
 import { WHO_WE_HELP } from "@/lib/constants";
 import { ArrowRight, CheckCircle2, Shield, Landmark, Cloud, Sparkles } from "lucide-react";
 
-const icons = [Landmark, Cloud, Sparkles];
+const icons = [Cloud, Sparkles, Landmark];
 
 export default function WhoWeHelp() {
   return (
@@ -16,13 +16,13 @@ export default function WhoWeHelp() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
             <Shield size={12} className="text-primary" />
-            <span>Targeted Industry Expertise</span>
+            <span>Targeted Industry Focus</span>
           </div>
           <h2 className="heading-2 mb-6 font-sans">
-            Offensive Security Built for <span className="text-primary">High-Growth Tech Sectors</span>
+            Offensive Security Built for <span className="text-primary">B2B SaaS, AI & FinTech</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            We specialize in the unique architectural models, multi-role access controls, and attack surfaces of modern engineering teams.
+            We specialize in multi-tenant boundaries, API authorization, and attack surfaces that automated vulnerability scanners miss.
           </p>
         </div>
 

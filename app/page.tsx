@@ -1,16 +1,16 @@
 import React from "react";
 import Hero from "@/components/Hero";
-import Proof from "@/components/Proof";
-import SecurityReportPreview from "@/components/SecurityReportPreview";
-import CaseStudy from "@/components/CaseStudy";
 import WhoWeHelp from "@/components/WhoWeHelp";
 import ProblemsWeSolve from "@/components/ProblemsWeSolve";
-import CoreServicesSection from "@/components/CoreServicesSection";
+import SecurityReportPreview from "@/components/SecurityReportPreview";
+import Proof from "@/components/Proof";
 import WhatYouReceive from "@/components/WhatYouReceive";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import HowItWorks from "@/components/HowItWorks";
 import ManualTestingMatters from "@/components/ManualTestingMatters";
+import HowItWorks from "@/components/HowItWorks";
+import CoreServicesSection from "@/components/CoreServicesSection";
 import GrcHomeSection from "@/components/GrcHomeSection";
+import CaseStudy from "@/components/CaseStudy";
 import Founder from "@/components/Founder";
 import BlogSection from "@/components/BlogSection";
 import Faq from "@/components/Faq";
@@ -24,43 +24,39 @@ export default function Home() {
       {/* 1. HERO & PRIMARY TRUST SIGNALS */}
       <Hero />
 
-      {/* 2. TRUST / COMPLIANCE ALIGNMENT SIGNALS */}
-      <Proof />
-
-      {/* 3. PROOF OF WORK / SAMPLE SECURITY REPORT */}
-      <SecurityReportPreview />
-
-      {/* 4. SECURITY RESEARCH & TECHNICAL INSIGHTS */}
-      <CaseStudy />
-
-      {/* 5. WHO WE HELP & PROBLEMS WE SOLVE */}
+      {/* 2. WHO TRUSTLAYERLABS HELPS (B2B SaaS, AI, FinTech) */}
       <WhoWeHelp />
+
+      {/* 3. SECURITY PROBLEMS / VULNERABILITIES TESTED */}
       <ProblemsWeSolve />
 
-      {/* 6. CORE SERVICES: 4 Outcome-Focused Pillars */}
-      <CoreServicesSection />
+      {/* 4. PROOF / SAMPLE SECURITY REPORT & COMPLIANCE ALIGNMENT */}
+      <SecurityReportPreview />
+      <Proof />
 
-      {/* 7. WHAT YOU RECEIVE: 6 Tangible Deliverables */}
+      {/* 5. TANGIBLE DELIVERABLES (WHAT YOU RECEIVE) */}
       <WhatYouReceive />
 
-      {/* 8. WHY CHOOSE TRUSTLAYERLABS & METHODOLOGY */}
+      {/* 6. WHY TRUSTLAYERLABS & HUMAN REASONING VS AUTOMATED SCANNERS */}
       <WhyChooseUs />
-      <HowItWorks />
       <ManualTestingMatters />
 
-      {/* 9. GRC & ENTERPRISE READINESS */}
+      {/* 7. METHODOLOGY / ENGAGEMENT PROCESS */}
+      <HowItWorks />
+
+      {/* 8. SERVICES & OFFER ARCHITECTURE */}
+      <CoreServicesSection />
       <GrcHomeSection />
 
-      {/* 10. PRACTITIONER TEAM (SUPPORTING CREDIBILITY) */}
+      {/* 9. DEEP TECHNICAL RESEARCH & PRACTITIONER CREDIBILITY */}
+      <CaseStudy />
       <Founder />
-
-      {/* 11. SECURITY RESEARCH & INSIGHTS BLOG */}
       <BlogSection />
 
-      {/* 12. BUYER FAQ */}
+      {/* 10. BUYER FAQ */}
       <Faq />
 
-      {/* 13. FINAL CTA & DIRECT CONTACT */}
+      {/* 11. FINAL CTA & DIRECT LEAD CONVERSION INTAKE */}
       <CTA />
       <ContactForm />
 
@@ -69,5 +65,3 @@ export default function Home() {
     </div>
   );
 }
-
-

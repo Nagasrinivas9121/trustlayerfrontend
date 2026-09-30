@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { trackFreeSecurityReviewStart, trackSampleReportClick } from "@/lib/analytics";
 import { 
   FileText, 
   Code2, 
@@ -135,15 +136,17 @@ export default function WhatYouReceive() {
           <div className="flex items-center gap-3 flex-shrink-0 w-full sm:w-auto">
             <Link
               href="/free-assessment"
+              onClick={() => trackFreeSecurityReviewStart("deliverables_callout")}
               className="w-full sm:w-auto text-center py-2.5 px-5 bg-primary hover:bg-primary/90 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-sm transition-all"
             >
-              Request Assessment
+              Get a Free Security Review →
             </Link>
             <Link
               href="/sample-report"
+              onClick={() => trackSampleReportClick("deliverables_callout")}
               className="w-full sm:w-auto text-center py-2.5 px-5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-textPrimary hover:text-primary transition-all"
             >
-              View Sample Report
+              View Sample Report →
             </Link>
           </div>
         </div>

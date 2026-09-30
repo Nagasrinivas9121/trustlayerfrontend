@@ -5,17 +5,35 @@ import { Mail, MessageSquare, Linkedin, Send, CheckCircle2, Loader2, Calendar, F
 import { BRAND } from "@/lib/constants";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 
+import { 
+  trackContactFormStart, 
+  trackContactFormSubmit, 
+  trackCalendarClick, 
+  trackWhatsappClick 
+} from "@/lib/analytics";
+
 export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     startup: "",
+    website: "",
+    productType: "b2b-saas",
     scope: "api",
+    timeline: "within-2-weeks",
     message: ""
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [mode, setMode] = useState<"calendar" | "form">("calendar");
+  const [hasStarted, setHasStarted] = useState(false);
+
+  const handleStart = () => {
+    if (!hasStarted) {
+      setHasStarted(true);
+      trackContactFormStart();
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,8 +51,23 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
       });
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
 
+      trackContactFormSubmit({
+        product_type: formData.productType,
+        scope: formData.scope,
+        timeline: formData.timeline
+      });
+
       setSuccess(true);
-      setFormData({ name: "", email: "", startup: "", scope: "api", message: "" });
+      setFormData({ 
+        name: "", 
+        email: "", 
+        startup: "", 
+        website: "", 
+        productType: "b2b-saas", 
+        scope: "api", 
+        timeline: "within-2-weeks", 
+        message: "" 
+      });
     } catch (err) {
       console.error("Form submit error:", err);
     } finally {
@@ -98,6 +131,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <a 
                   href={BRAND.contact.whatsapp}
                   target="_blank"
+                  onClick={() => trackWhatsappClick()}
                   className="flex items-center gap-4 p-4 bg-surface border border-border/80 rounded-xl hover:border-success/40 transition-colors group shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center text-success group-hover:text-success transition-colors">
@@ -141,27 +175,30 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
             <div className="flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-background border border-border/80 rounded-xl mb-6 font-sans">
               <button
                 type="button"
-                onClick={() => setMode("calendar")}
-                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all ${
+                onClick={() => {
+                  trackCalendarClick("contact_form_mode_calendar");
+                  setMode("calendar");
+                }}
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   mode === "calendar"
                     ? "bg-primary text-white shadow-sm"
                     : "text-textSecondary hover:text-textPrimary"
                 }`}
               >
                 <Calendar size={13} className="shrink-0" />
-                <span className="truncate">Book 30-Min Call</span>
+                <span className="truncate">Book 20-Min Call</span>
               </button>
               <button
                 type="button"
                 onClick={() => setMode("form")}
-                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   mode === "form"
                     ? "bg-primary text-white shadow-sm"
                     : "text-textSecondary hover:text-textPrimary"
                 }`}
               >
                 <FileText size={13} className="shrink-0" />
-                <span className="truncate">Request Written Scope</span>
+                <span className="truncate">Free Review Intake</span>
               </button>
             </div>
 
@@ -180,13 +217,13 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <div className="w-14 h-14 bg-success/15 border border-success/30 rounded-full flex items-center justify-center text-success animate-fade-in">
                   <CheckCircle2 size={26} />
                 </div>
-                <h4 className="text-lg font-bold text-textPrimary uppercase font-sans tracking-wide">Scoping Request Logged</h4>
+                <h4 className="text-lg font-bold text-textPrimary uppercase font-sans tracking-wide">Security Review Requested</h4>
                 <p className="text-xs text-textSecondary max-w-sm leading-relaxed">
-                  Thank you! Our security practitioners will review your scope details and contact you via email to discuss next steps.
+                  Thank you! Our lead offensive security practitioners will review your scope details under mutual NDA and contact you via email within one business day.
                 </p>
                 <button 
                   onClick={() => setSuccess(false)}
-                  className="px-4 py-2 border border-border hover:border-zinc-400 rounded-lg text-xs uppercase font-sans tracking-wider font-semibold text-textPrimary hover:bg-zinc-50 transition-colors"
+                  className="px-4 py-2 border border-border hover:border-zinc-400 rounded-lg text-xs uppercase font-sans tracking-wider font-semibold text-textPrimary hover:bg-zinc-50 transition-colors cursor-pointer"
                 >
                   Submit Another Scope
                 </button>
@@ -204,6 +241,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                       name="name"
                       autoComplete="name"
                       value={formData.name}
+                      onFocus={handleStart}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
                       placeholder="e.g. Siddharth"
@@ -220,6 +258,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                       name="email"
                       autoComplete="email"
                       value={formData.email}
+                      onFocus={handleStart}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required
                       placeholder="e.g. name@startup.com"
@@ -231,7 +270,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="startup" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
-                      Startup Name:
+                      Company Name:
                     </label>
                     <input 
                       type="text" 
@@ -239,6 +278,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                       name="startup"
                       autoComplete="organization"
                       value={formData.startup}
+                      onFocus={handleStart}
                       onChange={(e) => setFormData({...formData, startup: e.target.value})}
                       required
                       placeholder="e.g. CareOS"
@@ -246,8 +286,44 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                     />
                   </div>
                   <div>
+                    <label htmlFor="website" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
+                      Website / App URL:
+                    </label>
+                    <input 
+                      type="text" 
+                      id="website"
+                      name="website"
+                      value={formData.website}
+                      onFocus={handleStart}
+                      onChange={(e) => setFormData({...formData, website: e.target.value})}
+                      required
+                      placeholder="e.g. https://careos.io"
+                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-sm text-textPrimary placeholder-textSecondary/40 focus:outline-none transition-all font-sans"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="productType" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
+                      Product Type:
+                    </label>
+                    <select 
+                      id="productType"
+                      name="productType"
+                      value={formData.productType}
+                      onChange={(e) => setFormData({...formData, productType: e.target.value})}
+                      className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-sm text-textPrimary focus:outline-none transition-all font-sans"
+                    >
+                      <option value="b2b-saas">B2B SaaS (Multi-Tenant)</option>
+                      <option value="ai-startup">AI / GenAI Application</option>
+                      <option value="fintech">FinTech / Payments</option>
+                      <option value="web-mobile">Web / Mobile Application</option>
+                    </select>
+                  </div>
+                  <div>
                     <label htmlFor="scope" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
-                      Scope Priority:
+                      Security Focus:
                     </label>
                     <select 
                       id="scope"
@@ -256,27 +332,45 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                       onChange={(e) => setFormData({...formData, scope: e.target.value})}
                       className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-sm text-textPrimary focus:outline-none transition-all font-sans"
                     >
-                      <option value="mobile-vapt">Mobile Application VAPT</option>
-                      <option value="api">API Pen Testing</option>
-                      <option value="vapt">Web Application VAPT</option>
-                      <option value="cloud">Cloud Security Audit</option>
-                      <option value="soc2">SOC2 / ISO Readiness</option>
+                      <option value="api-authorization">API Security & BOLA/IDOR</option>
+                      <option value="tenant-isolation">Multi-Tenant Isolation</option>
+                      <option value="enterprise-readiness">Enterprise Customer Review Blocker</option>
+                      <option value="vapt">Full Web Application VAPT</option>
+                      <option value="soc2">SOC 2 / ISO 27001 Readiness</option>
+                      <option value="cloud">Cloud Infrastructure Audit</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
+                  <label htmlFor="timeline" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
+                    Approximate Timeline:
+                  </label>
+                  <select 
+                    id="timeline"
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={(e) => setFormData({...formData, timeline: e.target.value})}
+                    className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-sm text-textPrimary focus:outline-none transition-all font-sans"
+                  >
+                    <option value="immediately">Immediate (Deal blocker / Urgent review)</option>
+                    <option value="within-2-weeks">Within 2 weeks</option>
+                    <option value="within-1-month">Within 1 month</option>
+                    <option value="exploring">Exploring / Next quarter</option>
+                  </select>
+                </div>
+
+                <div>
                   <label htmlFor="message" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
-                    Scoping Brief or Message:
+                    Scoping Brief (Optional):
                   </label>
                   <textarea 
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    required
-                    rows={4}
-                    placeholder="Describe your architecture (e.g. GraphQL, AWS configuration, number of API endpoints) or target timeline details..."
+                    rows={3}
+                    placeholder="Describe your architecture (e.g. GraphQL, AWS, microservices) or enterprise buyer review context..."
                     className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg p-3 text-sm text-textPrimary placeholder-textSecondary/40 focus:outline-none transition-all font-sans"
                   />
                 </div>
@@ -284,7 +378,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-sm uppercase font-sans font-semibold tracking-wider rounded-lg text-white shadow-sm transition-all gap-1.5 disabled:opacity-50"
+                  className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-sm uppercase font-sans font-bold tracking-wider rounded-lg text-white shadow-sm transition-all gap-1.5 disabled:opacity-50 cursor-pointer"
                 >
                   {loading ? (
                     <>
@@ -292,7 +386,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                     </>
                   ) : (
                     <>
-                      Submit Scoping Details <Send size={12} />
+                      Get My Free Security Review <Send size={12} />
                     </>
                   )}
                 </button>

@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { ArrowRight, Star, CheckCircle, Quote } from "lucide-react";
 import { openCalendly } from "@/lib/calendly";
 
+import { trackHeroPrimaryCta, trackSampleReportClick, trackCalendarClick } from "@/lib/analytics";
+
 export default function Hero() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -13,6 +15,8 @@ export default function Hero() {
   const handleLeadSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+
+    trackHeroPrimaryCta();
 
     // Save lead details
     const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
@@ -41,29 +45,32 @@ export default function Hero() {
           {/* Top Category Eyebrow Label */}
           <button 
             type="button"
-            onClick={() => openCalendly()}
+            onClick={() => {
+              trackCalendarClick("hero_eyebrow");
+              openCalendly();
+            }}
             className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-semibold text-zinc-700 uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all cursor-pointer"
           >
             <span className="relative flex h-1.5 w-1.5 mr-1">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
             </span>
-            <span>Manual API & Application Security Testing →</span>
+            <span>Manual API, SaaS & AI Security Testing →</span>
           </button>
 
           {/* Main Headline - Refined Vertical Rhythm */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.08] max-w-4xl mx-auto font-sans">
-            Security Verified. <br className="hidden sm:inline" />
-            <span className="text-primary">Not Assumed.</span>
+            Find the security flaws <br className="hidden sm:inline" />
+            <span className="text-primary">automated scanners miss.</span>
           </h1>
 
           {/* Subheadline & Supporting Text */}
-          <div className="space-y-2 max-w-2xl mx-auto">
+          <div className="space-y-3 max-w-2xl mx-auto">
             <p className="text-base sm:text-lg md:text-xl font-semibold text-textPrimary font-sans">
-              Manual security testing for SaaS, FinTech & AI teams.
+              Manual API, SaaS & AI security testing for startups preparing for enterprise customers, audits, or production launch.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-textSecondary leading-relaxed font-sans">
-              Find critical vulnerabilities before your customers, auditors, or attackers do.
+              We test the attack paths that require human reasoning — BOLA/IDOR, broken authorization, business-logic flaws, authentication weaknesses, multi-tenant isolation, and AI/RAG security.
             </p>
           </div>
 
@@ -86,21 +93,24 @@ export default function Hero() {
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-5 rounded-lg sm:rounded-full shadow-sm transition-all active:scale-[0.98] gap-1.5 flex-shrink-0"
+                className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-5 rounded-lg sm:rounded-full shadow-sm transition-all active:scale-[0.98] gap-1.5 flex-shrink-0 cursor-pointer"
               >
-                Request a Security Assessment
+                Get a Free Security Review
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </form>
 
             <p className="text-[11px] font-sans text-textSecondary text-center">
-              ⚡ 20-min scoping review under mutual NDA • Direct consultation with lead offensive practitioner
+              ⚡ Free 20-minute scoping review under mutual NDA • Direct consultation with lead offensive practitioner
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-0.5">
               <button 
                 type="button"
-                onClick={() => openCalendly()}
+                onClick={() => {
+                  trackCalendarClick("hero_sub_calendar");
+                  openCalendly();
+                }}
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary cursor-pointer"
               >
                 <span>Book a 20-Min Security Review →</span>
@@ -108,19 +118,20 @@ export default function Hero() {
               <span className="text-border/60">•</span>
               <Link 
                 href="/sample-report" 
+                onClick={() => trackSampleReportClick("hero_sub_link")}
                 className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
               >
-                <span>View Sample Report</span>
+                <span>View Sample Report →</span>
               </Link>
             </div>
           </div>
 
           {/* Above-the-Fold Verifiable Trust Strip */}
           <div className="pt-4 w-full max-w-2xl mx-auto border-t border-border/50">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-2.5 gap-x-4 text-left sm:text-center text-[11px] font-sans text-textSecondary">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-2.5 gap-x-4 text-left sm:text-center text-[11px] font-sans text-textSecondary">
               <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
                 <CheckCircle size={12} className="text-primary flex-shrink-0" />
-                <span>MSME/Udyam Registered</span>
+                <span>Mutual NDA Upfront</span>
               </div>
               <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
                 <CheckCircle size={12} className="text-primary flex-shrink-0" />
@@ -128,19 +139,11 @@ export default function Hero() {
               </div>
               <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
                 <CheckCircle size={12} className="text-primary flex-shrink-0" />
+                <span>Practitioner-Led Testing</span>
+              </div>
+              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
+                <CheckCircle size={12} className="text-primary flex-shrink-0" />
                 <span>30-Day Retest Included</span>
-              </div>
-              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
-                <CheckCircle size={12} className="text-primary flex-shrink-0" />
-                <span>Mutual NDA Upfront</span>
-              </div>
-              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
-                <CheckCircle size={12} className="text-primary flex-shrink-0" />
-                <span>Sample Report Available</span>
-              </div>
-              <div className="flex items-center justify-start sm:justify-center gap-1.5 font-medium">
-                <CheckCircle size={12} className="text-primary flex-shrink-0" />
-                <span>Practitioner-Led VAPT</span>
               </div>
             </div>
           </div>

@@ -5,6 +5,7 @@ import { MessageSquare, Phone, Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { BRAND } from "@/lib/constants";
 import { openCalendly } from "@/lib/calendly";
+import { trackWhatsappClick, trackPhoneClick, trackCalendarClick } from "@/lib/analytics";
 
 export default function FloatingActions() {
   const [visible, setVisible] = useState(false);
@@ -32,6 +33,7 @@ export default function FloatingActions() {
         <Link
           href={BRAND.contact.whatsapp}
           target="_blank"
+          onClick={() => trackWhatsappClick()}
           className="flex items-center justify-center w-14 h-14 bg-[#1D9E75] hover:bg-[#15805f] text-white rounded-full shadow-[0_4px_12px_rgba(29,158,117,0.2)] hover:shadow-[0_6px_16px_rgba(29,158,117,0.3)] hover:scale-110 active:scale-95 transition-all duration-200"
           aria-label="Chat on WhatsApp"
         >
@@ -48,13 +50,17 @@ export default function FloatingActions() {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            onClick={() => openCalendly()}
+            onClick={() => {
+              trackCalendarClick("mobile_floating_bar");
+              openCalendly();
+            }}
             className="flex-1 bg-primary hover:bg-primary-hover text-white py-2 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm cursor-pointer"
           >
-            <Calendar className="w-3.5 h-3.5" /> Book 20-Min Review
+            <Calendar className="w-3.5 h-3.5" /> Free Security Review
           </button>
           <Link
             href={`tel:${BRAND.contact.phone}`}
+            onClick={() => trackPhoneClick()}
             className="bg-surface border border-border hover:border-zinc-400 text-textPrimary py-2 text-xs font-bold px-4 flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm"
             aria-label="Call security officer"
           >

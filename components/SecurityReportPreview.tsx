@@ -5,28 +5,30 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck, Code, CheckCircle, AlertTriangle, FileText, ChevronRight, Info, ArrowRight } from "lucide-react";
 
+import { trackSampleReportClick, trackFreeSecurityReviewStart } from "@/lib/analytics";
+
 export default function SecurityReportPreview() {
-  const [activeTab, setActiveTab] = useState<"summary" | "vulnerabilities" | "tracking">("summary");
+  const [activeTab, setActiveTab] = useState<"summary" | "vulnerabilities" | "remediation" | "tracking">("summary");
   
   const vulns = [
     {
       id: "SAMPLE-FINDING-01",
-      title: "Broken Object Level Authorization (BOLA)",
-      class: "API Security",
+      title: "Broken Object Level Authorization (BOLA / IDOR)",
+      class: "API & SaaS Security",
       severity: "Critical",
       score: "9.8",
-      analysis: "Illustrative example: API routes failed to verify resource-level tenancy boundaries against session claims.",
-      patch: "Enforce ownership validation: req.user.accountId === req.body.account_id",
+      analysis: "Illustrative finding: API endpoints failed to verify tenant resource ownership against the JWT session token, allowing cross-tenant data access.",
+      patch: "Enforce tenant ownership validation: req.user.tenantId === requestedResource.tenantId",
       status: "Example Retest Status: Verified"
     },
     {
       id: "SAMPLE-FINDING-02",
-      title: "Direct Public Storage Bucket Access",
-      class: "Cloud Infrastructure",
-      severity: "High",
-      score: "8.2",
-      analysis: "Illustrative example: Cloud storage objects accessible without signed token parameters.",
-      patch: "Generate pre-signed URLs with a 15-minute expiration limit.",
+      title: "Broken Multi-Tenant Database Query Isolation",
+      class: "SaaS Tenant Security",
+      severity: "Critical",
+      score: "9.1",
+      analysis: "Illustrative finding: Unscoped database queries in secondary analytics microservices returned cross-organization data.",
+      patch: "Apply mandatory ORM tenant scoping middleware on all data access layers.",
       status: "Example Retest Status: Verified"
     }
   ];
@@ -41,13 +43,13 @@ export default function SecurityReportPreview() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
-            <span>Representative Assessment</span>
+            <span>Audit-Grade Deliverable Sample</span>
           </div>
           <h2 className="heading-2 mb-4 font-sans">
-            See How We Report <span className="text-primary">Security Findings</span>
+            See Exactly What Your <span className="text-primary">Security Assessment Report Looks Like</span>
           </h2>
           <p className="body-text text-base text-textSecondary font-sans max-w-2xl mx-auto">
-            Explore a representative security assessment showing how TrustLayerLabs documents vulnerabilities, business impact, developer-ready remediation guidance, and retest results.
+            Explore how TrustLayerLabs structures findings across our four report pillars: Executive Risk Summary, Technical Finding + PoC, Remediation Guidance, and Retest Verification.
           </p>
         </div>
 
@@ -68,71 +70,94 @@ export default function SecurityReportPreview() {
           <div className="lg:col-span-4 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <h3 className="text-xs font-bold text-textPrimary font-mono uppercase tracking-wider">
-                Sample Report Sections
+                Assessment Report Pillars
               </h3>
               <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                Explore the structure of a TrustLayerLabs report. Select a section to view example findings and remediation guidance.
+                Review the 4 sections included in every TrustLayerLabs security assessment deliverable.
               </p>
             </div>
 
             {/* Selector list */}
             <div className="flex flex-col space-y-2.5 font-mono text-xs uppercase tracking-wider font-semibold">
               <button
-                onClick={() => setActiveTab("summary")}
-                className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left ${
+                onClick={() => {
+                  trackSampleReportClick("tab_summary");
+                  setActiveTab("summary");
+                }}
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all text-left cursor-pointer ${
                   activeTab === "summary"
                     ? "bg-surface border-primary text-textPrimary shadow-sm"
                     : "bg-surface/40 border-border hover:border-zinc-400 text-textSecondary hover:text-textPrimary"
                 }`}
               >
-                <span>1. Executive Summary</span>
+                <span>1. Executive Risk Summary</span>
                 <ChevronRight size={14} className={activeTab === "summary" ? "text-primary" : "text-textSecondary"} />
               </button>
 
               <button
-                onClick={() => setActiveTab("vulnerabilities")}
-                className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left ${
+                onClick={() => {
+                  trackSampleReportClick("tab_vulnerabilities");
+                  setActiveTab("vulnerabilities");
+                }}
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all text-left cursor-pointer ${
                   activeTab === "vulnerabilities"
                     ? "bg-surface border-primary text-textPrimary shadow-sm"
                     : "bg-surface/40 border-border hover:border-zinc-400 text-textSecondary hover:text-textPrimary"
                 }`}
               >
-                <span>2. Technical Findings & PoCs</span>
+                <span>2. Technical Finding + PoC</span>
                 <ChevronRight size={14} className={activeTab === "vulnerabilities" ? "text-primary" : "text-textSecondary"} />
               </button>
 
               <button
-                onClick={() => setActiveTab("tracking")}
-                className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left ${
+                onClick={() => {
+                  trackSampleReportClick("tab_remediation");
+                  setActiveTab("remediation");
+                }}
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all text-left cursor-pointer ${
+                  activeTab === "remediation"
+                    ? "bg-surface border-primary text-textPrimary shadow-sm"
+                    : "bg-surface/40 border-border hover:border-zinc-400 text-textSecondary hover:text-textPrimary"
+                }`}
+              >
+                <span>3. Remediation Guidance</span>
+                <ChevronRight size={14} className={activeTab === "remediation" ? "text-primary" : "text-textSecondary"} />
+              </button>
+
+              <button
+                onClick={() => {
+                  trackSampleReportClick("tab_tracking");
+                  setActiveTab("tracking");
+                }}
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all text-left cursor-pointer ${
                   activeTab === "tracking"
                     ? "bg-surface border-primary text-textPrimary shadow-sm"
                     : "bg-surface/40 border-border hover:border-zinc-400 text-textSecondary hover:text-textPrimary"
                 }`}
               >
-                <span>3. Remediation & Retest Log</span>
+                <span>4. Retest Verification</span>
                 <ChevronRight size={14} className={activeTab === "tracking" ? "text-primary" : "text-textSecondary"} />
               </button>
             </div>
 
-            {/* Deliverables Info Box */}
-            <div className="p-4 bg-surface border border-border rounded-xl flex items-center space-x-3.5 shadow-sm">
-              <div className="w-8 h-8 rounded bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0">
-                <FileText size={16} />
-              </div>
-              <div className="font-mono text-xs">
-                <span className="text-textPrimary block font-bold">Standard Deliverable</span>
-                <span className="text-textSecondary block mt-0.5 text-[10px]">Technical Report + Exec Summary</span>
-              </div>
+            {/* CTAs */}
+            <div className="space-y-2 pt-2">
+              <Link
+                href="/free-assessment"
+                onClick={() => trackFreeSecurityReviewStart("report_preview_primary")}
+                className="w-full text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-3 px-4 rounded-xl shadow-md transition-all active:scale-[0.98] gap-1.5"
+              >
+                Get a Free Security Review
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                href="/sample-report"
+                onClick={() => trackSampleReportClick("report_preview_secondary")}
+                className="w-full text-center flex items-center justify-center bg-background border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase tracking-wider font-sans font-semibold py-2.5 px-4 rounded-xl transition-all"
+              >
+                View Sample Report Details
+              </Link>
             </div>
-
-            {/* Request Assessment CTA */}
-            <Link
-              href="/free-assessment"
-              className="w-full text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-3 px-4 rounded-xl shadow-md transition-all active:scale-[0.98] gap-1.5"
-            >
-              Request a Real Assessment
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
 
           {/* Right Column: Dynamic Preview Container */}
@@ -231,6 +256,53 @@ export default function SecurityReportPreview() {
                 </motion.div>
               )}
 
+              {activeTab === "remediation" && (
+                <motion.div
+                  key="remediation"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-6"
+                >
+                  <div className="text-xs font-mono text-textSecondary uppercase tracking-wider border-b border-border/60 pb-3">
+                    Pillar 3: Developer-Ready Remediation Guidance (Illustrative)
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="p-4 bg-background border border-border rounded-xl space-y-3 font-sans">
+                      <div className="text-xs font-bold text-textPrimary font-mono">
+                        Node.js / Express Authorization Ownership Check
+                      </div>
+                      <p className="text-xs text-textSecondary leading-relaxed">
+                        Rather than trusting client-provided tenant identifiers, validate caller session claims against the database resource scope.
+                      </p>
+                      <pre className="p-3 bg-surface border border-border rounded-lg font-mono text-[11px] text-textPrimary overflow-x-auto">
+{`// Enforce tenant boundary on object resolution
+async function getAccountData(req, res) {
+  const { resourceId } = req.params;
+  const resource = await db.find(resourceId);
+  
+  if (!resource || resource.tenantId !== req.user.tenantId) {
+    return res.status(403).json({ error: "Access denied" });
+  }
+  return res.json(resource);
+}`}
+                      </pre>
+                    </div>
+
+                    <div className="p-4 bg-background border border-border rounded-xl space-y-2 font-sans">
+                      <div className="text-xs font-bold text-textPrimary font-mono">
+                        Direct Debrief with Lead Security Practitioner
+                      </div>
+                      <p className="text-xs text-textSecondary leading-relaxed">
+                        Every assessment includes a direct code review and remediation walkthrough call with your engineering leads to ensure patches are implemented correctly without regressions.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
               {activeTab === "tracking" && (
                 <motion.div
                   key="tracking"
@@ -241,7 +313,7 @@ export default function SecurityReportPreview() {
                   className="space-y-6"
                 >
                   <div className="text-xs font-mono text-textSecondary uppercase tracking-wider border-b border-border/60 pb-3">
-                    Example Remediation & Retesting Log
+                    Pillar 4: Retest Verification & Attestation Log (Illustrative)
                   </div>
 
                   <div className="space-y-3">

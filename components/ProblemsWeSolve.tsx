@@ -15,13 +15,13 @@ export default function ProblemsWeSolve() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-critical uppercase tracking-wider mb-6">
             <AlertCircle size={12} className="text-critical" />
-            <span>High-Impact Vulnerability Vectors</span>
+            <span>Vulnerabilities That Require Human Reasoning</span>
           </div>
           <h2 className="heading-2 mb-6 font-sans">
-            Real Security Challenges <span className="text-primary">We Identify & Prevent</span>
+            Critical Security Flaws <span className="text-primary">Automated Scanners Miss</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            Automated tools often miss subtle architectural and authorization flaws. We manually probe these critical failure points.
+            Automated tools find known syntax signatures, but miss issues that require manual reasoning and workflow-level testing. We manually probe these critical failure points.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function ProblemsWeSolve() {
                 className="premium-card p-7 bg-surface border border-border rounded-2xl flex flex-col justify-between hover:border-zinc-400 transition-all duration-300 shadow-sm"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center justify-between mb-4">
                     <div className="w-10 h-10 rounded-xl bg-background border border-border flex items-center justify-center text-primary shadow-sm">
                       <Icon size={18} />
                     </div>
@@ -50,6 +50,13 @@ export default function ProblemsWeSolve() {
                       {problem.severity} Risk
                     </span>
                   </div>
+
+                  {(problem as any).question && (
+                    <div className="text-[11px] font-mono text-primary font-semibold mb-1.5 flex items-center gap-1.5">
+                      <span className="w-1 h-1 rounded-full bg-primary" />
+                      <span>{(problem as any).question}</span>
+                    </div>
+                  )}
 
                   <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans mb-2.5">
                     {problem.title}

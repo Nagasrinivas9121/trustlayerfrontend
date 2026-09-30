@@ -2,9 +2,9 @@ export const BRAND = {
   name: "TrustLayerLabs",
   tagline: "THE VERIFIED TRUST LAYER",
   positioning: "ASSESS / VERIFY / STRENGTHEN / SCALE",
-  headline: "Security Verified. Not Assumed.",
-  subheadline: "Manual security testing for SaaS, FinTech & AI teams.",
-  supportingText: "Find critical vulnerabilities before your customers, auditors, or attackers do.",
+  headline: "Find the security flaws automated scanners miss.",
+  subheadline: "Manual API, SaaS & AI security testing for startups preparing for enterprise customers, audits, or production launch.",
+  supportingText: "We test the attack paths that require human reasoning — BOLA/IDOR, broken authorization, business-logic flaws, authentication weaknesses, multi-tenant isolation, and AI/RAG security.",
   website: "https://trustlayerlabs.co.in",
   contact: {
     email: "ceo@trustlayerlabs.co.in",
@@ -664,152 +664,166 @@ export const FAQS = [
 
 export const WHO_WE_HELP = [
   {
-    category: "FinTech",
-    badge: "Financial Platforms & Payments",
-    description: "Securing high-trust financial applications, payment flows, and regulatory compliance requirements before handling customer funds.",
+    category: "B2B SaaS",
+    badge: "Primary Focus • Multi-Tenant Platforms",
+    description: "Hardening tenant boundaries, API authorization, and access controls to pass rigorous enterprise customer security reviews and vendor audits.",
     surfaces: [
-      "Financial APIs & Webhooks",
-      "Transaction & Payment Workflows",
-      "Authentication & Multi-Factor Mechanisms",
-      "BOLA / IDOR on Account Balances",
-      "KYC & Onboarding Data Pipelines",
-      "SOC 2, GDPR & PCI-DSS Alignment",
-      "RBI & NPCI Technical Baseline Alignment"
-    ],
-    cta: "Explore FinTech Security",
-    href: "/fintech-security"
-  },
-  {
-    category: "SaaS",
-    badge: "B2B & Multi-Tenant Platforms",
-    description: "Hardening tenant boundaries, API authorization, and access controls to pass rigorous enterprise procurement reviews.",
-    surfaces: [
-      "Multi-Tenant Isolation Boundaries",
-      "Role-Based Access Control (RBAC)",
-      "Cross-Tenant Data Leakage Vectors",
-      "REST & GraphQL Microservices",
+      "Multi-Tenant Isolation & Database Boundaries",
+      "Broken Object Level Authorization (BOLA / IDOR)",
+      "Role-Based Access Control (RBAC) Escalation",
+      "REST & GraphQL Microservice APIs",
       "OAuth 2.0 / JWT Token Validation",
-      "SOC 2 & Enterprise Buyer Security Audits"
+      "Enterprise Vendor Security Questionnaires"
     ],
-    cta: "Explore SaaS VAPT",
+    cta: "Explore SaaS Security",
     href: "/services/saas-vapt"
   },
   {
-    category: "AI Companies",
+    category: "AI Startups",
     badge: "AI-Enabled & GenAI Applications",
-    description: "Evaluating unique attack surfaces across LLM integrations, RAG vector stores, and AI application workflows.",
+    description: "Evaluating unique attack surfaces across LLM integrations, RAG vector stores, prompt boundaries, and AI application workflows.",
     surfaces: [
       "AI / LLM Application Attack Surfaces",
       "RAG Vector Database Tenant Separation",
       "Prompt Injection & System Prompt Bypasses",
       "API Access Governance & Key Management",
       "Sensitive Training Data Safeguards",
-      "Cloud Infrastructure & Model APIs"
+      "Model Inference & Agent Execution APIs"
     ],
     cta: "Explore AI Security",
     href: "/services/ai-security"
+  },
+  {
+    category: "FinTech",
+    badge: "Financial Platforms & Payments",
+    description: "Securing high-trust financial applications, payment flows, and regulatory compliance requirements before handling customer funds.",
+    surfaces: [
+      "Financial APIs & Webhook Verification",
+      "Transaction & Payment Workflows",
+      "Authentication & Multi-Factor Mechanisms",
+      "BOLA / IDOR on Account Balances & Ledgers",
+      "KYC & Onboarding Data Pipelines",
+      "SOC 2, GDPR & PCI-DSS Alignment",
+      "RBI & NPCI Technical Baseline Alignment"
+    ],
+    cta: "Explore FinTech Security",
+    href: "/fintech-security"
   }
 ];
 
 export const PROBLEMS_WE_SOLVE = [
   {
     title: "Broken API Authorization (BOLA / IDOR)",
-    description: "Flaws where manipulating object identifiers in API parameters lets authenticated users query or alter another user's private data.",
+    question: "Can User A access User B's data?",
+    description: "Object-level authorization flaws where manipulating resource identifiers in API requests allows authenticated users to access or alter another tenant's private data.",
     severity: "Critical",
-    impact: "Cross-account data exposure and compliance breaches"
+    impact: "Cross-account data exposure, unauthorized access, and compliance violations"
   },
   {
-    title: "Authentication & Token Weaknesses",
-    description: "Improper JWT validation, session fixation, unverified algorithm headers, or flawed OAuth handshake workflows.",
+    title: "Multi-Tenant Isolation Failures",
+    question: "Can one tenant access another tenant?",
+    description: "Missing tenant scoping in database queries, ORM context leaks, and shared cache misconfigurations allowing tenant crossover in multi-tenant SaaS environments.",
     severity: "Critical",
-    impact: "Account takeover and unauthorized administrative access"
+    impact: "Severe customer data breaches, trust destruction, and contract breaches"
+  },
+  {
+    title: "Authentication & Boundary Bypasses",
+    question: "Can auth or privilege boundaries be bypassed?",
+    description: "Improper JWT signature validation, session fixation, token tampering, or privilege escalation allowing regular users to invoke administrative endpoints.",
+    severity: "Critical",
+    impact: "Account takeover and unauthorized administrative system access"
   },
   {
     title: "Business-Logic & Workflow Flaws",
-    description: "Exploiting multi-step workflows, race conditions, coupon abuse, or parameter manipulation that scanners cannot understand.",
+    question: "Can a workflow be manipulated?",
+    description: "Multi-step transaction manipulation, race conditions, coupon/credit stacking, and approval skips that automated vulnerability scanners cannot comprehend.",
     severity: "High",
-    impact: "Financial loss, transaction bypass, and service disruption"
+    impact: "Direct financial losses, unauthorized service activation, and workflow tampering"
   },
   {
-    title: "Cross-Tenant Access in SaaS",
-    description: "Database context leaks and missing tenant ownership checks in ORM queries allowing Tenant A to access Tenant B's data.",
-    severity: "Critical",
-    impact: "Severe customer trust erosion and contract violations"
-  },
-  {
-    title: "Cloud IAM & Infrastructure Exposure",
-    description: "Over-permissive cloud roles, unauthenticated S3/GCS buckets, and container breakout vectors across AWS, GCP, and Azure.",
+    title: "AI & RAG System Data Exposure",
+    question: "Can an AI/RAG system expose protected information?",
+    description: "Indirect prompt injection, improper RAG context scoping, unauthorized retrieval of confidential embeddings, and insecure agent tool invocation permissions.",
     severity: "High",
-    impact: "Infrastructure takeover and lateral network movement"
+    impact: "Proprietary IP leaks, customer data exposure, and model manipulation"
   },
   {
-    title: "Enterprise Review & Compliance Gaps",
-    description: "Failing enterprise vendor security questionnaires, missing technical controls for SOC 2 or ISO 27001, or stalled sales deals.",
+    title: "Enterprise Review & Compliance Blockers",
+    question: "Can security gaps stall enterprise sales?",
+    description: "Failing enterprise vendor security assessments, missing technical verification for SOC 2 or ISO 27001, and unaddressed architecture risks blocking major deals.",
     severity: "Compliance",
-    impact: "Delayed enterprise revenue and prolonged sales cycles"
+    impact: "Delayed enterprise revenue, blocked procurement, and prolonged deal cycles"
   }
 ];
 
 export const CORE_PILLARS = [
   {
-    id: "api-web-security",
-    title: "Web & API Security Testing",
-    tagline: "Manual Logic, BOLA/IDOR & Authentication Testing",
-    description: "Deep manual penetration testing for REST, GraphQL, and web applications. We discover broken object authorization, authentication bypasses, tenant boundary leaks, and multi-step logic flaws that automated scanners overlook.",
+    id: "security-snapshot",
+    title: "Security Snapshot",
+    tier: "For early-stage startups",
+    tagline: "High-Priority Vulnerability Review & Scoping",
+    description: "Fast-turnaround assessment of critical external attack surfaces, high-risk API authorization flaws, and authentication hygiene prior to first customer onboarding or pitch.",
     deliverables: [
-      "Manual authorization (BOLA/BFLA) discovery",
-      "Reproducible exploit PoCs & code-level fixes",
-      "Executive risk summary for buyers & leadership",
-      "30-day verified retest & attestation letter"
+      "Core API authorization & authentication check",
+      "High-impact attack surface vulnerability discovery",
+      "Executive risk overview & prioritized patch list",
+      "Direct 20-min debrief with offensive practitioner"
     ],
-    badge: "Offensive Security",
+    badge: "Early-Stage Startups",
+    href: "/free-assessment",
+    ctaText: "Discuss Scope",
+    primaryAction: "review"
+  },
+  {
+    id: "api-security-assessment",
+    title: "API Security Assessment",
+    tier: "For API-heavy SaaS products",
+    tagline: "Deep OWASP API Top 10, BOLA/IDOR & Multi-Tenancy",
+    description: "Exhaustive manual penetration testing for REST, GraphQL, and microservice APIs. Focused on authorization logic, BOLA/IDOR, token hygiene, and multi-tenant data isolation.",
+    deliverables: [
+      "In-depth BOLA/IDOR & broken authorization testing",
+      "JWT/OAuth authentication & privilege escalation audit",
+      "Developer-ready PoC reproduction scripts & code fixes",
+      "30-day verified retest included"
+    ],
+    badge: "B2B SaaS & APIs",
     href: "/services/api-security",
-    ctaText: "Explore Web & API Testing"
+    ctaText: "Discuss Scope",
+    primaryAction: "scope"
   },
   {
-    id: "cloud-infrastructure-security",
-    title: "Cloud & Infrastructure Security",
-    tagline: "IAM Hardening, CIS Benchmarks & Attack Surface Defense",
-    description: "Rigorous infrastructure and identity audits across AWS, GCP, Azure, and Kubernetes. We uncover privilege escalation paths, open storage buckets, insecure container configurations, and perimeter attack surfaces.",
+    id: "full-vapt",
+    title: "Full VAPT Assessment",
+    tier: "For production & enterprise requirements",
+    tagline: "End-to-End Application, API & Cloud Pentest",
+    description: "Comprehensive manual offensive testing across your web application, microservices, and supporting cloud infrastructure to satisfy production launch and enterprise requirements.",
     deliverables: [
-      "IAM least-privilege & credential exposure audit",
-      "Cloud storage & database boundary checks",
-      "Kubernetes RBAC & container security review",
-      "External attack surface & perimeter analysis"
+      "Full OWASP Top 10 + OWASP API Top 10 manual testing",
+      "Business-logic and multi-step workflow abuse testing",
+      "Auditor-ready executive summary & technical report",
+      "30-day retest & verified attestation letter"
     ],
-    badge: "Cloud & Perimeter",
-    href: "/services/cloud-security",
-    ctaText: "Explore Cloud Security"
+    badge: "Production & Enterprise",
+    href: "/services/web-app-vapt",
+    ctaText: "Request Assessment",
+    primaryAction: "request"
   },
   {
-    id: "ai-application-security",
-    title: "AI Application Security",
-    tagline: "LLM Guardrails, Prompt Injection & RAG Data Protection",
-    description: "Specialized offensive security assessments for LLM integrations, AI agents, and RAG pipelines. We evaluate indirect prompt injection, training data leakage, model parameter manipulation, and unauthorized vector database querying.",
-    deliverables: [
-      "Prompt injection & jailbreak vulnerability testing",
-      "RAG vector database tenant isolation audit",
-      "Agent execution privilege & API boundary review",
-      "Remediation guidelines for AI guardrails"
-    ],
-    badge: "AI & LLM Security",
-    href: "/services/ai-security",
-    ctaText: "Explore AI Security"
-  },
-  {
-    id: "grc-enterprise-readiness",
-    title: "GRC & Enterprise Readiness",
-    tagline: "SOC 2, ISO 27001 & Enterprise Vendor Security Reviews",
-    description: "Practical readiness consulting and technical control verification to unblock enterprise deals. We close compliance gaps, assist with vendor security questionnaires, and deliver attestation letters for enterprise buyers.",
+    id: "enterprise-security-readiness",
+    title: "Enterprise Security Readiness",
+    tier: "For SOC 2 / ISO 27001 preparation",
+    tagline: "Technical Control Mapping & Audit Assurance",
+    description: "Practical security reviews and technical verification to unblock enterprise deals. We verify required controls, assist with vendor questionnaires, and provide audit-ready proof.",
     deliverables: [
       "SOC 2 Type II & ISO 27001 technical control mapping",
-      "Enterprise vendor questionnaire support",
-      "Security policy reviews & evidence collection",
-      "Verified retest letter for customer assurance"
+      "Enterprise vendor security questionnaire support",
+      "Verified remediation letter for buyer procurement",
+      "Consultation on security policy & evidence posture"
     ],
-    badge: "Governance & Assurance",
+    badge: "Compliance & Audits",
     href: "/grc-readiness",
-    ctaText: "Explore GRC Readiness"
+    ctaText: "Discuss Scope",
+    primaryAction: "scope"
   }
 ];
 
