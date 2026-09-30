@@ -909,23 +909,17 @@ export const TEAM = [
     role: "Founder & Lead Security Architect",
     bio: "Offensive security practitioner specializing in manual API penetration testing, authorization logic, and web application security assessments.",
     initials: "NR",
-    credentials: ["Web App Security", "VAPT Specialist", "API Security"],
+    credentials: ["Web App Security", "VAPT Specialist", "API Security from IIT Guwahati"],
+    education: "IIT Guwahati",
     linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/"
-  },
-  {
-    name: "Bakkina Pavan Kumar",
-    role: "CTO & Cloud Security Lead",
-    bio: "Systems architect and security engineer leading cloud infrastructure reviews, Kubernetes hardening, and network vulnerability assessments.",
-    initials: "BP",
-    credentials: ["Cloud Security", "VAPT Specialist", "Infrastructure Security"],
-    linkedin: "https://www.linkedin.com/in/bikkina-pavankumar-898964223/"
   },
   {
     name: "Ramineni Teja",
     role: "Co-Founder & GRC Lead",
     bio: "Compliance and risk management practitioner assisting high-growth startups with ISO 27001 gap analysis, SOC 2 readiness roadmaps, and security governance.",
     initials: "RT",
-    credentials: ["ISO 27001 Readiness", "SOC 2 Readiness", "GRC Practitioner"],
+    credentials: ["ISO 27001 Readiness", "SOC 2 Readiness", "GRC Practitioner", "VIT Bhopal"],
+    education: "VIT Bhopal",
     linkedin: "https://www.linkedin.com/in/ramineniteja"
   },
   {
@@ -933,7 +927,8 @@ export const TEAM = [
     role: "Security Engineer & VAPT Consultant",
     bio: "Application security engineer focused on manual web application testing, OWASP Top 10 vulnerabilities, and developer remediation support.",
     initials: "NA",
-    credentials: ["Web App Security", "VAPT Specialist"],
+    credentials: ["Web App Security", "VAPT Specialist", "VIT Bhopal"],
+    education: "VIT Bhopal",
     linkedin: "https://www.linkedin.com/in/nayansi-anand-35a99a31b/"
   },
   {
@@ -941,7 +936,8 @@ export const TEAM = [
     role: "Operations & Engagement Lead",
     bio: "Coordinates scoping, mutual NDAs, scheduling, and client onboarding workflows for seamless assessment delivery.",
     initials: "MJ",
-    credentials: ["Operations Lead"],
+    credentials: ["Operations Lead", "VIT Bhopal"],
+    education: "VIT Bhopal",
     linkedin: "https://www.linkedin.com/in/muskan-jha-795828350/"
   }
 ];
