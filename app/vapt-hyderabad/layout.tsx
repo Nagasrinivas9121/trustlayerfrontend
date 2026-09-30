@@ -29,7 +29,7 @@ export default function VaptHyderabadLayout({ children }: { children: React.Reac
       "addressRegion": "Telangana",
       "addressCountry": "IN",
     },
-    "telephone": "+91-8822402811",
+    "telephone": "+91-9391220328",
     "areaServed": "Hyderabad",
   };
 

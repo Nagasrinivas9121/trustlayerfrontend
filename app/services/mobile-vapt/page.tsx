@@ -339,7 +339,7 @@ export default function MobileVaptPage() {
           "@id": "https://www.trustlayerlabs.co.in/#organization",
           "name": "TrustLayerLabs",
           "url": "https://www.trustlayerlabs.co.in",
-          "telephone": "+91-8822402811",
+          "telephone": "+91-9391220328",
           "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Manual mobile application VAPT services for Android and iOS apps, APIs, authentication, data storage and business logic with actionable remediation guidance and retesting.",

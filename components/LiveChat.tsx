@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MessageSquare, X, Shield, Send, CheckCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { BRAND } from "@/lib/constants";
 
 interface Message {
   sender: "bot" | "user";
@@ -35,7 +36,7 @@ export default function LiveChat() {
         options: [
           "📋 Book 20-Min Security Review",
           "📄 Download Redacted VAPT PDF",
-          "📱 Chat on WhatsApp (+91 88224 02811)",
+          `📱 Chat on WhatsApp (${BRAND.contact.phone})`,
           "💬 Ask a Security Question"
         ]
       }
@@ -70,7 +71,7 @@ export default function LiveChat() {
             sender: "bot",
             text: "You can start a direct chat with our lead security architects right away on WhatsApp:",
             type: "links",
-            links: [{ label: "Open WhatsApp (+91 88224 02811)", url: "https://wa.me/918822402811" }]
+            links: [{ label: `Open WhatsApp (${BRAND.contact.phone})`, url: BRAND.contact.whatsapp }]
           }
         ]);
       } else if (option.includes("PDF")) {

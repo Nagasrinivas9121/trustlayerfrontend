@@ -29,7 +29,7 @@ export default function VaptBangaloreLayout({ children }: { children: React.Reac
       "addressRegion": "Karnataka",
       "addressCountry": "IN",
     },
-    "telephone": "+91-8822402811",
+    "telephone": "+91-9391220328",
     "areaServed": "Bangalore",
   };
 

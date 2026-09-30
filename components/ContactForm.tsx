@@ -139,7 +139,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                   </div>
                   <div>
                     <span className="text-xs font-sans text-textSecondary uppercase tracking-wider block">WhatsApp Direct Chat:</span>
-                    <span className="text-sm font-bold text-textPrimary font-sans">+91 88224 02811</span>
+                    <span className="text-sm font-bold text-textPrimary font-sans">{BRAND.contact.phone}</span>
                   </div>
                 </a>
 
