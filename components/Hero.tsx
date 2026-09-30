@@ -43,20 +43,13 @@ export default function Hero() {
         <div className="flex flex-col items-center text-center space-y-7 max-w-3xl mx-auto relative z-20">
           
           {/* Top Category Eyebrow Label */}
-          <button 
-            type="button"
-            onClick={() => {
-              trackCalendarClick("hero_eyebrow");
-              openCalendly();
-            }}
-            className="inline-flex items-center space-x-2 px-3 py-1 bg-surface/80 border border-border/70 rounded-full text-[11px] font-mono font-semibold text-zinc-700 uppercase tracking-widest shadow-none animate-fade-in hover:text-textPrimary hover:border-border transition-all cursor-pointer"
-          >
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-surface/90 border border-border/80 rounded-full text-[11px] font-mono font-semibold text-textSecondary uppercase tracking-widest shadow-none animate-fade-in">
             <span className="relative flex h-1.5 w-1.5 mr-1">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
             </span>
-            <span>Manual API, SaaS & AI Security Testing →</span>
-          </button>
+            <span>Manual API, SaaS & AI Security Testing</span>
+          </div>
 
           {/* Main Headline - Refined Vertical Rhythm */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.08] max-w-4xl mx-auto font-sans">

@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { ShieldCheck, CheckCircle2, ArrowRight, FileText, Calendar, Building2, Lock } from "lucide-react";
+import { openCalendly } from "@/lib/calendly";
+import { trackCalendarCtaClick } from "@/lib/analytics";
 
 export default function GrcHomeSection() {
   return (
@@ -64,14 +66,17 @@ export default function GrcHomeSection() {
                   <ArrowRight size={13} className="text-primary" />
                 </Link>
 
-                <Link 
-                  href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-                  target="_blank"
-                  className="px-6 py-2.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-lg transition-all flex items-center gap-2 shadow-sm"
+                <button 
+                  type="button"
+                  onClick={() => {
+                    trackCalendarCtaClick("grc_home_section", "Book Readiness Call");
+                    openCalendly();
+                  }}
+                  className="px-6 py-2.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-lg transition-all flex items-center gap-2 shadow-sm cursor-pointer"
                 >
                   <Calendar size={13} />
                   <span>Book Readiness Call</span>
-                </Link>
+                </button>
               </div>
             </div>
 

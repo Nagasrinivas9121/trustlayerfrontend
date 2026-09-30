@@ -6,7 +6,7 @@ import { CORE_PILLARS } from "@/lib/constants";
 import { ArrowRight, CheckCircle2, Shield, Calendar, Layers, Lock, ShieldCheck, Cloud, FileText, Cpu } from "lucide-react";
 
 import { openCalendly } from "@/lib/calendly";
-import { trackCalendarClick, trackFreeSecurityReviewStart } from "@/lib/analytics";
+import { trackFreeReviewCtaClick } from "@/lib/analytics";
 
 const icons: Record<string, React.ElementType> = {
   "security-snapshot": Shield,
@@ -95,23 +95,19 @@ export default function CoreServicesSection() {
                 {/* Bottom Actions */}
                 <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center gap-3">
                   <Link 
+                    href="/free-assessment"
+                    onClick={() => trackFreeReviewCtaClick(`package_${pillar.id}`, "Get a Free Security Review")}
+                    className="w-full sm:flex-1 text-center py-2.5 px-4 bg-primary text-white text-xs uppercase font-sans font-bold tracking-wider rounded-lg hover:bg-primary-hover transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <span>Get Free Review</span>
+                    <ArrowRight size={13} />
+                  </Link>
+                  <Link 
                     href={pillar.href}
-                    onClick={() => trackFreeSecurityReviewStart(`package_${pillar.id}`)}
                     className="w-full sm:flex-1 text-center py-2.5 px-4 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-textPrimary hover:text-primary transition-all"
                   >
                     {pillar.ctaText} →
                   </Link>
-                  <button 
-                    type="button"
-                    onClick={() => {
-                      trackCalendarClick(`package_${pillar.id}`);
-                      openCalendly();
-                    }}
-                    className="w-full sm:flex-1 text-center py-2.5 px-4 bg-primary text-white text-xs uppercase font-sans font-semibold tracking-wider rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                  >
-                    <Calendar size={13} />
-                    Get Free Review
-                  </button>
                 </div>
 
               </div>

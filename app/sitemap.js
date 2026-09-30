@@ -23,6 +23,7 @@ export default function sitemap() {
     { url: "/about",                   priority: 0.8, frequency: "monthly" },
     { url: "/blog",                    priority: 0.8, frequency: "daily"   },
     { url: "/contact",                 priority: 0.75, frequency: "monthly" },
+    { url: "/book",                    priority: 0.85, frequency: "weekly"  },
     // Local SEO landing pages
     { url: "/vapt-bangalore",          priority: 0.9, frequency: "weekly"  },
     { url: "/vapt-hyderabad",          priority: 0.9, frequency: "weekly"  },

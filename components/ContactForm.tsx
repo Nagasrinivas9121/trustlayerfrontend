@@ -8,8 +8,10 @@ import CalendlyEmbed from "@/components/CalendlyEmbed";
 import { 
   trackContactFormStart, 
   trackContactFormSubmit, 
-  trackCalendarClick, 
-  trackWhatsappClick 
+  trackCalendarCtaClick, 
+  trackWhatsappCtaClick,
+  trackWrittenScopeCtaClick,
+  getUtmAttribution
 } from "@/lib/analytics";
 
 export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
@@ -43,9 +45,11 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
       await new Promise((res) => setTimeout(res, 1200));
 
       // Save lead details
+      const utm = getUtmAttribution();
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
         ...formData,
+        ...utm,
         source: "contact-form",
         timestamp: new Date().toISOString()
       });
@@ -131,7 +135,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <a 
                   href={BRAND.contact.whatsapp}
                   target="_blank"
-                  onClick={() => trackWhatsappClick()}
+                  onClick={() => trackWhatsappCtaClick("contact_form_sidebar")}
                   className="flex items-center gap-4 p-4 bg-surface border border-border/80 rounded-xl hover:border-success/40 transition-colors group shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center text-success group-hover:text-success transition-colors">
@@ -176,7 +180,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
               <button
                 type="button"
                 onClick={() => {
-                  trackCalendarClick("contact_form_mode_calendar");
+                  trackCalendarCtaClick("contact_form_mode_calendar", "Book 20-Min Call");
                   setMode("calendar");
                 }}
                 className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
@@ -190,7 +194,10 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
               </button>
               <button
                 type="button"
-                onClick={() => setMode("form")}
+                onClick={() => {
+                  trackWrittenScopeCtaClick("contact_form_mode_form");
+                  setMode("form");
+                }}
                 className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   mode === "form"
                     ? "bg-primary text-white shadow-sm"
@@ -198,7 +205,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 }`}
               >
                 <FileText size={13} className="shrink-0" />
-                <span className="truncate">Free Review Intake</span>
+                <span className="truncate">Written Scope Intake</span>
               </button>
             </div>
 
@@ -378,7 +385,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-sm uppercase font-sans font-bold tracking-wider rounded-lg text-white shadow-sm transition-all gap-1.5 disabled:opacity-50 cursor-pointer"
+                  className="w-full inline-flex items-center justify-center py-3.5 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-bold tracking-wider rounded-lg text-white shadow-sm transition-all gap-1.5 disabled:opacity-50 cursor-pointer"
                 >
                   {loading ? (
                     <>
@@ -386,10 +393,16 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                     </>
                   ) : (
                     <>
-                      Get My Free Security Review <Send size={12} />
+                      Request Free Security Review <Send size={12} />
                     </>
                   )}
                 </button>
+
+                <div className="flex items-center justify-center gap-3 pt-2 text-[10px] text-textSecondary text-center">
+                  <span>🔒 Mutual NDA Upfront</span>
+                  <span>•</span>
+                  <span>Direct Practitioner Response in 24h</span>
+                </div>
               </form>
             )}
           </div>

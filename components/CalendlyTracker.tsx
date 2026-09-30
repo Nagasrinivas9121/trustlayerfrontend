@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { openCalendly } from "@/lib/calendly";
+import { trackBookingStarted, trackScopingCallBooked } from "@/lib/analytics";
 
 export default function CalendlyTracker() {
   useEffect(() => {
@@ -23,38 +24,34 @@ export default function CalendlyTracker() {
         w.dataLayer = w.dataLayer || [];
 
         if (data.event === "calendly.event_scheduled") {
-          // Push to GTM dataLayer
+          // Strictly verified meeting booked
+          trackScopingCallBooked({
+            event_uri: data.payload?.event?.uri,
+            invitee_uri: data.payload?.invitee?.uri,
+          });
+
+          // Maintain backward-compatibility for existing tags
           w.dataLayer.push({
             event: "calendly_event_scheduled",
             event_category: "conversion",
             event_label: "Calendly Meeting Scheduled",
-            calendly_payload: data.payload,
           });
 
-          // GA4 conversion event
           if (typeof w.gtag === "function") {
-            w.gtag("event", "calendly_event_scheduled", {
-              event_category: "conversion",
-              event_label: "Calendly Meeting Scheduled",
-              value: 1,
-            });
             w.gtag("event", "conversion", {
               event_category: "Calendly",
               event_label: "Meeting Scheduled",
             });
           }
         } else if (data.event === "calendly.date_and_time_selected") {
+          // User selected a date/time slot (booking funnel in progress)
+          trackBookingStarted("calendly_slot_selected");
+
           w.dataLayer.push({
             event: "calendly_date_time_selected",
             event_category: "engagement",
             event_label: "Calendly Slot Selected",
           });
-          if (typeof w.gtag === "function") {
-            w.gtag("event", "calendly_date_time_selected", {
-              event_category: "engagement",
-              event_label: "Calendly Slot Selected",
-            });
-          }
         }
       } catch (err) {
         console.error("Error processing Calendly postMessage event:", err);

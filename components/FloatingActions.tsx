@@ -5,7 +5,7 @@ import { MessageSquare, Phone, Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { BRAND } from "@/lib/constants";
 import { openCalendly } from "@/lib/calendly";
-import { trackWhatsappClick, trackPhoneClick, trackCalendarClick } from "@/lib/analytics";
+import { trackWhatsappClick, trackPhoneClick, trackCalendarClick, trackFreeReviewCtaClick } from "@/lib/analytics";
 
 export default function FloatingActions() {
   const [visible, setVisible] = useState(false);
@@ -26,7 +26,7 @@ export default function FloatingActions() {
   return (
     <>
       {/* Floating WhatsApp Action Button (positioned above Chatbot so they don't overlap) */}
-      <div className="fixed bottom-24 sm:bottom-24 right-6 z-40 group">
+      <div className="fixed bottom-36 md:bottom-24 right-5 sm:right-6 z-40 group">
         <div className="absolute -left-36 top-1/2 -translate-y-1/2 bg-surface border border-border text-[11px] font-bold text-textPrimary px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none uppercase tracking-widest shadow-md">
           Chat on WhatsApp
         </div>
@@ -34,30 +34,29 @@ export default function FloatingActions() {
           href={BRAND.contact.whatsapp}
           target="_blank"
           onClick={() => trackWhatsappClick()}
-          className="flex items-center justify-center w-14 h-14 bg-[#1D9E75] hover:bg-[#15805f] text-white rounded-full shadow-[0_4px_12px_rgba(29,158,117,0.2)] hover:shadow-[0_6px_16px_rgba(29,158,117,0.3)] hover:scale-110 active:scale-95 transition-all duration-200"
+          className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1D9E75] hover:bg-[#15805f] text-white rounded-full shadow-[0_4px_12px_rgba(29,158,117,0.2)] hover:shadow-[0_6px_16px_rgba(29,158,117,0.3)] hover:scale-110 active:scale-95 transition-all duration-200"
           aria-label="Chat on WhatsApp"
         >
-          <MessageSquare className="w-6 h-6 fill-white" />
+          <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 fill-white" />
         </Link>
       </div>
 
       {/* Sticky Mobile CTA Bar */}
       <div 
-        className={`fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md border-t border-border p-3.5 md:hidden transition-transform duration-300 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] ${
+        className={`fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md border-t border-border p-3 md:hidden transition-transform duration-300 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] ${
           visible ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
+        <div className="flex items-center gap-2.5">
+          <Link
+            href="/free-assessment"
             onClick={() => {
-              trackCalendarClick("mobile_floating_bar");
-              openCalendly();
+              trackFreeReviewCtaClick("mobile_floating_bar", "Get a Free Security Review");
             }}
-            className="flex-1 bg-primary hover:bg-primary-hover text-white py-2 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-widest rounded-full shadow-sm cursor-pointer"
+            className="flex-1 bg-primary hover:bg-primary-hover text-white py-2.5 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-wider rounded-full shadow-sm"
           >
-            <Calendar className="w-3.5 h-3.5" /> Free Security Review
-          </button>
+            <Calendar className="w-3.5 h-3.5" /> Get Free Review
+          </Link>
           <Link
             href={`tel:${BRAND.contact.phone}`}
             onClick={() => trackPhoneClick()}

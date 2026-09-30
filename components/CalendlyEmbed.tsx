@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CALENDLY_URL } from "@/lib/calendly";
 import { Calendar, Clock, ShieldCheck, ArrowRight, Loader2 } from "lucide-react";
+import { trackCalendarLoaded } from "@/lib/analytics";
 
 interface CalendlyEmbedProps {
   url?: string;
@@ -82,6 +83,7 @@ export default function CalendlyEmbed({
             url: url,
             parentElement: containerRef.current,
           });
+          trackCalendarLoaded("inline_embed");
         }
         setIsLoading(false);
       }

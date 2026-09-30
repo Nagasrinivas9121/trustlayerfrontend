@@ -8,7 +8,7 @@ import { Menu, X, Calendar, ChevronDown, Award } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
 import { openCalendly } from "@/lib/calendly";
-import { trackCalendarClick } from "@/lib/analytics";
+import { trackCalendarClick, trackFreeReviewCtaClick } from "@/lib/analytics";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -113,15 +113,13 @@ export default function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:block flex-shrink-0">
-            <button 
-              onClick={() => {
-                trackCalendarClick("navbar_desktop");
-                openCalendly();
-              }}
+            <Link 
+              href="/free-assessment"
+              onClick={() => trackFreeReviewCtaClick("navbar_desktop", "Get a Free Security Review")}
               className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all active:scale-95 flex items-center gap-1.5 shadow-sm cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5" /> Free Security Review
-            </button>
+              <Calendar className="w-3.5 h-3.5" /> Get a Free Security Review
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -182,16 +180,16 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <button 
+              <Link 
+                href="/free-assessment"
                 onClick={() => {
                   setIsOpen(false);
-                  trackCalendarClick("navbar_mobile");
-                  openCalendly();
+                  trackFreeReviewCtaClick("navbar_mobile", "Get a Free Security Review");
                 }}
-                className="w-full text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md cursor-pointer"
+                className="w-full block text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md cursor-pointer"
               >
                 Get a Free Security Review
-              </button>
+              </Link>
             </div>
           )}
         </nav>

@@ -14,6 +14,7 @@ import {
   Users
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import PartnershipActions from "@/components/PartnershipActions";
 
 export const metadata: Metadata = {
   title: "Security Partner Program",
@@ -115,23 +116,7 @@ export default function PartnershipsPage() {
             We partner with software agencies, cloud consultancies, MSPs, and compliance advisors to deliver high-depth manual penetration testing and GRC readiness for your clients.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-4">
-            <Link 
-              href="#contact"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
-            >
-              <Handshake size={15} />
-              <span>Become a Security Partner</span>
-            </Link>
-
-            <Link 
-              href="/sample-report"
-              className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
-            >
-              <FileText size={15} />
-              <span>View Sample Report</span>
-            </Link>
-          </div>
+          <PartnershipActions />
         </div>
 
         {/* Partner Categories */}

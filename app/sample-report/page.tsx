@@ -1,16 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, ShieldCheck, FileText, Download, CheckCircle, Code } from "lucide-react";
+import { ArrowLeft, ShieldCheck, FileText, Download, CheckCircle, Code, Calendar } from "lucide-react";
 import SecurityReportPreview from "@/components/SecurityReportPreview";
+import { openCalendly } from "@/lib/calendly";
 
-import { trackSampleReportClick, trackCalendarClick } from "@/lib/analytics";
+import { 
+  trackSampleReportView, 
+  trackSampleReportDownload, 
+  trackFreeReviewCtaClick, 
+  trackCalendarCtaClick 
+} from "@/lib/analytics";
 
 export default function SampleReportPage() {
   const [email, setEmail] = React.useState("");
   const [downloaded, setDownloaded] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+
+  useEffect(() => {
+    trackSampleReportView();
+  }, []);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -25,7 +35,7 @@ export default function SampleReportPage() {
     if (!email) return;
     setLoading(true);
     try {
-      trackSampleReportClick("sample_report_page_download");
+      trackSampleReportDownload("sample_report_page");
       await new Promise(resolve => setTimeout(resolve, 1200));
       
       // Save lead details to localStorage
@@ -161,19 +171,23 @@ export default function SampleReportPage() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link
-              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-              target="_blank"
-              onClick={() => trackCalendarClick("sample_report_page_footer")}
+              href="/free-assessment"
+              onClick={() => trackFreeReviewCtaClick("sample_report_page_footer", "Get a Free Security Review")}
               className="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md"
             >
               Get a Free Security Review
             </Link>
-            <Link
-              href="/free-assessment"
-              className="px-6 py-3 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all"
+            <button
+              type="button"
+              onClick={() => {
+                trackCalendarCtaClick("sample_report_page_footer", "Book a 20-Min Security Review");
+                openCalendly();
+              }}
+              className="px-6 py-3 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-1.5 cursor-pointer"
             >
-              Request Assessment Scope
-            </Link>
+              <Calendar size={13} />
+              <span>Book a 20-Min Security Review</span>
+            </button>
           </div>
         </div>
 

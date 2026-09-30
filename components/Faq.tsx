@@ -4,11 +4,15 @@ import React, { useState } from "react";
 import { FAQS } from "@/lib/constants";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackFaqExpand } from "@/lib/analytics";
 
 export default function Faq() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const toggle = (idx: number) => {
+    if (openIdx !== idx && FAQS[idx]) {
+      trackFaqExpand(FAQS[idx].question);
+    }
     setOpenIdx(openIdx === idx ? null : idx);
   };
 

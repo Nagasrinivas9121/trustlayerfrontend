@@ -2,13 +2,13 @@ import React from "react";
 import Hero from "@/components/Hero";
 import WhoWeHelp from "@/components/WhoWeHelp";
 import ProblemsWeSolve from "@/components/ProblemsWeSolve";
+import ManualTestingMatters from "@/components/ManualTestingMatters";
 import SecurityReportPreview from "@/components/SecurityReportPreview";
 import Proof from "@/components/Proof";
 import WhatYouReceive from "@/components/WhatYouReceive";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import ManualTestingMatters from "@/components/ManualTestingMatters";
-import HowItWorks from "@/components/HowItWorks";
 import CoreServicesSection from "@/components/CoreServicesSection";
+import HowItWorks from "@/components/HowItWorks";
 import GrcHomeSection from "@/components/GrcHomeSection";
 import CaseStudy from "@/components/CaseStudy";
 import Founder from "@/components/Founder";
@@ -24,43 +24,47 @@ export default function Home() {
       {/* 1. HERO & PRIMARY TRUST SIGNALS */}
       <Hero />
 
-      {/* 2. WHO TRUSTLAYERLABS HELPS (B2B SaaS, AI, FinTech) */}
+      {/* 2. WHO TRUSTLAYERLABS HELPS (Primary ICP: B2B SaaS, AI, FinTech) */}
       <WhoWeHelp />
 
       {/* 3. SECURITY PROBLEMS / VULNERABILITIES TESTED */}
       <ProblemsWeSolve />
 
-      {/* 4. PROOF / SAMPLE SECURITY REPORT & COMPLIANCE ALIGNMENT */}
+      {/* 4. WHY MANUAL TESTING MATTERS (Human Reasoning vs Automated Scanners) */}
+      <ManualTestingMatters />
+
+      {/* 5. PROOF / SAMPLE SECURITY REPORT & COMPLIANCE ALIGNMENT */}
       <SecurityReportPreview />
       <Proof />
 
-      {/* 5. TANGIBLE DELIVERABLES (WHAT YOU RECEIVE) */}
+      {/* 6. TANGIBLE DELIVERABLES (WHAT YOU RECEIVE) */}
       <WhatYouReceive />
 
-      {/* 6. WHY TRUSTLAYERLABS & HUMAN REASONING VS AUTOMATED SCANNERS */}
+      {/* 7. WHY CHOOSE TRUSTLAYERLABS */}
       <WhyChooseUs />
-      <ManualTestingMatters />
 
-      {/* 7. METHODOLOGY / ENGAGEMENT PROCESS */}
+      {/* 8. OFFER ARCHITECTURE (Security Snapshot, API Security, Full VAPT, Enterprise Readiness) */}
+      <CoreServicesSection />
+
+      {/* 9. METHODOLOGY / 8-PHASE ENGAGEMENT PROCESS */}
       <HowItWorks />
 
-      {/* 8. SERVICES & OFFER ARCHITECTURE */}
-      <CoreServicesSection />
+      {/* 10. GRC & ENTERPRISE READINESS ADVISORY */}
       <GrcHomeSection />
 
-      {/* 9. DEEP TECHNICAL RESEARCH & PRACTITIONER CREDIBILITY */}
+      {/* 11. DEEP TECHNICAL RESEARCH & PRACTITIONER CREDIBILITY */}
       <CaseStudy />
       <Founder />
       <BlogSection />
 
-      {/* 10. BUYER FAQ */}
+      {/* 12. BUYER FAQ */}
       <Faq />
 
-      {/* 11. FINAL CTA & DIRECT LEAD CONVERSION INTAKE */}
+      {/* 13. FINAL CTA & DIRECT LEAD CONVERSION INTAKE */}
       <CTA />
       <ContactForm />
 
-      {/* Floating Helpers */}
+      {/* 14. FLOATING CONVERSION HELPERS */}
       <FloatingActions />
     </div>
   );
