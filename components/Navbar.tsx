@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-3 lg:space-x-5 mx-4 overflow-x-auto scrollbar-none">
             {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href || (link.children && pathname.startsWith("/services"));
+              const isActive = pathname === link.href || (link.children && pathname.startsWith(link.href));
               
               if (link.children) {
                 return (

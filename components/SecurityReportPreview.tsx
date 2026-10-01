@@ -12,24 +12,32 @@ export default function SecurityReportPreview() {
   
   const vulns = [
     {
-      id: "SAMPLE-FINDING-01",
-      title: "Broken Object Level Authorization (BOLA / IDOR)",
-      class: "API & SaaS Security",
+      id: "TTL-FINDING-01",
+      title: "Broken Object Level Authorization (BOLA / IDOR) on Export Endpoint",
+      endpoint: "GET /api/v1/workspaces/{workspaceId}/export",
+      class: "SaaS API Authorization",
       severity: "Critical",
       score: "9.8",
-      analysis: "Illustrative finding: API endpoints failed to verify tenant resource ownership against the JWT session token, allowing cross-tenant data access.",
-      patch: "Enforce tenant ownership validation: req.user.tenantId === requestedResource.tenantId",
-      status: "Example Retest Status: Verified"
+      attackScenario: "Authenticated member from Tenant A alters the workspaceId parameter to Tenant B's UUID in the export endpoint. The API fails to verify session tenant binding and streams Tenant B's full audit records.",
+      evidence: "curl -X GET 'https://api.app.com/api/v1/workspaces/ws_tenant_b/export' -H 'Authorization: Bearer <Tenant_A_Token>' => HTTP 200 OK with cross-tenant customer records.",
+      impact: "Cross-tenant data exposure exposing confidential enterprise data, SOC 2 control failure, and contractual isolation breach.",
+      rootCause: "Database query resolved workspace directly from URL parameter without enforcing req.user.tenantId === requestedWorkspace.tenantId in the ORM filter.",
+      remediation: "Enforce strict tenant scoping in data access layer: WHERE workspace_id = :id AND tenant_id = :sessionTenantId.",
+      retest: "Verified Patched: Re-testing confirmed endpoint strictly returns HTTP 403 Forbidden with security event alert."
     },
     {
-      id: "SAMPLE-FINDING-02",
-      title: "Broken Multi-Tenant Database Query Isolation",
-      class: "SaaS Tenant Security",
+      id: "TTL-FINDING-02",
+      title: "Multi-Tenant Isolation Failure in Async Background Reports Worker",
+      endpoint: "POST /api/v1/jobs/schedule-report",
+      class: "SaaS Multi-Tenancy",
       severity: "Critical",
       score: "9.1",
-      analysis: "Illustrative finding: Unscoped database queries in secondary analytics microservices returned cross-organization data.",
-      patch: "Apply mandatory ORM tenant scoping middleware on all data access layers.",
-      status: "Example Retest Status: Verified"
+      attackScenario: "Scheduled report jobs placed in background Redis queue without caller tenant context. The consumer worker executes under ambient service role, leaking cross-tenant records into generated CSV artifacts.",
+      evidence: "Background worker generates report file containing merged tenant customer records when multiple tenant export requests are queued simultaneously.",
+      impact: "Scheduled reports emailed or accessible across different customer accounts.",
+      rootCause: "Worker process lacks tenant-isolated database session and reads from shared Redis buffer without per-tenant prefixing.",
+      remediation: "Bind all queued jobs to tenant context token; instantiate worker database connection using tenant-scoped schema or row filter.",
+      retest: "Verified Patched: Background jobs execute strictly under isolated tenant database contexts."
     }
   ];
 
@@ -40,16 +48,16 @@ export default function SecurityReportPreview() {
 
       <div className="section-container">
         
-        {/* Header */}
+        {/* Header (Section 14: See exactly what your engineering team receives) */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
             <span>Audit-Grade Deliverable Sample</span>
           </div>
           <h2 className="heading-2 mb-4 font-sans">
-            See Exactly What Your <span className="text-primary">Security Assessment Report Looks Like</span>
+            See Exactly What Your <span className="text-primary">Engineering Team Receives.</span>
           </h2>
           <p className="body-text text-base text-textSecondary font-sans max-w-2xl mx-auto">
-            Explore how TrustLayerLabs structures findings across our four report pillars: Executive Risk Summary, Technical Finding + PoC, Remediation Guidance, and Retest Verification.
+            Every TrustLayerLabs deliverable provides audit-grade clarity: affected endpoints, step-by-step attack scenarios, curl PoCs, root-cause analysis, framework-specific code fixes, and verified retesting.
           </p>
         </div>
 
@@ -223,32 +231,66 @@ export default function SecurityReportPreview() {
                   transition={{ duration: 0.2 }}
                   className="space-y-6"
                 >
-                  <div className="text-xs font-mono text-textSecondary uppercase tracking-wider border-b border-border/60 pb-3">
-                    Example Vulnerability Findings (Illustrative)
+                  <div className="text-xs font-mono text-textSecondary uppercase tracking-wider border-b border-border/60 pb-3 flex justify-between items-center">
+                    <span>Pillar 2: Technical Finding + PoC (Illustrative)</span>
+                    <span className="text-[10px] text-primary">All 8 Core Finding Specs Included</span>
                   </div>
 
-                  <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1">
+                  <div className="space-y-5 max-h-[360px] overflow-y-auto pr-1">
                     {vulns.map((v, idx) => (
-                      <div key={idx} className="p-4 bg-background border border-border rounded-xl space-y-3 font-sans">
-                        <div className="flex justify-between items-center">
+                      <div key={idx} className="p-5 bg-background border border-border rounded-xl space-y-3 font-sans">
+                        {/* 1. Finding & Severity */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-2.5">
                           <span className="text-xs font-bold text-textPrimary font-mono">{v.id} : {v.title}</span>
-                          <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold font-mono ${
+                          <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold font-mono self-start sm:self-auto ${
                             v.severity === "Critical" ? "bg-red-50 border border-red-200 text-red-700" : "bg-amber-50 border border-amber-200 text-amber-800"
                           }`}>
                             {v.severity} (CVSS {v.score})
                           </span>
                         </div>
 
-                        <div className="text-xs text-textSecondary font-sans leading-relaxed">
-                          <span className="text-[10px] font-mono uppercase tracking-wider text-textSecondary block mb-0.5">Example Analysis:</span>
-                          {v.analysis}
+                        {/* 2. Affected Endpoint / Resource */}
+                        <div className="text-xs font-mono text-textPrimary bg-surface p-2.5 rounded-lg border border-border/70">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-textSecondary block mb-0.5">Affected Endpoint / Resource:</span>
+                          <code className="text-primary font-bold">{v.endpoint}</code>
                         </div>
 
-                        <div className="p-3 bg-surface border border-border rounded-lg font-mono text-xs text-textPrimary">
-                          <div className="flex items-center gap-1.5 text-xs text-primary font-bold uppercase tracking-wider mb-1.5">
-                            <Code size={12} /> Suggested Remediation:
+                        {/* 3. Attack Scenario */}
+                        <div className="text-xs text-textSecondary font-sans leading-relaxed">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-textSecondary font-bold block mb-0.5">Attack Scenario:</span>
+                          {v.attackScenario}
+                        </div>
+
+                        {/* 4. Evidence / PoC */}
+                        <div className="p-3 bg-surface border border-border rounded-lg font-mono text-[11px] text-textPrimary overflow-x-auto">
+                          <div className="text-[10px] text-primary font-bold uppercase tracking-wider mb-1">PoC Reproduction Payload:</div>
+                          <code>{v.evidence}</code>
+                        </div>
+
+                        {/* 5. Business Impact & 6. Root Cause */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                          <div className="p-2.5 bg-surface/50 border border-border/60 rounded-lg">
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-amber-900 font-bold block mb-0.5">Business Impact:</span>
+                            <span className="text-textSecondary text-[11px] leading-normal">{v.impact}</span>
                           </div>
-                          {v.patch}
+                          <div className="p-2.5 bg-surface/50 border border-border/60 rounded-lg">
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-textPrimary font-bold block mb-0.5">Identified Root Cause:</span>
+                            <span className="text-textSecondary text-[11px] leading-normal">{v.rootCause}</span>
+                          </div>
+                        </div>
+
+                        {/* 7. Remediation Guidance & 8. Retest Verification */}
+                        <div className="p-3 bg-surface border border-border rounded-lg font-mono text-xs text-textPrimary space-y-2">
+                          <div>
+                            <div className="flex items-center gap-1.5 text-xs text-primary font-bold uppercase tracking-wider mb-1">
+                              <Code size={12} /> Suggested Code Remediation:
+                            </div>
+                            <span className="text-[11px] text-textSecondary font-sans">{v.remediation}</span>
+                          </div>
+                          <div className="pt-2 border-t border-border/60 flex items-center gap-1.5 text-[10px] font-mono text-blue-900 font-bold uppercase">
+                            <CheckCircle size={12} className="text-primary" />
+                            <span>{v.retest}</span>
+                          </div>
                         </div>
                       </div>
                     ))}

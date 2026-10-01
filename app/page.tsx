@@ -1,18 +1,19 @@
 import React from "react";
 import Hero from "@/components/Hero";
 import WhoWeHelp from "@/components/WhoWeHelp";
+import SecurityBoundaries from "@/components/SecurityBoundaries";
 import ProblemsWeSolve from "@/components/ProblemsWeSolve";
 import ManualTestingMatters from "@/components/ManualTestingMatters";
 import SecurityReportPreview from "@/components/SecurityReportPreview";
-import Proof from "@/components/Proof";
 import WhatYouReceive from "@/components/WhatYouReceive";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import CoreServicesSection from "@/components/CoreServicesSection";
 import HowItWorks from "@/components/HowItWorks";
+import CoreServicesSection from "@/components/CoreServicesSection";
 import GrcHomeSection from "@/components/GrcHomeSection";
 import CaseStudy from "@/components/CaseStudy";
-import Founder from "@/components/Founder";
 import BlogSection from "@/components/BlogSection";
+import Founder from "@/components/Founder";
+import Proof from "@/components/Proof";
 import Faq from "@/components/Faq";
 import CTA from "@/components/CTA";
 import ContactForm from "@/components/ContactForm";
@@ -21,50 +22,55 @@ import FloatingActions from "@/components/FloatingActions";
 export default function Home() {
   return (
     <div className="bg-background min-h-screen">
-      {/* 1. HERO & PRIMARY TRUST SIGNALS */}
+      {/* 1. HERO */}
       <Hero />
 
-      {/* 2. WHO TRUSTLAYERLABS HELPS (Primary ICP: B2B SaaS, AI, FinTech) */}
+      {/* 2. WHO WE HELP (Primary ICP: B2B SaaS, AI SaaS, FinTech) */}
       <WhoWeHelp />
 
-      {/* 3. SECURITY PROBLEMS / VULNERABILITIES TESTED */}
+      {/* 3. SECURITY BOUNDARIES WE TEST (Identity, Tenant, Role, Object, Action, State) */}
+      <SecurityBoundaries />
+
+      {/* 4. CRITICAL SECURITY FLAWS AUTOMATED SCANNERS MISS */}
       <ProblemsWeSolve />
 
-      {/* 4. WHY MANUAL TESTING MATTERS (Human Reasoning vs Automated Scanners) */}
+      {/* 5. WHY MANUAL TESTING MATTERS (Human Reasoning vs Automated Scanners) */}
       <ManualTestingMatters />
 
-      {/* 5. PROOF / SAMPLE SECURITY REPORT & COMPLIANCE ALIGNMENT */}
+      {/* 6. SAMPLE REPORT (Representative Example — Not Client Work) */}
       <SecurityReportPreview />
-      <Proof />
 
-      {/* 6. TANGIBLE DELIVERABLES (WHAT YOU RECEIVE) */}
+      {/* 7. WHAT THE CLIENT RECEIVES (Concrete Deliverables) */}
       <WhatYouReceive />
 
-      {/* 7. WHY CHOOSE TRUSTLAYERLABS */}
+      {/* 8. WHY TRUSTLAYERLABS (Practitioner Credibility & Differentiation) */}
       <WhyChooseUs />
 
-      {/* 8. OFFER ARCHITECTURE (Security Snapshot, API Security, Full VAPT, Enterprise Readiness) */}
-      <CoreServicesSection />
-
-      {/* 9. METHODOLOGY / 8-PHASE ENGAGEMENT PROCESS */}
+      {/* 9. ASSESSMENT METHODOLOGY (Understand → Test → Validate → Fix → Retest) */}
       <HowItWorks />
 
-      {/* 10. GRC & ENTERPRISE READINESS ADVISORY */}
+      {/* 10. CORE ASSESSMENT OPTIONS (Offer Architecture Sales Ladder) */}
+      <CoreServicesSection />
+
+      {/* 11. ENTERPRISE / GRC READINESS (Technical Security & Control Mapping) */}
       <GrcHomeSection />
 
-      {/* 11. DEEP TECHNICAL RESEARCH & PRACTITIONER CREDIBILITY */}
+      {/* 12. TECHNICAL RESEARCH (Attack Scenarios & Practitioner Insights) */}
       <CaseStudy />
-      <Founder />
       <BlogSection />
 
-      {/* 12. BUYER FAQ */}
+      {/* 13. PRACTITIONER CREDIBILITY & LEGITIMATE TRUST SIGNALS */}
+      <Founder />
+      <Proof />
+
+      {/* 14. FAQ */}
       <Faq />
 
-      {/* 13. FINAL CTA & DIRECT LEAD CONVERSION INTAKE */}
+      {/* 15. FINAL CTA & INTAKE */}
       <CTA />
       <ContactForm />
 
-      {/* 14. FLOATING CONVERSION HELPERS */}
+      {/* 16. FLOATING ACTIONS */}
       <FloatingActions />
     </div>
   );

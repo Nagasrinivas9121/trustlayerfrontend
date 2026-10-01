@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.trustlayerlabs.co.in"),
   manifest: "/manifest.json",
   title: {
-    default: "Security Verified. Not Assumed. | TrustLayerLabs",
+    default: "Find the Security Flaws Automated Scanners Miss | TrustLayerLabs",
     template: "%s | TrustLayerLabs",
   },
-  description: "Manual security testing, API penetration testing, FinTech security audits, and GRC readiness (SOC 2, ISO 27001) for growing SaaS, FinTech and AI teams.",
+  description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
   authors: [{ name: "Nagasrinivasa Rao", url: "https://www.trustlayerlabs.co.in/about" }],
   creator: "TrustLayerLabs",
   publisher: "TrustLayerLabs",

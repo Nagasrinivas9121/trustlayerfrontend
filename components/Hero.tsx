@@ -42,16 +42,18 @@ export default function Hero() {
       <div className="section-container w-full relative z-10 max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center space-y-7 max-w-3xl mx-auto relative z-20">
           
-          {/* Top Category Eyebrow Label */}
+          {/* Top Category Eyebrow Label & Supporting Brand Line */}
           <div className="inline-flex items-center space-x-2 px-3.5 py-1 bg-surface/90 border border-border/80 rounded-full text-[11px] font-mono font-semibold text-textSecondary uppercase tracking-widest shadow-none animate-fade-in">
             <span className="relative flex h-1.5 w-1.5 mr-1">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
             </span>
-            <span>Manual API, SaaS & AI Security Testing</span>
+            <span>MANUAL API & SAAS SECURITY TESTING</span>
+            <span className="text-border/80">•</span>
+            <span className="text-primary font-sans font-bold lowercase tracking-normal">security verified. not assumed.</span>
           </div>
 
-          {/* Main Headline - Refined Vertical Rhythm */}
+          {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.08] max-w-4xl mx-auto font-sans">
             Find the security flaws <br className="hidden sm:inline" />
             <span className="text-primary">automated scanners miss.</span>
@@ -59,16 +61,16 @@ export default function Hero() {
 
           {/* Subheadline & Supporting Text */}
           <div className="space-y-3 max-w-2xl mx-auto">
-            <p className="text-base sm:text-lg md:text-xl font-semibold text-textPrimary font-sans">
-              Manual API, SaaS & AI security testing for startups preparing for enterprise customers, audits, or production launch.
+            <p className="text-base sm:text-lg md:text-xl font-medium text-textPrimary font-sans leading-relaxed">
+              Manual security testing for B2B SaaS teams—focused on API authorization, tenant isolation, business logic, authentication and attack paths that require human reasoning.
             </p>
-            <p className="text-xs sm:text-sm md:text-base text-textSecondary leading-relaxed font-sans">
-              We test the attack paths that require human reasoning — BOLA/IDOR, broken authorization, business-logic flaws, authentication weaknesses, multi-tenant isolation, and AI/RAG security.
+            <p className="text-xs sm:text-sm font-semibold text-primary font-sans">
+              Preparing for an enterprise customer, security review, audit, or production launch?
             </p>
           </div>
 
-          {/* Action CTAs & Inline Lead Capture Form */}
-          <div className="w-full max-w-lg mx-auto space-y-3">
+          {/* Focused Action CTAs */}
+          <div className="w-full max-w-lg mx-auto space-y-4 pt-1">
             <form 
               onSubmit={handleLeadSubmit}
               className="flex flex-col sm:flex-row items-center gap-2 bg-surface/90 border border-border/80 p-1.5 rounded-xl sm:rounded-full shadow-sm hover:border-border focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary/20 transition-all w-full"
@@ -81,7 +83,7 @@ export default function Hero() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your work email..."
+                placeholder="Enter work email for free scoping review..."
                 className="w-full sm:flex-1 px-4 py-2 sm:py-1.5 bg-transparent border-0 text-xs text-textPrimary placeholder:text-textSecondary/70 focus:outline-none font-sans"
               />
               <button
@@ -93,30 +95,20 @@ export default function Hero() {
               </button>
             </form>
 
-            <p className="text-[11px] font-sans text-textSecondary text-center">
-              ⚡ Free 20-minute scoping review under mutual NDA • Direct consultation with lead offensive practitioner
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-sans text-textSecondary uppercase tracking-widest font-semibold pt-0.5">
-              <button 
-                type="button"
-                onClick={() => {
-                  trackCalendarClick("hero_sub_calendar");
-                  openCalendly();
-                }}
-                className="hover:text-textPrimary transition-colors flex items-center gap-1.5 text-primary cursor-pointer"
-              >
-                <span>Book a 20-Min Security Review →</span>
-              </button>
-              <span className="text-border/60">•</span>
+            {/* Clean Dual CTAs & Microcopy */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-xs font-sans">
               <Link 
                 href="/sample-report" 
-                onClick={() => trackSampleReportClick("hero_sub_link")}
-                className="hover:text-textPrimary transition-colors flex items-center gap-1.5"
+                onClick={() => trackSampleReportClick("hero_secondary_button")}
+                className="text-textSecondary hover:text-textPrimary font-semibold transition-colors flex items-center gap-1.5 px-4 py-1.5 bg-surface border border-border hover:border-zinc-400 rounded-full"
               >
                 <span>View Sample Report →</span>
               </Link>
             </div>
+
+            <p className="text-[11px] font-sans text-textSecondary text-center pt-1 font-medium">
+              20-minute security review · Mutual NDA · Practitioner-led
+            </p>
           </div>
 
           {/* Above-the-Fold Verifiable Trust Strip */}

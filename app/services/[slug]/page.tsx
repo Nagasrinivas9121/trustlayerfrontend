@@ -143,7 +143,7 @@ export default async function ServiceSlugPage({ params }: Props) {
             </div>
             <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">RETEST GUARANTEE</span>
-              <p className="text-xs text-textSecondary leading-normal">30-day free retesting and formal Retest Verification Letter included.</p>
+              <p className="text-xs text-textSecondary leading-normal">30-day retest included on applicable assessments with verified attestation letter.</p>
             </div>
             <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">NDA UPFRONT</span>
@@ -151,15 +151,13 @@ export default async function ServiceSlugPage({ params }: Props) {
             </div>
           </div>
 
-          {/* Action CTAs */}
+          {/* Action CTAs (Section 18: Primary: Get a Free Security Review, Secondary: View Sample Report) */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
 
             <Link 
@@ -246,18 +244,17 @@ export default async function ServiceSlugPage({ params }: Props) {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
             <Link
-              href="/free-assessment"
+              href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
-              <span>Request a Security Assessment</span>
+              <FileText size={15} />
+              <span>View Sample Report</span>
             </Link>
           </div>
         </div>

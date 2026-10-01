@@ -38,8 +38,8 @@ function FreeAssessmentContent() {
     email: "",
     company: "",
     website: "",
-    productType: "b2b-saas",
-    securityRequirement: "api-authorization-bola",
+    promptTrigger: "Enterprise customer security review",
+    securityConcern: "Authorization / BOLA",
     timeline: "within-2-weeks",
     message: ""
   });
@@ -80,8 +80,8 @@ function FreeAssessmentContent() {
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
 
       trackFreeSecurityReviewSubmit({
-        product_type: formData.productType,
-        security_requirement: formData.securityRequirement,
+        prompt_trigger: formData.promptTrigger,
+        security_concern: formData.securityConcern,
         timeline: formData.timeline
       });
 
@@ -107,62 +107,71 @@ function FreeAssessmentContent() {
       </Link>
 
       {/* Heading & CRO Framing */}
-      <div className="mb-10 text-center space-y-3">
+      <div className="mb-10 text-center space-y-4">
         <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
           <ShieldCheck size={12} className="text-primary" />
-          <span>Mutual NDA Upfront • Practitioner-Led</span>
+          <span>20-Minute Confidential Conversation • Mutual NDA Upfront</span>
         </div>
+        
         <h1 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight font-sans">
           Get a Free <span className="text-primary">Security Review</span>
         </h1>
+        
         <p className="text-sm font-semibold text-textPrimary max-w-md mx-auto font-sans">
-          For B2B SaaS, AI & FinTech teams preparing for enterprise deals, audits, or launch.
+          For B2B SaaS, API and AI product teams preparing for enterprise deals, audits, or launch.
         </p>
-        <p className="text-xs text-textSecondary max-w-lg mx-auto leading-relaxed font-sans">
-          A focused, confidential 20-minute consultation with an offensive security practitioner to review your attack surface, identify authorization risks, and determine the exact testing scope needed.
-        </p>
+
+        {/* Section 15 Explicit Commercial Framing Banner */}
+        <div className="p-4 bg-surface border border-border/80 rounded-2xl max-w-xl mx-auto text-left shadow-sm">
+          <p className="text-xs text-textSecondary leading-relaxed font-sans">
+            <strong className="text-textPrimary font-semibold block mb-1">
+              Important scoping notice:
+            </strong>
+            This is a confidential 20-minute security review—not a free penetration test. We&apos;ll understand your product, architecture, current testing, security objective and likely assessment scope. If there is a fit, we&apos;ll recommend an appropriate paid assessment.
+          </p>
+        </div>
       </div>
 
       {/* The 4-Step Breakdown of What to Expect */}
       <div className="mb-8 p-5 bg-surface border border-border/80 rounded-2xl shadow-sm space-y-4">
         <div className="text-[11px] font-mono font-bold text-textPrimary uppercase tracking-wider flex items-center gap-1.5">
           <Clock size={14} className="text-primary" />
-          <span>How Your Free 20-Minute Review Works:</span>
+          <span>What Happens In Your 20-Minute Review:</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
           <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
             <span className="text-[10px] font-mono font-bold text-primary uppercase block">01 • Mutual NDA</span>
             <p className="text-textSecondary leading-relaxed">
-              We execute a standard mutual NDA upfront so architecture disclosures remain completely protected.
+              We execute a standard mutual NDA upfront so your product architecture remains strictly confidential.
             </p>
           </div>
 
           <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
             <span className="text-[10px] font-mono font-bold text-primary uppercase block">02 • Architecture Scoping</span>
             <p className="text-textSecondary leading-relaxed">
-              We examine your auth model (JWT/OAuth), API endpoints, tenancy isolation, and external attack surfaces.
+              We review your authorization model (JWT/OAuth), multi-tenant isolation, API endpoints, and data flows.
             </p>
           </div>
 
           <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
             <span className="text-[10px] font-mono font-bold text-primary uppercase block">03 • Risk Prioritization</span>
             <p className="text-textSecondary leading-relaxed">
-              Pinpoint high-impact vulnerabilities automated scanners miss (BOLA, multi-tenant leakage, logic flaws).
+              Pinpoint high-impact vulnerabilities automated scanners miss (BOLA, tenant leaks, workflow logic).
             </p>
           </div>
 
           <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
             <span className="text-[10px] font-mono font-bold text-primary uppercase block">04 • Transparent Scope</span>
             <p className="text-textSecondary leading-relaxed">
-              Walk away with a prioritized vulnerability checklist and an exact scoping proposal within 24 hours.
+              If there is a fit, we recommend the smallest appropriate paid assessment with a fixed scope within 24 hours.
             </p>
           </div>
         </div>
 
         <div className="pt-2 border-t border-border/60 flex items-center justify-between text-[11px] text-textSecondary">
-          <span className="flex items-center gap-1"><Lock size={12} className="text-primary" /> No Sales Pitch • Direct Practitioner Discussion</span>
-          <span className="font-semibold text-textPrimary">20-Min Commitment</span>
+          <span className="flex items-center gap-1"><Lock size={12} className="text-primary" /> Practitioner-Led Scoping • Zero Sales Pressure</span>
+          <span className="font-semibold text-textPrimary">20-Min Scoping Call</span>
         </div>
       </div>
 
@@ -283,43 +292,49 @@ function FreeAssessmentContent() {
               </div>
             </div>
 
-            {/* Row 3: Product Type & Security Requirement */}
+            {/* Row 3: Trigger & Primary Security Concern (Section 16) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="productType" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
-                  Product Type:
+                <label htmlFor="promptTrigger" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                  What Prompted You To Look For Security Testing?
                 </label>
                 <select 
-                  id="productType"
-                  name="productType"
-                  value={formData.productType}
-                  onChange={(e) => setFormData({...formData, productType: e.target.value})}
+                  id="promptTrigger"
+                  name="promptTrigger"
+                  value={formData.promptTrigger}
+                  onChange={(e) => setFormData({...formData, promptTrigger: e.target.value})}
                   className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
                 >
-                  <option value="b2b-saas">B2B SaaS (Multi-Tenant Platform)</option>
-                  <option value="ai-startup">AI Startup / GenAI Application</option>
-                  <option value="fintech-payments">FinTech / Payment Platform</option>
-                  <option value="web-mobile-app">Web & Mobile Application</option>
-                  <option value="enterprise-api">API-First Microservices</option>
+                  <option value="Enterprise customer security review">Enterprise customer security review</option>
+                  <option value="Production launch">Production launch</option>
+                  <option value="Architecture change">Architecture change</option>
+                  <option value="Previous security finding">Previous security finding</option>
+                  <option value="Customer requirement">Customer requirement</option>
+                  <option value="SOC 2 / ISO 27001 readiness">SOC 2 / ISO 27001 readiness</option>
+                  <option value="General security assessment">General security assessment</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               <div>
-                <label htmlFor="securityRequirement" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
-                  Primary Security Focus:
+                <label htmlFor="securityConcern" className="block text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-1.5">
+                  Primary Security Concern:
                 </label>
                 <select 
-                  id="securityRequirement"
-                  name="securityRequirement"
-                  value={formData.securityRequirement}
-                  onChange={(e) => setFormData({...formData, securityRequirement: e.target.value})}
+                  id="securityConcern"
+                  name="securityConcern"
+                  value={formData.securityConcern}
+                  onChange={(e) => setFormData({...formData, securityConcern: e.target.value})}
                   className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
                 >
-                  <option value="api-authorization-bola">API Authorization & BOLA/IDOR</option>
-                  <option value="tenant-isolation">Multi-Tenant Isolation Review</option>
-                  <option value="enterprise-procurement">Enterprise Customer Security Review Blocker</option>
-                  <option value="soc2-iso-readiness">SOC 2 / ISO 27001 Audit Readiness</option>
-                  <option value="pre-launch-vapt">Pre-Production Launch VAPT</option>
-                  <option value="ai-rag-security">AI / RAG Security & Prompt Guardrails</option>
+                  <option value="Authorization / BOLA">Authorization / BOLA</option>
+                  <option value="API security">API security</option>
+                  <option value="Tenant isolation">Tenant isolation</option>
+                  <option value="Authentication">Authentication</option>
+                  <option value="Business logic">Business logic</option>
+                  <option value="AI/RAG security">AI/RAG security</option>
+                  <option value="Cloud security">Cloud security</option>
+                  <option value="Compliance readiness">Compliance readiness</option>
+                  <option value="Not sure">Not sure</option>
                 </select>
               </div>
             </div>

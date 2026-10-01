@@ -175,12 +175,12 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
           <div className="lg:col-span-7 bg-surface border border-border/80 rounded-2xl p-4 sm:p-6 lg:p-8 relative flex flex-col justify-between shadow-sm">
             <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none -z-10" />
 
-            {/* Mode Switcher */}
+            {/* Mode Switcher (Section 22: Primary: Book Free Security Review, Secondary: Send Written Scope) */}
             <div className="flex items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-background border border-border/80 rounded-xl mb-6 font-sans">
               <button
                 type="button"
                 onClick={() => {
-                  trackCalendarCtaClick("contact_form_mode_calendar", "Book 20-Min Call");
+                  trackCalendarCtaClick("contact_form_mode_calendar", "Book Free Security Review");
                   setMode("calendar");
                 }}
                 className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
@@ -190,7 +190,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 }`}
               >
                 <Calendar size={13} className="shrink-0" />
-                <span className="truncate">Book 20-Min Call</span>
+                <span className="truncate">Book Free Security Review</span>
               </button>
               <button
                 type="button"
@@ -205,7 +205,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 }`}
               >
                 <FileText size={13} className="shrink-0" />
-                <span className="truncate">Written Scope Intake</span>
+                <span className="truncate">Send Written Scope</span>
               </button>
             </div>
 

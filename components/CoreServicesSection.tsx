@@ -9,6 +9,7 @@ import { openCalendly } from "@/lib/calendly";
 import { trackFreeReviewCtaClick } from "@/lib/analytics";
 
 const icons: Record<string, React.ElementType> = {
+  "free-security-review": Shield,
   "security-snapshot": Shield,
   "api-security-assessment": Lock,
   "full-vapt": ShieldCheck,
@@ -27,13 +28,13 @@ export default function CoreServicesSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-6">
             <Layers size={12} className="text-primary" />
-            <span>Offer Architecture</span>
+            <span>The Engagement Ladder</span>
           </div>
           <h2 className="heading-2 mb-6 font-sans">
-            Tailored Security Packages for <span className="text-primary">Every Growth Stage</span>
+            From Scoping to <span className="text-primary">Production Security Verification</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            Transparent, practitioner-led assessment scopes designed to find vulnerabilities early and unblock enterprise deals.
+            We don&apos;t force every company into a one-size-fits-all package. Start with a confidential 20-minute scoping review, then choose the right assessment depth for your product and customer risk.
           </p>
         </div>
 
