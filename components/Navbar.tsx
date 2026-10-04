@@ -41,6 +41,7 @@ export default function Navbar() {
                 priority
                 className="h-7 sm:h-8 w-auto object-contain" 
               />
+              <span className="sr-only">TrustLayerLabs — Home</span>
             </div>
           </Link>
 

@@ -121,7 +121,8 @@ export default function Proof() {
                 alt="Verified Cybersecurity Partner on Sell With Boost" 
                 width={160} 
                 height={40} 
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 className="h-8 w-auto" 
               />
             </a>

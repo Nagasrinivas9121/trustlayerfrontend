@@ -60,11 +60,12 @@ export default function Footer() {
                 <Image 
                   src="/trustlayerlabs-vapt-footer-logo.png" 
                   alt="TrustLayerLabs - The Verified Trust Layer" 
-                  width={180}
-                  height={48}
+                  width={180} 
+                  height={48} 
                   loading="lazy"
                   className="h-10 sm:h-12 w-auto object-contain" 
                 />
+                <span className="sr-only">TrustLayerLabs — Home</span>
               </div>
             </Link>
             
@@ -81,6 +82,7 @@ export default function Footer() {
             <div className="flex items-center space-x-5 pt-1">
               <Link href={BRAND.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="LinkedIn Profile">
                 <Linkedin size={18} />
+                <span className="sr-only">TrustLayerLabs LinkedIn Profile</span>
               </Link>
               <ObfuscatedEmailLink className="text-textSecondary hover:text-textPrimary transition-colors" ariaLabel="Email support">
                 <Mail size={18} />

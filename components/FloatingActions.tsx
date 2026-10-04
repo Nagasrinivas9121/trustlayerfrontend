@@ -39,6 +39,7 @@ export default function FloatingActions() {
           aria-label="Chat on WhatsApp"
         >
           <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 fill-white" />
+          <span className="sr-only">Chat with Security Team on WhatsApp</span>
         </Link>
       </div>
 

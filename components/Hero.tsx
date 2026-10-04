@@ -87,6 +87,8 @@ export default function Hero() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter work email for free scoping review..."
+                aria-label="Work email for free scoping review"
+                title="Work email for free scoping review"
                 className="w-full sm:flex-1 px-4 py-2 sm:py-1.5 bg-transparent border-0 text-xs text-textPrimary placeholder:text-textSecondary/70 focus:outline-none font-sans"
               />
               <button
