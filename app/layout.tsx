@@ -48,9 +48,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   alternates: {
@@ -251,6 +255,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico?v=4" />
         <link rel="apple-touch-icon" href="/symbol.png?v=4" />
         <link rel="help" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
+        <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/trustlayerlabs-verified-vendor-boost.svg" type="image/svg+xml" fetchPriority="high" />
         <script

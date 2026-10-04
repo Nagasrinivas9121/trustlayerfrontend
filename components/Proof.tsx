@@ -125,6 +125,7 @@ export default function Proof() {
                 fetchPriority="high"
                 className="h-8 w-auto" 
               />
+              <span className="sr-only">Skill With Boost Partner Directory Listing</span>
             </a>
 
             <button 

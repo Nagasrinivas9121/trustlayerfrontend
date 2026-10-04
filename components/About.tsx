@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Target, Lock, Award, CheckCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const specializations = [
   { name: "Web App VAPT", authority: "OWASP Top 10 Manual Testing", color: "border-primary/30 text-accent bg-primary/5" },
@@ -96,14 +97,14 @@ export default function About() {
                   Technical Guides & Security Research:
                 </p>
                 <div className="flex flex-wrap gap-2.5 text-xs text-textPrimary font-mono">
-                  <a href="/blog/auditing-bola-idor-graphql-rest-apis" className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 hover:border-primary/40 rounded-lg flex items-center gap-1.5 transition-colors">
+                  <Link href="/blog/auditing-bola-idor-graphql-rest-apis" className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 hover:border-primary/40 rounded-lg flex items-center gap-1.5 transition-colors">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     <span>BOLA & API Security Guide</span>
-                  </a>
-                  <a href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 hover:border-primary/40 rounded-lg flex items-center gap-1.5 transition-colors">
+                  </Link>
+                  <Link href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="px-3 py-1.5 border border-border bg-[#0D0F14]/40 hover:border-primary/40 rounded-lg flex items-center gap-1.5 transition-colors">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     <span>LLM & RAG Security Whitepaper</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -86,6 +86,7 @@ export default function Footer() {
               </Link>
               <ObfuscatedEmailLink className="text-textSecondary hover:text-textPrimary transition-colors" ariaLabel="Email support">
                 <Mail size={18} />
+                <span className="sr-only">Email TrustLayerLabs Support</span>
               </ObfuscatedEmailLink>
             </div>
           </div>

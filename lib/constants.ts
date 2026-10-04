@@ -746,58 +746,58 @@ export const PROBLEMS_WE_SOLVE = [
   {
     title: "Broken Object Level Authorization (BOLA / IDOR)",
     question: "Can User A access User B's data?",
-    description: "Manipulating resource identifiers in API requests allows authenticated users to read, update, or delete another user's or organization's private records.",
+    description: "Attackers change IDs in API calls to view other users' records. This bypasses access controls and leaks private customer files.",
     severity: "Critical",
-    impact: "Cross-tenant data exposure, unauthorized record tampering, and regulatory breach"
+    impact: "Cross-tenant data exposure and regulatory non-compliance"
   },
   {
     title: "Multi-Tenant Isolation Failures",
     question: "Can one tenant access another tenant?",
-    description: "Missing tenant scoping in database queries, ORM context leaks, shared caches, and multi-tenant boundary failures across SaaS microservices.",
+    description: "Shared databases and caches can leak data between accounts. We verify that each tenant's records stay strictly separated.",
     severity: "Critical",
-    impact: "Severe customer data leaks, destruction of enterprise trust, and breach of contractual isolation"
+    impact: "Customer data leaks and loss of enterprise buyer trust"
   },
   {
     title: "Alternate API Route Authorization Bypasses",
     question: "Can authorization be bypassed through a different API path?",
-    description: "Authorization enforced on primary REST endpoints but missing on GraphQL resolvers, bulk export endpoints, webhook listeners, or internal service APIs.",
+    description: "Teams often secure REST APIs but forget GraphQL or export endpoints. Attackers target these unprotected side doors.",
     severity: "Critical",
-    impact: "Complete authorization bypass to sensitive backend databases and management functions"
+    impact: "Direct access to backend databases and internal admin tools"
   },
   {
     title: "Business Logic & Workflow Manipulation",
     question: "Can a workflow be manipulated?",
-    description: "Multi-step transaction tampering, state transition abuse, coupon/credit replay, parameter tampering, and approval skips that automated scanners cannot comprehend.",
+    description: "Scanners miss multi-step logic flaws. Attackers skip payment steps, replay coupons, or bypass approval workflows.",
     severity: "High",
-    impact: "Direct financial losses, unauthorized feature enablement, and workflow state corruption"
+    impact: "Direct financial loss and corrupted account state"
   },
   {
     title: "Role Transitions & Stale Permissions",
     question: "Can a user retain access after role changes or deletion?",
-    description: "JWT session tokens remaining valid after admin demotion, deleted identities retaining background context, or cached permissions outliving revocation.",
+    description: "Demoted or removed users may keep old tokens. We test if revoked sessions still allow access to private company tools.",
     severity: "High",
-    impact: "Rogue former employees retaining access, privilege escalation, and access control governance failure"
+    impact: "Unauthorized access by former staff and privilege leaks"
   },
   {
     title: "Background Jobs & Async Worker Isolation",
     question: "Can background jobs lose tenant context?",
-    description: "Queued tasks, message bus consumers, and scheduled background workers executing without strict tenant context, leaking cross-tenant data in exports or webhooks.",
+    description: "Background workers can drop tenant context. This causes export tasks or webhooks to deliver data to the wrong customer.",
     severity: "High",
-    impact: "Asynchronous data spills to wrong customer notification channels, Sentry logs, or webhooks"
+    impact: "Data sent to wrong client webhooks and notification channels"
   },
   {
     title: "AI / RAG Retrieval Authorization Failures",
     question: "Can an AI/RAG system retrieve protected information?",
-    description: "Vector database queries executed without document-level ACLs, citation leaks, prompt extraction, or agents invoking unauthorized tools with ambient authority.",
+    description: "AI tools often query vector stores without user permissions. This allows team members to read restricted executive documents.",
     severity: "High",
-    impact: "Internal knowledge base spills, cross-tenant prompt leakage, and unauthorized tool execution"
+    impact: "Internal data leaks and unauthorized AI actions"
   },
   {
     title: "Enterprise Review & Compliance Blockers",
     question: "Can security gaps stall enterprise customer deals?",
-    description: "Failing enterprise vendor security questionnaires, missing technical verification for SOC 2 / ISO 27001 readiness, and unresolved architecture risks stalling deals.",
+    description: "Enterprise deals stall when buyers question your security. We provide the proof you need to pass vendor audits fast.",
     severity: "High",
-    impact: "Delayed revenue, blocked enterprise procurement approvals, and prolonged sales cycles"
+    impact: "Delayed enterprise sales and blocked procurement reviews"
   }
 ];
 
