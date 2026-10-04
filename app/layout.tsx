@@ -305,6 +305,20 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-N98LZ37G');
           `}
         </Script>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-51DXDHGGHS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-51DXDHGGHS');
+          `}
+        </Script>
         {/* Google Tag Manager (noscript fallback) */}
         <noscript>
           <iframe

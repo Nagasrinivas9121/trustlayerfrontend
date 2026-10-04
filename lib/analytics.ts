@@ -133,8 +133,8 @@ export function trackEvent(eventName: string, params: Record<string, any> = {}) 
   w.dataLayer = w.dataLayer || [];
   w.dataLayer.push(payload);
 
-  // Send to GA4 gtag only if standalone gtag.js is active
-  if (typeof w.gtag === "function" && typeof w.google_tag_manager === "undefined") {
+  // Send to GA4 gtag
+  if (typeof w.gtag === "function") {
     try {
       w.gtag("event", eventName, {
         page_location: window.location.pathname,

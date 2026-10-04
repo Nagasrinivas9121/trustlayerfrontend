@@ -26,6 +26,13 @@ export default function AnalyticsTracker() {
           page_path: pathname,
           page_title: typeof document !== "undefined" ? document.title : "",
         });
+        if (typeof w.gtag === "function") {
+          w.gtag("config", "G-51DXDHGGHS", {
+            page_path: pathname,
+            page_location: window.location.href,
+            page_title: typeof document !== "undefined" ? document.title : "",
+          });
+        }
       }
     } catch {
       // Silently handle any tracker exception
