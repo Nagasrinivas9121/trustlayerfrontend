@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft, ShieldCheck, Mail, Lock } from "lucide-react";
 import type { Metadata } from "next";
+import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
 export const metadata: Metadata = {
   title: "Responsible Disclosure Policy",
@@ -39,7 +40,7 @@ export default function ResponsibleDisclosurePage() {
           <div className="p-6 bg-surface border border-border rounded-xl space-y-3">
             <h3 className="text-sm font-bold text-textPrimary font-sans">Reporting Guidelines</h3>
             <ul className="list-disc pl-5 space-y-1.5">
-              <li>Email technical details to <strong className="text-textPrimary">ceo@trustlayerlabs.co.in</strong>.</li>
+              <li>Email technical details to <ObfuscatedEmailLink className="text-textPrimary font-bold" />.</li>
               <li>Include step-by-step reproduction instructions or a minimal PoC script.</li>
               <li>Allow our engineering team 48 hours to acknowledge your report before public disclosure.</li>
               <li>Avoid privacy violations, data destruction, and service interruption during your research.</li>

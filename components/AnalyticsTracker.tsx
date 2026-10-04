@@ -14,6 +14,26 @@ export default function AnalyticsTracker() {
     // Track landing page view per section 25
     const pageType = pathname === "/" ? "home" : pathname.replace(/^\//, "");
     trackLandingPageView(pageType);
+
+    // Standard GTM & GA4 SPA Page View Dispatch
+    if (typeof window !== "undefined") {
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({
+        event: "page_view",
+        page_location: window.location.href,
+        page_path: pathname,
+        page_title: typeof document !== "undefined" ? document.title : "",
+      });
+
+      if (typeof w.gtag === "function") {
+        w.gtag("event", "page_view", {
+          page_location: window.location.href,
+          page_path: pathname,
+          page_title: typeof document !== "undefined" ? document.title : "",
+        });
+      }
+    }
   }, [pathname]);
 
   return null;

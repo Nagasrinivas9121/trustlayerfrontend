@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Mail, MessageSquare, Linkedin, Send, CheckCircle2, Loader2, Calendar, FileText } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
+import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
 import { 
   trackContactFormStart, 
@@ -119,18 +120,20 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
               </p>
 
               <div className="space-y-4 font-sans">
-                <a 
-                  href={`mailto:${BRAND.contact.email}`}
+                <ObfuscatedEmailLink 
                   className="flex items-center gap-4 p-4 bg-surface border border-border/80 rounded-xl hover:border-zinc-400 transition-colors group shadow-sm"
+                  ariaLabel="Email TrustLayerLabs directly"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:text-primary transition-colors">
                     <Mail size={18} />
                   </div>
                   <div>
                     <span className="text-xs font-sans text-textSecondary uppercase tracking-wider block">Direct Email:</span>
-                    <span className="text-sm font-bold text-textPrimary font-sans">{BRAND.contact.email}</span>
+                    <span className="text-sm font-bold text-textPrimary font-sans">
+                      <ObfuscatedEmailLink className="hover:underline" />
+                    </span>
                   </div>
-                </a>
+                </ObfuscatedEmailLink>
 
                 <a 
                   href={BRAND.contact.whatsapp}

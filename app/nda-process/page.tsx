@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft, ShieldCheck, Lock, FileText, CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
+import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
 export const metadata: Metadata = {
   title: "NDA & Confidentiality Policy",
@@ -70,7 +71,7 @@ export default function NdaProcessPage() {
         <div className="mt-12 p-6 bg-surface/50 border border-border rounded-xl text-center space-y-3">
           <p className="text-xs text-textSecondary">
             Need an NDA executed prior to your scoping call? Contact our team directly at{" "}
-            <a href="mailto:ceo@trustlayerlabs.co.in" className="text-primary underline">ceo@trustlayerlabs.co.in</a>.
+            <ObfuscatedEmailLink className="text-primary underline" />.
           </p>
         </div>
       </div>

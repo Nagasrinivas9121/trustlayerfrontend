@@ -130,7 +130,7 @@ export default function SecurityDashboard() {
                   <span className="text-primary font-bold">96.8% Secure</span>
                 </div>
                 <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary rounded-full" style={{ width: "96.8%" }} />
+                  <div className="h-full bg-primary rounded-full w-[96.8%]" />
                 </div>
               </div>
             </motion.div>

@@ -122,7 +122,7 @@ export default function Proof() {
                 width={150} 
                 height={32} 
                 loading="lazy"
-                style={{ height: '32px', width: 'auto' }} 
+                className="h-8 w-auto" 
               />
             </a>
 

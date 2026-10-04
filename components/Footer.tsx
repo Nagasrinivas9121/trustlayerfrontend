@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Mail, Shield, ShieldCheck } from "lucide-react";
 import { BRAND } from "@/lib/constants";
+import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
 const footerLinks = [
   {
@@ -74,9 +75,9 @@ export default function Footer() {
               <Link href={BRAND.contact.linkedin} target="_blank" className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="LinkedIn Profile">
                 <Linkedin size={18} />
               </Link>
-              <Link href={`mailto:${BRAND.contact.email}`} className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="Email support">
+              <ObfuscatedEmailLink className="text-textSecondary hover:text-textPrimary transition-colors" ariaLabel="Email support">
                 <Mail size={18} />
-              </Link>
+              </ObfuscatedEmailLink>
             </div>
           </div>
 

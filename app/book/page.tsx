@@ -3,6 +3,7 @@ import CalendlyEmbed from "@/components/CalendlyEmbed";
 import { Shield, Clock, FileCheck, CheckCircle2, Mail, MessageSquare } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 import Link from "next/link";
+import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
 export default function BookPage() {
   return (
@@ -90,13 +91,13 @@ export default function BookPage() {
 
             {/* Quick Contact Links */}
             <div className="grid grid-cols-2 gap-3 text-xs font-sans">
-              <a
-                href={`mailto:${BRAND.contact.email}`}
+              <ObfuscatedEmailLink
                 className="flex items-center justify-center gap-2 p-2.5 sm:p-3 bg-surface border border-border/80 rounded-xl hover:border-zinc-400 transition-colors text-textPrimary font-medium"
+                ariaLabel="Email TrustLayerLabs directly"
               >
                 <Mail size={14} className="text-primary shrink-0" />
                 <span className="truncate">Email Direct</span>
-              </a>
+              </ObfuscatedEmailLink>
               <a
                 href={BRAND.contact.whatsapp}
                 target="_blank"

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { AlertCircle, ArrowLeft, Home, FileText, Calendar, Search } from "lucide-react";
+import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
 export default function NotFound() {
   useEffect(() => {
@@ -77,9 +78,7 @@ export default function NotFound() {
         <div className="pt-6 border-t border-border/40 text-xs text-textSecondary">
           <p>
             Need immediate security assistance? Email us at{" "}
-            <a href="mailto:ceo@trustlayerlabs.co.in" className="text-primary hover:underline font-medium">
-              ceo@trustlayerlabs.co.in
-            </a>
+            <ObfuscatedEmailLink className="text-primary hover:underline font-medium" />
           </p>
         </div>
       </div>

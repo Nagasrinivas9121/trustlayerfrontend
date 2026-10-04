@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.trustlayerlabs.co.in"),
   manifest: "/manifest.json",
   title: {
-    default: "Find the Security Flaws Automated Scanners Miss | TrustLayerLabs",
+    default: "Manual API & SaaS Security Testing | TrustLayerLabs",
     template: "%s | TrustLayerLabs",
   },
   description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
@@ -58,6 +58,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in",
+    languages: {
+      "en": "https://www.trustlayerlabs.co.in",
+      "x-default": "https://www.trustlayerlabs.co.in",
+    },
   },
   openGraph: {
     title: "TrustLayerLabs | Application Security, API Security & GRC",
@@ -155,6 +159,7 @@ export default function RootLayout({
         ],
         "sameAs": [
           "https://www.linkedin.com/company/trustlayerlabs1/",
+          "https://x.com/trustlayerlabs",
           "https://clutch.co/profile/trustlayerlabs",
           "https://www.goodfirms.co/company/trustlayerlabs",
           "https://techbehemoths.com/company/trustlayerlabs",
@@ -251,6 +256,7 @@ export default function RootLayout({
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){window.dataLayer.push(arguments);}
+              window.gtag = gtag;
               
               var savedConsent = null;
               try {
@@ -286,49 +292,6 @@ export default function RootLayout({
             `
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof window !== "undefined") {
-                function loadApolloTracker() {
-                  if (window.__apollo_initialized) return;
-                  window.__apollo_initialized = true;
-                  var o = document.createElement("script");
-                  o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js";
-                  o.async = true;
-                  o.onload = function() {
-                    if (window.trackingFunctions && window.trackingFunctions.onLoad) {
-                      window.trackingFunctions.onLoad({ appId: "69fd616911fb0a00115c74ca" });
-                    }
-                  };
-                  document.head.appendChild(o);
-                }
-
-                function checkApolloConsent(e) {
-                  try {
-                    var consent = (e && e.detail) ? e.detail : null;
-                    if (!consent) {
-                      var savedConsent = localStorage.getItem('cookie-consent');
-                      if (savedConsent) consent = JSON.parse(savedConsent);
-                    }
-                    if (consent && (consent.marketing || consent.ad_storage)) {
-                      if (document.readyState === "complete") {
-                        setTimeout(loadApolloTracker, 1500);
-                      } else {
-                        window.addEventListener("load", function() {
-                          setTimeout(loadApolloTracker, 1500);
-                        });
-                      }
-                    }
-                  } catch(err) {}
-                }
-
-                checkApolloConsent();
-                window.addEventListener("cookie_consent_update", checkApolloConsent);
-              }
-            `
-          }}
-        />
       </head>
       <body className="font-sans antialiased bg-background selection:bg-primary/20 selection:text-primary">
         {/* Google Tag Manager (GTM) */}
@@ -347,7 +310,7 @@ export default function RootLayout({
             src="https://www.googletagmanager.com/ns.html?id=GTM-N98LZ37G"
             height="0"
             width="0"
-            style={{ display: "none", visibility: "hidden" }}
+            className="hidden"
           />
         </noscript>
         {process.env.NEXT_PUBLIC_CLARITY_ID && (
@@ -381,6 +344,46 @@ export default function RootLayout({
             `}
           </Script>
         )}
+        {/* Apollo Website Tracker */}
+        <Script id="apollo-tracker-init" strategy="lazyOnload">
+          {`
+            function loadApolloTracker() {
+              if (window.__apollo_initialized) return;
+              window.__apollo_initialized = true;
+              var o = document.createElement("script");
+              o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js";
+              o.async = true;
+              o.onload = function() {
+                if (window.trackingFunctions && window.trackingFunctions.onLoad) {
+                  window.trackingFunctions.onLoad({ appId: "69fd616911fb0a00115c74ca" });
+                }
+              };
+              document.head.appendChild(o);
+            }
+
+            function checkApolloConsent(e) {
+              try {
+                var consent = (e && e.detail) ? e.detail : null;
+                if (!consent) {
+                  var savedConsent = localStorage.getItem('cookie-consent');
+                  if (savedConsent) consent = JSON.parse(savedConsent);
+                }
+                if (consent && (consent.marketing || consent.ad_storage)) {
+                  if (document.readyState === "complete") {
+                    setTimeout(loadApolloTracker, 1500);
+                  } else {
+                    window.addEventListener("load", function() {
+                      setTimeout(loadApolloTracker, 1500);
+                    });
+                  }
+                }
+              } catch(err) {}
+            }
+
+            checkApolloConsent();
+            window.addEventListener("cookie_consent_update", checkApolloConsent);
+          `}
+        </Script>
         <Navbar />
         <main>{children}</main>
         <Footer />

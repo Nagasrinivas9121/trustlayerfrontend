@@ -55,7 +55,7 @@ export default function Hero() {
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.08] max-w-4xl mx-auto font-sans">
-            Find the security flaws <br className="hidden sm:inline" />
+            Find the API & SaaS security flaws <br className="hidden sm:inline" />
             <span className="text-primary">automated scanners miss.</span>
           </h1>
 
