@@ -49,8 +49,10 @@ export default function Faq() {
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <div className="flex items-start gap-4">
-                    <HelpCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-3.5">
+                    <span className="text-xs font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">
+                      Q
+                    </span>
                     <span className="text-sm sm:text-base font-semibold text-textPrimary tracking-tight font-sans">
                       {faq.question}
                     </span>

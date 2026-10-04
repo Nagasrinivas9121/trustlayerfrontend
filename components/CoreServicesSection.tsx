@@ -84,8 +84,8 @@ export default function CoreServicesSection() {
                     </div>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {pillar.deliverables.map((item, i) => (
-                        <li key={i} className="text-xs text-textSecondary flex items-start gap-2">
-                          <CheckCircle2 size={13} className="text-primary mt-0.5 flex-shrink-0" />
+                        <li key={i} className="text-xs text-textSecondary flex items-start gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}

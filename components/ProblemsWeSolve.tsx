@@ -21,7 +21,7 @@ export default function ProblemsWeSolve() {
             Critical Security Flaws <span className="text-primary">Automated Scanners Miss</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            Automated tools find known syntax signatures, but miss issues that require manual reasoning and workflow-level testing. We manually probe these critical failure points.
+            Scanners check known code signatures. They miss multi-step logic errors. We manually probe every authorization layer to protect your data.
           </p>
         </div>
 

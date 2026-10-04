@@ -62,10 +62,10 @@ export default function Hero() {
           {/* Subheadline & Supporting Text */}
           <div className="space-y-3 max-w-2xl mx-auto">
             <p className="text-base sm:text-lg md:text-xl font-medium text-textPrimary font-sans leading-relaxed">
-              Manual security testing for B2B SaaS teams—focused on API authorization, tenant isolation, business logic, authentication and attack paths that require human reasoning.
+              Manual security testing for modern B2B SaaS teams. We test API authorization, tenant boundaries, and complex business logic to uncover flaws automated scanners miss.
             </p>
             <p className="text-xs sm:text-sm font-semibold text-primary font-sans">
-              Preparing for an enterprise customer, security review, audit, or production launch?
+              Preparing for an enterprise deal, compliance audit, or production launch?
             </p>
           </div>
 

@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  compress: true,
+  poweredByHeader: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -44,6 +46,10 @@ const nextConfig = {
             value: 'camera=(), microphone=(), geolocation=()',
           },
           {
+            key: 'Alt-Svc',
+            value: 'h3=":443"; ma=86400',
+          },
+          {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
@@ -62,6 +68,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'trustlayerlabs.co.in',
+          },
+        ],
+        destination: 'https://www.trustlayerlabs.co.in/:path*',
+        permanent: true,
+      },
       {
         source: '/fintech',
         destination: '/fintech-security',

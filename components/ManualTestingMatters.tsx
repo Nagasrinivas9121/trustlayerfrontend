@@ -25,7 +25,7 @@ export default function ManualTestingMatters() {
             <span className="text-primary">Manual Testing Uncovers Logic Flaws.</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            Automated tools provide fast baseline scans for known CVEs. However, critical vulnerabilities in modern SaaS, FinTech, and AI applications reside in business logic, authorization boundaries, and multi-step workflows.
+            Automated tools run fast baseline scans for known CVEs. But real SaaS vulnerabilities live in business logic and tenant access. We test what automated tools miss.
           </p>
         </div>
 
