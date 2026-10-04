@@ -75,6 +75,7 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
                 rel="noopener noreferrer"
                 className="p-2 text-textSecondary hover:text-emerald-400 transition-colors rounded-lg hover:bg-white/5"
                 title="Open Full Image in New Tab"
+                aria-label="Open full certificate in new tab"
               >
                 <ExternalLink size={18} />
               </a>

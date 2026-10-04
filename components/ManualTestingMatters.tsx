@@ -21,8 +21,8 @@ export default function ManualTestingMatters() {
             <span>Human Reasoning vs Automated Scanners</span>
           </div>
           <h2 className="heading-2 mb-6 font-sans">
-            Automated Scanners Find Known Signatures. <br className="hidden md:inline" />
-            <span className="text-primary">Manual Testing Uncovers Vulnerabilities Requiring Human Reasoning.</span>
+            Scanners Find Signatures. <br className="hidden md:inline" />
+            <span className="text-primary">Manual Testing Uncovers Logic Flaws.</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
             Automated tools provide fast baseline scans for known CVEs. However, critical vulnerabilities in modern SaaS, FinTech, and AI applications reside in business logic, authorization boundaries, and multi-step workflows.

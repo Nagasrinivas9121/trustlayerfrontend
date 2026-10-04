@@ -33,6 +33,7 @@ export default function FloatingActions() {
         <Link
           href={BRAND.contact.whatsapp}
           target="_blank"
+          rel="noopener noreferrer"
           onClick={() => trackWhatsappClick()}
           className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1D9E75] hover:bg-[#15805f] text-white rounded-full shadow-[0_4px_12px_rgba(29,158,117,0.2)] hover:shadow-[0_6px_16px_rgba(29,158,117,0.3)] hover:scale-110 active:scale-95 transition-all duration-200"
           aria-label="Chat on WhatsApp"

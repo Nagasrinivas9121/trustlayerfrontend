@@ -117,10 +117,10 @@ export default function Proof() {
           <div className="flex flex-wrap justify-center items-center gap-4">
             <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity" title="Skill With Boost Ecosystem Listing">
               <img 
-                src="https://sellwithboost.com/badge/listing.svg" 
-                alt="Listed on Skill With Boost" 
-                width={150} 
-                height={32} 
+                src="/trustlayerlabs-verified-vendor-boost.svg" 
+                alt="Verified Cybersecurity Partner on Sell With Boost" 
+                width={160} 
+                height={40} 
                 loading="lazy"
                 className="h-8 w-auto" 
               />

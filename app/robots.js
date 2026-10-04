@@ -1,4 +1,21 @@
 export default function robots() {
+  const aiBots = [
+    "GPTBot",
+    "ChatGPT-User",
+    "Google-Extended",
+    "CCBot",
+    "anthropic-ai",
+    "Anthropic-AI",
+    "ClaudeBot",
+    "Bytespider",
+    "PerplexityBot",
+    "Applebot-Extended",
+    "Cohere-ai",
+    "Diffbot",
+    "Googlebot",
+    "Bingbot",
+  ];
+
   return {
     rules: [
       {
@@ -6,29 +23,11 @@ export default function robots() {
         allow: "/",
         disallow: ["/api/"],
       },
-      {
-        // Explicitly allow primary search engines
-        userAgent: ["Googlebot", "Bingbot", "DuckDuckBot", "YandexBot"],
+      ...aiBots.map((bot) => ({
+        userAgent: bot,
         allow: "/",
         disallow: ["/api/"],
-      },
-      {
-        // Explicitly allow AI Search Engine & Retrieval Bots (AEO)
-        userAgent: [
-          "GPTBot",
-          "ChatGPT-User",
-          "PerplexityBot",
-          "ClaudeBot",
-          "Anthropic-AI",
-          "Google-Extended",
-          "Applebot-Extended",
-          "Bytespider",
-          "CCBot",
-          "Cohere-ai",
-        ],
-        allow: "/",
-        disallow: ["/api/"],
-      },
+      })),
     ],
     sitemap: "https://www.trustlayerlabs.co.in/sitemap.xml",
     host: "https://www.trustlayerlabs.co.in",

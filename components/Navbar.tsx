@@ -34,10 +34,10 @@ export default function Navbar() {
           <Link href="/" className="flex items-center group flex-shrink-0" aria-label="TrustLayerLabs Home">
             <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-white/30 transition-all duration-200 group-hover:shadow-md flex items-center">
               <Image 
-                src="/logo-banner.png" 
+                src="/trustlayerlabs-api-security-logo.png" 
                 alt="TrustLayerLabs - The Verified Trust Layer" 
-                width={160}
-                height={32}
+                width={160} 
+                height={32} 
                 priority
                 className="h-7 sm:h-8 w-auto object-contain" 
               />

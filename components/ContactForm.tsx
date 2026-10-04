@@ -129,8 +129,8 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                   </div>
                   <div>
                     <span className="text-xs font-sans text-textSecondary uppercase tracking-wider block">Direct Email:</span>
-                    <span className="text-sm font-bold text-textPrimary font-sans">
-                      <ObfuscatedEmailLink className="hover:underline" />
+                    <span className="text-sm font-bold text-textPrimary font-sans hover:underline">
+                      ceo [at] trustlayerlabs.co.in
                     </span>
                   </div>
                 </ObfuscatedEmailLink>
@@ -138,6 +138,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <a 
                   href={BRAND.contact.whatsapp}
                   target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => trackWhatsappCtaClick("contact_form_sidebar")}
                   className="flex items-center gap-4 p-4 bg-surface border border-border/80 rounded-xl hover:border-success/40 transition-colors group shadow-sm"
                 >
@@ -153,6 +154,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <a 
                   href={BRAND.contact.linkedin}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-surface border border-border/80 rounded-xl hover:border-primary/40 transition-colors group shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:text-primary transition-colors">

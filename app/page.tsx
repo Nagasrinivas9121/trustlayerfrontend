@@ -21,7 +21,7 @@ import FloatingActions from "@/components/FloatingActions";
 
 export default function Home() {
   return (
-    <div className="bg-background min-h-screen">
+    <main id="main-content" className="bg-background min-h-screen">
       {/* 1. HERO */}
       <Hero />
 
@@ -72,6 +72,6 @@ export default function Home() {
 
       {/* 16. FLOATING ACTIONS */}
       <FloatingActions />
-    </div>
+    </main>
   );
 }

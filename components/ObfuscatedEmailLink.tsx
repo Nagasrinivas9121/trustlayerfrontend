@@ -34,13 +34,13 @@ export default function ObfuscatedEmailLink({
 
   return (
     <a
-      href="#"
+      href="/contact"
       onClick={handleClick}
       className={className}
       aria-label={ariaLabel}
       title="Click to send an email"
     >
-      {children ? children : (mounted ? `${user}@${domain}` : "Contact Email")}
+      {children ? children : (mounted ? `${user}@${domain}` : "Contact TrustLayerLabs")}
     </a>
   );
 }

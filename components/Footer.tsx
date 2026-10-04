@@ -39,6 +39,7 @@ const footerLinks = [
     links: [
       { name: "NDA & Confidentiality Policy", href: "/nda-process" },
       { name: "Responsible Disclosure Policy", href: "/responsible-disclosure" },
+      { name: "Security & Editorial Policy", href: "/responsible-disclosure" },
       { name: "Privacy Policy", href: "/privacy" },
       { name: "Terms of Service", href: "/terms" },
       { name: "Contact & Scoping", href: "/contact" }
@@ -50,14 +51,14 @@ export default function Footer() {
   return (
     <footer className="py-20 bg-background border-t border-border relative">
       <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-16">
           
           {/* Logo & Description */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-block group" aria-label="TrustLayerLabs Home">
               <div className="rounded-xl overflow-hidden border border-border/80 bg-[#0d0f14] shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-primary/50 inline-flex items-center">
                 <Image 
-                  src="/logo-footer-dark.png" 
+                  src="/trustlayerlabs-vapt-footer-logo.png" 
                   alt="TrustLayerLabs - The Verified Trust Layer" 
                   width={180}
                   height={48}
@@ -71,8 +72,14 @@ export default function Footer() {
               Premium expert-led manual logic reviews, API scoping, and GRC readiness consulting for fast-growing SaaS, fintech, and AI platforms.
             </p>
 
-            <div className="flex items-center space-x-5 pt-2">
-              <Link href={BRAND.contact.linkedin} target="_blank" className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="LinkedIn Profile">
+            <div className="text-[11px] text-textSecondary space-y-1 font-sans border-t border-border/40 pt-3">
+              <p className="font-semibold text-textPrimary uppercase tracking-wider text-[10px]">Physical Labs & Operations</p>
+              <p>📍 Bengaluru: Indiranagar Tech Corridor, Bengaluru, Karnataka 560038, India</p>
+              <p>📍 Hyderabad: HITEC City, Hyderabad, Telangana 500081, India</p>
+            </div>
+
+            <div className="flex items-center space-x-5 pt-1">
+              <Link href={BRAND.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="LinkedIn Profile">
                 <Linkedin size={18} />
               </Link>
               <ObfuscatedEmailLink className="text-textSecondary hover:text-textPrimary transition-colors" ariaLabel="Email support">
@@ -106,8 +113,19 @@ export default function Footer() {
 
         </div>
 
+        {/* YMYL & Authorization Disclaimer */}
+        <div className="pt-6 pb-6 text-[11px] text-textSecondary/80 font-sans border-t border-border/40 space-y-2">
+          <p>
+            <span className="font-semibold text-textPrimary">Ethical Assessment & Authorization Disclaimer:</span> TrustLayerLabs provides authorized cyber security assessment, penetration testing, and vulnerability research services strictly under executed mutual non-disclosure agreements (NDA) and formal Authorization-to-Test / Rules of Engagement (RoE) protocols with explicit system owner consent. We do not provide unauthorized access or intrusive testing without client authorization.
+          </p>
+          <div className="flex flex-wrap items-center justify-between text-[10px] text-textSecondary pt-1 gap-2">
+            <span>Verified Credentials: ISO/IEC 27001:2022 Lead Auditor · CEH / OSCP Aligned · Govt. of India Registered MSME (UDYAM-AP-21-0044317)</span>
+            <span>Content technically reviewed & updated: October 2026 by Lead Security Architect</span>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-border/60 flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div className="pt-8 border-t border-border/60 flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="flex flex-wrap items-center gap-4 text-[10px] font-semibold text-textSecondary uppercase tracking-wider font-sans">
             <span>&copy; {new Date().getFullYear()} TRUSTLAYERLABS. ALL RIGHTS RESERVED.</span>
             <span>•</span>
@@ -118,7 +136,7 @@ export default function Footer() {
                   window.dispatchEvent(new Event("open-cookie-settings"));
                 }
               }}
-              className="hover:text-primary transition-colors underline underline-offset-2"
+              className="hover:text-primary transition-colors underline underline-offset-2 cursor-pointer"
             >
               Cookie Preferences
             </button>

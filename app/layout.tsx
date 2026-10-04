@@ -48,18 +48,22 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
       "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
     },
   },
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in",
     languages: {
       "en": "https://www.trustlayerlabs.co.in",
+      "en-IN": "https://www.trustlayerlabs.co.in",
       "x-default": "https://www.trustlayerlabs.co.in",
     },
   },
@@ -217,7 +221,12 @@ export default function RootLayout({
         "url": "https://www.trustlayerlabs.co.in",
         "name": "TrustLayerLabs",
         "description": "API Security Testing & VAPT for SaaS & AI Startups in India",
-        "publisher": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
+        "publisher": { 
+          "@type": "Organization",
+          "@id": "https://www.trustlayerlabs.co.in/#organization" 
+        },
+        "datePublished": "2024-01-15T00:00:00+05:30",
+        "dateModified": "2026-10-04T00:00:00+05:30",
         "potentialAction": {
           "@type": "SearchAction",
           "target": "https://www.trustlayerlabs.co.in/blog?q={search_term_string}",
@@ -247,55 +256,25 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/symbol.png?v=4" />
         <link rel="shortcut icon" href="/favicon.ico?v=4" />
         <link rel="apple-touch-icon" href="/symbol.png?v=4" />
+        <link rel="help" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
+        <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){window.dataLayer.push(arguments);}
-              window.gtag = gtag;
-              
-              var parsed = null;
-              try {
-                var saved = localStorage.getItem('cookie-consent');
-                if (saved) {
-                  parsed = JSON.parse(saved);
-                }
-              } catch(e) {}
-              
-              if (parsed && typeof parsed === 'object') {
-                gtag('consent', 'default', {
-                  'ad_storage': parsed.marketing ? 'granted' : 'denied',
-                  'ad_user_data': parsed.marketing ? 'granted' : 'denied',
-                  'ad_personalization': parsed.marketing ? 'granted' : 'denied',
-                  'analytics_storage': parsed.analytics ? 'granted' : 'denied',
-                  'personalization_storage': parsed.functional ? 'granted' : 'denied',
-                  'functionality_storage': parsed.functional ? 'granted' : 'denied',
-                  'security_storage': 'granted',
-                  'wait_for_update': 500
-                });
-              } else {
-                gtag('consent', 'default', {
-                  'ad_storage': 'denied',
-                  'ad_user_data': 'denied',
-                  'ad_personalization': 'denied',
-                  'analytics_storage': 'denied',
-                  'personalization_storage': 'denied',
-                  'functionality_storage': 'denied',
-                  'security_storage': 'granted',
-                  'wait_for_update': 500
-                });
-              }
-              gtag('set', 'ads_data_redaction', true);
-              gtag('set', 'url_passthrough', true);
-            `
-          }}
-        />
       </head>
       <body className="font-sans antialiased bg-background selection:bg-primary/20 selection:text-primary">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none font-sans text-xs font-bold uppercase tracking-wider"
+        >
+          Skip to content
+        </a>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;var p=null;try{var s=localStorage.getItem("cookie-consent");if(s)p=JSON.parse(s)}catch(e){}if(p&&typeof p==="object"){gtag("consent","default",{ad_storage:p.marketing?"granted":"denied",ad_user_data:p.marketing?"granted":"denied",ad_personalization:p.marketing?"granted":"denied",analytics_storage:p.analytics?"granted":"denied",personalization_storage:p.functional?"granted":"denied",functionality_storage:p.functional?"granted":"denied",security_storage:"granted",wait_for_update:500})}else{gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"denied",personalization_storage:"denied",functionality_storage:"denied",security_storage:"granted",wait_for_update:500})}gtag("set","ads_data_redaction",true);gtag("set","url_passthrough",true);`
+          }}
+        />
         {/* Google Tag Manager (GTM) */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`

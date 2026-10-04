@@ -75,6 +75,9 @@ export default function Hero() {
               onSubmit={handleLeadSubmit}
               className="flex flex-col sm:flex-row items-center gap-2 bg-surface/90 border border-border/80 p-1.5 rounded-xl sm:rounded-full shadow-sm hover:border-border focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary/20 transition-all w-full"
             >
+              <label htmlFor="hero-email" className="sr-only">
+                Work Email for Security Review
+              </label>
               <input
                 type="email"
                 id="hero-email"
@@ -177,53 +180,6 @@ export default function Hero() {
             <div>
               <p className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</p>
               <p className="text-[10px] font-sans text-textSecondary uppercase">Governance Advisory</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile/Tablet Fallback Grid */}
-        <div className="lg:hidden mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto opacity-90">
-          {/* Left card */}
-          <div className="bg-surface/90 border border-border/80 p-5 rounded-2xl shadow-sm space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-[9px] font-mono font-bold text-blue-800 uppercase tracking-wider bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">
-                Offensive Security
-              </span>
-              <CheckCircle size={14} className="text-primary" />
-            </div>
-            <p className="text-[11px] text-textPrimary leading-relaxed font-sans">
-              Manual authorization, BOLA & business-logic security testing for high-growth tech teams.
-            </p>
-            <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
-              <div className="w-7 h-7 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-sans font-bold text-[10px] text-blue-900">
-                TL
-              </div>
-              <div>
-                <p className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs</p>
-                <p className="text-[10px] font-sans text-textSecondary uppercase">Practitioner-Led Team</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right card */}
-          <div className="bg-surface/90 border border-border/80 p-5 rounded-2xl shadow-sm space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-[9px] font-mono font-bold text-blue-800 uppercase tracking-wider bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded">
-                Technical GRC
-              </span>
-              <CheckCircle size={14} className="text-primary" />
-            </div>
-            <p className="text-[11px] text-textPrimary leading-relaxed font-sans">
-              SOC 2 & ISO 27001 readiness, technical control mapping, and retest verification reports.
-            </p>
-            <div className="flex items-center gap-2.5 pt-2.5 border-t border-border/40">
-              <div className="w-7 h-7 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-sans font-bold text-[10px] text-blue-900">
-                GRC
-              </div>
-              <div>
-                <p className="text-[11px] font-bold text-textPrimary uppercase tracking-wider font-sans">Security Readiness</p>
-                <p className="text-[10px] font-sans text-textSecondary uppercase">Governance Advisory</p>
-              </div>
             </div>
           </div>
         </div>

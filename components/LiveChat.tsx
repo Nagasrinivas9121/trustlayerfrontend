@@ -243,10 +243,12 @@ export default function LiveChat() {
                   value={inputVal}
                   onChange={(e) => setInputVal(e.target.value)}
                   placeholder="Type message or email..."
+                  aria-label="Type message or email"
                   className="flex-1 bg-background border border-border rounded-lg px-3 py-2 text-xs text-textPrimary focus:outline-none focus:border-primary placeholder:text-textSecondary/40"
                 />
                 <button
                   type="submit"
+                  aria-label="Send message"
                   className="p-2 bg-primary hover:bg-primary-hover text-white rounded-lg transition-colors flex items-center justify-center shadow-sm"
                 >
                   <Send size={14} />
