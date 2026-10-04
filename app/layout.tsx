@@ -258,13 +258,15 @@ export default function RootLayout({
               function gtag(){window.dataLayer.push(arguments);}
               window.gtag = gtag;
               
-              var savedConsent = null;
+              var parsed = null;
               try {
-                savedConsent = localStorage.getItem('cookie-consent');
+                var saved = localStorage.getItem('cookie-consent');
+                if (saved) {
+                  parsed = JSON.parse(saved);
+                }
               } catch(e) {}
               
-              if (savedConsent) {
-                var parsed = JSON.parse(savedConsent);
+              if (parsed && typeof parsed === 'object') {
                 gtag('consent', 'default', {
                   'ad_storage': parsed.marketing ? 'granted' : 'denied',
                   'ad_user_data': parsed.marketing ? 'granted' : 'denied',
@@ -354,10 +356,13 @@ export default function RootLayout({
               o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js";
               o.async = true;
               o.onload = function() {
-                if (window.trackingFunctions && window.trackingFunctions.onLoad) {
-                  window.trackingFunctions.onLoad({ appId: "69fd616911fb0a00115c74ca" });
-                }
+                try {
+                  if (window.trackingFunctions && typeof window.trackingFunctions.onLoad === "function") {
+                    window.trackingFunctions.onLoad({ appId: "69fd616911fb0a00115c74ca" });
+                  }
+                } catch(e) {}
               };
+              o.onerror = function() {};
               document.head.appendChild(o);
             }
 

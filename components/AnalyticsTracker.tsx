@@ -15,24 +15,20 @@ export default function AnalyticsTracker() {
     const pageType = pathname === "/" ? "home" : pathname.replace(/^\//, "");
     trackLandingPageView(pageType);
 
-    // Standard GTM & GA4 SPA Page View Dispatch
-    if (typeof window !== "undefined") {
-      const w = window as any;
-      w.dataLayer = w.dataLayer || [];
-      w.dataLayer.push({
-        event: "page_view",
-        page_location: window.location.href,
-        page_path: pathname,
-        page_title: typeof document !== "undefined" ? document.title : "",
-      });
-
-      if (typeof w.gtag === "function") {
-        w.gtag("event", "page_view", {
+    try {
+      // Standard GTM & GA4 SPA Page View Dispatch
+      if (typeof window !== "undefined") {
+        const w = window as any;
+        w.dataLayer = w.dataLayer || [];
+        w.dataLayer.push({
+          event: "page_view",
           page_location: window.location.href,
           page_path: pathname,
           page_title: typeof document !== "undefined" ? document.title : "",
         });
       }
+    } catch {
+      // Silently handle any tracker exception
     }
   }, [pathname]);
 

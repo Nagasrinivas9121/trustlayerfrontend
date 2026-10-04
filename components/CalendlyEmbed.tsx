@@ -113,8 +113,7 @@ export default function CalendlyEmbed({
   return (
     <div
       ref={wrapperRef}
-      className={`w-full max-w-full overflow-hidden rounded-xl bg-surface border border-border/80 shadow-sm relative ${className}`}
-      style={{ minHeight }}
+      className={`w-full max-w-full overflow-hidden rounded-xl bg-surface border border-border/80 shadow-sm relative min-h-[680px] ${className}`}
     >
       {!shouldLoad ? (
         <div className="flex flex-col items-center justify-center p-8 sm:p-12 text-center h-full min-h-[560px] space-y-5 bg-surface/50">
@@ -163,9 +162,8 @@ export default function CalendlyEmbed({
           )}
           <div
             ref={containerRef}
-            className="calendly-inline-widget w-full max-w-full"
+            className="calendly-inline-widget w-full max-w-full min-w-full min-h-[680px] h-[680px]"
             data-url={url}
-            style={{ minWidth: "100%", width: "100%", height: minHeight }}
           />
         </>
       )}
