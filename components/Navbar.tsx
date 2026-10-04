@@ -39,6 +39,7 @@ export default function Navbar() {
                 width={160} 
                 height={32} 
                 priority
+                unoptimized
                 className="h-7 sm:h-8 w-auto object-contain" 
               />
               <span className="sr-only">TrustLayerLabs — Home</span>

@@ -56,7 +56,11 @@ export default function About() {
             </p>
 
             {/* Founder Profile Card */}
-            <div className="w-full bg-[#0D0F14]/80 border border-border/60 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 mb-8">
+            <div 
+              itemScope 
+              itemType="https://schema.org/Person" 
+              className="w-full bg-[#0D0F14]/80 border border-border/60 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 mb-8"
+            >
               <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 flex-shrink-0 bg-surface">
                 {/* Fallback avatar visual */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-mono font-bold text-xl">
@@ -64,11 +68,19 @@ export default function About() {
                 </div>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-white uppercase tracking-wider">Nagasrinivasa Rao</h4>
-                <p className="text-[10px] font-mono text-accent uppercase tracking-widest">Founder & Lead Security Architect</p>
-                <p className="text-xs text-textSecondary mt-2 leading-relaxed">
+                <h4 itemProp="name" className="text-sm font-bold text-white uppercase tracking-wider">Nagasrinivasa Rao</h4>
+                <p itemProp="jobTitle" className="text-[10px] font-mono text-accent uppercase tracking-widest">Founder &amp; Lead Security Architect</p>
+                <p itemProp="description" className="text-xs text-textSecondary mt-2 leading-relaxed">
                   Offensive security practitioner specializing in manual application security testing, API vulnerability assessments, and developer remediation guidance.
                 </p>
+                <div className="mt-2.5 text-[10px] font-mono text-textSecondary flex flex-wrap items-center gap-2">
+                  <span className="text-primary font-semibold">Credentials:</span>
+                  <span itemProp="hasCredential">ISO/IEC 27001:2022 Lead Auditor</span>
+                  <span>•</span>
+                  <Link href="/about" rel="author" className="text-accent hover:underline">
+                    View Verified Bio &amp; Research →
+                  </Link>
+                </div>
               </div>
             </div>
 

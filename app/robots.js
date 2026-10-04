@@ -26,7 +26,6 @@ export default function robots() {
       ...aiBots.map((bot) => ({
         userAgent: bot,
         allow: "/",
-        disallow: ["/api/"],
       })),
     ],
     sitemap: "https://www.trustlayerlabs.co.in/sitemap.xml",

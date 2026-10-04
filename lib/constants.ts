@@ -661,12 +661,12 @@ export const WHO_WE_HELP = [
     badge: "Primary Focus • Multi-Tenant Platforms",
     description: "Multi-tenant applications, REST & GraphQL APIs, RBAC privilege models, and complex enterprise authorization workflows.",
     surfaces: [
-      "Multi-Tenant Isolation & Database Row-Level Scoping",
-      "Broken Object Level Authorization (BOLA / IDOR)",
-      "Role-Based Access Control (RBAC) Escalation & Role Changes",
-      "REST & GraphQL Microservice APIs & Object Graphs",
-      "OAuth 2.0 / JWT Token Hygiene & Stale Session Revocation",
-      "Enterprise Customer Security Review & Audit Readiness"
+      "Multi-tenant isolation and database row-level scoping.",
+      "Broken object level authorization (BOLA / IDOR).",
+      "Role-based access control (RBAC) escalation and role changes.",
+      "REST and GraphQL microservice APIs and object graphs.",
+      "OAuth 2.0 / JWT token hygiene and session revocation.",
+      "Enterprise customer security reviews and audit readiness."
     ],
     cta: "Explore SaaS Security",
     href: "/services/saas-vapt"
@@ -676,12 +676,12 @@ export const WHO_WE_HELP = [
     badge: "RAG & AI Agent Architectures",
     description: "RAG vector retrieval permissions, AI agent tool authorization, metadata filtering, and sensitive enterprise data protection.",
     surfaces: [
-      "RAG Vector Database Tenant Separation & Metadata Filtering",
-      "Retrieval Authorization & Cross-Document Boundary Testing",
-      "Direct Retrieval APIs & Stale / Deleted Document Leakage",
-      "Tool Authorization & Excessive Agency in Autonomous Agents",
-      "Prompt Injection & Context Boundary Escapes",
-      "Citation, Source & System Prompt Leakage Prevention"
+      "RAG vector database tenant separation and metadata filtering.",
+      "Retrieval authorization and cross-document boundary testing.",
+      "Direct retrieval APIs and stale document leakage prevention.",
+      "Tool authorization and excessive agency in autonomous agents.",
+      "Prompt injection and context boundary escapes.",
+      "Citation, source, and system prompt leakage prevention."
     ],
     cta: "Explore AI Security",
     href: "/services/ai-security"
@@ -691,12 +691,12 @@ export const WHO_WE_HELP = [
     badge: "Financial Platforms & Payments",
     description: "API-driven financial applications, ledger authorization, transaction workflows, and compliance-driven security requirements.",
     surfaces: [
-      "Financial APIs & Webhook Signature Verification",
-      "Transaction & Payment State Transition Workflows",
-      "BOLA / IDOR on Account Balances, Invoices & Ledgers",
-      "Multi-Step Approval & Withdrawal Verification Logic",
-      "KYC & Onboarding Data Protection Controls",
-      "SOC 2, ISO 27001, RBI & NPCI Baseline Alignment"
+      "Financial APIs and webhook signature verification.",
+      "Transaction and payment state transition workflows.",
+      "BOLA / IDOR on account balances, invoices, and ledgers.",
+      "Multi-step approval and withdrawal verification logic.",
+      "KYC and onboarding data protection controls.",
+      "SOC 2, ISO 27001, RBI, and NPCI baseline alignment."
     ],
     cta: "Explore FinTech Security",
     href: "/fintech-security"
@@ -809,10 +809,10 @@ export const CORE_PILLARS = [
     tagline: "Scoping, Threat Model & Architecture Review",
     description: "A focused 20-minute scoping review under mutual NDA. We examine your architecture, API surface, auth model, and security objectives to recommend the exact testing scope needed.",
     deliverables: [
-      "Mutual NDA executed upfront",
-      "API & tenant architecture boundary review",
-      "Prioritized vulnerability checklist for your stack",
-      "Transparent fixed-scope proposal within 24 hours"
+      "Mutual NDA executed upfront.",
+      "API and tenant architecture boundary review.",
+      "Prioritized vulnerability checklist for your stack.",
+      "Transparent fixed-scope proposal within 24 hours."
     ],
     badge: "Entry Scoping • Zero Cost",
     href: "/free-assessment",
@@ -826,10 +826,10 @@ export const CORE_PILLARS = [
     tagline: "Deep BOLA, Tenant Isolation & Business Logic",
     description: "Exhaustive manual offensive testing focused on authorization, BOLA/IDOR, RBAC, tenant isolation, authentication, business logic, and API workflows.",
     deliverables: [
-      "In-depth BOLA/IDOR & object authorization testing",
-      "Multi-tenant database boundary & query isolation review",
-      "Developer-ready PoC reproduction scripts & code fixes",
-      "30-day verified retest included on applicable findings"
+      "In-depth BOLA/IDOR and object authorization testing.",
+      "Multi-tenant database boundary and query isolation review.",
+      "Developer-ready PoC reproduction scripts and code fixes.",
+      "30-day verified retest included on applicable findings."
     ],
     badge: "First Paid Assessment",
     href: "/services/api-security",
@@ -843,10 +843,10 @@ export const CORE_PILLARS = [
     tagline: "End-to-End Application, API & Cloud Pentest",
     description: "Comprehensive manual security testing across your frontend single-page app, microservice APIs, and supporting cloud infrastructure (AWS/GCP) for enterprise deals and audits.",
     deliverables: [
-      "Full OWASP Top 10 + API Top 10 manual testing",
-      "Business-logic and multi-step workflow abuse testing",
-      "Auditor-ready executive summary & technical report",
-      "30-day verified retest & verification letter"
+      "Full OWASP Top 10 and API Top 10 manual testing.",
+      "Business logic and multi-step workflow abuse testing.",
+      "Auditor-ready executive summary and technical report.",
+      "30-day verified retest and verification letter."
     ],
     badge: "Enterprise & Audit",
     href: "/services/web-app-vapt",
@@ -860,10 +860,10 @@ export const CORE_PILLARS = [
     tagline: "Technical Control Mapping & Procurement Unblocking",
     description: "Technical security assessments, control mapping, and remediation guidance to unblock enterprise customer reviews and prepare for external compliance audits.",
     deliverables: [
-      "SOC 2 Type II & ISO 27001 technical control mapping",
-      "Enterprise vendor security questionnaire guidance",
-      "Verified remediation letter for buyer procurement",
-      "Technical evidence & policy advisory support"
+      "SOC 2 Type II and ISO 27001 technical control mapping.",
+      "Enterprise vendor security questionnaire guidance.",
+      "Verified remediation letter for buyer procurement.",
+      "Technical evidence and policy advisory support."
     ],
     badge: "Compliance Readiness",
     href: "/grc-readiness",
@@ -952,7 +952,7 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security practitioner specializing in manual API penetration testing, authorization logic, and web application security assessments.",
+    bio: "Offensive security architect specializing in manual API penetration testing. Focuses on authorization logic, BOLA flaws, and web application assessments.",
     initials: "NR",
     credentials: ["Web App Security", "VAPT Specialist", "API Security from IIT Guwahati"],
     education: "IIT Guwahati",
@@ -961,7 +961,7 @@ export const TEAM = [
   {
     name: "Ramineni Teja",
     role: "Co-Founder & GRC Lead",
-    bio: "Compliance and risk management practitioner assisting high-growth startups with ISO 27001 gap analysis, SOC 2 readiness roadmaps, and security governance.",
+    bio: "Compliance and risk management lead for high-growth startups. Guides teams through ISO 27001 gap analysis, SOC 2 readiness, and security governance.",
     initials: "RT",
     credentials: ["ISO 27001 Readiness", "SOC 2 Readiness", "GRC Practitioner", "VIT Bhopal"],
     education: "VIT Bhopal",
@@ -970,7 +970,7 @@ export const TEAM = [
   {
     name: "Nayansi Anand",
     role: "Security Engineer & VAPT Consultant",
-    bio: "Application security engineer focused on manual web application testing, OWASP Top 10 vulnerabilities, and developer remediation support.",
+    bio: "Application security engineer specializing in manual web testing. Focuses on OWASP Top 10 vulnerabilities and practical developer fix guidance.",
     initials: "NA",
     credentials: ["Web App Security", "VAPT Specialist", "VIT Bhopal"],
     education: "VIT Bhopal",
@@ -979,7 +979,7 @@ export const TEAM = [
   {
     name: "Muskan Jha",
     role: "Operations & Engagement Lead",
-    bio: "Coordinates scoping, mutual NDAs, scheduling, and client onboarding workflows for seamless assessment delivery.",
+    bio: "Operations lead coordinating scoping reviews and onboarding. Manages mutual NDAs and assessment schedules for fast, seamless delivery.",
     initials: "MJ",
     credentials: ["Operations Lead", "VIT Bhopal"],
     education: "VIT Bhopal",

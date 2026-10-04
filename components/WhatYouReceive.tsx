@@ -18,42 +18,42 @@ const deliverables = [
   {
     title: "Executive Risk Summary",
     subtitle: "For Founders, Board & Enterprise Buyers",
-    description: "High-level risk posture summary translating technical vulnerabilities into clear business, compliance, and revenue risk contexts.",
+    description: "A clear summary for leadership. We explain each finding in plain terms so buyers and investors understand your security posture.",
     icon: FileText,
     badge: "Leadership & Sales"
   },
   {
     title: "Detailed Technical Findings",
     subtitle: "Detailed Technical Findings & Severity Ratings",
-    description: "Comprehensive vulnerability catalog with affected endpoints, authorization scopes, root-cause analysis, and threat severity ratings.",
+    description: "A complete breakdown for your developers. We list affected endpoints, root causes, and clear risk scores.",
     icon: Terminal,
     badge: "Engineering Deep-Dive"
   },
   {
     title: "Reproducible Proof-of-Concepts",
     subtitle: "Step-by-Step Exploit Payloads",
-    description: "Exact curl commands, HTTP request payloads, and reproduction scripts so your engineering team can independently verify the attack path.",
+    description: "Step-by-step curl commands and payloads. Your engineers can reproduce and verify each issue in minutes.",
     icon: Code2,
     badge: "PoC & Reproduction"
   },
   {
     title: "Developer-Ready Remediation Guidance",
     subtitle: "Code Fixes & Config Guidance",
-    description: "Actionable code snippets (Node, Python, Go, Java), framework configurations, and architectural recommendations to patch root causes.",
+    description: "Ready-to-use code snippets in Node, Python, and Go. We show your team exactly how to patch root causes.",
     icon: CheckCircle2,
     badge: "Remediation Support"
   },
   {
     title: "Retest & Verification",
     subtitle: "Within 30 Days of Remediation",
-    description: "Collaborative debrief with your developers, retesting of applied patches, and validation that fixed endpoints cannot be bypassed.",
+    description: "A debrief call with your engineering team. We re-test your fixes to ensure attack paths are closed.",
     icon: ShieldCheck,
     badge: "Included Free"
   },
   {
     title: "Final Security Assessment Report",
     subtitle: "Auditor & Customer Ready",
-    description: "Formal, signed VAPT assessment report and Retest Verification summary suitable for enterprise vendor onboarding, SOC 2, and ISO 27001 readiness.",
+    description: "A signed assessment report and retest letter. Share this with enterprise clients to pass procurement reviews.",
     icon: FileCheck2,
     badge: "Compliance Deliverable"
   }

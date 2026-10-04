@@ -28,6 +28,8 @@ export default function Founder() {
           {TEAM.map((member) => (
             <div 
               key={member.name} 
+              itemScope
+              itemType="https://schema.org/Person"
               className="premium-card p-6 bg-surface border border-border/80 rounded-2xl flex flex-col justify-between relative overflow-hidden shadow-sm hover:border-zinc-500 transition-colors"
             >
               <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
@@ -36,7 +38,8 @@ export default function Founder() {
                 <a 
                   href={member.linkedin} 
                   target="_blank" 
-                  rel="noopener noreferrer" 
+                  rel="noopener noreferrer author" 
+                  itemProp="sameAs"
                   className="text-textSecondary hover:text-primary transition-colors p-1"
                   aria-label={`${member.name} on LinkedIn`}
                 >
@@ -50,14 +53,14 @@ export default function Founder() {
                   {member.initials}
                 </div>
 
-                <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans">
+                <h3 itemProp="name" className="text-base font-bold text-textPrimary tracking-tight font-sans">
                   {member.name}
                 </h3>
-                <p className="text-[11px] font-sans text-blue-800 font-bold uppercase tracking-wider mt-1 mb-4">
+                <p itemProp="jobTitle" className="text-[11px] font-sans text-blue-800 font-bold uppercase tracking-wider mt-1 mb-4">
                   {member.role}
                 </p>
 
-                <p className="text-xs text-textSecondary leading-relaxed font-sans mb-6">
+                <p itemProp="description" className="text-xs text-textSecondary leading-relaxed font-sans mb-6">
                   {member.bio}
                 </p>
               </div>
@@ -68,6 +71,7 @@ export default function Founder() {
                   {member.credentials.map((cred) => (
                     <span 
                       key={cred}
+                      itemProp="hasCredential"
                       className="px-2 py-0.5 border border-blue-200/80 text-blue-800 bg-blue-50 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
                     >
                       {cred}

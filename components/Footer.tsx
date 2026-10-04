@@ -63,6 +63,7 @@ export default function Footer() {
                   width={180} 
                   height={48} 
                   loading="lazy"
+                  unoptimized
                   className="h-10 sm:h-12 w-auto object-contain" 
                 />
                 <span className="sr-only">TrustLayerLabs — Home</span>
@@ -73,11 +74,11 @@ export default function Footer() {
               Premium expert-led manual logic reviews, API scoping, and GRC readiness consulting for fast-growing SaaS, fintech, and AI platforms.
             </p>
 
-            <div className="text-[11px] text-textSecondary space-y-1 font-sans border-t border-border/40 pt-3">
+            <address className="not-italic text-[11px] text-textSecondary space-y-1 font-sans border-t border-border/40 pt-3">
               <p className="font-semibold text-textPrimary uppercase tracking-wider text-[10px]">Physical Labs & Operations</p>
               <p>📍 Bengaluru: Indiranagar Tech Corridor, Bengaluru, Karnataka 560038, India</p>
               <p>📍 Hyderabad: HITEC City, Hyderabad, Telangana 500081, India</p>
-            </div>
+            </address>
 
             <div className="flex items-center space-x-5 pt-1">
               <Link href={BRAND.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-textSecondary hover:text-textPrimary transition-colors" aria-label="LinkedIn Profile">
@@ -123,7 +124,7 @@ export default function Footer() {
           </p>
           <div className="flex flex-wrap items-center justify-between text-[10px] text-textSecondary pt-1 gap-2">
             <span>Verified Credentials: ISO/IEC 27001:2022 Lead Auditor · CEH / OSCP Aligned · Govt. of India Registered MSME (UDYAM-AP-21-0044317)</span>
-            <span>Content technically reviewed & updated: October 2026 by Lead Security Architect</span>
+            <span>Content technically reviewed &amp; updated: <time dateTime="2026-10-04">October 4, 2026</time> by Lead Security Architect</span>
           </div>
         </div>
 

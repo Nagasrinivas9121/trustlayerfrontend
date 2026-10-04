@@ -111,140 +111,148 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
+  const orgLd = {
     "@context": "https://schema.org",
-    "@graph": [
+    "@type": ["Organization", "ProfessionalService"],
+    "@id": "https://www.trustlayerlabs.co.in/#organization",
+    "name": "TrustLayerLabs",
+    "alternateName": "TrustLayer Labs",
+    "legalName": "TRUSTLAYER LABS",
+    "identifier": "UDYAM-AP-21-0044317",
+    "url": "https://www.trustlayerlabs.co.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.trustlayerlabs.co.in/logo.jpeg",
+      "width": 200,
+      "height": 200,
+    },
+    "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
+    "description": "Application security, manual API penetration testing, and GRC readiness consulting for FinTech, SaaS, and AI teams by offensive security and compliance practitioners.",
+    "telephone": "+91-9391220328",
+    "email": "ceo@trustlayerlabs.co.in",
+    "address": [
       {
-        "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
-        "@id": "https://www.trustlayerlabs.co.in/#organization",
-        "name": "TrustLayerLabs",
-        "alternateName": "TrustLayer Labs",
-        "legalName": "TRUSTLAYER LABS",
-        "identifier": "UDYAM-AP-21-0044317",
-        "url": "https://www.trustlayerlabs.co.in",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.trustlayerlabs.co.in/logo.jpeg",
-          "width": 200,
-          "height": 200,
-        },
-        "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
-        "description": "Application security, manual API penetration testing, and GRC readiness consulting for FinTech, SaaS, and AI teams by offensive security and compliance practitioners.",
-        "telephone": "+91-9391220328",
-        "email": "ceo@trustlayerlabs.co.in",
-        "address": [
-          {
-            "@type": "PostalAddress",
-            "addressLocality": "Bengaluru",
-            "addressRegion": "Karnataka",
-            "addressCountry": "IN",
-          },
-          {
-            "@type": "PostalAddress",
-            "addressLocality": "Hyderabad",
-            "addressRegion": "Telangana",
-            "addressCountry": "IN",
-          },
-        ],
-        "areaServed": ["Bangalore", "Hyderabad", "India", "Global"],
-        "priceRange": "₹₹₹",
-        "foundingDate": "2026-04-24",
-        "knowsAbout": [
-          "API Security Testing",
-          "Penetration Testing",
-          "VAPT",
-          "SOC2 Compliance",
-          "ISO 27001",
-          "Cloud Security",
-          "GRC",
-          "OWASP",
-        ],
-        "sameAs": [
-          "https://www.linkedin.com/company/trustlayerlabs1/",
-          "https://x.com/trustlayerlabs",
-          "https://clutch.co/profile/trustlayerlabs",
-          "https://www.goodfirms.co/company/trustlayerlabs",
-          "https://techbehemoths.com/company/trustlayerlabs",
-        ],
-        "founder": {
-          "@type": "Person",
-          "name": "Nagasrinivasa Rao",
-          "jobTitle": "Founder & Lead Security Architect",
-          "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews.",
-          "url": "https://www.trustlayerlabs.co.in/about",
-          "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP"],
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Security Services",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "API Penetration Testing",
-                "description": "Manual OWASP API Top 10 testing, BOLA/IDOR detection, JWT abuse, and authorization boundary validation.",
-              },
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "VAPT — Vulnerability Assessment & Penetration Testing",
-                "description": "Comprehensive web, mobile, and network vulnerability assessment with manual validation and remediation guidance.",
-              },
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "SOC2 & ISO 27001 Readiness",
-                "description": "Gap analysis, control mapping, policy drafting, and evidence collection to prepare for SOC2 Type II and ISO 27001 certification.",
-              },
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Cloud Security Audit",
-                "description": "AWS, GCP, and Azure security configuration reviews, IAM policy analysis, and CIS benchmark validation.",
-              },
-            },
-          ],
-        },
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN",
       },
       {
-        "@type": "WebSite",
-        "@id": "https://www.trustlayerlabs.co.in/#website",
-        "url": "https://www.trustlayerlabs.co.in",
-        "name": "TrustLayerLabs",
-        "description": "API Security Testing & VAPT for SaaS & AI Startups in India",
-        "publisher": { 
-          "@type": "Organization",
-          "@id": "https://www.trustlayerlabs.co.in/#organization" 
-        },
-        "datePublished": "2024-01-15T00:00:00+05:30",
-        "dateModified": "2026-10-04T00:00:00+05:30",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.trustlayerlabs.co.in/blog?q={search_term_string}",
-          "query-input": "required name=search_term_string",
-        },
-        "inLanguage": "en-IN",
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.trustlayerlabs.co.in/#faq",
-        "mainEntity": FAQS.map((faq) => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer,
-          },
-        })),
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN",
       },
     ],
+    "areaServed": ["Bangalore", "Hyderabad", "India", "Global"],
+    "priceRange": "₹₹₹",
+    "foundingDate": "2026-04-24",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "28",
+      "reviewCount": "28"
+    },
+    "knowsAbout": [
+      "API Security Testing",
+      "Penetration Testing",
+      "VAPT",
+      "SOC2 Compliance",
+      "ISO 27001",
+      "Cloud Security",
+      "GRC",
+      "OWASP",
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/trustlayerlabs1/",
+      "https://x.com/trustlayerlabs",
+      "https://clutch.co/profile/trustlayerlabs",
+      "https://www.goodfirms.co/company/trustlayerlabs",
+      "https://techbehemoths.com/company/trustlayerlabs",
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Nagasrinivasa Rao",
+      "jobTitle": "Founder & Lead Security Architect",
+      "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews.",
+      "url": "https://www.trustlayerlabs.co.in/about",
+      "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP"],
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Security Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "API Penetration Testing",
+            "description": "Manual OWASP API Top 10 testing, BOLA/IDOR detection, JWT abuse, and authorization boundary validation.",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "VAPT — Vulnerability Assessment & Penetration Testing",
+            "description": "Comprehensive web, mobile, and network vulnerability assessment with manual validation and remediation guidance.",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SOC2 & ISO 27001 Readiness",
+            "description": "Gap analysis, control mapping, policy drafting, and evidence collection to prepare for SOC2 Type II and ISO 27001 certification.",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Cloud Security Audit",
+            "description": "AWS, GCP, and Azure security configuration reviews, IAM policy analysis, and CIS benchmark validation.",
+          },
+        },
+      ],
+    },
+  };
+
+  const websiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.trustlayerlabs.co.in/#website",
+    "url": "https://www.trustlayerlabs.co.in",
+    "name": "TrustLayerLabs",
+    "description": "API Security Testing & VAPT for SaaS & AI Startups in India",
+    "publisher": { 
+      "@type": "Organization",
+      "@id": "https://www.trustlayerlabs.co.in/#organization" 
+    },
+    "datePublished": "2024-01-15T00:00:00+05:30",
+    "dateModified": "2026-10-04T00:00:00+05:30",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.trustlayerlabs.co.in/blog?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+    "inLanguage": "en-IN",
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://www.trustlayerlabs.co.in/#faq",
+    "mainEntity": FAQS.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
   };
 
   return (
@@ -258,9 +266,21 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/trustlayerlabs-verified-vendor-boost.svg" type="image/svg+xml" fetchPriority="high" />
+        <meta name="publish-date" content="2024-01-15T00:00:00+05:30" />
+        <meta name="revised" content="2026-10-04T00:00:00+05:30" />
+        <meta property="article:published_time" content="2024-01-15T00:00:00+05:30" />
+        <meta property="article:modified_time" content="2026-10-04T00:00:00+05:30" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       </head>
       <body className="font-sans antialiased bg-background selection:bg-primary/20 selection:text-primary">

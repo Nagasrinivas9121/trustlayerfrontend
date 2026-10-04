@@ -25,41 +25,41 @@ const compressedSteps = [
     step: "01",
     phase: "Understand",
     title: "Architecture & Threat Model",
-    description: "We review API documentation, tenancy models, trust boundaries, and auth mechanisms under mutual NDA to construct an application-specific threat model.",
+    description: "We sign an NDA upfront. Then we review your API routes, auth rules, and tenant models to map your exact threat surface.",
     icon: Compass,
-    highlights: ["Mutual NDA upfront", "Tenancy & auth flow mapping", "Threat matrix definition"]
+    highlights: ["Mutual NDA upfront.", "Tenancy & auth flow mapping.", "Threat matrix definition."]
   },
   {
     step: "02",
     phase: "Test",
     title: "Manual Offensive Testing",
-    description: "Practitioner-led manual penetration testing probing authorization logic, BOLA/IDOR, tenant isolation, business logic manipulation, and attack paths scanners miss.",
+    description: "Our team tests your app manually. We probe authorization logic, BOLA flaws, and logic bugs that scanners miss.",
     icon: Cpu,
-    highlights: ["BOLA & RBAC testing", "Tenant boundary attacks", "Workflow manipulation"]
+    highlights: ["BOLA & RBAC testing.", "Tenant boundary attacks.", "Workflow manipulation."]
   },
   {
     step: "03",
     phase: "Validate",
     title: "PoC Exploit Validation",
-    description: "Every finding is manually confirmed with reproducible exploit payloads and code context. Zero automated false positives sent to your developers.",
+    description: "We verify every bug by hand with real exploit payloads. Your developers get zero false positives.",
     icon: CheckCircle2,
-    highlights: ["Developer-ready curl PoCs", "CVSS severity scoring", "Zero false positives"]
+    highlights: ["Developer-ready curl PoCs.", "CVSS severity scoring.", "Zero false positives."]
   },
   {
     step: "04",
     phase: "Fix",
     title: "Remediation Walkthrough",
-    description: "We deliver actionable reports with exact code remediation snippets and host a direct debrief call with your engineering team to guide patch implementation.",
+    description: "We provide clear remediation steps and code snippets. Then we host a debrief call with your engineers to guide fixes.",
     icon: Code2,
-    highlights: ["Executive & technical reports", "Framework-specific code fixes", "Engineering debrief call"]
+    highlights: ["Executive & technical reports.", "Framework-specific code fixes.", "Engineering debrief call."]
   },
   {
     step: "05",
     phase: "Retest",
     title: "Retest & Verification Letter",
-    description: "Once patches are deployed, we re-evaluate fixed endpoints within 30 days and issue a formal Retest Verification Letter suitable for enterprise buyers and auditors.",
+    description: "After fixes are live, we test them again. We then issue an official verification letter for your enterprise customers.",
     icon: ShieldCheck,
-    highlights: ["30-day retest included", "Patch validation", "Attestation verification letter"]
+    highlights: ["30-day retest included.", "Patch validation.", "Attestation verification letter."]
   }
 ];
 

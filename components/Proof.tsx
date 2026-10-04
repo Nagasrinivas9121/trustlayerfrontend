@@ -9,7 +9,7 @@ const auditFocusAreas = [
   {
     type: "COMPLIANCE & CONTROLS",
     title: "Regulatory Frameworks Mapping",
-    impact: "Align application logic and infrastructure controls to meet SOC2 Type II, ISO 27001, and HIPAA criteria.",
+    impact: "We map your app logic and cloud settings to SOC 2 and ISO 27001 standards. This helps you pass enterprise reviews fast.",
     icon: ShieldCheck,
     color: "text-primary",
     border: "border-primary/20",
@@ -18,7 +18,7 @@ const auditFocusAreas = [
   {
     type: "ACCESS SECURITY",
     title: "Tenant Boundary Validation",
-    impact: "Verify row-level database access limits, session cookie validation, and secure API parameter authorization checks.",
+    impact: "We test row-level database rules and session cookies. This stops cross-tenant data leaks before production.",
     icon: Database,
     color: "text-primary",
     border: "border-primary/20",
@@ -27,7 +27,7 @@ const auditFocusAreas = [
   {
     type: "DATA INTEGRITY",
     title: "Cloud & Storage Governance",
-    impact: "Audit storage encryption protocols, pre-signed download controls, least-privilege AWS IAM policies, and log trails.",
+    impact: "We review cloud storage permissions and IAM roles. This keeps private customer files safe from open access.",
     icon: Info,
     color: "text-primary",
     border: "border-primary/20",
