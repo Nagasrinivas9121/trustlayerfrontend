@@ -12,8 +12,6 @@ export default function robots() {
     "Applebot-Extended",
     "Cohere-ai",
     "Diffbot",
-    "Googlebot",
-    "Bingbot",
   ];
 
   return {
@@ -23,12 +21,12 @@ export default function robots() {
         allow: "/",
         disallow: ["/api/"],
       },
-      ...aiBots.map((bot) => ({
-        userAgent: bot,
+      {
+        userAgent: aiBots,
         allow: "/",
-      })),
+        disallow: ["/api/"],
+      },
     ],
     sitemap: "https://www.trustlayerlabs.co.in/sitemap.xml",
-    host: "https://www.trustlayerlabs.co.in",
   };
 }
