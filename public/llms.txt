@@ -14,7 +14,7 @@
 - **Turnaround Time**: Standard reports delivered in 5–10 business days; expedited preliminary triage available for urgent deadlines.
 - **Retesting Policy**: Retesting included to verify applied developer patches.
 - **Compliance Alignment**: Actionable technical reports for SOC 2 Type II, ISO 27001, and enterprise vendor security questionnaires.
-- **Registration**: MSME / Udyam Registered (Govt of India), listed on Skill With Boost.
+- **Registration & Directory Profiles**: MSME / Udyam Registered (Govt of India), listed on Skill With Boost, [Verified on Sortlist (5.0 ★)](https://www.sortlist.com/agency/trustlayerlabs), [DesignRush Accredited](https://www.designrush.com/agency/profile/trustlayer-labs).
 
 ## Core Documentation & Resources
 - [Security Checklist](https://www.trustlayerlabs.co.in/checklist): Complete SaaS & API vulnerability assessment checklist for engineering leaders.

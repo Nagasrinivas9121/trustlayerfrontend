@@ -171,6 +171,8 @@ export default function RootLayout({
       "https://clutch.co/profile/trustlayerlabs",
       "https://www.goodfirms.co/company/trustlayerlabs",
       "https://techbehemoths.com/company/trustlayerlabs",
+      "https://www.sortlist.com/agency/trustlayerlabs",
+      "https://www.designrush.com/agency/profile/trustlayer-labs",
     ],
     "founder": {
       "@type": "Person",

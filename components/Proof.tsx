@@ -144,6 +144,42 @@ export default function Proof() {
                 </span>
               </div>
             </button>
+
+            <a 
+              href="https://www.sortlist.com/agency/trustlayerlabs" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="Verified Cybersecurity Agency on Sortlist"
+              className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm text-left"
+            >
+              <Award size={16} className="text-primary group-hover:scale-110 transition-transform" />
+              <div className="flex flex-col justify-center">
+                <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5 flex items-center gap-1.5">
+                  SORTLIST VERIFIED <span className="text-[9px] font-mono text-primary lowercase tracking-normal font-normal">5.0 ★</span>
+                </span>
+                <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">
+                  CYBERSECURITY AGENCY
+                </span>
+              </div>
+            </a>
+
+            <a 
+              href="https://www.designrush.com/agency/profile/trustlayer-labs" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              title="Recognized Agency on DesignRush"
+              className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm text-left"
+            >
+              <Award size={16} className="text-primary group-hover:scale-110 transition-transform" />
+              <div className="flex flex-col justify-center">
+                <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5 flex items-center gap-1.5">
+                  DESIGNRUSH ACCREDITED
+                </span>
+                <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">
+                  TOP CYBERSECURITY AGENCY
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
