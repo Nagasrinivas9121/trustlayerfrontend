@@ -1,4 +1,6 @@
-export const CALENDLY_URL = "https://calendly.com/nagasrinivasaraoeevuri/30min";
+export const CAL_URL = "https://cal.com/naga-srinivasa-rao-jjymc7/30min";
+export const CALENDLY_URL = CAL_URL;
+export const BOOKING_URL = CAL_URL;
 
 declare global {
   interface Window {
@@ -6,6 +8,57 @@ declare global {
       initPopupWidget: (options: { url: string }) => void;
       closePopupWidget: () => void;
     };
+    Cal?: any;
+  }
+}
+
+export function openCalModal(url: string = CAL_URL) {
+  if (typeof window === "undefined") return;
+
+  const targetUrl = url || CAL_URL;
+  const calLink = targetUrl.replace(/^https?:\/\/(app\.)?cal\.com\//, "").split("?")[0];
+
+  const w = window as any;
+  if (!w.Cal) {
+    (function (C: any, A: string, L: string) {
+      const p = function (a: any, ar: any) { a.q.push(ar); };
+      const d = C.document;
+      C.Cal = C.Cal || function (...args: any[]) {
+        const cal = C.Cal;
+        const ar = args;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          const s = d.createElement("script");
+          s.src = A;
+          s.async = true;
+          d.head.appendChild(s);
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api: any = function (...apiArgs: any[]) { p(api, apiArgs); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+    w.Cal("init", { origin: "https://app.cal.com" });
+  }
+
+  try {
+    w.Cal("modal", {
+      calLink: calLink || "naga-srinivasa-rao-jjymc7/30min",
+      config: { layout: "month_view" },
+    });
+  } catch {
+    window.open(targetUrl, "_blank");
   }
 }
 
@@ -43,7 +96,12 @@ export function openCalendly(url: string = CALENDLY_URL) {
     });
   }
 
-  // Ensure Calendly widget stylesheet is injected
+  if (targetUrl.includes("cal.com")) {
+    openCalModal(targetUrl);
+    return;
+  }
+
+  // Ensure Calendly widget stylesheet is injected (for legacy Calendly links)
   if (!document.getElementById("calendly-widget-css")) {
     const link = document.createElement("link");
     link.id = "calendly-widget-css";
@@ -82,3 +140,5 @@ export function openCalendly(url: string = CALENDLY_URL) {
     }
   }
 }
+
+export const openBooking = openCalendly;

@@ -47,8 +47,20 @@ export default function CalendlyEmbed({
     return () => observer.disconnect();
   }, [shouldLoad]);
 
+  const isCal = url.includes("cal.com");
+  const calEmbedUrl = isCal
+    ? url.includes("embed=true")
+      ? url
+      : `${url}${url.includes("?") ? "&" : "?"}embed=true`
+    : url;
+
   useEffect(() => {
     if (!shouldLoad) return;
+
+    if (isCal) {
+      // Cal.com will be rendered via iframe and resolve loading via onLoad
+      return;
+    }
 
     setIsLoading(true);
 
@@ -108,7 +120,7 @@ export default function CalendlyEmbed({
         clearTimeout(timeout);
       };
     }
-  }, [shouldLoad, url]);
+  }, [shouldLoad, url, isCal]);
 
   return (
     <div
@@ -160,11 +172,23 @@ export default function CalendlyEmbed({
               </span>
             </div>
           )}
-          <div
-            ref={containerRef}
-            className="calendly-inline-widget w-full max-w-full min-w-full min-h-[680px] h-[680px]"
-            data-url={url}
-          />
+          {isCal ? (
+            <iframe
+              src={calEmbedUrl}
+              title="Confidential Security Review Calendar"
+              className="w-full max-w-full min-w-full min-h-[680px] h-[680px] border-0 rounded-xl"
+              onLoad={() => {
+                setIsLoading(false);
+                trackCalendarLoaded("inline_embed");
+              }}
+            />
+          ) : (
+            <div
+              ref={containerRef}
+              className="calendly-inline-widget w-full max-w-full min-w-full min-h-[680px] h-[680px]"
+              data-url={url}
+            />
+          )}
         </>
       )}
     </div>

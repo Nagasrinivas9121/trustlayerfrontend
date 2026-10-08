@@ -89,7 +89,7 @@ export default function ApiSecurityChecklistPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
-              href="https://calendly.com/nagasrinivasaraoeevuri/30min"
+              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
               target="_blank"
               className="px-8 py-3 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
             >

@@ -67,7 +67,7 @@ export default function NotFound() {
             <FileText size={15} /> Sample Report
           </Link>
           <Link
-            href="https://calendly.com/nagasrinivasaraoeevuri/30min"
+            href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
             target="_blank"
             className="flex items-center justify-center gap-2 p-3 bg-surface border border-border hover:border-zinc-400 text-primary text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm"
           >

@@ -14,7 +14,9 @@ export const BRAND = {
     twitter: "https://twitter.com/trustlayerlabs",
     sortlist: "https://www.sortlist.com/agency/trustlayerlabs",
     designrush: "https://www.designrush.com/agency/profile/trustlayer-labs",
-    calendly: "https://calendly.com/nagasrinivasaraoeevuri/30min",
+    calendly: "https://cal.com/naga-srinivasa-rao-jjymc7/30min",
+    cal: "https://cal.com/naga-srinivasa-rao-jjymc7/30min",
+    booking: "https://cal.com/naga-srinivasa-rao-jjymc7/30min",
   },
   colors: {
     bg: "#0D0F14",
