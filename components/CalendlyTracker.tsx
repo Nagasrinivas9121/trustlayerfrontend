@@ -6,10 +6,21 @@ import { trackBookingStarted, trackScopingCallBooked } from "@/lib/analytics";
 
 export default function CalendlyTracker() {
   useEffect(() => {
+    // Session deduplication to prevent repeated events from duplicate postMessages or rerenders
+    const processedBookings = new Set<string>();
+
+    const isAllowedOrigin = (origin: string): boolean => {
+      if (!origin) return false;
+      return (
+        /^https:\/\/([a-z0-9-]+\.)?calendly\.com$/.test(origin) ||
+        /^https:\/\/([a-z0-9-]+\.)?cal\.com$/.test(origin)
+      );
+    };
+
     // 1. Message listener for embedded widgets (Cal.com & Calendly)
     const handleCalendlyMessage = (e: MessageEvent) => {
       try {
-        if (!e.origin || (!e.origin.includes("calendly.com") && !e.origin.includes("cal.com"))) return;
+        if (!isAllowedOrigin(e.origin)) return;
         let data = e.data;
         if (typeof data === "string") {
           try {
@@ -18,10 +29,7 @@ export default function CalendlyTracker() {
             // Not a JSON string
           }
         }
-        if (!data) return;
-
-        const w = window as any;
-        w.dataLayer = w.dataLayer || [];
+        if (!data || typeof data !== "object") return;
 
         // Check Calendly or Cal.com booking events
         const isBookingSuccessful =
@@ -38,44 +46,26 @@ export default function CalendlyTracker() {
           data.event === "timeSelected";
 
         if (isBookingSuccessful) {
-          // Strictly verified meeting booked
-          trackScopingCallBooked({
-            event_uri: data.payload?.event?.uri || data.data?.uid,
-            invitee_uri: data.payload?.invitee?.uri || data.data?.bookingId,
-          });
+          const bookingId =
+            data.payload?.event?.uri ||
+            data.data?.uid ||
+            data.payload?.invitee?.uri ||
+            data.data?.bookingId ||
+            "confirmed_booking";
 
-          // Maintain backward-compatibility for existing tags
-          w.dataLayer.push({
-            event: "calendar_event_scheduled",
-            event_category: "conversion",
-            event_label: "Meeting Scheduled",
-          });
-          w.dataLayer.push({
-            event: "calendly_event_scheduled",
-            event_category: "conversion",
-            event_label: "Meeting Scheduled",
-          });
-
-          if (typeof w.gtag === "function") {
-            w.gtag("event", "conversion", {
-              event_category: "Booking",
-              event_label: "Meeting Scheduled",
-            });
+          // Deduplicate repeated postMessage events
+          if (processedBookings.has(bookingId)) {
+            return;
           }
+          processedBookings.add(bookingId);
+
+          // Strictly verified meeting booked - single canonical dispatch
+          trackScopingCallBooked({
+            booking_id: typeof bookingId === "string" ? bookingId.slice(0, 100) : "confirmed",
+          });
         } else if (isSlotSelected) {
           // User selected a date/time slot (booking funnel in progress)
           trackBookingStarted("calendar_slot_selected");
-
-          w.dataLayer.push({
-            event: "calendar_date_time_selected",
-            event_category: "engagement",
-            event_label: "Slot Selected",
-          });
-          w.dataLayer.push({
-            event: "calendly_date_time_selected",
-            event_category: "engagement",
-            event_label: "Slot Selected",
-          });
         }
       } catch (err) {
         console.error("Error processing Calendar postMessage event:", err);

@@ -87,13 +87,30 @@ const FORBIDDEN_ANALYTICS_KEYS = new Set([
   "exploit",
   "private_key",
   "credentials",
-  "email", // Avoid raw email in GA4 standard params for privacy compliance
+  "email",
   "phone",
   "name",
+  "first_name",
+  "last_name",
+  "full_name",
+  "user_name",
+  "company",
+  "startup",
+  "website",
+  "address",
+  "ssn",
+  "ip",
+  "bearer",
 ]);
 
+const EMAIL_PATTERN = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/;
+const PHONE_PATTERN = /(\+?\d{1,4}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/;
+
 /**
- * Sanitize parameters before dispatching to analytics.
+ * Sanitize parameters before dispatching to analytics:
+ * - Drops blacklisted keys
+ * - Drops strings matching email or phone number patterns
+ * - Truncates strings to max 100 characters to prevent buffer overflow
  */
 function sanitizeEventParams(params: Record<string, any>): Record<string, any> {
   const sanitized: Record<string, any> = {};
@@ -101,7 +118,10 @@ function sanitizeEventParams(params: Record<string, any>): Record<string, any> {
     const lowerKey = key.toLowerCase();
     if (!FORBIDDEN_ANALYTICS_KEYS.has(lowerKey)) {
       if (typeof value === "string") {
-        sanitized[key] = value.slice(0, 100); // Prevent buffer overflow
+        if (EMAIL_PATTERN.test(value) || PHONE_PATTERN.test(value)) {
+          continue; // Omit accidental PII leak in string values
+        }
+        sanitized[key] = value.slice(0, 100);
       } else {
         sanitized[key] = value;
       }
@@ -112,6 +132,7 @@ function sanitizeEventParams(params: Record<string, any>): Record<string, any> {
 
 /**
  * Universal safe event dispatcher for GA4, GTM, and custom conversion tracking.
+ * Sanitizes page_location by strictly stripping query parameters and hash fragments.
  */
 export function trackEvent(eventName: string, params: Record<string, any> = {}) {
   if (typeof window === "undefined") return;
@@ -120,9 +141,14 @@ export function trackEvent(eventName: string, params: Record<string, any> = {}) 
   const utm = getUtmAttribution();
   const cleanParams = sanitizeEventParams(params);
 
+  // Sanitize page location: origin + pathname only (never leak query strings or hashes)
+  const safeOrigin = window.location.origin || "https://www.trustlayerlabs.co.in";
+  const safePath = window.location.pathname || "/";
+  const sanitizedLocation = `${safeOrigin}${safePath}`;
+
   const payload = {
     event: eventName,
-    page_location: window.location.pathname,
+    page_location: sanitizedLocation,
     device_type: window.innerWidth < 768 ? "mobile" : window.innerWidth < 1024 ? "tablet" : "desktop",
     timestamp: new Date().toISOString(),
     ...utm,
@@ -137,7 +163,7 @@ export function trackEvent(eventName: string, params: Record<string, any> = {}) 
   if (typeof w.gtag === "function") {
     try {
       w.gtag("event", eventName, {
-        page_location: window.location.pathname,
+        page_location: sanitizedLocation,
         ...cleanParams,
       });
     } catch {
@@ -155,74 +181,62 @@ export const trackLandingPageView = (pageType: string = "home") => {
 };
 
 // ==========================================
-// 2. CTA Click Events
+// 2. CTA Click Events (Deduplicated Single-Dispatch)
 // ==========================================
 export const trackFreeReviewCtaClick = (location: string, text: string = "Get a Free Security Review") => {
-  trackEvent("free_review_cta_click", {
-    cta_location: location,
-    cta_text: text,
-  });
-  // GA4 standard convention for primary CTA clicks
   trackEvent("click_primary_cta", {
     cta_location: location,
     cta_text: text,
+    legacy_event: "free_review_cta_click",
   });
 };
 
 export const trackSampleReportCtaClick = (location: string, text: string = "View Sample Report") => {
-  trackEvent("sample_report_cta_click", {
-    cta_location: location,
-    cta_text: text,
-  });
-  // GA4 standard convention for sample report clicks
   trackEvent("click_sample_report", {
     cta_location: location,
     cta_text: text,
+    legacy_event: "sample_report_cta_click",
   });
 };
 
 export const trackCalendarCtaClick = (location: string, text: string = "Book a 20-Min Security Review") => {
-  trackEvent("calendar_cta_click", {
+  trackEvent("click_primary_cta", {
     cta_location: location,
     cta_text: text,
+    cta_action: "calendar",
+    legacy_event: "calendar_cta_click",
   });
-  // Maintain backward compatibility with existing tags
-  trackEvent("calendly_click", { event_label: location });
 };
 
 export const trackWhatsappCtaClick = (location: string = "floating_button") => {
-  trackEvent("whatsapp_cta_click", {
-    cta_location: location,
-    channel: "whatsapp",
-  });
-  // GA4 standard convention for WhatsApp clicks
   trackEvent("click_whatsapp", {
     cta_location: location,
     channel: "whatsapp",
+    legacy_event: "whatsapp_cta_click",
   });
 };
 
 export const trackEmailClick = (location: string = "email_link") => {
-  trackEvent("email_cta_click", {
-    cta_location: location,
-    channel: "email",
-  });
-  // GA4 standard convention for email clicks
   trackEvent("click_email", {
     cta_location: location,
     channel: "email",
+    legacy_event: "email_cta_click",
   });
 };
 
 export const trackWrittenScopeCtaClick = (location: string = "contact_form") => {
-  trackEvent("written_scope_cta_click", {
+  trackEvent("click_primary_cta", {
     cta_location: location,
+    cta_action: "written_scope",
+    legacy_event: "written_scope_cta_click",
   });
 };
 
 export const trackPartnerCtaClick = (location: string = "partnership_page") => {
-  trackEvent("partner_cta_click", {
+  trackEvent("click_primary_cta", {
     cta_location: location,
+    cta_action: "partner",
+    legacy_event: "partner_cta_click",
   });
 };
 
@@ -245,15 +259,12 @@ export const trackFreeSecurityReviewStart = (source: string = "free-assessment")
 };
 
 export const trackFreeSecurityReviewSubmit = (metadata?: Record<string, any>) => {
-  trackEvent("free_security_review_submit", {
-    form_name: "free_security_review_intake",
-    form_step: "submit",
-    ...metadata,
-  });
-  // GA4 standard conversion event: fired ONLY after a genuine enquiry is successfully submitted (zero PII)
+  // GA4 standard conversion event: fired ONLY after a genuine enquiry has successfully validated and completed (zero PII)
   trackEvent("generate_lead", {
     lead_type: "free_security_review",
     form_name: "free_security_review_intake",
+    form_step: "submit",
+    legacy_event: "free_security_review_submit",
     ...metadata,
   });
 };
@@ -275,6 +286,7 @@ export const trackSampleReportView = () => {
 };
 
 export const trackSampleReportDownload = (source: string = "sample_report_page") => {
+  // Content engagement event: strictly distinct from generate_lead
   trackEvent("sample_report_download", {
     content_type: "sample_vapt_pdf",
     source,
@@ -317,14 +329,11 @@ export const trackBookingStarted = (location: string = "calendly") => {
 };
 
 export const trackScopingCallBooked = (eventPayload?: Record<string, any>) => {
-  trackEvent("scoping_call_booked", {
-    confirmed: true,
-    ...eventPayload,
-  });
-  // GA4 standard conversion event: fired ONLY after a verified postMessage booking confirmation (zero PII)
+  // GA4 standard conversion event: fired ONLY after verified postMessage booking confirmation (zero PII)
   trackEvent("book_appointment", {
     booking_method: "calendar_postmessage",
     confirmed: true,
+    legacy_event: "scoping_call_booked",
     ...eventPayload,
   });
 };
@@ -340,15 +349,12 @@ export const trackContactFormStart = (formName: string = "contact_form") => {
 };
 
 export const trackContactFormSubmit = (data?: Record<string, any>) => {
-  trackEvent("contact_form_submit", {
-    form_name: "contact_form",
-    form_step: "submit",
-    ...data,
-  });
   // GA4 standard conversion event: fired ONLY after contact form successfully validates and submits (zero PII)
   trackEvent("generate_lead", {
     lead_type: "contact_form",
     form_name: "contact_form",
+    form_step: "submit",
+    legacy_event: "contact_form_submit",
     ...data,
   });
 };
