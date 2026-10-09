@@ -18,10 +18,29 @@ import Faq from "@/components/Faq";
 import CTA from "@/components/CTA";
 import ContactForm from "@/components/ContactForm";
 import FloatingActions from "@/components/FloatingActions";
+import { FAQS } from "@/lib/constants";
 
 export default function Home() {
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://www.trustlayerlabs.co.in/#faq",
+    "mainEntity": FAQS.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+
   return (
-    <main id="main-content" className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
       {/* 1. HERO */}
       <Hero />
 
@@ -72,6 +91,6 @@ export default function Home() {
 
       {/* 16. FLOATING ACTIONS */}
       <FloatingActions />
-    </main>
+    </div>
   );
 }

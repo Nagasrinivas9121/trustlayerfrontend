@@ -9,7 +9,7 @@ import { TEAM } from "@/lib/constants";
 export default function AboutPage() {
   return (
     <div className="bg-background min-h-screen">
-      <main className="pt-32 pb-24 font-sans text-textPrimary">
+      <div className="pt-32 pb-24 font-sans text-textPrimary">
         <div className="section-container">
           
           {/* Breadcrumb & Header */}
@@ -256,7 +256,7 @@ export default function AboutPage() {
           <TransparencyVerdict />
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

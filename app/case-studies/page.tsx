@@ -8,7 +8,7 @@ import { CASE_STUDIES } from "@/lib/constants";
 export default function CaseStudiesPage() {
   return (
     <div className="bg-background min-h-screen">
-      <main className="pt-32 pb-24 font-sans text-textPrimary">
+      <div className="pt-32 pb-24 font-sans text-textPrimary">
         <div className="section-container">
           
           {/* Breadcrumb & Header */}
@@ -152,7 +152,7 @@ export default function CaseStudiesPage() {
           </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

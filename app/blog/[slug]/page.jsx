@@ -148,11 +148,10 @@ export default async function BlogPost({ params }) {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min" 
-              target="_blank"
+              href="/free-assessment" 
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
             >
-              Book a 20-Min Security Review
+              Get a Free Security Review →
             </Link>
             <Link 
               href="/sample-report" 
@@ -163,9 +162,13 @@ export default async function BlogPost({ params }) {
           </div>
 
           <div className="pt-4 border-t border-border/40 flex flex-wrap justify-center gap-4 text-xs font-sans text-textSecondary">
+            <Link href="/services/api-security" className="hover:text-primary transition-colors">→ API Security</Link>
+            <span className="text-border">•</span>
+            <Link href="/services/web-app-vapt" className="hover:text-primary transition-colors">→ Web App VAPT</Link>
+            <span className="text-border">•</span>
             <Link href="/fintech-security" className="hover:text-primary transition-colors">→ FinTech Security</Link>
             <span className="text-border">•</span>
-            <Link href="/grc-readiness" className="hover:text-primary transition-colors">→ GRC & SOC 2 Readiness</Link>
+            <Link href="/services/ai-security" className="hover:text-primary transition-colors">→ AI Security</Link>
             <span className="text-border">•</span>
             <Link href="/api-security-checklist" className="hover:text-primary transition-colors">→ API Security Checklist</Link>
           </div>

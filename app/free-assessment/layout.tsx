@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free VAPT Scoping & Security Assessment",
-  description: "Request a free application security and API penetration testing assessment scope review for your SaaS, FinTech, or AI product.",
+  title: "Get a Free Security Review | 20-Min Scoping",
+  description: "Schedule a confidential 20-minute security scoping review under mutual NDA. We assess your API, SaaS, and AI attack boundaries and recommend the right assessment scope.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/free-assessment",
   },
   openGraph: {
-    title: "Free VAPT Scoping & Security Assessment | TrustLayerLabs",
-    description: "Get a practitioner-led scope evaluation, threat surface review, and tailored VAPT proposal for your engineering team.",
+    title: "Get a Free Security Review | 20-Min Scoping | TrustLayerLabs",
+    description: "Get a practitioner-led architecture evaluation, threat surface scoping, and tailored security proposal under mutual NDA.",
     url: "https://www.trustlayerlabs.co.in/free-assessment",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Free VAPT Scoping & Security Assessment" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Get a Free Security Review — TrustLayerLabs" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free VAPT Scoping & Security Assessment | TrustLayerLabs",
-    description: "Request a practitioner-led VAPT & API security assessment scope review.",
+    title: "Get a Free Security Review | 20-Min Scoping | TrustLayerLabs",
+    description: "Request a practitioner-led 20-minute security review and scope evaluation under mutual NDA.",
     images: ["/og-image.jpg"],
   },
 };

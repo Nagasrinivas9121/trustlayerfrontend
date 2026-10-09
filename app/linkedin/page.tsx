@@ -156,7 +156,7 @@ export default function LinkedInPage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <main className="pt-32 pb-24 text-textPrimary">
+      <div className="pt-32 pb-24 text-textPrimary">
         <div className="section-container max-w-4xl">
           
           {/* Header */}
@@ -223,7 +223,7 @@ export default function LinkedInPage() {
           </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

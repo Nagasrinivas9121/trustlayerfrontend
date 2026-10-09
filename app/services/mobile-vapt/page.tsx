@@ -437,12 +437,10 @@ export default function MobileVaptPage() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
 
             <Link 
@@ -450,7 +448,7 @@ export default function MobileVaptPage() {
               className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample VAPT Report</span>
+              <span>View Sample Report</span>
             </Link>
           </div>
         </div>
@@ -1047,18 +1045,17 @@ export default function MobileVaptPage() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link 
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
             <Link 
-              href="/contact"
+              href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
-              <span>Submit Scoping Request Form</span>
+              <FileText size={15} />
+              <span>View Sample Report</span>
             </Link>
           </div>
         </div>

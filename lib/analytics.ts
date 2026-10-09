@@ -162,10 +162,20 @@ export const trackFreeReviewCtaClick = (location: string, text: string = "Get a 
     cta_location: location,
     cta_text: text,
   });
+  // GA4 standard convention for primary CTA clicks
+  trackEvent("click_primary_cta", {
+    cta_location: location,
+    cta_text: text,
+  });
 };
 
 export const trackSampleReportCtaClick = (location: string, text: string = "View Sample Report") => {
   trackEvent("sample_report_cta_click", {
+    cta_location: location,
+    cta_text: text,
+  });
+  // GA4 standard convention for sample report clicks
+  trackEvent("click_sample_report", {
     cta_location: location,
     cta_text: text,
   });
@@ -184,6 +194,23 @@ export const trackWhatsappCtaClick = (location: string = "floating_button") => {
   trackEvent("whatsapp_cta_click", {
     cta_location: location,
     channel: "whatsapp",
+  });
+  // GA4 standard convention for WhatsApp clicks
+  trackEvent("click_whatsapp", {
+    cta_location: location,
+    channel: "whatsapp",
+  });
+};
+
+export const trackEmailClick = (location: string = "email_link") => {
+  trackEvent("email_cta_click", {
+    cta_location: location,
+    channel: "email",
+  });
+  // GA4 standard convention for email clicks
+  trackEvent("click_email", {
+    cta_location: location,
+    channel: "email",
   });
 };
 
@@ -221,6 +248,12 @@ export const trackFreeSecurityReviewSubmit = (metadata?: Record<string, any>) =>
   trackEvent("free_security_review_submit", {
     form_name: "free_security_review_intake",
     form_step: "submit",
+    ...metadata,
+  });
+  // GA4 standard conversion event: fired ONLY after a genuine enquiry is successfully submitted (zero PII)
+  trackEvent("generate_lead", {
+    lead_type: "free_security_review",
+    form_name: "free_security_review_intake",
     ...metadata,
   });
 };
@@ -288,6 +321,12 @@ export const trackScopingCallBooked = (eventPayload?: Record<string, any>) => {
     confirmed: true,
     ...eventPayload,
   });
+  // GA4 standard conversion event: fired ONLY after a verified postMessage booking confirmation (zero PII)
+  trackEvent("book_appointment", {
+    booking_method: "calendar_postmessage",
+    confirmed: true,
+    ...eventPayload,
+  });
 };
 
 // ==========================================
@@ -304,6 +343,12 @@ export const trackContactFormSubmit = (data?: Record<string, any>) => {
   trackEvent("contact_form_submit", {
     form_name: "contact_form",
     form_step: "submit",
+    ...data,
+  });
+  // GA4 standard conversion event: fired ONLY after contact form successfully validates and submits (zero PII)
+  trackEvent("generate_lead", {
+    lead_type: "contact_form",
+    form_name: "contact_form",
     ...data,
   });
 };

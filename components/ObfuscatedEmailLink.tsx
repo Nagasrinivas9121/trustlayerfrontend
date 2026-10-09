@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { trackEmailClick } from "@/lib/analytics";
 
 interface ObfuscatedEmailLinkProps {
   user?: string;
@@ -27,6 +28,7 @@ export default function ObfuscatedEmailLink({
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    trackEmailClick(ariaLabel);
     const email = `${user}@${domain}`;
     const mailto = subject ? `mailto:${email}?subject=${encodeURIComponent(subject)}` : `mailto:${email}`;
     window.location.href = mailto;

@@ -10,7 +10,6 @@ import CalendlyTracker from "@/components/CalendlyTracker";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import { FAQS } from "@/lib/constants";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -146,15 +145,7 @@ export default function RootLayout({
     ],
     "areaServed": ["Bangalore", "Hyderabad", "India", "Global"],
     "priceRange": "₹₹₹",
-    "foundingDate": "2026-04-24",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "28",
-      "reviewCount": "28"
-    },
+    "foundingDate": "2024-01-15",
     "knowsAbout": [
       "API Security Testing",
       "Penetration Testing",
@@ -243,20 +234,6 @@ export default function RootLayout({
     "inLanguage": "en-IN",
   };
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": "https://www.trustlayerlabs.co.in/#faq",
-    "mainEntity": FAQS.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer,
-      },
-    })),
-  };
-
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
       <head>
@@ -268,10 +245,6 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/trustlayerlabs-verified-vendor-boost.svg" type="image/svg+xml" fetchPriority="high" />
-        <meta name="publish-date" content="2024-01-15T00:00:00+05:30" />
-        <meta name="revised" content="2026-10-04T00:00:00+05:30" />
-        <meta property="article:published_time" content="2024-01-15T00:00:00+05:30" />
-        <meta property="article:modified_time" content="2026-10-04T00:00:00+05:30" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
@@ -279,10 +252,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       </head>
       <body className="font-sans antialiased bg-background selection:bg-primary/20 selection:text-primary">
@@ -405,7 +374,7 @@ export default function RootLayout({
           `}
         </Script>
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <CookieConsent />
         <CalendlyTracker />

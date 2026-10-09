@@ -48,7 +48,7 @@ export default function ChecklistPage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <main className="pt-32 pb-24 text-textPrimary font-sans">
+      <div className="pt-32 pb-24 text-textPrimary font-sans">
         <div className="section-container">
           
           {/* Header */}
@@ -306,7 +306,7 @@ Compliance Verification: Confirmed multi-tenant boundary checks`}
           </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -54,7 +54,7 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-background min-h-screen">
-      <main className="pt-32 pb-24 font-sans text-textPrimary">
+      <div className="pt-32 pb-24 font-sans text-textPrimary">
         <div className="section-container">
           
           {/* Top Breadcrumb & Header */}
@@ -318,7 +318,7 @@ export default function ServicesPage() {
           </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { ShieldCheck, ArrowRight, AlertOctagon } from "lucide-react";
 export default function ColdOutreachPage() {
   return (
     <div className="bg-background min-h-screen">
-      <main className="pt-32 pb-24 text-textPrimary">
+      <div className="pt-32 pb-24 text-textPrimary">
         <div className="section-container max-w-4xl">
           
           {/* Main Hero Header */}
@@ -117,7 +117,7 @@ export default function ColdOutreachPage() {
           </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

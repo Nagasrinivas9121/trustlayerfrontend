@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Schedule a Security Review — 30-Min Confidential Consultation | TrustLayerLabs",
+  title: "Schedule a 30-Min Security Review",
   description:
     "Schedule a direct 30-minute scoping call with an offensive security practitioner. Mutual NDA ready, direct scoping, and zero sales overhead.",
   alternates: {

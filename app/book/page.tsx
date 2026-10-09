@@ -1,9 +1,12 @@
+"use client";
+
 import React from "react";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 import { Shield, Clock, FileCheck, CheckCircle2, Mail, MessageSquare } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 import Link from "next/link";
 import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
+import { trackWhatsappCtaClick } from "@/lib/analytics";
 
 export default function BookPage() {
   return (
@@ -102,6 +105,7 @@ export default function BookPage() {
                 href={BRAND.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsappCtaClick("book_page_sidebar")}
                 className="flex items-center justify-center gap-2 p-2.5 sm:p-3 bg-surface border border-border/80 rounded-xl hover:border-emerald-500/40 transition-colors text-textPrimary font-medium"
               >
                 <MessageSquare size={14} className="text-emerald-500 shrink-0" />

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="bg-background min-h-screen">
-      <main className="pt-32 pb-24 font-sans text-textPrimary">
+      <div className="pt-32 pb-24 font-sans text-textPrimary">
         <div className="section-container max-w-4xl">
           
           <Link 
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           </div>
 
         </div>
-      </main>
+      </div>
     </div>
   );
 }

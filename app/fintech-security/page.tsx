@@ -25,14 +25,14 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "FinTech VAPT and API Security Testing",
-  description: "Manual FinTech VAPT services for APIs, payment workflows, and cloud infra. Actionable remediation guidance, developer PoCs, and free retesting.",
+  title: "FinTech VAPT & Payment API Security Testing",
+  description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/fintech-security",
   },
   openGraph: {
-    title: "FinTech VAPT and API Security Testing | TrustLayerLabs",
-    description: "Manual FinTech VAPT services for APIs, payment workflows, and cloud infra. Actionable remediation guidance, developer PoCs, and free retesting.",
+    title: "FinTech VAPT & Payment API Security Testing | TrustLayerLabs",
+    description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
     url: "https://www.trustlayerlabs.co.in/fintech-security",
     siteName: "TrustLayerLabs",
     locale: "en_IN",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FinTech VAPT and API Security Testing | TrustLayerLabs",
-    description: "Manual FinTech VAPT services for APIs, payment workflows, and cloud infra. Actionable remediation guidance, developer PoCs, and free retesting.",
+    title: "FinTech VAPT & Payment API Security Testing | TrustLayerLabs",
+    description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
   },
 };
 
@@ -336,12 +336,10 @@ export default function FinTechSecurityPage() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
 
             <Link 
@@ -752,20 +750,27 @@ export default function FinTechSecurityPage() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link 
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
             <Link 
-              href="/contact"
+              href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
-              <span>Submit Scoping Request Form</span>
+              <FileText size={15} />
+              <span>View Sample Report</span>
             </Link>
           </div>
+        </div>
+
+        {/* Related Regulatory Assessment Link */}
+        <div className="py-6 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-textSecondary">
+          <span>Preparing for mandatory regulatory audits (RBI Master Directions, SEBI CSCRF, NPCI UPI, IRDAI)?</span>
+          <Link href="/services/fintech-vapt" className="text-primary hover:underline font-semibold flex items-center gap-1">
+            View FinTech Regulatory Compliance VAPT Audit →
+          </Link>
         </div>
 
       </div>

@@ -21,14 +21,14 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Web Application VAPT & Penetration Testing Services",
-  description: "Manual Web Application VAPT for React, Next.js, and SaaS apps. Discover OWASP Top 10, broken access control, and business logic flaws with free retesting.",
+  title: "Web Application VAPT & Pentesting",
+  description: "Manual Web Application VAPT for modern React, Next.js & SaaS apps. Uncover OWASP Top 10, broken access control & business logic flaws. 30-day retest included.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/web-app-vapt",
   },
   openGraph: {
-    title: "Web Application VAPT & Penetration Testing Services | TrustLayerLabs",
-    description: "Manual Web Application VAPT for React, Next.js, and SaaS apps. Discover OWASP Top 10, broken access control, and business logic flaws with free retesting.",
+    title: "Web Application VAPT & Pentesting | TrustLayerLabs",
+    description: "Manual Web Application VAPT for modern React, Next.js & SaaS apps. Uncover OWASP Top 10, broken access control & business logic flaws. 30-day retest included.",
     url: "https://www.trustlayerlabs.co.in/services/web-app-vapt",
     siteName: "TrustLayerLabs",
     locale: "en_IN",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Application VAPT & Penetration Testing Services | TrustLayerLabs",
-    description: "Manual Web Application VAPT for React, Next.js, and SaaS apps. Discover OWASP Top 10, broken access control, and business logic flaws with free retesting.",
+    title: "Web Application VAPT & Pentesting | TrustLayerLabs",
+    description: "Manual Web Application VAPT for modern React, Next.js & SaaS apps. Uncover OWASP Top 10, broken access control & business logic flaws. 30-day retest included.",
   },
 };
 
@@ -250,12 +250,10 @@ export default function WebAppVaptPage() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
 
             <Link 
@@ -412,20 +410,27 @@ export default function WebAppVaptPage() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link 
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
             <Link 
-              href="/free-assessment"
+              href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
-              <span>Request a Security Assessment</span>
+              <FileText size={15} />
+              <span>View Sample Report</span>
             </Link>
           </div>
+        </div>
+
+        {/* Related Assessment Navigation */}
+        <div className="py-6 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-textSecondary">
+          <span>Need specialized backend API penetration testing for REST, GraphQL, or microservices?</span>
+          <Link href="/services/api-security" className="text-primary hover:underline font-semibold flex items-center gap-1">
+            Explore API Security Testing & BOLA Pentesting →
+          </Link>
         </div>
 
       </div>

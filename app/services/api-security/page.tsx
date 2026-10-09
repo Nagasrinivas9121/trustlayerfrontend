@@ -22,14 +22,14 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "API Security Testing & BOLA Penetration Testing Services",
-  description: "Manual API penetration testing for REST, GraphQL, and gRPC microservices. Test BOLA/IDOR, BFLA, JWT flaws, and multi-tenant isolation with free retesting.",
+  title: "API Security Testing & BOLA Pentesting",
+  description: "Practitioner-led manual API penetration testing for REST, GraphQL & gRPC. Uncover BOLA/IDOR, broken authorization & multi-tenant leaks. 30-day retest included.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/api-security",
   },
   openGraph: {
-    title: "API Security Testing & BOLA Penetration Testing | TrustLayerLabs",
-    description: "Manual API penetration testing for REST, GraphQL, and gRPC microservices. Test BOLA/IDOR, BFLA, JWT flaws, and multi-tenant isolation with free retesting.",
+    title: "API Security Testing & BOLA Pentesting | TrustLayerLabs",
+    description: "Practitioner-led manual API penetration testing for REST, GraphQL & gRPC. Uncover BOLA/IDOR, broken authorization & multi-tenant leaks. 30-day retest included.",
     url: "https://www.trustlayerlabs.co.in/services/api-security",
     siteName: "TrustLayerLabs",
     locale: "en_IN",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "API Security Testing & BOLA Penetration Testing | TrustLayerLabs",
-    description: "Manual API penetration testing for REST, GraphQL, and gRPC microservices. Test BOLA/IDOR, BFLA, JWT flaws, and multi-tenant isolation with free retesting.",
+    title: "API Security Testing & BOLA Pentesting | TrustLayerLabs",
+    description: "Practitioner-led manual API penetration testing for REST, GraphQL & gRPC. Uncover BOLA/IDOR, broken authorization & multi-tenant leaks. 30-day retest included.",
   },
 };
 
@@ -430,6 +430,14 @@ export default function ApiSecurityPage() {
               <span>View Sample Report</span>
             </Link>
           </div>
+        </div>
+
+        {/* Related Assessment Navigation */}
+        <div className="py-6 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-textSecondary">
+          <span>Testing full-stack web applications or Single Page Apps (React, Next.js)?</span>
+          <Link href="/services/web-app-vapt" className="text-primary hover:underline font-semibold flex items-center gap-1">
+            Explore Web Application VAPT Services →
+          </Link>
         </div>
 
       </div>

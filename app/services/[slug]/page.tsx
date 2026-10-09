@@ -184,6 +184,32 @@ export default async function ServiceSlugPage({ params }: Props) {
                 <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Expected Assessment Outcome:</span>
                 <p className="text-textPrimary leading-relaxed">{service.outcome}</p>
               </div>
+
+              {slug === "fintech-vapt" && (
+                <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl space-y-1 text-xs">
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Related Offering</span>
+                  <p className="text-textSecondary leading-relaxed">
+                    Looking for transaction tampering, ledger race condition, and payment API testing instead of compliance attestation? Explore our{" "}
+                    <Link href="/fintech-security" className="text-primary font-bold hover:underline">
+                      FinTech VAPT & Payment API Security Testing
+                    </Link>{" "}
+                    service.
+                  </p>
+                </div>
+              )}
+
+              {(slug === "graphql-security" || slug === "owasp-api-security") && (
+                <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl space-y-1 text-xs">
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Comprehensive API Review</span>
+                  <p className="text-textSecondary leading-relaxed">
+                    Need a broader offensive security review across REST, GraphQL, and microservice APIs? Explore our full{" "}
+                    <Link href="/services/api-security" className="text-primary font-bold hover:underline">
+                      API Security Testing & BOLA Pentesting
+                    </Link>{" "}
+                    service.
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Deliverables Box */}

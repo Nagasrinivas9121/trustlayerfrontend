@@ -85,15 +85,18 @@ export default function ApiSecurityChecklistPage() {
         <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4">
           <h3 className="text-xl font-bold text-textPrimary font-sans">Need a Manual API Penetration Test?</h3>
           <p className="text-xs text-textSecondary max-w-xl mx-auto">
-            Our offensive security practitioners manually test your APIs for BOLA, authentication flaws, and business logic bypasses in 5 to 7 days.
+            Our offensive security practitioners manually test your APIs for BOLA, authentication flaws, and business logic bypasses in 5 to 7 days. Explore our{" "}
+            <Link href="/services/api-security" className="text-primary font-bold hover:underline">
+              API Security Testing & BOLA Pentesting
+            </Link>{" "}
+            services or schedule a scoping conversation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
-              href="https://cal.com/naga-srinivasa-rao-jjymc7/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
             >
-              Book a 20-Min Review
+              Get a Free Security Review →
             </Link>
             <Link
               href="/sample-report"
