@@ -24,6 +24,27 @@ function checkRateLimit(ip: string): boolean {
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// In-memory deduplication cache (prevents rapid double-submits within 60s window)
+const duplicateSubmissions = new Map<string, number>();
+const DEDUPLICATION_WINDOW_MS = 60 * 1000; // 60 seconds
+
+function isDuplicateSubmission(key: string): boolean {
+  const now = Date.now();
+  const lastTime = duplicateSubmissions.get(key);
+  if (lastTime && now - lastTime < DEDUPLICATION_WINDOW_MS) {
+    return true;
+  }
+  duplicateSubmissions.set(key, now);
+  if (duplicateSubmissions.size > 500) {
+    for (const [k, timestamp] of duplicateSubmissions.entries()) {
+      if (now - timestamp > DEDUPLICATION_WINDOW_MS) {
+        duplicateSubmissions.delete(k);
+      }
+    }
+  }
+  return false;
+}
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -120,6 +141,16 @@ export async function POST(req: NextRequest) {
       { success: false, error: "A valid email address is required." },
       { status: 422 }
     );
+  }
+
+  // 5b. Anti-duplicate submission protection (same email & source within 60s)
+  const dedupeKey = `${email.toLowerCase()}:${source}:${clientIp}`;
+  if (isDuplicateSubmission(dedupeKey)) {
+    return NextResponse.json({
+      success: true,
+      message: "Enquiry already received and queued for review.",
+      code: "DUPLICATE_ACCEPTED",
+    });
   }
 
   // 6. Delivery Dispatch Configuration

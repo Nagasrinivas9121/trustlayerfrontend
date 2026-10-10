@@ -34,7 +34,7 @@ export default function CoreServicesSection() {
             From Scoping to <span className="text-primary">Production Security Verification</span>
           </h2>
           <p className="body-text text-textSecondary font-sans">
-            We don&apos;t force every company into a one-size-fits-all package. Start with a confidential 20-minute scoping review, then choose the right assessment depth for your product and customer risk.
+            We don&apos;t force every company into a one-size-fits-all package. Start with a confidential 30-minute scoping review, then choose the right assessment depth for your product and customer risk.
           </p>
         </div>
 

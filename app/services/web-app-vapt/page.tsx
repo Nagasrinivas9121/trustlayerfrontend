@@ -405,7 +405,7 @@ export default function WebAppVaptPage() {
               Ready to Scope Your Web Application VAPT?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
-              Book a confidential 20-minute scoping review under mutual NDA. We will evaluate your application architecture and provide a fixed quote within 24 hours.
+              Book a confidential 30-minute scoping review under mutual NDA. We will evaluate your application architecture and provide a fixed quote within 24 hours.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">

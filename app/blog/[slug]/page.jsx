@@ -144,7 +144,7 @@ export default async function BlogPost({ params }) {
             Ready to Identify & Fix Vulnerabilities in Your Platform?
           </h3>
           <p className="text-xs text-textSecondary max-w-lg mx-auto leading-relaxed font-sans">
-            Schedule a confidential 20-minute scoping review with our lead security architects under mutual NDA. We evaluate your APIs, business logic, and enterprise readiness.
+            Schedule a confidential 30-minute scoping review with our lead security architects under mutual NDA. We evaluate your APIs, business logic, and enterprise readiness.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 

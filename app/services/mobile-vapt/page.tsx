@@ -1040,7 +1040,7 @@ export default function MobileVaptPage() {
               Ready to Scope Your Mobile Application VAPT?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
-              Schedule a 20-minute scoping call with our lead security specialists under mutual NDA. We will evaluate your mobile architecture, platform requirements, and backend API scope.
+              Schedule a 30-minute scoping call with our lead security specialists under mutual NDA. We will evaluate your mobile architecture, platform requirements, and backend API scope.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">

@@ -251,12 +251,11 @@ export default function CloudSecurityPage() {
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://cal.com/nagasrinivasarao/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <ShieldCheck size={15} />
+              <span>Get a Free Security Review</span>
             </Link>
 
             <Link 
@@ -405,23 +404,22 @@ export default function CloudSecurityPage() {
               Ready to Scope Your Cloud Security Audit?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
-              Book a 20-minute scoping call with our lead security architects under mutual NDA. We will review your cloud footprint and provide a transparent, fixed proposal.
+              Book a 30-minute scoping call with our lead security architects under mutual NDA. We will review your cloud footprint and provide a transparent, fixed proposal.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link 
-              href="https://cal.com/nagasrinivasarao/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Get a Free Security Review →</span>
             </Link>
             <Link 
-              href="/free-assessment"
+              href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
-              <span>Request a Security Assessment</span>
+              <FileText size={15} />
+              <span>View Sample Report</span>
             </Link>
           </div>
         </div>

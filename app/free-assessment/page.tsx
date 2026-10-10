@@ -160,7 +160,7 @@ function FreeAssessmentContent() {
       <div className="mb-10 text-center space-y-4">
         <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
           <ShieldCheck size={12} className="text-primary" />
-          <span>20-Minute Confidential Conversation • Mutual NDA Upfront</span>
+          <span>30-Minute Confidential Conversation • Mutual NDA Upfront</span>
         </div>
         
         <h1 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight font-sans">
@@ -177,7 +177,7 @@ function FreeAssessmentContent() {
             <strong className="text-textPrimary font-semibold block mb-1">
               Important scoping notice:
             </strong>
-            This is a confidential 20-minute security review—not a free penetration test. We&apos;ll understand your product, architecture, current testing, security objective and likely assessment scope. If there is a fit, we&apos;ll recommend an appropriate paid assessment.
+            This is a confidential 30-minute security review—not a free penetration test. We&apos;ll understand your product, architecture, current testing, security objective and likely assessment scope. If there is a fit, we&apos;ll recommend an appropriate paid assessment.
           </p>
         </div>
       </div>
@@ -186,7 +186,7 @@ function FreeAssessmentContent() {
       <div className="mb-8 p-5 bg-surface border border-border/80 rounded-2xl shadow-sm space-y-4">
         <div className="text-[11px] font-mono font-bold text-textPrimary uppercase tracking-wider flex items-center gap-1.5">
           <Clock size={14} className="text-primary" />
-          <span>What Happens In Your 20-Minute Review:</span>
+          <span>What Happens In Your 30-Minute Review:</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -221,7 +221,7 @@ function FreeAssessmentContent() {
 
         <div className="pt-2 border-t border-border/60 flex items-center justify-between text-[11px] text-textSecondary">
           <span className="flex items-center gap-1"><Lock size={12} className="text-primary" /> Practitioner-Led Scoping • Zero Sales Pressure</span>
-          <span className="font-semibold text-textPrimary">20-Min Scoping Call</span>
+          <span className="font-semibold text-textPrimary">30-Min Scoping Call</span>
         </div>
       </div>
 
@@ -245,12 +245,12 @@ function FreeAssessmentContent() {
                 <button
                   type="button"
                   onClick={() => {
-                    trackCalendarCtaClick("post_submit_calendar", "Schedule 20-Min Review Now");
+                    trackCalendarCtaClick("post_submit_calendar", "Schedule 30-Min Review Now");
                     openCalendly();
                   }}
                   className="w-full inline-flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-white text-xs font-semibold uppercase tracking-wider rounded-lg gap-2 cursor-pointer shadow-sm"
                 >
-                  <Calendar size={14} /> Schedule 20-Min Review On Calendar Now
+                  <Calendar size={14} /> Schedule 30-Min Review On Calendar Now
                 </button>
                 <a 
                   href="/trustlayerlabs-sample-vapt-report.pdf" 

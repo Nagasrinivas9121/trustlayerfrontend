@@ -23,7 +23,7 @@ export default function CTA() {
             <span className="text-primary">Security Stands.</span>
           </h2>
           <p className="body-text text-base md:text-lg mb-10 max-w-2xl mx-auto font-sans">
-            Find the security flaws automated scanners miss before your customers, auditors, or attackers do. Schedule a confidential 20-minute scoping review under mutual NDA.
+            Find the security flaws automated scanners miss before your customers, auditors, or attackers do. Schedule a confidential 30-minute scoping review under mutual NDA.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

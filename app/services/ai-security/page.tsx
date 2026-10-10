@@ -403,7 +403,7 @@ export default function AiSecurityPage() {
               Ready to Scope Your AI Security Audit?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
-              Book a 20-minute scoping call with our lead security architects under mutual NDA to review your AI application architecture and prompt safety requirements.
+              Book a 30-minute scoping call with our lead security architects under mutual NDA to review your AI application architecture and prompt safety requirements.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">

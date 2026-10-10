@@ -71,7 +71,7 @@ export default function NotFound() {
             target="_blank"
             className="flex items-center justify-center gap-2 p-3 bg-surface border border-border hover:border-zinc-400 text-primary text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm"
           >
-            <Calendar size={15} /> Book 20-Min Review
+            <Calendar size={15} /> Schedule 30-Min Review
           </Link>
         </div>
 

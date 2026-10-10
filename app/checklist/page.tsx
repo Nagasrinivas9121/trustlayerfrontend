@@ -271,7 +271,7 @@ Compliance Verification: Confirmed multi-tenant boundary checks`}
                   target="_blank"
                   className="px-4 py-2 bg-primary hover:bg-primary-hover text-xs uppercase font-sans tracking-wider font-bold text-white rounded-lg shadow-sm transition-all"
                 >
-                  Book a 20-Min Review
+                  Schedule 30-Min Review
                 </Link>
               </div>
             </div>
@@ -286,15 +286,14 @@ Compliance Verification: Confirmed multi-tenant boundary checks`}
               Need Help Reviewing Your Architecture Against This Checklist?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto leading-relaxed font-sans">
-              Schedule a direct 20-minute architecture and scoping call with our lead security architects under mutual NDA. We will evaluate your attack surface and outline high-priority test vectors.
+              Schedule a direct 30-minute architecture and scoping call with our lead security architects under mutual NDA. We will evaluate your attack surface and outline high-priority test vectors.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="https://cal.com/nagasrinivasarao/30min"
-                target="_blank"
+                href="/free-assessment"
                 className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
               >
-                Book a 20-Min Review
+                Get a Free Security Review
               </Link>
               <Link
                 href="/sample-report"

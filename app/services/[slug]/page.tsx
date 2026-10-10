@@ -262,7 +262,7 @@ export default async function ServiceSlugPage({ params }: Props) {
         <div className="my-16 p-8 bg-surface border border-primary/30 rounded-3xl text-center space-y-6 shadow-sm">
           <div className="max-w-2xl mx-auto space-y-3">
             <h3 className="text-xl sm:text-2xl font-bold text-textPrimary font-sans">
-              Book a 20-Minute {service.title} Scoping Call
+              Book a 30-Minute {service.title} Scoping Call
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto font-sans leading-relaxed">
               Schedule a confidential call with our lead security architects under mutual NDA to review your target scope, endpoint surface, and timeline requirements.

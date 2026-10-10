@@ -199,7 +199,7 @@ export const trackSampleReportCtaClick = (location: string, text: string = "View
   });
 };
 
-export const trackBookingLinkClick = (location: string = "calendar_button", text: string = "Book a 20-Min Security Review") => {
+export const trackBookingLinkClick = (location: string = "calendar_button", text: string = "Schedule 30-Min Security Review") => {
   trackEvent("click_booking_link", {
     cta_location: location,
     cta_text: text,
@@ -208,7 +208,7 @@ export const trackBookingLinkClick = (location: string = "calendar_button", text
   });
 };
 
-export const trackCalendarCtaClick = (location: string, text: string = "Book a 20-Min Security Review") => {
+export const trackCalendarCtaClick = (location: string, text: string = "Schedule 30-Min Security Review") => {
   trackBookingLinkClick(location, text);
 };
 

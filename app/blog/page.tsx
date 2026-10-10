@@ -81,15 +81,14 @@ export default function BlogPage() {
             Ready to Scope Your Security Assessment?
           </h3>
           <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto leading-relaxed font-sans">
-            Speak directly with our offensive security practitioners under mutual NDA. We will review your architecture, attack surface, and compliance goals in 20 minutes.
+            Speak directly with our offensive security practitioners under mutual NDA. We will review your architecture, attack surface, and compliance goals in 30 minutes.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="https://cal.com/nagasrinivasarao/30min"
-              target="_blank"
+              href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
             >
-              Book a 20-Min Security Review
+              Get a Free Security Review
             </Link>
             <Link
               href="/sample-report"

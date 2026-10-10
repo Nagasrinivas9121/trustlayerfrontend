@@ -295,7 +295,7 @@ export default function ServicesPage() {
               Not Sure Which Scope Fits Your Architecture?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto font-sans leading-relaxed">
-              Schedule a 20-minute scoping review under mutual NDA. We'll examine your architecture, user roles, and compliance requirements to provide a tailored assessment scope.
+              Schedule a 30-minute scoping review under mutual NDA. We'll examine your architecture, user roles, and compliance requirements to provide a tailored assessment scope.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Link

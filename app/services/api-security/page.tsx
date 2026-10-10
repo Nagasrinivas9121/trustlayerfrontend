@@ -412,7 +412,7 @@ export default function ApiSecurityPage() {
               Ready to Scope Your API Security Assessment?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
-              Schedule a 20-minute scoping review with our lead security architects under mutual NDA. We will evaluate your endpoint surface and provide a transparent, fixed proposal.
+              Schedule a 30-minute scoping review with our lead security architects under mutual NDA. We will evaluate your endpoint surface and provide a transparent, fixed proposal.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">

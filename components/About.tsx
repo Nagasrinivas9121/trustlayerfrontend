@@ -75,7 +75,7 @@ export default function About() {
                 </p>
                 <div className="mt-2.5 text-[10px] font-mono text-textSecondary flex flex-wrap items-center gap-2">
                   <span className="text-primary font-semibold">Credentials:</span>
-                  <span itemProp="hasCredential">ISO/IEC 27001:2022 Lead Auditor</span>
+                  <span itemProp="hasCredential">API &amp; Web App Security Specialist (IIT Guwahati)</span>
                   <span>•</span>
                   <Link href="/about" rel="author" className="text-accent hover:underline">
                     View Verified Bio &amp; Research →

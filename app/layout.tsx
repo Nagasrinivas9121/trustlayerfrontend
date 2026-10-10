@@ -129,21 +129,11 @@ export default function RootLayout({
     "description": "Application security, manual API penetration testing, and GRC readiness consulting for FinTech, SaaS, and AI teams by offensive security and compliance practitioners.",
     "telephone": "+91-9391220328",
     "email": "ceo@trustlayerlabs.co.in",
-    "address": [
-      {
-        "@type": "PostalAddress",
-        "addressLocality": "Bengaluru",
-        "addressRegion": "Karnataka",
-        "addressCountry": "IN",
-      },
-      {
-        "@type": "PostalAddress",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "addressCountry": "IN",
-      },
-    ],
-    "areaServed": ["Bangalore", "Hyderabad", "India", "Global"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+    },
+    "areaServed": ["India", "Global"],
     "priceRange": "₹₹₹",
     "foundingDate": "2024-01-15",
     "knowsAbout": [
@@ -159,11 +149,6 @@ export default function RootLayout({
     "sameAs": [
       "https://www.linkedin.com/company/trustlayerlabs1/",
       "https://x.com/trustlayerlabs",
-      "https://clutch.co/profile/trustlayerlabs",
-      "https://www.goodfirms.co/company/trustlayerlabs",
-      "https://techbehemoths.com/company/trustlayerlabs",
-      "https://www.sortlist.com/agency/trustlayerlabs",
-      "https://www.designrush.com/agency/profile/trustlayer-labs",
     ],
     "founder": {
       "@type": "Person",

@@ -12,8 +12,6 @@ export const BRAND = {
     whatsapp: "https://wa.me/919391220328",
     linkedin: "https://www.linkedin.com/company/trustlayerlabs1/",
     twitter: "https://twitter.com/trustlayerlabs",
-    sortlist: "https://www.sortlist.com/agency/trustlayerlabs",
-    designrush: "https://www.designrush.com/agency/profile/trustlayer-labs",
     calendly: "https://cal.com/nagasrinivasarao/30min",
     cal: "https://cal.com/nagasrinivasarao/30min",
     booking: "https://cal.com/nagasrinivasarao/30min",
@@ -43,7 +41,7 @@ export const NAV_LINKS = [
       { name: "AI Application Security", href: "/services/ai-security", description: "OWASP Top 10 for LLMs, prompt injection & RAG data isolation" },
       { name: "Cloud Security Audit", href: "/services/cloud-security", description: "AWS & GCP IAM least-privilege, storage & CIS hardening" },
       { name: "GRC & Enterprise Readiness", href: "/grc-readiness", description: "SOC 2 & ISO 27001 technical control mapping & audit readiness" },
-      { name: "View All 15+ Services →", href: "/services", description: "Complete technical security assessment catalogue" },
+      { name: "View All Services →", href: "/services", description: "Complete technical security assessment catalogue" },
     ]
   },
   {
@@ -360,7 +358,7 @@ export const SERVICES = [
     deliverables: [
       "PCI-DSS aligned penetration test report",
       "CDE network segmentation audit proof",
-      "ASV vulnerability check attestation",
+      "Technical segmentation & vulnerability gap review report",
       "Remediation verification letter"
     ],
     outcome: "Validate technical security controls to support PCI-DSS compliance requirements."
@@ -583,7 +581,7 @@ export const PRICING_TIERS = [
       "Email support",
       "Signed VAPT Attestation Letter"
     ],
-    cta: "Book a 20-Min Review",
+    cta: "Schedule 30-Min Review",
     popular: false
   },
   {
@@ -601,7 +599,7 @@ export const PRICING_TIERS = [
       "Slack security channel with our pentesters",
       "Signed Attestation Letter & Security Badge"
     ],
-    cta: "Book a 20-Min Review",
+    cta: "Schedule 30-Min Review",
     popular: true
   },
   {
@@ -619,7 +617,7 @@ export const PRICING_TIERS = [
       "NDA guaranteed compliance assistance",
       "Retainer dashboard & active threat alerts"
     ],
-    cta: "Schedule Consultation",
+    cta: "Schedule 30-Min Review",
     popular: false
   }
 ];
@@ -655,7 +653,7 @@ export const FAQS = [
   },
   {
     question: "How do we scope an engagement and get started?",
-    answer: "You can book a 20-minute scoping call with our lead security architects. We review your architecture, endpoint count, authentication complexity, and target timelines to deliver a transparent scope and fixed quote within 24 hours."
+    answer: "You can book a 30-minute scoping call with our lead security architects. We review your architecture, endpoint count, authentication complexity, and target timelines to deliver a transparent scope and fixed quote within 24 hours."
   }
 ];
 
@@ -809,9 +807,9 @@ export const CORE_PILLARS = [
   {
     id: "free-security-review",
     title: "Free Security Review",
-    tier: "Entry • 20-Minute Confidential Conversation",
+    tier: "Entry • 30-Minute Confidential Conversation",
     tagline: "Scoping, Threat Model & Architecture Review",
-    description: "A focused 20-minute scoping review under mutual NDA. We examine your architecture, API surface, auth model, and security objectives to recommend the exact testing scope needed.",
+    description: "A focused 30-minute scoping review under mutual NDA. We examine your architecture, API surface, auth model, and security objectives to recommend the exact testing scope needed.",
     deliverables: [
       "Mutual NDA executed upfront.",
       "API and tenant architecture boundary review.",
@@ -820,7 +818,7 @@ export const CORE_PILLARS = [
     ],
     badge: "Entry Scoping • Zero Cost",
     href: "/free-assessment",
-    ctaText: "Get Free Review",
+    ctaText: "Get a Free Security Review",
     primaryAction: "review"
   },
   {

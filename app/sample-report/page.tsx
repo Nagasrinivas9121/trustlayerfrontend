@@ -187,7 +187,7 @@ export default function SampleReportPage() {
             Ready to find what automated scanners miss in your own stack?
           </h4>
           <p className="text-xs text-textSecondary max-w-xl mx-auto font-sans leading-relaxed">
-            Get an actionable 20-minute architecture review with our senior practitioners under mutual NDA. We'll identify high-risk logic flaws and give you clear remediation paths.
+            Get an actionable 30-minute architecture review with our senior practitioners under mutual NDA. We'll identify high-risk logic flaws and give you clear remediation paths.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link
@@ -200,13 +200,13 @@ export default function SampleReportPage() {
             <button
               type="button"
               onClick={() => {
-                trackCalendarCtaClick("sample_report_page_footer", "Book a 20-Min Security Review");
+                trackCalendarCtaClick("sample_report_page_footer", "Schedule 30-Min Security Review");
                 openCalendly();
               }}
               className="px-6 py-3 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <Calendar size={13} />
-              <span>Book a 20-Min Security Review</span>
+              <span>Schedule 30-Min Security Review</span>
             </button>
           </div>
         </div>

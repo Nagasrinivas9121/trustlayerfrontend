@@ -745,7 +745,7 @@ export default function FinTechSecurityPage() {
               Ready to Scope Your FinTech Security Assessment?
             </h3>
             <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
-              Schedule a 20-minute scoping call with our lead security architects under mutual NDA. We will evaluate your architecture and provide a fixed quote within 24 hours.
+              Schedule a 30-minute scoping call with our lead security architects under mutual NDA. We will evaluate your architecture and provide a fixed quote within 24 hours.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">

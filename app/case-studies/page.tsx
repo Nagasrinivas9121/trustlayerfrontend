@@ -137,11 +137,10 @@ export default function CaseStudiesPage() {
 
                     <div className="pt-2">
                       <Link 
-                        href="https://cal.com/nagasrinivasarao/30min"
-                        target="_blank"
+                        href="/free-assessment"
                         className="w-full inline-flex items-center justify-center py-2.5 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-bold tracking-wider rounded-xl text-white shadow-sm transition-all"
                       >
-                        Book a 20-Min Security Review
+                        Get a Free Security Review
                       </Link>
                     </div>
                   </div>

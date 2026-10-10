@@ -34,7 +34,7 @@ export default function LiveChat() {
         text: "How can I help you secure your APIs, Cloud settings, or Web Application today?",
         type: "options",
         options: [
-          "📋 Book 20-Min Security Review",
+          "📋 Schedule 30-Min Security Review",
           "📄 Download Redacted VAPT PDF",
           `📱 Chat on WhatsApp (${BRAND.contact.phone})`,
           "💬 Ask a Security Question"
@@ -59,7 +59,7 @@ export default function LiveChat() {
           ...prev,
           {
             sender: "bot",
-            text: "Excellent! You can schedule a confidential 20-minute scoping review directly on our calendar under mutual NDA:",
+            text: "Excellent! You can schedule a confidential 30-minute scoping review directly on our calendar under mutual NDA:",
             type: "links",
             links: [{ label: "Open Security Review Calendar", url: "https://cal.com/nagasrinivasarao/30min" }]
           }

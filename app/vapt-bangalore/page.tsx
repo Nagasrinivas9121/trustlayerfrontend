@@ -35,12 +35,11 @@ export default function VaptBangalore() {
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://cal.com/nagasrinivasarao/30min" 
-              target="_blank"
+              href="/free-assessment" 
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <Calendar size={15} />
-              <span>Book a 20-Min Security Review</span>
+              <ShieldCheck size={15} />
+              <span>Get a Free Security Review</span>
             </Link>
             <Link 
               href="/sample-report"

@@ -1677,7 +1677,7 @@ Auditors require evidence that critical issues were remediated. A professional s
 
 At TrustLayerLabs, we specialize in high-rigor, manual penetration testing and GRC readiness reviews specifically designed to satisfy Tier-1 AICPA auditors and enterprise security questionnaires.
 
-Schedule a confidential 20-minute scoping review with our lead offensive architects to evaluate your architecture, confirm scope, and lock in audit-ready attestation.`
+Schedule a confidential 30-minute scoping review with our lead offensive architects to evaluate your architecture, confirm scope, and lock in audit-ready attestation.`
   },
   {
     slug: "penetration-testing-cost-saas-startup",
@@ -1793,7 +1793,7 @@ To keep your costs down while ensuring the deepest test possible:
 
 At TrustLayerLabs, we deliver high-impact, expert-led manual penetration tests for SaaS and FinTech platforms with zero hidden fees, transparent scoping, and complimentary retest verification included.
 
-Schedule a 20-minute scoping review with our lead offensive architects to evaluate your architecture and receive a tailored proposal within 24 hours.`
+Schedule a 30-minute scoping review with our lead offensive architects to evaluate your architecture and receive a tailored proposal within 24 hours.`
   },
   {
     slug: "bola-vulnerabilities-multi-tenant-saas",

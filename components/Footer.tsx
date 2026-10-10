@@ -30,8 +30,6 @@ const footerLinks = [
       { name: "Free JWT Decoder Tool", href: "/tools/jwt-decoder" },
       { name: "Security Scenarios", href: "/case-studies" },
       { name: "Partner Program", href: "/partnerships" },
-      { name: "Sortlist Agency Listing", href: "https://www.sortlist.com/agency/trustlayerlabs" },
-      { name: "DesignRush Agency Profile", href: "https://www.designrush.com/agency/profile/trustlayer-labs" },
       { name: "VAPT Services — Bangalore", href: "/vapt-bangalore" },
       { name: "VAPT Services — Hyderabad", href: "/vapt-hyderabad" },
     ]
@@ -77,9 +75,9 @@ export default function Footer() {
             </p>
 
             <address className="not-italic text-[11px] text-textSecondary space-y-1 font-sans border-t border-border/40 pt-3">
-              <p className="font-semibold text-textPrimary uppercase tracking-wider text-[10px]">Physical Labs & Operations</p>
-              <p>📍 Bengaluru: Indiranagar Tech Corridor, Bengaluru, Karnataka 560038, India</p>
-              <p>📍 Hyderabad: HITEC City, Hyderabad, Telangana 500081, India</p>
+              <p className="font-semibold text-textPrimary uppercase tracking-wider text-[10px]">Operations & Scoping</p>
+              <p>🌐 Remote-First Operations · Serving B2B SaaS Founders Across India & Globally</p>
+              <p>Govt. of India Registered MSME · UDYAM-AP-21-0044317</p>
             </address>
 
             <div className="flex items-center space-x-5 pt-1">

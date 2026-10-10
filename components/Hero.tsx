@@ -114,7 +114,7 @@ export default function Hero() {
             </div>
 
             <p className="text-[11px] font-sans text-textSecondary text-center pt-1 font-medium">
-              20-minute security review · Mutual NDA · Practitioner-led
+              30-minute security review · Mutual NDA · Practitioner-led
             </p>
           </div>
 
