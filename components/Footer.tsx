@@ -30,7 +30,7 @@ const footerLinks = [
       { name: "Free JWT Decoder Tool", href: "/tools/jwt-decoder" },
       { name: "Security Scenarios", href: "/case-studies" },
       { name: "Partner Program", href: "/partnerships" },
-      { name: "Verified on Sortlist", href: "https://www.sortlist.com/agency/trustlayerlabs" },
+      { name: "Sortlist Agency Listing", href: "https://www.sortlist.com/agency/trustlayerlabs" },
       { name: "DesignRush Agency Profile", href: "https://www.designrush.com/agency/profile/trustlayer-labs" },
       { name: "VAPT Services — Bangalore", href: "/vapt-bangalore" },
       { name: "VAPT Services — Hyderabad", href: "/vapt-hyderabad" },
@@ -126,7 +126,7 @@ export default function Footer() {
             <span className="font-semibold text-textPrimary">Ethical Assessment & Authorization Disclaimer:</span> TrustLayerLabs provides authorized cyber security assessment, penetration testing, and vulnerability research services strictly under executed mutual non-disclosure agreements (NDA) and formal Authorization-to-Test / Rules of Engagement (RoE) protocols with explicit system owner consent. We do not provide unauthorized access or intrusive testing without client authorization.
           </p>
           <div className="flex flex-wrap items-center justify-between text-[10px] text-textSecondary pt-1 gap-2">
-            <span>Verified Credentials: ISO/IEC 27001:2022 Lead Auditor · CEH / OSCP Aligned · Govt. of India Registered MSME (UDYAM-AP-21-0044317) · <a href="https://www.sortlist.com/agency/trustlayerlabs" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">Verified on Sortlist (5.0 ★)</a></span>
+            <span>Verified Status: Govt. of India Registered MSME (UDYAM-AP-21-0044317) · OWASP-Aligned Manual Security Testing · Mutual NDA Executed Prior to Testing</span>
             <span>Content technically reviewed &amp; updated: <time dateTime="2026-10-04">October 4, 2026</time> by Lead Security Architect</span>
           </div>
         </div>

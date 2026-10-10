@@ -49,7 +49,7 @@ export default function CaseStudy() {
         <div className="p-3.5 bg-surface border border-border/80 rounded-xl mb-8 flex items-start gap-2.5 shadow-sm">
           <ShieldCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
           <p className="text-xs text-textSecondary font-sans leading-relaxed">
-            <strong className="text-textPrimary font-semibold">Technical Research & Representative Scenarios:</strong> Vulnerability analyses and reproduction logic developed by offensive practitioners to demonstrate real attack paths and developer-ready mitigations without disclosing confidential client data.
+            <strong className="text-textPrimary font-semibold">Technical Research & Representative Scenarios:</strong> Vulnerability analyses and reproduction logic developed on simulated architectures and synthetic testbeds to demonstrate real attack paths and developer-ready mitigations. These examples do not represent specific past client engagements.
           </p>
         </div>
 

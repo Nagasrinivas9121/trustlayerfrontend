@@ -6,32 +6,32 @@ import { ShieldCheck, AlertCircle, ArrowUpRight, Award, TrendingUp, CheckCircle 
 export default function TransparencyVerdict() {
   const remediationItems = [
     {
-      area: "Independently verifiable customer reviews & testimonials",
-      feedback: "More independently verifiable customer reviews and testimonials.",
-      status: "Implemented",
-      resolution: "Founder-led team credentials and sample VAPT report & methodology published for direct verification.",
-      detailsLink: "/#testimonials"
+      area: "Zero Fabricated Social Proof & Testimonials",
+      feedback: "How does a prospective client verify TrustLayerLabs without past client testimonials?",
+      status: "Guaranteed",
+      resolution: "We do not publish fabricated client reviews or purchased ratings. Instead, we provide our full sample VAPT report and reproducible attack logic so technical leaders can judge our rigor directly.",
+      detailsLink: "/sample-report"
     },
     {
-      area: "Detailed public case studies with measurable outcomes",
-      feedback: "More detailed public case studies with measurable outcomes.",
-      status: "Implemented",
-      resolution: "Published illustrative vulnerability scenarios with technical exploit mechanisms, mitigation patterns, and remediation code guidance.",
+      area: "Illustrative Vulnerability Research & Attack Scenarios",
+      feedback: "Are public vulnerability write-ups real client breach engagements?",
+      status: "Verified",
+      resolution: "All published scenarios are research-driven technical breakdowns built on synthetic testbeds and modern frameworks, ensuring zero manufactured customer stories.",
       detailsLink: "/case-studies"
     },
     {
-      area: "Greater visibility of team members, certifications, or industry recognition",
-      feedback: "Greater visibility of team members, certifications, or industry recognition.",
-      status: "Implemented",
-      resolution: "Featured our offensive security engineering team with verified LinkedIn profiles on the main homepage. Prominently highlighted our MSME Government of India registration.",
+      area: "Verifiable Practitioner Identity & MSME Entity",
+      feedback: "Who executes the security assessments and what legal entity backs the engagement?",
+      status: "Verified",
+      resolution: "Every engagement is led by our founding security architects (IIT Guwahati & VIT Bhopal) backed by our official Govt. of India Udyam MSME registration (UDYAM-AP-21-0044317).",
       detailsLink: "/#team"
     },
     {
-      area: "Expanded technical blogs and research to strengthen search authority",
-      feedback: "Expanded technical blogs and research to strengthen search authority and thought leadership.",
-      status: "Implemented",
-      resolution: "Enriched our Security Library with deep-dive, code-level vulnerability write-ups (e.g., GraphQL & REST API BOLA/IDOR auditing protocols).",
-      detailsLink: "/blog"
+      area: "Strict Bilateral NDA Execution",
+      feedback: "How is proprietary startup architecture safeguarded during scoping and testing?",
+      status: "Enforced",
+      resolution: "We execute a bilateral Non-Disclosure Agreement prior to receiving any staging URLs, API keys, or architectural documentation.",
+      detailsLink: "/nda-process"
     }
   ];
 
@@ -43,7 +43,7 @@ export default function TransparencyVerdict() {
         <div className="flex items-center gap-2.5 mb-8">
           <div className="w-1.5 h-6 bg-primary rounded-full"></div>
           <h3 className="text-lg font-bold text-textPrimary uppercase tracking-wider font-sans">
-            Independent Evaluation & Transparency Report
+            Credibility & Transparency Commitments
           </h3>
         </div>
 
@@ -61,10 +61,10 @@ export default function TransparencyVerdict() {
             <div className="space-y-4">
               <div>
                 <span className="text-[10px] font-mono text-primary uppercase tracking-widest font-bold">
-                  External Evaluator Final Verdict
+                  Founder-Led Credibility Standard
                 </span>
                 <p className="text-sm md:text-base text-textPrimary font-semibold leading-relaxed mt-2 italic font-sans">
-                  &ldquo;For a relatively new cybersecurity company, TrustLayer Labs presents itself professionally and appears well-positioned in the VAPT and application security space. Publicly available information indicates a focus on modern application, API, and cloud security assessments aligned with industry best practices.&rdquo;
+                  &ldquo;As an emerging offensive security consultancy, TrustLayerLabs rejects manufactured social proof, fake client logos, and inflated experience claims. We earn engineering trust through transparent manual methodologies, reproducible PoCs, mutual NDAs, and verifiable legal accountability.&rdquo;
                 </p>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function TransparencyVerdict() {
         {/* Areas of Improvement & Response */}
         <div className="space-y-6">
           <h4 className="text-xs font-mono text-textSecondary uppercase tracking-widest font-bold mb-4">
-            Response & Active Remediation Checklist
+            Our Core Transparency Guarantees
           </h4>
 
           <div className="grid grid-cols-1 gap-4">
@@ -92,10 +92,10 @@ export default function TransparencyVerdict() {
                       {item.area}
                     </h5>
                     <p className="text-xs text-textSecondary leading-relaxed italic">
-                      Critique: &ldquo;{item.feedback}&rdquo;
+                      Inquiry: &ldquo;{item.feedback}&rdquo;
                     </p>
                     <p className="text-xs text-textPrimary leading-relaxed font-semibold">
-                      Resolution: {item.resolution}
+                      Commitment: {item.resolution}
                     </p>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export default function TransparencyVerdict() {
                   <a 
                     href={item.detailsLink} 
                     className="p-1.5 bg-background border border-border hover:border-primary text-textSecondary hover:text-primary rounded-lg transition-colors"
-                    title="View updates"
+                    title="View details"
                   >
                     <ArrowUpRight size={14} />
                   </a>

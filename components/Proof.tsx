@@ -115,19 +115,6 @@ export default function Proof() {
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity" title="Skill With Boost Ecosystem Listing">
-              <img 
-                src="/trustlayerlabs-verified-vendor-boost.svg" 
-                alt="Verified Cybersecurity Partner on Sell With Boost" 
-                width={160} 
-                height={40} 
-                loading="eager"
-                fetchPriority="high"
-                className="h-8 w-auto" 
-              />
-              <span className="sr-only">Skill With Boost Partner Directory Listing</span>
-            </a>
-
             <button 
               onClick={() => setShowCertificate(true)}
               type="button"
@@ -146,37 +133,49 @@ export default function Proof() {
             </button>
 
             <a 
-              href="https://www.sortlist.com/agency/trustlayerlabs" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              title="Verified Cybersecurity Agency on Sortlist"
+              href="/nda-process" 
+              title="View Mutual NDA & Confidentiality Process"
               className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm text-left"
             >
-              <Award size={16} className="text-primary group-hover:scale-110 transition-transform" />
+              <ShieldCheck size={16} className="text-primary group-hover:scale-110 transition-transform" />
               <div className="flex flex-col justify-center">
                 <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5 flex items-center gap-1.5">
-                  SORTLIST VERIFIED <span className="text-[9px] font-mono text-primary lowercase tracking-normal font-normal">5.0 ★</span>
+                  MUTUAL NDA PROCESS
                 </span>
                 <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">
-                  CYBERSECURITY AGENCY
+                  EXECUTED PRIOR TO TESTING
                 </span>
               </div>
             </a>
 
             <a 
-              href="https://www.designrush.com/agency/profile/trustlayer-labs" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              title="Recognized Agency on DesignRush"
+              href="/methodology" 
+              title="Explore Manual Security Testing Methodology"
+              className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm text-left"
+            >
+              <FileCheck size={16} className="text-primary group-hover:scale-110 transition-transform" />
+              <div className="flex flex-col justify-center">
+                <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5 flex items-center gap-1.5">
+                  OWASP ALIGNED
+                </span>
+                <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">
+                  MANUAL LOGIC METHODOLOGY
+                </span>
+              </div>
+            </a>
+
+            <a 
+              href="/sample-report" 
+              title="Inspect Redacted Sample VAPT Deliverable"
               className="flex items-center space-x-3 bg-surface border border-border hover:border-primary/50 transition-all rounded-lg px-4 h-[36px] group shadow-sm text-left"
             >
               <Award size={16} className="text-primary group-hover:scale-110 transition-transform" />
               <div className="flex flex-col justify-center">
                 <span className="text-xs font-bold text-textPrimary uppercase leading-none mb-0.5 flex items-center gap-1.5">
-                  DESIGNRUSH ACCREDITED
+                  SAMPLE DELIVERABLES
                 </span>
                 <span className="text-[10px] text-textSecondary font-medium leading-none tracking-wide">
-                  TOP CYBERSECURITY AGENCY
+                  VIEW SAMPLE VAPT REPORT
                 </span>
               </div>
             </a>

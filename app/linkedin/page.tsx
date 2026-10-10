@@ -126,7 +126,7 @@ Get your snapshot report in 48 hours.
   {
     title: "12. The Hardcoded JWT Secret Exploit (Authentication)",
     topic: "How public JWT secrets enable token forgery and total account takeover.",
-    copy: "We just audited a SaaS app where we bypassed authentication entirely in 10 minutes. 🔑\n\nHow? The backend team used a default JWT secret key from a template:\n```javascript\nconst SECRET = \"my-secret-key-123\";\n```\nWe matched it using public lists, re-signed our JWT payload using HS256 with the secret, and changed the role parameter to \"admin\".\n\nTo prevent token forgery:\n1. Rotate keys using AWS KMS or GCP Secret Manager.\n2. Use asymmetric algorithms (RS256) so only the private key (unknown to the client) can sign tokens.\n3. Keep keys out of Git repositories.\n\n#WebDev #NodeJS #API #Cybersecurity"
+    copy: "In vulnerability research on popular SaaS starter templates, default JWT secret keys consistently enable authentication bypass in under 10 minutes. 🔑\n\nHow? Starter templates frequently ship with default template secrets:\n```javascript\nconst SECRET = \"my-secret-key-123\";\n```\nAttackers match them against public wordlists, re-sign token payloads using HS256 with the secret, and elevate the role parameter to \"admin\".\n\nTo prevent token forgery:\n1. Rotate keys using AWS KMS or GCP Secret Manager.\n2. Use asymmetric algorithms (RS256) so only the private key (unknown to the client) can sign tokens.\n3. Keep keys out of Git repositories.\n\n#WebDev #NodeJS #API #Cybersecurity"
   },
   {
     title: "13. HIPAA ePHI Database Hardening (Healthcare)",
@@ -136,7 +136,7 @@ Get your snapshot report in 48 hours.
   {
     title: "14. Subdomain Takeover and DNS Hygiene (Perimeter)",
     topic: "Tracing dangling DNS CNAME records and remediating shadow IT risks.",
-    copy: "DNS Hygiene: Is a dangling CNAME record exposing your brand? 🌐\n\nWe scanned a customer's perimeter and found a subdomain:\n-> blog.startup.com CNAME startup-pages.github.io\n\nBut the GitHub pages repository was deleted months ago.\nBecause the DNS CNAME remained active (dangling), we registered \"startup-pages\" on GitHub ourselves.\n\nInstantly, sub.startup.com pointed to our repository content, allowing us to host custom pages under their domain.\n\nHarden your DNS:\n- Audit all CNAME pointers monthly.\n- Delete CNAME records immediately when deprecating or deleting third-party SaaS services.\n\n#DNS #NetSec #SubdomainTakeover #VAPT"
+    copy: "DNS Hygiene: Is a dangling CNAME record exposing your brand? 🌐\n\nIn cloud perimeter testing, dangling subdomains are a recurring critical vector:\n-> blog.startup.com CNAME startup-pages.github.io\n\nWhen a third-party hosted repository or bucket is deleted without pruning the DNS pointer, an attacker can claim that identifier on the host service.\n\nInstantly, sub.startup.com serves attacker-controlled content under your brand's trusted domain.\n\nHarden your DNS:\n- Audit all CNAME pointers monthly.\n- Delete CNAME records immediately when deprecating third-party services.\n\n#DNS #NetSec #SubdomainTakeover #VAPT"
   },
   {
     title: "15. GraphQL Query Depth Attacks (Performance)",
