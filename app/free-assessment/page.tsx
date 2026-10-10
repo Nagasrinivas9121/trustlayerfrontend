@@ -14,7 +14,8 @@ import {
   Clock,
   Lock,
   UserCheck,
-  FileText
+  FileText,
+  AlertCircle
 } from "lucide-react";
 import { openCalendly } from "@/lib/calendly";
 import { 
@@ -31,6 +32,8 @@ function FreeAssessmentContent() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [botField, setBotField] = useState("");
   const [hasStarted, setHasStarted] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -63,32 +66,78 @@ function FreeAssessmentContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     try {
-      // Simulate form transmission with practitioner review queue
-      await new Promise((res) => setTimeout(res, 1200));
-
       const utm = getUtmAttribution();
-      
-      // Save lead details to localStorage
+
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: "free-security-review-intake",
+          bot_field: botField,
+          utm,
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.success) {
+        const errorMsg =
+          result.error ||
+          "Unable to deliver enquiry automatically. Please contact our team directly at ceo@trustlayerlabs.co.in or via WhatsApp.";
+        setError(errorMsg);
+
+        // Store backup locally marked as unsent (never display false success)
+        const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+        existingLeads.push({
+          ...formData,
+          ...utm,
+          source: "free-security-review-intake",
+          status: "unsent",
+          delivery_error: errorMsg,
+          timestamp: new Date().toISOString(),
+        });
+        localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+        return;
+      }
+
+      // Confirmed server delivery
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
         ...formData,
         ...utm,
         source: "free-security-review-intake",
-        timestamp: new Date().toISOString()
+        status: "delivered",
+        timestamp: new Date().toISOString(),
       });
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
 
       trackFreeSecurityReviewSubmit({
         prompt_trigger: formData.promptTrigger,
         security_concern: formData.securityConcern,
-        timeline: formData.timeline
+        timeline: formData.timeline,
       });
 
       setSuccess(true);
       trackFreeSecurityReviewConfirmation();
-    } catch (err) {
+    } catch (err: any) {
       console.error("Free assessment submit error:", err);
+      const networkError = "Network error. Please verify your connection or email ceo@trustlayerlabs.co.in directly.";
+      setError(networkError);
+
+      const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+      existingLeads.push({
+        ...formData,
+        source: "free-security-review-intake",
+        status: "unsent",
+        delivery_error: networkError,
+        timestamp: new Date().toISOString(),
+      });
+      localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
     } finally {
       setLoading(false);
     }
@@ -215,6 +264,33 @@ function FreeAssessmentContent() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5 font-sans">
+            {/* Anti-spam honeypot (hidden from real users) */}
+            <input
+              type="text"
+              name="bot_field"
+              value={botField}
+              onChange={(e) => setBotField(e.target.value)}
+              style={{ display: "none" }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+
+            {/* Delivery Error Feedback */}
+            {error && (
+              <div className="p-3.5 bg-critical/10 border border-critical/30 rounded-xl text-critical text-xs space-y-1 animate-fade-in font-sans">
+                <div className="flex items-center gap-2 font-bold">
+                  <AlertCircle size={15} className="shrink-0" />
+                  <span>Delivery Issue</span>
+                </div>
+                <p className="leading-relaxed opacity-90">{error}</p>
+                <p className="text-[11px] pt-1 border-t border-critical/20">
+                  Your entered details are preserved above. You can also reach our team directly at{" "}
+                  <a href="mailto:ceo@trustlayerlabs.co.in" className="underline font-bold">ceo@trustlayerlabs.co.in</a> or{" "}
+                  <a href="https://wa.me/919391220328" target="_blank" rel="noopener noreferrer" className="underline font-bold">WhatsApp (+91 93912 20328)</a>.
+                </p>
+              </div>
+            )}
             
             {/* Row 1: Name & Work Email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

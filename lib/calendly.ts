@@ -1,4 +1,4 @@
-export const CAL_URL = "https://cal.com/naga-srinivasa-rao-jjymc7/30min";
+export const CAL_URL = "https://cal.com/nagasrinivasarao/30min";
 export const CALENDLY_URL = CAL_URL;
 export const BOOKING_URL = CAL_URL;
 
@@ -54,7 +54,7 @@ export function openCalModal(url: string = CAL_URL) {
 
   try {
     w.Cal("modal", {
-      calLink: calLink || "naga-srinivasa-rao-jjymc7/30min",
+      calLink: calLink || "nagasrinivasarao/30min",
       config: { layout: "month_view" },
     });
   } catch {

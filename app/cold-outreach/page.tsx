@@ -30,7 +30,7 @@ export default function ColdOutreachPage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Link 
-                href="https://cal.com/naga-srinivasa-rao-jjymc7/30min" 
+                href="https://cal.com/nagasrinivasarao/30min" 
                 target="_blank"
                 className="bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans tracking-wider font-semibold py-3.5 px-8 rounded-full flex items-center gap-1.5 shadow-md transition-all active:scale-[0.98]"
               >

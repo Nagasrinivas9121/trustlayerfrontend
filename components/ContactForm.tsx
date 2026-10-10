@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, MessageSquare, Linkedin, Send, CheckCircle2, Loader2, Calendar, FileText } from "lucide-react";
+import { Mail, MessageSquare, Linkedin, Send, CheckCircle2, Loader2, Calendar, FileText, AlertCircle } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
@@ -28,6 +28,8 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [botField, setBotField] = useState("");
   const [mode, setMode] = useState<"calendar" | "form">("calendar");
   const [hasStarted, setHasStarted] = useState(false);
 
@@ -41,25 +43,60 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     try {
-      // Simulate form post
-      await new Promise((res) => setTimeout(res, 1200));
-
-      // Save lead details
       const utm = getUtmAttribution();
+
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: "contact-form",
+          bot_field: botField,
+          utm,
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.success) {
+        const errorMsg =
+          result.error ||
+          "Unable to deliver enquiry automatically. Please reach out directly to ceo@trustlayerlabs.co.in or via WhatsApp.";
+        setError(errorMsg);
+
+        // Store backup locally marked as unsent (never display false success)
+        const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+        existingLeads.push({
+          ...formData,
+          ...utm,
+          source: "contact-form",
+          status: "unsent",
+          delivery_error: errorMsg,
+          timestamp: new Date().toISOString(),
+        });
+        localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+        return;
+      }
+
+      // Confirmed server delivery
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
         ...formData,
         ...utm,
         source: "contact-form",
-        timestamp: new Date().toISOString()
+        status: "delivered",
+        timestamp: new Date().toISOString(),
       });
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
 
       trackContactFormSubmit({
         product_type: formData.productType,
         scope: formData.scope,
-        timeline: formData.timeline
+        timeline: formData.timeline,
       });
 
       setSuccess(true);
@@ -71,10 +108,22 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
         productType: "b2b-saas", 
         scope: "api", 
         timeline: "within-2-weeks", 
-        message: "" 
+        message: "",
       });
-    } catch (err) {
+    } catch (err: any) {
       console.error("Form submit error:", err);
+      const networkError = "Network error. Please verify your connection or email ceo@trustlayerlabs.co.in directly.";
+      setError(networkError);
+
+      const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
+      existingLeads.push({
+        ...formData,
+        source: "contact-form",
+        status: "unsent",
+        delivery_error: networkError,
+        timestamp: new Date().toISOString(),
+      });
+      localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
     } finally {
       setLoading(false);
     }
@@ -242,6 +291,34 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 font-sans">
+                {/* Anti-spam honeypot (hidden from real users) */}
+                <input
+                  type="text"
+                  name="bot_field"
+                  value={botField}
+                  onChange={(e) => setBotField(e.target.value)}
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
+                {/* Delivery Error Feedback */}
+                {error && (
+                  <div className="p-3.5 bg-critical/10 border border-critical/30 rounded-xl text-critical text-xs space-y-1 animate-fade-in font-sans">
+                    <div className="flex items-center gap-2 font-bold">
+                      <AlertCircle size={15} className="shrink-0" />
+                      <span>Delivery Issue</span>
+                    </div>
+                    <p className="leading-relaxed opacity-90">{error}</p>
+                    <p className="text-[11px] pt-1 border-t border-critical/20">
+                      Your entered details are preserved below. You can also reach our team directly at{" "}
+                      <a href="mailto:ceo@trustlayerlabs.co.in" className="underline font-bold">ceo@trustlayerlabs.co.in</a> or{" "}
+                      <a href="https://wa.me/919391220328" target="_blank" rel="noopener noreferrer" className="underline font-bold">WhatsApp (+91 93912 20328)</a>.
+                    </p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
