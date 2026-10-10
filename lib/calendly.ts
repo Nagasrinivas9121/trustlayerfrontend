@@ -1,3 +1,5 @@
+import { trackBookingLinkClick } from "./analytics";
+
 export const CAL_URL = "https://cal.com/nagasrinivasarao/30min";
 export const CALENDLY_URL = CAL_URL;
 export const BOOKING_URL = CAL_URL;
@@ -32,6 +34,9 @@ export function openCalModal(url: string = CAL_URL) {
           const s = d.createElement("script");
           s.src = A;
           s.async = true;
+          s.onerror = () => {
+            window.open(targetUrl, "_blank");
+          };
           d.head.appendChild(s);
           cal.loaded = true;
         }
@@ -67,34 +72,8 @@ export function openCalendly(url: string = CALENDLY_URL) {
 
   const targetUrl = url || CALENDLY_URL;
 
-  // Track click event immediately for GA4 and dataLayer
-  const w = window as any;
-  w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push({
-    event: "calendar_click",
-    event_category: "conversion",
-    event_label: targetUrl,
-    page_location: window.location.pathname,
-  });
-  w.dataLayer.push({
-    event: "calendly_click",
-    event_category: "conversion",
-    event_label: targetUrl,
-    page_location: window.location.pathname,
-  });
-
-  if (typeof w.gtag === "function") {
-    w.gtag("event", "calendar_click", {
-      event_category: "conversion",
-      event_label: targetUrl,
-      page_location: window.location.pathname,
-    });
-    w.gtag("event", "calendly_click", {
-      event_category: "conversion",
-      event_label: targetUrl,
-      page_location: window.location.pathname,
-    });
-  }
+  // Track click event via sanitized tracker (strictly non-conversion event)
+  trackBookingLinkClick("booking_launcher", targetUrl);
 
   if (targetUrl.includes("cal.com")) {
     openCalModal(targetUrl);

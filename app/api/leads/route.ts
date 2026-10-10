@@ -85,7 +85,9 @@ export async function POST(req: NextRequest) {
   }
 
   // 5. Server-side validation and boundary limiting
-  const name = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
+  const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "website-form";
+  const rawName = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
+  const name = rawName || (source.includes("sample-report") ? "Sample Report Requester" : "");
   const email = typeof body.email === "string" ? body.email.trim().slice(0, 120) : "";
   const company = typeof body.company === "string" 
     ? body.company.trim().slice(0, 100) 
@@ -105,7 +107,6 @@ export async function POST(req: NextRequest) {
     : "";
   const timeline = typeof body.timeline === "string" ? body.timeline.trim().slice(0, 50) : "";
   const message = typeof body.message === "string" ? body.message.trim().slice(0, 2000) : "";
-  const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "website-form";
 
   if (!name || name.length < 2) {
     return NextResponse.json(
@@ -144,7 +145,9 @@ export async function POST(req: NextRequest) {
       const safeTimeline = escapeHtml(timeline || "Not provided");
       const safeMessage = escapeHtml(message || "None").replace(/\n/g, "<br/>");
 
-      const emailSubject = `[TrustLayerLabs Enquiry] ${name} from ${company || "Product Team"} (${source})`;
+      const emailSubject = source.includes("sample-report")
+        ? `[TrustLayerLabs Sample Report Download] ${safeEmail} (${company || "Product Team"})`
+        : `[TrustLayerLabs Enquiry] ${safeName} from ${company || "Product Team"} (${source})`;
 
       const emailHtml = `<!DOCTYPE html>
 <html>
@@ -213,7 +216,7 @@ ${message || "None"}
 
 Timestamp: ${new Date().toISOString()}`;
 
-      let emailRes = await fetch("https://api.resend.com/emails", {
+      const emailRes = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${resendApiKey}`,
@@ -229,34 +232,14 @@ Timestamp: ${new Date().toISOString()}`;
         }),
       });
 
-      // If custom domain is not yet verified in Resend DNS, fallback gracefully to onboarding@resend.dev
-      if (!emailRes.ok && fromEmail !== "onboarding@resend.dev") {
-        const initialErrJson = await emailRes.json().catch(() => ({}));
-        if (initialErrJson?.message?.toLowerCase().includes("not verified")) {
-          console.warn(`[Leads API] Domain in '${fromEmail}' not yet verified. Falling back to onboarding@resend.dev`);
-          emailRes = await fetch("https://api.resend.com/emails", {
-            method: "POST",
-            headers: {
-              "Authorization": `Bearer ${resendApiKey}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              from: "onboarding@resend.dev",
-              to: [toEmail],
-              reply_to: email,
-              subject: emailSubject,
-              html: emailHtml,
-              text: emailText,
-            }),
-          });
-        }
-      }
-
       if (emailRes.ok) {
         delivered = true;
       } else {
         const errJson = await emailRes.json().catch(() => ({}));
         deliveryError = errJson.message || `Resend API returned HTTP ${emailRes.status}`;
+        if (errJson?.message?.toLowerCase().includes("not verified")) {
+          console.error(`[Leads API] Domain in '${fromEmail}' is unverified in Resend DNS. Verify custom domain in Resend dashboard to send production emails.`);
+        }
       }
     } catch (err: any) {
       deliveryError = err?.message || "Failed to reach Resend API";

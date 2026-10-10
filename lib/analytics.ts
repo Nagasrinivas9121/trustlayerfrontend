@@ -199,13 +199,17 @@ export const trackSampleReportCtaClick = (location: string, text: string = "View
   });
 };
 
-export const trackCalendarCtaClick = (location: string, text: string = "Book a 20-Min Security Review") => {
-  trackEvent("click_primary_cta", {
+export const trackBookingLinkClick = (location: string = "calendar_button", text: string = "Book a 20-Min Security Review") => {
+  trackEvent("click_booking_link", {
     cta_location: location,
     cta_text: text,
-    cta_action: "calendar",
+    destination: "cal.com",
     legacy_event: "calendar_cta_click",
   });
+};
+
+export const trackCalendarCtaClick = (location: string, text: string = "Book a 20-Min Security Review") => {
+  trackBookingLinkClick(location, text);
 };
 
 export const trackWhatsappCtaClick = (location: string = "floating_button") => {

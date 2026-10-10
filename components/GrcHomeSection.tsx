@@ -113,7 +113,7 @@ export default function GrcHomeSection() {
                   className="text-xs font-sans text-textSecondary hover:text-primary uppercase tracking-wider font-semibold transition-colors inline-flex items-center gap-1"
                 >
                   <FileText size={12} />
-                  <span>View Sample Report Layout →</span>
+                  <span>View Sample Report →</span>
                 </Link>
               </div>
             </div>

@@ -42,6 +42,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     setLoading(true);
     setError(null);
     try {
@@ -322,7 +323,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
-                      Your Name:
+                      Your Name <span className="text-primary">*</span>
                     </label>
                     <input 
                       type="text" 
@@ -339,12 +340,13 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
-                      Work Email:
+                      Work Email <span className="text-primary">*</span>
                     </label>
                     <input 
                       type="email" 
                       id="email"
                       name="email"
+                      inputMode="email"
                       autoComplete="email"
                       value={formData.email}
                       onFocus={handleStart}
@@ -359,7 +361,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="startup" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
-                      Company Name:
+                      Company Name <span className="text-primary">*</span>
                     </label>
                     <input 
                       type="text" 
@@ -376,17 +378,18 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                   </div>
                   <div>
                     <label htmlFor="website" className="block text-xs font-bold font-sans text-textSecondary uppercase tracking-wider mb-1.5">
-                      Website / App URL:
+                      Website / App URL <span className="text-textSecondary/60 font-normal lowercase">(optional)</span>
                     </label>
                     <input 
                       type="text" 
                       id="website"
                       name="website"
+                      inputMode="url"
+                      autoComplete="url"
                       value={formData.website}
                       onFocus={handleStart}
                       onChange={(e) => setFormData({...formData, website: e.target.value})}
-                      required
-                      placeholder="e.g. https://careos.io"
+                      placeholder="e.g. https://careos.io (or app in staging)"
                       className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-sm text-textPrimary placeholder-textSecondary/40 focus:outline-none transition-all font-sans"
                     />
                   </div>
@@ -475,7 +478,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                     </>
                   ) : (
                     <>
-                      Request Free Security Review <Send size={12} />
+                      Get a Free Security Review <Send size={12} />
                     </>
                   )}
                 </button>

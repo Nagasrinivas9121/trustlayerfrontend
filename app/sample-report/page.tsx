@@ -10,7 +10,8 @@ import {
   trackSampleReportView, 
   trackSampleReportDownload, 
   trackFreeReviewCtaClick, 
-  trackCalendarCtaClick 
+  trackCalendarCtaClick,
+  getUtmAttribution 
 } from "@/lib/analytics";
 
 export default function SampleReportPage() {
@@ -32,17 +33,33 @@ export default function SampleReportPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || loading) return;
     setLoading(true);
     try {
       trackSampleReportDownload("sample_report_page");
-      await new Promise(resolve => setTimeout(resolve, 1200));
-      
+      const utm = getUtmAttribution();
+
+      // Dispatch lead capture to backend leads intake
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          name: "Sample Report Requester",
+          source: "sample-report-download",
+          securityConcern: "Sample VAPT Report Bundle Download",
+          utm,
+        }),
+      }).catch((err) => {
+        console.warn("[Sample Report] Server intake notice:", err);
+      });
+
       // Save lead details to localStorage
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
         email,
         scope: "sample-report",
+        ...utm,
         timestamp: new Date().toISOString()
       });
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
@@ -122,10 +139,11 @@ export default function SampleReportPage() {
                   <Download size={14} /> Download PDF File
                 </a>
                 <Link
-                  href="/free-assessment"
+                  href={email ? `/free-assessment?email=${encodeURIComponent(email)}` : "/free-assessment"}
+                  onClick={() => trackFreeReviewCtaClick("sample_report_post_download", "Get a Free Security Review")}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-surface border border-border hover:border-zinc-400 text-textPrimary font-bold text-xs uppercase tracking-wider rounded-full shadow-sm"
                 >
-                  Request Scoping Intake
+                  Get a Free Security Review
                 </Link>
               </div>
             </div>
@@ -136,6 +154,8 @@ export default function SampleReportPage() {
             >
               <input
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

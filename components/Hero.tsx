@@ -62,7 +62,7 @@ export default function Hero() {
           {/* Subheadline & Supporting Text */}
           <div className="space-y-3 max-w-2xl mx-auto">
             <p className="text-base sm:text-lg md:text-xl font-medium text-textPrimary font-sans leading-relaxed">
-              Manual security testing for modern B2B SaaS teams. We test API authorization, tenant boundaries, and complex business logic to uncover flaws automated scanners miss.
+              Manual security testing for B2B SaaS, AI, and FinTech teams. We test API authorization, tenant boundaries, and complex business logic to uncover flaws automated scanners miss.
             </p>
             <p className="text-xs sm:text-sm font-semibold text-primary font-sans">
               Preparing for an enterprise deal, compliance audit, or production launch?
@@ -82,6 +82,7 @@ export default function Hero() {
                 type="email"
                 id="hero-email"
                 name="email"
+                inputMode="email"
                 autoComplete="email"
                 required
                 value={email}
@@ -107,7 +108,8 @@ export default function Hero() {
                 onClick={() => trackSampleReportClick("hero_secondary_button")}
                 className="text-textSecondary hover:text-textPrimary font-semibold transition-colors flex items-center gap-1.5 px-4 py-1.5 bg-surface border border-border hover:border-zinc-400 rounded-full"
               >
-                <span>View Sample Report →</span>
+                <span>View Sample Report</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 

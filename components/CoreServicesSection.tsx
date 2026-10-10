@@ -100,7 +100,7 @@ export default function CoreServicesSection() {
                     onClick={() => trackFreeReviewCtaClick(`package_${pillar.id}`, "Get a Free Security Review")}
                     className="w-full sm:flex-1 text-center py-2.5 px-4 bg-primary text-white text-xs uppercase font-sans font-bold tracking-wider rounded-lg hover:bg-primary-hover transition-all flex items-center justify-center gap-1.5 shadow-sm"
                   >
-                    <span>Get Free Review</span>
+                    <span>Get a Free Security Review</span>
                     <ArrowRight size={13} />
                   </Link>
                   <Link 

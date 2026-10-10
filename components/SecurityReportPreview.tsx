@@ -163,7 +163,7 @@ export default function SecurityReportPreview() {
                 onClick={() => trackSampleReportClick("report_preview_secondary")}
                 className="w-full text-center flex items-center justify-center bg-background border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase tracking-wider font-sans font-semibold py-2.5 px-4 rounded-xl transition-all"
               >
-                View Sample Report Details
+                View Sample Report
               </Link>
             </div>
           </div>

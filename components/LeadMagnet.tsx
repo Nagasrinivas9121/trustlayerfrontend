@@ -12,26 +12,39 @@ export default function LeadMagnet() {
 
   const handleDownload = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || loading) return;
     
     setLoading(true);
+    setMessage("");
     try {
-      // Simulate/trigger lead API capture
-      await new Promise((res) => setTimeout(res, 1000));
-      
-      const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
-      existingLeads.push({
-        email,
+      await axios.post("/api/leads", {
+        email: email.trim(),
+        name: "Playbook Requester",
         source: "lead-magnet-playbook",
-        timestamp: new Date().toISOString()
+        requirements: "Requested API Security Checklist & Sample Report Playbook",
       });
-      localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
+
+      // Track the download engagement event
+      if (typeof window !== "undefined") {
+        const link = document.createElement("a");
+        link.href = "/trustlayerlabs-sample-vapt-report.pdf";
+        link.download = "TrustLayerLabs-Sample-VAPT-Report.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
 
       setSuccess(true);
-      setMessage("Download links have been sent to your email address!");
+      setMessage("Your sample security bundle has downloaded! Our lead architects will also follow up if you requested custom scoping.");
       setEmail("");
-    } catch (err) {
-      setMessage("An error occurred. Please try again.");
+    } catch (err: any) {
+      console.error("Lead magnet submission error:", err);
+      // Fallback: still provide sample report download if network error occurs
+      if (typeof window !== "undefined") {
+        window.open("/trustlayerlabs-sample-vapt-report.pdf", "_blank");
+      }
+      setSuccess(true);
+      setMessage("Your report is downloading. To get a custom review of your application, schedule a free security review.");
     } finally {
       setLoading(false);
     }
@@ -93,6 +106,14 @@ export default function LeadMagnet() {
                   <p className="text-xs text-textPrimary leading-relaxed font-mono">
                     {message}
                   </p>
+                  <div className="pt-2">
+                    <a
+                      href="/free-assessment"
+                      className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-white font-mono uppercase tracking-wider underline underline-offset-4"
+                    >
+                      Get a Free Security Review →
+                    </a>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleDownload} className="space-y-4 font-sans">
@@ -104,6 +125,7 @@ export default function LeadMagnet() {
                       type="email" 
                       id="lead-email"
                       name="email"
+                      inputMode="email"
                       autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
