@@ -23,6 +23,7 @@ import {
   trackFreeSecurityReviewStart, 
   trackFreeSecurityReviewSubmit, 
   trackFreeSecurityReviewConfirmation,
+  trackSecurityReviewFormError,
   trackCalendarCtaClick, 
   trackSampleReportCtaClick,
   getUtmAttribution
@@ -38,7 +39,7 @@ function FreeAssessmentContent() {
 
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    email: searchParams?.get("email") || "",
     company: "",
     website: "",
     promptTrigger: "Enterprise customer security review",
@@ -47,14 +48,9 @@ function FreeAssessmentContent() {
     message: ""
   });
 
-  // Pre-fill email from query parameter if present
   useEffect(() => {
     trackFreeSecurityReviewView();
-    const emailParam = searchParams.get("email");
-    if (emailParam) {
-      setFormData((prev) => ({ ...prev, email: emailParam }));
-    }
-  }, [searchParams]);
+  }, []);
 
   const handleStart = () => {
     if (!hasStarted) {
@@ -91,6 +87,7 @@ function FreeAssessmentContent() {
           result.error ||
           "Unable to deliver enquiry automatically. Please contact our team directly at ceo@trustlayerlabs.co.in or via WhatsApp.";
         setError(errorMsg);
+        trackSecurityReviewFormError(result.code || "delivery_error", "free_security_review_intake");
 
         // Store backup locally marked as unsent (never display false success)
         const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
@@ -129,6 +126,7 @@ function FreeAssessmentContent() {
       console.error("Free assessment submit error:", err);
       const networkError = "Network error. Please verify your connection or email ceo@trustlayerlabs.co.in directly.";
       setError(networkError);
+      trackSecurityReviewFormError("network_error", "free_security_review_intake");
 
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({

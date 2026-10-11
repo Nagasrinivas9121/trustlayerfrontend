@@ -427,7 +427,7 @@ export default function JwtDecoderPage() {
                     <span className="text-success font-semibold">HMACSHA256(</span>
                     <br />
                     <span className="text-textSecondary">
-                      base64UrlEncode(Header) + "." + base64UrlEncode(Payload),
+                      base64UrlEncode(Header) + &quot;.&quot; + base64UrlEncode(Payload),
                       <br />
                       secret_key_used_on_backend
                     </span>
@@ -499,9 +499,9 @@ export default function JwtDecoderPage() {
             <div className="p-3 bg-surface border border-border rounded-xl w-fit">
               <AlertTriangle className="w-5 h-5 text-warning" />
             </div>
-            <h3 className="text-sm font-bold text-textPrimary">The "alg: none" Exploit</h3>
+            <h3 className="text-sm font-bold text-textPrimary">The &quot;alg: none&quot; Exploit</h3>
             <p className="text-xs text-textSecondary leading-relaxed">
-              Some legacy or misconfigured libraries process JWTs without verifying signatures when `"alg": "none"` is defined. Attackers exploit this to elevate privileges to administrative scopes.
+              Some legacy or misconfigured libraries process JWTs without verifying signatures when <code className="font-mono text-primary">&quot;alg&quot;: &quot;none&quot;</code> is defined. Attackers exploit this to elevate privileges to administrative scopes.
             </p>
           </div>
 

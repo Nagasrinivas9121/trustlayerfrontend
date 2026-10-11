@@ -149,12 +149,12 @@ export default function AboutPage() {
                   We document common API authorization gaps, broken object-level access patterns, and developer remediation best practices.
                 </p>
                 <div className="space-y-3 pt-2 text-xs">
-                  <a href="/blog/auditing-bola-idor-graphql-rest-apis" className="block text-primary hover:text-accent font-semibold transition-colors">
+                  <Link href="/blog/auditing-bola-idor-graphql-rest-apis" className="block text-primary hover:text-accent font-semibold transition-colors">
                     → Auditing BOLA/IDOR in REST & GraphQL
-                  </a>
-                  <a href="/blog/jwt-security-best-practices-attack-vectors" className="block text-primary hover:text-accent font-semibold transition-colors">
+                  </Link>
+                  <Link href="/blog/jwt-security-best-practices-attack-vectors" className="block text-primary hover:text-accent font-semibold transition-colors">
                     → JWT Security Best Practices & Exploits
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -165,12 +165,12 @@ export default function AboutPage() {
                   Technical guides on defending Generative AI applications, RAG pipelines, and containerized cloud architectures.
                 </p>
                 <div className="space-y-3 pt-2 text-xs">
-                  <a href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="block text-primary hover:text-accent font-semibold transition-colors">
+                  <Link href="/blog/securing-llm-rag-prompt-injection-data-leakage" className="block text-primary hover:text-accent font-semibold transition-colors">
                     → Securing LLM & RAG Systems Whitepaper
-                  </a>
-                  <a href="/blog/kubernetes-hardening-container-security-guide" className="block text-primary hover:text-accent font-semibold transition-colors">
+                  </Link>
+                  <Link href="/blog/kubernetes-hardening-container-security-guide" className="block text-primary hover:text-accent font-semibold transition-colors">
                     → Kubernetes Hardening Production Guide
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -181,12 +181,12 @@ export default function AboutPage() {
                   Actionable security checklists and engineering playbooks to help startup development teams build secure-by-default software.
                 </p>
                 <div className="space-y-3 pt-2 text-xs">
-                  <a href="/checklist" className="block text-primary hover:text-accent font-semibold transition-colors">
+                  <Link href="/checklist" className="block text-primary hover:text-accent font-semibold transition-colors">
                     → Interactive SaaS & API Security Checklist
-                  </a>
-                  <a href="/sample-report" className="block text-primary hover:text-accent font-semibold transition-colors">
+                  </Link>
+                  <Link href="/sample-report" className="block text-primary hover:text-accent font-semibold transition-colors">
                     → Illustrative Sample Security Report
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

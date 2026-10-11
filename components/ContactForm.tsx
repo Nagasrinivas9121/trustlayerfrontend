@@ -12,6 +12,7 @@ import {
   trackCalendarCtaClick, 
   trackWhatsappCtaClick,
   trackWrittenScopeCtaClick,
+  trackSecurityReviewFormError,
   getUtmAttribution
 } from "@/lib/analytics";
 
@@ -68,6 +69,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
           result.error ||
           "Unable to deliver enquiry automatically. Please reach out directly to ceo@trustlayerlabs.co.in or via WhatsApp.";
         setError(errorMsg);
+        trackSecurityReviewFormError(result.code || "delivery_error", "contact_form");
 
         // Store backup locally marked as unsent (never display false success)
         const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
@@ -115,6 +117,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
       console.error("Form submit error:", err);
       const networkError = "Network error. Please verify your connection or email ceo@trustlayerlabs.co.in directly.";
       setError(networkError);
+      trackSecurityReviewFormError("network_error", "contact_form");
 
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({

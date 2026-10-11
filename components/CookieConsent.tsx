@@ -10,6 +10,34 @@ export interface CookiePreferences {
   functional: boolean;
 }
 
+function applyConsent(prefs: CookiePreferences) {
+  if (typeof window !== "undefined") {
+    const w = window as any;
+    if (typeof w.gtag === "function") {
+      w.gtag("consent", "update", {
+        ad_storage: prefs.marketing ? "granted" : "denied",
+        ad_user_data: prefs.marketing ? "granted" : "denied",
+        ad_personalization: prefs.marketing ? "granted" : "denied",
+        analytics_storage: prefs.analytics ? "granted" : "denied",
+        personalization_storage: prefs.functional ? "granted" : "denied",
+        functionality_storage: prefs.functional ? "granted" : "denied",
+      });
+    }
+
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push({
+      event: "cookie_consent_update",
+      consent_status: {
+        ad_storage: prefs.marketing ? "granted" : "denied",
+        analytics_storage: prefs.analytics ? "granted" : "denied",
+        personalization_storage: prefs.functional ? "granted" : "denied",
+      },
+    });
+
+    window.dispatchEvent(new CustomEvent("cookie_consent_update", { detail: prefs }));
+  }
+}
+
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState<boolean>(false);
   const [showCustomizer, setShowCustomizer] = useState<boolean>(false);
@@ -44,34 +72,6 @@ export default function CookieConsent() {
       window.removeEventListener("open-cookie-settings", handleOpenSettings);
     };
   }, []);
-
-  const applyConsent = (prefs: CookiePreferences) => {
-    if (typeof window !== "undefined") {
-      const w = window as any;
-      if (typeof w.gtag === "function") {
-        w.gtag("consent", "update", {
-          ad_storage: prefs.marketing ? "granted" : "denied",
-          ad_user_data: prefs.marketing ? "granted" : "denied",
-          ad_personalization: prefs.marketing ? "granted" : "denied",
-          analytics_storage: prefs.analytics ? "granted" : "denied",
-          personalization_storage: prefs.functional ? "granted" : "denied",
-          functionality_storage: prefs.functional ? "granted" : "denied",
-        });
-      }
-
-      w.dataLayer = w.dataLayer || [];
-      w.dataLayer.push({
-        event: "cookie_consent_update",
-        consent_status: {
-          ad_storage: prefs.marketing ? "granted" : "denied",
-          analytics_storage: prefs.analytics ? "granted" : "denied",
-          personalization_storage: prefs.functional ? "granted" : "denied",
-        },
-      });
-
-      window.dispatchEvent(new CustomEvent("cookie_consent_update", { detail: prefs }));
-    }
-  };
 
   const handleAcceptAll = () => {
     const allAccepted: CookiePreferences = {

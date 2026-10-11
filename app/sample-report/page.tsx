@@ -205,7 +205,7 @@ export default function SampleReportPage() {
             Ready to find what automated scanners miss in your own stack?
           </h4>
           <p className="text-xs text-textSecondary max-w-xl mx-auto font-sans leading-relaxed">
-            Get an actionable 30-minute architecture review with our senior practitioners under mutual NDA. We'll identify high-risk logic flaws and give you clear remediation paths.
+            Get an actionable 30-minute architecture review with our senior practitioners under mutual NDA. We&apos;ll identify high-risk logic flaws and give you clear remediation paths.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link

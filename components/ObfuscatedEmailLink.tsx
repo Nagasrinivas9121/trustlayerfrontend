@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useSyncExternalStore } from "react";
 import { trackEmailClick } from "@/lib/analytics";
+
+const emptySubscribe = () => () => {};
 
 interface ObfuscatedEmailLinkProps {
   user?: string;
@@ -20,11 +22,7 @@ export default function ObfuscatedEmailLink({
   subject = "Security Assessment Enquiry",
   ariaLabel = "Send email to TrustLayerLabs",
 }: ObfuscatedEmailLinkProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

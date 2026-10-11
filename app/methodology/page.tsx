@@ -130,7 +130,7 @@ export default function MethodologyPage() {
         <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4">
           <h3 className="text-xl font-bold text-textPrimary font-sans">Ready to Audit Your SaaS or API?</h3>
           <p className="text-xs text-textSecondary max-w-xl mx-auto">
-            Book a free 15-minute consultation with our lead pentester or download our sample report to see our methodology in action.
+            Schedule a confidential 30-minute security review with our lead security architects under mutual NDA or view our sample report to see our methodology in action.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <Link

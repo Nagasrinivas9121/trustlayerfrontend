@@ -39,7 +39,6 @@ const footerLinks = [
     links: [
       { name: "NDA & Confidentiality Policy", href: "/nda-process" },
       { name: "Responsible Disclosure Policy", href: "/responsible-disclosure" },
-      { name: "Security & Editorial Policy", href: "/responsible-disclosure" },
       { name: "Privacy Policy", href: "/privacy" },
       { name: "Terms of Service", href: "/terms" },
       { name: "Contact & Scoping", href: "/contact" }

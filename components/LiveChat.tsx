@@ -13,35 +13,32 @@ interface Message {
   links?: { label: string; url: string; download?: boolean }[];
 }
 
+const initialGreetings: Message[] = [
+  {
+    sender: "bot",
+    text: "Hi! Welcome to TrustLayerLabs. I'm your Security Assistant. 🛡️"
+  },
+  {
+    sender: "bot",
+    text: "How can I help you secure your APIs, Cloud settings, or Web Application today?",
+    type: "options",
+    options: [
+      "📋 Schedule 30-Min Security Review",
+      "📄 View Sample Report",
+      `📱 Chat on WhatsApp (${BRAND.contact.phone})`,
+      "💬 Ask a Security Question"
+    ]
+  }
+];
+
 export default function LiveChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [unread, setUnread] = useState(true);
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(initialGreetings);
   const [inputVal, setInputVal] = useState("");
   const [sessionStage, setSessionStage] = useState<"initial" | "asking" | "complete">("initial");
   
   const chatEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Initial bot greetings
-    setMessages([
-      {
-        sender: "bot",
-        text: "Hi! Welcome to TrustLayerLabs. I'm your Security Assistant. 🛡️"
-      },
-      {
-        sender: "bot",
-        text: "How can I help you secure your APIs, Cloud settings, or Web Application today?",
-        type: "options",
-        options: [
-          "📋 Schedule 30-Min Security Review",
-          "📄 Download Redacted VAPT PDF",
-          `📱 Chat on WhatsApp (${BRAND.contact.phone})`,
-          "💬 Ask a Security Question"
-        ]
-      }
-    ]);
-  }, []);
 
   useEffect(() => {
     if (chatEndRef.current) {
@@ -74,16 +71,16 @@ export default function LiveChat() {
             links: [{ label: `Open WhatsApp (${BRAND.contact.phone})`, url: BRAND.contact.whatsapp }]
           }
         ]);
-      } else if (option.includes("PDF")) {
+      } else if (option.includes("PDF") || option.includes("Sample") || option.includes("Report")) {
         setMessages((prev) => [
           ...prev,
           {
             sender: "bot",
-            text: "Certainly! You can download our full redacted PDF report bundle or view the live interactive preview:",
+            text: "Certainly! You can download our full 46-page sample deliverable bundle or inspect the live interactive preview:",
             type: "links",
             links: [
-              { label: "Download Sample PDF Report", url: "/trustlayerlabs-sample-vapt-report.pdf", download: true },
-              { label: "View Online Report Preview", url: "/sample-report" }
+              { label: "View Online Report Preview", url: "/sample-report" },
+              { label: "Direct PDF Download (46 Pages)", url: "/trustlayerlabs-sample-vapt-report.pdf", download: true }
             ]
           }
         ]);
@@ -93,7 +90,7 @@ export default function LiveChat() {
           ...prev,
           {
             sender: "bot",
-            text: "Sure thing! Please write your question or enter your email address below, and our lead security team will respond promptly."
+            text: "Sure thing! Please share your architecture details or enter your work email below, and our lead offensive security team will follow up promptly."
           }
         ]);
       }
@@ -109,23 +106,48 @@ export default function LiveChat() {
     setInputVal("");
 
     setTimeout(() => {
+      const emailMatch = userText.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+      const email = emailMatch ? emailMatch[0] : "";
+
       // Save message lead in localStorage
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
-        email: userText.includes("@") ? userText : "chat-user",
+        email: email || "chat-inquiry",
         message: userText,
         scope: "live-chat",
         timestamp: new Date().toISOString()
       });
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
 
-      setMessages((prev) => [
-        ...prev,
-        {
-          sender: "bot",
-          text: "Thank you! I have transmitted your message to our security operations team. We will review your context and contact you via email shortly."
-        }
-      ]);
+      if (email) {
+        // Dispatch to lead intake if work email was provided
+        fetch("/api/leads", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: "Live Chat Inquirer",
+            email,
+            message: userText,
+            source: "live-chat",
+          }),
+        }).catch(() => {});
+
+        setMessages((prev) => [
+          ...prev,
+          {
+            sender: "bot",
+            text: `Thank you! We received your inquiry. Our offensive security architects will review your details under mutual NDA and follow up at ${email} within one business day.`
+          }
+        ]);
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          {
+            sender: "bot",
+            text: "Thank you for reaching out! To receive a tailored scope proposal or vulnerability review, please share your work email address or message us directly at ceo@trustlayerlabs.co.in or on WhatsApp (+91 93912 20328)."
+          }
+        ]);
+      }
       setSessionStage("complete");
     }, 1000);
   };

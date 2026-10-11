@@ -183,48 +183,49 @@ export const trackLandingPageView = (pageType: string = "home") => {
 // ==========================================
 // 2. CTA Click Events (Deduplicated Single-Dispatch)
 // ==========================================
-export const trackFreeReviewCtaClick = (location: string, text: string = "Get a Free Security Review") => {
-  trackEvent("click_primary_cta", {
+export const trackSecurityReviewCtaClick = (location: string, text: string = "Get a Free Security Review") => {
+  trackEvent("security_review_cta_click", {
     cta_location: location,
     cta_text: text,
-    legacy_event: "free_review_cta_click",
+    legacy_event: "click_primary_cta",
   });
 };
+export const trackFreeReviewCtaClick = trackSecurityReviewCtaClick;
 
-export const trackSampleReportCtaClick = (location: string, text: string = "View Sample Report") => {
-  trackEvent("click_sample_report", {
+export const trackSampleReportClick = (location: string, text: string = "View Sample Report") => {
+  trackEvent("sample_report_click", {
     cta_location: location,
     cta_text: text,
-    legacy_event: "sample_report_cta_click",
+    legacy_event: "click_sample_report",
   });
 };
+export const trackSampleReportCtaClick = trackSampleReportClick;
 
-export const trackBookingLinkClick = (location: string = "calendar_button", text: string = "Schedule 30-Min Security Review") => {
-  trackEvent("click_booking_link", {
+export const trackCalendarBookingClick = (location: string = "calendar_button", text: string = "Schedule 30-Min Security Review") => {
+  trackEvent("calendar_booking_click", {
     cta_location: location,
     cta_text: text,
     destination: "cal.com",
-    legacy_event: "calendar_cta_click",
+    legacy_event: "click_booking_link",
   });
 };
+export const trackBookingLinkClick = trackCalendarBookingClick;
+export const trackCalendarCtaClick = trackCalendarBookingClick;
 
-export const trackCalendarCtaClick = (location: string, text: string = "Schedule 30-Min Security Review") => {
-  trackBookingLinkClick(location, text);
-};
-
-export const trackWhatsappCtaClick = (location: string = "floating_button") => {
-  trackEvent("click_whatsapp", {
+export const trackWhatsappClick = (location: string = "floating_button") => {
+  trackEvent("whatsapp_click", {
     cta_location: location,
     channel: "whatsapp",
-    legacy_event: "whatsapp_cta_click",
+    legacy_event: "click_whatsapp",
   });
 };
+export const trackWhatsappCtaClick = trackWhatsappClick;
 
 export const trackEmailClick = (location: string = "email_link") => {
-  trackEvent("click_email", {
+  trackEvent("email_click", {
     cta_location: location,
     channel: "email",
-    legacy_event: "email_cta_click",
+    legacy_event: "click_email",
   });
 };
 
@@ -254,22 +255,31 @@ export const trackFreeSecurityReviewView = () => {
   });
 };
 
-export const trackFreeSecurityReviewStart = (source: string = "free-assessment") => {
-  trackEvent("free_security_review_start", {
+export const trackSecurityReviewFormStart = (source: string = "free-assessment") => {
+  trackEvent("security_review_form_start", {
     form_name: "free_security_review_intake",
     form_step: "start",
     source,
   });
 };
+export const trackFreeSecurityReviewStart = trackSecurityReviewFormStart;
 
-export const trackFreeSecurityReviewSubmit = (metadata?: Record<string, any>) => {
+export const trackSecurityReviewFormSuccess = (metadata?: Record<string, any>) => {
   // GA4 standard conversion event: fired ONLY after a genuine enquiry has successfully validated and completed (zero PII)
-  trackEvent("generate_lead", {
+  trackEvent("security_review_form_success", {
     lead_type: "free_security_review",
     form_name: "free_security_review_intake",
     form_step: "submit",
-    legacy_event: "free_security_review_submit",
+    legacy_event: "generate_lead",
     ...metadata,
+  });
+};
+export const trackFreeSecurityReviewSubmit = trackSecurityReviewFormSuccess;
+
+export const trackSecurityReviewFormError = (errorType: string = "delivery_error", formName: string = "free_security_review_intake") => {
+  trackEvent("security_review_form_error", {
+    form_name: formName,
+    error_type: errorType.slice(0, 50),
   });
 };
 
@@ -365,7 +375,5 @@ export const trackContactFormSubmit = (data?: Record<string, any>) => {
 
 // Backward-compatibility aliases
 export const trackHeroPrimaryCta = () => trackFreeReviewCtaClick("hero_form", "Get a Free Security Review");
-export const trackSampleReportClick = (source: string = "general") => trackSampleReportCtaClick(source, "View Sample Report");
 export const trackCalendarClick = (label: string = "calendly") => trackCalendarCtaClick(label);
-export const trackWhatsappClick = () => trackWhatsappCtaClick("floating_button");
 export const trackPhoneClick = () => trackEvent("phone_click", { channel: "phone" });
