@@ -71,7 +71,7 @@ export const SERVICES = [
     deliverables: [
       "Manual logic vulnerability PoCs",
       "Exact reproduction steps & code snippets",
-      "Redacted executive summary for investors/clients",
+      "Redacted executive summary for stakeholders/investors",
       "Free retesting within 30 days"
     ],
     outcome: "Identify and patch web application vulnerabilities like XSS, SQLi, auth bypass, and CSRF before production release."
@@ -313,7 +313,7 @@ export const SERVICES = [
       "Executive summary for hospital vendors",
       "30-day free retesting validation"
     ],
-    outcome: "Pass hospital cybersecurity reviews and onboard enterprise medical clients securely."
+    outcome: "Pass hospital cybersecurity reviews and onboard enterprise medical accounts securely."
   },
   {
     id: "active-directory-pentesting",
@@ -557,10 +557,10 @@ export const CASE_STUDIES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "We're a founder-led offensive security team based in Bangalore and Hyderabad, currently onboarding our first clients. Check our sample VAPT report and methodology below to see how we work.",
+    quote: "We operate as a distributed offensive security team delivering remote-first security assessments across India and globally. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.",
     name: "TrustLayerLabs Team",
-    role: "Founder-Led Team",
-    company: "Bangalore & Hyderabad",
+    role: "Distributed Offensive Security Team",
+    company: "Remote-First Operations",
     image: "/logo.jpeg",
     linkedin: ""
   }
@@ -954,27 +954,28 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security architect specializing in manual API penetration testing. Focuses on authorization logic, BOLA flaws, and web application assessments.",
+    bio: "Offensive security architect specializing in manual API penetration testing. Holds OSCP and CEH credentials; focuses on authorization logic, BOLA flaws, and web application assessments.",
     initials: "NR",
-    credentials: ["Web App Security", "VAPT Specialist", "API Security from IIT Guwahati"],
+    credentials: ["OSCP", "CEH", "IIT Guwahati", "Web App & API Security"],
     education: "IIT Guwahati",
     linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/"
   },
   {
     name: "Ramineni Teja",
     role: "Co-Founder & GRC Lead",
-    bio: "Compliance and risk management lead for high-growth startups. Guides teams through ISO 27001 gap analysis, SOC 2 readiness, and security governance.",
+    bio: "Compliance and risk management lead for high-growth startups. Certified ISO/IEC 27001 Lead Auditor; guides teams through ISO 27001 gap analysis, SOC 2 readiness, and security governance.",
     initials: "RT",
-    credentials: ["ISO 27001 Readiness", "SOC 2 Readiness", "GRC Practitioner", "VIT Bhopal"],
+    credentials: ["ISO/IEC 27001 Lead Auditor", "SOC 2 Readiness", "GRC Practitioner", "VIT Bhopal"],
     education: "VIT Bhopal",
+    certificateUrl: "/iso-27001-ramineni-teja.png",
     linkedin: "https://www.linkedin.com/in/ramineniteja"
   },
   {
     name: "Nayansi Anand",
     role: "Security Engineer & VAPT Consultant",
-    bio: "Application security engineer specializing in manual web testing. Focuses on OWASP Top 10 vulnerabilities and practical developer fix guidance.",
+    bio: "Application security engineer certified in CEH, specializing in manual web testing, OWASP Top 10 vulnerabilities, and practical developer fix guidance.",
     initials: "NA",
-    credentials: ["Web App Security", "VAPT Specialist", "VIT Bhopal"],
+    credentials: ["CEH", "Web App Security", "VAPT Specialist", "VIT Bhopal"],
     education: "VIT Bhopal",
     linkedin: "https://www.linkedin.com/in/nayansi-anand-35a99a31b/"
   },
@@ -983,7 +984,7 @@ export const TEAM = [
     role: "Operations & Engagement Lead",
     bio: "Operations lead coordinating scoping reviews and onboarding. Manages mutual NDAs and assessment schedules for fast, seamless delivery.",
     initials: "MJ",
-    credentials: ["Operations Lead", "VIT Bhopal"],
+    credentials: ["Operations Lead", "Engagement Management", "VIT Bhopal"],
     education: "VIT Bhopal",
     linkedin: "https://www.linkedin.com/in/muskan-jha-795828350/"
   }

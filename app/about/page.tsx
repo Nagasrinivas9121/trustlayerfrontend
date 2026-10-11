@@ -87,18 +87,31 @@ export default function AboutPage() {
                       <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-sm font-bold font-sans text-primary shadow-sm">
                         {member.initials}
                       </div>
-                      {member.linkedin && (
-                        <a 
-                          href={member.linkedin} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0"
-                          title="Verify Profile on LinkedIn"
-                        >
-                          <Linkedin size={8} className="fill-current" />
-                          Verify
-                        </a>
-                      )}
+                      <div className="flex items-center gap-1">
+                        {(member as any).certificateUrl && (
+                          <a 
+                            href={(member as any).certificateUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0"
+                            title="Verify ISO/IEC 27001 Lead Auditor Certificate"
+                          >
+                            Certificate ↗
+                          </a>
+                        )}
+                        {member.linkedin && (
+                          <a 
+                            href={member.linkedin} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0"
+                            title="Verify Profile on LinkedIn"
+                          >
+                            <Linkedin size={8} className="fill-current" />
+                            Verify
+                          </a>
+                        )}
+                      </div>
                     </div>
                     <h4 className="text-sm font-bold text-textPrimary tracking-tight font-sans">{member.name}</h4>
                     <p className="text-[10px] font-sans text-primary uppercase tracking-wider mt-0.5 mb-3">{member.role}</p>

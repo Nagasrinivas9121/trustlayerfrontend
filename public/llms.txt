@@ -26,7 +26,7 @@
 - **Website**: https://www.trustlayerlabs.co.in
 - **Email**: ceo@trustlayerlabs.co.in
 - **Phone**: +91-9391220328
-- **Team Presence**: Distributed team serving startups across Bangalore, Hyderabad, and India.
+- **Team Presence**: Distributed team providing remote-first security assessments across India and globally.
 
 ## Full Details
 For comprehensive methodology, deep-dive service breakdowns, FAQs, and API security checklists, see [llms-full.txt](https://www.trustlayerlabs.co.in/llms-full.txt).

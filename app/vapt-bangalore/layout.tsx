@@ -20,15 +20,9 @@ export default function VaptBangaloreLayout({ children }: { children: React.Reac
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "TrustLayerLabs — Bangalore",
-    "description": "VAPT and API security testing services in Bangalore, Karnataka.",
+    "name": "TrustLayerLabs",
+    "description": "Manual VAPT and API security testing services for technology teams in Bangalore and across India.",
     "url": "https://www.trustlayerlabs.co.in/vapt-bangalore",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Bengaluru",
-      "addressRegion": "Karnataka",
-      "addressCountry": "IN",
-    },
     "telephone": "+91-9391220328",
     "areaServed": "Bangalore",
   };

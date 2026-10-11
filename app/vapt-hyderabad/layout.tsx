@@ -20,15 +20,9 @@ export default function VaptHyderabadLayout({ children }: { children: React.Reac
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "TrustLayerLabs — Hyderabad",
-    "description": "VAPT and API security testing services in Hyderabad, Telangana.",
+    "name": "TrustLayerLabs",
+    "description": "Manual VAPT and API security testing services for technology teams in Hyderabad and across India.",
     "url": "https://www.trustlayerlabs.co.in/vapt-hyderabad",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana",
-      "addressCountry": "IN",
-    },
     "telephone": "+91-9391220328",
     "areaServed": "Hyderabad",
   };

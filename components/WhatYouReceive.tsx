@@ -53,7 +53,7 @@ const deliverables = [
   {
     title: "Final Security Assessment Report",
     subtitle: "Auditor & Customer Ready",
-    description: "A signed assessment report and retest letter. Share this with enterprise clients to pass procurement reviews.",
+    description: "A signed assessment report and retest letter. Share this with enterprise buyers to pass procurement reviews.",
     icon: FileCheck2,
     badge: "Compliance Deliverable"
   }

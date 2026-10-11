@@ -38,7 +38,7 @@ export default function Testimonials() {
 
             <div className="relative z-10 space-y-6">
               <p className="text-base text-textPrimary leading-relaxed italic font-sans">
-                &ldquo;We&apos;re a founder-led offensive security team based in Bangalore and Hyderabad, currently onboarding our first clients. Check our sample VAPT report and methodology below to see how we work.&rdquo;
+                &ldquo;We operate as a distributed offensive security team delivering remote-first security assessments across India and globally. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.&rdquo;
               </p>
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-border/60 font-sans">
@@ -49,7 +49,7 @@ export default function Testimonials() {
                   <div>
                     <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">TrustLayerLabs Team</h4>
                     <p className="text-xs font-sans text-textSecondary uppercase tracking-wider mt-0.5">
-                      Offensive Security Architect <span className="text-primary">• Bangalore & Hyderabad</span>
+                      Distributed Offensive Security Team <span className="text-primary">• Remote-First Assessments</span>
                     </p>
                   </div>
                 </div>

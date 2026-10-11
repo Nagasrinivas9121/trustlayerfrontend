@@ -60,12 +60,12 @@ export default function VaptBangalore() {
                 Practitioner-Led Assessments
               </h3>
               <p className="text-xs text-textSecondary leading-relaxed mt-2 font-sans">
-                Our offensive security engineers collaborate directly with your development team. We conduct remote and in-person technical scoping reviews under mutual NDA with fast developer feedback loops.
+                Our offensive security engineers collaborate directly with your development team. We conduct remote-first technical scoping reviews under mutual NDA with fast developer feedback loops.
               </p>
             </div>
             
             <div className="pt-4 border-t border-border/60 text-xs font-sans text-textPrimary">
-              📍 Serving Technology Teams in Bangalore & Across India
+              📍 Remote-First Assessments Serving Technology Teams in Bangalore & Across India
             </div>
           </div>
 

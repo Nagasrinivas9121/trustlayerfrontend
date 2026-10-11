@@ -60,12 +60,12 @@ export default function VaptHyderabad() {
                 Practitioner-Led Assessments
               </h3>
               <p className="text-xs text-textSecondary leading-relaxed mt-2 font-sans">
-                Our offensive security team supports engineering organizations in Hyderabad. We offer rapid scoping intake, mutual NDA turnaround, and collaborative developer debrief sessions.
+                Our distributed offensive security team supports engineering organizations in Hyderabad. We offer rapid scoping intake, mutual NDA turnaround, and collaborative remote developer debrief sessions.
               </p>
             </div>
             
             <div className="pt-4 border-t border-border/60 text-xs font-sans text-textPrimary">
-              📍 Serving Technology Teams in Hyderabad & Across India
+              📍 Remote-First Assessments Serving Technology Teams in Hyderabad & Across India
             </div>
           </div>
 

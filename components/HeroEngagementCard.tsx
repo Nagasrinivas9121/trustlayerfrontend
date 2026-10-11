@@ -11,12 +11,12 @@ export default function HeroEngagementCard() {
         <div className="flex items-center space-x-2.5">
           <Shield size={14} className="text-primary" />
           <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider">
-            Active Security Engagement
+            Simulated Assessment Scope
           </span>
         </div>
         <div className="flex items-center space-x-1.5 px-2 py-0.5 bg-success/10 border border-success/30 rounded text-[9px] font-bold text-success uppercase">
           <span className="w-1.5 h-1.5 bg-success rounded-full animate-pulse mr-1" />
-          Verified Scope
+          Illustrative Model
         </div>
       </div>
 
@@ -58,7 +58,7 @@ export default function HeroEngagementCard() {
 
         {/* Milestones / Checklist */}
         <div className="space-y-2.5 pt-1">
-          <div className="text-[9px] font-mono text-textSecondary uppercase tracking-wider mb-2">Audit Engagement Milestones</div>
+          <div className="text-[9px] font-mono text-textSecondary uppercase tracking-wider mb-2">Simulated Assessment Milestones</div>
           
           <div className="flex items-center justify-between text-xs font-sans">
             <div className="flex items-center space-x-2 text-textSecondary">
@@ -90,7 +90,7 @@ export default function HeroEngagementCard() {
       {/* Footer Attestation details */}
       <div className="border-t border-border/60 bg-black/10 px-6 py-4 flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-textSecondary">
         <span className="flex items-center gap-1.5">
-          <Calendar size={12} className="text-primary" /> Audit Scheduled: June 2026
+          <Calendar size={12} className="text-primary" /> Scenario Scope: Illustrative Model
         </span>
         <span className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
           Intake Document <ArrowUpRight size={10} />

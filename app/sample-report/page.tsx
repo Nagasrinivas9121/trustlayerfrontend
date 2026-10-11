@@ -97,14 +97,32 @@ export default function SampleReportPage() {
 
         <div className="mb-12">
           <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-widest mb-4">
-            <span>Illustrative Deliverable Sample</span>
+            <span>Illustrative Deliverable Sample • Complete 46-Page Report</span>
           </div>
           <h1 className="heading-1 mb-6 text-textPrimary font-extrabold tracking-tight">
             Illustrative Sample <span className="text-primary">Security Assessment Report</span>
           </h1>
-          <p className="body-text text-base max-w-3xl text-textSecondary leading-relaxed font-sans">
-            Examine the structure, CVSS scoring criteria, proof-of-concept breakdown, and developer remediation code guidance delivered in a TrustLayerLabs security assessment.
+          <p className="body-text text-base max-w-3xl text-textSecondary leading-relaxed font-sans mb-6">
+            Examine the structure, CVSS scoring criteria, proof-of-concept breakdown, and developer remediation code guidance delivered in a TrustLayerLabs security assessment. Complete 46-page audit-grade PDF bundle covering API, SaaS multi-tenancy, and AI/RAG security.
           </p>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="/trustlayerlabs-sample-vapt-report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-sm transition-colors"
+            >
+              <FileText size={14} /> Open 46-Page PDF in Browser
+            </a>
+            <a
+              href="/trustlayerlabs-sample-vapt-report.pdf"
+              download="trustlayerlabs-sample-vapt-report.pdf"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary font-bold text-xs uppercase tracking-wider rounded-full shadow-sm transition-colors"
+            >
+              <Download size={14} /> Direct PDF Download (1.1 MB)
+            </a>
+          </div>
         </div>
 
         {/* Embedded Interactive Preview */}
@@ -116,10 +134,10 @@ export default function SampleReportPage() {
             <FileText size={24} />
           </div>
           <h3 className="text-xl font-bold text-textPrimary font-sans">
-            Download Sample PDF Report Bundle
+            Download 46-Page Sample PDF Report Bundle
           </h3>
           <p className="text-xs text-textSecondary leading-relaxed max-w-xl mx-auto font-sans">
-            Need to review the format and technical depth of our deliverables with your engineering or compliance team? Enter your email to download the illustrative sample PDF report.
+            Review the full formatting and technical depth of our deliverables with your engineering or compliance team. Enter your work email below to download the official 46-page sample deliverable bundle.
           </p>
 
           {downloaded ? (

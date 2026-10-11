@@ -34,7 +34,18 @@ export default function Founder() {
             >
               <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
               
-              <div className="absolute top-4 right-4 z-20">
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5">
+                {(member as any).certificateUrl && (
+                  <a
+                    href={(member as any).certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[9px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded hover:bg-blue-100 transition-colors"
+                    title="View Verified ISO/IEC 27001 Lead Auditor Certificate"
+                  >
+                    Certificate ↗
+                  </a>
+                )}
                 <a 
                   href={member.linkedin} 
                   target="_blank" 

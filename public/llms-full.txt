@@ -53,17 +53,19 @@ Clients receive an Executive Summary, a Detailed Technical Report with CVSS scor
 
 ---
 
-## Founder & Leadership Profile
-- **Founder**: Nagasrinivasa Rao
-- **Role**: Founder & Lead Security Architect at TrustLayerLabs
-- **Specializations**: Manual Web Application Security, API Penetration Testing, VAPT Specialist
-- **Experience**: Conducting offensive security audits, application security reviews, and API penetration testing for SaaS and FinTech companies.
+## Team & Verified Credentials Profile
+- **Founder & Lead Security Architect**: Nagasrinivasa Rao (IIT Guwahati) — Holds OSCP and CEH credentials; specializes in manual API penetration testing, authorization logic, and BOLA flaws.
+- **Co-Founder & GRC Lead**: Ramineni Teja (VIT Bhopal) — Certified ISO/IEC 27001 Lead Auditor; specializes in ISO 27001 control mapping, SOC 2 readiness, and security governance.
+- **Security Engineer & VAPT Consultant**: Nayansi Anand (VIT Bhopal) — Certified in CEH; specializes in manual web application security testing and OWASP Top 10 vulnerabilities.
+- **Operations & Engagement Lead**: Muskan Jha (VIT Bhopal) — Coordinates scoping reviews, mutual NDAs, and engagement scheduling.
 - **Profile URL**: https://www.trustlayerlabs.co.in/about
 
 ---
 
 ## Operations & Contacts
-- **Operations**: Distributed offensive security team serving clients across Bangalore, Hyderabad, and India
+- **Operations**: Distributed offensive security team providing remote-first security assessments across India and globally
+- **Client Engagement Status**: TrustLayerLabs is currently onboarding foundational clients; public reports and scenarios are strictly illustrative research examples
+- **Physical Office**: No physical office advertised; operations are strictly remote-first
 - **Business Registration**: MSME / Udyam Registered Micro Enterprise (Govt. of India: UDYAM-AP-21-0044317) under Mutual NDA Protocols
 - **Email**: ceo@trustlayerlabs.co.in
 - **Phone / WhatsApp**: +91-9391220328

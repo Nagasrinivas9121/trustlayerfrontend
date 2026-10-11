@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" width="512" height="512" viewBox="0 0 512 512">
+  <title>TrustLayerLabs Logo</title>
+  <rect width="512" height="512" fill="#FFFFFF"/>
+  <polygon points="187.7,106.0 339.43,109.03 272.86,181.22 231.36,223.15 231.36,337.7 176.03,398.65 176.46,197.64 109.03,196.35" fill="#0B0F19"/>
+  <polygon points="338.56,145.77 339.43,335.11 402.97,336.4 402.11,406.0 275.88,405.14 275.88,215.37" fill="#0B0F19"/>
+  <polygon points="238.71,231.79 266.37,260.76 266.37,399.95 238.28,369.26" fill="#0066FF"/>
+</svg>

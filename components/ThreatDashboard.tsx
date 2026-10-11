@@ -31,7 +31,7 @@ export default function ThreatDashboard() {
       type: "Public Policy Misconfig",
       severity: "high",
       time: "19:41:05",
-      message: "Access policies updated to public-read for client archive folder"
+      message: "Access policies updated to public-read for tenant archive folder"
     },
     {
       id: "3",
@@ -75,7 +75,7 @@ export default function ThreatDashboard() {
           </div>
           <div>
             <h3 className="text-sm font-bold text-white tracking-wide uppercase">TrustLayer Threat Portal</h3>
-            <p className="text-[11px] text-textSecondary uppercase font-mono tracking-widest mt-0.5">Console: Active Scopes</p>
+            <p className="text-[11px] text-textSecondary uppercase font-mono tracking-widest mt-0.5">Console: Research Telemetry</p>
           </div>
         </div>
 
