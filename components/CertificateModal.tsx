@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Image from "next/image";
 import { FileCheck, ExternalLink, X, ShieldCheck } from "lucide-react";
 
 interface CertificateModalProps {
@@ -94,9 +95,11 @@ export default function CertificateModal({ isOpen, onClose }: CertificateModalPr
         {/* Modal Image Body */}
         <div className="p-4 sm:p-6 overflow-y-auto flex-1 flex justify-center bg-black/60 items-center">
           <div className="relative w-full max-w-lg border border-border/80 rounded-xl overflow-hidden shadow-2xl bg-white">
-            <img
+            <Image
               src={certData.src}
               alt={certData.title}
+              width={700}
+              height={980}
               className="w-full h-auto object-contain cursor-zoom-in"
               onClick={() => window.open(certData.src, "_blank")}
             />

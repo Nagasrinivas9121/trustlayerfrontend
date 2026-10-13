@@ -25,14 +25,14 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "FinTech VAPT & Payment API Security Testing",
-  description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
+  title: "FinTech VAPT Services & Payment API Security Testing",
+  description: "Manual FinTech VAPT services for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/fintech-security",
   },
   openGraph: {
-    title: "FinTech VAPT & Payment API Security Testing | TrustLayerLabs",
-    description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
+    title: "FinTech VAPT Services & Payment API Security Testing | TrustLayerLabs",
+    description: "Manual FinTech VAPT services for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
     url: "https://www.trustlayerlabs.co.in/fintech-security",
     siteName: "TrustLayerLabs",
     locale: "en_IN",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FinTech VAPT & Payment API Security Testing | TrustLayerLabs",
-    description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
+    title: "FinTech VAPT Services & Payment API Security Testing | TrustLayerLabs",
+    description: "Manual FinTech VAPT services for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, ledger race conditions & free retest.",
   },
 };
 
@@ -280,6 +280,18 @@ export default function FinTechSecurityPage() {
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
           { "@type": "ListItem", "position": 2, "name": "FinTech Security", "item": "https://www.trustlayerlabs.co.in/fintech-security" }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.trustlayerlabs.co.in/fintech-security#faq",
+        "mainEntity": faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
       }
     ]
   };

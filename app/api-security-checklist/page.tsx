@@ -4,10 +4,23 @@ import { ArrowLeft, CheckSquare, Download, Shield, Code, CheckCircle } from "luc
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "API Security Checklist 2026",
-  description: "Comprehensive 2026 API Security Checklist covering BOLA, JWT authentication, CORS, rate limiting, and OWASP API Top 10 vulnerabilities.",
+  title: "API Security Checklist 2026 (OWASP Top 10 & BOLA)",
+  description: "Free 2026 API Security Checklist for developers & startups. Audit REST, GraphQL & gRPC endpoints for BOLA, broken authentication, rate limits, and OWASP API Top 10.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/api-security-checklist",
+  },
+  openGraph: {
+    title: "API Security Checklist 2026 (OWASP Top 10 & BOLA) | TrustLayerLabs",
+    description: "Free 2026 API Security Checklist for developers & startups. Audit REST, GraphQL & gRPC endpoints for BOLA, broken authentication, rate limits, and OWASP API Top 10.",
+    url: "https://www.trustlayerlabs.co.in/api-security-checklist",
+    siteName: "TrustLayerLabs",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "API Security Checklist 2026 (OWASP Top 10 & BOLA) | TrustLayerLabs",
+    description: "Free 2026 API Security Checklist for developers & startups. Audit REST, GraphQL & gRPC endpoints for BOLA, broken authentication, rate limits, and OWASP API Top 10.",
   },
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, ShieldCheck, Lock, FileText, CheckCircle } from "lucide-react";
+import { ArrowLeft, ShieldCheck, Lock, FileText, CheckCircle, Calendar, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
@@ -68,10 +68,37 @@ export default function NdaProcessPage() {
           </div>
         </div>
 
-        <div className="mt-12 p-6 bg-surface/50 border border-border rounded-xl text-center space-y-3">
-          <p className="text-xs text-textSecondary">
-            Need an NDA executed prior to your scoping call? Contact our team directly at{" "}
-            <ObfuscatedEmailLink className="text-primary underline" />.
+        {/* Conversion CTA Block */}
+        <div className="mt-14 p-8 bg-surface border border-border/80 rounded-2xl text-center space-y-5 shadow-sm relative overflow-hidden">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
+            <ShieldCheck size={12} className="text-primary" />
+            <span>Confidential Scoping & Written Authorization</span>
+          </div>
+          <h3 className="text-xl font-bold text-textPrimary font-sans">
+            Ready to Scope Your Assessment Under NDA?
+          </h3>
+          <p className="text-xs text-textSecondary max-w-xl mx-auto leading-relaxed font-sans">
+            Schedule a 30-minute confidential scoping conversation with our lead security architects. We will sign your NDA or provide our standard mutual NDA before reviewing any architecture documentation.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
+            <Link
+              href="/free-assessment"
+              className="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-xs uppercase tracking-wider font-sans rounded-full shadow-sm transition-all flex items-center gap-2"
+            >
+              <Calendar className="w-3.5 h-3.5" />
+              <span>Get a Free Security Review</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
+              href="/sample-report"
+              className="px-6 py-2.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary font-semibold text-xs uppercase tracking-wider font-sans rounded-full shadow-sm transition-all"
+            >
+              View Sample Report
+            </Link>
+          </div>
+          <p className="text-[11px] text-textSecondary font-sans pt-2">
+            Need an NDA executed prior to your scoping call? Email us directly at{" "}
+            <ObfuscatedEmailLink className="text-primary font-semibold underline" />.
           </p>
         </div>
       </div>

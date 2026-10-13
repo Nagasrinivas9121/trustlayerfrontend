@@ -169,14 +169,27 @@ function FreeAssessmentContent() {
           For B2B SaaS, API and AI product teams preparing for enterprise deals, audits, or launch.
         </p>
 
-        {/* Section 15 Explicit Commercial Framing Banner */}
-        <div className="p-4 bg-surface border border-border/80 rounded-2xl max-w-xl mx-auto text-left shadow-sm">
-          <p className="text-xs text-textSecondary leading-relaxed font-sans">
-            <strong className="text-textPrimary font-semibold block mb-1">
-              Important scoping notice:
-            </strong>
-            This is a confidential 30-minute security review—not a free penetration test. We&apos;ll understand your product, architecture, current testing, security objective and likely assessment scope. If there is a fit, we&apos;ll recommend an appropriate paid assessment.
-          </p>
+        {/* Scoping Review & Pilot Information Banner */}
+        <div className="p-4 sm:p-5 bg-surface border border-border/80 rounded-2xl max-w-xl mx-auto text-left shadow-sm space-y-3">
+          <div>
+            <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider block mb-0.5">
+              Standard Scoping Review
+            </span>
+            <p className="text-xs text-textSecondary leading-relaxed font-sans">
+              A confidential 30-minute security review under mutual NDA. We understand your architecture, threat model, and assessment objectives to recommend an appropriate fixed-scope engagement.
+            </p>
+          </div>
+          <div className="pt-2.5 border-t border-border/60">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                Limited-Scope Pilot Assessment (3 Startup Slots)
+              </span>
+            </div>
+            <p className="text-xs text-textSecondary leading-relaxed font-sans">
+              For qualifying early-stage B2B SaaS and AI product startups, we are conducting 3 free, limited-scope API security pilots (2–3 critical endpoints tested for BOLA/IDOR and auth bypass under mutual written authorization). Select the pilot trigger below to apply.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -381,6 +394,7 @@ function FreeAssessmentContent() {
                   onChange={(e) => setFormData({...formData, promptTrigger: e.target.value})}
                   className="w-full bg-background border border-border/80 hover:border-zinc-400 focus:border-primary rounded-lg px-3.5 py-2.5 text-xs text-textPrimary focus:outline-none transition-all"
                 >
+                  <option value="Applying for 3-Slot Free API Security Pilot">Applying for 3-Slot Free API Security Pilot</option>
                   <option value="Enterprise customer security review">Enterprise customer security review</option>
                   <option value="Production launch">Production launch</option>
                   <option value="Architecture change">Architecture change</option>

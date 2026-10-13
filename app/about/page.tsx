@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Shield, ShieldCheck, Target, Linkedin } from "lucide-react";
 import TransparencyVerdict from "@/components/TransparencyVerdict";
 import { TEAM } from "@/lib/constants";
@@ -249,9 +250,11 @@ export default function AboutPage() {
                   className="group relative block w-full max-w-sm rounded-xl overflow-hidden border-2 border-border/80 hover:border-primary/60 transition-all shadow-md bg-white"
                   title="Click to view full certificate"
                 >
-                  <img
+                  <Image
                     src="/trustlayerlabs-udyam-registration-certificate.jpg"
                     alt="Official Udyam Registration Certificate - TRUSTLAYER LABS (UDYAM-AP-21-0044317)"
+                    width={400}
+                    height={560}
                     className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors flex items-center justify-center pointer-events-none">

@@ -145,6 +145,12 @@ export default function RootLayout({
       "Cloud Security",
       "GRC",
       "OWASP",
+      "SaaS Multi-Tenant Isolation",
+      "BOLA / IDOR Testing",
+      "AI & LLM Security Testing",
+      "RAG Application Security",
+      "FinTech Security",
+      "Business Logic Vulnerability Assessment",
     ],
     "sameAs": [
       "https://www.linkedin.com/company/trustlayerlabs1/",
@@ -158,7 +164,7 @@ export default function RootLayout({
       "url": "https://www.trustlayerlabs.co.in/about",
       "alumniOf": "IIT Guwahati",
       "hasCredential": ["OSCP", "CEH"],
-      "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP"],
+      "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP", "AI Security", "BOLA / IDOR Testing", "SaaS Multi-Tenancy"],
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -170,6 +176,30 @@ export default function RootLayout({
             "@type": "Service",
             "name": "API Penetration Testing",
             "description": "Manual OWASP API Top 10 testing, BOLA/IDOR detection, JWT abuse, and authorization boundary validation.",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SaaS Multi-Tenant Isolation & Authorization Testing",
+            "description": "Manual security testing evaluating tenant isolation boundaries, BOLA/IDOR vulnerabilities, and cross-tenant privilege escalation in multi-tenant SaaS architectures.",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI & RAG Application Security Testing",
+            "description": "Security testing for generative AI applications, RAG pipelines, vector database access controls, prompt injection defenses, and enterprise data exposure.",
+          },
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "FinTech Security Assessment & VAPT",
+            "description": "Specialized FinTech penetration testing covering payment gateways, transaction integrity, banking APIs, authentication boundaries, and regulatory compliance.",
           },
         },
         {
@@ -208,7 +238,7 @@ export default function RootLayout({
     "name": "TrustLayerLabs",
     "description": "API Security Testing & VAPT for SaaS & AI Startups in India",
     "publisher": { 
-      "@type": "Organization",
+      "@type": "Organization", 
       "@id": "https://www.trustlayerlabs.co.in/#organization" 
     },
     "datePublished": "2024-01-15T00:00:00+05:30",
@@ -228,6 +258,7 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/symbol.png?v=4" />
         <link rel="shortcut icon" href="/favicon.ico?v=4" />
         <link rel="apple-touch-icon" href="/symbol.png?v=4" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.trustlayerlabs.co.in/sitemap.xml" />
         <link rel="help" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />

@@ -3,7 +3,8 @@ import { SERVICES } from "@/lib/constants";
 
 export default function sitemap() {
   const baseUrl = "https://www.trustlayerlabs.co.in";
-  const now = new Date();
+  // Use stable release timestamp rather than dynamic new Date() to preserve crawler cache
+  const siteReleaseDate = new Date("2026-10-13T00:00:00.000Z");
 
   // Core static pages (excluding individual service pages)
   const coreStaticPages = [
@@ -36,7 +37,7 @@ export default function sitemap() {
 
   const coreUrls = coreStaticPages.map((page) => ({
     url: `${baseUrl}${page.url}`,
-    lastModified: now,
+    lastModified: siteReleaseDate,
     changeFrequency: page.frequency,
     priority: page.priority,
   }));
@@ -46,19 +47,28 @@ export default function sitemap() {
     const priority = service.severity === "critical" ? 0.9 : 0.85;
     return {
       url: `${baseUrl}/services/${service.slug}`,
-      lastModified: now,
+      lastModified: siteReleaseDate,
       changeFrequency: "weekly",
       priority: priority,
     };
   });
 
   // Blog pages
-  const blogUrls = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.65,
-  }));
+  const blogUrls = blogPosts.map((post) => {
+    let postDate = siteReleaseDate;
+    if (post.date) {
+      const parsed = new Date(post.date);
+      if (!isNaN(parsed.getTime())) {
+        postDate = parsed;
+      }
+    }
+    return {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: postDate,
+      changeFrequency: "monthly",
+      priority: 0.65,
+    };
+  });
 
   return [...coreUrls, ...serviceUrls, ...blogUrls];
 }
