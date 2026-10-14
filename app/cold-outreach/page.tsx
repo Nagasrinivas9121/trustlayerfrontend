@@ -34,7 +34,7 @@ export default function ColdOutreachPage() {
                 target="_blank"
                 className="bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans tracking-wider font-semibold py-3.5 px-8 rounded-full flex items-center gap-1.5 shadow-md transition-all active:scale-[0.98]"
               >
-                Claim Free Snapshot <ArrowRight size={14} />
+                Request Free Pilot Scope <ArrowRight size={14} />
               </Link>
               <Link 
                 href="/contact" 
