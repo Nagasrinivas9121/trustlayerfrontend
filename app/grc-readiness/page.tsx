@@ -90,18 +90,59 @@ const grcSteps = [
   }
 ];
 
+const grcFaqs = [
+  {
+    q: "What is the difference between GRC advisory and an accredited certification audit?",
+    a: "TrustLayerLabs provides technical readiness advisory, control gap analysis, and penetration testing. We prepare your infrastructure and policies for the audit, but formal SOC 2 reports are issued by AICPA-accredited CPA firms, and ISO 27001 certifications are issued by accredited certification bodies (CBs)."
+  },
+  {
+    q: "How long does it typically take a startup to become SOC 2 Type II ready?",
+    a: "Initial control mapping and gap remediation typically takes 2 to 4 weeks. Following remediation, the mandatory observation period (auditing period) for SOC 2 Type II runs between 3 to 6 months to evaluate operating effectiveness."
+  },
+  {
+    q: "Do you provide the required manual penetration testing for SOC 2 and ISO 27001?",
+    a: "Yes. Both SOC 2 Trust Services Criteria (CC4.1, CC7.1) and ISO/IEC 27001 (Control A.8.8) require periodic technical vulnerability assessments and penetration testing. TrustLayerLabs delivers manual VAPT reports and signed executive attestation letters specifically accepted by Tier-1 auditors."
+  },
+  {
+    q: "Can TrustLayerLabs assist with completing enterprise vendor security questionnaires?",
+    a: "Yes. We support technical founders and engineering leadership in responding to complex 100+ question SIG, CAIQ, and custom enterprise security questionnaires, ensuring answers accurately reflect your implemented technical controls."
+  }
+];
+
 export default function GrcReadinessPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "GRC & Enterprise Security Readiness",
-    "provider": {
-      "@type": "Organization",
-      "name": "TrustLayerLabs",
-      "url": "https://www.trustlayerlabs.co.in"
-    },
-    "description": "SOC 2 Type II, ISO 27001 readiness advisory, security policy development, and technical controls mapping.",
-    "serviceType": "Cybersecurity Governance, Risk & Compliance Advisory"
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.trustlayerlabs.co.in/grc-readiness#service",
+        "name": "GRC & Enterprise Security Readiness",
+        "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
+        "description": "SOC 2 Type II, ISO 27001 readiness advisory, security policy development, and technical controls mapping.",
+        "serviceType": "Cybersecurity Governance, Risk & Compliance Advisory",
+        "areaServed": ["India", "Global"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.trustlayerlabs.co.in/grc-readiness#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "GRC Readiness", "item": "https://www.trustlayerlabs.co.in/grc-readiness" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.trustlayerlabs.co.in/grc-readiness#faq",
+        "mainEntity": grcFaqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      }
+    ]
   };
 
   return (
@@ -237,6 +278,30 @@ export default function GrcReadinessPage() {
                 <p className="text-xs text-textSecondary leading-relaxed font-sans">
                   {step.desc}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Technical GRC FAQ Section */}
+        <div className="py-16 border-t border-border">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
+              <span>Compliance Knowledge Base</span>
+            </div>
+            <h2 className="heading-2 font-sans mb-3">
+              Frequently Asked <span className="text-primary">GRC & Readiness Questions</span>
+            </h2>
+            <p className="body-text text-textSecondary font-sans">
+              Key questions engineering and leadership teams ask when preparing for enterprise security reviews and audits.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {grcFaqs.map((faq, i) => (
+              <div key={i} className="p-6 bg-surface border border-border rounded-2xl space-y-2 shadow-sm">
+                <h3 className="text-sm font-bold text-textPrimary font-sans">{faq.q}</h3>
+                <p className="text-xs text-textSecondary leading-relaxed font-sans">{faq.a}</p>
               </div>
             ))}
           </div>

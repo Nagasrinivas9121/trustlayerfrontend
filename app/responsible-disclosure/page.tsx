@@ -13,8 +13,34 @@ export const metadata: Metadata = {
 };
 
 export default function ResponsibleDisclosurePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.trustlayerlabs.co.in/responsible-disclosure#webpage",
+        "url": "https://www.trustlayerlabs.co.in/responsible-disclosure",
+        "name": "Responsible Disclosure Policy | TrustLayerLabs",
+        "description": "TrustLayerLabs Vulnerability Disclosure Policy. How security researchers can report potential vulnerabilities safely and responsibly.",
+        "isPartOf": { "@id": "https://www.trustlayerlabs.co.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.trustlayerlabs.co.in/responsible-disclosure#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "Responsible Disclosure", "item": "https://www.trustlayerlabs.co.in/responsible-disclosure" }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="section-container max-w-4xl mx-auto">
         <Link 
           href="/" 

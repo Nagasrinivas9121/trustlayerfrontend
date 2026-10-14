@@ -11,8 +11,34 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.trustlayerlabs.co.in/terms#webpage",
+        "url": "https://www.trustlayerlabs.co.in/terms",
+        "name": "Terms of Service | TrustLayerLabs",
+        "description": "Terms of service, rules of engagement, and scoping agreements for TrustLayerLabs manual VAPT and GRC consulting engagements.",
+        "isPartOf": { "@id": "https://www.trustlayerlabs.co.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.trustlayerlabs.co.in/terms#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://www.trustlayerlabs.co.in/terms" }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="bg-background min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="pt-32 pb-24 font-sans text-textPrimary">
         <div className="section-container max-w-4xl">
           

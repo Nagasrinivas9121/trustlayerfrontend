@@ -17,5 +17,35 @@ export const metadata: Metadata = {
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.trustlayerlabs.co.in/about#aboutpage",
+        "url": "https://www.trustlayerlabs.co.in/about",
+        "name": "About Our Security Team & Leadership | TrustLayerLabs",
+        "description": "Meet the offensive security practitioners behind TrustLayerLabs, specializing in manual API penetration testing, SaaS VAPT, and compliance readiness.",
+        "isPartOf": { "@id": "https://www.trustlayerlabs.co.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.trustlayerlabs.co.in/about#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.trustlayerlabs.co.in/about" }
+        ]
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

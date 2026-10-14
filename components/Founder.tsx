@@ -39,7 +39,8 @@ export default function Founder() {
                   <a
                     href={(member as any).certificateUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
+                    download
                     className="text-[9px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded hover:bg-blue-100 transition-colors"
                     title="View Verified ISO/IEC 27001 Lead Auditor Certificate"
                   >

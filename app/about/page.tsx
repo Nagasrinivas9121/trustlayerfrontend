@@ -93,7 +93,8 @@ export default function AboutPage() {
                           <a 
                             href={(member as any).certificateUrl} 
                             target="_blank" 
-                            rel="noopener noreferrer" 
+                            rel="nofollow noopener noreferrer" 
+                            download
                             className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0"
                             title="Verify ISO/IEC 27001 Lead Auditor Certificate"
                           >

@@ -11,8 +11,34 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.trustlayerlabs.co.in/privacy#webpage",
+        "url": "https://www.trustlayerlabs.co.in/privacy",
+        "name": "Privacy Policy | TrustLayerLabs",
+        "description": "TrustLayerLabs privacy policy and data protection commitments for security testing client engagements and vulnerability assessment data.",
+        "isPartOf": { "@id": "https://www.trustlayerlabs.co.in/#website" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.trustlayerlabs.co.in/privacy#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://www.trustlayerlabs.co.in/privacy" }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="bg-background min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="pt-32 pb-24 font-sans text-textPrimary">
         <div className="section-container max-w-4xl">
           
