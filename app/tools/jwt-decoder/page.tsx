@@ -516,12 +516,60 @@ export default function JwtDecoderPage() {
           </div>
         </div>
 
+        {/* Comprehensive JWT Security Engineering Guide */}
+        <div className="mt-16 p-8 bg-surface border border-border rounded-2xl shadow-sm space-y-6">
+          <h2 className="text-xl font-bold text-textPrimary font-sans tracking-tight">
+            JWT Security Best Practices for Backend & API Engineering
+          </h2>
+          <p className="text-xs text-textSecondary leading-relaxed font-sans">
+            JSON Web Tokens (RFC 7519) are the standard for stateless authentication in modern microservices and single-page applications. However, architectural misconfigurations frequently introduce critical privilege escalation and token forgery vulnerabilities. Follow these essential defense-in-depth principles:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
+              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
+                1. Prevent Asymmetric Algorithm Confusion (RS256 vs HS256)
+              </h3>
+              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
+                Never rely on the token header&apos;s <code className="font-mono text-primary">&quot;alg&quot;</code> property to determine which verification algorithm to execute. If a server expects RS256 (RSA public key) but uses a library that naively trusts the header, an attacker can re-sign a malicious token using HMAC-SHA256 with the public RSA key as the HMAC secret, completely bypassing authentication.
+              </p>
+            </div>
+
+            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
+              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
+                2. Enforce Ephemeral Lifespans & Refresh Token Rotation
+              </h3>
+              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
+                Stateless access tokens cannot be revoked without maintaining a stateful blacklist. Restrict access token time-to-live (TTL) to a maximum of 10 to 15 minutes. Pair short-lived tokens with rotating refresh tokens stored exclusively in secure, HTTP-Only, SameSite=Strict cookies to protect against Cross-Site Scripting (XSS).
+              </p>
+            </div>
+
+            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
+              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
+                3. Couple Claims with Database Tenant Verification (BOLA Defense)
+              </h3>
+              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
+                A valid JWT proves identity, but does not inherently guarantee authorization to every requested resource. Backend resolvers must always verify that the <code className="font-mono text-primary">tenant_id</code> or <code className="font-mono text-primary">account_id</code> claim embedded in the token matches the requested resource in the database before returning data.
+              </p>
+            </div>
+
+            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
+              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
+                4. Strict Signature Secret Entropy
+              </h3>
+              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
+                For symmetric HS256/HS512 signatures, ensure the secret key contains at least 256 bits of cryptographically secure random entropy. Weak or guessable passphrases can be cracked offline in seconds using tools like Hashcat or John the Ripper.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Deeper Assessment CTA Card */}
-        <div className="mt-16 p-8 bg-surface border border-border rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="mt-12 p-8 bg-surface border border-border rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1.5 text-center md:text-left">
-            <h4 className="text-base font-bold text-textPrimary uppercase tracking-wider font-sans">
+            <h2 className="text-base font-bold text-textPrimary uppercase tracking-wider font-sans">
               Need a Deeper Authentication Review?
-            </h4>
+            </h2>
             <p className="text-xs text-textSecondary font-sans max-w-xl">
               Automated token decoding is only step one. Our lead practitioners manually audit token issuance flows, authorization parameters, multi-tenant boundaries, and session lifecycles.
             </p>

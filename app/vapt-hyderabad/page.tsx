@@ -56,11 +56,11 @@ export default function VaptHyderabad() {
           
           <div className="bg-surface border border-border p-8 rounded-2xl space-y-4 flex flex-col justify-between shadow-sm">
             <div>
-              <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans">
+              <h2 className="text-base font-bold text-textPrimary tracking-tight font-sans">
                 Practitioner-Led Assessments
-              </h3>
+              </h2>
               <p className="text-xs text-textSecondary leading-relaxed mt-2 font-sans">
-                Our distributed offensive security team supports engineering organizations in Hyderabad. We offer rapid scoping intake, mutual NDA turnaround, and collaborative remote developer debrief sessions.
+                Our distributed offensive security team supports engineering organizations in Hyderabad. We offer rapid scoping intake, mutual NDA turnaround, and collaborative remote developer debrief sessions, providing actionable code-level fixes and vulnerability PoCs.
               </p>
             </div>
             
@@ -71,11 +71,11 @@ export default function VaptHyderabad() {
 
           <div className="bg-surface border border-border p-8 rounded-2xl space-y-4 flex flex-col justify-between shadow-sm">
             <div>
-              <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans text-primary">
+              <h2 className="text-base font-bold text-textPrimary tracking-tight font-sans text-primary">
                 Why TrustLayerLabs?
-              </h3>
+              </h2>
               <p className="text-xs text-textSecondary leading-relaxed mt-2 font-sans">
-                Modern enterprise portals and APIs demand thorough human verification. Automated tools miss authorization flaws and business logic bugs. Our practitioners manually test every critical vector.
+                Modern enterprise portals and APIs demand thorough human verification. Automated tools miss authorization flaws and business logic bugs. Our practitioners manually test every critical vector, simulating real-world attacker tradecraft.
               </p>
             </div>
 
@@ -87,20 +87,55 @@ export default function VaptHyderabad() {
 
         </div>
 
+        {/* Regional Tech Ecosystem Context */}
+        <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-8 shadow-sm">
+          <h2 className="text-xl font-bold text-textPrimary tracking-tight font-sans mb-4">
+            Security Verification for Hyderabad&apos;s Tech & HealthTech Hub
+          </h2>
+          <p className="text-xs text-textSecondary leading-relaxed font-sans mb-4">
+            Across HITEC City, Gachibowli, and the Financial District, Hyderabad&apos;s technology ecosystem is expanding rapidly in HealthTech, life sciences software, and enterprise SaaS. Protecting sensitive patient records and confidential financial transactions requires stringent, verified defense mechanisms.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">
+              <h3 className="text-xs font-bold text-textPrimary font-sans">HealthTech & HIPAA</h3>
+              <p className="text-[11px] text-textSecondary font-sans">
+                Comprehensive audits of electronic health records (EHR) APIs, patient data portals, and HIPAA/DPDP Act 2023 compliance controls.
+              </p>
+            </div>
+            <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">
+              <h3 className="text-xs font-bold text-textPrimary font-sans">Mobile App Testing</h3>
+              <p className="text-[11px] text-textSecondary font-sans">
+                Deep static and dynamic analysis (SAST/DAST) of iOS and Android client binaries, root/jailbreak detection, and secure local storage.
+              </p>
+            </div>
+            <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">
+              <h3 className="text-xs font-bold text-textPrimary font-sans">Enterprise Attestation</h3>
+              <p className="text-[11px] text-textSecondary font-sans">
+                Formal security assessment reports and third-party auditor attestation letters accepted by global healthcare and enterprise buyers.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Cross Links */}
-        <div className="my-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <Link href="/services/api-security" className="p-5 bg-surface border border-border rounded-xl hover:border-primary/50 transition-colors">
-            <h4 className="text-xs font-bold text-textPrimary uppercase font-sans mb-1">API Security Testing →</h4>
-            <p className="text-[11px] text-textSecondary">BOLA, BFLA & JWT penetration testing.</p>
-          </Link>
-          <Link href="/services/mobile-vapt" className="p-5 bg-surface border border-border rounded-xl hover:border-primary/50 transition-colors">
-            <h4 className="text-xs font-bold text-textPrimary uppercase font-sans mb-1">Mobile App VAPT →</h4>
-            <p className="text-[11px] text-textSecondary">iOS & Android client and API assessments.</p>
-          </Link>
-          <Link href="/grc-readiness" className="p-5 bg-surface border border-border rounded-xl hover:border-primary/50 transition-colors">
-            <h4 className="text-xs font-bold text-textPrimary uppercase font-sans mb-1">SOC 2 & ISO Readiness →</h4>
-            <p className="text-[11px] text-textSecondary">Technical controls mapping & advisory.</p>
-          </Link>
+        <div className="my-12">
+          <h2 className="text-sm font-bold text-textPrimary uppercase tracking-wider font-sans mb-4">
+            Core Assessment Capabilities
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href="/services/api-security" className="p-5 bg-surface border border-border rounded-xl hover:border-primary/50 transition-colors">
+              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans mb-1">API Security Testing →</h3>
+              <p className="text-[11px] text-textSecondary">BOLA, BFLA & JWT penetration testing.</p>
+            </Link>
+            <Link href="/services/mobile-vapt" className="p-5 bg-surface border border-border rounded-xl hover:border-primary/50 transition-colors">
+              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans mb-1">Mobile App VAPT →</h3>
+              <p className="text-[11px] text-textSecondary">iOS & Android client and API assessments.</p>
+            </Link>
+            <Link href="/grc-readiness" className="p-5 bg-surface border border-border rounded-xl hover:border-primary/50 transition-colors">
+              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans mb-1">SOC 2 & ISO Readiness →</h3>
+              <p className="text-[11px] text-textSecondary">Technical controls mapping & advisory.</p>
+            </Link>
+          </div>
         </div>
 
       </div>

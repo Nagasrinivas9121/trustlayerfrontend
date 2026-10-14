@@ -29,7 +29,7 @@ import {
   getUtmAttribution
 } from "@/lib/analytics";
 
-function FreeAssessmentContent() {
+function FreeAssessmentForm() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -143,101 +143,7 @@ function FreeAssessmentContent() {
   };
 
   return (
-    <div className="section-container max-w-2xl mx-auto px-4 relative z-10">
-      
-      {/* Back Link */}
-      <Link 
-        href="/" 
-        className="inline-flex items-center text-xs uppercase tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group"
-      >
-        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
-        Back to Home
-      </Link>
-
-      {/* Heading & CRO Framing */}
-      <div className="mb-10 text-center space-y-4">
-        <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
-          <ShieldCheck size={12} className="text-primary" />
-          <span>30-Minute Confidential Conversation • Mutual NDA Upfront</span>
-        </div>
-        
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight font-sans">
-          Get a Free <span className="text-primary">Security Review</span>
-        </h1>
-        
-        <p className="text-sm font-semibold text-textPrimary max-w-md mx-auto font-sans">
-          For B2B SaaS, API and AI product teams preparing for enterprise deals, audits, or launch.
-        </p>
-
-        {/* Scoping Review & Pilot Information Banner */}
-        <div className="p-4 sm:p-5 bg-surface border border-border/80 rounded-2xl max-w-xl mx-auto text-left shadow-sm space-y-3">
-          <div>
-            <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider block mb-0.5">
-              Standard Scoping Review
-            </span>
-            <p className="text-xs text-textSecondary leading-relaxed font-sans">
-              A confidential 30-minute security review under mutual NDA. We understand your architecture, threat model, and assessment objectives to recommend an appropriate fixed-scope engagement.
-            </p>
-          </div>
-          <div className="pt-2.5 border-t border-border/60">
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
-                Limited-Scope Pilot Assessment (3 Startup Slots)
-              </span>
-            </div>
-            <p className="text-xs text-textSecondary leading-relaxed font-sans">
-              For qualifying early-stage B2B SaaS and AI product startups, we are conducting 3 free, limited-scope API security pilots (2–3 critical endpoints tested for BOLA/IDOR and auth bypass under mutual written authorization). Select the pilot trigger below to apply.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* The 4-Step Breakdown of What to Expect */}
-      <div className="mb-8 p-5 bg-surface border border-border/80 rounded-2xl shadow-sm space-y-4">
-        <div className="text-[11px] font-mono font-bold text-textPrimary uppercase tracking-wider flex items-center gap-1.5">
-          <Clock size={14} className="text-primary" />
-          <span>What Happens In Your 30-Minute Review:</span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono font-bold text-primary uppercase block">01 • Mutual NDA</span>
-            <p className="text-textSecondary leading-relaxed">
-              We execute a standard mutual NDA upfront so your product architecture remains strictly confidential.
-            </p>
-          </div>
-
-          <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono font-bold text-primary uppercase block">02 • Architecture Scoping</span>
-            <p className="text-textSecondary leading-relaxed">
-              We review your authorization model (JWT/OAuth), multi-tenant isolation, API endpoints, and data flows.
-            </p>
-          </div>
-
-          <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono font-bold text-primary uppercase block">03 • Risk Prioritization</span>
-            <p className="text-textSecondary leading-relaxed">
-              Pinpoint high-impact vulnerabilities automated scanners miss (BOLA, tenant leaks, workflow logic).
-            </p>
-          </div>
-
-          <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
-            <span className="text-[10px] font-mono font-bold text-primary uppercase block">04 • Transparent Scope</span>
-            <p className="text-textSecondary leading-relaxed">
-              If there is a fit, we recommend the smallest appropriate paid assessment with a fixed scope within 24 hours.
-            </p>
-          </div>
-        </div>
-
-        <div className="pt-2 border-t border-border/60 flex items-center justify-between text-[11px] text-textSecondary">
-          <span className="flex items-center gap-1"><Lock size={12} className="text-primary" /> Practitioner-Led Scoping • Zero Sales Pressure</span>
-          <span className="font-semibold text-textPrimary">30-Min Scoping Call</span>
-        </div>
-      </div>
-
-      {/* Form Container */}
-      <div className="bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-md">
+    <div className="bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-md">
         {success ? (
           <div className="text-center space-y-6 py-6 animate-fade-in">
             <div className="w-14 h-14 bg-success/15 border border-success/30 rounded-full flex items-center justify-center text-success mx-auto">
@@ -494,8 +400,6 @@ function FreeAssessmentContent() {
           </form>
         )}
       </div>
-
-    </div>
   );
 }
 
@@ -505,13 +409,169 @@ export default function FreeAssessmentPage() {
       {/* Background Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] max-w-[100vw] h-[700px] bg-primary/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-      <Suspense fallback={
-        <div className="flex items-center justify-center py-32">
-          <Loader2 className="w-8 h-8 text-primary animate-spin" />
+      <div className="section-container max-w-2xl mx-auto px-4 relative z-10">
+        
+        {/* Back Link */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-xs uppercase tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
+          Back to Home
+        </Link>
+
+        {/* Heading & CRO Framing */}
+        <div className="mb-10 text-center space-y-4">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider">
+            <ShieldCheck size={12} className="text-primary" />
+            <span>30-Minute Confidential Conversation • Mutual NDA Upfront</span>
+          </div>
+          
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight font-sans">
+            Get a Free <span className="text-primary">Security Review</span>
+          </h1>
+          
+          <p className="text-sm font-semibold text-textPrimary max-w-md mx-auto font-sans">
+            For B2B SaaS, API and AI product teams preparing for enterprise deals, audits, or launch.
+          </p>
+
+          {/* Scoping Review & Pilot Information Banner */}
+          <div className="p-4 sm:p-5 bg-surface border border-border/80 rounded-2xl max-w-xl mx-auto text-left shadow-sm space-y-3">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider block mb-0.5">
+                Standard Scoping Review
+              </span>
+              <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                A confidential 30-minute security review under mutual NDA. We understand your architecture, threat model, and assessment objectives to recommend an appropriate fixed-scope engagement.
+              </p>
+            </div>
+            <div className="pt-2.5 border-t border-border/60">
+              <div className="flex items-center gap-1.5 mb-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+                  Limited-Scope Pilot Assessment (3 Startup Slots)
+                </span>
+              </div>
+              <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                For qualifying early-stage B2B SaaS and AI product startups, we are conducting 3 free, limited-scope API security pilots (2–3 critical endpoints tested for BOLA/IDOR and auth bypass under mutual written authorization). Select the pilot trigger below to apply.
+              </p>
+            </div>
+          </div>
         </div>
-      }>
-        <FreeAssessmentContent />
-      </Suspense>
+
+        {/* The 4-Step Breakdown of What to Expect */}
+        <div className="mb-8 p-5 bg-surface border border-border/80 rounded-2xl shadow-sm space-y-4">
+          <div className="text-[11px] font-mono font-bold text-textPrimary uppercase tracking-wider flex items-center gap-1.5">
+            <Clock size={14} className="text-primary" />
+            <h2 className="text-[11px] font-mono font-bold text-textPrimary uppercase tracking-wider inline">
+              What Happens In Your 30-Minute Review:
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
+              <h3 className="text-[10px] font-mono font-bold text-primary uppercase block">01 • Mutual NDA</h3>
+              <p className="text-textSecondary leading-relaxed">
+                We execute a standard mutual NDA upfront so your product architecture remains strictly confidential.
+              </p>
+            </div>
+
+            <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
+              <h3 className="text-[10px] font-mono font-bold text-primary uppercase block">02 • Architecture Scoping</h3>
+              <p className="text-textSecondary leading-relaxed">
+                We review your authorization model (JWT/OAuth), multi-tenant isolation, API endpoints, and data flows.
+              </p>
+            </div>
+
+            <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
+              <h3 className="text-[10px] font-mono font-bold text-primary uppercase block">03 • Risk Prioritization</h3>
+              <p className="text-textSecondary leading-relaxed">
+                Pinpoint high-impact vulnerabilities automated scanners miss (BOLA, tenant leaks, workflow logic).
+              </p>
+            </div>
+
+            <div className="p-3 bg-background border border-border/60 rounded-xl space-y-1">
+              <h3 className="text-[10px] font-mono font-bold text-primary uppercase block">04 • Transparent Scope</h3>
+              <p className="text-textSecondary leading-relaxed">
+                If there is a fit, we recommend the smallest appropriate paid assessment with a fixed scope within 24 hours.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-border/60 flex items-center justify-between text-[11px] text-textSecondary">
+            <span className="flex items-center gap-1"><Lock size={12} className="text-primary" /> Practitioner-Led Scoping • Zero Sales Pressure</span>
+            <span className="font-semibold text-textPrimary">30-Min Scoping Call</span>
+          </div>
+        </div>
+
+        {/* Interactive Form Wrapped in Suspense */}
+        <Suspense fallback={
+          <div className="bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-md flex items-center justify-center py-24">
+            <Loader2 className="w-8 h-8 text-primary animate-spin" />
+          </div>
+        }>
+          <FreeAssessmentForm />
+        </Suspense>
+
+        {/* Scoping Review Standards & FAQ */}
+        <div className="mt-16 space-y-8">
+          <div className="bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-xl font-bold text-textPrimary tracking-tight font-sans mb-4">
+              Why Engineering Teams Trust Our Security Reviews
+            </h2>
+            <p className="text-xs text-textSecondary leading-relaxed font-sans mb-6">
+              Unlike automated scanning tools that generate noisy, irrelevant alerts, our assessments are conducted entirely by senior offensive security practitioners with extensive software engineering backgrounds. We focus on business logic flaws, authorization boundaries, and exploitable vulnerabilities.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">
+                <h3 className="text-xs font-bold text-textPrimary font-sans">Zero False Positives</h3>
+                <p className="text-[11px] text-textSecondary font-sans leading-relaxed">
+                  Every vulnerability reported includes a verified reproduction script and non-destructive proof-of-concept.
+                </p>
+              </div>
+              <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">
+                <h3 className="text-xs font-bold text-textPrimary font-sans">Free 30-Day Retesting</h3>
+                <p className="text-[11px] text-textSecondary font-sans leading-relaxed">
+                  Every assessment includes one complimentary re-audit cycle to certify developer fixes before compliance submission.
+                </p>
+              </div>
+              <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">
+                <h3 className="text-xs font-bold text-textPrimary font-sans">Actionable Code Patches</h3>
+                <p className="text-[11px] text-textSecondary font-sans leading-relaxed">
+                  We don&apos;t just identify vulnerabilities; we provide copy-paste code patches and architecture mitigation advice.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Scoping Review FAQ */}
+          <div className="bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-xl font-bold text-textPrimary tracking-tight font-sans mb-6">
+              Frequently Asked Scoping Questions
+            </h2>
+            <div className="space-y-4 text-xs font-sans">
+              <div>
+                <h3 className="text-sm font-bold text-textPrimary mb-1">
+                  Who will I speak with during the 30-minute review?
+                </h3>
+                <p className="text-textSecondary leading-relaxed">
+                  You will speak directly with a certified offensive security engineer (OSCP, ISO 27001 LA), not a commissioned sales representative. We speak developer-to-developer.
+                </p>
+              </div>
+              <div className="border-t border-border/60 pt-4">
+                <h3 className="text-sm font-bold text-textPrimary mb-1">
+                  What preparation is required before the call?
+                </h3>
+                <p className="text-textSecondary leading-relaxed">
+                  No preparation is mandatory. Having an approximate endpoint count, target tech stack, or compliance timeline (e.g., SOC 2 audit deadline) helps us provide instant scoping guidance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Get a Free Security Review | 30-Min Scoping",
-  description: "Schedule a confidential 30-minute security scoping review under mutual NDA. We assess your API, SaaS, and AI attack boundaries and recommend the right assessment scope.",
+  title: "Free Security Review (30-Min Scoping)",
+  description: "Schedule a 30-minute security scoping review under mutual NDA. We evaluate your API, SaaS, and AI attack surface and provide a tailored testing roadmap.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/free-assessment",
   },

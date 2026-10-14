@@ -33,24 +33,34 @@ export default function PrivacyPage() {
               Last Updated: June 3, 2026.
             </p>
             
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">1. Scope of Agreement</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">1. Scope of Agreement & Engagement Data</h2>
             <p>
-              TrustLayerLabs is committed to protecting the confidentiality, integrity, and privacy of startup client environments, configurations, source code, and assets. We sign mutual Non-Disclosure Agreements (NDAs) prior to accessing any database keys or environment nodes.
+              TrustLayerLabs is committed to protecting the confidentiality, integrity, and privacy of client environments, architectural configurations, source code excerpts, and customer assets. We execute legally binding bilateral Non-Disclosure Agreements (NDAs) prior to accessing any API schemas, test environments, or staging credentials.
             </p>
 
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">2. Data Security & Storage</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">2. Information We Collect & Process</h2>
             <p>
-              All technical report files, scan artifacts, threat models, and vulnerability reproduction details are stored in end-to-end encrypted storage vaults. We enforce strong multi-factor authentication (MFA) and least-privilege security permissions across our analysis workflows.
+              We collect only the minimum information necessary to scope, execute, and deliver security reviews. This includes contact details (name, corporate email, phone), target domain and endpoint specifications, technical documentation (OpenAPI/Swagger specs), and ephemeral test traffic generated during active testing. We never collect or retain customer production passwords or unmasked payment data.
             </p>
 
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">3. Retention Policies</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">3. Technical Data Security & Encryption</h2>
             <p>
-              Following the conclusion of a VAPT assessment and final retest verification letter issue, all client environment credentials, configurations, and connection channels are purged from our analysis machines. Technical logs are archived for 30 days to facilitate re-scans and then deleted securely.
+              All engagement deliverables, vulnerability proof-of-concept recordings, intercept logs, and threat models are encrypted in transit (TLS 1.3) and at rest using AES-256 encrypted vaults. Access to engagement data is restricted solely to assigned lead offensive practitioners with enforced hardware MFA and strict role-based access control.
             </p>
 
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">4. GDPR and Regulatory Compliance</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">4. Retention & NIST-Compliant Data Purging</h2>
             <p>
-              If your startup operates globally or is subject to Indian DPDP act, GDPR, or HIPAA rules, we guarantee that all data handling matches compliance criteria. No client source code or details will be exposed, shared, or referenced in our public portfolio without written permissions.
+              Following the conclusion of an assessment and completion of the 30-day retesting window, all temporary staging credentials, authentication tokens, and raw traffic logs are permanently wiped according to NIST SP 800-88 guidelines. Final encrypted PDF reports are archived for 90 days to support external auditor inquiries before automated destruction.
+            </p>
+
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">5. Data Subject Rights (DPDP Act 2023 & GDPR)</h2>
+            <p>
+              In compliance with India&apos;s Digital Personal Data Protection (DPDP) Act 2023 and the General Data Protection Regulation (GDPR), clients have the right to request access to, correction of, or immediate erasure of any personal or corporate information held by TrustLayerLabs. To exercise these rights, contact our Data Protection Officer at privacy@trustlayerlabs.co.in.
+            </p>
+
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">6. Third-Party Sharing & Marketing Restrictions</h2>
+            <p>
+              We never sell, rent, or trade client information to third parties. Vulnerability findings, company identities, and infrastructure details are never cited in public marketing, case studies, or blogs without explicit prior written authorization.
             </p>
           </div>
 

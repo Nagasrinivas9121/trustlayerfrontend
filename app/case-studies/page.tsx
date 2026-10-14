@@ -100,9 +100,9 @@ export default function CaseStudiesPage() {
                   <div className="lg:col-span-5 space-y-6 lg:border-l lg:border-border/60 lg:pl-8 flex flex-col justify-between h-full">
                     
                     <div className="p-5 bg-primary/5 border border-primary/20 rounded-xl space-y-3 font-sans">
-                      <h4 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider flex items-center gap-1.5">
+                      <h3 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider flex items-center gap-1.5">
                         <ShieldCheck size={14} className="text-primary" /> Recommended Engineering Fix
-                      </h4>
+                      </h3>
                       <p className="text-xs text-textPrimary leading-relaxed font-medium font-sans">
                         {item.fix}
                       </p>

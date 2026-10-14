@@ -48,35 +48,41 @@ export default function MethodologyPage() {
         </div>
 
         {/* Methodology Standards Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
-              OWASP
-            </div>
-            <h3 className="text-sm font-bold text-textPrimary font-sans">OWASP API & Web Top 10</h3>
-            <p className="text-xs text-textSecondary leading-relaxed">
-              Targeting BOLA, IDOR, BFLA, JWT signature exploits, XSS, SQLi, and rate-limiting bypasses.
-            </p>
-          </div>
+        <div className="mb-16">
+          <h2 className="text-xl font-bold text-textPrimary tracking-tight font-sans mb-6">
+            Global Offensive Security Standards We Adhere To
+          </h2>
 
-          <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
-              NIST
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
+                OWASP
+              </div>
+              <h3 className="text-sm font-bold text-textPrimary font-sans">OWASP API & Web Top 10</h3>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                Systematic auditing for Broken Object Level Authorization (BOLA/IDOR), Broken Function Level Authorization (BFLA), JWT manipulation, mass assignment, server-side request forgery (SSRF), and rate-limiting bypasses.
+              </p>
             </div>
-            <h3 className="text-sm font-bold text-textPrimary font-sans">NIST SP 800-115</h3>
-            <p className="text-xs text-textSecondary leading-relaxed">
-              Rigorous technical security testing guidelines for system discovery, vulnerability scanning, and exploitation.
-            </p>
-          </div>
 
-          <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
-              PTES
+            <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
+                NIST
+              </div>
+              <h3 className="text-sm font-bold text-textPrimary font-sans">NIST SP 800-115</h3>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                Federal and enterprise-grade technical testing methodology covering target identification, target vulnerability analysis, exploitation verification, and post-exploitation risk scoring.
+              </p>
             </div>
-            <h3 className="text-sm font-bold text-textPrimary font-sans">PTES Framework</h3>
-            <p className="text-xs text-textSecondary leading-relaxed">
-              Structured Penetration Testing Execution Standard covering intelligence gathering, threat modeling, and reporting.
-            </p>
+
+            <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
+                PTES
+              </div>
+              <h3 className="text-sm font-bold text-textPrimary font-sans">PTES Framework</h3>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                The Penetration Testing Execution Standard structuring pre-engagement interactions, intelligence gathering, threat modeling, vulnerability analysis, and remediation-oriented reporting.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -91,27 +97,27 @@ export default function MethodologyPage() {
               {
                 step: "Phase 1",
                 title: "Scoping & Mutual NDA Execution",
-                desc: "We define precise target parameters, sign a mutual NDA, verify staging environment credentials, and agree on testing windows to guarantee zero production disruption."
+                desc: "We define precise target parameters, execute a bilateral mutual NDA, verify staging environment credentials, and agree on testing windows to guarantee zero production disruption or data corruption."
               },
               {
                 step: "Phase 2",
                 title: "Passive & Active Intelligence Reconnaissance",
-                desc: "Mapping subdomains, active API routes, authentication endpoints, cloud storage buckets, and third-party dependency trees."
+                desc: "Mapping subdomains, undiscovered staging endpoints, shadow APIs, CORS misconfigurations, authentication flows, public cloud storage buckets, and third-party software dependencies."
               },
               {
                 step: "Phase 3",
                 title: "Deep Manual Logic & Authorization Penetration",
-                desc: "Our security architects and offensive practitioners manually intercept API queries in Burp Suite, test row-level tenant authorization (BOLA/IDOR), inspect JWT token integrity, and validate session privileges."
+                desc: "Our offensive security engineers manually intercept and manipulate API traffic in Burp Suite Professional. We simulate cross-tenant privilege escalation, inspect JWT cryptographic algorithms, evaluate payment transaction workflows, and test race conditions."
               },
               {
                 step: "Phase 4",
                 title: "CVSS v3.1 Severity Scoring & Remediation Reporting",
-                desc: "Compiling zero-fluff technical reports with exact step-by-step reproduction scripts, PoCs, CVSS ratings, and ready-to-commit code patches."
+                desc: "Compiling zero-fluff, developer-centric technical reports with step-by-step reproduction curl scripts, proof-of-concept exploit recordings, CVSS v3.1 scoring, and ready-to-merge remediation code patches."
               },
               {
                 step: "Phase 5",
-                title: "Retesting & Remediation Verification Letter",
-                desc: "After your developers apply code patches, we re-evaluate fixed vulnerabilities and issue an updated final report and Retest Verification Letter."
+                title: "Free Retesting & Remediation Verification Letter",
+                desc: "After your engineering team deploys remediation patches, we re-evaluate every flagged vulnerability and issue a certified Executive Attestation Letter suitable for SOC 2 auditors, enterprise procurement, and cyber insurance underwriters."
               }
             ].map((phase, idx) => (
               <div key={idx} className="p-6 bg-surface border border-border/80 rounded-xl space-y-2 shadow-sm">
@@ -128,7 +134,7 @@ export default function MethodologyPage() {
 
         {/* CTA Banner */}
         <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4">
-          <h3 className="text-xl font-bold text-textPrimary font-sans">Ready to Audit Your SaaS or API?</h3>
+          <h2 className="text-xl font-bold text-textPrimary font-sans">Ready to Audit Your SaaS or API?</h2>
           <p className="text-xs text-textSecondary max-w-xl mx-auto">
             Schedule a confidential 30-minute security review with our lead security architects under mutual NDA or view our sample report to see our methodology in action.
           </p>

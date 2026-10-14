@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Our Security Team & Leadership",
   description:
-    "Meet the founder and team behind TrustLayerLabs — offensive security practitioners specializing in manual API penetration testing, web application VAPT, and compliance readiness.",
+    "Meet the offensive security practitioners behind TrustLayerLabs, specializing in manual API penetration testing, SaaS VAPT, and compliance readiness.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/about",
   },

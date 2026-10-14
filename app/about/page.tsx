@@ -35,25 +35,25 @@ export default function AboutPage() {
             {/* Left Content */}
             <div className="lg:col-span-12 space-y-8">
               <div className="premium-card p-8 bg-surface border border-border/85 rounded-2xl space-y-4 shadow-sm">
-                <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans">
+                <h2 className="text-base font-bold text-textPrimary tracking-tight font-sans">
                   Our Mission Statement
-                </h3>
+                </h2>
                 <p className="text-xs md:text-sm text-textSecondary leading-relaxed">
                   Startups move fast and traditional automated scanners throw hundreds of false alerts while missing complex logical vulnerabilities like authorization bypasses. Our mission is to bridge this gap. We combine human logic, advanced threat modeling, and regulatory controls mapping to deliver actionable VAPT findings in record time.
                 </p>
               </div>
 
               <div className="space-y-6">
-                <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans">
+                <h2 className="text-base font-bold text-textPrimary tracking-tight font-sans">
                   Our Core Testing Philosophy
-                </h3>
+                </h2>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                       <Target size={18} />
                     </div>
-                    <h4 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">Manual Logical Verification</h4>
+                    <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">Manual Logical Verification</h3>
                     <p className="text-[11px] text-textSecondary leading-relaxed">
                       We manually trace API queries, evaluate session scopes, check authorization cookies, and simulate target threat paths.
                     </p>
@@ -63,7 +63,7 @@ export default function AboutPage() {
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                       <Shield size={18} />
                     </div>
-                    <h4 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">Remediation-First Focus</h4>
+                    <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">Remediation-First Focus</h3>
                     <p className="text-[11px] text-textSecondary leading-relaxed">
                       We do not just report vulnerabilities; we help your team fix them by writing code patches, suggesting system integrations, and verifying repairs.
                     </p>
@@ -75,9 +75,9 @@ export default function AboutPage() {
 
           {/* Team Section */}
           <div className="space-y-8 mb-16">
-            <h3 className="text-xl font-bold text-textPrimary tracking-tight font-sans">
+            <h2 className="text-xl font-bold text-textPrimary tracking-tight font-sans">
               Our Leadership & Advisory Team
-            </h3>
+            </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {TEAM.map((member) => (
@@ -114,7 +114,7 @@ export default function AboutPage() {
                         )}
                       </div>
                     </div>
-                    <h4 className="text-sm font-bold text-textPrimary tracking-tight font-sans">{member.name}</h4>
+                    <h3 className="text-sm font-bold text-textPrimary tracking-tight font-sans">{member.name}</h3>
                     <p className="text-[10px] font-sans text-primary uppercase tracking-wider mt-0.5 mb-3">{member.role}</p>
                     <p className="text-xs text-textSecondary leading-relaxed font-sans mb-4">{member.bio}</p>
                   </div>
@@ -136,16 +136,16 @@ export default function AboutPage() {
           <div className="space-y-8 mb-16">
             <div className="flex items-center gap-3">
               <div className="h-[1px] flex-1 bg-border/60"></div>
-              <h3 className="text-xl font-bold text-textPrimary tracking-tight font-sans text-center px-4 uppercase tracking-wider">
+              <h2 className="text-xl font-bold text-textPrimary tracking-tight font-sans text-center px-4 uppercase tracking-wider">
                 Technical Research & Publications
-              </h3>
+              </h2>
               <div className="h-[1px] flex-1 bg-border/60"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
-                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">API & Application Research</h4>
+                <h3 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">API & Application Research</h3>
                 <p className="text-xs text-textSecondary leading-relaxed">
                   We document common API authorization gaps, broken object-level access patterns, and developer remediation best practices.
                 </p>
@@ -161,7 +161,7 @@ export default function AboutPage() {
 
               <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
-                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">AI & Infrastructure Security</h4>
+                <h3 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">AI & Infrastructure Security</h3>
                 <p className="text-xs text-textSecondary leading-relaxed">
                   Technical guides on defending Generative AI applications, RAG pipelines, and containerized cloud architectures.
                 </p>
@@ -177,7 +177,7 @@ export default function AboutPage() {
 
               <div className="premium-card p-6 bg-surface border border-border/80 rounded-2xl space-y-4 shadow-sm text-left relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-success/5 rounded-bl-full pointer-events-none" />
-                <h4 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Developer Security Playbooks</h4>
+                <h3 className="text-sm font-bold text-textPrimary font-sans uppercase tracking-wider">Developer Security Playbooks</h3>
                 <p className="text-xs text-textSecondary leading-relaxed">
                   Actionable security checklists and engineering playbooks to help startup development teams build secure-by-default software.
                 </p>
@@ -202,9 +202,9 @@ export default function AboutPage() {
                 <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-primary/10 border border-primary/20 rounded-md text-[10px] font-mono font-bold text-primary uppercase tracking-wider">
                   Govt. of India MSME Registration
                 </div>
-                <h3 className="text-xl font-bold text-textPrimary font-sans">
+                <h2 className="text-xl font-bold text-textPrimary font-sans">
                   Official Enterprise Registration: TRUSTLAYER LABS
-                </h3>
+                </h2>
                 <p className="text-xs text-textSecondary leading-relaxed font-sans">
                   TrustLayerLabs is officially registered as a Micro Enterprise with the Ministry of Micro, Small and Medium Enterprises (MSME), Government of India.
                 </p>

@@ -95,9 +95,9 @@ export default function ChecklistPage() {
               {/* Left Column: Interactive Checklist */}
               <div className="lg:col-span-8 space-y-8 bg-surface border border-border rounded-2xl p-8 shadow-sm">
                 <div>
-                  <h3 className="text-sm font-bold uppercase font-sans text-textPrimary tracking-wider mb-2 flex items-center gap-1.5">
+                  <h2 className="text-sm font-bold uppercase font-sans text-textPrimary tracking-wider mb-2 flex items-center gap-1.5">
                     Startup API Security Checklist
-                  </h3>
+                  </h2>
                   <p className="text-[11px] text-textSecondary font-sans uppercase">
                     Verify how secure your code is by marking off completed checks. Current score: <span className="text-success font-bold font-sans text-xs">{checkedIds.length}/{checklistItems.length} checked</span>
                   </p>
@@ -109,9 +109,9 @@ export default function ChecklistPage() {
                     const items = checklistItems.filter((i) => i.category === category);
                     return (
                       <div key={category} className="space-y-3">
-                        <h4 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider border-b border-border/20 pb-1">
+                        <h3 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider border-b border-border/20 pb-1">
                           {category}
-                        </h4>
+                        </h3>
                         <div className="space-y-3">
                           {items.map((item) => {
                             const isChecked = checkedIds.includes(item.id);
@@ -139,6 +139,16 @@ export default function ChecklistPage() {
                     );
                   })}
                 </div>
+
+                {/* Practical Engineering Guidance */}
+                <div className="border-t border-border/60 pt-6 space-y-3">
+                  <h3 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">
+                    Implementation Guidance for Engineering Teams
+                  </h3>
+                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                    Automated security linters catch syntax issues but miss broken access logic. When securing multi-tenant architectures, always enforce context-aware authorization middleware at the database query layer. Never trust client-provided IDs without verifying tenant ownership in the active session context.
+                  </p>
+                </div>
               </div>
 
               {/* Right Column: Download Lead Form */}
@@ -148,7 +158,7 @@ export default function ChecklistPage() {
                   <Download size={22} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Download PDF Playbook</h4>
+                  <h3 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Download PDF Playbook</h3>
                   <p className="text-[10px] text-textSecondary mt-2 leading-relaxed">
                     Get our complete, detailed PDF checklist containing 64 points, tools checklist, and step-by-step remediation snippets.
                   </p>
@@ -190,9 +200,9 @@ export default function ChecklistPage() {
                   <span className="text-[9px] font-sans text-primary font-bold uppercase tracking-wider border border-primary/30 bg-primary/5 px-2.5 py-0.5 rounded-md">
                     REDACTED SECURITY AUDIT ADVISORY
                   </span>
-                  <h3 className="text-lg font-bold text-textPrimary uppercase font-sans mt-3">
+                  <h2 className="text-lg font-bold text-textPrimary uppercase font-sans mt-3">
                     Ref: TTL-2026-AUDIT-04
-                  </h3>
+                  </h2>
                 </div>
                 <div className="text-right font-sans text-[10px] text-textSecondary">
                   <p>Client: <span className="text-textPrimary">NeoBank Tech Ltd</span></p>
@@ -221,9 +231,9 @@ export default function ChecklistPage() {
 
                 {/* Scoping Section */}
                 <div className="space-y-2">
-                  <h4 className="text-[10px] font-bold font-sans text-primary uppercase tracking-widest flex items-center gap-1.5">
+                  <h3 className="text-[10px] font-bold font-sans text-primary uppercase tracking-widest flex items-center gap-1.5">
                     <FileText size={14} className="text-primary" /> Audit Control Gap Analysis
-                  </h4>
+                  </h3>
                   <p className="text-textSecondary leading-relaxed">
                     During our audit of the application transactions resolver, we noted that the system database queried transfer logs using user-supplied parameters without validating session tenancy. This allowed arbitrary account queries unless strict server-side boundary checks were active.
                   </p>
@@ -231,9 +241,9 @@ export default function ChecklistPage() {
 
                 {/* Audit Control Mapping Schema */}
                 <div className="space-y-2">
-                  <h4 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider">
+                  <h3 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider">
                     Control Mapping & Scopes:
-                  </h4>
+                  </h3>
                   <pre className="p-4 bg-zinc-50 border border-border rounded-xl font-sans text-[10px] text-textPrimary overflow-x-auto leading-relaxed">
 {`Control Standards: SOC2 CC6.1 (Logical Access Controls) | ISO 27001 A.9.4.1
 Target API Endpoint: POST /api/v1/accounts/transfers
@@ -244,9 +254,9 @@ Compliance Verification: Confirmed multi-tenant boundary checks`}
 
                 {/* Code fix diff mock */}
                 <div className="space-y-2">
-                  <h4 className="text-[10px] font-bold font-sans text-success uppercase tracking-widest flex items-center gap-1.5">
+                  <h3 className="text-[10px] font-bold font-sans text-success uppercase tracking-widest flex items-center gap-1.5">
                     <Code size={14} className="text-success" /> Applied Remediation Commit
-                  </h4>
+                  </h3>
                   <pre className="p-4 bg-zinc-50 border border-border rounded-xl font-sans text-[10px] text-textSecondary overflow-x-auto leading-relaxed">
 {`@@ -12,4 +12,8 @@
 - // Query database directly by account ID
@@ -282,9 +292,9 @@ Compliance Verification: Confirmed multi-tenant boundary checks`}
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold uppercase tracking-wider font-mono">
               <span>Next Step for Fast-Moving Teams</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-textPrimary tracking-tight font-sans">
+            <h2 className="text-xl sm:text-2xl font-bold text-textPrimary tracking-tight font-sans">
               Need Help Reviewing Your Architecture Against This Checklist?
-            </h3>
+            </h2>
             <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto leading-relaxed font-sans">
               Schedule a direct 30-minute architecture and scoping call with our lead security architects under mutual NDA. We will evaluate your attack surface and outline high-priority test vectors.
             </p>

@@ -33,24 +33,39 @@ export default function TermsPage() {
               Last Updated: June 3, 2026.
             </p>
             
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">1. Rules of Engagement</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">1. Rules of Engagement & Authorization</h2>
             <p>
-              By scheduling a VAPT audit, you authorize TrustLayerLabs to perform active security scans, logical attacks, and authorization test vectors on target staging or production assets specified in our scoping document. Scoping boundaries must be clearly set and adhered to.
+              By scheduling a security review or VAPT audit, you represent and warrant that you own or have explicit, documented authorization from the asset owner to perform active security scans, manual logical attacks, and authorization test vectors on target staging or production systems specified in our scoping document. Scoping boundaries agreed upon prior to testing must be strictly adhered to by both parties.
             </p>
 
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">2. Liability Limits</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">2. Safe Harbor & Operational Safeguards</h2>
             <p>
-              While we perform manual logic auditing with care, offensive testing carries minor operational risks of service interruptions on fragile environments. TrustLayerLabs is not liable for system down-times or diagnostic data leaks occurring inside environments not designated as testing sandbox.
+              TrustLayerLabs conducts offensive security testing using non-destructive, practitioner-guided methodologies designed to avoid service interruptions. However, clients acknowledge that testing interactive application logic and API endpoints carries inherent operational risks on fragile systems. Testing should ideally take place in dedicated staging, sandbox, or pre-production environments whenever feasible.
             </p>
 
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">3. Retesting Scopes</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">3. Mutual Confidentiality & NDA Integration</h2>
             <p>
-              Retesting guarantees cover only the specific vulnerabilities discovered and highlighted in our initial VAPT report. Retesting must be requested within 30 to 60 days of report delivery depending on the selected pricing tier.
+              All proprietary technical architectures, source code excerpts, API endpoints, vulnerability proofs of concept, and business data disclosed during an engagement are treated as Strictly Confidential. Each engagement is governed by our bilateral Mutual Non-Disclosure Agreement (NDA), ensuring zero third-party disclosure, encrypted storage in transit and at rest, and permanent evidence purging post-retest.
             </p>
 
-            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">4. Retest Verification Letter & Security Badge</h2>
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">4. Deliverables & Intellectual Property Ownership</h2>
             <p>
-              A Retest Verification Letter and Security Badge are issued only after validation retesting confirms that all critical and high severity flaws identified during scoping have been patched successfully.
+              Upon receipt of final payment, the client retains full and exclusive ownership of all customized vulnerability assessment reports, remediation recommendations, and specific proof-of-concept scripts generated for their environment. TrustLayerLabs retains ownership of its underlying assessment methodologies, pre-existing research, proprietary toolchains, and generic testing frameworks.
+            </p>
+
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">5. Retesting Policy & Verification Timelines</h2>
+            <p>
+              Retesting guarantees cover only the specific vulnerabilities highlighted in our initial VAPT report. Retesting must be requested within 30 days of initial report delivery unless extended in writing under an enterprise retainer agreement. One complimentary verification cycle is included with every standard penetration testing tier.
+            </p>
+
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">6. Retest Verification Letter & Attestation</h2>
+            <p>
+              A Retest Verification Letter and Security Badge suitable for SOC 2 auditors, enterprise procurement teams, and cyber insurance underwriters are issued only after independent verification confirms that all critical and high-severity flaws identified during scoping have been fully remediated.
+            </p>
+
+            <h2 className="text-textPrimary text-base font-bold font-sans tracking-tight mt-6">7. Limitation of Liability & Governing Law</h2>
+            <p>
+              In no event shall either party be liable for any indirect, incidental, punitive, or consequential damages arising out of or related to security assessments. These terms shall be governed by and construed in accordance with the laws of India, and disputes shall be resolved through binding commercial arbitration in accordance with applicable statutory provisions.
             </p>
           </div>
 

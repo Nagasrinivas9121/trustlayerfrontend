@@ -164,9 +164,15 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
           {/* Left Column: Details & Channels */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
-              <h3 className="text-xs font-bold text-textPrimary font-sans uppercase tracking-wider">
-                Direct Channels
-              </h3>
+              {asH1 ? (
+                <h2 className="text-xs font-bold text-textPrimary font-sans uppercase tracking-wider">
+                  Direct Channels
+                </h2>
+              ) : (
+                <h3 className="text-xs font-bold text-textPrimary font-sans uppercase tracking-wider">
+                  Direct Channels
+                </h3>
+              )}
               
               <p className="text-xs text-textSecondary leading-relaxed font-sans">
                 Connect with us for scoping advice, security assessment enquiries, or to execute a mutual NDA. We aim to respond within one business day.
@@ -282,7 +288,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                 <div className="w-14 h-14 bg-success/15 border border-success/30 rounded-full flex items-center justify-center text-success animate-fade-in">
                   <CheckCircle2 size={26} />
                 </div>
-                <h4 className="text-lg font-bold text-textPrimary uppercase font-sans tracking-wide">Security Review Requested</h4>
+                <p className="text-lg font-bold text-textPrimary uppercase font-sans tracking-wide">Security Review Requested</p>
                 <p className="text-xs text-textSecondary max-w-sm leading-relaxed">
                   Thank you! Our lead offensive security practitioners will review your scope details under mutual NDA and contact you via email within one business day.
                 </p>

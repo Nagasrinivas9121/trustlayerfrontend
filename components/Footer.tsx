@@ -95,9 +95,9 @@ export default function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
             {footerLinks.map((section) => (
               <div key={section.title} className="space-y-6">
-                <h4 className="text-[11px] font-semibold text-textPrimary uppercase tracking-wider font-sans">
+                <p className="text-[11px] font-semibold text-textPrimary uppercase tracking-wider font-sans">
                   {section.title}
-                </h4>
+                </p>
                 <ul className="space-y-3.5 font-sans text-xs">
                   {section.links.map((link) => (
                     <li key={link.name}>
