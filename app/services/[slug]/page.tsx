@@ -26,7 +26,6 @@ interface Props {
 // Generate static params for all custom services for full SSG pre-rendering
 export async function generateStaticParams() {
   const customSlugs = [
-    "saas-vapt",
     "soc2-pentesting",
     "fintech-vapt",
     "aws-security",
@@ -41,9 +40,6 @@ export async function generateStaticParams() {
     "gcp-security",
     "graphql-security",
     "owasp-api-security",
-    "kubernetes-security",
-    "network-pentesting",
-    "startup-security",
     "web-development"
   ];
   return customSlugs.map((slug) => ({ slug }));

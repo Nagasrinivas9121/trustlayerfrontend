@@ -12,12 +12,62 @@ export const metadata: Metadata = {
 };
 
 export default function MethodologyPage() {
+  const faqs = [
+    {
+      q: "How do you guarantee that manual testing will not cause application downtime or data corruption?",
+      a: "Our certified practitioners operate under strict safe harbor rules. We utilize non-destructive payloads, test against staging or isolated sandbox accounts whenever possible, avoid denial-of-service tests, and coordinate rate-limiting parameters with your DevOps team before initiating testing."
+    },
+    {
+      q: "What is the difference between automated vulnerability scanning and manual penetration testing?",
+      a: "Automated scanners search for known software version CVEs and static syntax signatures. They cannot authenticate across complex business workflows, test multi-tenant authorization boundaries, verify payment transactions, or chain multi-step logic vulnerabilities. Our manual testing uncovers the logic flaws and BOLA bypasses that scanners miss."
+    },
+    {
+      q: "Do you provide code remediation support following the assessment?",
+      a: "Yes. Every finding in our technical report includes copy-paste code patches and architecture guidance. Furthermore, we conduct a dedicated developer debrief call to walk your team through each vulnerability and provide one free retest within 30 days to certify that your patches are effective."
+    },
+    {
+      q: "What credentials and access are required before testing begins?",
+      a: "For grey-box testing, we typically require two testing accounts per role (e.g. Tenant A Admin, Tenant A User, Tenant B User), API documentation (Swagger/OpenAPI or Postman), and staging environment URLs under an executed mutual Non-Disclosure Agreement (NDA)."
+    }
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Testing Methodology — TrustLayerLabs",
-    "url": "https://www.trustlayerlabs.co.in/methodology",
-    "description": "Manual VAPT and API security testing methodology adhering to OWASP, NIST SP 800-115, and PTES standards.",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.trustlayerlabs.co.in/methodology#webpage",
+        "name": "Testing Methodology — TrustLayerLabs",
+        "url": "https://www.trustlayerlabs.co.in/methodology",
+        "description": "Manual VAPT and API security testing methodology adhering to OWASP, NIST SP 800-115, and PTES standards.",
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://www.trustlayerlabs.co.in/#organization",
+          "name": "TrustLayerLabs",
+          "url": "https://www.trustlayerlabs.co.in"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.trustlayerlabs.co.in/methodology#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustlayerlabs.co.in" },
+          { "@type": "ListItem", "position": 2, "name": "Testing Methodology", "item": "https://www.trustlayerlabs.co.in/methodology" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.trustlayerlabs.co.in/methodology#faq",
+        "mainEntity": faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.a
+          }
+        }))
+      }
+    ]
   };
 
   return (
@@ -127,6 +177,61 @@ export default function MethodologyPage() {
                 </div>
                 <h3 className="text-base font-bold text-textPrimary font-sans">{phase.title}</h3>
                 <p className="text-xs text-textSecondary leading-relaxed">{phase.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Related Specialized Assessments */}
+        <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-8 shadow-sm space-y-4">
+          <h2 className="text-lg sm:text-xl font-bold text-textPrimary font-sans">
+            Specialized Assessments Following This Methodology
+          </h2>
+          <p className="text-xs text-textSecondary leading-relaxed">
+            We adapt our 5-phase testing methodology to the specific architectural requirements of modern tech stacks:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <Link 
+              href="/services/api-security" 
+              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+            >
+              <h3 className="text-xs font-bold text-textPrimary">API Security Testing</h3>
+              <p className="text-[11px] text-textSecondary">BOLA, BFLA, and OWASP API Top 10 penetration testing.</p>
+            </Link>
+            <Link 
+              href="/services/saas-vapt" 
+              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+            >
+              <h3 className="text-xs font-bold text-textPrimary">SaaS Penetration Testing</h3>
+              <p className="text-[11px] text-textSecondary">Multi-tenant isolation and privilege escalation reviews.</p>
+            </Link>
+            <Link 
+              href="/fintech-security" 
+              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+            >
+              <h3 className="text-xs font-bold text-textPrimary">FinTech VAPT</h3>
+              <p className="text-[11px] text-textSecondary">Payment workflow tampering and banking API security.</p>
+            </Link>
+            <Link 
+              href="/services/ai-security" 
+              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+            >
+              <h3 className="text-xs font-bold text-textPrimary">AI & LLM Security</h3>
+              <p className="text-[11px] text-textSecondary">Prompt injection, RAG vector isolation, and model safety.</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Methodology FAQs */}
+        <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+          <h2 className="text-lg sm:text-xl font-bold text-textPrimary font-sans mb-6">
+            Frequently Asked Testing Methodology Questions
+          </h2>
+          <div className="space-y-6 text-xs text-textSecondary">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className={idx > 0 ? "border-t border-border/60 pt-4" : ""}>
+                <h3 className="text-sm font-bold text-textPrimary font-sans mb-1.5">{faq.q}</h3>
+                <p className="leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
