@@ -62,10 +62,10 @@ export default function BookPage() {
             </div>
 
             <div className="bg-surface border border-border/80 rounded-2xl p-5 sm:p-6 shadow-sm space-y-4">
-              <h3 className="text-xs font-bold text-textPrimary font-sans uppercase tracking-wider flex items-center gap-2">
+              <h2 className="text-xs font-bold text-textPrimary font-sans uppercase tracking-wider flex items-center gap-2">
                 <FileCheck className="text-primary shrink-0" size={16} />
                 <span>Practitioner Commitments</span>
-              </h3>
+              </h2>
 
               <div className="space-y-3 text-xs font-sans text-textSecondary">
                 <div className="flex items-center gap-2 text-textPrimary font-medium">
@@ -117,6 +117,86 @@ export default function BookPage() {
           {/* Right Column: Embedded Calendly Widget */}
           <div className="lg:col-span-7 w-full max-w-full overflow-hidden">
             <CalendlyEmbed minHeight="700px" className="min-h-[620px] sm:min-h-[700px]" immediate={true} />
+          </div>
+        </div>
+
+        {/* Scoping Preparation Guide */}
+        <div className="mt-16 sm:mt-20 pt-12 border-t border-border/70">
+          <div className="max-w-3xl mb-10">
+            <h2 className="text-xl sm:text-2xl font-bold text-textPrimary font-sans mb-3">
+              How to Prepare for Your 30-Minute Scoping Consultation
+            </h2>
+            <p className="text-xs sm:text-sm text-textSecondary leading-relaxed">
+              To maximize the value of your call, having the following high-level scoping details readily available helps us provide an immediate fixed-price proposal and testing timeline.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="bg-surface border border-border/80 rounded-xl p-5 space-y-2 shadow-sm">
+              <h3 className="text-sm font-bold text-textPrimary font-sans">1. Target Asset Scope</h3>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                Total web application URLs, API endpoints, mobile builds (iOS/Android), external IP ranges, or cloud subscriptions in scope.
+              </p>
+            </div>
+            <div className="bg-surface border border-border/80 rounded-xl p-5 space-y-2 shadow-sm">
+              <h3 className="text-sm font-bold text-textPrimary font-sans">2. Tech Stack & Architecture</h3>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                Hosting environments (AWS, GCP, Azure, bare metal), primary frameworks (React, Next.js, Node, Django), and authentication mechanisms (OAuth, JWT).
+              </p>
+            </div>
+            <div className="bg-surface border border-border/80 rounded-xl p-5 space-y-2 shadow-sm">
+              <h3 className="text-sm font-bold text-textPrimary font-sans">3. Compliance Mandates</h3>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                Target compliance requirements driving your assessment, such as SOC 2 Type II, ISO 27001, CERT-In, HIPAA, or enterprise customer vendor reviews.
+              </p>
+            </div>
+            <div className="bg-surface border border-border/80 rounded-xl p-5 space-y-2 shadow-sm">
+              <h3 className="text-sm font-bold text-textPrimary font-sans">4. Testing Constraints</h3>
+              <p className="text-xs text-textSecondary leading-relaxed">
+                Preferred staging vs. production testing environments, off-peak maintenance windows, rate-limiting policies, and credential provisioning workflows.
+              </p>
+            </div>
+          </div>
+
+          {/* Consultation Scoping FAQs */}
+          <div className="bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <h2 className="text-lg sm:text-xl font-bold text-textPrimary font-sans mb-6">
+              Frequently Asked Scoping Questions
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-textSecondary">
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-bold text-textPrimary font-sans">
+                  Do you execute a Mutual Non-Disclosure Agreement (NDA)?
+                </h3>
+                <p className="leading-relaxed">
+                  Yes. We routinely execute mutual NDAs prior to any detailed technical discussion to ensure your proprietary source code, application architectures, and security configurations remain fully confidential.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-bold text-textPrimary font-sans">
+                  Who will lead the scoping conversation?
+                </h3>
+                <p className="leading-relaxed">
+                  You will speak directly with an offensive security engineer or lead pentester, not a sales representative. We focus strictly on technical scoping parameters and architecture diagrams.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-bold text-textPrimary font-sans">
+                  What deliverables follow the initial call?
+                </h3>
+                <p className="leading-relaxed">
+                  Within 24 business hours of the call, we provide a formalized Statement of Work (SOW) with defined testing milestones, a zero-false-positive guarantee, and a fixed transparent price quote.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xs sm:text-sm font-bold text-textPrimary font-sans">
+                  Can you conduct penetration testing on live production environments?
+                </h3>
+                <p className="leading-relaxed">
+                  Yes. Our certified practitioners utilize calibrated payloads and non-destructive testing methods to prevent business disruption, data alteration, or service degradation during production testing.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

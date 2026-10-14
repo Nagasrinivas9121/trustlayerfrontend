@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "TrustLayerLabs | Application Security, API Security & GRC",
-    description: "Manual API & Application Security Testing and GRC Readiness for FinTech, SaaS, and AI Teams.",
+    description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
     url: "https://www.trustlayerlabs.co.in",
     siteName: "TrustLayerLabs",
     images: [
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     site: "@trustlayerlabs",
     creator: "@trustlayerlabs",
     title: "TrustLayerLabs | Application Security, API Security & GRC",
-    description: "Manual penetration testing, FinTech security, SOC 2 readiness & API security audits for SaaS & AI teams.",
+    description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
     images: ["/og-image.jpg"],
   },
   verification: {
