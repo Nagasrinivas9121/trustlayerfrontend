@@ -1,13 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Shield, ShieldCheck, Target, Linkedin } from "lucide-react";
 import TransparencyVerdict from "@/components/TransparencyVerdict";
 import { TEAM } from "@/lib/constants";
+import CertificateModal from "@/components/CertificateModal";
 
 export default function AboutPage() {
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
   return (
     <div className="bg-background min-h-screen">
       <div className="pt-32 pb-24 font-sans text-textPrimary">
@@ -90,16 +92,13 @@ export default function AboutPage() {
                       </div>
                       <div className="flex items-center gap-1">
                         {(member as any).certificateUrl && (
-                          <a 
-                            href={(member as any).certificateUrl} 
-                            target="_blank" 
-                            rel="nofollow noopener noreferrer" 
-                            download
-                            className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0"
-                            title="Verify ISO/IEC 27001 Lead Auditor Certificate"
+                          <button
+                            onClick={() => setSelectedCert((member as any).certModalId || "c3sa")}
+                            className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0 cursor-pointer"
+                            title={(member as any).certificateTitle || "Verify Certificate"}
                           >
                             Certificate ↗
-                          </a>
+                          </button>
                         )}
                         {member.linkedin && (
                           <a 
@@ -274,6 +273,12 @@ export default function AboutPage() {
 
         </div>
       </div>
+
+      <CertificateModal 
+        isOpen={!!selectedCert} 
+        initialCertId={selectedCert || "c3sa"}
+        onClose={() => setSelectedCert(null)} 
+      />
     </div>
   );
 }

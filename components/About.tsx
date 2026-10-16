@@ -75,7 +75,7 @@ export default function About() {
                 </p>
                 <div className="mt-2.5 text-[10px] font-mono text-textSecondary flex flex-wrap items-center gap-2">
                   <span className="text-primary font-semibold">Credentials:</span>
-                  <span itemProp="hasCredential">OSCP · CEH · IIT Guwahati</span>
+                  <span itemProp="hasCredential">OSCP · CEH · C3SA · IIT Guwahati</span>
                   <span>•</span>
                   <Link href="/about" rel="author" className="text-accent hover:underline">
                     View Verified Bio &amp; Research →

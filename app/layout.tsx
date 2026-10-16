@@ -160,10 +160,10 @@ export default function RootLayout({
       "@type": "Person",
       "name": "Nagasrinivasa Rao",
       "jobTitle": "Founder & Lead Security Architect",
-      "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews. Holds OSCP and CEH credentials.",
+      "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews. Holds OSCP, CEH, and CWL C3SA credentials.",
       "url": "https://www.trustlayerlabs.co.in/about",
       "alumniOf": "IIT Guwahati",
-      "hasCredential": ["OSCP", "CEH"],
+      "hasCredential": ["OSCP", "CEH", "C3SA (Certified Cyber Security Analyst)"],
       "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP", "AI Security", "BOLA / IDOR Testing", "SaaS Multi-Tenancy"],
     },
     "hasOfferCatalog": {

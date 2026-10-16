@@ -23,7 +23,7 @@ export default function TransparencyVerdict() {
       area: "Verifiable Practitioner Identity & MSME Entity",
       feedback: "Who executes the security assessments and what legal entity backs the engagement?",
       status: "Verified",
-      resolution: "Every engagement is led by our founding security architects (IIT Guwahati & VIT Bhopal) holding verified OSCP, CEH, and ISO/IEC 27001 Lead Auditor credentials, backed by our official Govt. of India Udyam MSME registration (UDYAM-AP-21-0044317).",
+      resolution: "Every engagement is led by our founding security architects (IIT Guwahati & VIT Bhopal) holding verified OSCP, CEH, C3SA, and ISO/IEC 27001 Lead Auditor credentials, backed by our official Govt. of India Udyam MSME registration (UDYAM-AP-21-0044317).",
       detailsLink: "/#team"
     },
     {

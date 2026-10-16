@@ -1,11 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ShieldCheck, Mail, Target, ArrowRight, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { TEAM } from "@/lib/constants";
-
+import CertificateModal from "@/components/CertificateModal";
 
 export default function Founder() {
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
+
   return (
     <section className="py-24 bg-background border-t border-border relative" id="team">
       <div className="section-container">
@@ -36,16 +38,13 @@ export default function Founder() {
               
               <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5">
                 {(member as any).certificateUrl && (
-                  <a
-                    href={(member as any).certificateUrl}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    download
-                    className="text-[9px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded hover:bg-blue-100 transition-colors"
-                    title="View Verified ISO/IEC 27001 Lead Auditor Certificate"
+                  <button
+                    onClick={() => setSelectedCert((member as any).certModalId || "c3sa")}
+                    className="text-[9px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded hover:bg-blue-100 transition-colors cursor-pointer"
+                    title={(member as any).certificateTitle || "View Verified Certificate"}
                   >
                     Certificate ↗
-                  </a>
+                  </button>
                 )}
                 <a 
                   href={member.linkedin} 
@@ -115,6 +114,12 @@ export default function Founder() {
         </div>
 
       </div>
+
+      <CertificateModal 
+        isOpen={!!selectedCert} 
+        initialCertId={selectedCert || "c3sa"}
+        onClose={() => setSelectedCert(null)} 
+      />
     </section>
   );
 }

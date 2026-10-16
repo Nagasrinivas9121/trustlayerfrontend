@@ -954,10 +954,14 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security architect specializing in manual API penetration testing. Holds OSCP and CEH credentials; focuses on authorization logic, BOLA flaws, and web application assessments.",
+    bio: "Offensive security architect specializing in manual API penetration testing. Holds OSCP, CEH, and CWL C3SA credentials; focuses on authorization logic, BOLA flaws, and web application assessments.",
     initials: "NR",
-    credentials: ["OSCP", "CEH", "IIT Guwahati", "Web App & API Security"],
+    credentials: ["CEH", "C3SA", "IIT Guwahati", "Web App & API Security"],
     education: "IIT Guwahati",
+    certificateUrl: "/c3sa-nagasrinivasarao.png",
+    certificateTitle: "View Verified CyberWarfare Labs C3SA (Certified Cyber Security Analyst) Certificate",
+    certificateId: "C3SA-6ad1ceaeb6d122ea6a9362fa",
+    certModalId: "c3sa",
     linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/"
   },
   {
@@ -968,6 +972,8 @@ export const TEAM = [
     credentials: ["ISO/IEC 27001 Lead Auditor", "SOC 2 Readiness", "GRC Practitioner", "VIT Bhopal"],
     education: "VIT Bhopal",
     certificateUrl: "/iso-27001-ramineni-teja.png",
+    certificateTitle: "View Verified ISO/IEC 27001 Lead Auditor Certificate",
+    certModalId: "iso27001",
     linkedin: "https://www.linkedin.com/in/ramineniteja"
   },
   {
