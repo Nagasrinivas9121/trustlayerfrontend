@@ -200,6 +200,7 @@ export default function Navbar() {
       {/* Certificate Modal */}
       <CertificateModal 
         isOpen={showCertificate} 
+        initialCertId="msme"
         onClose={() => setShowCertificate(false)} 
       />
     </>

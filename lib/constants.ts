@@ -956,6 +956,7 @@ export const TEAM = [
     role: "Founder & Lead Security Architect",
     bio: "Offensive security architect specializing in manual API penetration testing. Holds OSCP, CEH, and CWL C3SA credentials; focuses on authorization logic, BOLA flaws, and web application assessments.",
     initials: "NR",
+    image: "/nagasrinivasarao.jpg",
     credentials: ["CEH", "C3SA", "IIT Guwahati", "Web App & API Security"],
     education: "IIT Guwahati",
     certificateUrl: "/c3sa-nagasrinivasarao.png",
@@ -967,13 +968,19 @@ export const TEAM = [
   {
     name: "Ramineni Teja",
     role: "Co-Founder & GRC Lead",
-    bio: "Compliance and risk management lead for high-growth startups. Certified ISO/IEC 27001 Lead Auditor; guides teams through ISO 27001 gap analysis, SOC 2 readiness, and security governance.",
+    bio: "Compliance and risk management lead for high-growth startups. Certified ISO/IEC 27001 Lead Auditor, CWL C3SA, and CWL BTF holder; guides teams through ISO 27001 gap analysis, SOC 2 readiness, and security governance.",
     initials: "RT",
-    credentials: ["ISO/IEC 27001 Lead Auditor", "SOC 2 Readiness", "GRC Practitioner", "VIT Bhopal"],
+    image: "/ramineniteja.jpg",
+    credentials: ["ISO/IEC 27001 Lead Auditor", "CWL C3SA", "CWL BTF", "SOC 2 Readiness", "VIT Bhopal"],
     education: "VIT Bhopal",
     certificateUrl: "/iso-27001-ramineni-teja.png",
-    certificateTitle: "View Verified ISO/IEC 27001 Lead Auditor Certificate",
+    certificateTitle: "View Verified ISO/IEC 27001 Lead Auditor & CyberWarfare Labs Certificates",
     certModalId: "iso27001",
+    certificates: [
+      { id: "iso27001", label: "ISO 27001" },
+      { id: "c3sa_teja", label: "CWL C3SA" },
+      { id: "btf_teja", label: "CWL BTF" }
+    ],
     linkedin: "https://www.linkedin.com/in/ramineniteja"
   },
   {

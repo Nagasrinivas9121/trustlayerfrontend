@@ -278,7 +278,7 @@ module.exports = function getPages1to15() {
             <div class="font-bold text-slate-900">Ramineni Teja</div>
             <div class="text-xs font-mono text-blue-700 font-bold">Co-Founder & GRC Lead</div>
             <div class="text-xs text-slate-600" style="margin-top: 2px;">
-              Governance, SOC 2 / ISO 27001 control mapping, vendor risk assessment, and technical audit preparation. (VIT Bhopal)
+              Governance, SOC 2 / ISO 27001 control mapping, CWL C3SA & BTF certified, vendor risk assessment, and technical audit preparation. (VIT Bhopal)
             </div>
           </div>
           <div class="card-soft" style="padding: 6px 8px;">

@@ -186,6 +186,7 @@ export default function Proof() {
       {/* Certificate Modal Showcase */}
       <CertificateModal 
         isOpen={showCertificate} 
+        initialCertId="msme"
         onClose={() => setShowCertificate(false)} 
       />
     </section>

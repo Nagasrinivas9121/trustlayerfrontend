@@ -8,6 +8,13 @@ import TransparencyVerdict from "@/components/TransparencyVerdict";
 import { TEAM } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
 
+const getCertIdForCred = (cred: string, memberName: string) => {
+  if (cred.includes("ISO")) return "iso27001";
+  if (cred.includes("C3SA")) return memberName.includes("Teja") ? "c3sa_teja" : "c3sa";
+  if (cred.includes("BTF")) return "btf_teja";
+  return null;
+};
+
 export default function AboutPage() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
   return (
@@ -87,8 +94,18 @@ export default function AboutPage() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
                   <div>
                     <div className="flex items-center justify-between gap-1.5 mb-4">
-                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-sm font-bold font-sans text-primary shadow-sm">
-                        {member.initials}
+                      <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-primary/10 text-sm font-bold font-sans text-primary shadow-sm flex-shrink-0 ring-2 ring-primary/10">
+                        {(member as any).image ? (
+                          <Image
+                            src={(member as any).image}
+                            alt={member.name}
+                            width={112}
+                            height={112}
+                            className="w-full h-full object-cover object-center"
+                          />
+                        ) : (
+                          member.initials
+                        )}
                       </div>
                       <div className="flex items-center gap-1">
                         {(member as any).certificateUrl && (
@@ -97,7 +114,7 @@ export default function AboutPage() {
                             className="inline-flex items-center gap-1 text-[8px] text-primary hover:text-accent font-semibold tracking-wider transition-colors bg-primary/10 hover:bg-primary/20 border border-primary/20 px-1.5 py-0.5 rounded-md flex-shrink-0 cursor-pointer"
                             title={(member as any).certificateTitle || "Verify Certificate"}
                           >
-                            Certificate ↗
+                            {(member as any).certificates ? "Certificates ↗" : "Certificate ↗"}
                           </button>
                         )}
                         {member.linkedin && (
@@ -120,11 +137,27 @@ export default function AboutPage() {
                   </div>
                   <div className="border-t border-border/40 pt-3 flex flex-col gap-1.5">
                     <div className="flex flex-wrap gap-1">
-                      {member.credentials.map((cred) => (
-                        <span key={cred} className="px-1.5 py-0.5 border border-primary/20 text-primary bg-primary/5 rounded text-[8px] font-mono font-bold uppercase tracking-wider">
-                          {cred}
-                        </span>
-                      ))}
+                      {member.credentials.map((cred) => {
+                        const certId = getCertIdForCred(cred, member.name);
+                        if (certId) {
+                          return (
+                            <button
+                              key={cred}
+                              type="button"
+                              onClick={() => setSelectedCert(certId)}
+                              title={`Verify ${cred}`}
+                              className="px-1.5 py-0.5 border border-primary/30 text-primary bg-primary/10 hover:bg-primary/20 transition-colors rounded text-[8px] font-mono font-bold uppercase tracking-wider cursor-pointer"
+                            >
+                              {cred} ↗
+                            </button>
+                          );
+                        }
+                        return (
+                          <span key={cred} className="px-1.5 py-0.5 border border-primary/20 text-primary bg-primary/5 rounded text-[8px] font-mono font-bold uppercase tracking-wider">
+                            {cred}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

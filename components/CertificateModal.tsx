@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FileCheck, ExternalLink, X, ShieldCheck, Award, Building2, Check, Copy } from "lucide-react";
 
-export type CertificateId = "c3sa" | "iso27001" | "msme";
+export type CertificateId = "c3sa" | "c3sa_teja" | "btf_teja" | "iso27001" | "msme";
 
 export interface CertificateData {
   id: CertificateId;
@@ -23,7 +23,7 @@ export interface CertificateData {
 export const CERTIFICATES: Record<CertificateId, CertificateData> = {
   c3sa: {
     id: "c3sa",
-    tabLabel: "CWL C3SA Analyst",
+    tabLabel: "CWL C3SA (Naga)",
     badge: "VERIFIED PRACTITIONER",
     badgeColor: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
     title: "CWL Certified Cyber Security Analyst (C3SA)",
@@ -34,11 +34,37 @@ export const CERTIFICATES: Record<CertificateId, CertificateData> = {
     footer: "Recipient: Naga Srinivasarao • Examination Verified • CyberWarfare Labs",
     icon: "shield"
   },
+  c3sa_teja: {
+    id: "c3sa_teja",
+    tabLabel: "CWL C3SA (Teja)",
+    badge: "VERIFIED PRACTITIONER",
+    badgeColor: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
+    title: "CWL Certified Cyber Security Analyst (C3SA)",
+    credentialId: "C3SA-6ad12bf5b909f7486e92a6af",
+    issuer: "CyberWarfare Labs (CWL)",
+    recipient: "Ramineni Teja",
+    src: "/c3sa-ramineni-teja.png",
+    footer: "Recipient: Ramineni Teja • Examination Verified • CyberWarfare Labs (Issued: 10/15/2026)",
+    icon: "shield"
+  },
+  btf_teja: {
+    id: "btf_teja",
+    tabLabel: "CWL BTF (Teja)",
+    badge: "BLUE TEAM CERTIFIED",
+    badgeColor: "bg-blue-500/15 text-blue-300 border-blue-500/30",
+    title: "CWL Certified Blue Team Fundamentals (BTF)",
+    credentialId: "BTF-6ad12dc2b6d122ea6a92b758",
+    issuer: "CyberWarfare Labs (CWL)",
+    recipient: "Ramineni Teja",
+    src: "/btf-ramineni-teja.png",
+    footer: "Recipient: Ramineni Teja • Examination Verified • CyberWarfare Labs (Issued: 10/15/2026)",
+    icon: "shield"
+  },
   iso27001: {
     id: "iso27001",
-    tabLabel: "ISO 27001 Lead Auditor",
+    tabLabel: "ISO 27001 (Teja)",
     badge: "VERIFIED AUDITOR",
-    badgeColor: "bg-blue-500/15 text-blue-300 border-blue-500/30",
+    badgeColor: "bg-purple-500/15 text-purple-300 border-purple-500/30",
     title: "ISO/IEC 27001:2022 Lead Auditor (ISMS)",
     credentialId: "CQI | IRCA ISMS Lead Auditor",
     issuer: "CQI | IRCA",

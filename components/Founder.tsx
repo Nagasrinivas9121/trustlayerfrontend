@@ -1,9 +1,17 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { ShieldCheck, Mail, Target, ArrowRight, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { TEAM } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
+
+const getCertIdForCred = (cred: string, memberName: string) => {
+  if (cred.includes("ISO")) return "iso27001";
+  if (cred.includes("C3SA")) return memberName.includes("Teja") ? "c3sa_teja" : "c3sa";
+  if (cred.includes("BTF")) return "btf_teja";
+  return null;
+};
 
 export default function Founder() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
@@ -40,10 +48,10 @@ export default function Founder() {
                 {(member as any).certificateUrl && (
                   <button
                     onClick={() => setSelectedCert((member as any).certModalId || "c3sa")}
-                    className="text-[9px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded hover:bg-blue-100 transition-colors cursor-pointer"
+                    className="text-[9px] font-mono font-bold text-primary bg-primary/10 border border-primary/20 hover:bg-primary/20 px-2 py-0.5 rounded transition-colors cursor-pointer"
                     title={(member as any).certificateTitle || "View Verified Certificate"}
                   >
-                    Certificate ↗
+                    {(member as any).certificates ? "Certificates ↗" : "Certificate ↗"}
                   </button>
                 )}
                 <a 
@@ -60,14 +68,28 @@ export default function Founder() {
               </div>
 
               <div>
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-200 flex items-center justify-center bg-blue-50 text-lg font-bold font-sans text-blue-800 shadow-sm mb-6">
-                  {member.initials}
+                <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30 flex items-center justify-center bg-surface text-lg font-bold font-sans text-primary shadow-sm mb-6 ring-2 ring-primary/10">
+                  {(member as any).image ? (
+                    <Image
+                      src={(member as any).image}
+                      alt={member.name}
+                      width={128}
+                      height={128}
+                      itemProp="image"
+                      className="w-full h-full object-cover object-center"
+                      priority
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-blue-50 text-blue-800 font-bold">
+                      {member.initials}
+                    </div>
+                  )}
                 </div>
 
                 <h3 itemProp="name" className="text-base font-bold text-textPrimary tracking-tight font-sans">
                   {member.name}
                 </h3>
-                <p itemProp="jobTitle" className="text-[11px] font-sans text-blue-800 font-bold uppercase tracking-wider mt-1 mb-4">
+                <p itemProp="jobTitle" className="text-[11px] font-sans text-primary font-bold uppercase tracking-wider mt-1 mb-4">
                   {member.role}
                 </p>
 
@@ -79,15 +101,32 @@ export default function Founder() {
               {/* Credentials list */}
               <div className="border-t border-border/40 pt-4 flex flex-col gap-2">
                 <div className="flex flex-wrap gap-1.5">
-                  {member.credentials.map((cred) => (
-                    <span 
-                      key={cred}
-                      itemProp="hasCredential"
-                      className="px-2 py-0.5 border border-blue-200/80 text-blue-800 bg-blue-50 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
-                    >
-                      {cred}
-                    </span>
-                  ))}
+                  {member.credentials.map((cred) => {
+                    const certId = getCertIdForCred(cred, member.name);
+                    if (certId) {
+                      return (
+                        <button
+                          key={cred}
+                          type="button"
+                          onClick={() => setSelectedCert(certId)}
+                          title={`View verified ${cred} certificate`}
+                          className="px-2 py-0.5 border border-primary/30 text-primary bg-primary/5 hover:bg-primary/20 hover:border-primary/60 transition-all rounded text-[9px] font-mono font-bold uppercase tracking-wider inline-flex items-center gap-1 cursor-pointer"
+                        >
+                          <span>{cred}</span>
+                          <span className="text-[8px] opacity-70">↗</span>
+                        </button>
+                      );
+                    }
+                    return (
+                      <span 
+                        key={cred}
+                        itemProp="hasCredential"
+                        className="px-2 py-0.5 border border-blue-200/80 text-blue-800 bg-blue-50 rounded text-[9px] font-mono font-bold uppercase tracking-wider"
+                      >
+                        {cred}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </div>
