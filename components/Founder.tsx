@@ -112,7 +112,7 @@ export default function Founder() {
                           type="button"
                           onClick={() => setSelectedCert(certId)}
                           title={`View verified ${cred} certificate`}
-                          className="px-2 py-0.5 border border-primary/30 text-primary bg-primary/5 hover:bg-primary/20 hover:border-primary/60 transition-all rounded text-[9px] font-mono font-bold uppercase tracking-wider inline-flex items-center gap-1 cursor-pointer"
+                          className="px-2 py-0.5 border border-primary/30 text-primary bg-primary/5 hover:bg-primary/20 hover:border-primary/60 transition-[color,background-color,border-color,box-shadow,transform] rounded text-[9px] font-mono font-bold uppercase tracking-wider inline-flex items-center gap-1 cursor-pointer"
                         >
                           <span>{cred}</span>
                           <span className="text-[8px] opacity-70">↗</span>
