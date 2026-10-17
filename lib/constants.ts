@@ -988,18 +988,19 @@ export const TEAM = [
     role: "Security Engineer & VAPT Consultant",
     bio: "Application security engineer certified in CEH, specializing in manual web testing, OWASP Top 10 vulnerabilities, and practical developer fix guidance.",
     initials: "NA",
+    image: "/nayansianand.jpg",
     credentials: ["CEH", "Web App Security", "VAPT Specialist", "VIT Bhopal"],
     education: "VIT Bhopal",
     linkedin: "https://www.linkedin.com/in/nayansi-anand-35a99a31b/"
   },
   {
-    name: "Muskan Jha",
+    name: "Dodda Jagadeesh",
     role: "Operations & Engagement Lead",
     bio: "Operations lead coordinating scoping reviews and onboarding. Manages mutual NDAs and assessment schedules for fast, seamless delivery.",
-    initials: "MJ",
-    credentials: ["Operations Lead", "Engagement Management", "VIT Bhopal"],
-    education: "VIT Bhopal",
-    linkedin: "https://www.linkedin.com/in/muskan-jha-795828350/"
+    initials: "DJ",
+    credentials: ["Operations Lead", "Engagement Management", "Malla Reddy University"],
+    education: "Malla Reddy University",
+    linkedin: "https://www.linkedin.com/in/dodda-jagadeesh"
   }
 ];
 

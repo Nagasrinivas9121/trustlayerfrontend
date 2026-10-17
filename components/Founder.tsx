@@ -54,17 +54,19 @@ export default function Founder() {
                     {(member as any).certificates ? "Certificates ↗" : "Certificate ↗"}
                   </button>
                 )}
-                <a 
-                  href={member.linkedin} 
-                  target="_blank" 
-                  rel="noopener noreferrer author" 
-                  itemProp="sameAs"
-                  className="text-textSecondary hover:text-primary transition-colors p-1"
-                  aria-label={`${member.name} on LinkedIn`}
-                >
-                  <Linkedin size={14} />
-                  <span className="sr-only">{member.name} on LinkedIn</span>
-                </a>
+                {member.linkedin && (
+                  <a 
+                    href={member.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer author" 
+                    itemProp="sameAs"
+                    className="text-textSecondary hover:text-primary transition-colors p-1"
+                    aria-label={`${member.name} on LinkedIn`}
+                  >
+                    <Linkedin size={14} />
+                    <span className="sr-only">{member.name} on LinkedIn</span>
+                  </a>
+                )}
               </div>
 
               <div>

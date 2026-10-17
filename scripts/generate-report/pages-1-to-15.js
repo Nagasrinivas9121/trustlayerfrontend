@@ -289,7 +289,7 @@ module.exports = function getPages1to15() {
             </div>
           </div>
           <div class="card-soft" style="padding: 6px 8px;">
-            <div class="font-bold text-slate-900">Muskan Jha</div>
+            <div class="font-bold text-slate-900">Dodda Jagadeesh</div>
             <div class="text-xs font-mono text-blue-700 font-bold">Operations & Engagement Lead</div>
             <div class="text-xs text-slate-600" style="margin-top: 2px;">
               Scoping verification, assessment coordination, mutual NDA execution, and delivery logistics management.
