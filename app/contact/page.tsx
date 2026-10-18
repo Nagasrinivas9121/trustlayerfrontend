@@ -97,7 +97,7 @@ export default function ContactPage() {
                   Can TrustLayerLabs provide reports suitable for SOC 2, ISO 27001, and enterprise vendors?
                 </h3>
                 <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                  Yes. We provide both an in-depth Technical Remediation Report for your engineering team and an Executive Attestation Letter signed by certified security practitioners (OSCP, ISO 27001 LA) for your enterprise clients and compliance auditors.
+                  Yes. We provide both an in-depth Technical Remediation Report for your engineering team and an Executive Attestation Letter signed by certified security practitioners (CEH, C3SA, ISO 27001 LA) for your enterprise clients and compliance auditors.
                 </p>
               </div>
             </div>

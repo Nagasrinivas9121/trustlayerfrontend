@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     siteName: "TrustLayerLabs",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.jpg?v=2",
         width: 1200,
         height: 630,
         alt: "TrustLayerLabs — Application Security, API Security & GRC",
@@ -86,22 +86,22 @@ export const metadata: Metadata = {
     creator: "@trustlayerlabs",
     title: "TrustLayerLabs | Application Security, API Security & GRC",
     description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.jpg?v=2"],
   },
   verification: {
     google: "O3NO3SF_l7xN6N9X0gzRJ84kqy7D2_I-dUrLxVRda5o",
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=4", sizes: "any" },
-      { url: "/symbol.png?v=4", type: "image/png" },
-      { url: "/icon.png?v=4", type: "image/png" },
+      { url: "/favicon.ico?v=5", sizes: "any" },
+      { url: "/symbol.png?v=5", type: "image/png" },
+      { url: "/icon.png?v=5", type: "image/png" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png?v=4" },
-      { url: "/symbol.png?v=4" },
+      { url: "/apple-touch-icon.png?v=5" },
+      { url: "/symbol.png?v=5" },
     ],
-    shortcut: ["/favicon.ico?v=4"],
+    shortcut: ["/favicon.ico?v=5"],
   },
 };
 
@@ -121,9 +121,9 @@ export default function RootLayout({
     "url": "https://www.trustlayerlabs.co.in",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.trustlayerlabs.co.in/logo.jpeg",
-      "width": 200,
-      "height": 200,
+      "url": "https://www.trustlayerlabs.co.in/symbol.png",
+      "width": 1024,
+      "height": 1024,
     },
     "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
     "description": "Application security, manual API penetration testing, and GRC readiness consulting for FinTech, SaaS, and AI teams by offensive security and compliance practitioners.",
@@ -160,10 +160,10 @@ export default function RootLayout({
       "@type": "Person",
       "name": "Nagasrinivasa Rao",
       "jobTitle": "Founder & Lead Security Architect",
-      "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews. Holds OSCP, CEH, and CWL C3SA credentials.",
+      "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews. Holds CEH and CWL C3SA credentials.",
       "url": "https://www.trustlayerlabs.co.in/about",
       "alumniOf": "IIT Guwahati",
-      "hasCredential": ["OSCP", "CEH", "C3SA (Certified Cyber Security Analyst)"],
+      "hasCredential": ["CEH", "C3SA (Certified Cyber Security Analyst)"],
       "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP", "AI Security", "BOLA / IDOR Testing", "SaaS Multi-Tenancy"],
     },
     "hasOfferCatalog": {
@@ -254,10 +254,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
       <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=4" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/symbol.png?v=4" />
-        <link rel="shortcut icon" href="/favicon.ico?v=4" />
-        <link rel="apple-touch-icon" href="/symbol.png?v=4" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/symbol.png?v=5" />
+        <link rel="shortcut icon" href="/favicon.ico?v=5" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.trustlayerlabs.co.in/sitemap.xml" />
         <link rel="help" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />

@@ -114,7 +114,7 @@ const faqs = [
   },
   {
     q: "Does your SaaS penetration test satisfy SOC 2 Type II and ISO 27001 requirements?",
-    a: "Yes. Our assessments fulfill the technical penetration testing mandates of SOC 2 Trust Services Criteria (CC6.1, CC6.6, CC6.8) and ISO/IEC 27001 Control A.12.6. We provide an Executive Attestation Letter signed by certified security practitioners (OSCP, CISSP) for your compliance auditors."
+    a: "Yes. Our assessments fulfill the technical penetration testing mandates of SOC 2 Trust Services Criteria (CC6.1, CC6.6, CC6.8) and ISO/IEC 27001 Control A.12.6. We provide an Executive Attestation Letter signed by certified security practitioners (CEH, C3SA, ISO 27001 LA) for your compliance auditors."
   },
   {
     q: "What is the typical turnaround time for a SaaS pentest?",

@@ -556,7 +556,7 @@ export default function FreeAssessmentPage() {
                   Who will I speak with during the 30-minute review?
                 </h3>
                 <p className="text-textSecondary leading-relaxed">
-                  You will speak directly with a certified offensive security engineer (OSCP, ISO 27001 LA), not a commissioned sales representative. We speak developer-to-developer.
+                  You will speak directly with a certified offensive security engineer (CEH, C3SA, ISO 27001 LA), not a commissioned sales representative. We speak developer-to-developer.
                 </p>
               </div>
               <div className="border-t border-border/60 pt-4">

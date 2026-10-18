@@ -62,7 +62,7 @@ export default function NdaProcessPage() {
               2. End-to-End Encrypted Storage & Access Restrictions
             </h3>
             <p className="text-xs text-textSecondary leading-relaxed">
-              All vulnerability notes, raw API capture logs, burp project files, and remediation recommendations are stored in hardware-encrypted (AES-256) vaults with multi-factor authentication. Zero third-party contractors are used; only certified, background-checked lead practitioners (OSCP, C3SA, ISO 27001 LA) access your engagement data.
+              All vulnerability notes, raw API capture logs, burp project files, and remediation recommendations are stored in hardware-encrypted (AES-256) vaults with multi-factor authentication. Zero third-party contractors are used; only certified, background-checked lead practitioners (CEH, C3SA, ISO 27001 LA) access your engagement data.
             </p>
           </div>
 

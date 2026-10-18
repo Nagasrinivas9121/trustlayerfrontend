@@ -15,7 +15,7 @@ export default function VaptBangalore() {
     },
     {
       q: "Will your Attestation Letter satisfy Tier-1 US enterprise vendor risk assessments?",
-      a: "Yes. Our executive attestation letters are signed by certified practitioners (OSCP, C3SA, ISO 27001 Lead Auditor) and detail assessment scope, testing dates, methodology (OWASP Top 10, ASVS), and clean retest verification."
+      a: "Yes. Our executive attestation letters are signed by certified practitioners (CEH, C3SA, ISO 27001 Lead Auditor) and detail assessment scope, testing dates, methodology (OWASP Top 10, ASVS), and clean retest verification."
     }
   ];
 
@@ -113,7 +113,7 @@ export default function VaptBangalore() {
             <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">
               <h3 className="text-xs font-bold text-textPrimary font-sans">Enterprise Procurement</h3>
               <p className="text-[11px] text-textSecondary font-sans">
-                Pass Fortune 500 vendor risk assessments with executive attestation letters signed by certified OSCP, C3SA, and ISO 27001 lead auditors.
+                Pass Fortune 500 vendor risk assessments with executive attestation letters signed by certified CEH, C3SA, and ISO 27001 lead auditors.
               </p>
             </div>
             <div className="p-4 bg-background border border-border/60 rounded-xl space-y-1.5">

@@ -561,7 +561,7 @@ export const TESTIMONIALS = [
     name: "TrustLayerLabs Team",
     role: "Distributed Offensive Security Team",
     company: "Remote-First Operations",
-    image: "/logo.jpeg",
+    image: "/symbol.png",
     linkedin: ""
   }
 ];
@@ -954,7 +954,7 @@ export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
-    bio: "Offensive security architect specializing in manual API penetration testing. Holds OSCP, CEH, and CWL C3SA credentials; focuses on authorization logic, BOLA flaws, and web application assessments.",
+    bio: "Offensive security architect specializing in manual API penetration testing. Holds CEH and CWL C3SA credentials; focuses on authorization logic, BOLA flaws, and web application assessments.",
     initials: "NR",
     image: "/nagasrinivasarao.jpg",
     credentials: ["CEH", "C3SA", "IIT Guwahati", "Web App & API Security"],

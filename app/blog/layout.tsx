@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "OWASP research, VAPT playbooks, SOC2 guides, and API security deep dives from offensive security and compliance practitioners.",
     url: "https://www.trustlayerlabs.co.in/blog",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "TrustLayerLabs Security Blog" }],
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "TrustLayerLabs Security Blog" }],
     type: "website",
   },
 };

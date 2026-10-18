@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Explore practical security research, illustrative vulnerability scenarios, and developer remediation patterns for SaaS, FinTech, and AI platforms.",
     url: "https://www.trustlayerlabs.co.in/case-studies",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "TrustLayerLabs Security Research & Insights" }],
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "TrustLayerLabs Security Research & Insights" }],
   },
 };
 

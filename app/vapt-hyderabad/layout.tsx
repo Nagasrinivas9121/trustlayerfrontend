@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Manual API pen testing and VAPT for Hyderabad tech startups. Experienced offensive security team.",
     url: "https://www.trustlayerlabs.co.in/vapt-hyderabad",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "VAPT Services Hyderabad" }],
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "VAPT Services Hyderabad" }],
   },
 };
 

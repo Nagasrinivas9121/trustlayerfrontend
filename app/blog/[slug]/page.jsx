@@ -32,13 +32,13 @@ export async function generateMetadata({ params }) {
       publishedTime: post.date,
       authors: [post.author || "TrustLayerLabs Security Team"],
       tags: post.tags || ["cybersecurity", "VAPT", "API security", "penetration testing", "SaaS security"],
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: post.title }],
+      images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ["/og-image.jpg"],
+      images: ["/og-image.jpg?v=2"],
     },
   };
 }
@@ -78,9 +78,9 @@ export default async function BlogPost({ params }) {
       "url": "https://www.trustlayerlabs.co.in",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.trustlayerlabs.co.in/logo.jpeg",
-        "width": 200,
-        "height": 200
+        "url": "https://www.trustlayerlabs.co.in/symbol.png",
+        "width": 1024,
+        "height": 1024
       }
     },
     "mainEntityOfPage": {

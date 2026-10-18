@@ -33,7 +33,7 @@
 - [Mutual NDA Process](https://www.trustlayerlabs.co.in/nda-process): Step-by-step confidentiality workflow and bilateral NDA template.
 - [JWT Decoder Security Tool](https://www.trustlayerlabs.co.in/tools/jwt-decoder): Client-side JWT inspection and security analysis tool.
 - [Technical Blog](https://www.trustlayerlabs.co.in/blog): In-depth technical guides on OWASP LLM Top 10, GCP bucket ACL exposure, Android SSL pinning bypass, and CNAME subdomain takeovers.
-- [About the Team](https://www.trustlayerlabs.co.in/about): Background on founder Nagasrinivasa Rao (IIT Guwahati, OSCP/CEH/C3SA credentials) and core security consultants.
+- [About the Team](https://www.trustlayerlabs.co.in/about): Background on founder Nagasrinivasa Rao (IIT Guwahati, CEH/C3SA credentials) and core security consultants.
 
 ## Contact Information
 - **Website**: https://www.trustlayerlabs.co.in

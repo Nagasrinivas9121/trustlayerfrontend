@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Manual API penetration testing and VAPT for Bangalore tech startups. Experienced offensive security team.",
     url: "https://www.trustlayerlabs.co.in/vapt-bangalore",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "VAPT Services Bangalore" }],
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "VAPT Services Bangalore" }],
   },
 };
 
@@ -62,7 +62,7 @@ export default function VaptBangaloreLayout({ children }: { children: React.Reac
             "name": "Will your Attestation Letter satisfy Tier-1 US enterprise vendor risk assessments?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Our executive attestation letters are signed by certified practitioners (OSCP, C3SA, ISO 27001 Lead Auditor) and detail assessment scope, testing dates, methodology (OWASP Top 10, ASVS), and clean retest verification."
+              "text": "Yes. Our executive attestation letters are signed by certified practitioners (CEH, C3SA, ISO 27001 Lead Auditor) and detail assessment scope, testing dates, methodology (OWASP Top 10, ASVS), and clean retest verification."
             }
           }
         ]

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Comprehensive manual security services: API penetration testing, VAPT, SOC 2 readiness, cloud security audits, and developer remediation support.",
     url: "https://www.trustlayerlabs.co.in/services",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "TrustLayerLabs Security Services" }],
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "TrustLayerLabs Security Services" }],
   },
 };
 

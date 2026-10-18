@@ -107,7 +107,7 @@
 ---
 
 ## 5. Team Credentials & Transparency Profile
-- **Founder & Lead Security Architect**: Nagasrinivasa Rao (IIT Guwahati) — Specializes in manual API penetration testing, authorization logic, and BOLA vulnerabilities. Holds OSCP, CEH, and CWL C3SA credentials.
+- **Founder & Lead Security Architect**: Nagasrinivasa Rao (IIT Guwahati) — Specializes in manual API penetration testing, authorization logic, and BOLA vulnerabilities. Holds CEH and CWL C3SA credentials.
 - **Co-Founder & GRC Lead**: Ramineni Teja (VIT Bhopal) — Certified ISO/IEC 27001 Lead Auditor, CWL C3SA, and CWL BTF; leads compliance control mapping and SOC 2 readiness.
 - **Security Engineer & VAPT Consultant**: Nayansi Anand (VIT Bhopal) — CEH certified practitioner specializing in web application security and OWASP Top 10 assessments.
 - **Operations & Engagement Lead**: Dodda Jagadeesh (Malla Reddy University) — Manages NDA execution, scoping timelines, and client onboarding.

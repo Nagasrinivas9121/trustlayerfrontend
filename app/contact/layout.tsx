@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Connect with TrustLayerLabs for scoping advice, security assessment enquiries, or to execute a mutual NDA. We aim to respond within one business day.",
     url: "https://www.trustlayerlabs.co.in/contact",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact TrustLayerLabs" }],
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "Contact TrustLayerLabs" }],
   },
 };
 
@@ -68,7 +68,7 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
             "name": "Can TrustLayerLabs provide reports suitable for SOC 2, ISO 27001, and enterprise vendors?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. We provide both an in-depth Technical Remediation Report for your engineering team and an Executive Attestation Letter signed by certified security practitioners (OSCP, ISO 27001 LA) for your enterprise clients and compliance auditors."
+              "text": "Yes. We provide both an in-depth Technical Remediation Report for your engineering team and an Executive Attestation Letter signed by certified security practitioners (CEH, C3SA, ISO 27001 LA) for your enterprise clients and compliance auditors."
             }
           }
         ]

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Direct 30-minute technical scoping consultation with offensive security engineers. Discuss VAPT, cloud pentesting, and compliance readiness.",
     url: "https://www.trustlayerlabs.co.in/book",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Schedule a Security Review" }],
+    images: [{ url: "/og-image.jpg?v=2", width: 1200, height: 630, alt: "Schedule a Security Review" }],
   },
 };
 
