@@ -92,20 +92,24 @@ const grcSteps = [
 
 const grcFaqs = [
   {
-    q: "What is the difference between GRC advisory and an accredited certification audit?",
-    a: "TrustLayerLabs provides technical readiness advisory, control gap analysis, and penetration testing. We prepare your infrastructure and policies for the audit, but formal SOC 2 reports are issued by AICPA-accredited CPA firms, and ISO 27001 certifications are issued by accredited certification bodies (CBs)."
+    q: "What is the difference between SOC 2 readiness and formal SOC 2 attestation?",
+    a: "SOC 2 readiness is the preparatory consulting phase where we assess control gaps, map your cloud infrastructure and development workflows to AICPA Trust Services Criteria (CC6.1–CC6.8), draft customized security policies, and conduct required technical penetration tests. Formal SOC 2 attestation is the official examination conducted and signed by an independent, AICPA-accredited CPA firm. TrustLayerLabs prepares your team for that audit; we do not issue formal CPA audit reports."
+  },
+  {
+    q: "What is the difference between ISO 27001 readiness and certification?",
+    a: "ISO 27001 readiness involves conducting an initial gap assessment against ISO/IEC 27001 Annex A controls, developing an Information Security Management System (ISMS) roadmap, establishing risk registers, and executing technical vulnerability testing. Official ISO 27001 certification is awarded exclusively by an accredited third-party certification body (CB) following Stage 1 and Stage 2 certification audits."
   },
   {
     q: "How long does it typically take a startup to become SOC 2 Type II ready?",
-    a: "Initial control mapping and gap remediation typically takes 2 to 4 weeks. Following remediation, the mandatory observation period (auditing period) for SOC 2 Type II runs between 3 to 6 months to evaluate operating effectiveness."
+    a: "Initial control mapping and technical gap remediation typically takes 2 to 4 weeks. Following remediation, the mandatory observation period (auditing period) for SOC 2 Type II runs between 3 to 6 months to evaluate operating effectiveness before the external auditor delivers the final report."
   },
   {
     q: "Do you provide the required manual penetration testing for SOC 2 and ISO 27001?",
-    a: "Yes. Both SOC 2 Trust Services Criteria (CC4.1, CC7.1) and ISO/IEC 27001 (Control A.8.8) require periodic technical vulnerability assessments and penetration testing. TrustLayerLabs delivers manual VAPT reports and signed executive attestation letters specifically accepted by Tier-1 auditors."
+    a: "Yes. Both SOC 2 Trust Services Criteria (CC4.1, CC7.1) and ISO/IEC 27001 (Control A.8.8) require periodic technical vulnerability assessments and penetration testing. TrustLayerLabs delivers manual VAPT reports and signed retest verification letters specifically formatted for compliance auditor review."
   },
   {
     q: "Can TrustLayerLabs assist with completing enterprise vendor security questionnaires?",
-    a: "Yes. We support technical founders and engineering leadership in responding to complex 100+ question SIG, CAIQ, and custom enterprise security questionnaires, ensuring answers accurately reflect your implemented technical controls."
+    a: "Yes. We support technical founders and engineering leadership in responding to complex 100+ question SIG, CAIQ, and custom enterprise vendor security questionnaires, ensuring answers accurately reflect your implemented technical controls."
   }
 ];
 
@@ -192,7 +196,7 @@ export default function GrcReadinessPage() {
               className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample Report</span>
+              <span>View the Sample Assessment Report</span>
             </Link>
           </div>
         </div>

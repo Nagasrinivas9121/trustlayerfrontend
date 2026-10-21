@@ -112,15 +112,14 @@ export default function Navbar() {
               <span>MSME</span>
             </button>
           </div>
-
           {/* Desktop CTA Button */}
           <div className="hidden md:block flex-shrink-0">
             <Link 
               href="/free-assessment"
-              onClick={() => trackFreeReviewCtaClick("navbar_desktop", "Get a Free Security Review")}
+              onClick={() => trackFreeReviewCtaClick("navbar_desktop", "Get a Free Security Scoping Review")}
               className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all active:scale-95 flex items-center gap-1.5 shadow-sm cursor-pointer"
             >
-              <Calendar className="w-3.5 h-3.5" /> Get a Free Security Review
+              <Calendar className="w-3.5 h-3.5" /> Get a Free Security Scoping Review
             </Link>
           </div>
 
@@ -141,7 +140,7 @@ export default function Navbar() {
                 return (
                   <div key={link.name}>
                     <Link 
-                      href={link.href}
+                      href={link.href} 
                       onClick={() => setIsOpen(false)}
                       className={`block text-xs uppercase tracking-wider font-sans font-semibold ${
                         isActive ? "text-primary" : "text-textSecondary hover:text-textPrimary"
@@ -186,11 +185,11 @@ export default function Navbar() {
                 href="/free-assessment"
                 onClick={() => {
                   setIsOpen(false);
-                  trackFreeReviewCtaClick("navbar_mobile", "Get a Free Security Review");
+                  trackFreeReviewCtaClick("navbar_mobile", "Get a Free Security Scoping Review");
                 }}
                 className="w-full block text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md cursor-pointer"
               >
-                Get a Free Security Review
+                Get a Free Security Scoping Review
               </Link>
             </div>
           )}

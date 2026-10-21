@@ -24,7 +24,7 @@ const initialGreetings: Message[] = [
     type: "options",
     options: [
       "📋 Schedule 30-Min Security Review",
-      "📄 View Sample Report",
+      "📄 View Sample Assessment Report",
       `📱 Chat on WhatsApp (${BRAND.contact.phone})`,
       "💬 Ask a Security Question"
     ]

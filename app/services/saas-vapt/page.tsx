@@ -105,16 +105,24 @@ const testAreas = [
 
 const faqs = [
   {
+    q: "How can SaaS companies test multi-tenant isolation?",
+    a: "SaaS companies test tenant isolation by provisioning two or more independent test organizations in staging (e.g., Tenant A Admin, Tenant A Member, Tenant B Admin) and systematically attempting cross-tenant access. Testing probes database row-level security (RLS), ORM query filters, shared Redis caches, and background worker queues to ensure Customer A can never access or mutate Customer B's records under parameter tampering."
+  },
+  {
+    q: "What is BOLA and why is it dangerous in multi-tenant SaaS?",
+    a: "Broken Object Level Authorization (BOLA/IDOR) occurs when API endpoints rely on user-supplied IDs (such as workspaceId, documentId, or accountId) without validating that the authenticated session owns that object. In SaaS architectures, BOLA allows an authenticated user in one organization to view, modify, or delete another organization's proprietary datasets by simply altering the identifier in the request."
+  },
+  {
     q: "How do you test multi-tenant SaaS isolation without risking live customer data?",
     a: "We conduct assessments using dedicated testing tenants in staging environments, or isolated tenant sandboxes in production. Our practitioners use dual-account matrix testing (Tenant A Admin/User vs. Tenant B Admin/User) to prove cross-tenant access without touching or exposing real customer records."
   },
   {
-    q: "What credentials and access are required for a SaaS penetration test?",
-    a: "For thorough grey-box testing, we require two testing organizations or tenants with two roles in each (e.g. one Admin and one standard User per tenant). We also request API specifications (OpenAPI/Swagger) and staging access under a mutual Non-Disclosure Agreement (NDA)."
+    q: "Does your SaaS penetration test satisfy SOC 2 Type II and ISO 27001 requirements?",
+    a: "Yes. Our assessments fulfill the technical penetration testing mandates of SOC 2 Trust Services Criteria (CC6.1, CC6.6, CC6.8) and ISO/IEC 27001 Control A.12.6. We deliver an auditor-ready technical report and retest verification letter signed by certified security practitioners. Formal SOC 2 audit reports and ISO certificates are issued by independent accredited CPA/certification bodies."
   },
   {
-    q: "Does your SaaS penetration test satisfy SOC 2 Type II and ISO 27001 requirements?",
-    a: "Yes. Our assessments fulfill the technical penetration testing mandates of SOC 2 Trust Services Criteria (CC6.1, CC6.6, CC6.8) and ISO/IEC 27001 Control A.12.6. We provide an Executive Attestation Letter signed by certified security practitioners (CEH, C3SA, ISO 27001 LA) for your compliance auditors."
+    q: "What credentials and access are required for a SaaS penetration test?",
+    a: "For thorough grey-box testing, we require two testing organizations or tenants with two roles in each (e.g. one Admin and one standard User per tenant). We also request API specifications (OpenAPI/Swagger) and staging access under a mutual Non-Disclosure Agreement (NDA)."
   },
   {
     q: "What is the typical turnaround time for a SaaS pentest?",
@@ -234,7 +242,7 @@ export default function SaasVaptPage() {
               href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <span>Get a Free Security Review →</span>
+              <span>Get a Free Security Scoping Review →</span>
             </Link>
 
             <Link 
@@ -242,7 +250,7 @@ export default function SaasVaptPage() {
               className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample Report</span>
+              <span>View the Sample Assessment Report</span>
             </Link>
           </div>
         </div>
@@ -419,14 +427,14 @@ export default function SaasVaptPage() {
               href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <span>Get a Free Security Review →</span>
+              <span>Get a Free Security Scoping Review →</span>
             </Link>
             <Link
               href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample Report</span>
+              <span>View the Sample Assessment Report</span>
             </Link>
           </div>
         </div>

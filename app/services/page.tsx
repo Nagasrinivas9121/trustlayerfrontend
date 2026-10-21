@@ -144,10 +144,10 @@ export default function ServicesPage() {
                   <div className="pt-4 border-t border-border/60 flex items-center gap-3">
                     <Link
                       href="/free-assessment"
-                      onClick={() => trackFreeReviewCtaClick(`services_core_${pillar.id}`, "Get a Free Security Review")}
+                      onClick={() => trackFreeReviewCtaClick(`services_core_${pillar.id}`, "Get a Free Security Scoping Review")}
                       className="flex-1 text-center py-2.5 px-4 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-lg shadow-sm transition-all"
                     >
-                      Get a Free Security Review
+                      Get a Free Security Scoping Review
                     </Link>
                     <Link
                       href={pillar.href}
@@ -268,10 +268,10 @@ export default function ServicesPage() {
                       <div className="pt-2 flex flex-col gap-2">
                         <Link 
                           href="/free-assessment"
-                          onClick={() => trackFreeReviewCtaClick(`service_card_${service.slug}`, "Get a Free Security Review")}
+                          onClick={() => trackFreeReviewCtaClick(`service_card_${service.slug}`, "Get a Free Security Scoping Review")}
                           className="w-full inline-flex items-center justify-center py-2 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-bold tracking-wider rounded-lg text-white shadow-sm transition-all"
                         >
-                          Get a Free Security Review
+                          Get a Free Security Scoping Review
                         </Link>
                         <Link 
                           href={`/services/${service.slug}`}
@@ -300,18 +300,18 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Link
                 href="/free-assessment"
-                onClick={() => trackFreeReviewCtaClick("services_bottom_cta", "Get a Free Security Review")}
+                onClick={() => trackFreeReviewCtaClick("services_bottom_cta", "Get a Free Security Scoping Review")}
                 className="w-full sm:w-auto px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-sm transition-all flex items-center justify-center gap-2"
               >
-                <span>Get a Free Security Review</span>
+                <span>Get a Free Security Scoping Review</span>
                 <ArrowRight size={14} />
               </Link>
               <Link
                 href="/sample-report"
-                onClick={() => trackSampleReportCtaClick("services_bottom_cta", "View Sample Report")}
+                onClick={() => trackSampleReportCtaClick("services_bottom_cta", "View the Sample Assessment Report")}
                 className="w-full sm:w-auto px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-textPrimary hover:text-primary transition-all flex items-center justify-center gap-2"
               >
-                <span>View Sample Report</span>
+                <span>View the Sample Assessment Report</span>
                 <FileText size={14} />
               </Link>
             </div>

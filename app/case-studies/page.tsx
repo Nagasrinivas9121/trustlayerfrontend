@@ -138,7 +138,7 @@ export default function CaseStudiesPage() {
                         href="/free-assessment"
                         className="w-full inline-flex items-center justify-center py-2.5 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-bold tracking-wider rounded-xl text-white shadow-sm transition-all"
                       >
-                        Get a Free Security Review
+                        Get a Free Security Scoping Review
                       </Link>
                     </div>
                   </div>

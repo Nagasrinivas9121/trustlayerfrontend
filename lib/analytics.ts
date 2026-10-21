@@ -183,7 +183,14 @@ export const trackLandingPageView = (pageType: string = "home") => {
 // ==========================================
 // 2. CTA Click Events (Deduplicated Single-Dispatch)
 // ==========================================
-export const trackSecurityReviewCtaClick = (location: string, text: string = "Get a Free Security Review") => {
+export const trackHeroCtaClick = (location: string = "hero", text: string = "Get a Free Security Scoping Review") => {
+  trackEvent("hero_cta_click", {
+    cta_location: location,
+    cta_text: text,
+  });
+};
+
+export const trackSecurityReviewCtaClick = (location: string, text: string = "Get a Free Security Scoping Review") => {
   trackEvent("security_review_cta_click", {
     cta_location: location,
     cta_text: text,
@@ -192,7 +199,7 @@ export const trackSecurityReviewCtaClick = (location: string, text: string = "Ge
 };
 export const trackFreeReviewCtaClick = trackSecurityReviewCtaClick;
 
-export const trackSampleReportClick = (location: string, text: string = "View Sample Report") => {
+export const trackSampleReportClick = (location: string, text: string = "View the Sample Assessment Report") => {
   trackEvent("sample_report_click", {
     cta_location: location,
     cta_text: text,
@@ -255,7 +262,15 @@ export const trackFreeSecurityReviewView = () => {
   });
 };
 
+export const trackLeadFormStart = (formName: string = "free_security_review_intake", source: string = "website") => {
+  trackEvent("lead_form_start", {
+    form_name: formName,
+    source,
+  });
+};
+
 export const trackSecurityReviewFormStart = (source: string = "free-assessment") => {
+  trackLeadFormStart("free_security_review_intake", source);
   trackEvent("security_review_form_start", {
     form_name: "free_security_review_intake",
     form_step: "start",
@@ -264,8 +279,34 @@ export const trackSecurityReviewFormStart = (source: string = "free-assessment")
 };
 export const trackFreeSecurityReviewStart = trackSecurityReviewFormStart;
 
+export const trackLeadFormSubmit = (data?: Record<string, any>) => {
+  trackEvent("lead_form_submit", {
+    ...data,
+  });
+};
+
+export const trackQualifiedLead = (criteria?: Record<string, any>) => {
+  trackEvent("qualified_lead", {
+    ...criteria,
+  });
+};
+
+export const trackSalesOpportunity = (details?: Record<string, any>) => {
+  trackEvent("sales_opportunity", {
+    ...details,
+  });
+};
+
 export const trackSecurityReviewFormSuccess = (metadata?: Record<string, any>) => {
-  // GA4 standard conversion event: fired ONLY after a genuine enquiry has successfully validated and completed (zero PII)
+  // Standard conversion events: fired ONLY after a genuine enquiry has successfully validated and completed (zero PII)
+  trackLeadFormSubmit({
+    lead_type: "free_security_review",
+    form_name: "free_security_review_intake",
+    ...metadata,
+  });
+  trackQualifiedLead({
+    type: "security_scoping_enquiry",
+  });
   trackEvent("security_review_form_success", {
     lead_type: "free_security_review",
     form_name: "free_security_review_intake",
@@ -328,8 +369,14 @@ export const trackPackageView = (packageId: string, packageTitle?: string) => {
 };
 
 // ==========================================
-// 5. Booking Events (Calendly Integration)
+// 5. Booking Events (Calendly & Cal.com Integration)
 // ==========================================
+export const trackBookingStart = (location: string = "calendar") => {
+  trackEvent("booking_start", {
+    location,
+  });
+};
+
 export const trackCalendarLoaded = (location: string = "embed") => {
   trackEvent("calendar_loaded", {
     location,
@@ -337,13 +384,24 @@ export const trackCalendarLoaded = (location: string = "embed") => {
 };
 
 export const trackBookingStarted = (location: string = "calendly") => {
+  trackBookingStart(location);
   trackEvent("booking_started", {
     location,
   });
 };
 
+export const trackBookingComplete = (eventPayload?: Record<string, any>) => {
+  trackEvent("booking_complete", {
+    ...eventPayload,
+  });
+  trackSalesOpportunity({
+    stage: "scoping_call_booked",
+  });
+};
+
 export const trackScopingCallBooked = (eventPayload?: Record<string, any>) => {
   // GA4 standard conversion event: fired ONLY after verified postMessage booking confirmation (zero PII)
+  trackBookingComplete(eventPayload);
   trackEvent("book_appointment", {
     booking_method: "calendar_postmessage",
     confirmed: true,
@@ -356,6 +414,7 @@ export const trackScopingCallBooked = (eventPayload?: Record<string, any>) => {
 // 6. Contact Form Events
 // ==========================================
 export const trackContactFormStart = (formName: string = "contact_form") => {
+  trackLeadFormStart(formName, "contact_page");
   trackEvent("contact_form_start", {
     form_name: formName,
     form_step: "start",
@@ -364,6 +423,14 @@ export const trackContactFormStart = (formName: string = "contact_form") => {
 
 export const trackContactFormSubmit = (data?: Record<string, any>) => {
   // GA4 standard conversion event: fired ONLY after contact form successfully validates and submits (zero PII)
+  trackLeadFormSubmit({
+    lead_type: "contact_form",
+    form_name: "contact_form",
+    ...data,
+  });
+  trackQualifiedLead({
+    type: "written_scope_enquiry",
+  });
   trackEvent("generate_lead", {
     lead_type: "contact_form",
     form_name: "contact_form",
@@ -374,6 +441,10 @@ export const trackContactFormSubmit = (data?: Record<string, any>) => {
 };
 
 // Backward-compatibility aliases
-export const trackHeroPrimaryCta = () => trackFreeReviewCtaClick("hero_form", "Get a Free Security Review");
+export const trackHeroPrimaryCta = () => {
+  trackHeroCtaClick("hero_form", "Get a Free Security Scoping Review");
+  trackFreeReviewCtaClick("hero_form", "Get a Free Security Scoping Review");
+};
 export const trackCalendarClick = (label: string = "calendly") => trackCalendarCtaClick(label);
 export const trackPhoneClick = () => trackEvent("phone_click", { channel: "phone" });
+

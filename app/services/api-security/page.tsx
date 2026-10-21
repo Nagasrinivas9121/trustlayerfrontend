@@ -65,50 +65,50 @@ const testAreas = [
   {
     code: "OWASP API1:2023",
     title: "Broken Object Level Authorization (BOLA / IDOR)",
-    desc: "Systematically testing every API parameter and path variable (e.g. /api/v1/workspaces/{id}) to ensure strict session-to-resource ownership checks.",
+    desc: "Systematically testing path and query parameters (e.g., GET /api/v1/workspaces/{id} or /invoices/{uuid}) by swapping authenticated tokens between users to verify that database queries strictly enforce session ownership.",
     icon: KeyRound
   },
   {
     code: "OWASP API2:2023",
-    title: "Broken Authentication & Token Flaws",
-    desc: "Auditing JWT signatures, algorithm confusion ('none' & HMAC/RSA mismatches), OAuth 2.0 grant types, refresh token rotation, and credential stuffing defense.",
+    title: "Broken Authentication & Token Hygiene",
+    desc: "Testing JWT signature enforcement, algorithm confusion (such as 'none' or asymmetric/symmetric mismatches), OAuth 2.0 grant flows, session invalidation, and credential stuffing defenses.",
     icon: Lock
   },
   {
     code: "OWASP API3:2023",
-    title: "Broken Object Property Level Authorization",
-    desc: "Testing mass assignment and unauthorized property modification to prevent users from overriding roles, billing tiers, or account statuses.",
+    title: "Broken Object Property Authorization (Mass Assignment)",
+    desc: "Testing request payloads and parameter binding to ensure regular users cannot alter sensitive properties such as role assignments ('role': 'admin'), subscription tiers, or verified account statuses.",
     icon: Database
-  },
-  {
-    code: "OWASP API4:2023",
-    title: "Unrestricted Resource Consumption",
-    desc: "Testing API rate limits, query payload sizes, pagination boundaries, and OTP brute-force limits to prevent Denial of Service and scraping.",
-    icon: ShieldAlert
   },
   {
     code: "OWASP API5:2023",
     title: "Broken Function Level Authorization (BFLA)",
-    desc: "Testing horizontal and vertical privilege boundaries to ensure standard user tokens cannot invoke administrative or partner-level API endpoints.",
+    desc: "Testing horizontal and vertical privilege boundaries by attempting to invoke administrative, audit, or partner-level endpoints using low-privilege standard user session tokens.",
     icon: Layers
   },
   {
-    code: "OWASP API7:2023",
-    title: "Server-Side Request Forgery (SSRF) in APIs",
-    desc: "Fuzzing webhook triggers, URL import endpoints, and document parsers to prevent internal network scanning and cloud metadata (169.254.169.254) exposure.",
+    code: "TENANT-ISO",
+    title: "Multi-Tenant Isolation & Query Scoping",
+    desc: "Verifying that database access layers and shared connection pools maintain strict tenant isolation, preventing Customer A from accessing Customer B's records under parameter tampering.",
     icon: Server
   },
   {
-    code: "GraphQL Security",
-    title: "GraphQL Query Depth & Introspection",
-    desc: "Testing circular query recursion, batch query attacks, schema introspection exposure, and field-level authorization resolvers.",
+    code: "LOGIC-FLOW",
+    title: "Business Logic & Workflow Integrity",
+    desc: "Evaluating multi-step workflow manipulation, transaction race conditions, out-of-order state transitions, coupon stacking, and payment verification bypasses that automated scanners cannot model.",
+    icon: ShieldCheck
+  },
+  {
+    code: "GRAPHQL-SEC",
+    title: "GraphQL Resolver & Query Depth Security",
+    desc: "Testing circular query recursion, batch query abuse, schema introspection exposure, and field-level authorization resolvers to protect sensitive nested objects.",
     icon: Code
   },
   {
-    code: "Business Logic",
-    title: "Multi-Step API Workflow Integrity",
-    desc: "Evaluating race conditions in financial balance deductions, coupon stacking, multi-step state machine bypasses, and checkout logic manipulation.",
-    icon: ShieldCheck
+    code: "OWASP API7:2023",
+    title: "Server-Side Request Forgery (SSRF) & Webhooks",
+    desc: "Fuzzing webhook callbacks, URL import mechanisms, and document parsers to prevent internal network scanning and cloud instance metadata (169.254.169.254) exfiltration.",
+    icon: ShieldAlert
   }
 ];
 
@@ -141,8 +141,20 @@ const deliverables = [
 
 const faqs = [
   {
-    q: "How does manual API penetration testing differ from automated API scanners?",
-    a: "Automated scanners search for syntax flaws, missing headers, and known CVE signatures, but they are blind to application business logic, multi-step transaction flows, and broken object authorization (BOLA/IDOR). Our practitioners provision distinct user contexts in staging and manually manipulate request parameters, authorization tokens, and state transitions to find real exploit paths."
+    q: "What is API penetration testing and how does it differ from automated scanning?",
+    a: "API penetration testing is a hands-on security assessment where practitioners manually evaluate REST, GraphQL, and gRPC endpoints to uncover vulnerabilities that automated scanners miss. While scanners detect static signatures and known CVEs, human testers examine authorization boundaries, session lifecycles, and business logic. For example, an automated scanner cannot determine whether substituting a workspace ID in an export request leaks another customer's data."
+  },
+  {
+    q: "What is the difference between authentication and authorization in API security?",
+    a: "Authentication verifies identity—confirming who the caller is via tokens, keys, or passwords. Authorization verifies permissions—determining whether that authenticated identity has the right to view, modify, or delete a specific resource. Most severe API breaches occur when authentication succeeds, but the application fails to verify object-level authorization before executing an action."
+  },
+  {
+    q: "What is BOLA (Broken Object Level Authorization) in API security?",
+    a: "BOLA (OWASP API1:2023), formerly referred to as IDOR, occurs when an endpoint accepts a resource identifier (such as a UUID, database ID, or username) from user input without verifying that the requesting identity owns or is authorized to access that resource. Attackers exploit BOLA by simply altering the identifier in the request path or body to access other users' private records."
+  },
+  {
+    q: "What does a complete API security assessment include?",
+    a: "Our API security assessments cover all OWASP API Security Top 10 categories, object and function-level authorization, token lifecycle validation, tenant isolation, and business logic flows. You receive an executive summary, detailed technical report with CVSS scores, verified curl reproduction steps, code remediation guidance, and complimentary 30-day retesting."
   },
   {
     q: "What prerequisites are required to scope an API security assessment?",
@@ -154,7 +166,7 @@ const faqs = [
   },
   {
     q: "Is retesting included after our engineering team patches the findings?",
-    a: "Yes. Retesting is included with every TrustLayerLabs engagement. Once your developers deploy fixes to your staging environment, our practitioners re-test the identified vectors and issue an updated final report and Retest Verification Letter."
+    a: "Yes. Every assessment includes one complimentary retest within 30 days of report delivery. Once your developers deploy fixes to staging, our practitioners re-test the identified vectors and issue an updated report and Retest Verification Letter."
   }
 ];
 
@@ -254,7 +266,7 @@ export default function ApiSecurityPage() {
               href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <span>Get a Free Security Review →</span>
+              <span>Get a Free Security Scoping Review →</span>
             </Link>
 
             <Link 
@@ -262,7 +274,7 @@ export default function ApiSecurityPage() {
               className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample Report</span>
+              <span>View the Sample Assessment Report</span>
             </Link>
           </div>
         </div>
@@ -420,14 +432,14 @@ export default function ApiSecurityPage() {
               href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <span>Get a Free Security Review →</span>
+              <span>Get a Free Security Scoping Review →</span>
             </Link>
             <Link 
               href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample Report</span>
+              <span>View the Sample Assessment Report</span>
             </Link>
           </div>
         </div>

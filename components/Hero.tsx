@@ -55,14 +55,14 @@ export default function Hero() {
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-textPrimary tracking-tight leading-[1.08] max-w-4xl mx-auto font-sans">
-            Find the API & SaaS security flaws <br className="hidden sm:inline" />
-            <span className="text-primary">automated scanners miss.</span>
+            Find the API and SaaS Security Flaws <br className="hidden sm:inline" />
+            <span className="text-primary">Automated Scanners Miss.</span>
           </h1>
 
           {/* Subheadline & Supporting Text */}
           <div className="space-y-3 max-w-2xl mx-auto">
             <p className="text-base sm:text-lg md:text-xl font-medium text-textPrimary font-sans leading-relaxed">
-              Manual security testing for B2B SaaS, AI, and FinTech teams. We test API authorization, tenant boundaries, and complex business logic to uncover flaws automated scanners miss.
+              Manual security testing for B2B SaaS, AI, and FinTech teams. We look beyond basic scans to examine authorization, tenant isolation, and business logic.
             </p>
             <p className="text-xs sm:text-sm font-semibold text-primary font-sans">
               Preparing for an enterprise deal, compliance audit, or production launch?
@@ -96,7 +96,7 @@ export default function Hero() {
                 type="submit"
                 className="w-full sm:w-auto text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-2.5 px-5 rounded-lg sm:rounded-full shadow-sm transition-all active:scale-[0.98] gap-1.5 flex-shrink-0 cursor-pointer"
               >
-                Get a Free Security Review
+                Get a Free Security Scoping Review
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </form>
@@ -108,13 +108,13 @@ export default function Hero() {
                 onClick={() => trackSampleReportClick("hero_secondary_button")}
                 className="text-textSecondary hover:text-textPrimary font-semibold transition-colors flex items-center gap-1.5 px-4 py-1.5 bg-surface border border-border hover:border-zinc-400 rounded-full"
               >
-                <span>View Sample Report</span>
+                <span>View the Sample Assessment Report</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
             <p className="text-[11px] font-sans text-textSecondary text-center pt-1 font-medium">
-              30-minute security review · Mutual NDA · Practitioner-led
+              30-minute scoping review · Mutual NDA upfront · Practitioner-led · 30-day retest included
             </p>
 
             {/* StartupBase Launch Badge */}

@@ -139,7 +139,7 @@ export default function ManualTestingMatters() {
                 onClick={() => trackSampleReportClick("manual_testing_card")}
                 className="inline-flex items-center gap-1.5 text-xs font-bold uppercase font-sans tracking-wider text-primary hover:underline"
               >
-                <span>View Sample Report →</span>
+                <span>View the Sample Assessment Report →</span>
                 <ArrowRight size={13} />
               </Link>
             </div>

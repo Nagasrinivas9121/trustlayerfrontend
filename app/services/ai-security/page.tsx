@@ -141,20 +141,32 @@ const deliverables = [
 
 const faqs = [
   {
-    q: "Why is traditional penetration testing insufficient for AI & LLM applications?",
-    a: "Traditional security tools look for network ports, web headers, and SQL syntax, but they cannot evaluate non-deterministic natural language inputs, prompt injection vectors, tool-execution agency, or semantic vector store tenant isolation. AI security requires human-led adversarial testing against the OWASP Top 10 for LLMs."
+    q: "What is AI application security testing and what does it cover?",
+    a: "AI application security testing is an offensive security assessment tailored for systems integrating Large Language Models (LLMs), autonomous agents, and Retrieval-Augmented Generation (RAG) architectures. It covers direct and indirect prompt injection, vector store multi-tenant isolation, excessive agency in tool-calling workflows, sensitive context disclosure, and insecure output handling across your application stack."
+  },
+  {
+    q: "How should permissions and authorization be enforced in RAG applications?",
+    a: "Authorization in RAG applications must be enforced deterministically at the data retrieval layer before context reaches the LLM. Vector queries must include mandatory metadata filters matching the authenticated user's tenant and role permissions (e.g., filter: { tenantId: user.tenantId, acl: { $in: user.groups } }). Attempting to enforce permissions via prompt instructions alone is ineffective because system prompts can be overridden by adversarial user inputs."
   },
   {
     q: "What is Indirect Prompt Injection and why is it dangerous?",
-    a: "Indirect prompt injection occurs when an LLM processes untrusted external data (such as a webpage, customer support ticket, or uploaded PDF) that contains adversarial instructions. The LLM treats this external content as instructions, potentially exfiltrating sensitive context or executing unauthorized backend API actions."
+    a: "Indirect prompt injection occurs when an AI application ingests untrusted third-party data—such as parsed PDFs, scraped web content, or incoming emails—that contains hidden adversarial instructions. When the model processes this data, it may follow the attacker's embedded instructions rather than the developer's system prompt, potentially triggering unauthorized tool calls or leaking private workspace documents."
   },
   {
-    q: "How do you test multi-tenant isolation in RAG systems?",
-    a: "We examine how vector embeddings and queries are generated, stored, and filtered. We craft adversarial similarity search queries to verify that tenant ID metadata filtering is enforced deterministically before LLM context ingestion, preventing cross-tenant document leakage."
+    q: "How do you evaluate AI agent tool permissions and excessive agency?",
+    a: "We audit the boundary between the model's natural language reasoning and your backend tools (APIs, SQL databases, email services). We test whether malicious prompt manipulation can coerce the agent into calling unintended functions, escalating parameter values (e.g., modifying SQL WHERE clauses), or executing destructive write operations without human-in-the-loop confirmation."
+  },
+  {
+    q: "Does every AI application have these vulnerabilities?",
+    a: "No. Security risk is determined by architecture and privilege boundaries. An isolated, read-only documentation chatbot has a fundamentally different risk profile than an autonomous agent with database write access or a multi-tenant RAG platform querying confidential corporate archives. Our assessment scopes testing to your specific architectural boundaries."
   },
   {
     q: "How long does an AI application security audit take?",
-    a: "A typical AI application security assessment takes 5 to 7 business days depending on model integration depth, tool-calling complexity, and vector store scale."
+    a: "A standard AI application security assessment requires 5 to 7 business days, depending on model integration depth, tool-calling complexity, and vector store architecture. Urgent findings are shared in a preliminary debrief within 48 to 72 hours."
+  },
+  {
+    q: "Is vulnerability retesting included after our engineering team implements guardrails?",
+    a: "Yes. Every assessment includes 30 days of complimentary retesting. Once your developers implement deterministic filtering, prompt defenses, or tool permission boundaries, we re-test the identified attack vectors and issue an updated report and Retest Verification Letter."
   }
 ];
 
@@ -254,7 +266,7 @@ export default function AiSecurityPage() {
               href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <span>Get a Free Security Review →</span>
+              <span>Get a Free Security Scoping Review →</span>
             </Link>
 
             <Link 
@@ -262,7 +274,7 @@ export default function AiSecurityPage() {
               className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample Report</span>
+              <span>View the Sample Assessment Report</span>
             </Link>
           </div>
         </div>
@@ -411,14 +423,14 @@ export default function AiSecurityPage() {
               href="/free-assessment"
               className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
             >
-              <span>Get a Free Security Review →</span>
+              <span>Get a Free Security Scoping Review →</span>
             </Link>
             <Link 
               href="/sample-report"
               className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View Sample Report</span>
+              <span>View the Sample Assessment Report</span>
             </Link>
           </div>
         </div>

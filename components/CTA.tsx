@@ -31,7 +31,7 @@ export default function CTA() {
               onClick={() => trackFreeSecurityReviewStart("final_cta_primary")}
               className="btn-primary flex items-center justify-center px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-bold shadow-md w-full sm:w-auto gap-2 cursor-pointer"
             >
-              Get a Free Security Review
+              Get a Free Security Scoping Review
               <ArrowRight size={16} />
             </Link>
             <Link 
@@ -39,7 +39,7 @@ export default function CTA() {
               onClick={() => trackSampleReportClick("final_cta_secondary")}
               className="btn-secondary flex items-center justify-center group px-8 py-3.5 text-sm uppercase tracking-wider font-sans font-semibold w-full sm:w-auto"
             >
-              View Sample Report
+              View the Sample Assessment Report
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

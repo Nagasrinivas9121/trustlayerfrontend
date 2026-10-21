@@ -138,13 +138,13 @@ export default function ApiSecurityChecklistPage() {
               href="/free-assessment"
               className="px-8 py-3 bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md"
             >
-              Get a Free Security Review →
+              Get a Free Security Scoping Review →
             </Link>
             <Link
               href="/sample-report"
               className="px-8 py-3 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:text-primary font-semibold text-xs uppercase tracking-wider rounded-xl transition-all shadow-sm"
             >
-              View Sample Report
+              View the Sample Assessment Report
             </Link>
           </div>
         </div>

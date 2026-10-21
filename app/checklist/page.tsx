@@ -303,13 +303,13 @@ Compliance Verification: Confirmed multi-tenant boundary checks`}
                 href="/free-assessment"
                 className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
               >
-                Get a Free Security Review
+                Get a Free Security Scoping Review
               </Link>
               <Link
                 href="/sample-report"
                 className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase font-sans font-semibold tracking-wider rounded-xl w-full sm:w-auto text-center shadow-sm transition-all"
               >
-                View Sample Report
+                View the Sample Assessment Report
               </Link>
             </div>
           </div>

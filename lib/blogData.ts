@@ -70,7 +70,7 @@ The results are compiled into a report detailing specific vulnerabilities, sensi
 ## Conclusion
 VAPT is no longer a luxury; it is a necessity. By identifying and fixing vulnerabilities before they are exploited, you protect your revenue, your reputation, and your future.
 
-*Ready to secure your assets? Learn more about our [5-Phase Testing Methodology](/methodology), examine our [Illustrative Sample VAPT Report](/sample-report), or [Get a Free Security Review](/free-assessment) today under mutual NDA.*
+*Ready to secure your assets? Learn more about our [5-Phase Testing Methodology](/methodology), examine our [Illustrative Sample VAPT Report](/sample-report), or [Get a Free Security Scoping Review](/free-assessment) today under mutual NDA.*
     `
   },
   {
@@ -136,7 +136,7 @@ Fetching a remote resource without validating the user-supplied URL.
 - **Prevention:** Use an "Allow List" for all outgoing requests.
 
 ## How We Test
-Our [Web Application VAPT](/services/web-app-vapt) and [API Security Testing](/services/api-security) services are built specifically on the OWASP methodology, adhering to our rigorous [5-phase testing methodology](/methodology). [Get a Free Security Review](/free-assessment) to evaluate your application.
+Our [Web Application VAPT](/services/web-app-vapt) and [API Security Testing](/services/api-security) services are built specifically on the OWASP methodology, adhering to our rigorous [5-phase testing methodology](/methodology). [Get a Free Security Scoping Review](/free-assessment) to evaluate your application.
     `
   },
   {
@@ -807,7 +807,7 @@ const CleanHTML = ({ unsafeHTML }) => {
 Implement strict Content Security Policy headers to disable inline scripts and enforce trusted domain origins.
 
 ### 3. Verify Attack Surfaces with Manual Web App VAPT
-Automated linters catch static JSX patterns, but complex DOM-based XSS, client-side template injection, and stored payload execution require manual verification. If you are preparing for production release or an enterprise security review, explore our [Web Application VAPT Services](/services/web-app-vapt) or [Get a Free Security Review](/free-assessment) to review your attack surface with our security architects under mutual NDA.
+Automated linters catch static JSX patterns, but complex DOM-based XSS, client-side template injection, and stored payload execution require manual verification. If you are preparing for production release or an enterprise security review, explore our [Web Application VAPT Services](/services/web-app-vapt) or [Get a Free Security Scoping Review](/free-assessment) to review your attack surface with our security architects under mutual NDA.
 `
   },
   {
@@ -1477,7 +1477,7 @@ app.use('/graphql', graphqlHTTP({
 }));
 \`\`\`
 2. **Disable Introspection in Production:** Prevent attackers from mapping your GraphQL schema.
-3. **Conduct GraphQL API Penetration Testing:** Automated scanners struggle with deeply nested queries and resolver-level authorization checks. Explore our [GraphQL API Security Testing](/services/graphql-security) and [API Security Testing & BOLA Pentesting](/services/api-security) services, or [Get a Free Security Review](/free-assessment).
+3. **Conduct GraphQL API Penetration Testing:** Automated scanners struggle with deeply nested queries and resolver-level authorization checks. Explore our [GraphQL API Security Testing](/services/graphql-security) and [API Security Testing & BOLA Pentesting](/services/api-security) services, or [Get a Free Security Scoping Review](/free-assessment).
 `
   },
   {
@@ -1607,7 +1607,7 @@ const resolvers = {
 1. **Use Non-Sequential Identifiers:** Never expose auto-incrementing integer IDs in URLs. Use cryptographically secure random values (such as UUID v4) to prevent easy enumerations.
 2. **Context-Driven Queries:** Always map database queries using filters derived from the authenticated session context (e.g., matching the tenant ID metadata) rather than relying on query inputs sent by the client.
 3. **Write Unit Tests for Logical Auth:** Create automated tests that simulate requests using Token A trying to query Resource B. Assert that the request returns a \`403 Forbidden\` or \`404 Not Found\`.
-4. **Conduct Manual API Penetration Testing:** Automated vulnerability scanners cannot understand business context or detect multi-step broken authorization logic. Discover how our [API Security Testing & BOLA Pentesting](/services/api-security) and [GraphQL Security Testing](/services/graphql-security) uncover logical authorization gaps, or [Get a Free Security Review](/free-assessment) to review your API architecture under mutual NDA.
+4. **Conduct Manual API Penetration Testing:** Automated vulnerability scanners cannot understand business context or detect multi-step broken authorization logic. Discover how our [API Security Testing & BOLA Pentesting](/services/api-security) and [GraphQL Security Testing](/services/graphql-security) uncover logical authorization gaps, or [Get a Free Security Scoping Review](/free-assessment) to review your API architecture under mutual NDA.
 `
   },
   {
@@ -1711,7 +1711,7 @@ Instructions: You are an AI assistant. Analyze the user's data enclosed in the <
 ### C. Implement LLM Isolation Boundaries
 Ensure that the AI Agent does not run with elevated system permissions. If the agent needs to call external APIs (tools), route the calls through a middleman validation layer that performs secondary authorization checks on the action.
 
-*Are your GenAI applications secure against prompt injection and vector store leakage? Explore our [AI & LLM Application Security Testing](/services/ai-security) services, or [Get a Free Security Review](/free-assessment) to map your AI attack surface under mutual NDA.*
+*Are your GenAI applications secure against prompt injection and vector store leakage? Explore our [AI & LLM Application Security Testing](/services/ai-security) services, or [Get a Free Security Scoping Review](/free-assessment) to map your AI attack surface under mutual NDA.*
 `
   },
   {
@@ -2125,6 +2125,6 @@ Fixing BOLA requires architectural discipline rather than ad-hoc code patches:
 
 Automated scanners will not protect your platform from complex authorization and business logic flaws. Expert-led manual penetration testing is the only reliable way to validate tenant isolation boundaries before shipping to production.
 
-Explore our [API Security Testing & BOLA Pentesting](/services/api-security) and [SaaS VAPT Services](/services/saas-vapt), or [Get a Free Security Review](/free-assessment) to evaluate your API architecture under mutual NDA.`
+Explore our [API Security Testing & BOLA Pentesting](/services/api-security) and [SaaS VAPT Services](/services/saas-vapt), or [Get a Free Security Scoping Review](/free-assessment) to evaluate your API architecture under mutual NDA.`
   }
 ];

@@ -242,10 +242,10 @@ export default function SampleReportPage() {
                 </a>
                 <Link
                   href={email ? `/free-assessment?email=${encodeURIComponent(email)}` : "/free-assessment"}
-                  onClick={() => trackFreeReviewCtaClick("sample_report_post_download", "Get a Free Security Review")}
+                  onClick={() => trackFreeReviewCtaClick("sample_report_post_download", "Get a Free Security Scoping Review")}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-surface border border-border hover:border-zinc-400 text-textPrimary font-bold text-xs uppercase tracking-wider rounded-full shadow-sm"
                 >
-                  Get a Free Security Review
+                  Get a Free Security Scoping Review
                 </Link>
               </div>
             </div>
@@ -294,10 +294,10 @@ export default function SampleReportPage() {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link
               href="/free-assessment"
-              onClick={() => trackFreeReviewCtaClick("sample_report_page_footer", "Get a Free Security Review")}
+              onClick={() => trackFreeReviewCtaClick("sample_report_page_footer", "Get a Free Security Scoping Review")}
               className="px-6 py-3 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md"
             >
-              Get a Free Security Review
+              Get a Free Security Scoping Review
             </Link>
             <button
               type="button"

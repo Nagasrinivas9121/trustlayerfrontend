@@ -239,7 +239,7 @@ export default function SecurityReportPreview() {
                 onClick={() => trackFreeSecurityReviewStart("report_preview_primary")}
                 className="w-full text-center flex items-center justify-center bg-primary hover:bg-primary/90 text-white text-xs uppercase tracking-wider font-sans font-bold py-3 px-4 rounded-xl shadow-md transition-all active:scale-[0.98] gap-1.5"
               >
-                Get a Free Security Review
+                Get a Free Security Scoping Review
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
@@ -247,7 +247,7 @@ export default function SecurityReportPreview() {
                 onClick={() => trackSampleReportClick("report_preview_secondary")}
                 className="w-full text-center flex items-center justify-center bg-background border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase tracking-wider font-sans font-semibold py-2.5 px-4 rounded-xl transition-all"
               >
-                View Sample Report
+                View the Sample Assessment Report
               </Link>
             </div>
           </div>

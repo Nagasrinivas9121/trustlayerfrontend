@@ -248,13 +248,13 @@ export default function MethodologyPage() {
               href="/free-assessment"
               className="px-6 py-3 bg-[#0a0a0a] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors"
             >
-              Get a Free Security Review →
+              Get a Free Security Scoping Review →
             </Link>
             <Link
               href="/sample-report"
               className="px-6 py-3 bg-surface border border-border text-textPrimary text-xs font-bold uppercase tracking-wider rounded-full hover:border-zinc-400 transition-colors"
             >
-              View Sample Report
+              View the Sample Assessment Report
             </Link>
           </div>
         </div>

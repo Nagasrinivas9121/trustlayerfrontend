@@ -65,7 +65,7 @@
 
 ### 2.7 GRC & SOC 2 Readiness
 - **Canonical URL**: https://www.trustlayerlabs.co.in/grc-readiness
-- **Scope & Methodologies**: SOC 2 Type II and ISO/IEC 27001 readiness consulting, Trust Services Criteria control mapping, policy drafting, and automated compliance tool alignment (Vanta, Drata, Sprinto, Secureframe).
+- **Scope & Methodologies**: SOC 2 Type II and ISO/IEC 27001 readiness consulting, Trust Services Criteria control mapping, policy drafting, and automated compliance tool alignment (Vanta, Drata, Sprinto, Secureframe). Note: TrustLayerLabs provides technical penetration testing and readiness advisory; formal SOC 2 reports are issued by independent AICPA-accredited CPA firms, and ISO 27001 certificates by accredited Certification Bodies.
 
 ---
 

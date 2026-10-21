@@ -32,11 +32,11 @@ export default function PartnershipActions() {
 
       <Link 
         href="/sample-report"
-        onClick={() => trackSampleReportCtaClick("partnerships_hero", "View Sample Report")}
+        onClick={() => trackSampleReportCtaClick("partnerships_hero", "View the Sample Assessment Report")}
         className="px-6 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
       >
         <FileText size={15} />
-        <span>View Sample Report</span>
+        <span>View the Sample Assessment Report</span>
       </Link>
     </div>
   );

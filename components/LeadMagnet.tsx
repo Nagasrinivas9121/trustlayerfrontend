@@ -111,7 +111,7 @@ export default function LeadMagnet() {
                       href="/free-assessment"
                       className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-white font-mono uppercase tracking-wider underline underline-offset-4"
                     >
-                      Get a Free Security Review →
+                      Get a Free Security Scoping Review →
                     </a>
                   </div>
                 </div>

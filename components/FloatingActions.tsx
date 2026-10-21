@@ -53,11 +53,11 @@ export default function FloatingActions() {
           <Link
             href="/free-assessment"
             onClick={() => {
-              trackFreeReviewCtaClick("mobile_floating_bar", "Get a Free Security Review");
+              trackFreeReviewCtaClick("mobile_floating_bar", "Get a Free Security Scoping Review");
             }}
             className="flex-1 bg-primary hover:bg-primary-hover text-white py-2.5 text-xs font-bold text-center flex items-center justify-center gap-1.5 uppercase tracking-wider rounded-full shadow-sm"
           >
-            <Calendar className="w-3.5 h-3.5" /> Get Free Review
+            <Calendar className="w-3.5 h-3.5" /> Free Scoping Review
           </Link>
           <Link
             href={`tel:${BRAND.contact.phone}`}

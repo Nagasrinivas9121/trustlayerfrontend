@@ -383,7 +383,7 @@ function FreeAssessmentForm() {
                   </>
                 ) : (
                   <>
-                    Get a Free Security Review →
+                    Get a Free Security Scoping Review →
                   </>
                 )}
               </button>
@@ -428,7 +428,7 @@ export default function FreeAssessmentPage() {
           </div>
           
           <h1 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight font-sans">
-            Get a Free <span className="text-primary">Security Review</span>
+            Get a Free <span className="text-primary">Security Scoping Review</span>
           </h1>
           
           <p className="text-sm font-semibold text-textPrimary max-w-md mx-auto font-sans">

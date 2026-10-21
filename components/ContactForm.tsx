@@ -487,7 +487,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                     </>
                   ) : (
                     <>
-                      Get a Free Security Review <Send size={12} />
+                      Get a Free Security Scoping Review <Send size={12} />
                     </>
                   )}
                 </button>

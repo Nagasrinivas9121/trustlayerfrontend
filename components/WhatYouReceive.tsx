@@ -139,14 +139,14 @@ export default function WhatYouReceive() {
               onClick={() => trackFreeSecurityReviewStart("deliverables_callout")}
               className="w-full sm:w-auto text-center py-2.5 px-5 bg-primary hover:bg-primary/90 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-sm transition-all"
             >
-              Get a Free Security Review →
+              Get a Free Security Scoping Review →
             </Link>
             <Link
               href="/sample-report"
               onClick={() => trackSampleReportClick("deliverables_callout")}
               className="w-full sm:w-auto text-center py-2.5 px-5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-textPrimary hover:text-primary transition-all"
             >
-              View Sample Report →
+              View the Sample Assessment Report →
             </Link>
           </div>
         </div>

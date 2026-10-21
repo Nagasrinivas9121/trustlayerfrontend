@@ -97,10 +97,10 @@ export default function CoreServicesSection() {
                 <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center gap-3">
                   <Link 
                     href="/free-assessment"
-                    onClick={() => trackFreeReviewCtaClick(`package_${pillar.id}`, "Get a Free Security Review")}
+                    onClick={() => trackFreeReviewCtaClick(`package_${pillar.id}`, "Get a Free Security Scoping Review")}
                     className="w-full sm:flex-1 text-center py-2.5 px-4 bg-primary text-white text-xs uppercase font-sans font-bold tracking-wider rounded-lg hover:bg-primary-hover transition-all flex items-center justify-center gap-1.5 shadow-sm"
                   >
-                    <span>Get a Free Security Review</span>
+                    <span>Get a Free Security Scoping Review</span>
                     <ArrowRight size={13} />
                   </Link>
                   <Link 

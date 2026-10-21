@@ -138,14 +138,14 @@ export default function NdaProcessPage() {
               className="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white font-bold text-xs uppercase tracking-wider font-sans rounded-full shadow-sm transition-all flex items-center gap-2"
             >
               <Calendar className="w-3.5 h-3.5" />
-              <span>Get a Free Security Review</span>
+              <span>Get a Free Security Scoping Review</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/sample-report"
               className="px-6 py-2.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary font-semibold text-xs uppercase tracking-wider font-sans rounded-full shadow-sm transition-all"
             >
-              View Sample Report
+              View the Sample Assessment Report
             </Link>
           </div>
           <p className="text-[11px] text-textSecondary font-sans pt-2">

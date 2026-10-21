@@ -2,8 +2,8 @@ export const BRAND = {
   name: "TrustLayerLabs",
   tagline: "THE VERIFIED TRUST LAYER",
   positioning: "ASSESS / VERIFY / STRENGTHEN / SCALE",
-  headline: "Find the security flaws automated scanners miss.",
-  subheadline: "Manual API, SaaS & AI security testing for startups preparing for enterprise customers, audits, or production launch.",
+  headline: "Find the API and SaaS Security Flaws Automated Scanners Miss.",
+  subheadline: "Manual security testing for B2B SaaS, AI, and FinTech teams. We look beyond basic scans to examine authorization, tenant isolation, and business logic.",
   supportingText: "We test the attack paths that require human reasoning — BOLA/IDOR, broken authorization, business-logic flaws, authentication weaknesses, multi-tenant isolation, and AI/RAG security.",
   website: "https://trustlayerlabs.co.in",
   contact: {
@@ -28,6 +28,38 @@ export const BRAND = {
     textSecondary: "#8A8F9E",
     border: "#1F2937",
   }
+};
+
+export const CONVERSION_CONFIG = {
+  primaryCta: {
+    label: "Get a Free Security Scoping Review",
+    href: "/free-assessment",
+  },
+  secondaryCta: {
+    label: "View the Sample Assessment Report",
+    href: "/sample-report",
+  },
+  serviceCtas: {
+    apiSaas: {
+      label: "Scope an API & SaaS Assessment",
+      href: "/free-assessment?service=api-saas",
+    },
+    aiSecurity: {
+      label: "Scope an AI Security Assessment",
+      href: "/free-assessment?service=ai-security",
+    },
+    grcReadiness: {
+      label: "Discuss Your Security Readiness",
+      href: "/free-assessment?service=grc-readiness",
+    },
+  },
+  commitments: {
+    scopingDuration: "30-Minute Confidential Scoping Review",
+    assessmentTurnaround: "5–7 business days (critical findings debrief within 48–72h)",
+    responseTime: "Response within 1 business day under mutual NDA",
+    retestPeriod: "Complimentary 30-day retesting included on all identified findings",
+    confidentiality: "Mutual NDA executed upfront prior to technical disclosures",
+  },
 };
 
 export const NAV_LINKS = [
@@ -191,7 +223,7 @@ export const SERVICES = [
     id: "startup-security",
     slug: "startup-security",
     title: "Startup Security & GRC Readiness",
-    description: "SOC 2 Type II, ISO 27001, and enterprise vendor security audit readiness and pentest attestation for fast-growing SaaS startups.",
+    description: "SOC 2 Type II, ISO 27001, and enterprise vendor security audit readiness, control gap analysis, and penetration testing for SaaS startups.",
     duration: "2-4 Weeks",
     severity: "compliance",
     technologies: ["Vanta", "Drata", "Slack", "AWS", "Jira", "GitHub"],
@@ -199,9 +231,9 @@ export const SERVICES = [
       "Custom security policy templates",
       "Internal controls assessment matrix",
       "Gap analysis and remediation roadmap",
-      "Warm intro to trusted compliance auditors"
+      "Warm intro to accredited compliance auditors"
     ],
-    outcome: "Close enterprise deals faster by presenting verified SOC2 readiness and pentest attestations."
+    outcome: "Prepare for external audits and close enterprise deals faster by demonstrating verified security readiness."
   },
   {
     id: "saas-vapt",
@@ -223,7 +255,7 @@ export const SERVICES = [
     id: "soc2-pentesting",
     slug: "soc2-pentesting",
     title: "SOC 2 Compliance Pentesting",
-    description: "Specialized penetration testing fulfilling Technical Security Control requirements for SOC 2 Type II attestation audits.",
+    description: "Specialized penetration testing fulfilling Technical Security Control requirements (CC6.1–CC6.8) for SOC 2 Type II attestation audits.",
     duration: "5-7 Days",
     severity: "high",
     technologies: ["SOC 2 CC6.1-CC6.3", "Vanta/Drata Integrations", "AWS/GCP Audits", "IAM Review", "Nessus"],
@@ -233,7 +265,7 @@ export const SERVICES = [
       "Signed auditor-ready attestation letter",
       "Free retesting for identified flaws"
     ],
-    outcome: "Close trust gaps for compliance auditors and fast-track your SOC 2 Type II audit attestation."
+    outcome: "Satisfy technical penetration testing mandates required by independent auditors for your SOC 2 Type II examination."
   },
   {
     id: "fintech-vapt",
@@ -287,7 +319,7 @@ export const SERVICES = [
     id: "iso-27001-vapt",
     slug: "iso-27001-vapt",
     title: "ISO 27001 VAPT Audit",
-    description: "Annex A.12 technical security vulnerability assessment validating infrastructure, networks, and perimeter configurations.",
+    description: "Annex A technical security vulnerability assessment validating infrastructure, networks, and perimeter configurations.",
     duration: "5-7 Days",
     severity: "high",
     technologies: ["ISO 27001 controls", "Nmap", "OpenVAS", "Qualys", "Network perimeter scans"],
@@ -297,7 +329,7 @@ export const SERVICES = [
       "Signed penetration test attestation",
       "Remediation support commits"
     ],
-    outcome: "Secure the technical control benchmarks required to support ISO 27001 certification audits."
+    outcome: "Satisfy the technical vulnerability assessment benchmarks required to support your ISO 27001 certification audit."
   },
   {
     id: "hipaa-vapt",
@@ -624,36 +656,52 @@ export const PRICING_TIERS = [
 
 export const FAQS = [
   {
-    question: "How long does a standard security assessment or VAPT take?",
-    answer: "A standard API or web application security assessment typically takes 5 to 10 business days depending on scope and endpoint count. For fast-moving startups with enterprise deal deadlines, we can prioritize high-risk attack surfaces and provide an initial findings debrief within 48 to 72 hours."
+    question: "What is API penetration testing and how does it differ from automated scanning?",
+    answer: "API penetration testing is a hands-on security assessment where practitioners manually evaluate REST, GraphQL, and gRPC endpoints to uncover vulnerabilities that automated scanners miss. While scanners detect static signatures and known CVEs, human testers examine authorization boundaries, session lifecycles, and business logic. For example, a scanner cannot evaluate whether changing an account ID in a request allows one tenant to view another tenant's financial statements."
   },
   {
-    question: "What specific attack surfaces does TrustLayerLabs test?",
-    answer: "We perform deep manual and assisted testing across REST, GraphQL, and gRPC APIs, Single Page Applications, backend business logic, authentication mechanisms (OAuth/JWT), object-level authorization (BOLA/BFLA), tenant isolation boundaries in multi-tenant SaaS, cloud IAM configurations (AWS/GCP/Azure), and external perimeter services."
+    question: "What is the difference between authentication and authorization in APIs?",
+    answer: "Authentication verifies identity—confirming who the user or service is (for example, via JWT, OAuth, or API keys). Authorization verifies permissions—determining whether that authenticated identity has the right to view, modify, or delete a specific resource. Most severe API breaches occur when authentication succeeds, but the backend fails to verify authorization before executing an action on a target object."
   },
   {
-    question: "How do you test SaaS multi-tenant isolation and authorization logic?",
-    answer: "We provision distinct tenant and role contexts in staging (e.g., Organization A User vs. Organization B Admin) and systematically attempt cross-tenant parameter substitution, horizontal privilege escalation, and direct object queries to verify that tenant boundaries cannot be breached under any payload manipulation."
+    question: "What is BOLA (Broken Object Level Authorization) in API security?",
+    answer: "Broken Object Level Authorization (BOLA), also known as Insecure Direct Object Reference (IDOR), occurs when an API endpoint accepts a resource identifier (such as a UUID or database ID) from user input without verifying that the requesting user owns or has permission to access that resource. For example, if User A replaces their workspace ID with User B's workspace ID in 'GET /api/v1/workspaces/{id}' and receives User B's data, the endpoint suffers from BOLA."
+  },
+  {
+    question: "How can SaaS companies test multi-tenant isolation?",
+    answer: "SaaS companies test multi-tenant isolation by establishing two or more distinct tenant accounts in staging (e.g., Tenant A Admin, Tenant A Member, Tenant B Admin) and systematically attempting cross-tenant access. Testing probes database row-level security (RLS), ORM query filters, shared cache stores like Redis, and async background workers. For example, we verify whether an export job queued by Tenant A could execute under an unscoped service worker and deliver Tenant B's data."
+  },
+  {
+    question: "What does an API and SaaS security assessment include?",
+    answer: "A standard assessment includes comprehensive testing of the OWASP API Security Top 10, object and function-level authorization (BOLA/BFLA), tenant isolation, token hygiene, and multi-step business logic workflows. Deliverables include an executive summary for stakeholders, a detailed technical report with CVSS v3.1 scores, verified curl reproduction steps, code remediation guidance, and a complimentary 30-day retest."
+  },
+  {
+    question: "What is AI application security testing and what does it cover?",
+    answer: "AI application security testing evaluates vulnerabilities specific to generative AI, Large Language Models (LLMs), and Retrieval-Augmented Generation (RAG) pipelines. Testing covers direct and indirect prompt injection, sensitive data leakage from system prompts or training context, RAG vector database access controls, and excessive agency in autonomous AI agents where tools could execute unauthorized database updates or external API calls."
+  },
+  {
+    question: "How should permissions and authorization be enforced in RAG applications?",
+    answer: "Permissions in RAG applications must be enforced deterministically before context is passed to the language model. When a user queries a vector store, the search query must include mandatory tenant and user permission metadata filters (e.g., 'filter: { tenantId: user.tenantId, permissions: { $in: user.roles } }'). Relying on the LLM's system prompt to ignore unauthorized retrieved documents is not an access control boundary and can be bypassed via prompt injection."
+  },
+  {
+    question: "What is the difference between SOC 2 readiness and formal attestation?",
+    answer: "SOC 2 readiness is the preparatory phase where consultants assess control gaps, map technical infrastructure to Trust Services Criteria (CC6.1–CC6.8), draft security policies, and conduct required technical penetration tests. Formal SOC 2 attestation, by contrast, is the official examination conducted and signed by an independent, accredited CPA firm. TrustLayerLabs provides readiness consulting and technical testing; we do not issue formal CPA attestations."
+  },
+  {
+    question: "How long does a security assessment take and what is the turnaround time?",
+    answer: "A standard API or SaaS security assessment typically takes 5 to 7 business days, depending on endpoint count and architectural complexity. For startups facing tight enterprise deal deadlines or audit windows, we provide an expedited preliminary debrief of any critical findings within 48 to 72 hours so developers can begin patching immediately."
   },
   {
     question: "Do you sign a Non-Disclosure Agreement (NDA) before testing?",
-    answer: "Yes, absolutely. We execute a mutual NDA before receiving any architecture documentation, Swagger/Postman collections, or staging credentials. All findings, logs, reproduction steps, and vulnerability details are treated as strictly confidential and stored encrypted."
-  },
-  {
-    question: "What deliverables and reports do our engineering teams receive?",
-    answer: "You receive an executive summary for leadership, investors, and enterprise buyers, alongside a technical engineering report with exact reproduction steps, proof-of-concept payloads, root-cause analysis, and specific remediation code guidance (Node, Python, Go, Java) for each finding."
+    answer: "Yes. We execute a bilateral mutual NDA before reviewing architecture diagrams, API schemas, or receiving staging credentials. All findings, reproduction steps, and assessment notes are encrypted at rest and treated under strict confidentiality."
   },
   {
     question: "Is retesting included after our developers fix the vulnerabilities?",
-    answer: "Yes, a 30-day retest is included on applicable assessments. Once your engineering team deploys patches to your staging environment, our security specialists re-evaluate the exact vulnerability vectors and issue an updated final report and Retest Verification Letter confirming the status of remediated findings."
-  },
-  {
-    question: "Can TrustLayerLabs support our SOC 2 and ISO 27001 readiness?",
-    answer: "Yes. In addition to technical penetration testing required for SOC 2 Type II and ISO 27001 Annex A controls, our GRC consultants assist with security policy development, risk registers, control-gap assessments, and enterprise vendor security questionnaire responses. We provide readiness advisory that prepares your team for formal external audit."
+    answer: "Yes. Every assessment includes one complimentary retest within 30 days of initial report delivery. After your engineering team deploys patches to staging, our security practitioners re-evaluate the fixed vectors and issue an updated report alongside a formal Retest Verification Letter confirming remediation."
   },
   {
     question: "How do we scope an engagement and get started?",
-    answer: "You can book a 30-minute scoping call with our lead security architects. We review your architecture, endpoint count, authentication complexity, and target timelines to deliver a transparent scope and fixed quote within 24 hours."
+    answer: "You can schedule a confidential 30-minute scoping review with our lead security practitioners. We discuss your architecture, endpoint count, authentication mechanisms, and timelines under mutual NDA, then provide a transparent, fixed-scope proposal within 24 hours."
   }
 ];
 
@@ -806,7 +854,7 @@ export const PROBLEMS_WE_SOLVE = [
 export const CORE_PILLARS = [
   {
     id: "free-security-review",
-    title: "Free Security Review",
+    title: "Free Security Scoping Review",
     tier: "Entry • 30-Minute Confidential Conversation",
     tagline: "Scoping, Threat Model & Architecture Review",
     description: "A focused 30-minute scoping review under mutual NDA. We examine your architecture, API surface, auth model, and security objectives to recommend the exact testing scope needed.",
@@ -818,12 +866,12 @@ export const CORE_PILLARS = [
     ],
     badge: "Entry Scoping • Zero Cost",
     href: "/free-assessment",
-    ctaText: "Get a Free Security Review",
+    ctaText: "Get a Free Security Scoping Review",
     primaryAction: "review"
   },
   {
     id: "api-security-assessment",
-    title: "API / SaaS Security Assessment",
+    title: "API & SaaS Security Assessment",
     tier: "First Paid Engagement • Primary Focus",
     tagline: "Deep BOLA, Tenant Isolation & Business Logic",
     description: "Exhaustive manual offensive testing focused on authorization, BOLA/IDOR, RBAC, tenant isolation, authentication, business logic, and API workflows.",
@@ -835,7 +883,7 @@ export const CORE_PILLARS = [
     ],
     badge: "First Paid Assessment",
     href: "/services/api-security",
-    ctaText: "Discuss Scope",
+    ctaText: "Scope an API & SaaS Assessment",
     primaryAction: "scope"
   },
   {
@@ -852,7 +900,7 @@ export const CORE_PILLARS = [
     ],
     badge: "Enterprise & Audit",
     href: "/services/web-app-vapt",
-    ctaText: "Request Assessment",
+    ctaText: "Request Full Assessment",
     primaryAction: "request"
   },
   {
@@ -869,7 +917,7 @@ export const CORE_PILLARS = [
     ],
     badge: "Compliance Readiness",
     href: "/grc-readiness",
-    ctaText: "Discuss Scope",
+    ctaText: "Discuss Your Security Readiness",
     primaryAction: "scope"
   }
 ];

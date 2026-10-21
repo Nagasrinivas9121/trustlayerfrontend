@@ -9,7 +9,7 @@
 - [FinTech Application Security Testing](https://www.trustlayerlabs.co.in/fintech-security): Payment gateway integration security, double-spend detection, transaction tampering, banking API authorization, and compliance preparation for RBI / SEBI / PCI-DSS guidelines.
 - [Web Application VAPT](https://www.trustlayerlabs.co.in/services/web-app-vapt): Deep manual web application penetration testing covering authentication, business logic vulnerabilities, SSRF, and injection flaws.
 - [Cloud Security Assessments](https://www.trustlayerlabs.co.in/services/cloud-security): AWS, GCP, and Azure configuration audits, IAM least-privilege reviews, and CIS benchmark validation.
-- [GRC & SOC 2 Readiness](https://www.trustlayerlabs.co.in/grc-readiness): SOC 2 Type II and ISO/IEC 27001 readiness reviews, control gap analysis, policy drafting, and automated evidence alignment.
+- [GRC & SOC 2 Readiness](https://www.trustlayerlabs.co.in/grc-readiness): SOC 2 Type II and ISO/IEC 27001 technical readiness reviews, control gap analysis, and evidence alignment (technical readiness advisory; formal SOC 2 attestation is conducted by licensed CPA firms and ISO certification by accredited Certification Bodies).
 - [VAPT Bangalore](https://www.trustlayerlabs.co.in/vapt-bangalore): Manual API & web security testing for Bangalore technology startups and SaaS companies.
 - [VAPT Hyderabad](https://www.trustlayerlabs.co.in/vapt-hyderabad): Specialized API & cloud penetration testing for Hyderabad technology teams.
 

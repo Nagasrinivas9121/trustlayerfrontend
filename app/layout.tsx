@@ -215,7 +215,7 @@ export default function RootLayout({
           "itemOffered": {
             "@type": "Service",
             "name": "SOC2 & ISO 27001 Readiness",
-            "description": "Gap analysis, control mapping, policy drafting, and evidence collection to prepare for SOC2 Type II and ISO 27001 certification.",
+            "description": "Technical penetration testing, gap analysis, control mapping, and evidence collection to prepare for SOC 2 Type II and ISO 27001 audits.",
           },
         },
         {
