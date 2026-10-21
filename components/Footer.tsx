@@ -89,6 +89,24 @@ export default function Footer() {
                 <span className="sr-only">Email TrustLayerLabs Support</span>
               </ObfuscatedEmailLink>
             </div>
+
+            {/* StartupBase Launch Badge */}
+            <div className="pt-2">
+              <a 
+                href="https://startupbase.io/products/trustlayerlabs?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105"
+                title="TrustLayerLabs launched on StartupBase"
+              >
+                <img 
+                  src="https://statics.startupbase.io/site/badges/launched-on-sb.svg" 
+                  alt="Launched on StartupBase" 
+                  height="50" 
+                  style={{ height: "50px", width: "auto" }} 
+                />
+              </a>
+            </div>
           </div>
 
           {/* Links Grid */}

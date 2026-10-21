@@ -179,6 +179,22 @@ export default function Proof() {
                 </span>
               </div>
             </a>
+
+            <a 
+              href="https://startupbase.io/products/trustlayerlabs?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center transition-transform hover:scale-105 h-[36px]"
+              title="TrustLayerLabs launched on StartupBase"
+            >
+              <img 
+                src="https://statics.startupbase.io/site/badges/launched-on-sb.svg" 
+                alt="Launched on StartupBase" 
+                height="36" 
+                style={{ height: "36px", width: "auto" }}
+                className="rounded-lg shadow-sm"
+              />
+            </a>
           </div>
         </div>
       </div>

@@ -116,6 +116,24 @@ export default function Hero() {
             <p className="text-[11px] font-sans text-textSecondary text-center pt-1 font-medium">
               30-minute security review · Mutual NDA · Practitioner-led
             </p>
+
+            {/* StartupBase Launch Badge */}
+            <div className="pt-2 flex justify-center">
+              <a 
+                href="https://startupbase.io/products/trustlayerlabs?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block transition-transform hover:scale-105"
+                title="Launched on StartupBase"
+              >
+                <img 
+                  src="https://statics.startupbase.io/site/badges/launched-on-sb.svg" 
+                  alt="Launched on StartupBase" 
+                  height="44" 
+                  style={{ height: "44px", width: "auto" }}
+                />
+              </a>
+            </div>
           </div>
 
           {/* Above-the-Fold Verifiable Trust Strip */}
