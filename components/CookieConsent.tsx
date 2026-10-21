@@ -13,16 +13,20 @@ export interface CookiePreferences {
 function applyConsent(prefs: CookiePreferences) {
   if (typeof window !== "undefined") {
     const w = window as any;
-    if (typeof w.gtag === "function") {
-      w.gtag("consent", "update", {
-        ad_storage: prefs.marketing ? "granted" : "denied",
-        ad_user_data: prefs.marketing ? "granted" : "denied",
-        ad_personalization: prefs.marketing ? "granted" : "denied",
-        analytics_storage: prefs.analytics ? "granted" : "denied",
-        personalization_storage: prefs.functional ? "granted" : "denied",
-        functionality_storage: prefs.functional ? "granted" : "denied",
-      });
+    w.dataLayer = w.dataLayer || [];
+    if (typeof w.gtag !== "function") {
+      w.gtag = function () {
+        w.dataLayer.push(arguments);
+      };
     }
+    w.gtag("consent", "update", {
+      ad_storage: prefs.marketing ? "granted" : "denied",
+      ad_user_data: prefs.marketing ? "granted" : "denied",
+      ad_personalization: prefs.marketing ? "granted" : "denied",
+      analytics_storage: prefs.analytics ? "granted" : "denied",
+      personalization_storage: prefs.functional ? "granted" : "denied",
+      functionality_storage: prefs.functional ? "granted" : "denied",
+    });
 
     w.dataLayer = w.dataLayer || [];
     w.dataLayer.push({
