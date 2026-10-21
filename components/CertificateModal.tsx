@@ -216,7 +216,7 @@ export default function CertificateModal({ isOpen, onClose, initialCertId = "c3s
                 <button
                   key={certKey}
                   onClick={() => setSelectedId(certKey)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-[color,background-color,border-color,box-shadow,transform] flex items-center gap-1.5 whitespace-nowrap ${
                     isActive
                       ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 shadow-sm"
                       : "text-textSecondary hover:text-textPrimary hover:bg-white/5 border border-transparent"
