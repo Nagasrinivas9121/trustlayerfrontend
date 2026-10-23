@@ -2,8 +2,8 @@ export const BRAND = {
   name: "TrustLayerLabs",
   tagline: "THE VERIFIED TRUST LAYER",
   positioning: "ASSESS / VERIFY / STRENGTHEN / SCALE",
-  headline: "Find the API and SaaS Security Flaws Automated Scanners Miss.",
-  subheadline: "Manual security testing for B2B SaaS, AI, and FinTech teams. We look beyond basic scans to examine authorization, tenant isolation, and business logic.",
+  headline: "Practical Security Testing for APIs, SaaS and AI Applications",
+  subheadline: "Security assessments focused on authorization, tenant isolation, business logic, and application security risks, with clear technical findings and remediation guidance.",
   supportingText: "We test the attack paths that require human reasoning — BOLA/IDOR, broken authorization, business-logic flaws, authentication weaknesses, multi-tenant isolation, and AI/RAG security.",
   website: "https://trustlayerlabs.co.in",
   contact: {
@@ -32,12 +32,12 @@ export const BRAND = {
 
 export const CONVERSION_CONFIG = {
   primaryCta: {
-    label: "Get a Free Security Scoping Review",
-    href: "/free-assessment",
+    label: "Discuss Your Security Requirements",
+    href: "https://cal.com/nagasrinivasarao/30min",
   },
   secondaryCta: {
-    label: "View the Sample Assessment Report",
-    href: "/sample-report",
+    label: "Explore Security Services",
+    href: "/services",
   },
   serviceCtas: {
     apiSaas: {

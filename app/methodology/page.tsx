@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, Shield, CheckCircle, Target, FileText, Code, Lock } from "lucide-react";
+import { ArrowLeft, Shield, CheckCircle, Target, FileText, Code, Lock, ArrowRight, Sparkles, Check, ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ export default function MethodologyPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-neutral-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -79,70 +79,85 @@ export default function MethodologyPage() {
       <div className="section-container max-w-5xl mx-auto">
         <Link 
           href="/" 
-          className="inline-flex items-center text-xs uppercase font-sans tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 text-xs font-semibold text-neutral-600 hover:text-neutral-900 shadow-sm transition-all mb-8 group"
         >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
-          Back to Home
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Overview</span>
         </Link>
 
-        <div className="mb-12">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-widest mb-4">
+        {/* Header - CodeDale style */}
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 shadow-sm rounded-full text-xs font-semibold text-neutral-800 uppercase tracking-wider mb-5">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Security Engineering Process</span>
           </div>
-          <h1 className="heading-1 mb-6 text-textPrimary font-extrabold tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight mb-5 font-sans">
             Our Offensive <span className="text-primary">Testing Methodology</span>
           </h1>
-          <p className="body-text text-base max-w-3xl text-textSecondary leading-relaxed">
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl font-sans">
             TrustLayerLabs combines industry-standard frameworks — OWASP Top 10, NIST SP 800-115, and PTES — with expert manual logic penetration testing to discover vulnerabilities automated scanners miss.
           </p>
         </div>
 
-        {/* Methodology Standards Cards */}
-        <div className="mb-16">
-          <h2 className="text-xl font-bold text-textPrimary tracking-tight font-sans mb-6">
-            Global Offensive Security Standards We Adhere To
-          </h2>
+        {/* Methodology Standards Cards - CodeDale 3-Card Grid */}
+        <div className="mb-20">
+          <div className="flex items-center justify-between mb-8 pb-3 border-b border-dashed border-neutral-300">
+            <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 tracking-tight font-sans">
+              Global Standards We Adhere To
+            </h2>
+            <span className="text-xs font-mono text-neutral-500 hidden sm:inline">
+              OWASP · NIST · PTES
+            </span>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="p-8 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+              <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200/70 flex items-center justify-center text-primary font-mono font-bold text-xs">
                 OWASP
               </div>
-              <h3 className="text-sm font-bold text-textPrimary font-sans">OWASP API & Web Top 10</h3>
-              <p className="text-xs text-textSecondary leading-relaxed">
+              <h3 className="text-base font-bold text-neutral-900 font-sans tracking-tight">OWASP API &amp; Web Top 10</h3>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
                 Systematic auditing for Broken Object Level Authorization (BOLA/IDOR), Broken Function Level Authorization (BFLA), JWT manipulation, mass assignment, server-side request forgery (SSRF), and rate-limiting bypasses.
               </p>
             </div>
 
-            <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
+            <div className="p-8 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+              <div className="w-11 h-11 rounded-2xl bg-purple-50 border border-purple-200/70 flex items-center justify-center text-purple-600 font-mono font-bold text-xs">
                 NIST
               </div>
-              <h3 className="text-sm font-bold text-textPrimary font-sans">NIST SP 800-115</h3>
-              <p className="text-xs text-textSecondary leading-relaxed">
+              <h3 className="text-base font-bold text-neutral-900 font-sans tracking-tight">NIST SP 800-115</h3>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
                 Federal and enterprise-grade technical testing methodology covering target identification, target vulnerability analysis, exploitation verification, and post-exploitation risk scoring.
               </p>
             </div>
 
-            <div className="p-6 bg-surface border border-border/80 rounded-xl space-y-3 shadow-sm">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-mono font-bold">
+            <div className="p-8 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-200/70 flex items-center justify-center text-emerald-600 font-mono font-bold text-xs">
                 PTES
               </div>
-              <h3 className="text-sm font-bold text-textPrimary font-sans">PTES Framework</h3>
-              <p className="text-xs text-textSecondary leading-relaxed">
+              <h3 className="text-base font-bold text-neutral-900 font-sans tracking-tight">PTES Framework</h3>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
                 The Penetration Testing Execution Standard structuring pre-engagement interactions, intelligence gathering, threat modeling, vulnerability analysis, and remediation-oriented reporting.
               </p>
             </div>
           </div>
         </div>
 
-        {/* 5 Phase Breakdown */}
-        <div className="space-y-8 mb-16">
-          <h2 className="heading-2 text-textPrimary font-bold">
-            The 5 Phases of a TrustLayer VAPT Audit
-          </h2>
+        {/* 5 Phase Breakdown - CodeDale Timeline Cards */}
+        <div className="space-y-8 mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 block mb-2">
+              Step-By-Step Process
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 tracking-tight font-sans mb-3">
+              The 5 Phases of a TrustLayer VAPT Audit
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
+              Collaborative, transparent, and designed to protect production uptime while uncovering deep logic flaws.
+            </p>
+          </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 step: "Phase 1",
@@ -170,91 +185,99 @@ export default function MethodologyPage() {
                 desc: "After your engineering team deploys remediation patches, we re-evaluate every flagged vulnerability and issue a certified Executive Attestation Letter suitable for SOC 2 auditors, enterprise procurement, and cyber insurance underwriters."
               }
             ].map((phase, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border/80 rounded-xl space-y-2 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider">{phase.step}</span>
-                  <CheckCircle size={16} className="text-success" />
+              <div key={idx} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-md">
+                    {phase.step}
+                  </span>
+                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200">
+                    <Check size={11} strokeWidth={3} />
+                  </div>
                 </div>
-                <h3 className="text-base font-bold text-textPrimary font-sans">{phase.title}</h3>
-                <p className="text-xs text-textSecondary leading-relaxed">{phase.desc}</p>
+                <h3 className="text-base font-bold text-neutral-900 font-sans tracking-tight">{phase.title}</h3>
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">{phase.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Related Specialized Assessments */}
-        <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-8 shadow-sm space-y-4">
-          <h2 className="text-lg sm:text-xl font-bold text-textPrimary font-sans">
-            Specialized Assessments Following This Methodology
-          </h2>
-          <p className="text-xs text-textSecondary leading-relaxed">
-            We adapt our 5-phase testing methodology to the specific architectural requirements of modern tech stacks:
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+        <div className="mb-20 bg-white border border-dashed border-neutral-300 rounded-3xl p-8 sm:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.03)] space-y-6">
+          <div>
+            <h2 className="text-xl font-bold text-neutral-900 font-sans tracking-tight mb-2">
+              Specialized Scopes Following This Methodology
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
+              We adapt our 5-phase testing methodology to the specific architectural requirements of modern tech stacks:
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link 
               href="/services/api-security" 
-              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+              className="p-5 bg-neutral-50/70 border border-neutral-200 rounded-2xl hover:border-blue-400 hover:bg-white transition-all block space-y-1.5"
             >
-              <h3 className="text-xs font-bold text-textPrimary">API Security Testing</h3>
-              <p className="text-[11px] text-textSecondary">BOLA, BFLA, and OWASP API Top 10 penetration testing.</p>
+              <h3 className="text-xs font-bold text-neutral-900 font-sans">API Security Testing</h3>
+              <p className="text-xs text-neutral-600 font-sans">BOLA, BFLA, and OWASP API Top 10 penetration testing.</p>
             </Link>
             <Link 
               href="/services/saas-vapt" 
-              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+              className="p-5 bg-neutral-50/70 border border-neutral-200 rounded-2xl hover:border-blue-400 hover:bg-white transition-all block space-y-1.5"
             >
-              <h3 className="text-xs font-bold text-textPrimary">SaaS Penetration Testing</h3>
-              <p className="text-[11px] text-textSecondary">Multi-tenant isolation and privilege escalation reviews.</p>
+              <h3 className="text-xs font-bold text-neutral-900 font-sans">SaaS Penetration Testing</h3>
+              <p className="text-xs text-neutral-600 font-sans">Multi-tenant isolation and privilege escalation reviews.</p>
             </Link>
             <Link 
               href="/fintech-security" 
-              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+              className="p-5 bg-neutral-50/70 border border-neutral-200 rounded-2xl hover:border-blue-400 hover:bg-white transition-all block space-y-1.5"
             >
-              <h3 className="text-xs font-bold text-textPrimary">FinTech VAPT</h3>
-              <p className="text-[11px] text-textSecondary">Payment workflow tampering and banking API security.</p>
+              <h3 className="text-xs font-bold text-neutral-900 font-sans">FinTech VAPT</h3>
+              <p className="text-xs text-neutral-600 font-sans">Payment workflow tampering and banking API security.</p>
             </Link>
             <Link 
               href="/services/ai-security" 
-              className="p-4 bg-background border border-border rounded-xl hover:border-primary/50 transition-colors block space-y-1"
+              className="p-5 bg-neutral-50/70 border border-neutral-200 rounded-2xl hover:border-blue-400 hover:bg-white transition-all block space-y-1.5"
             >
-              <h3 className="text-xs font-bold text-textPrimary">AI & LLM Security</h3>
-              <p className="text-[11px] text-textSecondary">Prompt injection, RAG vector isolation, and model safety.</p>
+              <h3 className="text-xs font-bold text-neutral-900 font-sans">AI &amp; LLM Security</h3>
+              <p className="text-xs text-neutral-600 font-sans">Prompt injection, RAG vector isolation, and model safety.</p>
             </Link>
           </div>
         </div>
 
         {/* Methodology FAQs */}
-        <div className="mb-16 bg-surface border border-border/80 rounded-2xl p-6 sm:p-8 shadow-sm">
-          <h2 className="text-lg sm:text-xl font-bold text-textPrimary font-sans mb-6">
+        <div className="mb-20 bg-white border border-neutral-200/90 rounded-3xl p-8 sm:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+          <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 font-sans tracking-tight mb-8">
             Frequently Asked Testing Methodology Questions
           </h2>
-          <div className="space-y-6 text-xs text-textSecondary">
+          <div className="space-y-6 text-xs sm:text-sm text-neutral-600">
             {faqs.map((faq, idx) => (
-              <div key={idx} className={idx > 0 ? "border-t border-border/60 pt-4" : ""}>
-                <h3 className="text-sm font-bold text-textPrimary font-sans mb-1.5">{faq.q}</h3>
-                <p className="leading-relaxed">{faq.a}</p>
+              <div key={idx} className={idx > 0 ? "border-t border-dashed border-neutral-200 pt-5" : ""}>
+                <h3 className="text-base font-bold text-neutral-900 font-sans mb-2">{faq.q}</h3>
+                <p className="leading-relaxed font-sans">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* CTA Banner */}
-        <div className="p-8 bg-surface border border-primary/30 rounded-2xl text-center space-y-4">
-          <h2 className="text-xl font-bold text-textPrimary font-sans">Ready to Audit Your SaaS or API?</h2>
-          <p className="text-xs text-textSecondary max-w-xl mx-auto">
+        {/* CTA Banner - CodeDale style */}
+        <div className="p-8 sm:p-12 bg-white border border-dashed border-neutral-300 rounded-3xl text-center space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
+          <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 font-sans tracking-tight">Ready to Audit Your SaaS or API?</h2>
+          <p className="text-xs sm:text-sm text-neutral-600 max-w-xl mx-auto font-sans leading-relaxed">
             Schedule a confidential 30-minute security review with our lead security architects under mutual NDA or view our sample report to see our methodology in action.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-2">
             <Link
               href="/free-assessment"
-              className="px-6 py-3 bg-[#0a0a0a] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors"
+              className="px-8 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold uppercase font-sans tracking-wider rounded-full shadow-md transition-all flex items-center gap-2 group"
             >
-              Get a Free Security Scoping Review →
+              <span>Schedule Scoping Review</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-blue-400" />
             </Link>
             <Link
               href="/sample-report"
-              className="px-6 py-3 bg-surface border border-border text-textPrimary text-xs font-bold uppercase tracking-wider rounded-full hover:border-zinc-400 transition-colors"
+              className="px-8 py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-neutral-800 text-xs font-bold uppercase font-sans tracking-wider rounded-full transition-all flex items-center gap-2"
             >
-              View the Sample Assessment Report
+              <FileText size={15} />
+              <span>View Sample Assessment Report</span>
             </Link>
           </div>
         </div>

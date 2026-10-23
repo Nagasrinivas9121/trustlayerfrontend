@@ -13,7 +13,10 @@ import {
   ShieldAlert,
   CheckCircle2,
   Lock,
-  Layers
+  Layers,
+  Sparkles,
+  ChevronRight,
+  Check
 } from "lucide-react";
 import type { Metadata } from "next";
 import { SERVICES } from "@/lib/constants";
@@ -52,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return {};
 
   return {
-    title: `${service.title} Services`,
+    title: `${service.title} Services | TrustLayerLabs`,
     description: service.description,
     alternates: {
       canonical: `https://www.trustlayerlabs.co.in/services/${slug}`,
@@ -131,50 +134,56 @@ export default async function ServiceSlugPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-neutral-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="section-container max-w-6xl mx-auto">
         
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 mb-6">
-          <Link href="/" className="text-xs uppercase font-mono text-textSecondary hover:text-textPrimary transition-colors">Home</Link>
-          <span className="text-xs text-textSecondary">/</span>
-          <Link href="/services" className="text-xs uppercase font-mono text-textSecondary hover:text-textPrimary transition-colors">Services</Link>
-          <span className="text-xs text-textSecondary">/</span>
-          <span className="text-xs uppercase font-mono text-primary font-bold">{service.title}</span>
+        {/* Breadcrumb Navigation - CodeDale style */}
+        <div className="flex items-center gap-2 mb-8 flex-wrap">
+          <Link href="/" className="px-3 py-1 rounded-full bg-white border border-neutral-200 text-xs font-semibold text-neutral-600 hover:text-neutral-900 transition-colors shadow-sm">
+            Home
+          </Link>
+          <span className="text-neutral-400 text-xs">/</span>
+          <Link href="/services" className="px-3 py-1 rounded-full bg-white border border-neutral-200 text-xs font-semibold text-neutral-600 hover:text-neutral-900 transition-colors shadow-sm">
+            Services
+          </Link>
+          <span className="text-neutral-400 text-xs">/</span>
+          <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-mono font-bold text-primary">
+            {service.title}
+          </span>
         </div>
 
         {/* Hero Section */}
         <div className="max-w-4xl space-y-6 mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider">
-            <ShieldCheck size={13} className="text-primary" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 shadow-sm rounded-full text-xs font-semibold text-neutral-800 uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Offensive Security Assessment</span>
           </div>
 
-          <h1 className="heading-1 font-sans text-textPrimary tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight font-sans">
             {service.title} <span className="text-primary">Services</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-textSecondary leading-relaxed font-sans max-w-3xl">
+          <p className="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-3xl">
             {service.description} We perform deep manual security testing to identify exploitable vulnerabilities, privilege escalation paths, and compliance control gaps.
           </p>
 
-          {/* Quick Value Prop Strip */}
+          {/* Quick Value Prop Strip - CodeDale 3-Card Strip */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
+            <div className="p-5 bg-white border border-neutral-200/90 rounded-2xl shadow-sm">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">AUDIT DURATION</span>
-              <p className="text-xs text-textSecondary leading-normal">🕒 {service.duration} timeline with initial findings debrief within 48–72h.</p>
+              <p className="text-xs text-neutral-600 leading-relaxed font-sans">🕒 {service.duration} timeline with initial findings debrief within 48–72h.</p>
             </div>
-            <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">RETEST GUARANTEE</span>
-              <p className="text-xs text-textSecondary leading-normal">30-day retest included on applicable assessments with verified attestation letter.</p>
+            <div className="p-5 bg-white border border-neutral-200/90 rounded-2xl shadow-sm">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">RETEST VERIFICATION</span>
+              <p className="text-xs text-neutral-600 leading-relaxed font-sans">30-day retest included with verified executive attestation letter.</p>
             </div>
-            <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">NDA UPFRONT</span>
-              <p className="text-xs text-textSecondary leading-normal">Mutual NDA executed before exchanging any architecture or credentials.</p>
+            <div className="p-5 bg-white border border-neutral-200/90 rounded-2xl shadow-sm">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">MUTUAL NDA UPFRONT</span>
+              <p className="text-xs text-neutral-600 leading-relaxed font-sans">Executed prior to exchanging architecture, credentials, or target URLs.</p>
             </div>
           </div>
 
@@ -182,17 +191,18 @@ export default async function ServiceSlugPage({ params }: Props) {
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
               href="/free-assessment"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-md transition-all flex items-center gap-2 group"
             >
-              <span>Get a Free Security Scoping Review →</span>
+              <span>Schedule Scoping Review</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-blue-400" />
             </Link>
 
             <Link 
               href="/sample-report"
-              className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-neutral-800 transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View the Sample Assessment Report</span>
+              <span>View Sample Assessment Report</span>
             </Link>
           </div>
         </div>
@@ -202,23 +212,23 @@ export default async function ServiceSlugPage({ params }: Props) {
           
           {/* Main Info */}
           <div className="md:col-span-8 space-y-6">
-            <div className="p-8 bg-surface border border-border rounded-2xl space-y-4 shadow-sm">
-              <h2 className="text-lg font-bold text-textPrimary font-sans">Testing Methodology & Technical Focus</h2>
-              <p className="text-xs text-textSecondary leading-relaxed">
+            <div className="p-8 bg-white border border-neutral-200/90 rounded-3xl space-y-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+              <h2 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Testing Methodology &amp; Technical Focus</h2>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
                 Our approach combines active reconnaissance with manual exploitation of complex logic flows. We map access privilege boundaries and verify code, cloud configuration, and infrastructure vulnerabilities step-by-step.
               </p>
-              <div className="p-4 bg-zinc-50 border border-border rounded-xl space-y-2 text-xs">
-                <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Expected Assessment Outcome:</span>
-                <p className="text-textPrimary leading-relaxed">{service.outcome}</p>
+              <div className="p-4 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-1.5 text-xs">
+                <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider block">Expected Assessment Outcome:</span>
+                <p className="text-neutral-800 leading-relaxed font-sans">{service.outcome}</p>
               </div>
 
               {slug === "fintech-vapt" && (
-                <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl space-y-1 text-xs">
-                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Related Offering</span>
-                  <p className="text-textSecondary leading-relaxed">
+                <div className="p-4 bg-blue-50 border border-blue-200 rounded-2xl space-y-1 text-xs">
+                  <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider block">Specialized Offering</span>
+                  <p className="text-neutral-700 leading-relaxed font-sans">
                     Looking for transaction tampering, ledger race condition, and payment API testing instead of compliance attestation? Explore our{" "}
                     <Link href="/fintech-security" className="text-primary font-bold hover:underline">
-                      FinTech VAPT & Payment API Security Testing
+                      FinTech VAPT &amp; Payment API Security Testing
                     </Link>{" "}
                     service.
                   </p>
@@ -226,12 +236,12 @@ export default async function ServiceSlugPage({ params }: Props) {
               )}
 
               {(slug === "graphql-security" || slug === "owasp-api-security") && (
-                <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl space-y-1 text-xs">
-                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Comprehensive API Review</span>
-                  <p className="text-textSecondary leading-relaxed">
+                <div className="p-4 bg-blue-50 border border-blue-200 rounded-2xl space-y-1 text-xs">
+                  <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider block">Comprehensive API Review</span>
+                  <p className="text-neutral-700 leading-relaxed font-sans">
                     Need a broader offensive security review across REST, GraphQL, and microservice APIs? Explore our full{" "}
                     <Link href="/services/api-security" className="text-primary font-bold hover:underline">
-                      API Security Testing & BOLA Pentesting
+                      API Security Testing &amp; BOLA Pentesting
                     </Link>{" "}
                     service.
                   </p>
@@ -240,34 +250,36 @@ export default async function ServiceSlugPage({ params }: Props) {
             </div>
 
             {/* Deliverables Box */}
-            <div className="p-8 bg-surface border border-border rounded-2xl space-y-4 shadow-sm">
-              <h2 className="text-lg font-bold text-textPrimary font-sans">Included Engineering Deliverables</h2>
-              <ul className="space-y-3.5 text-xs text-textSecondary">
+            <div className="p-8 bg-white border border-neutral-200/90 rounded-3xl space-y-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+              <h2 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Included Engineering Deliverables</h2>
+              <ul className="space-y-3 text-xs sm:text-sm text-neutral-700">
                 {service.deliverables.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 size={16} className="text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-textPrimary">{item}</span>
+                    <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200 mt-0.5">
+                      <Check size={11} strokeWidth={3} />
+                    </div>
+                    <span className="text-neutral-800 font-sans">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Safe Harbor & Scope Boundaries */}
-            <div className="p-8 bg-surface border border-border rounded-2xl space-y-4 shadow-sm">
-              <h2 className="text-lg font-bold text-textPrimary font-sans">Safe Harbor & Testing Boundaries</h2>
-              <p className="text-xs text-textSecondary leading-relaxed font-sans">
+            <div className="p-8 bg-white border border-neutral-200/90 rounded-3xl space-y-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+              <h2 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Safe Harbor &amp; Testing Boundaries</h2>
+              <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
                 All security testing activities operate under strict ethical hacking guidelines and executed mutual Non-Disclosure Agreements (NDA). Our team strictly adheres to predefined operational boundaries:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 bg-background border border-border/80 rounded-xl space-y-2">
+                <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-2">
                   <h3 className="text-xs font-bold text-primary font-mono uppercase tracking-wider">In-Scope Execution</h3>
-                  <p className="text-xs text-textSecondary leading-relaxed">
+                  <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                     Business logic testing, authentication flow verification, privilege escalation, rate-limiting evaluation, and input fuzzing.
                   </p>
                 </div>
-                <div className="p-4 bg-background border border-border/80 rounded-xl space-y-2">
-                  <h3 className="text-xs font-bold text-textPrimary font-mono uppercase tracking-wider">Excluded / Out of Scope</h3>
-                  <p className="text-xs text-textSecondary leading-relaxed">
+                <div className="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-2">
+                  <h3 className="text-xs font-bold text-neutral-800 font-mono uppercase tracking-wider">Excluded / Out of Scope</h3>
+                  <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                     Denial of Service (DoS/DDoS), physical facility intrusion, social engineering of employees, and unauthorized destruction of live data.
                   </p>
                 </div>
@@ -275,13 +287,13 @@ export default async function ServiceSlugPage({ params }: Props) {
             </div>
 
             {/* FAQs Section */}
-            <div className="p-8 bg-surface border border-border rounded-2xl space-y-6 shadow-sm">
-              <h2 className="text-lg font-bold text-textPrimary font-sans">Frequently Asked Questions</h2>
+            <div className="p-8 bg-white border border-neutral-200/90 rounded-3xl space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+              <h2 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 {faqs.map((faq, i) => (
-                  <div key={i} className="border-b border-border/60 pb-4 last:border-b-0 last:pb-0">
-                    <h3 className="text-sm font-bold text-textPrimary font-sans mb-1.5">{faq.q}</h3>
-                    <p className="text-xs text-textSecondary leading-relaxed font-sans">{faq.a}</p>
+                  <div key={i} className="border-b border-dashed border-neutral-200 pb-4 last:border-b-0 last:pb-0">
+                    <h3 className="text-sm font-bold text-neutral-900 font-sans mb-1.5">{faq.q}</h3>
+                    <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">{faq.a}</p>
                   </div>
                 ))}
               </div>
@@ -290,59 +302,69 @@ export default async function ServiceSlugPage({ params }: Props) {
 
           {/* Sidebar Specifications */}
           <div className="md:col-span-4 space-y-6">
-            <div className="p-6 bg-surface border border-border rounded-2xl space-y-5 shadow-sm">
+            <div className="p-6 bg-white border border-neutral-200/90 rounded-3xl space-y-5 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
               <div>
-                <p className="text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">Audit Timeline</p>
-                <span className="px-3 py-1.5 bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary rounded-md uppercase font-mono block text-center">
+                <p className="text-[10px] font-mono font-bold text-neutral-500 uppercase tracking-wider mb-2">Audit Timeline</p>
+                <span className="px-3 py-2 bg-blue-50 border border-blue-200 text-xs font-bold text-primary rounded-xl uppercase font-mono block text-center">
                   🕒 {service.duration}
                 </span>
               </div>
 
               <div>
-                <p className="text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-2">Risk Classification</p>
-                <span className="px-3 py-1.5 bg-critical/10 border border-critical/20 text-[10px] font-bold text-critical rounded-md uppercase font-mono block text-center">
-                  ⚠️ {service.severity.toUpperCase()}
+                <p className="text-[10px] font-mono font-bold text-neutral-500 uppercase tracking-wider mb-2">Risk Classification</p>
+                <span className="px-3 py-2 bg-red-50 border border-red-200 text-xs font-bold text-red-700 rounded-xl uppercase font-mono block text-center">
+                  ⚠️ {service.severity.toUpperCase()} FOCUS
                 </span>
               </div>
 
-              <div className="border-t border-border/40 pt-4">
-                <p className="text-[10px] font-bold text-textSecondary uppercase tracking-wider mb-3">Tools & Frameworks</p>
-                <div className="flex flex-wrap gap-2">
+              <div className="border-t border-dashed border-neutral-200 pt-4">
+                <p className="text-[10px] font-mono font-bold text-neutral-500 uppercase tracking-wider mb-3">Tools &amp; Frameworks</p>
+                <div className="flex flex-wrap gap-1.5">
                   {service.technologies.map((tech) => (
-                    <span key={tech} className="px-2 py-1 bg-zinc-100 border border-border rounded-md text-[10px] font-mono text-textPrimary">
+                    <span key={tech} className="px-2.5 py-1 bg-neutral-100 border border-neutral-200 rounded-md text-[10px] font-mono text-neutral-800">
                       {tech}
                     </span>
                   ))}
                 </div>
+              </div>
+
+              <div className="border-t border-dashed border-neutral-200 pt-4">
+                <Link
+                  href="/contact"
+                  className="w-full inline-flex items-center justify-center py-3 bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-sm transition-all"
+                >
+                  Direct Inquiry
+                </Link>
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* Booking CTA Banner */}
-        <div className="my-16 p-8 bg-surface border border-primary/30 rounded-3xl text-center space-y-6 shadow-sm">
+        {/* Booking CTA Banner - CodeDale Dashed Container */}
+        <div className="my-16 p-8 sm:p-12 bg-white border border-dashed border-neutral-300 rounded-3xl text-center space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
           <div className="max-w-2xl mx-auto space-y-3">
-            <h2 className="text-xl sm:text-2xl font-bold text-textPrimary font-sans">
+            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 font-sans tracking-tight">
               Book a 30-Minute {service.title} Scoping Call
             </h2>
-            <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto font-sans leading-relaxed">
+            <p className="text-xs sm:text-sm text-neutral-600 max-w-xl mx-auto font-sans leading-relaxed">
               Schedule a confidential call with our lead security architects under mutual NDA to review your target scope, endpoint surface, and timeline requirements.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/free-assessment"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-md transition-all flex items-center gap-2"
             >
-              <span>Get a Free Security Scoping Review →</span>
+              <span>Schedule Scoping Review</span>
+              <ArrowRight size={14} className="text-blue-400" />
             </Link>
             <Link
               href="/sample-report"
-              className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-neutral-800 transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View the Sample Assessment Report</span>
+              <span>View Sample Assessment Report</span>
             </Link>
           </div>
         </div>

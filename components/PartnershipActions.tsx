@@ -2,20 +2,21 @@
 
 import React from "react";
 import Link from "next/link";
-import { Handshake, FileText, Calendar } from "lucide-react";
+import { Handshake, FileText, Calendar, ArrowRight } from "lucide-react";
 import { trackPartnerCtaClick, trackSampleReportCtaClick, trackCalendarCtaClick } from "@/lib/analytics";
 import { openCalendly } from "@/lib/calendly";
 
 export default function PartnershipActions() {
   return (
-    <div className="flex flex-wrap items-center gap-4 pt-4">
+    <div className="flex flex-wrap items-center gap-3 pt-2">
       <Link 
         href="#contact"
         onClick={() => trackPartnerCtaClick("partnerships_hero_become_partner")}
-        className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
+        className="px-6 py-3.5 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full transition-all shadow-md flex items-center gap-2 group"
       >
         <Handshake size={15} />
         <span>Become a Security Partner</span>
+        <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
       </Link>
 
       <button
@@ -24,19 +25,19 @@ export default function PartnershipActions() {
           trackCalendarCtaClick("partnerships_hero_schedule", "Schedule Partner Scoping");
           openCalendly();
         }}
-        className="px-6 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2 cursor-pointer"
+        className="px-6 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-xs font-semibold rounded-full text-neutral-800 transition-all flex items-center gap-2 cursor-pointer shadow-sm"
       >
-        <Calendar size={15} className="text-primary" />
+        <Calendar size={15} className="text-neutral-500" />
         <span>Schedule Partner Call</span>
       </button>
 
       <Link 
         href="/sample-report"
         onClick={() => trackSampleReportCtaClick("partnerships_hero", "View the Sample Assessment Report")}
-        className="px-6 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
+        className="px-6 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-xs font-semibold rounded-full text-neutral-800 transition-all flex items-center gap-2 shadow-sm"
       >
-        <FileText size={15} />
-        <span>View the Sample Assessment Report</span>
+        <FileText size={15} className="text-neutral-500" />
+        <span>View Sample Report</span>
       </Link>
     </div>
   );

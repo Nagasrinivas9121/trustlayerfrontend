@@ -11,7 +11,8 @@ import {
   Scale, 
   Rocket, 
   FileText,
-  Users
+  Users,
+  ArrowLeft
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import PartnershipActions from "@/components/PartnershipActions";
@@ -53,8 +54,8 @@ const partnerTypes = [
 
 const partnerBenefits = [
   {
-    title: "Direct Access to Offensive Security Practitioners",
-    desc: "Work directly with experienced security engineers who understand modern codebases and cloud architectures."
+    title: "Direct Access to Offensive Practitioners",
+    desc: "Work directly with certified security engineers (CEH, C3SA, ISO 27001 LA) who understand modern codebases and cloud architectures."
   },
   {
     title: "Developer-First Remediation Support",
@@ -85,34 +86,36 @@ export default function PartnershipsPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+    <div className="bg-[#FAFAFA] min-h-screen pt-32 pb-24 font-sans text-neutral-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="section-container max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 mb-6">
-          <Link href="/" className="text-xs uppercase font-mono text-textSecondary hover:text-textPrimary">Home</Link>
-          <span className="text-xs text-textSecondary">/</span>
-          <span className="text-xs uppercase font-mono text-primary font-bold">Partnerships</span>
-        </div>
+        {/* Breadcrumb Pill */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-xs font-semibold text-neutral-500 hover:text-neutral-900 transition-colors gap-2 mb-8 group px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Home</span>
+        </Link>
 
         {/* Hero Section */}
         <div className="max-w-4xl space-y-6 mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider">
-            <Handshake size={13} className="text-primary" />
-            <span>Technical Assessment Partner</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/80 shadow-sm text-xs font-semibold text-neutral-800">
+            <Handshake size={14} className="text-neutral-900" />
+            <span>Technical Assessment Partner Program</span>
           </div>
 
-          <h1 className="heading-1 font-sans text-textPrimary">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950">
             Your Dedicated <br />
-            <span className="text-primary">Offensive Security & VAPT Partner</span>
+            <span className="text-neutral-900">Offensive Security & VAPT Partner</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-textSecondary leading-relaxed font-sans max-w-3xl">
+          <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-3xl">
             We partner with software agencies, cloud consultancies, MSPs, and compliance advisors to deliver high-depth manual penetration testing and GRC readiness for your clients.
           </p>
 
@@ -120,38 +123,38 @@ export default function PartnershipsPage() {
         </div>
 
         {/* Partner Categories */}
-        <div className="py-16 border-t border-border">
+        <div className="py-14 border-t border-dashed border-neutral-200">
           <div className="mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm text-xs font-semibold text-neutral-800 mb-4">
               <span>Who We Partner With</span>
             </div>
-            <h2 className="heading-2 font-sans mb-3">
-              Built for Modern <span className="text-primary">Technology Ecosystems</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-950 mb-3">
+              Built for Modern <span className="text-neutral-900">Technology Ecosystems</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-sm sm:text-base text-neutral-600 max-w-2xl">
               Enhance your core client offerings with manual technical penetration testing and compliance readiness.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {partnerTypes.map((pt, idx) => (
               <div 
                 key={idx}
-                className="premium-card p-8 bg-surface border border-border rounded-2xl flex flex-col justify-between hover:border-zinc-400 transition-all duration-300 shadow-sm"
+                className="p-8 bg-white border border-neutral-200/80 rounded-3xl flex flex-col justify-between hover:border-neutral-300 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.02)]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                    <div className="w-11 h-11 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900">
                       <pt.icon size={20} />
                     </div>
-                    <span className="px-2.5 py-0.5 text-[10px] font-sans font-bold uppercase tracking-wider bg-background border border-border text-primary rounded-full">
+                    <span className="px-3 py-1 text-[11px] font-semibold text-neutral-700 bg-neutral-100 border border-neutral-200/80 rounded-full">
                       {pt.badge}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-textPrimary tracking-tight font-sans mb-3">
+                  <h3 className="text-lg font-bold text-neutral-950 tracking-tight mb-2">
                     {pt.title}
                   </h3>
-                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                  <p className="text-sm text-neutral-600 leading-relaxed">
                     {pt.description}
                   </p>
                 </div>
@@ -161,27 +164,29 @@ export default function PartnershipsPage() {
         </div>
 
         {/* Partner Benefits */}
-        <div className="py-16 border-t border-border">
+        <div className="py-14 border-t border-dashed border-neutral-200">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm text-xs font-semibold text-neutral-800 mb-4">
               <span>Partnership Advantages</span>
             </div>
-            <h2 className="heading-2 font-sans mb-3">
-              Why Partner with <span className="text-primary">TrustLayerLabs?</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-950 mb-3">
+              Why Partner with <span className="text-neutral-900">TrustLayerLabs?</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-sm sm:text-base text-neutral-600">
               We make adding security testing to your service catalogue seamless, transparent, and developer-friendly.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {partnerBenefits.map((item, i) => (
-              <div key={i} className="p-6 bg-surface border border-border rounded-2xl space-y-3 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-primary flex-shrink-0" />
-                  <h3 className="text-sm font-bold text-textPrimary font-sans">{item.title}</h3>
+              <div key={i} className="p-7 bg-white border border-neutral-200/80 rounded-3xl space-y-3 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
+                    <CheckCircle2 size={14} />
+                  </div>
+                  <h3 className="text-sm font-bold text-neutral-950">{item.title}</h3>
                 </div>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans pl-6">
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pl-8">
                   {item.desc}
                 </p>
               </div>
@@ -192,7 +197,9 @@ export default function PartnershipsPage() {
       </div>
 
       {/* Embedded Contact Form */}
-      <ContactForm />
+      <div className="mt-12">
+        <ContactForm />
+      </div>
     </div>
   );
 }

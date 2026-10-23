@@ -29,56 +29,57 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-textPrimary flex items-center justify-center px-6 py-24 font-sans">
-      <div className="max-w-xl w-full text-center space-y-8 bg-surface border border-border p-8 sm:p-12 rounded-3xl shadow-sm">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary border border-primary/20 mx-auto">
-          <AlertCircle size={32} />
+    <div className="min-h-screen bg-[#FAFAFA] text-neutral-900 flex items-center justify-center px-4 sm:px-6 py-24 font-sans">
+      <div className="max-w-xl w-full text-center space-y-8 bg-white border border-neutral-200/80 p-8 sm:p-12 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+        
+        {/* Status Pill */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/80 text-xs font-semibold text-neutral-800 mx-auto">
+          <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+          <span>404 Error • Endpoint Not Found</span>
         </div>
 
         <div className="space-y-3">
-          <span className="text-xs font-mono uppercase tracking-widest text-primary font-bold">
-            404 Error • Page Not Found
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-textPrimary">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-950">
             Looking for a Security Resource?
           </h1>
-          <p className="text-sm text-textSecondary leading-relaxed max-w-md mx-auto">
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-md mx-auto">
             The endpoint or resource you requested is no longer located here or may have moved to a dedicated service path.
           </p>
         </div>
 
+        {/* Action Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
           <Link
             href="/"
-            className="flex items-center justify-center gap-2 p-3 bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm"
+            className="flex items-center justify-center gap-2 p-3.5 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full transition-all shadow-sm"
           >
-            <Home size={15} /> Return Home
+            <Home size={15} /> <span>Return Home</span>
           </Link>
           <Link
             href="/services"
-            className="flex items-center justify-center gap-2 p-3 bg-surface border border-border hover:border-zinc-400 text-textPrimary text-xs font-semibold uppercase tracking-wider rounded-xl transition-all shadow-sm"
+            className="flex items-center justify-center gap-2 p-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-semibold rounded-full transition-all shadow-sm"
           >
-            <Search size={15} /> All Security Services
+            <Search size={15} /> <span>Security Services</span>
           </Link>
           <Link
             href="/sample-report"
-            className="flex items-center justify-center gap-2 p-3 bg-surface border border-border hover:border-zinc-400 text-textPrimary text-xs font-semibold uppercase tracking-wider rounded-xl transition-all shadow-sm"
+            className="flex items-center justify-center gap-2 p-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-semibold rounded-full transition-all shadow-sm"
           >
-            <FileText size={15} /> Sample Report
+            <FileText size={15} /> <span>Sample Report</span>
           </Link>
           <Link
             href="https://cal.com/nagasrinivasarao/30min"
             target="_blank"
-            className="flex items-center justify-center gap-2 p-3 bg-surface border border-border hover:border-zinc-400 text-primary text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm"
+            className="flex items-center justify-center gap-2 p-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-semibold rounded-full transition-all shadow-sm"
           >
-            <Calendar size={15} /> Schedule 30-Min Review
+            <Calendar size={15} /> <span>Schedule 30-Min Call</span>
           </Link>
         </div>
 
-        <div className="pt-6 border-t border-border/40 text-xs text-textSecondary">
+        <div className="pt-6 border-t border-dashed border-neutral-200 text-xs text-neutral-500">
           <p>
             Need immediate security assistance? Email us at{" "}
-            <ObfuscatedEmailLink className="text-primary hover:underline font-medium" />
+            <ObfuscatedEmailLink className="text-neutral-900 hover:underline font-semibold" />
           </p>
         </div>
       </div>

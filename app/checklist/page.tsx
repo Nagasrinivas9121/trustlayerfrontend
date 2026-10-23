@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, CheckSquare, Square, Download, FileText, CheckCircle, Code } from "lucide-react";
+import { ArrowLeft, CheckSquare, Square, Download, FileText, CheckCircle, Code, ArrowRight, ShieldCheck, Terminal } from "lucide-react";
 
 interface ChecklistItem {
   id: string;
@@ -47,274 +47,295 @@ export default function ChecklistPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen">
-      <div className="pt-32 pb-24 text-textPrimary font-sans">
-        <div className="section-container">
-          
-          {/* Header */}
-          <div className="mb-12">
-            <Link 
-              href="/" 
-              className="inline-flex items-center text-xs uppercase font-sans tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group"
-            >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
-              Back to Home
-            </Link>
+    <div className="bg-[#FAFAFA] min-h-screen pt-32 pb-24 font-sans text-neutral-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Breadcrumb Pill */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-xs font-semibold text-neutral-500 hover:text-neutral-900 transition-colors gap-2 mb-8 group px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Home</span>
+        </Link>
 
-            <h1 className="heading-1 mb-6 text-textPrimary font-extrabold font-sans tracking-tight">
-              Security <span className="text-primary">Toolkits</span>
-            </h1>
-            <p className="body-text text-base max-w-3xl text-textSecondary">
-              Audit your startup against critical logic vulnerability checklists or inspect our sample redacted audit report.
-            </p>
+        {/* Header */}
+        <div className="mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/80 shadow-sm text-xs font-semibold text-neutral-800 mb-4">
+            <ShieldCheck size={14} className="text-neutral-900" />
+            <span>Interactive Security Toolkits</span>
           </div>
-
-          {/* Navigation Tabs */}
-          <div className="flex space-x-2 border-b border-border/40 pb-4 mb-10 font-sans text-[11px] font-semibold uppercase tracking-wider">
-            <button
-              onClick={() => setActiveTab("checklist")}
-              className={`px-4 py-2 border-b-2 transition-colors ${
-                activeTab === "checklist" ? "border-primary text-textPrimary" : "border-transparent text-textSecondary hover:text-textPrimary"
-              }`}
-            >
-              Interactive Checklist
-            </button>
-            <button
-              onClick={() => setActiveTab("report")}
-              className={`px-4 py-2 border-b-2 transition-colors ${
-                activeTab === "report" ? "border-primary text-textPrimary" : "border-transparent text-textSecondary hover:text-textPrimary"
-              }`}
-            >
-              Sample Redacted Report
-            </button>
-          </div>
-
-          {activeTab === "checklist" ? (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-              
-              {/* Left Column: Interactive Checklist */}
-              <div className="lg:col-span-8 space-y-8 bg-surface border border-border rounded-2xl p-8 shadow-sm">
-                <div>
-                  <h2 className="text-sm font-bold uppercase font-sans text-textPrimary tracking-wider mb-2 flex items-center gap-1.5">
-                    Startup API Security Checklist
-                  </h2>
-                  <p className="text-[11px] text-textSecondary font-sans uppercase">
-                    Verify how secure your code is by marking off completed checks. Current score: <span className="text-success font-bold font-sans text-xs">{checkedIds.length}/{checklistItems.length} checked</span>
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  {/* Group checklist by categories */}
-                  {["Authentication & JWT", "Authorization & Tenant Boundaries", "Cloud & Storage Configuration", "Rate Limiting & GRC"].map((category) => {
-                    const items = checklistItems.filter((i) => i.category === category);
-                    return (
-                      <div key={category} className="space-y-3">
-                        <h3 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider border-b border-border/20 pb-1">
-                          {category}
-                        </h3>
-                        <div className="space-y-3">
-                          {items.map((item) => {
-                            const isChecked = checkedIds.includes(item.id);
-                            return (
-                              <button
-                                key={item.id}
-                                onClick={() => toggleCheck(item.id)}
-                                className="w-full flex items-start text-left gap-3.5 p-3 hover:bg-zinc-50 border border-border rounded-xl transition-colors group focus:outline-none"
-                              >
-                                <div className="text-primary flex-shrink-0 mt-0.5">
-                                  {isChecked ? (
-                                    <CheckSquare size={16} className="text-success" />
-                                  ) : (
-                                    <Square size={16} className="text-textSecondary group-hover:text-textPrimary" />
-                                  )}
-                                </div>
-                                <span className={`text-[11px] leading-relaxed transition-all ${isChecked ? "text-textSecondary line-through" : "text-textPrimary"}`}>
-                                  {item.item}
-                                </span>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Practical Engineering Guidance */}
-                <div className="border-t border-border/60 pt-6 space-y-3">
-                  <h3 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">
-                    Implementation Guidance for Engineering Teams
-                  </h3>
-                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                    Automated security linters catch syntax issues but miss broken access logic. When securing multi-tenant architectures, always enforce context-aware authorization middleware at the database query layer. Never trust client-provided IDs without verifying tenant ownership in the active session context.
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Column: Download Lead Form */}
-              <div className="lg:col-span-4 bg-surface border border-border p-6 rounded-2xl space-y-6 text-center relative overflow-hidden shadow-sm">
-                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full pointer-events-none" />
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mx-auto">
-                  <Download size={22} />
-                </div>
-                <div>
-                  <h3 className="text-xs font-bold text-textPrimary uppercase tracking-wider font-sans">Download PDF Playbook</h3>
-                  <p className="text-[10px] text-textSecondary mt-2 leading-relaxed">
-                    Get our complete, detailed PDF checklist containing 64 points, tools checklist, and step-by-step remediation snippets.
-                  </p>
-                </div>
-
-                {success ? (
-                  <p className="text-[11px] text-success font-bold font-sans uppercase tracking-wider">
-                    ✓ Playbook sent to your inbox!
-                  </p>
-                ) : (
-                  <form onSubmit={handleDownload} className="space-y-3.5">
-                    <input 
-                      type="email" 
-                      id="checklist-email"
-                      name="email"
-                      autoComplete="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      placeholder="founder@yourstartup.com"
-                      className="w-full bg-background border border-border hover:border-zinc-400 focus:border-primary rounded-lg px-3 py-2 text-xs text-textPrimary placeholder-textSecondary/60 focus:outline-none transition-all font-sans"
-                    />
-                    <button 
-                      type="submit"
-                      className="w-full inline-flex items-center justify-center py-2.5 bg-primary hover:bg-primary-hover text-xs uppercase font-sans font-semibold tracking-wider rounded-lg text-white font-semibold transition-all shadow-sm"
-                    >
-                      Get PDF playbooks
-                    </button>
-                  </form>
-                )}
-              </div>
-
-            </div>
-          ) : (
-            <div className="space-y-8 bg-surface border border-border rounded-2xl p-8 max-w-4xl mx-auto shadow-sm">
-              {/* Mock Redacted VAPT Report Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border/40 pb-6 gap-4 border-t-0">
-                <div>
-                  <span className="text-[9px] font-sans text-primary font-bold uppercase tracking-wider border border-primary/30 bg-primary/5 px-2.5 py-0.5 rounded-md">
-                    REDACTED SECURITY AUDIT ADVISORY
-                  </span>
-                  <h2 className="text-lg font-bold text-textPrimary uppercase font-sans mt-3">
-                    Ref: TTL-2026-AUDIT-04
-                  </h2>
-                </div>
-                <div className="text-right font-sans text-[10px] text-textSecondary">
-                  <p>Client: <span className="text-textPrimary">NeoBank Tech Ltd</span></p>
-                  <p>Audit Class: <span className="text-textPrimary">API Governance Audit</span></p>
-                </div>
-              </div>
-
-              {/* Reproduction Walkthrough */}
-              <div className="space-y-6 text-xs">
-                
-                {/* Vulnerability Metadata */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-b border-border/20 pb-6 font-sans text-[10px]">
-                  <div>
-                    <span className="text-textSecondary block">CONTROL CLASS:</span>
-                    <span className="text-textPrimary font-bold block mt-0.5">AC-04 (Access Control Boundaries)</span>
-                  </div>
-                  <div>
-                    <span className="text-textSecondary block">SEVERITY FOCUS:</span>
-                    <span className="text-critical font-bold block mt-0.5">CRITICAL GAP RESOLVED</span>
-                  </div>
-                  <div>
-                    <span className="text-textSecondary block">STATUS:</span>
-                    <span className="text-success font-bold block mt-0.5">VERIFIED & ATTESTED</span>
-                  </div>
-                </div>
-
-                {/* Scoping Section */}
-                <div className="space-y-2">
-                  <h3 className="text-[10px] font-bold font-sans text-primary uppercase tracking-widest flex items-center gap-1.5">
-                    <FileText size={14} className="text-primary" /> Audit Control Gap Analysis
-                  </h3>
-                  <p className="text-textSecondary leading-relaxed">
-                    During our audit of the application transactions resolver, we noted that the system database queried transfer logs using user-supplied parameters without validating session tenancy. This allowed arbitrary account queries unless strict server-side boundary checks were active.
-                  </p>
-                </div>
-
-                {/* Audit Control Mapping Schema */}
-                <div className="space-y-2">
-                  <h3 className="text-[10px] font-bold font-sans text-primary uppercase tracking-wider">
-                    Control Mapping & Scopes:
-                  </h3>
-                  <pre className="p-4 bg-zinc-50 border border-border rounded-xl font-sans text-[10px] text-textPrimary overflow-x-auto leading-relaxed">
-{`Control Standards: SOC2 CC6.1 (Logical Access Controls) | ISO 27001 A.9.4.1
-Target API Endpoint: POST /api/v1/accounts/transfers
-Testing Methodology: Manual logic verification of context ownership
-Compliance Verification: Confirmed multi-tenant boundary checks`}
-                  </pre>
-                </div>
-
-                {/* Code fix diff mock */}
-                <div className="space-y-2">
-                  <h3 className="text-[10px] font-bold font-sans text-success uppercase tracking-widest flex items-center gap-1.5">
-                    <Code size={14} className="text-success" /> Applied Remediation Commit
-                  </h3>
-                  <pre className="p-4 bg-zinc-50 border border-border rounded-xl font-sans text-[10px] text-textSecondary overflow-x-auto leading-relaxed">
-{`@@ -12,4 +12,8 @@
-- // Query database directly by account ID
-- const account = await Account.findById(req.body.account_id);
-+ // Row-level validation check against JWT session metadata
-+ if (req.user.accountId !== req.body.account_id) {
-+   return res.status(403).json({ error: "Access denied: Account ID mismatch" });
-+ }
-+ const account = await Account.findOne({ _id: req.body.account_id });`}
-                  </pre>
-                </div>
-
-              </div>
-
-              {/* Bottom attestation certificate badge */}
-              <div className="border-t border-border/40 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                <span className="text-[10px] font-sans text-textSecondary uppercase tracking-wider">
-                  Verified using manual security governance audit controls.
-                </span>
-                <Link
-                  href="https://cal.com/nagasrinivasarao/30min"
-                  target="_blank"
-                  className="px-4 py-2 bg-primary hover:bg-primary-hover text-xs uppercase font-sans tracking-wider font-bold text-white rounded-lg shadow-sm transition-all"
-                >
-                  Schedule 30-Min Review
-                </Link>
-              </div>
-            </div>
-          )}
-
-          {/* Explicit Bottom CTA */}
-          <div className="mt-16 p-8 md:p-12 bg-surface rounded-2xl border border-primary/30 text-center space-y-6 relative overflow-hidden shadow-sm">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold uppercase tracking-wider font-mono">
-              <span>Next Step for Fast-Moving Teams</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-textPrimary tracking-tight font-sans">
-              Need Help Reviewing Your Architecture Against This Checklist?
-            </h2>
-            <p className="text-xs sm:text-sm text-textSecondary max-w-xl mx-auto leading-relaxed font-sans">
-              Schedule a direct 30-minute architecture and scoping call with our lead security architects under mutual NDA. We will evaluate your attack surface and outline high-priority test vectors.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/free-assessment"
-                className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
-              >
-                Get a Free Security Scoping Review
-              </Link>
-              <Link
-                href="/sample-report"
-                className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase font-sans font-semibold tracking-wider rounded-xl w-full sm:w-auto text-center shadow-sm transition-all"
-              >
-                View the Sample Assessment Report
-              </Link>
-            </div>
-          </div>
-
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-4">
+            SaaS Security <span className="text-neutral-900">Toolkits & Audit Checklists</span>
+          </h1>
+          <p className="text-base sm:text-lg text-neutral-600 max-w-3xl leading-relaxed">
+            Audit your startup against critical logic vulnerability checklists or inspect our sample redacted lab report.
+          </p>
         </div>
+
+        {/* Navigation Tabs */}
+        <div className="flex items-center gap-2 p-1.5 bg-neutral-200/60 rounded-full w-fit mb-10 border border-neutral-300/40">
+          <button
+            onClick={() => setActiveTab("checklist")}
+            className={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${
+              activeTab === "checklist" 
+                ? "bg-white text-neutral-950 shadow-sm" 
+                : "text-neutral-600 hover:text-neutral-950"
+            }`}
+          >
+            Interactive Checklist ({checkedIds.length}/{checklistItems.length})
+          </button>
+          <button
+            onClick={() => setActiveTab("report")}
+            className={`px-5 py-2 rounded-full text-xs font-semibold transition-all ${
+              activeTab === "report" 
+                ? "bg-white text-neutral-950 shadow-sm" 
+                : "text-neutral-600 hover:text-neutral-950"
+            }`}
+          >
+            Sample Redacted Lab Report
+          </button>
+        </div>
+
+        {activeTab === "checklist" ? (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: Interactive Checklist */}
+            <div className="lg:col-span-8 space-y-8 bg-white border border-neutral-200/80 rounded-3xl p-8 sm:p-10 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-dashed border-neutral-200">
+                <div>
+                  <h2 className="text-base font-bold text-neutral-950">
+                    Startup API & SaaS Security Checklist
+                  </h2>
+                  <p className="text-xs text-neutral-500 mt-1">
+                    Click any requirement to track your compliance posture
+                  </p>
+                </div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-semibold text-neutral-800">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span>{checkedIds.length} of {checklistItems.length} Verified</span>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                {["Authentication & JWT", "Authorization & Tenant Boundaries", "Cloud & Storage Configuration", "Rate Limiting & GRC"].map((category) => {
+                  const items = checklistItems.filter((i) => i.category === category);
+                  return (
+                    <div key={category} className="space-y-3">
+                      <h3 className="text-xs font-bold text-neutral-900 uppercase tracking-wider pb-1">
+                        {category}
+                      </h3>
+                      <div className="space-y-2.5">
+                        {items.map((item) => {
+                          const isChecked = checkedIds.includes(item.id);
+                          return (
+                            <button
+                              key={item.id}
+                              onClick={() => toggleCheck(item.id)}
+                              className={`w-full flex items-start text-left gap-3.5 p-3.5 rounded-2xl border transition-all duration-200 ${
+                                isChecked 
+                                  ? "bg-emerald-50/50 border-emerald-200/70" 
+                                  : "bg-[#FAFAFA] border-neutral-200/70 hover:border-neutral-300 hover:bg-white"
+                              }`}
+                            >
+                              <div className="shrink-0 mt-0.5">
+                                {isChecked ? (
+                                  <CheckSquare size={16} className="text-emerald-600" />
+                                ) : (
+                                  <Square size={16} className="text-neutral-400 group-hover:text-neutral-700" />
+                                )}
+                              </div>
+                              <span className={`text-xs sm:text-sm leading-relaxed ${isChecked ? "text-neutral-400 line-through" : "text-neutral-700"}`}>
+                                {item.item}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Implementation Guidance */}
+              <div className="border-t border-dashed border-neutral-200 pt-6 space-y-2">
+                <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">
+                  Implementation Guidance for Engineering Teams
+                </h3>
+                <p className="text-xs text-neutral-600 leading-relaxed">
+                  Automated security linters catch syntax issues but miss broken access logic. When securing multi-tenant architectures, always enforce context-aware authorization middleware at the database query layer. Never trust client-provided IDs without verifying tenant ownership in the active session context.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Download Lead Form */}
+            <div className="lg:col-span-4 bg-white border border-neutral-200/80 p-8 rounded-3xl space-y-6 text-center shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+              <div className="w-12 h-12 bg-neutral-100 border border-neutral-200 rounded-2xl flex items-center justify-center text-neutral-900 mx-auto">
+                <Download size={20} />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-neutral-950">Download PDF Playbook</h3>
+                <p className="text-xs text-neutral-500 leading-relaxed">
+                  Get our complete 64-point engineering checklist with step-by-step remediation snippets.
+                </p>
+              </div>
+
+              {success ? (
+                <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800 font-semibold">
+                  ✓ Playbook sent to your inbox!
+                </div>
+              ) : (
+                <form onSubmit={handleDownload} className="space-y-3">
+                  <input 
+                    type="email" 
+                    id="checklist-email"
+                    name="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="founder@yourstartup.com"
+                    className="w-full bg-[#FAFAFA] border border-neutral-200 hover:border-neutral-300 focus:border-neutral-950 rounded-full px-4 py-3 text-xs text-neutral-900 placeholder-neutral-400 focus:outline-none transition-all"
+                  />
+                  <button 
+                    type="submit"
+                    className="w-full py-3 bg-neutral-900 hover:bg-black text-xs font-semibold rounded-full text-white transition-all shadow-md"
+                  >
+                    Get PDF Playbook
+                  </button>
+                </form>
+              )}
+
+              <div className="pt-4 border-t border-dashed border-neutral-200 text-[11px] text-neutral-400">
+                100% spam-free • Practitioner-curated
+              </div>
+            </div>
+
+          </div>
+        ) : (
+          <div className="space-y-8 bg-white border border-neutral-200/80 rounded-3xl p-8 sm:p-12 max-w-4xl mx-auto shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+            {/* Synthetic Lab Redacted Report Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-dashed border-neutral-200 pb-6 gap-4">
+              <div>
+                <span className="text-[10px] font-semibold text-neutral-700 uppercase tracking-wider border border-neutral-200 bg-neutral-100 px-3 py-1 rounded-full">
+                  SYNTHETIC LAB SAMPLE AUDIT ADVISORY
+                </span>
+                <h2 className="text-xl font-bold text-neutral-950 mt-3">
+                  Ref: TTL-2026-LAB-04
+                </h2>
+              </div>
+              <div className="text-right text-xs text-neutral-500">
+                <p>Environment: <span className="text-neutral-900 font-medium">Synthetic Lab Architecture (Mock Testbed)</span></p>
+                <p>Audit Class: <span className="text-neutral-900 font-medium">API Governance & Tenancy Audit</span></p>
+              </div>
+            </div>
+
+            {/* Reproduction Walkthrough */}
+            <div className="space-y-6 text-sm text-neutral-600">
+              
+              {/* Vulnerability Metadata */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-b border-dashed border-neutral-200 pb-6 text-xs">
+                <div className="p-3 bg-[#FAFAFA] rounded-2xl border border-neutral-200/60">
+                  <span className="text-neutral-400 block text-[10px] uppercase">CONTROL CLASS</span>
+                  <span className="text-neutral-950 font-bold block mt-0.5">AC-04 (Access Control Boundaries)</span>
+                </div>
+                <div className="p-3 bg-rose-50 rounded-2xl border border-rose-200/60">
+                  <span className="text-rose-600 block text-[10px] uppercase font-semibold">SEVERITY FOCUS</span>
+                  <span className="text-rose-950 font-bold block mt-0.5">CRITICAL GAP RESOLVED</span>
+                </div>
+                <div className="p-3 bg-emerald-50 rounded-2xl border border-emerald-200/60">
+                  <span className="text-emerald-600 block text-[10px] uppercase font-semibold">STATUS</span>
+                  <span className="text-emerald-950 font-bold block mt-0.5">VERIFIED & ATTESTED</span>
+                </div>
+              </div>
+
+              {/* Scoping Section */}
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider flex items-center gap-2">
+                  <FileText size={15} className="text-neutral-900" /> Audit Control Gap Analysis
+                </h3>
+                <p className="leading-relaxed">
+                  During our audit of the application transactions resolver in this simulated environment, we noted that the system database queried transfer logs using user-supplied parameters without validating session tenancy. This allowed arbitrary account queries unless strict server-side boundary checks were active.
+                </p>
+              </div>
+
+              {/* Audit Control Mapping Schema */}
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">
+                  Control Mapping & Scopes:
+                </h3>
+                <div className="p-5 bg-neutral-950 border border-neutral-800 rounded-2xl font-mono text-xs text-neutral-300 overflow-x-auto leading-relaxed shadow-inner">
+                  <div>Control Standards: SOC2 CC6.1 (Logical Access Controls) | ISO 27001 A.9.4.1</div>
+                  <div>Target API Endpoint: POST /api/v1/accounts/transfers</div>
+                  <div>Testing Methodology: Manual logic verification of context ownership</div>
+                  <div>Compliance Verification: Confirmed multi-tenant boundary checks</div>
+                </div>
+              </div>
+
+              {/* Code fix diff */}
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider flex items-center gap-2">
+                  <Terminal size={15} className="text-emerald-600" /> Applied Remediation Commit
+                </h3>
+                <div className="p-5 bg-neutral-950 border border-neutral-800 rounded-2xl font-mono text-xs text-neutral-200 overflow-x-auto leading-relaxed shadow-inner">
+                  <div className="text-neutral-500">@@ -12,4 +12,8 @@</div>
+                  <div className="text-rose-400">- // Query database directly by account ID</div>
+                  <div className="text-rose-400">- const account = await Account.findById(req.body.account_id);</div>
+                  <div className="text-emerald-400">+ // Row-level validation check against JWT session metadata</div>
+                  <div className="text-emerald-400">+ if (req.user.accountId !== req.body.account_id) {`{`}</div>
+                  <div className="text-emerald-400">+   return res.status(403).json({`{`} error: &quot;Access denied: Account ID mismatch&quot; {`}`});</div>
+                  <div className="text-emerald-400">+ {`}`}</div>
+                  <div className="text-emerald-400">+ const account = await Account.findOne({`{`} _id: req.body.account_id {`}`});</div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Bottom attestation badge */}
+            <div className="border-t border-dashed border-neutral-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span className="text-xs text-neutral-500">
+                Verified using manual security governance audit controls.
+              </span>
+              <Link
+                href="https://cal.com/nagasrinivasarao/30min"
+                target="_blank"
+                className="px-6 py-2.5 bg-neutral-900 hover:bg-black text-xs font-semibold text-white rounded-full shadow-sm transition-all"
+              >
+                Schedule 30-Min Review
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Bottom CTA */}
+        <div className="mt-16 p-8 sm:p-12 bg-white rounded-3xl border border-dashed border-neutral-300 text-center space-y-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 text-neutral-800 border border-neutral-200 text-xs font-semibold">
+            <ShieldCheck size={14} className="text-neutral-900" />
+            <span>Next Step for Fast-Moving Teams</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">
+            Need Help Reviewing Your Architecture Against This Checklist?
+          </h2>
+          <p className="text-sm sm:text-base text-neutral-600 max-w-xl mx-auto leading-relaxed">
+            Schedule a direct 30-minute architecture and scoping call with our lead security architects under mutual NDA. We will evaluate your attack surface and outline high-priority test vectors.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <Link
+              href="/free-assessment"
+              className="w-full sm:w-auto px-7 py-3.5 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full shadow-md transition-all flex items-center justify-center gap-2"
+            >
+              <span>Get Free Scoping Review</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/sample-report"
+              className="w-full sm:w-auto px-7 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-semibold rounded-full shadow-sm transition-all"
+            >
+              View Sample Report
+            </Link>
+          </div>
+        </div>
+
       </div>
     </div>
   );

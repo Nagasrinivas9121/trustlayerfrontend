@@ -12,7 +12,10 @@ import {
   Scale, 
   HelpCircle,
   Lock,
-  Layers
+  Layers,
+  ChevronRight,
+  Sparkles,
+  Check
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
@@ -150,7 +153,7 @@ export default function GrcReadinessPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-neutral-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -158,26 +161,30 @@ export default function GrcReadinessPage() {
 
       <div className="section-container max-w-6xl mx-auto">
         
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 mb-6">
-          <Link href="/" className="text-xs uppercase font-mono text-textSecondary hover:text-textPrimary">Home</Link>
-          <span className="text-xs text-textSecondary">/</span>
-          <span className="text-xs uppercase font-mono text-primary font-bold">GRC Readiness</span>
+        {/* Breadcrumb - CodeDale style */}
+        <div className="flex items-center gap-2 mb-8">
+          <Link href="/" className="px-3 py-1 rounded-full bg-white border border-neutral-200 text-xs font-semibold text-neutral-600 hover:text-neutral-900 shadow-sm transition-colors">
+            Home
+          </Link>
+          <span className="text-neutral-400 text-xs">/</span>
+          <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-mono font-bold text-primary">
+            GRC Readiness
+          </span>
         </div>
 
         {/* Hero */}
         <div className="max-w-4xl space-y-6 mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider">
-            <Building2 size={13} className="text-primary" />
-            <span>Governance, Risk & Enterprise Readiness</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 shadow-sm rounded-full text-xs font-semibold text-neutral-800 uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+            <span>Governance, Risk &amp; Enterprise Readiness</span>
           </div>
 
-          <h1 className="heading-1 font-sans text-textPrimary">
-            Get Security-Review Ready <br />
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight font-sans">
+            Get Security-Review Ready <br className="hidden sm:inline" />
             <span className="text-primary">Before Your Enterprise Customer Asks</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-textSecondary leading-relaxed font-sans max-w-3xl">
+          <p className="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-3xl">
             Pass vendor security reviews and fast-track SOC 2 / ISO 27001 readiness. We combine technical penetration testing with practical compliance advisory to make high-growth SaaS and FinTech startups enterprise-ready.
           </p>
 
@@ -185,51 +192,55 @@ export default function GrcReadinessPage() {
             <Link 
               href="https://cal.com/nagasrinivasarao/30min"
               target="_blank"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-md transition-all flex items-center gap-2 group"
             >
-              <Calendar size={15} />
+              <Calendar size={15} className="text-blue-400" />
               <span>Schedule GRC Consultation</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-blue-400" />
             </Link>
 
             <Link 
               href="/sample-report"
-              className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-neutral-800 transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View the Sample Assessment Report</span>
+              <span>View Sample Assessment Report</span>
             </Link>
           </div>
         </div>
 
-        {/* Advisory Disclaimer Notice Box */}
-        <div className="mb-16 p-5 bg-surface border border-border/80 rounded-2xl flex items-start gap-4 shadow-sm">
-          <HelpCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-          <div className="text-xs text-textSecondary font-sans leading-relaxed">
-            <strong className="text-textPrimary font-semibold block mb-1">Clear Distinction: Advisory & Technical Testing vs. Certification Body</strong>
+        {/* Advisory Disclaimer Notice Box - CodeDale Dashed Box */}
+        <div className="mb-14 p-6 sm:p-7 bg-white border border-dashed border-neutral-300 rounded-3xl flex items-start gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+          <div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-primary shrink-0 mt-0.5">
+            <HelpCircle size={16} />
+          </div>
+          <div className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
+            <strong className="text-neutral-900 font-semibold block mb-1">Clear Distinction: Advisory &amp; Technical Testing vs. Certification Body</strong>
             TrustLayerLabs provides technical assessments, control mapping, vulnerability remediation, and readiness advisory. We do not issue formal CPA audit reports or ISO accreditation certificates; we prepare your engineering and operational teams to support accredited third-party audits and enterprise vendor reviews.
           </div>
         </div>
 
         {/* FinTech GRC Cross-Link Banner */}
-        <div className="mb-12 p-4 bg-surface border border-border/80 rounded-xl flex items-center justify-between gap-4 shadow-sm">
-          <p className="text-xs text-textSecondary font-sans">
+        <div className="mb-16 p-6 bg-white border border-neutral-200/90 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+          <p className="text-xs sm:text-sm text-neutral-600 font-sans">
             Operating a payment platform or banking integration? Combine GRC readiness with our specialized <Link href="/fintech-security" className="text-primary font-bold hover:underline">FinTech security assessments</Link> and technical VAPT.
           </p>
-          <Link href="/fintech-security" className="text-xs font-bold font-mono text-primary flex items-center gap-1 uppercase tracking-wider flex-shrink-0">
-            View FinTech VAPT →
+          <Link href="/fintech-security" className="px-5 py-2.5 rounded-full bg-neutral-100 hover:bg-neutral-200 text-xs font-bold font-mono text-primary flex items-center gap-1.5 uppercase tracking-wider shrink-0 transition-colors">
+            <span>View FinTech VAPT</span>
+            <ChevronRight size={13} />
           </Link>
         </div>
 
         {/* Capabilities Grid */}
-        <div className="py-12 border-t border-border">
+        <div className="py-12 border-t border-dashed border-neutral-300">
           <div className="mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Core GRC Services</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <Building2 size={13} className="text-primary" /> Core GRC Services
             </div>
-            <h2 className="heading-2 font-sans mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
               Comprehensive <span className="text-primary">Readiness Capabilities</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               Everything your team needs to establish credible security governance and satisfy enterprise procurement stakeholders.
             </p>
           </div>
@@ -238,16 +249,16 @@ export default function GrcReadinessPage() {
             {capabilities.map((cap, idx) => (
               <div 
                 key={idx}
-                className="premium-card p-8 bg-surface border border-border rounded-2xl flex flex-col justify-between hover:border-zinc-400 transition-all duration-300 shadow-sm"
+                className="p-8 bg-white border border-neutral-200/90 rounded-3xl flex flex-col justify-between hover:border-neutral-400 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
+                  <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200/70 flex items-center justify-center text-primary mb-6">
                     <cap.icon size={20} />
                   </div>
-                  <h3 className="text-base font-bold text-textPrimary tracking-tight font-sans mb-2.5">
+                  <h3 className="text-base font-bold text-neutral-900 tracking-tight font-sans mb-2.5">
                     {cap.title}
                   </h3>
-                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                  <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                     {cap.description}
                   </p>
                 </div>
@@ -257,29 +268,27 @@ export default function GrcReadinessPage() {
         </div>
 
         {/* Readiness Process Timeline */}
-        <div className="py-16 border-t border-border">
+        <div className="py-16 border-t border-dashed border-neutral-300">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Execution Process</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <ClipboardList size={13} className="text-primary" /> Execution Process
             </div>
-            <h2 className="heading-2 font-sans mb-3">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
               The 6-Step <span className="text-primary">Readiness Roadmap</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               A structured, sprint-based approach to get your policies, technical controls, and audit evidence in place quickly.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {grcSteps.map((step, i) => (
-              <div key={i} className="p-6 bg-surface border border-border rounded-2xl space-y-3 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-primary px-2 py-0.5 bg-primary/10 rounded">
-                    Step {step.step}
-                  </span>
-                </div>
-                <h3 className="text-sm font-bold text-textPrimary font-sans">{step.title}</h3>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">
+              <div key={i} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+                <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-md">
+                  Step {step.step}
+                </span>
+                <h3 className="text-base font-bold text-neutral-900 font-sans">{step.title}</h3>
+                <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                   {step.desc}
                 </p>
               </div>
@@ -288,24 +297,24 @@ export default function GrcReadinessPage() {
         </div>
 
         {/* Technical GRC FAQ Section */}
-        <div className="py-16 border-t border-border">
+        <div className="py-16 border-t border-dashed border-neutral-300">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Compliance Knowledge Base</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <Scale size={13} className="text-primary" /> Compliance Knowledge Base
             </div>
-            <h2 className="heading-2 font-sans mb-3">
-              Frequently Asked <span className="text-primary">GRC & Readiness Questions</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
+              Frequently Asked <span className="text-primary">GRC &amp; Readiness Questions</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               Key questions engineering and leadership teams ask when preparing for enterprise security reviews and audits.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-4xl">
             {grcFaqs.map((faq, i) => (
-              <div key={i} className="p-6 bg-surface border border-border rounded-2xl space-y-2 shadow-sm">
-                <h3 className="text-sm font-bold text-textPrimary font-sans">{faq.q}</h3>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">{faq.a}</p>
+              <div key={i} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+                <h3 className="text-base font-bold text-neutral-900 font-sans">{faq.q}</h3>
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">{faq.a}</p>
               </div>
             ))}
           </div>

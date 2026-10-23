@@ -20,7 +20,9 @@ import {
   Clock,
   ChevronRight,
   Info,
-  ShieldAlert
+  ShieldAlert,
+  Sparkles,
+  Check
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
@@ -297,7 +299,7 @@ export default function FinTechSecurityPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary">
+    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-neutral-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -305,43 +307,45 @@ export default function FinTechSecurityPage() {
 
       <div className="section-container max-w-6xl mx-auto">
         
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 mb-6">
-          <Link href="/" className="text-xs uppercase font-mono text-textSecondary hover:text-textPrimary transition-colors">Home</Link>
-          <span className="text-xs text-textSecondary">/</span>
-          <span className="text-xs uppercase font-mono text-primary font-bold">FinTech Security</span>
+        {/* Breadcrumb - CodeDale style */}
+        <div className="flex items-center gap-2 mb-8">
+          <Link href="/" className="px-3 py-1 rounded-full bg-white border border-neutral-200 text-xs font-semibold text-neutral-600 hover:text-neutral-900 shadow-sm transition-colors">
+            Home
+          </Link>
+          <span className="text-neutral-400 text-xs">/</span>
+          <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-mono font-bold text-primary">
+            FinTech Security
+          </span>
         </div>
 
-        {/* Hero Section — Above-The-Fold */}
+        {/* Hero Section */}
         <div className="max-w-4xl space-y-6 mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider">
-            <CreditCard size={13} className="text-primary" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 shadow-sm rounded-full text-xs font-semibold text-neutral-800 uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Offensive FinTech Security Testing</span>
           </div>
 
-          {/* Primary H1 */}
-          <h1 className="heading-1 font-sans text-textPrimary tracking-tight">
-            FinTech VAPT & <span className="text-primary">Penetration Testing Services</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 leading-tight font-sans">
+            FinTech VAPT &amp; <span className="text-primary">Payment API Penetration Testing</span>
           </h1>
 
-          {/* Supporting Copy */}
-          <p className="text-base sm:text-lg text-textSecondary leading-relaxed font-sans max-w-3xl">
+          <p className="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-3xl">
             TrustLayerLabs performs manual application and API security assessments for FinTech platforms, focusing on authorization, authentication, transaction workflows, payment integrations, sensitive financial data, and cloud infrastructure.
           </p>
 
-          {/* Value Props Strip */}
+          {/* Value Props Strip - CodeDale 3-Card Strip */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
+            <div className="p-5 bg-white border border-neutral-200/90 rounded-2xl shadow-sm">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">WHAT</span>
-              <p className="text-xs text-textSecondary leading-normal">Manual FinTech VAPT & application penetration testing.</p>
+              <p className="text-xs text-neutral-600 leading-relaxed font-sans">Manual FinTech VAPT &amp; application penetration testing.</p>
             </div>
-            <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
+            <div className="p-5 bg-white border border-neutral-200/90 rounded-2xl shadow-sm">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">WHO</span>
-              <p className="text-xs text-textSecondary leading-normal">FinTech platforms, payment products & financial technology teams.</p>
+              <p className="text-xs text-neutral-600 leading-relaxed font-sans">FinTech platforms, payment products &amp; financial technology teams.</p>
             </div>
-            <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
+            <div className="p-5 bg-white border border-neutral-200/90 rounded-2xl shadow-sm">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">WHY</span>
-              <p className="text-xs text-textSecondary leading-normal">Identify exploitable weaknesses before customer, compliance, or production risks arise.</p>
+              <p className="text-xs text-neutral-600 leading-relaxed font-sans">Identify exploitable weaknesses before customer, compliance, or production risks arise.</p>
             </div>
           </div>
 
@@ -349,31 +353,32 @@ export default function FinTechSecurityPage() {
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
               href="/free-assessment"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-md transition-all flex items-center gap-2 group"
             >
-              <span>Get a Free Security Scoping Review →</span>
+              <span>Schedule Scoping Review</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-blue-400" />
             </Link>
 
             <Link 
               href="/sample-report"
-              className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-neutral-800 transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View the Sample Assessment Report</span>
+              <span>View Sample Assessment Report</span>
             </Link>
           </div>
         </div>
 
         {/* FinTech Attack Surfaces Section */}
-        <div className="py-16 border-t border-border" id="attack-surfaces">
+        <div className="py-16 border-t border-dashed border-neutral-300" id="attack-surfaces">
           <div className="mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Attack Surface Coverage</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <Layers size={13} className="text-primary" /> Attack Surface Coverage
             </div>
-            <h2 className="heading-2 font-sans mb-3 text-textPrimary">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
               What We Test in <span className="text-primary">FinTech Applications</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans max-w-3xl">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans max-w-3xl leading-relaxed">
               Financial applications present unique business logic, authorization, and multi-tenancy vectors that automated scanners miss. Scope is customized based on your architecture and testing objectives.
             </p>
           </div>
@@ -382,16 +387,16 @@ export default function FinTechSecurityPage() {
             {attackSurfaces.map((surface, idx) => (
               <div 
                 key={idx}
-                className="premium-card p-6 bg-surface border border-border rounded-2xl flex flex-col justify-between hover:border-zinc-400 transition-all duration-300 shadow-sm"
+                className="p-7 bg-white border border-neutral-200/90 rounded-3xl flex flex-col justify-between hover:border-neutral-400 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-5">
-                    <surface.icon size={18} />
+                  <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200/70 flex items-center justify-center text-primary mb-5">
+                    <surface.icon size={19} />
                   </div>
-                  <h3 className="text-sm font-bold text-textPrimary tracking-tight font-sans mb-2">
+                  <h3 className="text-base font-bold text-neutral-900 tracking-tight font-sans mb-2">
                     {surface.title}
                   </h3>
-                  <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                  <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                     {surface.description}
                   </p>
                 </div>
@@ -399,83 +404,87 @@ export default function FinTechSecurityPage() {
             ))}
           </div>
 
-          <div className="mt-8 p-4 bg-surface border border-border/60 rounded-xl text-xs text-textSecondary font-sans flex items-center gap-2.5">
-            <Info size={16} className="text-primary flex-shrink-0" />
+          <div className="mt-8 p-4 bg-white border border-dashed border-neutral-300 rounded-2xl text-xs text-neutral-600 font-sans flex items-center gap-2.5 shadow-sm">
+            <Info size={16} className="text-primary shrink-0" />
             <span>Note: Final test coverage and vector depth are tailored during technical scoping based on your endpoint inventory and architectural design.</span>
           </div>
         </div>
 
         {/* Payment & Transaction Workflow Security Testing Section */}
-        <div className="py-16 border-t border-border" id="payment-security">
+        <div className="py-16 border-t border-dashed border-neutral-300" id="payment-security">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Transaction Logic</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <Lock size={13} className="text-primary" /> Transaction Logic
             </div>
-            <h2 className="heading-2 font-sans mb-3 text-textPrimary">
-              Payment & Transaction <span className="text-primary">Workflow Security Testing</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
+              Payment &amp; Transaction <span className="text-primary">Workflow Security Testing</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               Financial transactions rely on complex multi-step workflows across clients, servers, payment gateways, and banking switches. Our manual testing evaluates logical consistency and authorization boundaries at each state transition.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {paymentVectors.map((item, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border rounded-2xl space-y-2.5 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <Lock size={15} className="text-primary flex-shrink-0" />
-                  <h3 className="text-sm font-bold text-textPrimary font-sans">{item.title}</h3>
+              <div key={idx} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-primary shrink-0">
+                    <Lock size={14} />
+                  </div>
+                  <h3 className="text-sm font-bold text-neutral-900 font-sans">{item.title}</h3>
                 </div>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 p-4 bg-background border border-border/60 rounded-xl text-xs text-textSecondary font-sans leading-relaxed">
-            <strong className="text-textPrimary font-semibold">Assessment Scope Clarification:</strong> Our testing evaluates application logic, authorization rules, and workflow robustness to identify exploitable flaws. It provides technical risk reduction and does not represent a financial guarantee against external fraud.
+          <div className="mt-8 p-5 bg-white border border-dashed border-neutral-300 rounded-2xl text-xs text-neutral-600 font-sans leading-relaxed shadow-sm">
+            <strong className="text-neutral-900 font-semibold">Assessment Scope Clarification:</strong> Our testing evaluates application logic, authorization rules, and workflow robustness to identify exploitable flaws. It provides technical risk reduction and does not represent a financial guarantee against external fraud.
           </div>
         </div>
 
         {/* FinTech API Security Testing Section */}
-        <div className="py-16 border-t border-border" id="api-security">
+        <div className="py-16 border-t border-dashed border-neutral-300" id="api-security">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-                <span>API Attack Vectors</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+                <KeyRound size={13} className="text-primary" /> API Attack Vectors
               </div>
-              <h2 className="heading-2 font-sans mb-3 text-textPrimary">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
                 FinTech <span className="text-primary">API Security Testing</span>
               </h2>
-              <p className="body-text text-textSecondary font-sans">
+              <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
                 APIs are the primary data conduit for financial technology. We assess REST, GraphQL, and microservice interfaces against critical authorization and logic vulnerabilities.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Link 
                 href="/services/api-security"
-                className="inline-flex items-center gap-1.5 text-xs uppercase font-sans font-bold tracking-wider text-primary hover:underline"
+                className="px-4 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-xs font-semibold text-neutral-800 transition-colors inline-flex items-center gap-1.5"
               >
-                <span>Explore Dedicated API Security Testing →</span>
+                <span>Dedicated API Testing</span>
+                <ChevronRight size={13} />
               </Link>
               <Link 
                 href="/services/mobile-vapt"
-                className="inline-flex items-center gap-1.5 text-xs uppercase font-sans font-bold tracking-wider text-primary hover:underline"
+                className="px-4 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-xs font-semibold text-neutral-800 transition-colors inline-flex items-center gap-1.5"
               >
-                <span>Explore Mobile Application VAPT →</span>
+                <span>Mobile App VAPT</span>
+                <ChevronRight size={13} />
               </Link>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {apiSecurityPoints.map((item, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border rounded-2xl space-y-3 shadow-sm">
-                <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded uppercase">
+              <div key={idx} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+                <span className="text-[10px] font-mono font-bold text-primary bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-md uppercase">
                   {item.code}
                 </span>
-                <h3 className="text-sm font-bold text-textPrimary font-sans">{item.title}</h3>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                <h3 className="text-sm font-bold text-neutral-900 font-sans">{item.title}</h3>
+                <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                   {item.desc}
                 </p>
               </div>
@@ -484,198 +493,98 @@ export default function FinTechSecurityPage() {
         </div>
 
         {/* KYC & Customer Onboarding Security Section */}
-        <div className="py-16 border-t border-border" id="kyc-security">
+        <div className="py-16 border-t border-dashed border-neutral-300" id="kyc-security">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Onboarding Integrity</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <Database size={13} className="text-primary" /> Onboarding Integrity
             </div>
-            <h2 className="heading-2 font-sans mb-3 text-textPrimary">
-              KYC & Customer <span className="text-primary">Onboarding Security</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
+              KYC &amp; Customer <span className="text-primary">Onboarding Security</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               Customer onboarding and identity verification pipelines handle sensitive PII and determine account access levels. We evaluate account-creation flows for state manipulation and access-control weaknesses.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {kycSecurityPoints.map((item, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border rounded-2xl space-y-2.5 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <Database size={15} className="text-primary flex-shrink-0" />
-                  <h3 className="text-sm font-bold text-textPrimary font-sans">{item.title}</h3>
+              <div key={idx} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600 shrink-0">
+                    <Database size={14} />
+                  </div>
+                  <h3 className="text-sm font-bold text-neutral-900 font-sans">{item.title}</h3>
                 </div>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">
+                <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                   {item.desc}
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Cloud & Infrastructure Security Section */}
-        <div className="py-16 border-t border-border" id="cloud-infrastructure">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-                <span>Infrastructure Scope</span>
-              </div>
-              <h2 className="heading-2 font-sans mb-3 text-textPrimary">
-                Cloud & Infrastructure <span className="text-primary">Security for FinTech</span>
-              </h2>
-              <p className="body-text text-textSecondary font-sans">
-                Where cloud infrastructure is included in scope, we evaluate configuration posture, identity policies, and storage access controls to prevent accidental exposure of financial assets.
-              </p>
-            </div>
-            <div>
-              <Link 
-                href="/services/cloud-security"
-                className="inline-flex items-center gap-1.5 text-xs uppercase font-sans font-bold tracking-wider text-primary hover:underline"
-              >
-                <span>Explore Cloud Security Audits →</span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "IAM & Least-Privilege Policies", desc: "Auditing role assignments, developer access keys, and cross-account assumption permissions." },
-              { title: "Storage & Bucket Permissions", desc: "Verifying S3/GCS bucket access, public exposure flags, and server-side encryption with KMS." },
-              { title: "Secrets & Key Management", desc: "Reviewing storage and rotation of database credentials, third-party API tokens, and private keys." },
-              { title: "Network & Perimeter Hardening", desc: "Evaluating VPC peering, security group rules, public ingress points, and API gateway TLS configurations." },
-              { title: "Audit Logging & Trail Integrity", desc: "Ensuring CloudTrail/CloudWatch logs and application security events are recorded for forensic review." },
-              { title: "Container & Kubernetes Security", desc: "Reviewing container image vulnerabilities, pod security standards, and cluster RBAC where containerized." }
-            ].map((item, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border rounded-2xl space-y-2 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <Server size={15} className="text-primary flex-shrink-0" />
-                  <h3 className="text-sm font-bold text-textPrimary font-sans">{item.title}</h3>
-                </div>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Regulatory Baseline Alignment Section */}
-        <div className="py-16 border-t border-border" id="regulatory-alignment">
-          <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Framework Mapping</span>
-            </div>
-            <h2 className="heading-2 font-sans mb-3 text-textPrimary">
-              Technical Security Alignment for <span className="text-primary">Regulatory & Partner Reviews</span>
-            </h2>
-            <p className="body-text text-textSecondary font-sans">
-              We map our technical penetration testing and configuration reviews against industry standards and institutional guidelines to generate clear technical evidence for compliance reviews.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                framework: "RBI Cybersecurity Baseline",
-                desc: "Technical vulnerability assessment and controls mapping aligned with Reserve Bank of India Information Security Guidelines for regulated entities and payment intermediaries."
-              },
-              {
-                framework: "NPCI Technical Considerations",
-                desc: "API endpoint security, cryptographic validation, and transaction workflow verification aligned with NPCI UPI application security best practices."
-              },
-              {
-                framework: "SOC 2 & ISO 27001 Readiness",
-                desc: "Technical penetration test evidence fulfilling SOC 2 Type II (CC6.8) and ISO 27001 Annex A technical control requirements for enterprise buyers."
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border rounded-2xl space-y-3 shadow-sm">
-                <span className="text-[10px] font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
-                  Technical Alignment
-                </span>
-                <h3 className="text-base font-bold text-textPrimary font-sans">{item.framework}</h3>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 p-5 bg-surface border border-border rounded-2xl flex items-start gap-3.5 shadow-sm">
-            <HelpCircle size={18} className="text-primary flex-shrink-0 mt-0.5" />
-            <div className="text-xs text-textSecondary font-sans leading-relaxed">
-              <strong className="text-textPrimary font-semibold block mb-0.5">Advisory & Scope Distinction:</strong>
-              TrustLayerLabs provides technical security assessments, vulnerability remediation guidance, and readiness documentation. We do not issue formal statutory regulatory certifications (e.g., formal RBI/NPCI certification); we deliver the technical penetration testing evidence required for partner bank reviews and accredited audits.
-            </div>
-          </div>
-
-          <div className="mt-6 flex items-center gap-4">
-            <Link 
-              href="/grc-readiness"
-              className="inline-flex items-center gap-1.5 text-xs uppercase font-sans font-bold tracking-wider text-primary hover:underline"
-            >
-              <span>Explore GRC & Compliance Readiness Support →</span>
-            </Link>
           </div>
         </div>
 
         {/* Assessment Methodology Section */}
-        <div className="py-16 border-t border-border" id="methodology">
+        <div className="py-16 border-t border-dashed border-neutral-300" id="methodology">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-                <span>Testing Workflow</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+                <Clock size={13} className="text-primary" /> Testing Workflow
               </div>
-              <h2 className="heading-2 font-sans mb-3 text-textPrimary">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
                 Our FinTech <span className="text-primary">VAPT Methodology</span>
               </h2>
-              <p className="body-text text-textSecondary font-sans">
+              <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
                 An 8-phase collaborative testing lifecycle designed for developer efficiency, non-disruptive testing, and validated remediation.
               </p>
             </div>
             <div>
               <Link 
                 href="/methodology"
-                className="inline-flex items-center gap-1.5 text-xs uppercase font-sans font-bold tracking-wider text-primary hover:underline"
+                className="px-4 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 text-xs font-semibold text-neutral-800 transition-colors inline-flex items-center gap-1.5"
               >
-                <span>Read Complete Penetration Testing Methodology →</span>
+                <span>Read Full Methodology</span>
+                <ChevronRight size={13} />
               </Link>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {methodologySteps.map((step, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border rounded-2xl space-y-2.5 shadow-sm">
-                <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded">
+              <div key={idx} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+                <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-md">
                   Phase {step.step}
                 </span>
-                <h3 className="text-sm font-bold text-textPrimary font-sans">{step.title}</h3>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans">{step.desc}</p>
+                <h3 className="text-sm font-bold text-neutral-900 font-sans">{step.title}</h3>
+                <p className="text-xs text-neutral-600 leading-relaxed font-sans">{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Deliverables Section */}
-        <div className="py-16 border-t border-border" id="deliverables">
+        <div className="py-16 border-t border-dashed border-neutral-300" id="deliverables">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Deliverables</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <FileCheck size={13} className="text-primary" /> Deliverables
             </div>
-            <h2 className="heading-2 font-sans mb-3 text-textPrimary">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
               Engineering-Ready <span className="text-primary">FinTech Deliverables</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               Clear, developer-focused documentation designed for rapid remediation, partner due diligence, and compliance audit verification.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {deliverables.map((item, i) => (
-              <div key={i} className="p-6 bg-surface border border-border rounded-2xl space-y-2.5 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-primary flex-shrink-0" />
-                  <h3 className="text-sm font-bold text-textPrimary font-sans">{item.title}</h3>
+              <div key={i} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:border-neutral-400 transition-all">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200">
+                    <Check size={11} strokeWidth={3} />
+                  </div>
+                  <h3 className="text-sm font-bold text-neutral-900 font-sans">{item.title}</h3>
                 </div>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans pl-6">
+                <p className="text-xs text-neutral-600 leading-relaxed font-sans pl-7">
                   {item.desc}
                 </p>
               </div>
@@ -683,21 +592,21 @@ export default function FinTechSecurityPage() {
           </div>
         </div>
 
-        {/* Sample Report Internal CTA Banner */}
-        <div className="my-12 p-8 md:p-12 bg-surface border border-border rounded-3xl relative overflow-hidden shadow-sm">
+        {/* Sample Report Internal CTA Banner - CodeDale Dashed Box */}
+        <div className="my-16 p-8 sm:p-12 bg-white border border-dashed border-neutral-300 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold uppercase tracking-wider">
-                <span>Report Preview</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-50 border border-blue-200 rounded-full text-xs font-mono font-bold text-primary uppercase tracking-wider">
+                <FileText size={13} /> Report Preview
               </div>
-              <h3 className="heading-2 font-sans text-textPrimary">
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans">
                 Examine an Illustrative FinTech VAPT Report
               </h3>
-              <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
+              <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
                 Review the exact format of our findings, CVSS scoring criteria, reproduction steps, and remediation code snippets before booking an engagement.
               </p>
-              <div className="p-3 bg-background border border-border/60 rounded-xl text-[11px] text-textSecondary font-sans leading-normal">
-                <span className="font-bold text-textPrimary uppercase tracking-wider block mb-0.5">
+              <div className="p-3.5 bg-neutral-50 border border-neutral-200 rounded-xl text-xs text-neutral-600 font-sans leading-relaxed">
+                <span className="font-bold text-neutral-900 uppercase tracking-wider block mb-0.5 font-mono text-[10px]">
                   ILLUSTRATIVE SAMPLE — NOT A CLIENT ENGAGEMENT
                 </span>
                 This sample demonstrates our report structure and technical depth. It does not represent a real customer engagement.
@@ -706,14 +615,14 @@ export default function FinTechSecurityPage() {
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
               <Link 
                 href="/sample-report"
-                className="px-6 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs font-sans font-bold uppercase tracking-wider rounded-xl transition-all shadow-md text-center flex items-center justify-center gap-2"
+                className="px-6 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-sans font-bold uppercase tracking-wider rounded-full shadow-md text-center flex items-center justify-center gap-2"
               >
                 <FileText size={15} />
-                <span>View Illustrative Sample Report</span>
+                <span>View Illustrative Report</span>
               </Link>
               <Link 
                 href="/api-security-checklist"
-                className="px-6 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all text-center"
+                className="px-6 py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-xs font-sans font-semibold tracking-wider rounded-full text-neutral-800 text-center"
               >
                 <span>32-Point API Checklist →</span>
               </Link>
@@ -722,27 +631,27 @@ export default function FinTechSecurityPage() {
         </div>
 
         {/* Commercial FAQ Section */}
-        <div className="py-16 border-t border-border" id="faq">
+        <div className="py-16 border-t border-dashed border-neutral-300" id="faq">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-xs font-bold text-primary uppercase tracking-wider mb-4">
-              <span>Frequently Asked Questions</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-100 rounded-full text-xs font-mono font-bold text-neutral-700 uppercase tracking-wider mb-4">
+              <HelpCircle size={13} className="text-primary" /> Frequently Asked Questions
             </div>
-            <h2 className="heading-2 font-sans mb-3 text-textPrimary">
-              FinTech Security & <span className="text-primary">VAPT FAQs</span>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 font-sans mb-3">
+              FinTech Security &amp; <span className="text-primary">VAPT FAQs</span>
             </h2>
-            <p className="body-text text-textSecondary font-sans">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               Common questions about our financial penetration testing scope, methodologies, timelines, and deliverables.
             </p>
           </div>
 
           <div className="space-y-4 max-w-4xl">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="p-6 bg-surface border border-border rounded-2xl space-y-2 shadow-sm">
-                <h3 className="text-sm font-bold text-textPrimary font-sans flex items-start gap-2">
-                  <span className="text-primary font-mono">Q:</span>
+              <div key={idx} className="p-7 bg-white border border-neutral-200/90 rounded-3xl space-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+                <h3 className="text-base font-bold text-neutral-900 font-sans flex items-start gap-2.5">
+                  <span className="text-primary font-mono text-sm">Q:</span>
                   <span>{faq.q}</span>
                 </h3>
-                <p className="text-xs text-textSecondary leading-relaxed font-sans pl-6">
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans pl-7">
                   {faq.a}
                 </p>
               </div>
@@ -751,38 +660,31 @@ export default function FinTechSecurityPage() {
         </div>
 
         {/* Mid-Page Booking CTA Strip */}
-        <div className="my-16 p-8 bg-surface border border-primary/30 rounded-3xl text-center space-y-6 shadow-sm">
+        <div className="my-16 p-8 sm:p-12 bg-white border border-dashed border-neutral-300 rounded-3xl text-center space-y-6 shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
           <div className="max-w-2xl mx-auto space-y-3">
-            <h3 className="text-xl sm:text-2xl font-bold text-textPrimary font-sans">
+            <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 font-sans tracking-tight">
               Ready to Scope Your FinTech Security Assessment?
             </h3>
-            <p className="text-xs sm:text-sm text-textSecondary font-sans leading-relaxed">
+            <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed">
               Schedule a 30-minute scoping call with our lead security architects under mutual NDA. We will evaluate your architecture and provide a fixed quote within 24 hours.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link 
               href="/free-assessment"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl transition-all shadow-md flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-md transition-all flex items-center gap-2"
             >
-              <span>Get a Free Security Scoping Review →</span>
+              <span>Schedule Scoping Review</span>
+              <ArrowRight size={14} className="text-blue-400" />
             </Link>
             <Link 
               href="/sample-report"
-              className="px-8 py-3.5 bg-background border border-border hover:border-zinc-400 text-xs uppercase font-sans font-semibold tracking-wider rounded-xl text-textPrimary hover:text-primary transition-all flex items-center gap-2"
+              className="px-8 py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-xs uppercase font-sans font-semibold tracking-wider rounded-full text-neutral-800 transition-all flex items-center gap-2"
             >
               <FileText size={15} />
-              <span>View the Sample Assessment Report</span>
+              <span>View Sample Assessment Report</span>
             </Link>
           </div>
-        </div>
-
-        {/* Related Regulatory Assessment Link */}
-        <div className="py-6 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-textSecondary">
-          <span>Preparing for mandatory regulatory audits (RBI Master Directions, SEBI CSCRF, NPCI UPI, IRDAI)?</span>
-          <Link href="/services/fintech-vapt" className="text-primary hover:underline font-semibold flex items-center gap-1">
-            View FinTech Regulatory Compliance VAPT Audit →
-          </Link>
         </div>
 
       </div>

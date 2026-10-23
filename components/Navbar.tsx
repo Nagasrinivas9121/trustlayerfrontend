@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Calendar, ChevronDown, Award } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, Award } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
 import { openCalendly } from "@/lib/calendly";
@@ -13,194 +13,237 @@ import { trackCalendarClick, trackFreeReviewCtaClick } from "@/lib/analytics";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showCertificate, setShowCertificate] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 15);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
-        <nav className={`w-full max-w-5xl flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 rounded-full border bg-surface/80 backdrop-blur-md border-border/80 transition-all duration-300 ${
+      <header className="w-full fixed top-4 left-0 right-0 z-50 flex justify-center items-center px-4">
+        
+        {/* Left Logo (Desktop) */}
+        <Link 
+          href="/" 
+          className="max-md:hidden absolute left-5 lg:left-12 flex items-center group"
+          aria-label="TrustLayerLabs Home"
+        >
+          <div className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm border border-black/5 flex items-center transition-transform group-hover:scale-105">
+            <Image
+              src="/trustlayerlabs-api-security-logo.png"
+              alt="TrustLayerLabs"
+              width={150}
+              height={32}
+              priority
+              unoptimized
+              className="h-7 w-auto object-contain"
+            />
+          </div>
+        </Link>
+
+        {/* Center Rounded Pill Navigation Bar (CodeDale Style) */}
+        <div className={`relative flex flex-col bg-white text-black w-full md:w-fit rounded-[24px] md:rounded-full border border-black/5 transition-all duration-300 ${
           scrolled ? "shadow-md" : "shadow-sm"
         }`}>
-          
-          {/* Logo */}
-          <Link href="/" className="flex items-center group flex-shrink-0" aria-label="TrustLayerLabs Home">
-            <div className="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-white/30 transition-all duration-200 group-hover:shadow-md flex items-center">
-              <Image 
-                src="/trustlayerlabs-api-security-logo.png" 
-                alt="TrustLayerLabs - The Verified Trust Layer" 
-                width={160} 
-                height={32} 
-                priority
+          <div className="flex items-center justify-between md:justify-center font-medium py-1.5 px-3 md:px-3">
+            
+            {/* Mobile Logo inside pill */}
+            <Link href="/" className="md:hidden flex items-center py-1 pl-1">
+              <Image
+                src="/trustlayerlabs-api-security-logo.png"
+                alt="TrustLayerLabs"
+                width={120}
+                height={26}
                 unoptimized
-                className="h-7 sm:h-8 w-auto object-contain" 
+                className="h-6 w-auto object-contain"
               />
-              <span className="sr-only">TrustLayerLabs — Home</span>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-3 lg:space-x-5 mx-4 overflow-x-auto scrollbar-none">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href || (link.children && pathname.startsWith(link.href));
-              
-              if (link.children) {
-                return (
-                  <div 
-                    key={link.name}
-                    className="relative group flex-shrink-0"
-                    onMouseEnter={() => setDropdownOpen(true)}
-                    onMouseLeave={() => setDropdownOpen(false)}
-                  >
-                    <Link
-                      href={link.href}
-                      className={`inline-flex items-center gap-1 text-xs uppercase font-sans tracking-wider font-semibold transition-colors duration-200 hover:text-textPrimary ${
-                        isActive ? "text-primary" : "text-textSecondary"
-                      }`}
-                    >
-                      {link.name}
-                      <ChevronDown size={12} className="group-hover:rotate-180 transition-transform" />
-                    </Link>
-
-                    {/* Dropdown Menu */}
-                    <div className="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all">
-                      <div className="bg-surface border border-border rounded-xl p-2 shadow-xl space-y-1">
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.name}
-                            href={child.href}
-                            className="block px-3 py-2 rounded-lg hover:bg-black/30 text-xs transition-colors"
-                          >
-                            <span className="text-textPrimary font-semibold block">{child.name}</span>
-                            <span className="text-[10px] text-textSecondary block leading-tight">{child.description}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              return (
-                <Link 
-                  key={link.name} 
-                  href={link.href}
-                  className={`text-xs uppercase font-sans tracking-wider font-semibold transition-colors duration-200 hover:text-textPrimary flex-shrink-0 ${
-                    isActive ? "text-primary" : "text-textSecondary"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-
-            {/* MSME Certificate Action */}
-            <button
-              onClick={() => setShowCertificate(true)}
-              type="button"
-              className="text-xs uppercase font-sans tracking-wider font-semibold transition-colors duration-200 text-textSecondary hover:text-primary flex items-center gap-1 flex-shrink-0 cursor-pointer"
-              title="Click to view Govt. MSME Certificate"
-            >
-              <Award size={13} className="text-primary" />
-              <span>MSME</span>
-            </button>
-          </div>
-          {/* Desktop CTA Button */}
-          <div className="hidden md:block flex-shrink-0">
-            <Link 
-              href="/free-assessment"
-              onClick={() => trackFreeReviewCtaClick("navbar_desktop", "Get a Free Security Scoping Review")}
-              className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all active:scale-95 flex items-center gap-1.5 shadow-sm cursor-pointer"
-            >
-              <Calendar className="w-3.5 h-3.5" /> Get a Free Security Scoping Review
             </Link>
+
+            {/* Desktop Nav Links */}
+            <nav className="hidden md:flex items-center gap-1 font-medium text-[13px] text-gray-800 tracking-tight">
+              <Link
+                href="/services"
+                className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
+              >
+                Services
+              </Link>
+
+              <Link
+                href="/#steps"
+                className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
+              >
+                Methodology
+              </Link>
+
+              <Link
+                href="/#why-choose-us"
+                className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
+              >
+                Why Us
+              </Link>
+
+              <Link
+                href="/#achievements"
+                className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
+              >
+                Standards
+              </Link>
+
+              <Link
+                href="/#faq"
+                className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
+              >
+                FAQs
+              </Link>
+
+              <Link
+                href="/sample-report"
+                className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
+              >
+                Sample Report
+              </Link>
+
+              <Link
+                href="/contact"
+                className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
+              >
+                Contact
+              </Link>
+
+              {/* MSME Verified Badge Button */}
+              <button
+                type="button"
+                onClick={() => setShowCertificate(true)}
+                className="hover:text-primary hover:bg-blue-50 text-gray-600 rounded-full py-1.5 px-2.5 transition-all flex items-center gap-1 text-xs cursor-pointer ml-1"
+                title="View Govt. MSME Certificate"
+              >
+                <Award size={13} className="text-primary" />
+                <span className="font-semibold text-[11px]">MSME</span>
+              </button>
+            </nav>
+
+            {/* Mobile Toggle Button */}
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 shrink-0 text-gray-900"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+
           </div>
 
-          {/* Mobile Toggle */}
-          <button 
-            className="md:hidden text-textSecondary hover:text-textPrimary p-1.5" 
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            {isOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
-
-          {/* Mobile Menu Panel */}
+          {/* Mobile Accordion Dropdown */}
           {isOpen && (
-            <div className="md:hidden absolute top-full left-0 right-0 mt-2 bg-surface/95 backdrop-blur-md border border-border p-6 rounded-2xl space-y-4 animate-fade-in shadow-xl mx-4">
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <div key={link.name}>
-                    <Link 
-                      href={link.href} 
-                      onClick={() => setIsOpen(false)}
-                      className={`block text-xs uppercase tracking-wider font-sans font-semibold ${
-                        isActive ? "text-primary" : "text-textSecondary hover:text-textPrimary"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                    {link.children && (
-                      <div className="pl-3 mt-2 space-y-1.5 border-l border-border/60">
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.name}
-                            href={child.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block text-[11px] text-textSecondary hover:text-primary font-sans"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            <div className="md:hidden p-4 pt-2 border-t border-gray-100 flex flex-col gap-2 animate-fade-in text-sm font-medium">
+              <Link
+                href="/services"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
+              >
+                Services
+              </Link>
+              <Link
+                href="/#steps"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
+              >
+                Methodology
+              </Link>
+              <Link
+                href="/#why-choose-us"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
+              >
+                Why Us
+              </Link>
+              <Link
+                href="/#achievements"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
+              >
+                Standards
+              </Link>
+              <Link
+                href="/#faq"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
+              >
+                FAQs
+              </Link>
+              <Link
+                href="/sample-report"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
+              >
+                Sample Report
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
+              >
+                Contact
+              </Link>
 
-              {/* MSME Certificate in Mobile Menu */}
-              <div>
-                <button
-                  onClick={() => {
-                    setIsOpen(false);
-                    setShowCertificate(true);
-                  }}
-                  type="button"
-                  className="w-full text-left text-xs uppercase tracking-wider font-sans font-semibold text-textSecondary hover:text-primary flex items-center gap-1.5 cursor-pointer"
-                >
-                  <Award size={13} className="text-primary" />
-                  <span>MSME Certificate (Govt. of India)</span>
-                </button>
-              </div>
-
-              <Link 
-                href="/free-assessment"
+              <button
+                type="button"
                 onClick={() => {
                   setIsOpen(false);
-                  trackFreeReviewCtaClick("navbar_mobile", "Get a Free Security Scoping Review");
+                  setShowCertificate(true);
                 }}
-                className="w-full block text-center py-2.5 text-xs font-bold uppercase tracking-wider font-sans bg-primary text-white hover:bg-primary/90 rounded-full transition-all shadow-md cursor-pointer"
+                className="text-left px-3 py-2 rounded-xl hover:bg-blue-50 text-primary flex items-center gap-1.5 text-xs font-semibold cursor-pointer"
               >
-                Get a Free Security Scoping Review
-              </Link>
+                <Award size={14} /> Govt. MSME Certificate
+              </button>
+
+              <a
+                href="https://cal.com/nagasrinivasarao/30min"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsOpen(false);
+                  trackCalendarClick("navbar_mobile_call");
+                  openCalendly();
+                }}
+                className="w-full text-center py-3 bg-[#151619] text-white rounded-full font-semibold text-xs mt-2 shadow-md flex items-center justify-center gap-2"
+              >
+                <span>Book a 30-Min Call</span>
+                <ArrowRight size={14} />
+              </a>
             </div>
           )}
-        </nav>
-      </div>
+        </div>
+
+        {/* Right CTA Button (Desktop - CodeDale Signature "Book a Call" button) */}
+        <div className="max-md:hidden absolute right-5 lg:right-12">
+          <a
+            href="https://cal.com/nagasrinivasarao/30min"
+            onClick={(e) => {
+              e.preventDefault();
+              trackCalendarClick("navbar_desktop_call");
+              openCalendly();
+            }}
+            className="inline-flex items-center gap-2.5 pr-1.5 py-1.5 pl-5 font-semibold bg-[#151619] hover:bg-[#252830] text-white rounded-full shadow tracking-tight text-xs lg:text-[13px] transition button-shadow whitespace-nowrap cursor-pointer group"
+          >
+            <span>Book a Call</span>
+            <div className="border border-[#545557] bg-[#333437] group-hover:bg-primary transition-colors w-7 h-7 rounded-full flex items-center justify-center">
+              <ArrowRight size={13} className="-rotate-45 text-white" />
+            </div>
+          </a>
+        </div>
+
+      </header>
 
       {/* Certificate Modal */}
-      <CertificateModal 
-        isOpen={showCertificate} 
+      <CertificateModal
+        isOpen={showCertificate}
         initialCertId="msme"
-        onClose={() => setShowCertificate(false)} 
+        onClose={() => setShowCertificate(false)}
       />
     </>
   );

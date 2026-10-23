@@ -86,62 +86,240 @@ Get your snapshot report in 48 hours.
   {
     title: "4. The RAG Leakage Risk in GenAI (AI Security)",
     topic: "Why standard RAG vector databases leak tenant records without context filters.",
-    copy: "AI Founders: Is your RAG pipeline leaking client data? 🧠\n\nAs more SaaS applications integrate LangChain, pgvector, and LLM agents, a new critical risk has emerged: RAG tenant leakage.\n\nHere is how it happens:\n1. User A asks the LLM: \"Show me my invoice data.\"\n2. The agent triggers a vector search in Pinecone/pgvector.\n3. If the search query lacks tenant_id filters, it retrieves documents from the entire database pool.\n4. The LLM summarizes information belonging to User B and shows it to User A.\n\nTo secure your AI applications:\n- Enforce strict metadata filtering by tenant_id on ALL vector query vectors.\n- Apply checks-effects constraints on excessive LLM agency (never grant write rights without approval).\n- Audit prompts against direct and indirect injections.\n\nDon't let prompt engineering bypass tenant isolation!\n\n#AISecurity #LLM #GenAI #VAPT #Python"
+    copy: `AI Founders: Is your RAG pipeline leaking client data? 🧠
+
+As more SaaS applications integrate LangChain, pgvector, and LLM agents, a new critical risk has emerged: RAG tenant leakage.
+
+Here is how it happens:
+1. User A asks the LLM: "Show me my invoice data."
+2. The agent triggers a vector search in Pinecone/pgvector.
+3. If the search query lacks tenant_id filters, it retrieves documents from the entire database pool.
+4. The LLM summarizes information belonging to User B and shows it to User A.
+
+To secure your AI applications:
+- Enforce strict metadata filtering by tenant_id on ALL vector query vectors.
+- Apply checks-effects constraints on excessive LLM agency (never grant write rights without approval).
+- Audit prompts against direct and indirect injections.
+
+Don't let prompt engineering bypass tenant isolation!
+
+#AISecurity #LLM #GenAI #VAPT #Python`
   },
   {
     title: "5. The AWS Metadata Token Hijack (Cloud Security)",
     topic: "How SSRF exposes cloud instance metadata keys and how to secure IMDSv2.",
-    copy: "How a simple PDF generator can expose your entire AWS cloud infrastructure. ☁️\n\nIt starts with Server-Side Request Forgery (SSRF).\n\nAn attacker finds an endpoint that fetches URLs (like a receipt downloader). \nInstead of a website, they request the local cloud metadata loopback:\n-> http://169.254.169.254/latest/meta-data/iam/security-credentials/\n\nIf your EC2 instances run legacy IMDSv1, the server returns AWS access credentials immediately.\n\nOur recommendations:\n1. Force IMDSv2 (requires session-based token requests, blocking simple SSRF redirects).\n2. Configure outbound firewall rules (iptables) to reject metadata queries from application servers.\n3. Run weekly IAM privilege boundaries scans.\n\nHarden your cloud perimeter before a scanner maps it.\n\n#AWS #CloudSecurity #DevOps #VAPT"
+    copy: `How a simple PDF generator can expose your entire AWS cloud infrastructure. ☁️
+
+It starts with Server-Side Request Forgery (SSRF).
+
+An attacker finds an endpoint that fetches URLs (like a receipt downloader). 
+Instead of a website, they request the local cloud metadata loopback:
+-> http://169.254.169.254/latest/meta-data/iam/security-credentials/
+
+If your EC2 instances run legacy IMDSv1, the server returns AWS access credentials immediately.
+
+Our recommendations:
+1. Force IMDSv2 (requires session-based token requests, blocking simple SSRF redirects).
+2. Configure outbound firewall rules (iptables) to reject metadata queries from application servers.
+3. Run weekly IAM privilege boundaries scans.
+
+Harden your cloud perimeter before a scanner maps it.
+
+#AWS #CloudSecurity #DevOps #VAPT`
   },
   {
     title: "6. The Staking Reentrancy Exploit (Web3 / Solidity)",
     topic: "Breakdown of the reentrancy pattern that drained millions from liquidity pools.",
-    copy: "Solidity Developers: Reentrancy is still draining millions from staking pools. 💸\n\nThe mechanics are deceptively simple:\n1. A smart contract transfers funds to an address.\n2. The recipient contract has a fallback function that calls the withdraw function again.\n3. Because the ledger balance state updates AFTER the transfer, the contract calculates payouts repeatedly.\n\nThe fix? The Checks-Effects-Interactions pattern:\n1. CHECK conditions (require statements).\n2. EFFECT state changes (update msg.sender balance to 0).\n3. INTERACT with external addresses (execute the transfer).\n\nKeep interactions last, or import OpenZeppelin's ReentrancyGuard.\n\n#Solidity #Ethereum #Web3 #SmartContract #Security"
+    copy: `Solidity Developers: Reentrancy is still draining millions from staking pools. 💸
+
+The mechanics are deceptively simple:
+1. A smart contract transfers funds to an address.
+2. The recipient contract has a fallback function that calls the withdraw function again.
+3. Because the ledger balance state updates AFTER the transfer, the contract calculates payouts repeatedly.
+
+The fix? The Checks-Effects-Interactions pattern:
+1. CHECK conditions (require statements).
+2. EFFECT state changes (update msg.sender balance to 0).
+3. INTERACT with external addresses (execute the transfer).
+
+Keep interactions last, or import OpenZeppelin's ReentrancyGuard.
+
+#Solidity #Ethereum #Web3 #SmartContract #Security`
   },
   {
     title: "7. The K8s HostPath Container Breakout (Containers)",
     topic: "Exploiting insecure Kubernetes configurations to execute host node commands.",
-    copy: "Container isolation is a boundary, not a security wall. 🐳\n\nWe recently audited a Kubernetes setup for an e-commerce backend.\nContainers ran merchant integrations. They were supposed to be completely isolated.\n\nBut the configuration allowed:\n```yaml\nvolumeMounts:\n  - mountPath: /host\n    name: host-volume\n```\nUsing a hostPath exploit, we mounted the master node root file system inside our pod container.\nIn seconds, we scaled access to read node environment secrets, taking over the cluster control plane.\n\nRemediation:\n- Disable privileged container execution.\n- Enforce 'restricted' Pod Security Admission policies.\n- Set readOnlyRootFilesystem to true.\n\n#Kubernetes #Docker #CloudSecurity #DevSecOps"
+    copy: `Container isolation is a boundary, not a security wall. 🐳
+
+We recently audited a Kubernetes setup for an e-commerce backend.
+Containers ran merchant integrations. They were supposed to be completely isolated.
+
+But the configuration allowed:
+\`\`\`yaml
+volumeMounts:
+  - mountPath: /host
+    name: host-volume
+\`\`\`
+Using a hostPath exploit, we mounted the master node root file system inside our pod container.
+In seconds, we scaled access to read node environment secrets, taking over the cluster control plane.
+
+Remediation:
+- Disable privileged container execution.
+- Enforce 'restricted' Pod Security Admission policies.
+- Set readOnlyRootFilesystem to true.
+
+#Kubernetes #Docker #CloudSecurity #DevSecOps`
   },
   {
     title: "8. The SameSite Authentication Wall (Web Security)",
     topic: "Why CSRF is still relevant and how to utilize SameSite cookie flags.",
-    copy: "Are your authentication cookies leaving users vulnerable to CSRF? 🍪\n\nCross-Site Request Forgery (CSRF) tricks a user's browser into executing state-changing API calls on a site where they are logged in.\n\nIf your cookies lack SameSite constraints, browsers automatically send session cookies on cross-origin actions.\n\nMitigate this by declaring:\n- SameSite=Strict: The cookie is never sent in cross-site requests.\n- SameSite=Lax: Sent only on top-level safe navigations (links).\n- Secure: Enforce HTTPS.\n- HttpOnly: Prevent script access (mitigating XSS extraction).\n\nHardening cookies is a 5-minute config change that blocks major attack surfaces.\n\n#WebDev #Cybersecurity #React #NodeJS"
+    copy: `Are your authentication cookies leaving users vulnerable to CSRF? 🍪
+
+Cross-Site Request Forgery (CSRF) tricks a user's browser into executing state-changing API calls on a site where they are logged in.
+
+If your cookies lack SameSite constraints, browsers automatically send session cookies on cross-origin actions.
+
+Mitigate this by declaring:
+- SameSite=Strict: The cookie is never sent in cross-site requests.
+- SameSite=Lax: Sent only on top-level safe navigations (links).
+- Secure: Enforce HTTPS.
+- HttpOnly: Prevent script access (mitigating XSS extraction).
+
+Hardening cookies is a 5-minute config change that blocks major attack surfaces.
+
+#WebDev #Cybersecurity #React #NodeJS`
   },
   {
     title: "9. Passing Enterprise Security Reviews (Founders)",
     topic: "How startups can speed up sales cycles by pre-empting vendor assessments.",
-    copy: "Indian SaaS Founders: Enterprise buyers stalling your sales pipeline with 300-question security surveys? 📋\n\nHere is how to pre-empt GRC blocks and close deals 40% faster:\n\n1. Have a mutual NDA ready to share scoping sheets.\n2. Maintain an updated security attestation portal (listing SOC2 status, backup frequencies).\n3. Share a third-party manual VAPT attestation report.\n\nEnterprise procurement officers don't expect you to have 100-man security teams. \nThey want proof that you manually audit your code boundaries.\n\n👉 Book a scoping intake call: https://trustlayerlabs.co.in/free-assessment\n\n#Startup #Sales #Compliance #SOC2"
+    copy: `Indian SaaS Founders: Enterprise buyers stalling your sales pipeline with 300-question security surveys? 📋
+
+Here is how to pre-empt GRC blocks and close deals 40% faster:
+
+1. Have a mutual NDA ready to share scoping sheets.
+2. Maintain an updated security attestation portal (listing SOC2 status, backup frequencies).
+3. Share a third-party manual VAPT attestation report.
+
+Enterprise procurement officers don't expect you to have 100-man security teams. 
+They want proof that you manually audit your code boundaries.
+
+👉 Book a scoping intake call: https://trustlayerlabs.co.in/free-assessment
+
+#Startup #Sales #Compliance #SOC2`
   },
   {
     title: "10. The Insecure CORS Wildcard Trap (API Security)",
     topic: "Explaining the risk of Access-Control-Allow-Origin: * combined with credentials.",
-    copy: "CORS is a browser boundary, not an API security wall. 🌐\n\nWe frequently see Express and Go code configuring:\n```javascript\nAccess-Control-Allow-Origin: *\nAccess-Control-Allow-Credentials: true\n```\nThis is a critical misconfiguration. If an API accepts credentials (cookies/tokens), wildcard origins enable malicious sites to send authenticated queries and read private customer payloads.\n\nHarden your CORS:\n- Map dynamic origin queries against a strict allow-list database.\n- Never use '*' with credentials.\n- Explicitly define allowed HTTP methods (GET, POST).\n\n#APISecurity #Backend #Coding #NodeJS"
+    copy: `CORS is a browser boundary, not an API security wall. 🌐
+
+We frequently see Express and Go code configuring:
+\`\`\`javascript
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+\`\`\`
+This is a critical misconfiguration. If an API accepts credentials (cookies/tokens), wildcard origins enable malicious sites to send authenticated queries and read private customer payloads.
+
+Harden your CORS:
+- Map dynamic origin queries against a strict allow-list database.
+- Never use '*' with credentials.
+- Explicitly define allowed HTTP methods (GET, POST).
+
+#APISecurity #Backend #Coding #NodeJS`
   },
   {
     title: "11. RBI VAPT Guidelines for FinTech (Regulatory)",
     topic: "Navigating the SEBI, RBI, and IRDAI compliance audits in India.",
-    copy: "Indian FinTech Founders: Preparing to launch payment integrations or NPCI UPI interfaces? 🇮🇳\n\nAdhering to the RBI Guidelines on Information Security and NPCI security benchmarks is non-negotiable.\n\nYour audit checklist:\n- Encrypt PII fields (Aadhaar, Account numbers) at the database layer (AES-256).\n- Disable legacy TLS (v1.0/v1.1) on API gateways; enforce TLS 1.2 minimum.\n- Retain detailed immutable application security logs for GRC reviews.\n- Conduct a third-party VAPT audit with signed attestation letters.\n\nAvoid compliance delays. Harden your builds early.\n\n#FinTech #RBI #Compliance #VAPT #IndiaStartups"
+    copy: `Indian FinTech Founders: Preparing to launch payment integrations or NPCI UPI interfaces? 🇮🇳
+
+Adhering to the RBI Guidelines on Information Security and NPCI security benchmarks is non-negotiable.
+
+Your audit checklist:
+- Encrypt PII fields (Aadhaar, Account numbers) at the database layer (AES-256).
+- Disable legacy TLS (v1.0/v1.1) on API gateways; enforce TLS 1.2 minimum.
+- Retain detailed immutable application security logs for GRC reviews.
+- Conduct a third-party VAPT audit with signed attestation letters.
+
+Avoid compliance delays. Harden your builds early.
+
+#FinTech #RBI #Compliance #VAPT #IndiaStartups`
   },
   {
     title: "12. The Hardcoded JWT Secret Exploit (Authentication)",
     topic: "How public JWT secrets enable token forgery and total account takeover.",
-    copy: "In vulnerability research on popular SaaS starter templates, default JWT secret keys consistently enable authentication bypass in under 10 minutes. 🔑\n\nHow? Starter templates frequently ship with default template secrets:\n```javascript\nconst SECRET = \"my-secret-key-123\";\n```\nAttackers match them against public wordlists, re-sign token payloads using HS256 with the secret, and elevate the role parameter to \"admin\".\n\nTo prevent token forgery:\n1. Rotate keys using AWS KMS or GCP Secret Manager.\n2. Use asymmetric algorithms (RS256) so only the private key (unknown to the client) can sign tokens.\n3. Keep keys out of Git repositories.\n\n#WebDev #NodeJS #API #Cybersecurity"
+    copy: `In vulnerability research on popular SaaS starter templates, default JWT secret keys consistently enable authentication bypass in under 10 minutes. 🔑
+
+How? Starter templates frequently ship with default template secrets:
+\`\`\`javascript
+const SECRET = "my-secret-key-123";
+\`\`\`
+Attackers match them against public wordlists, re-sign token payloads using HS256 with the secret, and elevate the role parameter to "admin".
+
+To prevent token forgery:
+1. Rotate keys using AWS KMS or GCP Secret Manager.
+2. Use asymmetric algorithms (RS256) so only the private key (unknown to the client) can sign tokens.
+3. Keep keys out of Git repositories.
+
+#WebDev #NodeJS #API #Cybersecurity`
   },
   {
     title: "13. HIPAA ePHI Database Hardening (Healthcare)",
     topic: "Securing Protected Health Information in SaaS patient portals.",
-    copy: "Building a HealthTech SaaS portal? HIPAA safeguards are mandatory. 🩺\n\nExposing electronic Protected Health Information (ePHI) can trigger severe regulatory penalties and break client trust.\n\nThree baseline GRC controls to implement:\n1. Row-Level DB Encryption: Encrypt patient records individually using AES-GCM before writing to the disk.\n2. Short-lived cloud storage assets: Generate pre-signed AWS S3 or GCP Cloud Storage URLs (expiring in 15 minutes) for files.\n3. Access Trails: Maintain immutable read/write logs of every user access to medical files.\n\n#HealthTech #HIPAA #Compliance #AWS #NextJS"
+    copy: `Building a HealthTech SaaS portal? HIPAA safeguards are mandatory. 🩺
+
+Exposing electronic Protected Health Information (ePHI) can trigger severe regulatory penalties and break client trust.
+
+Three baseline GRC controls to implement:
+1. Row-Level DB Encryption: Encrypt patient records individually using AES-GCM before writing to the disk.
+2. Short-lived cloud storage assets: Generate pre-signed AWS S3 or GCP Cloud Storage URLs (expiring in 15 minutes) for files.
+3. Access Trails: Maintain immutable read/write logs of every user access to medical files.
+
+#HealthTech #HIPAA #Compliance #AWS #NextJS`
   },
   {
     title: "14. Subdomain Takeover and DNS Hygiene (Perimeter)",
     topic: "Tracing dangling DNS CNAME records and remediating shadow IT risks.",
-    copy: "DNS Hygiene: Is a dangling CNAME record exposing your brand? 🌐\n\nIn cloud perimeter testing, dangling subdomains are a recurring critical vector:\n-> blog.startup.com CNAME startup-pages.github.io\n\nWhen a third-party hosted repository or bucket is deleted without pruning the DNS pointer, an attacker can claim that identifier on the host service.\n\nInstantly, sub.startup.com serves attacker-controlled content under your brand's trusted domain.\n\nHarden your DNS:\n- Audit all CNAME pointers monthly.\n- Delete CNAME records immediately when deprecating third-party services.\n\n#DNS #NetSec #SubdomainTakeover #VAPT"
+    copy: `DNS Hygiene: Is a dangling CNAME record exposing your brand? 🌐
+
+In cloud perimeter testing, dangling subdomains are a recurring critical vector:
+-> blog.startup.com CNAME startup-pages.github.io
+
+When a third-party hosted repository or bucket is deleted without pruning the DNS pointer, an attacker can claim that identifier on the host service.
+
+Instantly, sub.startup.com serves attacker-controlled content under your brand's trusted domain.
+
+Harden your DNS:
+- Audit all CNAME pointers monthly.
+- Delete CNAME records immediately when deprecating third-party services.
+
+#DNS #NetSec #SubdomainTakeover #VAPT`
   },
   {
     title: "15. GraphQL Query Depth Attacks (Performance)",
     topic: "Mitigating denial-of-service vectors by enforcing query depth limits.",
-    copy: "GraphQL Developers: Dynamic query flexibility enables dynamic performance exploits. 🌀\n\nBecause GraphQL schemas allow self-referential queries, an attacker can submit:\n```graphql\nquery {\n  author {\n    posts {\n      author {\n        posts {\n          author { ... }\n        }\n      }\n    }\n  }\n}\n```\nIf clients can nest queries infinitely, the server executes deep recursive DB lookups, causing CPU starvation and crashing the application.\n\nRemedy:\n- Implement query-depth-limiting middleware (set limit to 5).\n- Disable Schema Introspection in production environments.\n- Use query cost analysis parameters to limit large requests.\n\n#GraphQL #NodeJS #APISecurity #SaaS"
+    copy: `GraphQL Developers: Dynamic query flexibility enables dynamic performance exploits. 🌀
+
+Because GraphQL schemas allow self-referential queries, an attacker can submit:
+\`\`\`graphql
+query {
+  author {
+    posts {
+      author {
+        posts {
+          author { ... }
+        }
+      }
+    }
+  }
+}
+\`\`\`
+If clients can nest queries infinitely, the server executes deep recursive DB lookups, causing CPU starvation and crashing the application.
+
+Remedy:
+- Implement query-depth-limiting middleware (set limit to 5).
+- Disable Schema Introspection in production environments.
+- Use query cost analysis parameters to limit large requests.
+
+#GraphQL #NodeJS #APISecurity #SaaS`
   }
 ];
 
@@ -155,74 +333,73 @@ export default function LinkedInPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen">
-      <div className="pt-32 pb-24 text-textPrimary">
-        <div className="section-container max-w-4xl">
-          
-          {/* Header */}
-          <div className="mb-12">
-            <Link 
-              href="/" 
-              className="inline-flex items-center text-xs uppercase font-sans tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-8 group"
-            >
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" />
-              Back to Home
-            </Link>
+    <div className="bg-[#FAFAFA] min-h-screen pt-32 pb-24 text-neutral-900 font-sans">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Breadcrumb */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center text-xs font-semibold text-neutral-500 hover:text-neutral-900 transition-colors gap-2 mb-8 group px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Home</span>
+        </Link>
 
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-surface border border-border rounded-full text-[10px] font-bold text-primary uppercase tracking-wider mb-6 shadow-sm">
-              <Linkedin size={12} className="text-primary" />
-              <span>Thought Leadership Assets</span>
-            </div>
-
-            <h1 className="heading-1 mb-6 text-textPrimary font-extrabold font-sans tracking-tight">
-              LinkedIn <span className="text-primary">Templates</span>
-            </h1>
-            <p className="body-text text-base max-w-3xl">
-              Ready-to-copy social post templates for SaaS founders and CTOs to build cybersecurity credibility and share thought leadership.
-            </p>
+        {/* Header */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/80 shadow-sm text-xs font-semibold text-neutral-800 mb-4">
+            <Linkedin size={14} className="text-blue-600" />
+            <span>Practitioner Thought Leadership</span>
           </div>
 
-          {/* List of templates */}
-          <div className="space-y-10">
-            {templates.map((tpl, idx) => (
-              <div 
-                key={idx} 
-                className="premium-card p-6 bg-surface border border-border rounded-xl space-y-4 relative shadow-sm"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border/40 pb-4 gap-2">
-                  <div>
-                    <h3 className="text-sm font-bold text-textPrimary uppercase tracking-wider font-sans">
-                      {tpl.title}
-                    </h3>
-                    <p className="text-[10px] text-textSecondary font-sans uppercase tracking-wider mt-1">
-                      Target Focus: {tpl.topic}
-                    </p>
-                  </div>
-                  
-                  <button
-                    onClick={() => copyToClipboard(tpl.copy, idx)}
-                    className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 bg-background border border-border hover:border-zinc-400 rounded-lg text-[10px] uppercase font-sans tracking-wider text-textPrimary hover:bg-zinc-50 font-semibold transition-all shadow-sm"
-                  >
-                    {copiedIdx === idx ? (
-                      <>
-                        <Check size={11} className="text-success" /> Copied!
-                      </>
-                    ) : (
-                      <>
-                        <Copy size={11} /> Copy Template
-                      </>
-                    )}
-                  </button>
-                </div>
-
-                <pre className="p-4 bg-zinc-50 border border-border rounded-xl font-mono text-[10px] text-textPrimary whitespace-pre-wrap leading-relaxed max-h-[300px] overflow-y-auto">
-                  {tpl.copy}
-                </pre>
-              </div>
-            ))}
-          </div>
-
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-4">
+            LinkedIn Security <span className="text-neutral-900">Post Templates</span>
+          </h1>
+          <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            Ready-to-copy social post templates for SaaS founders and CTOs to build cybersecurity credibility and share thought leadership.
+          </p>
         </div>
+
+        {/* List of templates */}
+        <div className="space-y-6">
+          {templates.map((tpl, idx) => (
+            <div 
+              key={idx} 
+              className="p-8 bg-white border border-neutral-200/80 rounded-3xl space-y-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:border-neutral-300 transition-colors"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-dashed border-neutral-200 pb-4 gap-3">
+                <div>
+                  <h3 className="text-base font-bold text-neutral-950">
+                    {tpl.title}
+                  </h3>
+                  <p className="text-xs text-neutral-500 mt-0.5">
+                    Topic: {tpl.topic}
+                  </p>
+                </div>
+                
+                <button
+                  onClick={() => copyToClipboard(tpl.copy, idx)}
+                  className="self-start sm:self-auto inline-flex items-center gap-1.5 px-4 py-2 bg-neutral-100 hover:bg-neutral-200 rounded-full text-xs font-semibold text-neutral-800 transition-all shadow-sm"
+                >
+                  {copiedIdx === idx ? (
+                    <>
+                      <Check size={13} className="text-emerald-600" /> Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={13} /> Copy Template
+                    </>
+                  )}
+                </button>
+              </div>
+
+              <div className="p-5 bg-neutral-950 border border-neutral-800 rounded-2xl font-mono text-xs text-neutral-200 whitespace-pre-wrap leading-relaxed max-h-[300px] overflow-y-auto shadow-inner">
+                {tpl.copy}
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { blogPosts } from "@/lib/blogData";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, Shield } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, Shield } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import Script from "next/script";
 
@@ -95,86 +95,98 @@ export default async function BlogPost({ params }) {
   };
 
   return (
-    <div className="pt-36 pb-24 bg-background min-h-screen text-textPrimary">
+    <div className="pt-32 pb-24 bg-[#FAFAFA] min-h-screen text-neutral-900 font-sans">
       <Script id="article-schema" type="application/ld+json">
         {JSON.stringify(articleSchema)}
       </Script>
-      <div className="max-w-[800px] mx-auto px-6">
+      <div className="max-w-[840px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Breadcrumb Pill */}
         <Link 
           href="/blog" 
-          className="inline-flex items-center text-xs uppercase font-sans tracking-widest text-textSecondary hover:text-textPrimary transition-colors gap-2 mb-10 group"
+          className="inline-flex items-center text-xs font-semibold text-neutral-500 hover:text-neutral-900 transition-colors gap-2 mb-8 group px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm"
         >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1.5 transition-transform" /> Back to Blog
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+          <span>Back to Blog</span>
         </Link>
 
-        <div className="flex items-center space-x-6 text-[10px] font-sans font-semibold text-textSecondary mb-6 uppercase tracking-wider border-b border-border/20 pb-4">
-          <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {post.date}</span>
-          <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.readTime || "8 min read"}</span>
-          <span className="px-2 py-0.5 bg-primary/10 border border-primary/20 text-primary rounded-md">
+        {/* Metadata Strip */}
+        <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-500 mb-6">
+          <span className="px-3 py-1 bg-white border border-neutral-200 text-neutral-800 rounded-full font-semibold text-[11px] shadow-sm">
             {post.category || "Security Analysis"}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Calendar className="w-3.5 h-3.5" /> {post.date}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5" /> {post.readTime || "8 min read"}
           </span>
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-extrabold text-textPrimary mb-10 leading-tight font-sans tracking-tight">
+        {/* Article Headline */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-950 mb-10 leading-tight tracking-tight">
           {post.title}
         </h1>
 
-        {/* Markdown Content styling for light mode */}
-        <div className="prose prose-zinc max-w-none text-sm md:text-base text-textSecondary leading-relaxed space-y-6 font-sans
-          prose-headings:font-bold prose-headings:text-textPrimary prose-headings:font-sans prose-headings:tracking-tight
-          prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg
-          prose-strong:text-textPrimary prose-code:text-primary prose-code:bg-zinc-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-border
-          prose-pre:bg-zinc-50 prose-pre:border prose-pre:border-border prose-pre:p-4 prose-pre:rounded-xl">
-          <ReactMarkdown
-            components={{
-              h1: ({ node, ...props }) => <h2 {...props} />,
-            }}
-          >
-            {post.content}
-          </ReactMarkdown>
+        {/* Markdown Content styling for crisp light mode */}
+        <div className="bg-white border border-neutral-200/80 rounded-3xl p-8 sm:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+          <div className="prose prose-neutral max-w-none text-base text-neutral-700 leading-relaxed space-y-6 font-sans
+            prose-headings:font-bold prose-headings:text-neutral-950 prose-headings:tracking-tight
+            prose-h1:text-2xl sm:prose-h1:text-3xl prose-h2:text-xl sm:prose-h2:text-2xl prose-h3:text-lg
+            prose-strong:text-neutral-950 prose-strong:font-semibold
+            prose-code:text-neutral-900 prose-code:bg-neutral-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-xs prose-code:font-mono
+            prose-pre:bg-neutral-950 prose-pre:border prose-pre:border-neutral-800 prose-pre:text-neutral-200 prose-pre:p-5 prose-pre:rounded-2xl prose-pre:shadow-inner">
+            <ReactMarkdown
+              components={{
+                h1: ({ node, ...props }) => <h2 {...props} />,
+              }}
+            >
+              {post.content}
+            </ReactMarkdown>
+          </div>
         </div>
 
         {/* Bottom CTA Block */}
-        <div className="mt-20 p-8 md:p-12 bg-surface rounded-2xl border border-border text-center space-y-6 relative overflow-hidden shadow-sm">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none" />
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-bold uppercase tracking-wider font-mono">
+        <div className="mt-16 p-8 sm:p-12 bg-white rounded-3xl border border-dashed border-neutral-300 text-center space-y-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 text-neutral-800 border border-neutral-200 text-xs font-semibold">
+            <Shield size={14} className="text-neutral-900" />
             <span>Next Step for Engineering Teams</span>
           </div>
-          <h3 className="text-xl font-bold text-textPrimary tracking-tight font-sans">
+          <h3 className="text-2xl sm:text-3xl font-bold text-neutral-950 tracking-tight">
             Ready to Identify & Fix Vulnerabilities in Your Platform?
           </h3>
-          <p className="text-xs text-textSecondary max-w-lg mx-auto leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-neutral-600 max-w-lg mx-auto leading-relaxed">
             Schedule a confidential 30-minute scoping review with our lead security architects under mutual NDA. We evaluate your APIs, business logic, and enterprise readiness.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link 
               href="/free-assessment" 
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white text-xs uppercase font-sans font-bold tracking-wider rounded-xl shadow-md w-full sm:w-auto text-center transition-all active:scale-[0.98]"
+              className="w-full sm:w-auto px-7 py-3.5 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full shadow-md transition-all flex items-center justify-center gap-2"
             >
-              Get a Free Security Scoping Review →
+              <span>Get Free Scoping Review</span>
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link 
               href="/sample-report" 
-              className="px-8 py-3.5 bg-surface border border-border hover:border-zinc-400 text-textPrimary hover:text-primary text-xs uppercase font-sans font-semibold tracking-wider rounded-xl w-full sm:w-auto text-center shadow-sm transition-all"
+              className="w-full sm:w-auto px-7 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-semibold rounded-full shadow-sm transition-all"
             >
-              View the Sample Assessment Report
+              View Sample Report
             </Link>
           </div>
 
-          <div className="pt-4 border-t border-border/40 flex flex-wrap justify-center gap-4 text-xs font-sans text-textSecondary">
-            <Link href="/services/api-security" className="hover:text-primary transition-colors">→ API Security</Link>
-            <span className="text-border">•</span>
-            <Link href="/services/web-app-vapt" className="hover:text-primary transition-colors">→ Web App VAPT</Link>
-            <span className="text-border">•</span>
-            <Link href="/fintech-security" className="hover:text-primary transition-colors">→ FinTech Security</Link>
-            <span className="text-border">•</span>
-            <Link href="/services/ai-security" className="hover:text-primary transition-colors">→ AI Security</Link>
-            <span className="text-border">•</span>
-            <Link href="/api-security-checklist" className="hover:text-primary transition-colors">→ API Security Checklist</Link>
+          <div className="pt-4 border-t border-dashed border-neutral-200 flex flex-wrap justify-center gap-4 text-xs text-neutral-500">
+            <Link href="/services/api-security" className="hover:text-neutral-950 transition-colors">API Security</Link>
+            <span className="text-neutral-300">•</span>
+            <Link href="/services/web-app-vapt" className="hover:text-neutral-950 transition-colors">Web App VAPT</Link>
+            <span className="text-neutral-300">•</span>
+            <Link href="/fintech-security" className="hover:text-neutral-950 transition-colors">FinTech Security</Link>
+            <span className="text-neutral-300">•</span>
+            <Link href="/services/ai-security" className="hover:text-neutral-950 transition-colors">AI Security</Link>
+            <span className="text-neutral-300">•</span>
+            <Link href="/api-security-checklist" className="hover:text-neutral-950 transition-colors">API Security Checklist</Link>
           </div>
         </div>
       </div>
     </div>
   );
 }
-

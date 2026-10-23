@@ -13,7 +13,9 @@ import {
   Info,
   ChevronRight,
   RefreshCw,
-  HelpCircle
+  HelpCircle,
+  ArrowRight,
+  ArrowLeft
 } from "lucide-react";
 
 // Robust Base64URL decoder in pure JS
@@ -57,14 +59,10 @@ export default function JwtDecoderPage() {
   const [headerText, setHeaderText] = useState("");
   const [payloadText, setPayloadText] = useState("");
   const [signatureText, setSignatureText] = useState("");
-  const [isHoveredPart, setIsHoveredPart] = useState<number | null>(null); // 0: header, 1: payload, 2: signature
+  const [isHoveredPart, setIsHoveredPart] = useState<number | null>(null);
   const [securityChecks, setSecurityChecks] = useState<SecurityCheck[]>([]);
 
-  // Split Token parts helper for visual layout
   const parts = token.trim().split(".");
-  const rawHeader = parts[0] || "";
-  const rawPayload = parts[1] || "";
-  const rawSignature = parts[2] || "";
 
   useEffect(() => {
     if (!token.trim()) {
@@ -135,7 +133,7 @@ export default function JwtDecoderPage() {
       } else if (alg.startsWith("hs")) {
         checks.push({
           id: "alg-symmetric",
-          title: "Warning: Symmetric HMACSigning",
+          title: "Warning: Symmetric HMAC Signing",
           status: "warning",
           description: "This token uses a symmetric key (HS256/384/512). If the key leaks from the backend, attackers can forge valid tokens. Consider using asymmetric RS256/ES256 in distributed systems."
         });
@@ -221,106 +219,121 @@ export default function JwtDecoderPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-textPrimary selection:bg-primary/20 selection:text-primary">
-      <div className="section-container max-w-7xl mx-auto px-4 md:px-6">
+    <div className="bg-[#FAFAFA] min-h-screen pt-32 pb-24 font-sans text-neutral-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header Breadcrumbs */}
-        <div className="mb-12">
-          <div className="flex items-center space-x-2 text-xs text-textSecondary uppercase tracking-widest mb-4">
-            <Link href="/" className="hover:text-textPrimary transition-colors">Home</Link>
-            <ChevronRight size={12} className="text-border" />
-            <Link href="/services" className="hover:text-textPrimary transition-colors">Services</Link>
-            <ChevronRight size={12} className="text-border" />
-            <span className="text-primary font-bold">Free Tools</span>
+        {/* Breadcrumbs Pill */}
+        <div className="flex items-center gap-2 mb-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center text-xs font-semibold text-neutral-500 hover:text-neutral-900 transition-colors gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Home</span>
+          </Link>
+          <span className="text-neutral-400">/</span>
+          <Link 
+            href="/services" 
+            className="text-xs font-semibold text-neutral-500 hover:text-neutral-900 transition-colors px-3 py-1.5 rounded-full bg-white border border-neutral-200 shadow-sm"
+          >
+            Services
+          </Link>
+          <span className="text-neutral-400">/</span>
+          <span className="text-xs font-semibold text-neutral-900 px-3 py-1.5 rounded-full bg-neutral-200 border border-neutral-300">
+            JWT Analyzer
+          </span>
+        </div>
+
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/80 shadow-sm text-xs font-semibold text-neutral-800 mb-3">
+              <Shield size={14} className="text-neutral-900" />
+              <span>Free Developer Security Utility</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-3">
+              Free JWT <span className="text-neutral-900">Security Analyzer</span>
+            </h1>
+            <p className="text-sm sm:text-base max-w-2xl text-neutral-600 leading-relaxed">
+              Inspect JWT structure, claims, algorithms, and configuration risks client-side before they become authorization weaknesses.
+            </p>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <h1 className="heading-1 font-extrabold tracking-tight mb-3">
-                Free JWT <span className="text-primary">Security Analyzer</span>
-              </h1>
-              <p className="body-text text-sm md:text-base max-w-3xl text-textSecondary leading-relaxed">
-                Inspect JWT structure, claims, algorithms and common configuration risks before they become authentication weaknesses.
-              </p>
+          {/* Privacy Badge */}
+          <div className="flex items-center gap-3 px-4 py-3 bg-white border border-neutral-200 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] max-w-xs">
+            <div className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
+              <Lock size={15} />
             </div>
-
-            {/* Privacy Badge */}
-            <div className="flex items-center gap-3 px-4 py-2.5 bg-surface border border-border/80 rounded-xl max-w-xs shadow-sm">
-              <Lock className="text-success w-5 h-5 flex-shrink-0" />
-              <div className="text-[11px] font-sans leading-tight">
-                <div className="font-bold text-textPrimary uppercase tracking-wider">100% Client-Side</div>
-                <div className="text-textSecondary">Decoded in your browser. Tokens never leave your device.</div>
-              </div>
+            <div className="text-xs leading-tight">
+              <div className="font-bold text-neutral-950">100% Client-Side</div>
+              <div className="text-neutral-500 text-[11px]">Decoded in browser. Tokens never leave your device.</div>
             </div>
           </div>
         </div>
 
         {/* Quick Sample Selector */}
-        <div className="mb-8 flex flex-wrap items-center gap-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-textSecondary font-sans">Load Mock Token:</span>
+        <div className="mb-8 flex flex-wrap items-center gap-2.5">
+          <span className="text-xs font-semibold text-neutral-500 mr-1">Load Mock Token:</span>
           <button 
             onClick={() => loadSample("valid")}
-            className="px-3.5 py-1.5 bg-surface hover:bg-zinc-800 border border-border rounded-lg text-xs font-medium text-textPrimary hover:border-zinc-400 transition-all flex items-center gap-1.5"
+            className="px-4 py-2 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-full text-xs font-semibold text-neutral-800 transition-all flex items-center gap-1.5 shadow-sm"
           >
-            <CheckCircle className="w-3.5 h-3.5 text-success" /> Valid RS256 Token
+            <CheckCircle className="w-3.5 h-3.5 text-emerald-600" /> Valid RS256 Token
           </button>
           <button 
             onClick={() => loadSample("expired")}
-            className="px-3.5 py-1.5 bg-surface hover:bg-zinc-800 border border-border rounded-lg text-xs font-medium text-textPrimary hover:border-zinc-400 transition-all flex items-center gap-1.5"
+            className="px-4 py-2 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-full text-xs font-semibold text-neutral-800 transition-all flex items-center gap-1.5 shadow-sm"
           >
-            <Clock className="w-3.5 h-3.5 text-warning" /> Expired Session
+            <Clock className="w-3.5 h-3.5 text-amber-500" /> Expired Session
           </button>
           <button 
             onClick={() => loadSample("vulnerable")}
-            className="px-3.5 py-1.5 bg-surface hover:bg-zinc-800 border border-border rounded-lg text-xs font-medium text-textPrimary hover:border-zinc-400 transition-all flex items-center gap-1.5"
+            className="px-4 py-2 bg-white hover:bg-neutral-50 border border-neutral-200 rounded-full text-xs font-semibold text-neutral-800 transition-all flex items-center gap-1.5 shadow-sm"
           >
-            <AlertTriangle className="w-3.5 h-3.5 text-critical" /> Vulnerable (alg=none)
+            <AlertTriangle className="w-3.5 h-3.5 text-rose-500" /> Vulnerable (alg=none)
           </button>
           {token && (
             <button 
               onClick={() => setToken("")}
-              className="ml-auto px-3.5 py-1.5 bg-surface/50 hover:bg-surface border border-border rounded-lg text-xs font-medium text-textSecondary hover:text-textPrimary transition-all flex items-center gap-1.5"
+              className="ml-auto px-4 py-2 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 rounded-full text-xs font-semibold text-neutral-600 transition-all flex items-center gap-1.5"
             >
               <RefreshCw className="w-3.5 h-3.5" /> Clear
             </button>
           )}
         </div>
 
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+        {/* Main Grid: Input & Output */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
           
           {/* Left Column: Raw Input */}
-          <div className="lg:col-span-5 space-y-6 h-full">
-            <div className="premium-card p-6 bg-surface border border-border rounded-2xl flex flex-col justify-between min-h-[500px] shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none -z-10" />
-              
-              <div className="flex flex-col h-full space-y-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-textSecondary font-sans flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-primary" /> Paste Encoded Token
+          <div className="lg:col-span-5 space-y-6">
+            <div className="p-7 sm:p-8 bg-white border border-neutral-200/80 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] flex flex-col justify-between min-h-[480px]">
+              <div className="flex flex-col space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-dashed border-neutral-200">
+                  <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-800 flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-neutral-900" /> Paste Encoded Token
                   </h2>
+                  <span className="text-[11px] font-mono text-neutral-400">JWT / JWS</span>
                 </div>
 
-                <div className="flex-grow relative">
-                  <textarea
-                    value={token}
-                    onChange={(e) => setToken(e.target.value)}
-                    placeholder="eyJhbGciOiJSUzI1NiIs..."
-                    className="w-full h-[400px] p-4 bg-background border border-border rounded-xl text-xs font-mono resize-none focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 leading-relaxed text-textPrimary tracking-wide"
-                  />
-                </div>
+                <textarea
+                  value={token}
+                  onChange={(e) => setToken(e.target.value)}
+                  placeholder="eyJhbGciOiJSUzI1NiIs..."
+                  className="w-full h-[320px] p-4 bg-neutral-50 border border-neutral-200 rounded-2xl text-xs font-mono resize-none focus:outline-none focus:border-neutral-900 leading-relaxed text-neutral-900"
+                />
               </div>
 
-              {/* Explaining color segmentation */}
+              {/* Token Segment Layout Pills */}
               {token.trim() && parts.length >= 2 && (
-                <div className="border-t border-border pt-4 mt-4 space-y-2.5">
-                  <div className="text-[10px] font-bold text-textSecondary uppercase tracking-widest">Token Segment Layout:</div>
-                  <div className="flex flex-wrap gap-3 font-mono text-xs">
+                <div className="border-t border-dashed border-neutral-200 pt-4 mt-4 space-y-2">
+                  <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">Token Segments:</div>
+                  <div className="flex flex-wrap gap-2 text-xs">
                     <span 
                       onMouseEnter={() => setIsHoveredPart(0)}
                       onMouseLeave={() => setIsHoveredPart(null)}
-                      className={`px-2 py-0.5 rounded cursor-help transition-colors ${
-                        isHoveredPart === 0 ? "bg-critical/20 text-critical font-bold border border-critical/30" : "bg-critical/10 text-critical"
+                      className={`px-3 py-1 rounded-full cursor-help transition-all ${
+                        isHoveredPart === 0 ? "bg-rose-100 text-rose-800 font-bold border border-rose-300" : "bg-rose-50 text-rose-700 border border-rose-200"
                       }`}
                     >
                       Header (Metadata)
@@ -328,8 +341,8 @@ export default function JwtDecoderPage() {
                     <span 
                       onMouseEnter={() => setIsHoveredPart(1)}
                       onMouseLeave={() => setIsHoveredPart(null)}
-                      className={`px-2 py-0.5 rounded cursor-help transition-colors ${
-                        isHoveredPart === 1 ? "bg-primary/20 text-accent font-bold border border-primary/30" : "bg-primary/10 text-accent"
+                      className={`px-3 py-1 rounded-full cursor-help transition-all ${
+                        isHoveredPart === 1 ? "bg-blue-100 text-blue-800 font-bold border border-blue-300" : "bg-blue-50 text-blue-700 border border-blue-200"
                       }`}
                     >
                       Payload (Claims)
@@ -337,8 +350,8 @@ export default function JwtDecoderPage() {
                     <span 
                       onMouseEnter={() => setIsHoveredPart(2)}
                       onMouseLeave={() => setIsHoveredPart(null)}
-                      className={`px-2 py-0.5 rounded cursor-help transition-colors ${
-                        isHoveredPart === 2 ? "bg-success/20 text-success font-bold border border-success/30" : "bg-success/10 text-success"
+                      className={`px-3 py-1 rounded-full cursor-help transition-all ${
+                        isHoveredPart === 2 ? "bg-emerald-100 text-emerald-800 font-bold border border-emerald-300" : "bg-emerald-50 text-emerald-700 border border-emerald-200"
                       }`}
                     >
                       Signature
@@ -350,95 +363,89 @@ export default function JwtDecoderPage() {
           </div>
 
           {/* Right Column: Decoded Output */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-5">
             
             {/* Decoded Header */}
-            <div className={`premium-card p-6 bg-surface border rounded-2xl shadow-sm transition-all duration-300 ${
-              isHoveredPart === 0 ? "border-critical ring-1 ring-critical/30 shadow-critical/5 shadow-md" : "border-border"
+            <div className={`p-6 sm:p-7 bg-white border rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] transition-all duration-300 ${
+              isHoveredPart === 0 ? "border-rose-400 ring-2 ring-rose-200" : "border-neutral-200/80"
             }`}>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-critical font-sans flex items-center gap-2">
-                  <FileJson className="w-4 h-4 text-critical" /> Decoded Header
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-rose-700 flex items-center gap-2">
+                  <FileJson className="w-4 h-4 text-rose-600" /> Decoded Header
                 </h3>
                 {headerText && (
                   <button 
                     onClick={() => triggerCopy(headerText, "header")}
-                    className="p-1.5 hover:bg-zinc-800 border border-border hover:border-zinc-400 rounded-lg text-textSecondary hover:text-textPrimary transition-all flex items-center gap-1 text-[11px]"
+                    className="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 rounded-full text-neutral-700 transition-all flex items-center gap-1 text-[11px] font-semibold"
                   >
                     {copied["header"] ? (
                       <>
-                        <CheckCircle className="w-3.5 h-3.5 text-success" /> Copied
+                        <CheckCircle className="w-3 h-3 text-emerald-600" /> Copied
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5" /> Copy JSON
+                        <Copy className="w-3 h-3" /> Copy JSON
                       </>
                     )}
                   </button>
                 )}
               </div>
-              <pre className="p-4 bg-background border border-border/80 rounded-xl text-xs font-mono overflow-x-auto max-h-[160px] text-textPrimary leading-relaxed select-all">
-                {headerText || <span className="text-textSecondary italic">Waiting for token...</span>}
+              <pre className="p-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs font-mono overflow-x-auto max-h-[140px] text-neutral-200 leading-relaxed select-all">
+                {headerText || <span className="text-neutral-500 italic">Waiting for token input...</span>}
               </pre>
             </div>
 
             {/* Decoded Payload */}
-            <div className={`premium-card p-6 bg-surface border rounded-2xl shadow-sm transition-all duration-300 ${
-              isHoveredPart === 1 ? "border-primary ring-1 ring-primary/30 shadow-primary/5 shadow-md" : "border-border"
+            <div className={`p-6 sm:p-7 bg-white border rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] transition-all duration-300 ${
+              isHoveredPart === 1 ? "border-blue-400 ring-2 ring-blue-200" : "border-neutral-200/80"
             }`}>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-accent font-sans flex items-center gap-2">
-                  <FileJson className="w-4 h-4 text-accent" /> Decoded Payload (Claims)
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-blue-700 flex items-center gap-2">
+                  <FileJson className="w-4 h-4 text-blue-600" /> Decoded Payload (Claims)
                 </h3>
                 {payloadText && (
                   <button 
                     onClick={() => triggerCopy(payloadText, "payload")}
-                    className="p-1.5 hover:bg-zinc-800 border border-border hover:border-zinc-400 rounded-lg text-textSecondary hover:text-textPrimary transition-all flex items-center gap-1 text-[11px]"
+                    className="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 rounded-full text-neutral-700 transition-all flex items-center gap-1 text-[11px] font-semibold"
                   >
                     {copied["payload"] ? (
                       <>
-                        <CheckCircle className="w-3.5 h-3.5 text-success" /> Copied
+                        <CheckCircle className="w-3 h-3 text-emerald-600" /> Copied
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5" /> Copy JSON
+                        <Copy className="w-3 h-3" /> Copy JSON
                       </>
                     )}
                   </button>
                 )}
               </div>
-              <pre className="p-4 bg-background border border-border/80 rounded-xl text-xs font-mono overflow-x-auto max-h-[300px] text-textPrimary leading-relaxed select-all">
-                {payloadText || <span className="text-textSecondary italic">Waiting for token...</span>}
+              <pre className="p-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-xs font-mono overflow-x-auto max-h-[260px] text-neutral-200 leading-relaxed select-all">
+                {payloadText || <span className="text-neutral-500 italic">Waiting for token input...</span>}
               </pre>
             </div>
 
             {/* Decoded Signature */}
-            <div className={`premium-card p-6 bg-surface border rounded-2xl shadow-sm transition-all duration-300 ${
-              isHoveredPart === 2 ? "border-success ring-1 ring-success/30 shadow-success/5 shadow-md" : "border-border"
+            <div className={`p-6 sm:p-7 bg-white border rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] transition-all duration-300 ${
+              isHoveredPart === 2 ? "border-emerald-400 ring-2 ring-emerald-200" : "border-neutral-200/80"
             }`}>
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-success font-sans flex items-center gap-2">
-                  <Lock className="w-4 h-4 text-success" /> Signature Hash Code
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
+                  <Lock className="w-4 h-4 text-emerald-600" /> Signature Verification Hash
                 </h3>
               </div>
-              <div className="p-4 bg-background border border-border/80 rounded-xl text-[10px] font-mono break-all text-textSecondary leading-normal max-h-[100px] overflow-y-auto">
+              <div className="p-4 bg-neutral-950 border border-neutral-800 rounded-2xl text-[11px] font-mono break-all text-neutral-300 leading-normal max-h-[90px] overflow-y-auto">
                 {signatureText ? (
                   <>
-                    <span className="text-success font-semibold">HMACSHA256(</span>
-                    <br />
-                    <span className="text-textSecondary">
-                      base64UrlEncode(Header) + &quot;.&quot; + base64UrlEncode(Payload),
-                      <br />
-                      secret_key_used_on_backend
-                    </span>
-                    <br />
-                    <span className="text-success">)</span>
-                    <div className="border-t border-border/50 pt-2 mt-2 break-all text-zinc-500 font-sans text-[9px] uppercase tracking-wider font-bold">
-                      Signature String: <span className="font-mono text-zinc-400 break-all select-all">{signatureText}</span>
+                    <span className="text-emerald-400 font-semibold">HMACSHA256(</span>
+                    <span className="text-neutral-400"> base64UrlEncode(Header) + &quot;.&quot; + base64UrlEncode(Payload), secret </span>
+                    <span className="text-emerald-400">)</span>
+                    <div className="border-t border-neutral-800 pt-1 mt-1 text-[10px] text-neutral-500 truncate">
+                      Raw: {signatureText}
                     </div>
                   </>
                 ) : (
-                  <span className="text-textSecondary italic">Waiting for token...</span>
+                  <span className="text-neutral-500 italic">Waiting for token input...</span>
                 )}
               </div>
             </div>
@@ -448,20 +455,18 @@ export default function JwtDecoderPage() {
 
         {/* Security Assessment Panel */}
         {token.trim() && (
-          <div className="premium-card p-8 bg-surface border border-border rounded-2xl shadow-sm mb-16 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none -z-10" />
-            
-            <h2 className="text-base font-bold text-textPrimary uppercase tracking-wider font-sans mb-6 flex items-center gap-2.5">
-              <Shield className="w-5 h-5 text-primary" /> Automated JWT Vulnerability Audit
+          <div className="p-8 sm:p-10 bg-white border border-neutral-200/80 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] mb-14">
+            <h2 className="text-base font-bold text-neutral-950 uppercase tracking-wider mb-6 flex items-center gap-2.5">
+              <Shield className="w-5 h-5 text-neutral-900" /> Automated JWT Vulnerability Audit
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {securityChecks.map((check) => {
-                const statusColor = 
-                  check.status === "critical" ? "text-critical bg-critical/5 border-critical/20" :
-                  check.status === "warning" ? "text-warning bg-warning/5 border-warning/20" :
-                  check.status === "secure" ? "text-success bg-success/5 border-success/20" :
-                  "text-primary bg-primary/5 border-primary/20";
+                const statusStyles = 
+                  check.status === "critical" ? "bg-rose-50 border-rose-200 text-rose-900" :
+                  check.status === "warning" ? "bg-amber-50 border-amber-200 text-amber-900" :
+                  check.status === "secure" ? "bg-emerald-50 border-emerald-200 text-emerald-900" :
+                  "bg-neutral-50 border-neutral-200 text-neutral-900";
                 
                 const StatusIcon = 
                   check.status === "critical" ? AlertTriangle :
@@ -470,11 +475,11 @@ export default function JwtDecoderPage() {
                   Info;
 
                 return (
-                  <div key={check.id} className={`p-5 border rounded-xl flex items-start gap-4 ${statusColor}`}>
+                  <div key={check.id} className={`p-5 border rounded-2xl flex items-start gap-3.5 ${statusStyles}`}>
                     <StatusIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                    <div className="space-y-1.5 font-sans">
-                      <h4 className="text-xs font-bold text-textPrimary">{check.title}</h4>
-                      <p className="text-xs text-textSecondary leading-relaxed">{check.description}</p>
+                    <div className="space-y-1">
+                      <h4 className="text-xs font-bold">{check.title}</h4>
+                      <p className="text-xs leading-relaxed opacity-90">{check.description}</p>
                     </div>
                   </div>
                 );
@@ -483,103 +488,104 @@ export default function JwtDecoderPage() {
           </div>
         )}
 
-        {/* Educational Content for Topical Authority */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-border">
-          <div className="space-y-3 font-sans">
-            <div className="p-3 bg-surface border border-border rounded-xl w-fit">
-              <Lock className="w-5 h-5 text-primary" />
+        {/* Educational Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-dashed border-neutral-200 mb-14">
+          <div className="p-7 bg-white border border-neutral-200/80 rounded-3xl space-y-3 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+            <div className="w-10 h-10 bg-neutral-100 rounded-xl flex items-center justify-center text-neutral-900">
+              <Lock className="w-5 h-5" />
             </div>
-            <h3 className="text-sm font-bold text-textPrimary">JWT Authentication Flow</h3>
-            <p className="text-xs text-textSecondary leading-relaxed">
+            <h3 className="text-sm font-bold text-neutral-950">JWT Authentication Flow</h3>
+            <p className="text-xs text-neutral-600 leading-relaxed">
               JWTs are stateless credentials. While they can be decoded client-side, the signature ensures cryptographic tamper-proofing. The backend must always verify this signature against a secure key.
             </p>
           </div>
 
-          <div className="space-y-3 font-sans">
-            <div className="p-3 bg-surface border border-border rounded-xl w-fit">
-              <AlertTriangle className="w-5 h-5 text-warning" />
+          <div className="p-7 bg-white border border-neutral-200/80 rounded-3xl space-y-3 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+            <div className="w-10 h-10 bg-neutral-100 rounded-xl flex items-center justify-center text-neutral-900">
+              <AlertTriangle className="w-5 h-5" />
             </div>
-            <h3 className="text-sm font-bold text-textPrimary">The &quot;alg: none&quot; Exploit</h3>
-            <p className="text-xs text-textSecondary leading-relaxed">
-              Some legacy or misconfigured libraries process JWTs without verifying signatures when <code className="font-mono text-primary">&quot;alg&quot;: &quot;none&quot;</code> is defined. Attackers exploit this to elevate privileges to administrative scopes.
+            <h3 className="text-sm font-bold text-neutral-950">The &quot;alg: none&quot; Exploit</h3>
+            <p className="text-xs text-neutral-600 leading-relaxed">
+              Some legacy libraries process JWTs without verifying signatures when <code className="font-mono text-neutral-900 bg-neutral-100 px-1 py-0.5 rounded">&quot;alg&quot;: &quot;none&quot;</code> is defined. Attackers exploit this to elevate privileges.
             </p>
           </div>
 
-          <div className="space-y-3 font-sans">
-            <div className="p-3 bg-surface border border-border rounded-xl w-fit">
-              <HelpCircle className="w-5 h-5 text-success" />
+          <div className="p-7 bg-white border border-neutral-200/80 rounded-3xl space-y-3 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+            <div className="w-10 h-10 bg-neutral-100 rounded-xl flex items-center justify-center text-neutral-900">
+              <HelpCircle className="w-5 h-5" />
             </div>
-            <h3 className="text-sm font-bold text-textPrimary">JSON Web Key Sets (JWKS)</h3>
-            <p className="text-xs text-textSecondary leading-relaxed">
-              In modern B2B SaaS applications, public keys are dynamically exposed on a JWKS endpoint (e.g., `/.well-known/jwks.json`). This permits distributed API resource servers to verify token signatures asynchronously.
+            <h3 className="text-sm font-bold text-neutral-950">JSON Web Key Sets (JWKS)</h3>
+            <p className="text-xs text-neutral-600 leading-relaxed">
+              In modern B2B SaaS applications, public keys are dynamically exposed on a JWKS endpoint. This permits distributed API resource servers to verify token signatures asynchronously.
             </p>
           </div>
         </div>
 
-        {/* Comprehensive JWT Security Engineering Guide */}
-        <div className="mt-16 p-8 bg-surface border border-border rounded-2xl shadow-sm space-y-6">
-          <h2 className="text-xl font-bold text-textPrimary font-sans tracking-tight">
+        {/* Comprehensive JWT Guide */}
+        <div className="p-8 sm:p-10 bg-white border border-neutral-200/80 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] space-y-6 mb-14">
+          <h2 className="text-xl font-bold text-neutral-950 tracking-tight">
             JWT Security Best Practices for Backend & API Engineering
           </h2>
-          <p className="text-xs text-textSecondary leading-relaxed font-sans">
-            JSON Web Tokens (RFC 7519) are the standard for stateless authentication in modern microservices and single-page applications. However, architectural misconfigurations frequently introduce critical privilege escalation and token forgery vulnerabilities. Follow these essential defense-in-depth principles:
+          <p className="text-sm text-neutral-600 leading-relaxed">
+            JSON Web Tokens (RFC 7519) are the standard for stateless authentication in modern microservices and single-page applications. Follow these essential defense-in-depth principles:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
-              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
-                1. Prevent Asymmetric Algorithm Confusion (RS256 vs HS256)
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-5 bg-neutral-50 border border-neutral-200/70 rounded-2xl space-y-2">
+              <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">
+                1. Prevent Asymmetric Algorithm Confusion
               </h3>
-              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
-                Never rely on the token header&apos;s <code className="font-mono text-primary">&quot;alg&quot;</code> property to determine which verification algorithm to execute. If a server expects RS256 (RSA public key) but uses a library that naively trusts the header, an attacker can re-sign a malicious token using HMAC-SHA256 with the public RSA key as the HMAC secret, completely bypassing authentication.
+              <p className="text-xs text-neutral-600 leading-relaxed">
+                Never rely on the token header&apos;s <code className="font-mono text-neutral-900 bg-neutral-200/60 px-1 py-0.5 rounded">&quot;alg&quot;</code> property alone to decide verification algorithms. Always hardcode expected algorithm sets on server verifiers.
               </p>
             </div>
 
-            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
-              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
-                2. Enforce Ephemeral Lifespans & Refresh Token Rotation
+            <div className="p-5 bg-neutral-50 border border-neutral-200/70 rounded-2xl space-y-2">
+              <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">
+                2. Enforce Ephemeral Lifespans & Token Rotation
               </h3>
-              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
-                Stateless access tokens cannot be revoked without maintaining a stateful blacklist. Restrict access token time-to-live (TTL) to a maximum of 10 to 15 minutes. Pair short-lived tokens with rotating refresh tokens stored exclusively in secure, HTTP-Only, SameSite=Strict cookies to protect against Cross-Site Scripting (XSS).
+              <p className="text-xs text-neutral-600 leading-relaxed">
+                Restrict access token TTL to a maximum of 10 to 15 minutes. Pair short-lived tokens with rotating refresh tokens stored exclusively in HTTP-Only, SameSite=Strict cookies.
               </p>
             </div>
 
-            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
-              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
+            <div className="p-5 bg-neutral-50 border border-neutral-200/70 rounded-2xl space-y-2">
+              <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">
                 3. Couple Claims with Database Tenant Verification (BOLA Defense)
               </h3>
-              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
-                A valid JWT proves identity, but does not inherently guarantee authorization to every requested resource. Backend resolvers must always verify that the <code className="font-mono text-primary">tenant_id</code> or <code className="font-mono text-primary">account_id</code> claim embedded in the token matches the requested resource in the database before returning data.
+              <p className="text-xs text-neutral-600 leading-relaxed">
+                A valid JWT proves identity, but does not inherently guarantee authorization to every requested resource. Backend resolvers must always verify that the <code className="font-mono text-neutral-900 bg-neutral-200/60 px-1 py-0.5 rounded">tenant_id</code> matches in the database.
               </p>
             </div>
 
-            <div className="p-5 bg-background border border-border/60 rounded-xl space-y-2">
-              <h3 className="text-xs font-bold text-textPrimary uppercase font-sans tracking-wider">
+            <div className="p-5 bg-neutral-50 border border-neutral-200/70 rounded-2xl space-y-2">
+              <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">
                 4. Strict Signature Secret Entropy
               </h3>
-              <p className="text-[11px] text-textSecondary leading-relaxed font-sans">
-                For symmetric HS256/HS512 signatures, ensure the secret key contains at least 256 bits of cryptographically secure random entropy. Weak or guessable passphrases can be cracked offline in seconds using tools like Hashcat or John the Ripper.
+              <p className="text-xs text-neutral-600 leading-relaxed">
+                For symmetric HS256/HS512 signatures, ensure the secret key contains at least 256 bits of cryptographically secure random entropy to prevent offline brute-forcing.
               </p>
             </div>
           </div>
         </div>
 
         {/* Deeper Assessment CTA Card */}
-        <div className="mt-12 p-8 bg-surface border border-border rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
-          <div className="space-y-1.5 text-center md:text-left">
-            <h2 className="text-base font-bold text-textPrimary uppercase tracking-wider font-sans">
+        <div className="p-8 sm:p-12 bg-white rounded-3xl border border-dashed border-neutral-300 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="space-y-2 text-center md:text-left">
+            <h2 className="text-xl sm:text-2xl font-bold text-neutral-950 tracking-tight">
               Need a Deeper Authentication Review?
             </h2>
-            <p className="text-xs text-textSecondary font-sans max-w-xl">
+            <p className="text-xs sm:text-sm text-neutral-600 max-w-xl leading-relaxed">
               Automated token decoding is only step one. Our lead practitioners manually audit token issuance flows, authorization parameters, multi-tenant boundaries, and session lifecycles.
             </p>
           </div>
-          <div className="flex items-center gap-3 flex-shrink-0 w-full md:w-auto">
+          <div className="flex items-center gap-3 shrink-0 w-full md:w-auto justify-center">
             <Link
               href="/services/api-security"
-              className="w-full md:w-auto text-center py-2.5 px-6 bg-primary hover:bg-primary/90 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-sm transition-all"
+              className="w-full md:w-auto text-center py-3.5 px-7 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full shadow-md transition-all flex items-center justify-center gap-2"
             >
-              Request an API Security Assessment
+              <span>Request API Security Audit</span>
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>
