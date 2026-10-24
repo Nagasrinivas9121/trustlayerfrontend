@@ -77,7 +77,7 @@ export default function Hero() {
           {/* CodeDale Headline with Embedded Rotated Icon Badges */}
           <h1 className="text-[32px] leading-[1.12] font-semibold tracking-tighter px-2 text-center text-neutral-950 sm:text-[40px] md:px-0 md:text-[50px] md:leading-[1.15] md:font-bold md:tracking-tight md:max-w-3xl xl:tracking-tighter xl:leading-[64px]">
             <span className="md:flex md:items-center md:justify-center md:gap-2 md:whitespace-nowrap">
-              Practical Security Testing
+              Security testing
               <span className="hidden md:flex ml-2 logo-shadow bg-white rounded-lg w-10 h-10 rotate-12 translate-x-1 translate-y-1 items-center justify-center border border-black/5">
                 <Shield size={20} className="text-primary" />
               </span>
@@ -86,11 +86,11 @@ export default function Hero() {
               </span>
             </span>
             <span className="md:flex md:items-center md:justify-center md:gap-2 md:whitespace-nowrap mt-1">
-              for APIs, SaaS &amp;
+              for startups &amp;
               <span className="hidden md:flex ml-2 logo-shadow bg-white rounded-lg w-10 h-10 translate-y-1 items-center rotate-12 justify-center border border-black/5">
                 <Lock size={19} className="text-emerald-600" />
               </span>
-              AI Logic
+              fast growing businesses
             </span>
           </h1>
 

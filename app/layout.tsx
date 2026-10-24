@@ -36,10 +36,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.trustlayerlabs.co.in"),
   manifest: "/manifest.json",
   title: {
-    default: "Manual API & SaaS Security Testing | TrustLayerLabs",
+    default: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
     template: "%s | TrustLayerLabs",
   },
-  description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
+  description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Zero false positives, verified developer PoCs.",
   authors: [{ name: "Nagasrinivasa Rao", url: "https://www.trustlayerlabs.co.in/about" }],
   creator: "TrustLayerLabs",
   publisher: "TrustLayerLabs",
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "TrustLayerLabs | Application Security, API Security & GRC",
-    description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
+    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
+    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Zero false positives, verified developer PoCs.",
     url: "https://www.trustlayerlabs.co.in",
     siteName: "TrustLayerLabs",
     images: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg?v=2",
         width: 1200,
         height: 630,
-        alt: "TrustLayerLabs — Application Security, API Security & GRC",
+        alt: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
       },
     ],
     locale: "en",
@@ -84,8 +84,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@trustlayerlabs",
     creator: "@trustlayerlabs",
-    title: "TrustLayerLabs | Application Security, API Security & GRC",
-    description: "Manual API, SaaS & AI security testing focused on authorization, tenant isolation, business logic, and attack paths requiring human reasoning.",
+    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
+    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Zero false positives, verified developer PoCs.",
     images: ["/og-image.jpg?v=2"],
   },
   verification: {
