@@ -35,6 +35,7 @@
 
 ## Core Resources & Action Links
 - [Free Security Review & Pilot Application](https://www.trustlayerlabs.co.in/free-assessment): Request an initial 30-minute scoping review or apply for the limited-scope 3-slot Free API Security Pilot (2–3 endpoints tested under mutual NDA).
+- [Manual Pentesting vs Automated Vulnerability Scanners](https://www.trustlayerlabs.co.in/manual-vs-automated-pentest): In-depth architectural evaluation explaining why automated DAST scanners miss 80% of business logic vulnerabilities (BOLA/BFLA) and how to structure modern security audits for SOC 2 and enterprise reviews.
 - [Sanitized Sample VAPT Report](https://www.trustlayerlabs.co.in/sample-report): Download an actual sanitized vulnerability assessment report demonstrating executive summaries, reproduction steps, and remediation guidance.
 - [API Security Checklist](https://www.trustlayerlabs.co.in/api-security-checklist): 45-point actionable technical checklist for engineering teams covering OWASP API Top 10 vulnerabilities.
 - [Mutual NDA Process](https://www.trustlayerlabs.co.in/nda-process): Step-by-step confidentiality workflow and bilateral NDA template.

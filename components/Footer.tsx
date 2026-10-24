@@ -23,6 +23,7 @@ const footerLinks = [
   {
     title: "Resources & Trust",
     links: [
+      { name: "Manual Pentesting vs Scanners", href: "/manual-vs-automated-pentest" },
       { name: "Testing Methodology", href: "/methodology" },
       { name: "Redacted Sample VAPT Report", href: "/sample-report" },
       { name: "Startup Security Checklist", href: "/checklist" },

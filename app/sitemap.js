@@ -16,6 +16,7 @@ export default function sitemap() {
     { url: "/tools/jwt-decoder",        priority: 0.9, frequency: "daily"   }, // JWT Decoder Tool
     { url: "/free-assessment",         priority: 0.95, frequency: "weekly" },
     // Trust & Lead Magnets
+    { url: "/manual-vs-automated-pentest", priority: 0.9, frequency: "weekly" },
     { url: "/methodology",             priority: 0.85, frequency: "monthly" },
     { url: "/sample-report",           priority: 0.9, frequency: "weekly"  },
     { url: "/api-security-checklist",  priority: 0.85, frequency: "weekly"  },
