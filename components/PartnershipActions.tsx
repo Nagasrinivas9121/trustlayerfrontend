@@ -12,7 +12,7 @@ export default function PartnershipActions() {
       <Link 
         href="#contact"
         onClick={() => trackPartnerCtaClick("partnerships_hero_become_partner")}
-        className="px-6 py-3.5 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full transition-all shadow-md flex items-center gap-2 group"
+        className="px-6 py-3.5 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full transition-[color,background-color,border-color,box-shadow,transform] shadow-md flex items-center gap-2 group"
       >
         <Handshake size={15} />
         <span>Become a Security Partner</span>
@@ -25,7 +25,7 @@ export default function PartnershipActions() {
           trackCalendarCtaClick("partnerships_hero_schedule", "Schedule Partner Scoping");
           openCalendly();
         }}
-        className="px-6 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-xs font-semibold rounded-full text-neutral-800 transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+        className="px-6 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-xs font-semibold rounded-full text-neutral-800 transition-[color,background-color,border-color,box-shadow,transform] flex items-center gap-2 cursor-pointer shadow-sm"
       >
         <Calendar size={15} className="text-neutral-500" />
         <span>Schedule Partner Call</span>
@@ -34,7 +34,7 @@ export default function PartnershipActions() {
       <Link 
         href="/sample-report"
         onClick={() => trackSampleReportCtaClick("partnerships_hero", "View the Sample Assessment Report")}
-        className="px-6 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-xs font-semibold rounded-full text-neutral-800 transition-all flex items-center gap-2 shadow-sm"
+        className="px-6 py-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-xs font-semibold rounded-full text-neutral-800 transition-[color,background-color,border-color,box-shadow,transform] flex items-center gap-2 shadow-sm"
       >
         <FileText size={15} className="text-neutral-500" />
         <span>View Sample Report</span>
