@@ -126,7 +126,7 @@ export default function SecurityReportPreview() {
   ];
 
   return (
-    <section className="py-24 bg-background border-t border-border relative" id="report-preview">
+    <section className="py-20 bg-[#FAFAFA] border-t border-dashed border-neutral-200 relative" id="report-preview">
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 

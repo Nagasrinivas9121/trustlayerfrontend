@@ -134,7 +134,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
   };
 
   return (
-    <section className="py-24 sm:py-32 bg-background border-t border-dashed border-neutral-300/80 relative overflow-hidden" id="contact">
+    <section className="py-20 sm:py-28 bg-[#FAFAFA] border-t border-dashed border-neutral-200 relative overflow-hidden" id="contact">
       <div className="section-container">
         
         {/* Header - CodeDale style */}

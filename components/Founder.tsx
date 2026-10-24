@@ -17,7 +17,7 @@ export default function Founder() {
   const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
   return (
-    <section className="py-24 sm:py-32 bg-background border-t border-dashed border-neutral-300/80 relative" id="team">
+    <section className="py-20 sm:py-28 bg-[#FAFAFA] border-t border-dashed border-neutral-200 relative" id="team">
       <div className="section-container">
         
         {/* Header - CodeDale style */}

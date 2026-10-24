@@ -1,33 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { ArrowRight, ShieldCheck, Terminal, CheckCircle2, Shield, Lock, Star, Sparkles, FileText } from "lucide-react";
+import { ArrowRight, Terminal, CheckCircle2, Shield, Lock, Star } from "lucide-react";
 import { openCalendly } from "@/lib/calendly";
-import { trackHeroPrimaryCta, trackCalendarClick } from "@/lib/analytics";
+import { trackCalendarClick } from "@/lib/analytics";
 
 export default function Hero() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-
-  const handleLeadSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    trackHeroPrimaryCta();
-
-    const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
-    existingLeads.push({
-      email,
-      scope: "hero-inline",
-      timestamp: new Date().toISOString(),
-    });
-    localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
-
-    router.push(`/free-assessment?email=${encodeURIComponent(email)}`);
-  };
 
   return (
     <section id="home" className="relative w-full flex flex-col items-center justify-center pt-28 md:pt-36 pb-16 overflow-hidden px-4 sm:px-6 bg-[#FAFAFA]">
@@ -119,8 +99,8 @@ export default function Hero() {
             Security assessments focused on authorization, tenant isolation, and business logic flaws that automated scanners miss — with clear technical findings and actionable developer fixes.
           </p>
 
-          {/* Primary Action Row - Clean Hierarchy */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-6 w-full sm:w-auto">
+          {/* Primary Action Row - CodeDale Dual-Avatar CTA & Secondary Action */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-8 w-full sm:w-auto">
             {/* Primary Action: Book a 30-Min Call */}
             <a
               href="https://cal.com/nagasrinivasarao/30min"
@@ -157,33 +137,6 @@ export default function Hero() {
               <span>Explore Security Services</span>
               <ArrowRight size={14} className="text-neutral-500" />
             </Link>
-          </div>
-
-          {/* Dedicated Quick Scope Estimate Capsule (Separated Vertical Rhythm) */}
-          <div className="w-full max-w-lg mx-auto bg-white/90 border border-neutral-200/90 rounded-3xl p-3 sm:p-2 sm:rounded-full shadow-sm mb-7 backdrop-blur-sm">
-            <form
-              onSubmit={handleLeadSubmit}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2"
-            >
-              <div className="flex items-center gap-2 px-3 flex-1">
-                <FileText size={16} className="text-neutral-400 shrink-0 hidden sm:block" />
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter work email for scoping estimate..."
-                  aria-label="Work email address for scoping estimate"
-                  className="w-full py-2.5 sm:py-2 text-xs sm:text-sm text-neutral-900 placeholder:text-neutral-400 bg-transparent focus:outline-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-neutral-900 hover:bg-black text-white text-xs font-semibold px-5 py-3 sm:py-2.5 rounded-2xl sm:rounded-full transition-all active:scale-95 whitespace-nowrap cursor-pointer shadow-sm min-h-[44px] sm:min-h-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
-              >
-                Get Scoping Estimate
-              </button>
-            </form>
           </div>
 
           {/* Credibility Strip: Truthful Certified Analysts & MSME Proof (Zero Fake Clients) */}

@@ -48,7 +48,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-20 bg-background border-t border-dashed border-neutral-300/80 relative">
+    <footer className="py-20 bg-[#FAFAFA] border-t border-dashed border-neutral-200 relative">
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 sm:gap-16 mb-16">
           
