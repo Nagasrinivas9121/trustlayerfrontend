@@ -1,7 +1,21 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, MapPin, ShieldCheck, ArrowRight, Calendar, FileText, CheckCircle2, HelpCircle } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+
+export const metadata: Metadata = {
+  title: "VAPT Services in Hyderabad | HITEC City & Gachibowli API Security Testing",
+  description: "Practitioner-led manual penetration testing, FinTech/HealthTech compliance audits, and SOC 2 / ISO 27001 readiness for Hyderabad tech companies across HITEC City and Gachibowli.",
+  alternates: {
+    canonical: "https://www.trustlayerlabs.co.in/vapt-hyderabad",
+  },
+  openGraph: {
+    title: "VAPT Services in Hyderabad | TrustLayerLabs",
+    description: "Manual API & mobile penetration testing for Hyderabad tech teams. Zero scanner false positives, verified cURL PoCs.",
+    url: "https://www.trustlayerlabs.co.in/vapt-hyderabad",
+  },
+};
 
 export default function VaptHyderabad() {
   const hyderabadFaqs = [
@@ -19,8 +33,62 @@ export default function VaptHyderabad() {
     }
   ];
 
+  const hyderabadSchema = {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": "https://www.trustlayerlabs.co.in/vapt-hyderabad#localbusiness",
+    "name": "TrustLayerLabs Hyderabad — VAPT & API Security Testing",
+    "description": "Manual penetration testing, FinTech compliance audits, and SOC 2 / ISO 27001 readiness for Hyderabad tech companies.",
+    "url": "https://www.trustlayerlabs.co.in/vapt-hyderabad",
+    "telephone": "+91-9391220328",
+    "email": "ceo@trustlayerlabs.co.in",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Phase 3, HITEC City, Madhapur",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500081",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 17.4435,
+      "longitude": 78.3772
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Hyderabad" },
+      { "@type": "AdministrativeArea", "name": "HITEC City" },
+      { "@type": "AdministrativeArea", "name": "Gachibowli" },
+      { "@type": "AdministrativeArea", "name": "Financial District" },
+      { "@type": "AdministrativeArea", "name": "Madhapur" },
+      { "@type": "AdministrativeArea", "name": "Kondapur" }
+    ],
+    "priceRange": "₹₹₹"
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": hyderabadFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  };
+
   return (
     <div className="bg-[#FAFAFA] min-h-screen pt-32 pb-24 text-neutral-900 font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(hyderabadSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb */}

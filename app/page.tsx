@@ -21,7 +21,7 @@ export default function Home() {
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://trustlayerlabs.co.in/#faq",
+    "@id": "https://www.trustlayerlabs.co.in/#faq",
     "mainEntity": FAQS.slice(0, 8).map((faq) => ({
       "@type": "Question",
       "name": faq.question,
@@ -32,11 +32,82 @@ export default function Home() {
     })),
   };
 
+  const howToLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": "https://www.trustlayerlabs.co.in/#vapt-process",
+    "name": "How to Conduct a Manual API & SaaS Penetration Test",
+    "description": "Step-by-step offensive security testing methodology used by TrustLayerLabs to discover BOLA, tenant escapes, and business logic vulnerabilities before enterprise audits.",
+    "totalTime": "P7D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Confidential Scoping & Bilateral Mutual NDA",
+        "text": "Define target API endpoints, microservices, and user roles. A bilateral mutual Non-Disclosure Agreement (NDA) is executed upfront before architecture diagrams or staging access are shared.",
+        "url": "https://www.trustlayerlabs.co.in/#steps"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Deep Manual Logic & Authorization Penetration Testing",
+        "text": "Certified practitioners systematically probe authorization boundaries, BOLA/IDOR, tenant escapes, and multi-step state machines in an isolated staging environment with daily updates and 48-hour critical alert dispatches.",
+        "url": "https://www.trustlayerlabs.co.in/#steps"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Developer cURL Proof-of-Concepts & Free Retest Attestation",
+        "text": "Receive an audit-ready technical report containing reproduction cURL scripts, video/HTTP proof-of-concept evidence, and remediation code. After fixes are deployed, complimentary 30-day retesting is performed and a signed Attestation Letter is issued.",
+        "url": "https://www.trustlayerlabs.co.in/#steps"
+      }
+    ]
+  };
+
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.trustlayerlabs.co.in/#service-vapt",
+    "name": "Manual API & SaaS Security Testing",
+    "serviceType": "Penetration Testing & Vulnerability Assessment",
+    "description": "Manual offensive security assessments for SaaS, FinTech, and AI platforms targeting BOLA, broken access control, and business logic flaws overlooked by automated scanners.",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://www.trustlayerlabs.co.in/#organization",
+      "name": "TrustLayerLabs"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Bengaluru" },
+      { "@type": "City", "name": "Hyderabad" },
+      { "@type": "Country", "name": "India" },
+      { "@type": "AdministrativeArea", "name": "Global" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Core Security Assessments",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API Security Testing" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS Multi-Tenant VAPT" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & RAG Application Security" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "FinTech Security Assessment" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SOC 2 & ISO 27001 Readiness" } }
+      ]
+    }
+  };
+
   return (
     <div className="bg-background min-h-screen text-textPrimary">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
       />
 
       {/* 1. HERO (CodeDale Structure: Availability Pill, Tilted Quote Cards, Center Headline with Badges, Dual Avatar CTA) */}

@@ -40,6 +40,20 @@ export const metadata: Metadata = {
     template: "%s | TrustLayerLabs",
   },
   description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Zero false positives, verified developer PoCs.",
+  keywords: [
+    "VAPT India",
+    "API Security Testing India",
+    "Manual Penetration Testing Services",
+    "SaaS Multi-Tenant VAPT",
+    "VAPT Bangalore",
+    "VAPT Hyderabad",
+    "BOLA IDOR Security Testing",
+    "SOC 2 Type II Pentesting Readiness",
+    "ISO 27001 Security Audit India",
+    "AI LLM Prompt Injection Testing",
+    "FinTech API Security",
+    "Govt MSME Registered Cybersecurity Firm"
+  ],
   authors: [{ name: "Nagasrinivasa Rao", url: "https://www.trustlayerlabs.co.in/about" }],
   creator: "TrustLayerLabs",
   publisher: "TrustLayerLabs",
@@ -112,12 +126,13 @@ export default function RootLayout({
 }) {
   const orgLd = {
     "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService"],
+    "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
     "@id": "https://www.trustlayerlabs.co.in/#organization",
     "name": "TrustLayerLabs",
-    "alternateName": "TrustLayer Labs",
+    "alternateName": ["TrustLayer Labs", "TrustLayer"],
     "legalName": "TRUSTLAYER LABS",
     "identifier": "UDYAM-AP-21-0044317",
+    "taxID": "UDYAM-AP-21-0044317",
     "url": "https://www.trustlayerlabs.co.in",
     "logo": {
       "@type": "ImageObject",
@@ -126,17 +141,58 @@ export default function RootLayout({
       "height": 1024,
     },
     "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
-    "description": "Application security, manual API penetration testing, and GRC readiness consulting for FinTech, SaaS, and AI teams by offensive security and compliance practitioners.",
+    "description": "Practitioner-led manual API penetration testing, SaaS multi-tenant isolation testing, AI/LLM security assessments, and SOC 2 / ISO 27001 readiness for high-growth tech startups and B2B enterprises.",
     "telephone": "+91-9391220328",
     "email": "ceo@trustlayerlabs.co.in",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Phase 3, HITEC City, Madhapur",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500081",
       "addressCountry": "IN",
     },
-    "areaServed": ["India", "Global"],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 17.4435,
+      "longitude": 78.3772,
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Bengaluru", "sameAs": "https://en.wikipedia.org/wiki/Bangalore" },
+      { "@type": "City", "name": "Hyderabad", "sameAs": "https://en.wikipedia.org/wiki/Hyderabad" },
+      { "@type": "City", "name": "Mumbai", "sameAs": "https://en.wikipedia.org/wiki/Mumbai" },
+      { "@type": "AdministrativeArea", "name": "Delhi NCR", "sameAs": "https://en.wikipedia.org/wiki/National_Capital_Region_(India)" },
+      { "@type": "City", "name": "Pune", "sameAs": "https://en.wikipedia.org/wiki/Pune" },
+      { "@type": "City", "name": "Chennai", "sameAs": "https://en.wikipedia.org/wiki/Chennai" },
+      { "@type": "Country", "name": "India", "sameAs": "https://en.wikipedia.org/wiki/India" },
+      { "@type": "AdministrativeArea", "name": "United States" },
+      { "@type": "AdministrativeArea", "name": "Global / Worldwide" },
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00",
+      },
+    ],
+    "paymentAccepted": "Bank Wire Transfer, NEFT, RTGS, UPI, Corporate Credit Card, Razorpay, Stripe",
+    "currenciesAccepted": "INR, USD, EUR, GBP, SGD",
     "priceRange": "₹₹₹",
     "foundingDate": "2024-01-15",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["#home h1", "#home p", "#why-choose-us h2", "#problems h2"],
+    },
     "knowsAbout": [
+      { "@type": "Thing", "name": "Penetration test", "sameAs": "https://en.wikipedia.org/wiki/Penetration_test" },
+      { "@type": "Thing", "name": "Application security", "sameAs": "https://en.wikipedia.org/wiki/Application_security" },
+      { "@type": "Thing", "name": "OWASP", "sameAs": "https://en.wikipedia.org/wiki/OWASP" },
+      { "@type": "Thing", "name": "Software as a service", "sameAs": "https://en.wikipedia.org/wiki/Software_as_a_service" },
+      { "@type": "Thing", "name": "ISO/IEC 27001", "sameAs": "https://en.wikipedia.org/wiki/ISO/IEC_27001" },
+      { "@type": "Thing", "name": "System and Organization Controls (SOC 2)", "sameAs": "https://en.wikipedia.org/wiki/System_and_Organization_Controls" },
+      { "@type": "Thing", "name": "Web API security & BOLA", "sameAs": "https://en.wikipedia.org/wiki/Web_API" },
+      { "@type": "Thing", "name": "Generative Artificial Intelligence & LLM Security", "sameAs": "https://en.wikipedia.org/wiki/Generative_artificial_intelligence" },
       "API Security Testing",
       "Penetration Testing",
       "VAPT",
@@ -155,6 +211,7 @@ export default function RootLayout({
     "sameAs": [
       "https://www.linkedin.com/company/trustlayerlabs1/",
       "https://x.com/trustlayerlabs",
+      "https://startupbase.io/products/trustlayerlabs",
     ],
     "founder": {
       "@type": "Person",
@@ -163,7 +220,7 @@ export default function RootLayout({
       "description": "Offensive security practitioner specializing in manual API penetration testing, web application security assessments, and cloud infrastructure reviews. Holds CEH and CWL C3SA credentials.",
       "url": "https://www.trustlayerlabs.co.in/about",
       "alumniOf": "IIT Guwahati",
-      "hasCredential": ["CEH", "C3SA (Certified Cyber Security Analyst)"],
+      "hasCredential": ["Certified Ethical Hacker (CEH)", "Certified Cyber Security Analyst (CWL C3SA)"],
       "knowsAbout": ["Penetration Testing", "API Security", "Cloud Security", "SOC2", "OWASP", "AI Security", "BOLA / IDOR Testing", "SaaS Multi-Tenancy"],
     },
     "hasOfferCatalog": {
@@ -261,6 +318,15 @@ export default function RootLayout({
         <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.trustlayerlabs.co.in/sitemap.xml" />
         <link rel="help" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
+        <meta name="geo.region" content="IN-TG" />
+        <meta name="geo.placename" content="Hyderabad, Bengaluru, India" />
+        <meta name="geo.position" content="17.4435;78.3772" />
+        <meta name="ICBM" content="17.4435, 78.3772" />
+        <meta name="target" content="all" />
+        <meta name="audience" content="all" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
         <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/trustlayerlabs-verified-vendor-boost.svg" type="image/svg+xml" fetchPriority="high" />
         <script
