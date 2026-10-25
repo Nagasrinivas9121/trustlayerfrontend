@@ -2,13 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ShieldCheck, ExternalLink, Award, Linkedin, CheckCircle2, FileCode } from "lucide-react";
 import { TRACK_RECORD_ENTRIES, FOUNDER_PROFILES } from "@/lib/track-record";
 
 export default function TrackRecordSection() {
-  const publishedEntries = (TRACK_RECORD_ENTRIES || []).filter((e) => !e.isPlaceholder && !e.title.includes("{{"));
-  // Hide the section completely if there are no real published disclosures yet
-  if (publishedEntries.length === 0) {
+  // Auto-hide the section completely if there are no entries
+  if (!TRACK_RECORD_ENTRIES || TRACK_RECORD_ENTRIES.length === 0) {
     return null;
   }
 
@@ -69,9 +69,13 @@ export default function TrackRecordSection() {
 
               <div className="shrink-0 pt-2 sm:pt-0">
                 {record.isPlaceholder ? (
-                  <span className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-neutral-400 bg-neutral-100 px-3 py-1.5 rounded-xl">
-                    <span>Advisory Record</span>
-                  </span>
+                  <Link
+                    href={record.link || "/case-studies"}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-blue-700 bg-blue-50 hover:bg-blue-100/80 px-3.5 py-2 rounded-xl transition-colors border border-blue-200"
+                  >
+                    <span>Security Research Scenarios</span>
+                    <ExternalLink size={12} />
+                  </Link>
                 ) : (
                   <a
                     href={record.link}
@@ -86,6 +90,17 @@ export default function TrackRecordSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Security Research Scenarios Link */}
+        <div className="mb-12 text-center">
+          <Link
+            href="/case-studies"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-blue-700 transition-colors underline underline-offset-4"
+          >
+            <span>Explore Security Research Scenarios</span>
+            <ExternalLink size={12} />
+          </Link>
         </div>
 
         {/* Verified Founder Profiles Strip */}

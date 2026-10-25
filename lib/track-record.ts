@@ -21,7 +21,28 @@ export interface TrackRecordItem {
 
 // Populate this array with real verified public disclosures, CVEs, or bug bounty advisories.
 // If left empty, the track record section automatically hides itself on the website.
-export const TRACK_RECORD_ENTRIES: TrackRecordItem[] = [];
+export const TRACK_RECORD_ENTRIES: TrackRecordItem[] = [
+  {
+    id: "research-scenario-01",
+    type: "Responsible Disclosure",
+    title: "{{DISCLOSURE_TITLE_1}}",
+    targetOrVendor: "{{TARGET_VENDOR_1}}",
+    link: "/case-studies",
+    date: "{{DISCLOSURE_DATE_1}}",
+    summary: "{{DISCLOSURE_SUMMARY_1}}",
+    isPlaceholder: true,
+  },
+  {
+    id: "research-scenario-02",
+    type: "Technical Write-Up",
+    title: "{{DISCLOSURE_TITLE_2}}",
+    targetOrVendor: "{{TARGET_VENDOR_2}}",
+    link: "/case-studies",
+    date: "{{DISCLOSURE_DATE_2}}",
+    summary: "{{DISCLOSURE_SUMMARY_2}}",
+    isPlaceholder: true,
+  },
+];
 
 export const FOUNDER_PROFILES = [
   {
