@@ -68,12 +68,12 @@ export default function TrackRecordSection() {
               </div>
 
               <div className="shrink-0 pt-2 sm:pt-0">
-                {record.isPlaceholder ? (
+                {record.link.startsWith("/") ? (
                   <Link
-                    href={record.link || "/case-studies"}
+                    href={record.link}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-blue-700 bg-blue-50 hover:bg-blue-100/80 px-3.5 py-2 rounded-xl transition-colors border border-blue-200"
                   >
-                    <span>Security Research Scenarios</span>
+                    <span>Inspect Research Scenario</span>
                     <ExternalLink size={12} />
                   </Link>
                 ) : (

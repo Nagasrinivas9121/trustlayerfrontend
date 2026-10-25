@@ -21,18 +21,18 @@ export default function FoundingClientSection() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-4 font-sans">
-            Founding Client Program: {slotsLeft} of {slotsTotal} slots open
+            Founding Client Program
           </h2>
 
-          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto font-sans">
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto font-sans mb-4">
             Founding clients get {discountPercentage}% off listed package price for permission to publish an anonymized case study or short testimonial, plus priority scheduling.
           </p>
 
           {/* Slots Available Counter */}
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-300 shadow-xs text-xs font-mono font-semibold text-neutral-900">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-300 shadow-xs text-xs font-mono font-semibold text-neutral-900">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0" />
             <span>
-              Availability: <strong className="text-emerald-700">{slotsLeft}</strong> of <strong>{slotsTotal}</strong> slots open
+              Cohort Availability: <strong className="text-emerald-700">{slotsLeft}</strong> of <strong>{slotsTotal}</strong> slots open
             </span>
           </div>
         </div>

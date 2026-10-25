@@ -40,12 +40,12 @@ export default function PricingSection() {
             >
               <div>
                 {/* Header Row */}
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-neutral-100">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500">
+                <div className="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-neutral-100 min-h-[32px]">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">
                     {pkg.scope}
                   </span>
                   {pkg.badge && (
-                    <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-md ${
+                    <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-md whitespace-nowrap shrink-0 ${
                       pkg.popular 
                         ? "bg-blue-50 text-primary border border-blue-200" 
                         : "bg-neutral-100 text-neutral-700"
@@ -55,25 +55,31 @@ export default function PricingSection() {
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold text-neutral-950 font-sans mb-2">
+                <h3 className="text-xl font-bold text-neutral-950 font-sans mb-2 min-h-[56px] flex items-center">
                   {pkg.name}
                 </h3>
 
-                <p className="text-xs text-neutral-600 leading-relaxed mb-6 font-sans">
+                <p className="text-xs text-neutral-600 leading-relaxed mb-6 font-sans min-h-[48px]">
                   {pkg.description}
                 </p>
 
-                {/* Pricing Block (Driven from pricing-config constants) */}
-                <div className="mb-6 p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 space-y-1.5">
-                  <div className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider">
-                    Starting from
+                {/* Pricing Block */}
+                <div className="mb-6 p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 space-y-2">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 uppercase tracking-wider">
+                    <span>Starting from</span>
+                    <span>Excl. GST</span>
                   </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl sm:text-3xl font-bold text-neutral-950 font-mono tracking-tight">
-                      {pkg.priceInr}
-                    </span>
-                    <span className="text-xs text-neutral-500 font-mono">
-                      / {pkg.priceUsd} USD
+                  <div className="flex items-baseline justify-between gap-2">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl sm:text-3xl font-bold text-neutral-950 font-mono tracking-tight">
+                        {pkg.priceInr}
+                      </span>
+                      <span className="text-xs font-mono text-neutral-500">
+                        + GST
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono text-neutral-600 bg-white px-2 py-0.5 rounded border border-neutral-200 shrink-0">
+                      ~ {pkg.priceUsd} USD
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 pt-2 border-t border-neutral-200/70 text-xs font-semibold text-neutral-700 font-sans">
@@ -83,7 +89,7 @@ export default function PricingSection() {
                 </div>
 
                 {/* Inclusions List */}
-                <div className="space-y-2.5 text-xs text-neutral-700 font-sans mb-8">
+                <div className="space-y-2.5 text-xs text-neutral-700 font-sans mb-8 min-h-[170px]">
                   <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-neutral-400 block mb-1">
                     Every Engagement Includes:
                   </span>
@@ -92,7 +98,7 @@ export default function PricingSection() {
                       <div className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
                         <Check size={10} strokeWidth={3} />
                       </div>
-                      <span>{inc}</span>
+                      <span className="leading-tight">{inc}</span>
                     </div>
                   ))}
                 </div>
