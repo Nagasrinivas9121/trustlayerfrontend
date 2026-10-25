@@ -90,8 +90,8 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     popular: false,
     timeline: "7-10 business days",
     scope: "Full Web & Public API",
-    priceInr: "₹49,999",
-    priceUsd: "$599",
+    priceInr: "₹39,999",
+    priceUsd: "$479",
     description: "Offensive assessment designed to support enterprise procurement security reviews and auditor evidence requests.",
     inclusions: [
       "testing mapped to SOC 2 Trust Services Criteria and ISO 27001 Annex A",
