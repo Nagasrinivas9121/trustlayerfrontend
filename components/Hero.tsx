@@ -45,12 +45,12 @@ export default function Hero() {
         {/* Outcome-Led Headline */}
         <h1 className="text-3xl leading-[1.14] font-bold tracking-tight text-neutral-950 sm:text-4xl md:text-5xl lg:text-[54px] lg:leading-[1.15] max-w-4xl mx-auto">
           Your enterprise deal is waiting on a pentest report.{" "}
-          <span className="text-primary block sm:inline">Get it in 5 days.</span>
+          <span className="text-primary block sm:inline">Get one in 5-10 business days.</span>
         </h1>
 
         {/* Subhead */}
         <p className="text-neutral-700 text-sm md:text-lg max-w-2xl mx-auto tracking-tight leading-relaxed mt-5 mb-8 font-sans">
-          Manual API and multi-tenant SaaS penetration testing, verified developer cURL PoCs, 30-day free retest, and signed attestation letters to satisfy enterprise buyer security reviews.
+          Manual API and multi-tenant SaaS penetration testing with reproducible PoCs, critical findings briefed within 48 hours, a free 30-day retest, and a signed retest attestation letter.
         </p>
 
         {/* Primary CTA + Secondary WhatsApp Action Row */}
