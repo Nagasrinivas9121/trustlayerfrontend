@@ -67,17 +67,12 @@ export default function PricingSection() {
                 <div className="mb-6 p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 space-y-2">
                   <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 uppercase tracking-wider">
                     <span>Starting from</span>
-                    <span>Excl. GST</span>
+                    <span>All-Inclusive</span>
                   </div>
                   <div className="flex items-baseline justify-between gap-2">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-2xl sm:text-3xl font-bold text-neutral-950 font-mono tracking-tight">
-                        {pkg.priceInr}
-                      </span>
-                      <span className="text-xs font-mono text-neutral-500">
-                        + GST
-                      </span>
-                    </div>
+                    <span className="text-2xl sm:text-3xl font-bold text-neutral-950 font-mono tracking-tight">
+                      {pkg.priceInr}
+                    </span>
                     <span className="text-xs font-mono text-neutral-600 bg-white px-2 py-0.5 rounded border border-neutral-200 shrink-0">
                       ~ {pkg.priceUsd} USD
                     </span>
@@ -124,7 +119,7 @@ export default function PricingSection() {
 
         {/* Note under packages */}
         <p className="text-xs text-neutral-500 font-sans text-center mb-12 max-w-xl">
-          Starting prices. Final fixed price is confirmed after a scope review within 24 hours. Prices exclude GST.
+          Starting prices. Final fixed price is confirmed after a scope review within 24 hours.
         </p>
 
         {/* Other Services Link List (Narrowing the Homepage Offer while Preserving Routes) */}
