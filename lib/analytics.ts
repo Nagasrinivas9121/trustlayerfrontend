@@ -480,4 +480,19 @@ export const trackChecklistDownload = (checklistType: string = "startup_security
   trackEvent("checklist_download", { checklist_type: checklistType });
 };
 
+export const trackPackageCtaClick = (packageName: string, location: string = "pricing_card") => {
+  trackEvent("package_cta_click", {
+    package_name: packageName,
+    cta_location: location,
+  });
+};
+
+export const trackFormStart = (source: string = "unknown") => {
+  trackQuoteFormStart(source);
+};
+
+export const trackFormSubmit = (data?: Record<string, any>) => {
+  trackQuoteFormSubmit(data);
+};
+
 

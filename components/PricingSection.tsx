@@ -4,8 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Check, ArrowRight, ShieldCheck, Clock, Layers } from "lucide-react";
 import { PRICING_PACKAGES, OTHER_SERVICES } from "@/lib/pricing-config";
-import { openQuoteModal } from "@/components/QuoteModal";
-import { trackPrimaryQuoteClick } from "@/lib/analytics";
+import { trackPrimaryQuoteClick, trackPackageCtaClick } from "@/lib/analytics";
 
 export default function PricingSection() {
   return (
@@ -105,6 +104,7 @@ export default function PricingSection() {
                   href={`/free-assessment?package=${pkg.id}`}
                   onClick={() => {
                     trackPrimaryQuoteClick(`pricing_package_${pkg.id}`);
+                    trackPackageCtaClick(pkg.id, "pricing_package_card");
                   }}
                   className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-full font-semibold text-xs tracking-tight transition-colors cursor-pointer min-h-[44px] bg-neutral-950 hover:bg-neutral-800 text-white shadow-md"
                 >
