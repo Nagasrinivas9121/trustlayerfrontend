@@ -65,7 +65,7 @@ export default function JoinUsCTA() {
               className="relative p-[2px] rounded-full overflow-hidden group cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="relative flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-gray-950 font-semibold tracking-tight text-sm sm:text-base hover:bg-gray-100 transition-all shadow-xl active:scale-98 min-h-[46px]">
+              <div className="relative flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-gray-950 font-semibold tracking-tight text-sm sm:text-base hover:bg-gray-100 transition-[color,background-color,border-color,box-shadow,transform] shadow-xl active:scale-98 min-h-[46px]">
                 <Sparkles size={16} className="text-primary" />
                 <span>Get a fixed-price quote in 24h</span>
               </div>
@@ -75,7 +75,7 @@ export default function JoinUsCTA() {
               href="https://wa.me/919391220328"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white font-medium text-sm transition-all border border-white/15 tracking-tight cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white font-medium text-sm transition-[color,background-color,border-color,box-shadow,transform] border border-white/15 tracking-tight cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <span>Chat on WhatsApp (+91 93912 20328)</span>
               <ArrowRight size={14} />
