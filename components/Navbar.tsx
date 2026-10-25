@@ -87,10 +87,10 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="/#achievements"
+                href="/#pricing"
                 className="hover:text-black hover:bg-black/5 rounded-full py-2 px-3.5 transition-all"
               >
-                Standards
+                Pricing
               </Link>
 
               <Link
@@ -163,11 +163,11 @@ export default function Navbar() {
                 Why Us
               </Link>
               <Link
-                href="/#achievements"
+                href="/#pricing"
                 onClick={() => setIsOpen(false)}
                 className="px-3 py-2 rounded-xl hover:bg-gray-50 text-gray-800"
               >
-                Standards
+                Pricing
               </Link>
               <Link
                 href="/#faq"

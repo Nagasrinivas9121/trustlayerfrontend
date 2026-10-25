@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "@/components/Hero";
 import HowItWorksStatic from "@/components/HowItWorksStatic";
+import BenefitsSection from "@/components/BenefitsSection";
 import FoundingClientSection from "@/components/FoundingClientSection";
 import PricingSection from "@/components/PricingSection";
 import SecurityReportPreviewStatic from "@/components/SecurityReportPreviewStatic";
@@ -110,7 +111,10 @@ export default function Home() {
       {/* 2. HOW IT WORKS (3 Plain Numbered Steps, Zero Animation) */}
       <HowItWorksStatic />
 
-      {/* 3. FOUNDING CLIENT PROGRAM (2-3 Discounted Slots, Transparent Give & Get) */}
+      {/* 3. WHY CHOOSE US (Engineering Advantages, 48h Briefings, Direct Pentester Access) */}
+      <BenefitsSection />
+
+      {/* 4. FOUNDING CLIENT PROGRAM (2-3 Discounted Slots, Transparent Give & Get) */}
       <FoundingClientSection />
 
       {/* 4. PACKAGES & PRICING (3 Fixed-Scope Packages + Other Services Link List) */}
