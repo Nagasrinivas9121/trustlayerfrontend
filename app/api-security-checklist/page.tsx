@@ -167,14 +167,22 @@ export default function ApiSecurityChecklistPage() {
                 </div>
               </div>
 
-              <a
-                href="/sample-vapt-report.pdf"
-                download="API-Security-Checklist-2026.pdf"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold shadow-xs transition-colors shrink-0"
-              >
-                <Download size={13} />
-                <span>Download PDF Cheatsheet</span>
-              </a>
+              <div className="flex flex-col items-center sm:items-end gap-1.5 shrink-0">
+                <a
+                  href="/sample-vapt-report.pdf"
+                  download="API-Security-Checklist-2026.pdf"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold shadow-xs transition-colors shrink-0"
+                >
+                  <Download size={13} />
+                  <span>Download PDF Cheatsheet</span>
+                </a>
+                <Link
+                  href="/free-assessment"
+                  className="text-[11px] font-semibold text-emerald-900 hover:underline"
+                >
+                  Need a full report? Get a fixed-price quote in 24h →
+                </Link>
+              </div>
             </div>
 
             {/* Checklist Modules */}
@@ -220,10 +228,10 @@ export default function ApiSecurityChecklistPage() {
               </p>
               <div>
                 <div className="p-5 bg-neutral-950 border border-neutral-800 rounded-2xl font-mono text-xs text-neutral-200 overflow-x-auto leading-relaxed shadow-inner">
-                  <div className="text-neutral-500 mb-2">// Secure Pattern: Always scope queries by authenticated tenant context</div>
+                  <div className="text-neutral-500 mb-2">{"// Secure Pattern: Always scope queries by authenticated tenant context"}</div>
                   <div><span className="text-rose-400">const</span> order = <span className="text-rose-400">await</span> db.orders.<span className="text-emerald-400">findOne</span>({`{`}</div>
                   <div className="pl-4">_id: req.params.orderId,</div>
-                  <div className="pl-4 text-emerald-300">tenantId: req.user.tenantId <span className="text-neutral-500">// Enforce tenant boundary!</span></div>
+                  <div className="pl-4 text-emerald-300">tenantId: req.user.tenantId <span className="text-neutral-500">{"// Enforce tenant boundary!"}</span></div>
                   <div>{`});`}</div>
                   <div className="mt-2"><span className="text-rose-400">if</span> (!order) <span className="text-rose-400">return</span> res.status(404).json({`{`} error: <span className="text-amber-300">&apos;Order not found&apos;</span> {`}`});</div>
                 </div>
@@ -239,17 +247,16 @@ export default function ApiSecurityChecklistPage() {
                 Our offensive security practitioners manually test your APIs for BOLA, authentication flaws, and business logic bypasses in 5 business days.
               </p>
               <div className="pt-2">
-                <button
-                  type="button"
+                <Link
+                  href="/free-assessment"
                   onClick={() => {
                     trackPrimaryQuoteClick("api_checklist_cta");
-                    openQuoteModal("api-security-checklist");
                   }}
                   className="inline-flex items-center gap-2 py-3.5 px-8 rounded-full bg-neutral-950 hover:bg-neutral-800 text-white font-semibold text-xs tracking-tight shadow-md transition-colors cursor-pointer"
                 >
                   <span>Get a fixed-price quote in 24h</span>
                   <ArrowRight size={14} />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -582,18 +582,27 @@ export default function JwtDecoderPage() {
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0 w-full md:w-auto justify-center">
-            <button
-              type="button"
+            <Link
+              href="/free-assessment"
               onClick={() => {
                 trackPrimaryQuoteClick("jwt_decoder_cta_banner");
-                openQuoteModal("jwt-decoder-audit");
               }}
               className="w-full md:w-auto text-center py-3.5 px-8 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-semibold rounded-full shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Get a fixed-price quote in 24h</span>
               <ArrowRight size={14} />
-            </button>
+            </Link>
           </div>
+        </div>
+
+        {/* One-Line Text CTA Under Tool */}
+        <div className="mt-8 text-center">
+          <Link
+            href="/free-assessment"
+            className="text-xs font-semibold text-primary hover:text-blue-700 underline underline-offset-4"
+          >
+            Preparing for an enterprise security review? Get a fixed-price quote in 24h →
+          </Link>
         </div>
 
       </div>

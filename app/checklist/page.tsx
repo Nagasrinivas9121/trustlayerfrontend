@@ -163,14 +163,22 @@ export default function ChecklistPage() {
                 </div>
               </div>
 
-              <a
-                href="/sample-vapt-report.pdf"
-                download="Startup-Security-Checklist-2026.pdf"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold shadow-xs transition-colors shrink-0"
-              >
-                <Download size={13} />
-                <span>Download PDF Playbook</span>
-              </a>
+              <div className="flex flex-col items-center sm:items-end gap-1.5 shrink-0">
+                <a
+                  href="/sample-vapt-report.pdf"
+                  download="Startup-Security-Checklist-2026.pdf"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold shadow-xs transition-colors shrink-0"
+                >
+                  <Download size={13} />
+                  <span>Download PDF Playbook</span>
+                </a>
+                <Link
+                  href="/free-assessment"
+                  className="text-[11px] font-semibold text-emerald-900 hover:underline"
+                >
+                  Need an independent pentest report? Get a fixed-price quote in 24h →
+                </Link>
+              </div>
             </div>
 
             {/* Interactive Checklist Container */}
@@ -240,17 +248,16 @@ export default function ChecklistPage() {
                 Checklists are great for self-auditing, but enterprise buyers require independent attestation letters signed by certified security architects.
               </p>
               <div className="pt-2">
-                <button
-                  type="button"
+                <Link
+                  href="/free-assessment"
                   onClick={() => {
                     trackPrimaryQuoteClick("checklist_unlocked_cta");
-                    openQuoteModal();
                   }}
                   className="inline-flex items-center gap-2 py-3 px-7 rounded-full bg-neutral-950 hover:bg-neutral-800 text-white font-semibold text-xs tracking-tight shadow-md transition-colors cursor-pointer"
                 >
                   <span>Get a fixed-price quote in 24h</span>
                   <ArrowRight size={14} />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
