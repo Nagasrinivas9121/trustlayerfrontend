@@ -19,26 +19,30 @@ export interface PricingPackage {
   ctaLabel: string;
 }
 
-export const FOUNDING_CLIENT_PROGRAM = {
+export const FOUNDING_CLIENT_CONFIG = {
   slotsTotal: 3, // {{FOUNDING_SLOTS_TOTAL}}
   slotsLeft: 2,  // {{FOUNDING_SLOTS_LEFT}}
   discountPercentage: 50, // {{FOUNDING_DISCOUNT_PERCENT}}
-  title: "Founding Client Program (2-3 Discounted Slots)",
-  subtitle: "We are onboarding our first cohort of founding clients under mutual NDA.",
+  title: "Founding Client Program",
+  note: "Listed prices are founding-client pricing and may change.",
   whatYouGet: [
     "Comprehensive manual API & SaaS multi-tenant penetration test",
     "Direct execution by senior certified practitioners (CEH, CWL C3SA, ISO 27001 LA)",
     "Every finding manually verified with reproducible cURL PoCs and code remediation",
     "Complimentary 30-day retesting of patched vulnerabilities",
-    "Formal signed Attestation Letter designed to support SOC 2 / ISO 27001 evidence requests"
+    "Signed attestation letter designed to support SOC 2 / ISO 27001 evidence requests",
+    "Priority scheduling"
   ],
   whatWeAsk: [
-    "Permission to publish a written case study upon completion (anonymized upon request)",
-    "A candid written quote or testimonial from your founder, CTO, or Head of Engineering",
+    "Permission to publish an anonymized case study upon completion",
+    "A short written quote or testimonial from your founder, CTO, or engineering leader",
     "A 30-minute feedback debrief call to help us refine our reporting workflows"
   ],
-  ctaText: "Apply for a Founding Client Slot",
+  ctaText: "Get a fixed-price quote in 24h",
+  ctaHref: "/free-assessment?package=founding-client",
 };
+
+export const FOUNDING_CLIENT_PROGRAM = FOUNDING_CLIENT_CONFIG;
 
 export const PRICING_PACKAGES: PricingPackage[] = [
   {

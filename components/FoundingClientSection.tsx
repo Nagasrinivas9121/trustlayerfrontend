@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Sparkles, Check, ArrowRight, ShieldCheck, HelpCircle } from "lucide-react";
-import { FOUNDING_CLIENT_PROGRAM } from "@/lib/pricing-config";
-import { openQuoteModal } from "@/components/QuoteModal";
+import { FOUNDING_CLIENT_CONFIG } from "@/lib/pricing-config";
 import { trackPrimaryQuoteClick } from "@/lib/analytics";
 
 export default function FoundingClientSection() {
-  const { slotsTotal, slotsLeft, discountPercentage, whatYouGet, whatWeAsk, ctaText } = FOUNDING_CLIENT_PROGRAM;
+  const { slotsTotal, slotsLeft, discountPercentage, whatYouGet, whatWeAsk, note } = FOUNDING_CLIENT_CONFIG;
 
   return (
     <section id="founding-program" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200">
@@ -21,18 +21,18 @@ export default function FoundingClientSection() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-4 font-sans">
-            Founding Client Program
+            Founding Client Program: {slotsLeft} of {slotsTotal} slots open
           </h2>
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto font-sans">
-            We are onboarding our first cohort of B2B SaaS startups under mutual NDA. Receive full offensive testing at a deeply discounted rate in exchange for a verified testimonial.
+            Founding clients get {discountPercentage}% off listed package price for permission to publish an anonymized case study or short testimonial, plus priority scheduling.
           </p>
 
-          {/* Slots Available Counter (Static Text from Config Constant) */}
+          {/* Slots Available Counter */}
           <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-300 shadow-xs text-xs font-mono font-semibold text-neutral-900">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0" />
             <span>
-              Availability: <strong className="text-emerald-700">{slotsLeft}</strong> of <strong>{slotsTotal}</strong> founding slots remaining
+              Availability: <strong className="text-emerald-700">{slotsLeft}</strong> of <strong>{slotsTotal}</strong> slots open
             </span>
           </div>
         </div>
@@ -108,21 +108,25 @@ export default function FoundingClientSection() {
             </div>
 
             <div className="pt-6 mt-6 border-t border-dashed border-neutral-200">
-              <button
-                type="button"
+              <Link
+                href="/free-assessment?package=founding-client"
                 onClick={() => {
                   trackPrimaryQuoteClick("founding_client_apply");
-                  openQuoteModal("founding-client-program");
                 }}
                 className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-full bg-neutral-950 hover:bg-neutral-800 text-white font-semibold text-xs tracking-tight shadow-md transition-colors cursor-pointer min-h-[44px]"
               >
-                <span>{ctaText}</span>
+                <span>Get a fixed-price quote in 24h</span>
                 <ArrowRight size={14} />
-              </button>
+              </Link>
             </div>
           </div>
 
         </div>
+
+        {/* Note under section */}
+        <p className="text-xs text-neutral-500 font-sans text-center mt-2">
+          {note}
+        </p>
 
       </div>
     </section>
