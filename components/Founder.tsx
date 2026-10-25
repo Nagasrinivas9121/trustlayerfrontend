@@ -159,17 +159,16 @@ export default function Founder() {
             We focus on row-level security parameters, database multi-tenancy verification, token state handling, and compliance alignment. Our goal is to assist engineering teams with thorough technical assessments and retest verification letters that support institutional vendor reviews.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <button
-              type="button"
+            <Link
+              href="/free-assessment"
               onClick={() => {
                 trackPrimaryQuoteClick("founder_section");
-                openQuoteModal();
               }}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-semibold tracking-tight shadow-sm hover:shadow-md transition-all cursor-pointer"
             >
               <span>Get a fixed-price quote in 24h</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </Link>
             <Link
               href="/methodology"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-neutral-100 hover:bg-neutral-200/80 text-neutral-800 text-xs font-semibold tracking-tight transition-all"

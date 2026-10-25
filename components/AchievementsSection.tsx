@@ -58,7 +58,7 @@ export default function AchievementsSection() {
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full">
                   <Terminal size={12} />
-                  <span>Zero Scanner Noise</span>
+                  <span>Every finding manually verified</span>
                 </div>
                 <h3 className="text-xl font-bold text-neutral-950 tracking-tight">
                   100% Manual Verification
@@ -154,9 +154,8 @@ export default function AchievementsSection() {
                     <div>
                       <div className="text-[11px] font-bold text-neutral-950 flex items-center gap-1.5">
                         <span>Attestation of Assessment</span>
-                        <span className="text-[9px] font-mono font-normal text-amber-700 bg-amber-50 border border-amber-200 px-1 rounded">Sample / Illustrative</span>
                       </div>
-                      <div className="text-[9px] font-mono text-neutral-400">Ref: TTL-SAMPLE-VAPT-01 (Illustrative Template)</div>
+                      <div className="text-[9px] font-mono text-neutral-400">Ref: TTL-SAMPLE-VAPT-01</div>
                     </div>
                   </div>
                   <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
@@ -165,6 +164,9 @@ export default function AchievementsSection() {
                 </div>
 
                 <div className="space-y-2 text-xs">
+                  <div className="text-[10px] text-amber-800 bg-amber-50 border border-amber-200/80 rounded-lg px-2.5 py-1 font-sans font-medium">
+                    Sample / illustrative document, not a client engagement
+                  </div>
                   <div className="p-2.5 rounded-xl bg-white border border-neutral-200/60 space-y-1 text-[11px]">
                     <div className="flex justify-between text-neutral-500">
                       <span>Methodology:</span>

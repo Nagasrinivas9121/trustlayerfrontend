@@ -41,9 +41,9 @@ const compressedSteps = [
     step: "03",
     phase: "Validate",
     title: "PoC Exploit Validation",
-    description: "We verify every bug by hand with real exploit payloads. Your developers get zero false positives.",
+    description: "We verify every bug by hand with real exploit payloads. Every finding is manually verified with a reproducible PoC.",
     icon: CheckCircle2,
-    highlights: ["Developer-ready curl PoCs.", "CVSS severity scoring.", "Zero false positives."]
+    highlights: ["Developer-ready curl PoCs.", "CVSS severity scoring.", "Every finding manually verified."]
   },
   {
     step: "04",

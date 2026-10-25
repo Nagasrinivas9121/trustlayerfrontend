@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "VAPT Services in Bangalore | TrustLayerLabs",
-    description: "Manual API & SaaS penetration testing for Bangalore tech startups. Zero scanner false positives, verified cURL PoCs.",
+    description: "Manual API & SaaS penetration testing for Bangalore tech startups. Every finding manually verified with reproducible cURL PoCs.",
     url: "https://www.trustlayerlabs.co.in/vapt-bangalore",
   },
 };
@@ -21,7 +21,7 @@ export default function VaptBangalore() {
   const bangaloreFaqs = [
     {
       q: "How fast can we receive a VAPT report for our SOC 2 audit or US enterprise deal?",
-      a: "For fast-moving SaaS startups in Bengaluru, we offer accelerated scoping intake under mutual NDA. Standard web & API assessments wrap up in 5 to 7 business days, with immediate preliminary notifications for any Critical findings so your developers can patch while we finalize the report."
+      a: "For fast-moving SaaS startups in Bengaluru, we offer accelerated scoping intake under mutual NDA. Standard web & API assessments wrap up in 5-10 business days depending on package, with immediate preliminary notifications for any Critical findings so your developers can patch while we finalize the report."
     },
     {
       q: "Do you test staging or production environments for Bangalore engineering teams?",

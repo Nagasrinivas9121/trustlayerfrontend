@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "VAPT Services in Hyderabad | TrustLayerLabs",
-    description: "Manual API & mobile penetration testing for Hyderabad tech teams. Zero scanner false positives, verified cURL PoCs.",
+    description: "Manual API & mobile penetration testing for Hyderabad tech teams. Every finding manually verified with reproducible cURL PoCs.",
     url: "https://www.trustlayerlabs.co.in/vapt-hyderabad",
   },
 };

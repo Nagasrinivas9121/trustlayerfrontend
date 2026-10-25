@@ -50,7 +50,7 @@ const AUDIT_FRAMEWORKS = [
     points: [
       "IAM role assumption and privilege escalation vector testing",
       "Object storage and database public exposure auditing",
-      "Zero scanner noise — 100% human-verified risk analysis"
+      "Every finding manually verified with a reproducible PoC"
     ]
   }
 ];
@@ -80,7 +80,7 @@ export default function Proof() {
 
           {/* Quick Pill Badges */}
           <div className="flex flex-wrap gap-2">
-            {["SOC 2 Ready", "ISO 27001 Aligned", "Bilateral Mutual NDA", "Govt. MSME"].map((item, i) => (
+            {["SOC 2 readiness testing", "ISO 27001-aligned assessments", "Bilateral Mutual NDA", "Govt. MSME"].map((item, i) => (
               <div 
                 key={i} 
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-neutral-200/80 rounded-full text-xs font-semibold text-neutral-700 shadow-xs font-sans"

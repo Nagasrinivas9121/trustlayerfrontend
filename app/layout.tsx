@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     default: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
     template: "%s | TrustLayerLabs",
   },
-  description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Zero false positives, verified developer PoCs.",
+  description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Every finding manually verified with a reproducible PoC.",
   keywords: [
     "VAPT India",
     "API Security Testing India",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
-    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Zero false positives, verified developer PoCs.",
+    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Every finding manually verified with a reproducible PoC.",
     url: "https://www.trustlayerlabs.co.in",
     siteName: "TrustLayerLabs",
     images: [
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     site: "@trustlayerlabs",
     creator: "@trustlayerlabs",
     title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
-    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Zero false positives, verified developer PoCs.",
+    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Every finding manually verified with a reproducible PoC.",
     images: ["/og-image.jpg?v=2"],
   },
   verification: {

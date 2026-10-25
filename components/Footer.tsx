@@ -182,7 +182,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap items-center gap-4 text-[11px] font-mono font-semibold text-neutral-600 uppercase tracking-wider">
             <span className="inline-flex items-center gap-1.5"><ShieldCheck size={13} className="text-emerald-600" /> RETEST VERIFICATION AVAILABLE</span>
-            <span className="inline-flex items-center gap-1.5"><ShieldCheck size={13} className="text-blue-600" /> ISO 27001 &amp; SOC 2 READINESS</span>
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck size={13} className="text-blue-600" /> ISO 27001 &amp; SOC 2 READINESS ASSESSMENTS</span>
           </div>
         </div>
 
