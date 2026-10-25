@@ -107,8 +107,9 @@ export const PRICING_PACKAGES: PricingPackage[] = [
 export const OTHER_SERVICES = [
   { name: "Web Application VAPT", href: "/services/web-app-vapt", description: "Deep manual penetration testing for modern single-page apps & APIs" },
   { name: "Mobile Application VAPT", href: "/services/mobile-vapt", description: "Static & dynamic analysis for iOS & Android following OWASP MASVS" },
-  { name: "AI & LLM Application Security", href: "/services/ai-security", description: "OWASP Top 10 for LLMs, prompt injection & RAG data isolation" },
   { name: "Cloud Security Audit", href: "/services/cloud-security", description: "AWS & GCP IAM least-privilege, storage buckets & CIS hardening" },
-  { name: "GRC & Enterprise Readiness", href: "/grc-readiness", description: "SOC 2 & ISO 27001 technical control mapping & audit readiness" },
   { name: "FinTech Security Assessment", href: "/fintech-security", description: "Payment logic, ledger APIs & regulatory security baselines" },
+  { name: "AI & LLM Application Security", href: "/services/ai-security", description: "OWASP Top 10 for LLMs, prompt injection & RAG data isolation" },
+  { name: "GRC & Enterprise Readiness", href: "/grc-readiness", description: "SOC 2 & ISO 27001 technical control mapping & audit readiness" },
+  { name: "Secure Web Development", href: "/services/web-development", description: "Production-ready, hardened web applications built with OWASP security integrated from day one" },
 ];
