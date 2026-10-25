@@ -19,7 +19,7 @@ export default function AchievementsSection() {
             Our Technical Standards
           </h2>
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-xl mx-auto">
-            Engineered for high-growth engineering teams that need thorough manual depth, zero false positives, and auditor-ready deliverables.
+            Engineered for high-growth engineering teams that need thorough manual depth, verified developer PoCs, and auditor-ready deliverables.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function AchievementsSection() {
 
             <div className="pt-6 mt-6 border-t border-dashed border-neutral-200 text-xs text-neutral-500 flex items-center justify-between">
               <span>Verified in Dedicated Staging</span>
-              <span className="text-neutral-900 font-semibold font-mono">0 False Positives</span>
+              <span className="text-neutral-900 font-semibold font-mono">100% Verified PoCs</span>
             </div>
           </div>
 
@@ -152,8 +152,11 @@ export default function AchievementsSection() {
                       TL
                     </div>
                     <div>
-                      <div className="text-[11px] font-bold text-neutral-950">Attestation of Assessment</div>
-                      <div className="text-[9px] font-mono text-neutral-400">Ref: TTL-2026-VAPT-04</div>
+                      <div className="text-[11px] font-bold text-neutral-950 flex items-center gap-1.5">
+                        <span>Attestation of Assessment</span>
+                        <span className="text-[9px] font-mono font-normal text-amber-700 bg-amber-50 border border-amber-200 px-1 rounded">Sample / Illustrative</span>
+                      </div>
+                      <div className="text-[9px] font-mono text-neutral-400">Ref: TTL-SAMPLE-VAPT-01 (Illustrative Template)</div>
                     </div>
                   </div>
                   <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
@@ -173,7 +176,7 @@ export default function AchievementsSection() {
                     </div>
                     <div className="flex justify-between text-neutral-500">
                       <span>Auditor Acceptance:</span>
-                      <span className="text-emerald-700 font-semibold">SOC 2 Type II &amp; ISO 27001</span>
+                      <span className="text-emerald-700 font-semibold text-right">Designed to support SOC 2 / ISO 27001 evidence requests</span>
                     </div>
                   </div>
                 </div>

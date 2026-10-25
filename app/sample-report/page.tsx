@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, ShieldCheck, FileText, Download, CheckCircle, Code, Calendar, ArrowRight, Sparkles, Check } from "lucide-react";
-import SecurityReportPreview from "@/components/SecurityReportPreview";
+import SecurityReportPreview from "@/components/SecurityReportPreviewStatic";
 import { openCalendly } from "@/lib/calendly";
 
 import { 

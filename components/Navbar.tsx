@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight, ChevronDown, Award } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
-import { openCalendly } from "@/lib/calendly";
-import { trackCalendarClick, trackFreeReviewCtaClick } from "@/lib/analytics";
+import { openQuoteModal } from "@/components/QuoteModal";
+import { trackPrimaryQuoteClick } from "@/lib/analytics";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -202,39 +202,37 @@ export default function Navbar() {
                 <Award size={14} /> Govt. MSME Certificate
               </button>
 
-              <a
-                href="https://cal.com/nagasrinivasarao/30min"
-                onClick={(e) => {
-                  e.preventDefault();
+              <button
+                type="button"
+                onClick={() => {
                   setIsOpen(false);
-                  trackCalendarClick("navbar_mobile_call");
-                  openCalendly();
+                  trackPrimaryQuoteClick("navbar_mobile");
+                  openQuoteModal();
                 }}
-                className="w-full text-center py-3 bg-[#151619] text-white rounded-full font-semibold text-xs mt-2 shadow-md flex items-center justify-center gap-2"
+                className="w-full text-center py-3 bg-[#151619] hover:bg-[#252830] text-white rounded-full font-semibold text-xs mt-2 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all"
               >
-                <span>Book a 30-Min Call</span>
+                <span>Get a quote in 24h</span>
                 <ArrowRight size={14} />
-              </a>
+              </button>
             </div>
           )}
         </div>
 
-        {/* Right CTA Button (Desktop - CodeDale Signature "Book a Call" button) */}
+        {/* Right CTA Button (Desktop - Single Primary CTA) */}
         <div className="max-md:hidden absolute right-5 lg:right-12">
-          <a
-            href="https://cal.com/nagasrinivasarao/30min"
-            onClick={(e) => {
-              e.preventDefault();
-              trackCalendarClick("navbar_desktop_call");
-              openCalendly();
+          <button
+            type="button"
+            onClick={() => {
+              trackPrimaryQuoteClick("navbar_desktop");
+              openQuoteModal();
             }}
             className="inline-flex items-center gap-2.5 pr-1.5 py-1.5 pl-5 font-semibold bg-[#151619] hover:bg-[#252830] text-white rounded-full shadow tracking-tight text-xs lg:text-[13px] transition button-shadow whitespace-nowrap cursor-pointer group"
           >
-            <span>Book a Call</span>
+            <span>Get a fixed-price quote in 24h</span>
             <div className="border border-[#545557] bg-[#333437] group-hover:bg-primary transition-colors w-7 h-7 rounded-full flex items-center justify-center">
               <ArrowRight size={13} className="-rotate-45 text-white" />
             </div>
-          </a>
+          </button>
         </div>
 
       </header>

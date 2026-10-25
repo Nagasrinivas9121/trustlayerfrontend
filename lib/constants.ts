@@ -30,35 +30,37 @@ export const BRAND = {
   }
 };
 
+export const C3SA_EXPLANATION = "CWL C3SA: Certified Cyber Security Analyst, an advanced offensive practitioner certification issued by CyberWarfare Labs focusing on manual penetration testing, authorization logic, and real-world exploitation techniques.";
+
 export const CONVERSION_CONFIG = {
   primaryCta: {
-    label: "Discuss Your Security Requirements",
-    href: "https://cal.com/nagasrinivasarao/30min",
+    label: "Get a fixed-price quote in 24h",
+    href: "#quote",
   },
   secondaryCta: {
-    label: "Explore Security Services",
-    href: "/services",
+    label: "Chat on WhatsApp",
+    href: "https://wa.me/919391220328",
   },
   serviceCtas: {
     apiSaas: {
-      label: "Scope an API & SaaS Assessment",
-      href: "/free-assessment?service=api-saas",
+      label: "Get a fixed-price quote in 24h",
+      href: "#quote",
     },
     aiSecurity: {
-      label: "Scope an AI Security Assessment",
-      href: "/free-assessment?service=ai-security",
+      label: "Get a fixed-price quote in 24h",
+      href: "#quote",
     },
     grcReadiness: {
-      label: "Discuss Your Security Readiness",
-      href: "/free-assessment?service=grc-readiness",
+      label: "Get a fixed-price quote in 24h",
+      href: "#quote",
     },
   },
   commitments: {
-    scopingDuration: "30-Minute Confidential Scoping Review",
-    assessmentTurnaround: "5–7 business days (critical findings debrief within 48–72h)",
+    scopingDuration: "Fixed-Price Quote in 24 Hours",
+    assessmentTurnaround: "5–7 business days (critical findings debrief within 48h)",
     responseTime: "Response within 1 business day under mutual NDA",
     retestPeriod: "Complimentary 30-day retesting included on all identified findings",
-    confidentiality: "Mutual NDA executed upfront prior to technical disclosures",
+    confidentiality: "Bilateral Mutual NDA executed upfront prior to technical disclosures",
   },
 };
 

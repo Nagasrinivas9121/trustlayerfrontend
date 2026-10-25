@@ -176,9 +176,10 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
               </p>
 
               <div className="space-y-3.5 font-sans">
-                <ObfuscatedEmailLink 
+                <a 
+                  href="mailto:ceo@trustlayerlabs.co.in"
                   className="flex items-center gap-4 p-4.5 bg-white border border-neutral-200/90 rounded-2xl hover:border-blue-400 hover:shadow-md transition-all group shadow-sm"
-                  ariaLabel="Email TrustLayerLabs directly"
+                  aria-label="Email TrustLayerLabs directly at ceo@trustlayerlabs.co.in"
                 >
                   <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200/70 flex items-center justify-center text-primary group-hover:scale-105 transition-transform shrink-0">
                     <Mail size={19} />
@@ -186,10 +187,10 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                   <div className="min-w-0">
                     <span className="text-[10px] font-mono font-semibold text-neutral-500 uppercase tracking-wider block">Direct Email:</span>
                     <span className="text-sm font-bold text-neutral-900 font-sans hover:text-primary transition-colors truncate block">
-                      ceo [at] trustlayerlabs.co.in
+                      ceo@trustlayerlabs.co.in
                     </span>
                   </div>
-                </ObfuscatedEmailLink>
+                </a>
 
                 <a 
                   href={BRAND.contact.whatsapp}

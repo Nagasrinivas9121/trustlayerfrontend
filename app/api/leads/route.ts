@@ -108,33 +108,38 @@ export async function POST(req: NextRequest) {
   // 5. Server-side validation and boundary limiting
   const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "website-form";
   const rawName = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
-  const name = rawName || (source.includes("sample-report") ? "Sample Report Requester" : "");
-  const email = typeof body.email === "string" ? body.email.trim().slice(0, 120) : "";
   const company = typeof body.company === "string" 
     ? body.company.trim().slice(0, 100) 
     : typeof body.startup === "string" 
     ? body.startup.trim().slice(0, 100) 
     : "";
-  const website = typeof body.website === "string" ? body.website.trim().slice(0, 200) : "";
+  const name = rawName || (company ? `${company} Team` : "") || (source.includes("sample-report") ? "Sample Report Requester" : "") || (source.includes("checklist") ? "Checklist Requester" : "") || "Security Lead";
+  const email = typeof body.email === "string" ? body.email.trim().slice(0, 120) : "";
+  const website = typeof body.website === "string" 
+    ? body.website.trim().slice(0, 200) 
+    : typeof body.website_or_stack === "string"
+    ? body.website_or_stack.trim().slice(0, 200)
+    : "";
   const promptTrigger = typeof body.promptTrigger === "string" 
     ? body.promptTrigger.trim().slice(0, 100) 
     : typeof body.productType === "string" 
     ? body.productType.trim().slice(0, 100) 
+    : typeof body.compliance_goal === "string"
+    ? body.compliance_goal.trim().slice(0, 100)
     : "";
   const securityConcern = typeof body.securityConcern === "string" 
     ? body.securityConcern.trim().slice(0, 100) 
     : typeof body.scope === "string" 
     ? body.scope.trim().slice(0, 100) 
+    : typeof body.compliance_goal === "string"
+    ? body.compliance_goal.trim().slice(0, 100)
     : "";
-  const timeline = typeof body.timeline === "string" ? body.timeline.trim().slice(0, 50) : "";
+  const timeline = typeof body.timeline === "string" 
+    ? body.timeline.trim().slice(0, 50) 
+    : typeof body.deadline === "string"
+    ? body.deadline.trim().slice(0, 50)
+    : "";
   const message = typeof body.message === "string" ? body.message.trim().slice(0, 2000) : "";
-
-  if (!name || name.length < 2) {
-    return NextResponse.json(
-      { success: false, error: "Full name is required (minimum 2 characters)." },
-      { status: 422 }
-    );
-  }
 
   if (!email || !EMAIL_REGEX.test(email)) {
     return NextResponse.json(

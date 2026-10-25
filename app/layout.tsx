@@ -5,8 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
-import LiveChat from "@/components/LiveChat";
-import CalendlyTracker from "@/components/CalendlyTracker";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -443,9 +441,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <CookieConsent />
-        <CalendlyTracker />
         <AnalyticsTracker />
-        <LiveChat />
         <SpeedInsights />
         <Analytics />
       </body>

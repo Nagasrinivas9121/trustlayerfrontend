@@ -5,6 +5,8 @@ import { ShieldCheck, Mail, Target, ArrowRight, Linkedin, Award, CheckCircle2, S
 import Link from "next/link";
 import { TEAM } from "@/lib/constants";
 import CertificateModal from "@/components/CertificateModal";
+import { openQuoteModal } from "@/components/QuoteModal";
+import { trackPrimaryQuoteClick } from "@/lib/analytics";
 
 const getCertIdForCred = (cred: string, memberName: string) => {
   if (cred.includes("ISO")) return "iso27001";
@@ -157,20 +159,31 @@ export default function Founder() {
             We focus on row-level security parameters, database multi-tenancy verification, token state handling, and compliance alignment. Our goal is to assist engineering teams with thorough technical assessments and retest verification letters that support institutional vendor reviews.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider shadow-sm hover:shadow-md transition-all group"
+            <button
+              type="button"
+              onClick={() => {
+                trackPrimaryQuoteClick("founder_section");
+                openQuoteModal();
+              }}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-semibold tracking-tight shadow-sm hover:shadow-md transition-all cursor-pointer"
             >
-              <span>Schedule Scoping Inquiry</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-blue-400" />
-            </Link>
+              <span>Get a fixed-price quote in 24h</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
             <Link
               href="/methodology"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-neutral-100 hover:bg-neutral-200/80 text-neutral-800 text-xs uppercase font-sans font-bold tracking-wider transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-neutral-100 hover:bg-neutral-200/80 text-neutral-800 text-xs font-semibold tracking-tight transition-all"
             >
               <span>Read Testing Methodology</span>
             </Link>
           </div>
+        </div>
+
+        {/* CWL C3SA Footnote Explanation */}
+        <div className="max-w-3xl mx-auto mt-8 pt-4 border-t border-dashed border-neutral-200 text-center">
+          <p className="text-[11px] text-neutral-500 leading-relaxed font-sans">
+            <strong>* Credential Footnote:</strong> CWL C3SA (Certified Cyber Security Analyst) is an advanced offensive security practitioner certification awarded by CyberWarfare Labs covering adversary tradecraft, multi-tenant SaaS authorization verification, and manual API penetration testing.
+          </p>
         </div>
 
       </div>

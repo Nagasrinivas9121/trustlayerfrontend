@@ -93,13 +93,14 @@ export default function Footer() {
                 <Linkedin size={16} />
                 <span className="sr-only">TrustLayerLabs LinkedIn Profile</span>
               </Link>
-              <ObfuscatedEmailLink 
+              <a 
+                href="mailto:ceo@trustlayerlabs.co.in" 
                 className="w-9 h-9 rounded-full bg-white border border-neutral-200 hover:border-blue-400 text-neutral-600 hover:text-blue-600 transition-colors flex items-center justify-center shadow-sm" 
-                ariaLabel="Email support"
+                aria-label="Email ceo@trustlayerlabs.co.in"
               >
                 <Mail size={16} />
-                <span className="sr-only">Email TrustLayerLabs Support</span>
-              </ObfuscatedEmailLink>
+                <span className="sr-only">Email TrustLayerLabs Support at ceo@trustlayerlabs.co.in</span>
+              </a>
             </div>
 
             {/* StartupBase Launch Badge */}

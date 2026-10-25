@@ -17,6 +17,8 @@ import {
   ArrowRight,
   ArrowLeft
 } from "lucide-react";
+import QuoteModal, { openQuoteModal } from "@/components/QuoteModal";
+import { trackPrimaryQuoteClick } from "@/lib/analytics";
 
 // Robust Base64URL decoder in pure JS
 const base64UrlDecode = (str: string) => {
@@ -569,28 +571,33 @@ export default function JwtDecoderPage() {
           </div>
         </div>
 
-        {/* Deeper Assessment CTA Card */}
+        {/* Static CTA Banner Driving to Quote Form */}
         <div className="p-8 sm:p-12 bg-white rounded-3xl border border-dashed border-neutral-300 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2 text-center md:text-left">
-            <h2 className="text-xl sm:text-2xl font-bold text-neutral-950 tracking-tight">
-              Need a Deeper Authentication Review?
+            <h2 className="text-xl sm:text-2xl font-bold text-neutral-950 tracking-tight font-sans">
+              Need a Complete Manual API &amp; Token Audit?
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-600 max-w-xl leading-relaxed">
-              Automated token decoding is only step one. Our lead practitioners manually audit token issuance flows, authorization parameters, multi-tenant boundaries, and session lifecycles.
+            <p className="text-xs sm:text-sm text-neutral-600 max-w-xl leading-relaxed font-sans">
+              Automated token inspection is only step one. Our certified practitioners manually audit token issuance, signing keys, authorization boundaries, and session revocation in 5 business days.
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0 w-full md:w-auto justify-center">
-            <Link
-              href="/services/api-security"
-              className="w-full md:w-auto text-center py-3.5 px-7 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full shadow-md transition-all flex items-center justify-center gap-2"
+            <button
+              type="button"
+              onClick={() => {
+                trackPrimaryQuoteClick("jwt_decoder_cta_banner");
+                openQuoteModal("jwt-decoder-audit");
+              }}
+              className="w-full md:w-auto text-center py-3.5 px-8 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-semibold rounded-full shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
-              <span>Request API Security Audit</span>
+              <span>Get a fixed-price quote in 24h</span>
               <ArrowRight size={14} />
-            </Link>
+            </button>
           </div>
         </div>
 
       </div>
+      <QuoteModal />
     </div>
   );
 }

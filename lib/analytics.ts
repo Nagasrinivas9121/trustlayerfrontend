@@ -334,9 +334,10 @@ export const trackFreeSecurityReviewConfirmation = () => {
 // ==========================================
 // 4. Content Engagement Events
 // ==========================================
-export const trackSampleReportView = () => {
+export const trackSampleReportView = (location: string = "sample_report_page") => {
   trackEvent("sample_report_view", {
     content_type: "sample_report",
+    location,
   });
 };
 
@@ -442,9 +443,41 @@ export const trackContactFormSubmit = (data?: Record<string, any>) => {
 
 // Backward-compatibility aliases
 export const trackHeroPrimaryCta = () => {
-  trackHeroCtaClick("hero_form", "Get a Free Security Scoping Review");
-  trackFreeReviewCtaClick("hero_form", "Get a Free Security Scoping Review");
+  trackHeroCtaClick("hero_form", "Get a fixed-price quote in 24h");
+  trackFreeReviewCtaClick("hero_form", "Get a fixed-price quote in 24h");
 };
 export const trackCalendarClick = (label: string = "calendly") => trackCalendarCtaClick(label);
 export const trackPhoneClick = () => trackEvent("phone_click", { channel: "phone" });
+
+// ==========================================
+// 7. Measurement Tracking Wrappers (Task 10)
+// ==========================================
+export const trackPrimaryQuoteClick = (location: string = "unknown") => {
+  trackEvent("primary_quote_cta_click", { location });
+};
+
+export const trackQuoteFormStart = (source: string = "quote_modal") => {
+  trackLeadFormStart("quote_form", source);
+  trackEvent("quote_form_start", { source });
+};
+
+export const trackQuoteFormSubmit = (data?: Record<string, any>) => {
+  trackLeadFormSubmit({
+    lead_type: "fixed_price_quote",
+    form_name: "quote_form",
+    ...data,
+  });
+  trackQualifiedLead({
+    type: "quote_request",
+  });
+  trackEvent("generate_lead", {
+    lead_type: "quote_request",
+    ...data,
+  });
+};
+
+export const trackChecklistDownload = (checklistType: string = "startup_security_checklist") => {
+  trackEvent("checklist_download", { checklist_type: checklistType });
+};
+
 
