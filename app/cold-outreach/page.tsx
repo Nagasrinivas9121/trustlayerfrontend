@@ -35,12 +35,11 @@ export default function ColdOutreachPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link 
-              href="https://cal.com/nagasrinivasarao/30min" 
-              target="_blank"
+              href="/free-assessment" 
               className="w-full sm:w-auto px-7 py-3.5 bg-neutral-900 hover:bg-black text-white text-xs font-semibold rounded-full flex items-center justify-center gap-2 shadow-md transition-all group"
             >
               <Calendar size={14} />
-              <span>Request Free Pilot Scope</span>
+              <span>Get a fixed-price quote in 24h</span>
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link 

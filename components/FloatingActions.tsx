@@ -50,17 +50,16 @@ export default function FloatingActions() {
         }`}
       >
         <div className="flex items-center gap-2.5">
-          <button
-            type="button"
+          <Link
+            href="/free-assessment"
             onClick={() => {
               trackPrimaryQuoteClick("mobile_floating_bar");
-              openQuoteModal();
             }}
             className="flex-1 bg-neutral-900 hover:bg-black text-white py-2.5 text-xs font-bold text-center flex items-center justify-center gap-1.5 rounded-full shadow-sm"
           >
-            <span>Get a quote in 24h</span>
+            <span>Get a fixed-price quote in 24h</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          </Link>
           <Link
             href={BRAND.contact.whatsapp}
             target="_blank"

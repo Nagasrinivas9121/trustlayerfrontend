@@ -190,12 +190,11 @@ export default function GrcReadinessPage() {
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <Link 
-              href="https://cal.com/nagasrinivasarao/30min"
-              target="_blank"
+              href="/free-assessment?package=soc2-readiness"
               className="px-8 py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs uppercase font-sans font-bold tracking-wider rounded-full shadow-md transition-all flex items-center gap-2 group"
             >
               <Calendar size={15} className="text-blue-400" />
-              <span>Schedule GRC Consultation</span>
+              <span>Get a fixed-price quote in 24h</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-blue-400" />
             </Link>
 

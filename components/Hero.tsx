@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, ShieldCheck, CheckCircle2, MessageSquare, Award } from "lucide-react";
 import { openQuoteModal } from "@/components/QuoteModal";
 import { trackPrimaryQuoteClick, trackWhatsappClick } from "@/lib/analytics";
@@ -23,11 +24,10 @@ export default function Hero() {
 
       {/* 1. Top Availability Pill Badge (Static, no animated pulse ring) */}
       <div className="flex items-center justify-center z-10 mb-6 sm:mb-8">
-        <button
-          type="button"
+        <Link
+          href="/free-assessment"
           onClick={() => {
             trackPrimaryQuoteClick("hero_pill");
-            openQuoteModal();
           }}
           className="flex items-center justify-center gap-2.5 bg-white border border-neutral-200/90 rounded-full pr-2 pl-4 py-1.5 text-xs md:text-sm tracking-tight text-neutral-800 font-semibold shadow-xs hover:border-neutral-400 hover:shadow-sm transition-colors cursor-pointer group min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
         >
@@ -36,7 +36,7 @@ export default function Hero() {
           <div className="bg-neutral-100 group-hover:bg-neutral-200 w-6 h-6 rounded-full flex items-center justify-center ml-1 text-neutral-900 transition-colors shrink-0">
             <ArrowRight size={12} className="-rotate-45" />
           </div>
-        </button>
+        </Link>
       </div>
 
       {/* Main Hero Container */}
@@ -56,17 +56,16 @@ export default function Hero() {
         {/* Primary CTA + Secondary WhatsApp Action Row */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10 w-full sm:w-auto">
           {/* Primary CTA: Get a fixed-price quote in 24h */}
-          <button
-            type="button"
+          <Link
+            href="/free-assessment"
             onClick={() => {
               trackPrimaryQuoteClick("hero_primary_button");
-              openQuoteModal();
             }}
             className="w-full sm:w-auto flex items-center justify-center gap-2 py-3.5 px-8 font-semibold bg-neutral-950 hover:bg-neutral-800 text-white rounded-full shadow-md tracking-tight whitespace-nowrap text-sm cursor-pointer min-h-[48px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
           >
             <span>Get a fixed-price quote in 24h</span>
             <ArrowRight size={15} />
-          </button>
+          </Link>
 
           {/* Secondary CTA: WhatsApp Link */}
           <a

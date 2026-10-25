@@ -202,29 +202,27 @@ export default function Navbar() {
                 <Award size={14} /> Govt. MSME Certificate
               </button>
 
-              <button
-                type="button"
+              <Link
+                href="/free-assessment"
                 onClick={() => {
                   setIsOpen(false);
                   trackPrimaryQuoteClick("navbar_mobile");
-                  openQuoteModal();
                 }}
                 className="w-full text-center py-3 bg-[#151619] hover:bg-[#252830] text-white rounded-full font-semibold text-xs mt-2 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all"
               >
-                <span>Get a quote in 24h</span>
+                <span>Get a fixed-price quote in 24h</span>
                 <ArrowRight size={14} />
-              </button>
+              </Link>
             </div>
           )}
         </div>
 
         {/* Right CTA Button (Desktop - Single Primary CTA) */}
         <div className="max-md:hidden absolute right-5 lg:right-12">
-          <button
-            type="button"
+          <Link
+            href="/free-assessment"
             onClick={() => {
               trackPrimaryQuoteClick("navbar_desktop");
-              openQuoteModal();
             }}
             className="inline-flex items-center gap-2.5 pr-1.5 py-1.5 pl-5 font-semibold bg-[#151619] hover:bg-[#252830] text-white rounded-full shadow tracking-tight text-xs lg:text-[13px] transition button-shadow whitespace-nowrap cursor-pointer group"
           >
@@ -232,7 +230,7 @@ export default function Navbar() {
             <div className="border border-[#545557] bg-[#333437] group-hover:bg-primary transition-colors w-7 h-7 rounded-full flex items-center justify-center">
               <ArrowRight size={13} className="-rotate-45 text-white" />
             </div>
-          </button>
+          </Link>
         </div>
 
       </header>

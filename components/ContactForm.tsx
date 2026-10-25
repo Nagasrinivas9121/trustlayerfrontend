@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Mail, MessageSquare, Linkedin, Send, CheckCircle2, Loader2, Calendar, FileText, AlertCircle, Shield, Clock } from "lucide-react";
 import { BRAND } from "@/lib/constants";
-import CalendlyEmbed from "@/components/CalendlyEmbed";
 import ObfuscatedEmailLink from "@/components/ObfuscatedEmailLink";
 
 import { 
@@ -31,7 +30,6 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [botField, setBotField] = useState("");
-  const [mode, setMode] = useState<"calendar" | "form">("calendar");
   const [hasStarted, setHasStarted] = useState(false);
 
   const handleStart = () => {
@@ -238,51 +236,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
           {/* Right Column: Calendar Booking or Scoping Form */}
           <div className="lg:col-span-7 bg-white border border-neutral-200/90 rounded-3xl p-6 sm:p-8 relative flex flex-col justify-between shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
 
-            {/* Mode Switcher - CodeDale Pill Switcher */}
-            <div className="flex items-center gap-1.5 p-1.5 bg-neutral-100 rounded-full mb-6 font-sans border border-neutral-200">
-              <button
-                type="button"
-                onClick={() => {
-                  trackCalendarCtaClick("contact_form_mode_calendar", "Book Free Security Review");
-                  setMode("calendar");
-                }}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  mode === "calendar"
-                    ? "bg-neutral-900 text-white shadow-sm"
-                    : "text-neutral-600 hover:text-neutral-900"
-                }`}
-              >
-                <Calendar size={14} className="shrink-0" />
-                <span className="truncate">Schedule 30-Min Call</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  trackWrittenScopeCtaClick("contact_form_mode_form");
-                  setMode("form");
-                }}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  mode === "form"
-                    ? "bg-neutral-900 text-white shadow-sm"
-                    : "text-neutral-600 hover:text-neutral-900"
-                }`}
-              >
-                <FileText size={14} className="shrink-0" />
-                <span className="truncate">Send Written Scope</span>
-              </button>
-            </div>
-
-            {mode === "calendar" ? (
-              <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs font-sans px-1 gap-1">
-                  <span className="text-neutral-600 font-medium">Select a slot directly with our security architect:</span>
-                  <span className="text-emerald-700 font-bold flex items-center gap-1.5 shrink-0">
-                    <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" /> Live Availability
-                  </span>
-                </div>
-                <CalendlyEmbed minHeight="660px" className="min-h-[580px] sm:min-h-[660px]" />
-              </div>
-            ) : success ? (
+            {success ? (
               <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 py-12 font-sans">
                 <div className="w-16 h-16 bg-emerald-50 border border-emerald-200 rounded-full flex items-center justify-center text-emerald-600 animate-fade-in shadow-sm">
                   <CheckCircle2 size={30} />
@@ -486,7 +440,7 @@ export default function ContactForm({ asH1 = false }: { asH1?: boolean }) {
                     </>
                   ) : (
                     <>
-                      <span>Get Free Security Scoping Review</span>
+                      <span>Get a fixed-price quote in 24h</span>
                       <Send size={13} />
                     </>
                   )}

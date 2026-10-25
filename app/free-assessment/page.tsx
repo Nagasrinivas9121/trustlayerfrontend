@@ -34,6 +34,7 @@ import {
 
 function FreeAssessmentForm() {
   const searchParams = useSearchParams();
+  const packageParam = searchParams?.get("package") || "";
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,15 +42,15 @@ function FreeAssessmentForm() {
   const [hasStarted, setHasStarted] = useState(false);
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: searchParams?.get("email") || "",
     company: "",
-    website: "",
-    promptTrigger: "Enterprise customer security review",
-    securityConcern: "Authorization / BOLA",
-    timeline: "within-2-weeks",
-    message: ""
+    websiteOrStack: "",
+    deadline: "Immediate (Deal blocker / Urgent review required)",
+    complianceGoal: "SOC 2",
+    email: searchParams?.get("email") || "",
+    package: packageParam,
   });
+
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     trackFreeSecurityReviewView();
@@ -62,9 +63,31 @@ function FreeAssessmentForm() {
     }
   };
 
+  const validate = () => {
+    const errors: Record<string, string> = {};
+    if (!formData.company.trim()) {
+      errors.company = "Company name is required.";
+    }
+    if (!formData.websiteOrStack.trim()) {
+      errors.websiteOrStack = "Website or tech stack is required.";
+    }
+    if (!formData.deadline) {
+      errors.deadline = "Please select a target deadline.";
+    }
+    if (!formData.complianceGoal) {
+      errors.complianceGoal = "Please select a compliance goal.";
+    }
+    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      errors.email = "A valid work email is required.";
+    }
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (loading) return;
+    if (!validate()) return;
     setLoading(true);
     setError(null);
     try {
@@ -76,8 +99,16 @@ function FreeAssessmentForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ...formData,
-          source: "free-security-review-intake",
+          company: formData.company,
+          website_or_stack: formData.websiteOrStack,
+          website: formData.websiteOrStack,
+          deadline: formData.deadline,
+          timeline: formData.deadline,
+          compliance_goal: formData.complianceGoal,
+          promptTrigger: formData.complianceGoal,
+          email: formData.email,
+          package: formData.package,
+          source: "free-assessment",
           bot_field: botField,
           utm,
         }),
@@ -90,14 +121,13 @@ function FreeAssessmentForm() {
           result.error ||
           "Unable to deliver enquiry automatically. Please contact our team directly at ceo@trustlayerlabs.co.in or via WhatsApp.";
         setError(errorMsg);
-        trackSecurityReviewFormError(result.code || "delivery_error", "free_security_review_intake");
+        trackSecurityReviewFormError(result.code || "delivery_error", "free_assessment");
 
-        // Store backup locally marked as unsent (never display false success)
         const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
         existingLeads.push({
           ...formData,
           ...utm,
-          source: "free-security-review-intake",
+          source: "free-assessment",
           status: "unsent",
           delivery_error: errorMsg,
           timestamp: new Date().toISOString(),
@@ -106,35 +136,35 @@ function FreeAssessmentForm() {
         return;
       }
 
-      // Confirmed server delivery
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
         ...formData,
         ...utm,
-        source: "free-security-review-intake",
+        source: "free-assessment",
         status: "delivered",
         timestamp: new Date().toISOString(),
       });
       localStorage.setItem("trustlayer_leads", JSON.stringify(existingLeads));
 
       trackFreeSecurityReviewSubmit({
-        prompt_trigger: formData.promptTrigger,
-        security_concern: formData.securityConcern,
-        timeline: formData.timeline,
+        company: formData.company,
+        compliance_goal: formData.complianceGoal,
+        deadline: formData.deadline,
+        package: formData.package,
       });
 
       setSuccess(true);
       trackFreeSecurityReviewConfirmation();
     } catch (err: any) {
-      console.error("Free assessment submit error:", err);
+      console.error("Quote request submit error:", err);
       const networkError = "Network error. Please verify your connection or email ceo@trustlayerlabs.co.in directly.";
       setError(networkError);
-      trackSecurityReviewFormError("network_error", "free_security_review_intake");
+      trackSecurityReviewFormError("network_error", "free_assessment");
 
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
         ...formData,
-        source: "free-security-review-intake",
+        source: "free-assessment",
         status: "unsent",
         delivery_error: networkError,
         timestamp: new Date().toISOString(),
@@ -153,39 +183,39 @@ function FreeAssessmentForm() {
             <CheckCircle size={30} />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Security Review Request Received!</h3>
+            <h3 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Fixed-Price Quote Request Received</h3>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-sm mx-auto leading-relaxed">
-              Thank you, {formData.name || "founder"}! A lead offensive security practitioner is reviewing your product architecture details under mutual NDA. We will email you within one business day with scoping availability.
+              Thank you! Our lead offensive security practitioners will review your scope under mutual NDA and send your fixed-price quote within 24 hours to <strong>{formData.email}</strong>.
             </p>
           </div>
 
-          <div className="pt-6 border-t border-dashed border-neutral-200 space-y-3">
-            <p className="text-[11px] font-mono text-neutral-500 uppercase tracking-widest font-bold">Recommended Next Steps:</p>
-            <div className="flex flex-col gap-2.5">
-              <button
-                type="button"
-                onClick={() => {
-                  trackCalendarCtaClick("post_submit_calendar", "Schedule 30-Min Review Now");
-                  openCalendly();
-                }}
-                className="w-full inline-flex items-center justify-center py-3.5 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-semibold uppercase tracking-wider rounded-full gap-2 cursor-pointer shadow-md transition-all"
-              >
-                <Calendar size={14} className="text-blue-400" />
-                <span>Schedule 30-Min Review On Calendar Now</span>
-              </button>
+          <div className="pt-6 border-t border-dashed border-neutral-200 space-y-3 text-left">
+            <p className="text-xs text-neutral-700 leading-relaxed font-sans">
+              Need to talk sooner? You can optionally book a 30-minute scoping call here:{" "}
               <a 
-                href="/trustlayerlabs-sample-vapt-report.pdf" 
-                download
-                onClick={() => trackSampleReportCtaClick("post_submit_pdf", "Download Sample Assessment PDF")}
-                className="w-full inline-flex items-center justify-center py-3.5 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 text-neutral-800 text-xs font-semibold uppercase tracking-wider rounded-full gap-2 transition-colors"
+                href="https://cal.com/nagasrinivasarao/30min" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary underline font-medium hover:text-blue-700 break-all"
               >
-                <Download size={14} /> Download Sample Assessment PDF
+                https://cal.com/nagasrinivasarao/30min
               </a>
-            </div>
+            </p>
+            <p className="text-xs text-neutral-700 leading-relaxed font-sans pt-1">
+              Prefer WhatsApp? Reach our lead practitioners directly:{" "}
+              <a 
+                href="https://wa.me/919391220328" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-emerald-700 underline font-medium hover:text-emerald-800"
+              >
+                https://wa.me/919391220328
+              </a>
+            </p>
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-5 font-sans">
+        <form onSubmit={handleSubmit} className="space-y-5 font-sans" noValidate>
           {/* Anti-spam honeypot */}
           <input
             type="text"
@@ -213,165 +243,140 @@ function FreeAssessmentForm() {
               </p>
             </div>
           )}
+
+          {formData.package && (
+            <div className="p-3 bg-blue-50/80 border border-blue-200 rounded-xl text-xs font-semibold text-primary flex items-center justify-between">
+              <span>Selected Scope: <strong>{formData.package.replace(/-/g, " ").toUpperCase()}</strong></span>
+              <span className="text-[10px] font-mono text-blue-600 font-normal">Fixed-Price Proposal</span>
+            </div>
+          )}
           
-          {/* Row 1: Name & Work Email */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="name" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-                Your Name <span className="text-primary">*</span>
-              </label>
-              <input 
-                type="text" 
-                id="name"
-                name="name"
-                autoComplete="name"
-                value={formData.name}
-                onFocus={handleStart}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                required
-                placeholder="e.g. Siddharth Sharma"
-                className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-                Work Email <span className="text-primary">*</span>
-              </label>
-              <input 
-                type="email" 
-                id="email"
-                name="email"
-                inputMode="email"
-                autoComplete="email"
-                value={formData.email}
-                onFocus={handleStart}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                required
-                placeholder="e.g. alex@company.com"
-                className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans"
-              />
-            </div>
-          </div>
-
-          {/* Row 2: Company & Website */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="company" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-                Company Name <span className="text-primary">*</span>
-              </label>
-              <input 
-                type="text" 
-                id="company"
-                name="company"
-                autoComplete="organization"
-                value={formData.company}
-                onFocus={handleStart}
-                onChange={(e) => setFormData({...formData, company: e.target.value})}
-                required
-                placeholder="e.g. CloudScale"
-                className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans"
-              />
-            </div>
-            <div>
-              <label htmlFor="website" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-                Website / App URL <span className="text-neutral-400 font-normal lowercase">(optional)</span>
-              </label>
-              <input 
-                type="text" 
-                id="website"
-                name="website"
-                inputMode="url"
-                autoComplete="url"
-                value={formData.website}
-                onFocus={handleStart}
-                onChange={(e) => setFormData({...formData, website: e.target.value})}
-                placeholder="e.g. https://cloudscale.io (or app in staging)"
-                className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans"
-              />
-            </div>
-          </div>
-
-          {/* Row 3: Trigger & Primary Security Concern */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="promptTrigger" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-                What Prompted You To Look For Security Testing?
-              </label>
-              <select 
-                id="promptTrigger"
-                name="promptTrigger"
-                value={formData.promptTrigger}
-                onChange={(e) => setFormData({...formData, promptTrigger: e.target.value})}
-                className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 focus:outline-none transition-all font-sans"
-              >
-                <option value="Applying for 3-Slot Free API Security Pilot">Applying for 3-Slot Free API Security Pilot</option>
-                <option value="Enterprise customer security review">Enterprise customer security review</option>
-                <option value="Production launch">Production launch</option>
-                <option value="Architecture change">Architecture change</option>
-                <option value="Previous security finding">Previous security finding</option>
-                <option value="Customer requirement">Customer requirement</option>
-                <option value="SOC 2 / ISO 27001 readiness">SOC 2 / ISO 27001 readiness</option>
-                <option value="General security assessment">General security assessment</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="securityConcern" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-                Primary Security Concern:
-              </label>
-              <select 
-                id="securityConcern"
-                name="securityConcern"
-                value={formData.securityConcern}
-                onChange={(e) => setFormData({...formData, securityConcern: e.target.value})}
-                className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 focus:outline-none transition-all font-sans"
-              >
-                <option value="Authorization / BOLA">Authorization / BOLA</option>
-                <option value="API security">API security</option>
-                <option value="Tenant isolation">Tenant isolation</option>
-                <option value="Authentication">Authentication</option>
-                <option value="Business logic">Business logic</option>
-                <option value="AI/RAG security">AI/RAG security</option>
-                <option value="Cloud security">Cloud security</option>
-                <option value="Compliance readiness">Compliance readiness</option>
-                <option value="Not sure">Not sure</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Row 4: Approximate Timeline */}
+          {/* Field 1: Company */}
           <div>
-            <label htmlFor="timeline" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-              Approximate Timeline:
+            <label htmlFor="company" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
+              Company Name <span className="text-primary">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="company"
+              name="company"
+              autoComplete="organization"
+              value={formData.company}
+              onFocus={handleStart}
+              onChange={(e) => {
+                setFormData({...formData, company: e.target.value});
+                if (validationErrors.company) setValidationErrors({...validationErrors, company: ""});
+              }}
+              placeholder="e.g. Acme Corp"
+              className={`w-full bg-neutral-50/60 border rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans ${
+                validationErrors.company ? "border-rose-400 focus:border-rose-600 focus:ring-rose-100" : "border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              }`}
+            />
+            {validationErrors.company && (
+              <p className="text-rose-600 text-[11px] mt-1">{validationErrors.company}</p>
+            )}
+          </div>
+
+          {/* Field 2: Website / Stack */}
+          <div>
+            <label htmlFor="websiteOrStack" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
+              Website / Tech Stack <span className="text-primary">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="websiteOrStack"
+              name="websiteOrStack"
+              value={formData.websiteOrStack}
+              onFocus={handleStart}
+              onChange={(e) => {
+                setFormData({...formData, websiteOrStack: e.target.value});
+                if (validationErrors.websiteOrStack) setValidationErrors({...validationErrors, websiteOrStack: ""});
+              }}
+              placeholder="e.g. https://acme.com, Node.js + PostgreSQL + AWS"
+              className={`w-full bg-neutral-50/60 border rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans ${
+                validationErrors.websiteOrStack ? "border-rose-400 focus:border-rose-600 focus:ring-rose-100" : "border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              }`}
+            />
+            {validationErrors.websiteOrStack && (
+              <p className="text-rose-600 text-[11px] mt-1">{validationErrors.websiteOrStack}</p>
+            )}
+          </div>
+
+          {/* Field 3: Deadline */}
+          <div>
+            <label htmlFor="deadline" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
+              Deadline <span className="text-primary">*</span>
             </label>
             <select 
-              id="timeline"
-              name="timeline"
-              value={formData.timeline}
-              onChange={(e) => setFormData({...formData, timeline: e.target.value})}
+              id="deadline"
+              name="deadline"
+              value={formData.deadline}
+              onChange={(e) => {
+                setFormData({...formData, deadline: e.target.value});
+                if (validationErrors.deadline) setValidationErrors({...validationErrors, deadline: ""});
+              }}
               className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 focus:outline-none transition-all font-sans"
             >
-              <option value="immediately">Immediate (Deal blocker / Urgent review required)</option>
-              <option value="within-2-weeks">Within 2 weeks</option>
-              <option value="within-1-month">Within 1 month</option>
-              <option value="exploring">Exploring / Next quarter roadmap</option>
+              <option value="Immediate (Deal blocker / Urgent review required)">Immediate (Deal blocker / Urgent review required)</option>
+              <option value="Within 1-2 weeks">Within 1-2 weeks</option>
+              <option value="Within 1 month">Within 1 month</option>
+              <option value="Flexible">Flexible</option>
             </select>
+            {validationErrors.deadline && (
+              <p className="text-rose-600 text-[11px] mt-1">{validationErrors.deadline}</p>
+            )}
           </div>
 
-          {/* Row 5: Optional Message */}
+          {/* Field 4: Compliance Goal */}
           <div>
-            <label htmlFor="message" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
-              Architecture Brief or Target Scope (Optional):
+            <label htmlFor="complianceGoal" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
+              Compliance Goal <span className="text-primary">*</span>
             </label>
-            <textarea 
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
-              rows={3}
-              placeholder="e.g. Preparing for enterprise buyer review next week, looking to test multi-tenant API boundaries under mutual NDA..."
-              className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl p-3.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans"
+            <select 
+              id="complianceGoal"
+              name="complianceGoal"
+              value={formData.complianceGoal}
+              onChange={(e) => {
+                setFormData({...formData, complianceGoal: e.target.value});
+                if (validationErrors.complianceGoal) setValidationErrors({...validationErrors, complianceGoal: ""});
+              }}
+              className="w-full bg-neutral-50/60 border border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 focus:outline-none transition-all font-sans"
+            >
+              <option value="SOC 2">SOC 2</option>
+              <option value="ISO 27001">ISO 27001</option>
+              <option value="Customer security questionnaire">Customer security questionnaire</option>
+              <option value="Other">Other</option>
+            </select>
+            {validationErrors.complianceGoal && (
+              <p className="text-rose-600 text-[11px] mt-1">{validationErrors.complianceGoal}</p>
+            )}
+          </div>
+
+          {/* Field 5: Work Email */}
+          <div>
+            <label htmlFor="email" className="block text-xs font-semibold font-sans text-neutral-700 uppercase tracking-wider mb-1.5">
+              Work Email <span className="text-primary">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="email"
+              name="email"
+              inputMode="email"
+              autoComplete="email"
+              value={formData.email}
+              onFocus={handleStart}
+              onChange={(e) => {
+                setFormData({...formData, email: e.target.value});
+                if (validationErrors.email) setValidationErrors({...validationErrors, email: ""});
+              }}
+              placeholder="e.g. alex@company.com"
+              className={`w-full bg-neutral-50/60 border rounded-xl px-3.5 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none transition-all font-sans ${
+                validationErrors.email ? "border-rose-400 focus:border-rose-600 focus:ring-rose-100" : "border-neutral-200 hover:border-neutral-300 focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              }`}
             />
+            {validationErrors.email && (
+              <p className="text-rose-600 text-[11px] mt-1">{validationErrors.email}</p>
+            )}
           </div>
 
           {/* Submit CTA */}
@@ -383,11 +388,11 @@ function FreeAssessmentForm() {
             >
               {loading ? (
                 <>
-                  <Loader2 size={14} className="animate-spin" /> Transmitting Details...
+                  <Loader2 size={14} className="animate-spin" /> Preparing Quote Request...
                 </>
               ) : (
                 <>
-                  <span>Get Free Security Scoping Review</span>
+                  <span>Get a fixed-price quote in 24h</span>
                   <ArrowRight size={14} />
                 </>
               )}
@@ -422,19 +427,19 @@ export default function FreeAssessmentPage() {
           <span>Back to Overview</span>
         </Link>
 
-        {/* Heading & CRO Framing - CodeDale style */}
+        {/* Heading & CRO Framing */}
         <div className="mb-10 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-neutral-200 shadow-sm rounded-full text-xs font-semibold text-neutral-800 uppercase tracking-wider">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-            <span>30-Minute Confidential Conversation • Mutual NDA Upfront</span>
+            <span>Fixed-Price Proposal • Mutual NDA Upfront</span>
           </div>
           
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight font-sans leading-tight">
-            Get a Free <span className="text-primary">Security Scoping Review</span>
+            Get a Fixed-Price Quote <span className="text-primary">in 24h</span>
           </h1>
           
           <p className="text-sm sm:text-base text-neutral-600 max-w-md mx-auto font-sans leading-relaxed">
-            For B2B SaaS, API, and AI product teams preparing for enterprise deals, audits, or production launch.
+            For B2B SaaS, API, and multi-tenant platforms whose enterprise deals are waiting on an offensive pentest report.
           </p>
 
           {/* Scoping Review & Pilot Information Banner - CodeDale Dashed Box */}
@@ -525,7 +530,7 @@ export default function FreeAssessmentPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-5 bg-neutral-50/70 border border-neutral-200 rounded-2xl space-y-1.5">
-                <h3 className="text-xs font-bold text-neutral-900 font-sans">Zero False Positives</h3>
+                <h3 className="text-xs font-bold text-neutral-900 font-sans">Every Finding Manually Verified</h3>
                 <p className="text-xs text-neutral-600 font-sans leading-relaxed">
                   Every vulnerability reported includes a verified reproduction script and non-destructive proof-of-concept.
                 </p>

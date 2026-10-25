@@ -156,22 +156,22 @@ export default function QuoteModal({ isOpen: controlledIsOpen, onClose: controll
               </p>
             </div>
 
-            {/* Plain Cal.com booking link displayed ONLY after form submission */}
+            {/* Direct contact options */}
             <div className="p-4 bg-neutral-50 border border-neutral-200 rounded-2xl text-left space-y-2">
               <span className="text-xs font-bold text-neutral-900 uppercase tracking-wider block">
                 Need to discuss urgent scoping right away?
               </span>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                If your enterprise security review has an immediate hard deadline, schedule a direct 15-minute briefing with our lead architect:
+                If your enterprise security review has an immediate hard deadline, reach our lead practitioner directly on WhatsApp:
               </p>
               <div className="pt-1">
                 <a
-                  href="https://cal.com/nagasrinivasarao/30min"
+                  href="https://wa.me/919391220328"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-blue-700 underline focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 underline focus:outline-none focus:ring-1 focus:ring-emerald-600"
                 >
-                  <span>Open 15-min Cal.com scoping calendar</span>
+                  <span>Chat on WhatsApp (+91 93912 20328)</span>
                   <ExternalLink size={12} />
                 </a>
               </div>

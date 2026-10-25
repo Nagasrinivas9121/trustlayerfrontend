@@ -35,7 +35,7 @@ export const C3SA_EXPLANATION = "CWL C3SA: Certified Cyber Security Analyst, an 
 export const CONVERSION_CONFIG = {
   primaryCta: {
     label: "Get a fixed-price quote in 24h",
-    href: "#quote",
+    href: "/free-assessment",
   },
   secondaryCta: {
     label: "Chat on WhatsApp",
@@ -44,20 +44,20 @@ export const CONVERSION_CONFIG = {
   serviceCtas: {
     apiSaas: {
       label: "Get a fixed-price quote in 24h",
-      href: "#quote",
+      href: "/free-assessment",
     },
     aiSecurity: {
       label: "Get a fixed-price quote in 24h",
-      href: "#quote",
+      href: "/free-assessment",
     },
     grcReadiness: {
       label: "Get a fixed-price quote in 24h",
-      href: "#quote",
+      href: "/free-assessment",
     },
   },
   commitments: {
     scopingDuration: "Fixed-Price Quote in 24 Hours",
-    assessmentTurnaround: "5–7 business days (critical findings debrief within 48h)",
+    assessmentTurnaround: "5-10 business days depending on package (critical findings briefed within 48 hours)",
     responseTime: "Response within 1 business day under mutual NDA",
     retestPeriod: "Complimentary 30-day retesting included on all identified findings",
     confidentiality: "Bilateral Mutual NDA executed upfront prior to technical disclosures",

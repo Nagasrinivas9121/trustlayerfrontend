@@ -58,42 +58,35 @@ export default function JoinUsCTA() {
             Ready to find the BOLA, tenant escapes, and business logic flaws automated scanners miss? Book your confidential review under mutual NDA.
           </p>
 
-          {/* Glowing Border Action Button (CodeDale Signature) */}
+          {/* Action Button */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <a
-              href="https://cal.com/nagasrinivasarao/30min"
-              onClick={(e) => {
-                e.preventDefault();
-                trackCalendarClick("join_us_cta_button");
-                openCalendly();
-              }}
-              className="relative p-[2px] rounded-full overflow-hidden group cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full animate-pulse opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="relative flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-gray-950 font-semibold tracking-tight text-sm sm:text-base hover:bg-gray-100 transition-all shadow-xl active:scale-98 min-h-[46px]">
-                <Sparkles size={16} className="text-primary" />
-                <span>Book a 30-Min Scoping Call</span>
-              </div>
-            </a>
-
             <Link
               href="/free-assessment"
+              className="relative p-[2px] rounded-full overflow-hidden group cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div className="relative flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white text-gray-950 font-semibold tracking-tight text-sm sm:text-base hover:bg-gray-100 transition-all shadow-xl active:scale-98 min-h-[46px]">
+                <Sparkles size={16} className="text-primary" />
+                <span>Get a fixed-price quote in 24h</span>
+              </div>
+            </Link>
+
+            <a
+              href="https://wa.me/919391220328"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/15 text-white font-medium text-sm transition-all border border-white/15 tracking-tight cursor-pointer min-h-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              <span>Request Free Scope Review</span>
+              <span>Chat on WhatsApp (+91 93912 20328)</span>
               <ArrowRight size={14} />
-            </Link>
+            </a>
           </div>
 
         </div>
 
         {/* Bottom Banner with CodeDale Terminal Reveal */}
         <div className="w-full mt-10 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center bg-gradient-to-b from-[#212121] to-[#1c1b1b] border border-white/5 z-10">
-          <span className="text-sm sm:text-base tracking-tight text-gray-400 font-medium">
-            Trust us, your code is in expert hands :)
-          </span>
-
-          <div className="relative flex items-center justify-center pt-5">
+          <div className="relative flex items-center justify-center">
             <div className="flex items-center bg-[#282828] text-white px-5 py-2.5 rounded-xl border border-white/10 font-mono text-sm tracking-wider shadow-inner">
               <span className="text-primary font-bold mr-2">&gt;</span>
               <span>{typedText}</span>

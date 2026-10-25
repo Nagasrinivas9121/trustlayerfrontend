@@ -68,11 +68,10 @@ export default function NotFound() {
             <FileText size={15} /> <span>Sample Report</span>
           </Link>
           <Link
-            href="https://cal.com/nagasrinivasarao/30min"
-            target="_blank"
-            className="flex items-center justify-center gap-2 p-3.5 bg-white border border-neutral-200 hover:border-neutral-400 text-neutral-800 text-xs font-semibold rounded-full transition-all shadow-sm"
+            href="/free-assessment"
+            className="flex items-center justify-center gap-2 p-3.5 bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-semibold rounded-full transition-all shadow-sm"
           >
-            <Calendar size={15} /> <span>Schedule 30-Min Call</span>
+            <Calendar size={15} /> <span>Get a fixed-price quote in 24h</span>
           </Link>
         </div>
 

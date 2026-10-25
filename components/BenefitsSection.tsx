@@ -1,6 +1,5 @@
-"use client";
-
 import React from "react";
+import Link from "next/link";
 import { 
   ShieldCheck, 
   Zap, 
@@ -10,8 +9,7 @@ import {
   RefreshCw, 
   ArrowRight 
 } from "lucide-react";
-import { openCalendly } from "@/lib/calendly";
-import { trackCalendarClick } from "@/lib/analytics";
+import { trackPrimaryQuoteClick } from "@/lib/analytics";
 
 interface Benefit {
   title: string;
@@ -92,20 +90,18 @@ export default function BenefitsSection() {
 
         {/* CodeDale Rolling Call-to-Action Button */}
         <div className="my-10">
-          <a
-            href="https://cal.com/nagasrinivasarao/30min"
-            onClick={(e) => {
-              e.preventDefault();
-              trackCalendarClick("benefits_rolling_button");
-              openCalendly();
+          <Link
+            href="/free-assessment"
+            onClick={() => {
+              trackPrimaryQuoteClick("benefits_rolling_button");
             }}
             className="group relative px-8 py-4 rounded-full flex items-center justify-center overflow-hidden cta-shadow bg-[#151619] hover:bg-[#252830] text-white transition-all duration-300 cursor-pointer shadow-lg active:scale-98 min-h-[46px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900"
           >
             <div className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
-              <span>Reserve Your Assessment Slot</span>
+              <span>Get a fixed-price quote in 24h</span>
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </div>
-          </a>
+          </Link>
         </div>
 
       </section>

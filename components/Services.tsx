@@ -99,11 +99,10 @@ export default function Services() {
                     View Details →
                   </Link>
                   <Link 
-                    href="https://cal.com/nagasrinivasarao/30min"
-                    target="_blank"
+                    href="/free-assessment"
                     className="flex-1 text-center py-2.5 bg-primary text-white text-xs uppercase font-sans font-semibold tracking-wider rounded-lg hover:bg-primary/90 transition-all duration-200"
                   >
-                    Book Audit
+                    Get Quote
                   </Link>
                 </div>
               </div>

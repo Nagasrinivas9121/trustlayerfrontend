@@ -56,9 +56,9 @@ export default function LiveChat() {
           ...prev,
           {
             sender: "bot",
-            text: "Excellent! You can schedule a confidential 30-minute scoping review directly on our calendar under mutual NDA:",
+            text: "Request a fixed-price proposal in 24 hours under bilateral mutual NDA:",
             type: "links",
-            links: [{ label: "Open Security Review Calendar", url: "https://cal.com/nagasrinivasarao/30min" }]
+            links: [{ label: "Get a fixed-price quote in 24h", url: "/free-assessment" }]
           }
         ]);
       } else if (option.includes("WhatsApp")) {

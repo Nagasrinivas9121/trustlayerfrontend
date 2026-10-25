@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { ArrowRight, ShieldCheck, MessageSquare, Mail } from "lucide-react";
 import { openQuoteModal } from "@/components/QuoteModal";
 import { trackPrimaryQuoteClick, trackWhatsappClick } from "@/lib/analytics";
@@ -20,7 +21,7 @@ export default function FinalCTA() {
         {/* Outcome-Led Headline */}
         <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-3xl text-white leading-[1.15] mb-5 font-sans">
           Ready to unblock your enterprise deal?{" "}
-          <span className="text-primary block sm:inline">Get your pentest report in 5 days.</span>
+          <span className="text-primary block sm:inline">Get your pentest report in 5-10 business days.</span>
         </h2>
 
         {/* Subtitle */}
@@ -30,17 +31,16 @@ export default function FinalCTA() {
 
         {/* Action Row */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-8">
-          <button
-            type="button"
+          <Link
+            href="/free-assessment"
             onClick={() => {
               trackPrimaryQuoteClick("final_cta_primary");
-              openQuoteModal("final-cta");
             }}
             className="w-full sm:w-auto flex items-center justify-center gap-2 py-3.5 px-8 rounded-full bg-white text-neutral-950 hover:bg-neutral-100 font-semibold text-xs sm:text-sm tracking-tight shadow-md transition-colors cursor-pointer min-h-[48px]"
           >
             <span>Get a fixed-price quote in 24h</span>
             <ArrowRight size={14} />
-          </button>
+          </Link>
 
           <a
             href={BRAND.contact.whatsapp}
