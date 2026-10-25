@@ -101,32 +101,32 @@ export default function PricingSection() {
 
               {/* Action Button */}
               <div className="pt-4 border-t border-dashed border-neutral-200">
-                <button
-                  type="button"
+                <Link
+                  href={`/free-assessment?package=${pkg.id}`}
                   onClick={() => {
                     trackPrimaryQuoteClick(`pricing_package_${pkg.id}`);
-                    openQuoteModal(pkg.id);
                   }}
-                  className={`w-full flex items-center justify-center gap-2 py-3 px-5 rounded-full font-semibold text-xs tracking-tight transition-colors cursor-pointer min-h-[44px] ${
-                    pkg.popular
-                      ? "bg-neutral-950 hover:bg-neutral-800 text-white shadow-md"
-                      : "bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-200"
-                  }`}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-full font-semibold text-xs tracking-tight transition-colors cursor-pointer min-h-[44px] bg-neutral-950 hover:bg-neutral-800 text-white shadow-md"
                 >
-                  <span>{pkg.ctaLabel}</span>
+                  <span>Get a fixed-price quote in 24h</span>
                   <ArrowRight size={13} />
-                </button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Note under packages */}
+        <p className="text-xs text-neutral-500 font-sans text-center mb-12 max-w-xl">
+          Starting prices. Final fixed price is confirmed after a scope review within 24 hours. Prices exclude GST.
+        </p>
 
         {/* Other Services Link List (Narrowing the Homepage Offer while Preserving Routes) */}
         <div className="w-full max-w-4xl bg-white rounded-3xl border border-neutral-200/90 p-7 sm:p-8 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-dashed border-neutral-200 gap-2">
             <div>
               <h3 className="text-base font-bold text-neutral-950 font-sans">
-                Other Security &amp; Assessment Services
+                More services
               </h3>
               <p className="text-xs text-neutral-500 mt-0.5">
                 Full-stack offensive security capabilities available upon scoping request:

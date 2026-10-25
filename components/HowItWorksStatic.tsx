@@ -30,11 +30,11 @@ const STEPS: StepItem[] = [
   {
     number: "02",
     title: "Deep Manual Logic & Authorization Testing",
-    badge: "Days 1–5",
-    duration: "5–7 Business Days",
+    badge: "Days 1–10",
+    duration: "5-10 business days",
     description: "Certified security architects systematically probe authorization boundaries, BOLA/IDOR, tenant isolation escapes, and multi-step business logic state machines in an isolated staging environment.",
     deliverables: [
-      "100% human logic probing (zero scanner noise)",
+      "Every finding manually verified",
       "Daily asynchronous Slack/email progress updates",
       "Critical vulnerability debrief within 48 hours"
     ]

@@ -99,7 +99,7 @@ export const SERVICES = [
     slug: "web-app-vapt",
     title: "Web Application VAPT",
     description: "Deep manual penetration testing for modern single-page apps (React, Next.js, Vue), server-side rendering, and web applications.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "critical",
     technologies: ["OWASP Top 10", "Burp Suite Pro", "SQLMap", "Nmap", "React", "Next.js"],
     deliverables: [
@@ -115,7 +115,7 @@ export const SERVICES = [
     slug: "api-security",
     title: "API Security Testing",
     description: "Manual OWASP API Top 10 vulnerability assessment for REST, GraphQL, and gRPC microservices targeting BOLA, BFLA, and auth flaws.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "critical",
     technologies: ["GraphQL", "REST APIs", "gRPC", "OAuth 2.0", "JWT", "Postman", "Burp Suite"],
     deliverables: [
@@ -194,7 +194,7 @@ export const SERVICES = [
     slug: "kubernetes-security",
     title: "Kubernetes & Container Security",
     description: "Security assessments for Kubernetes clusters, container images, RBAC permissions, and Pod Security Admission isolation controls.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "high",
     technologies: ["Kubernetes", "Docker", "Trivy", "Kube-bench", "Kube-hunter", "Helm"],
     deliverables: [
@@ -210,7 +210,7 @@ export const SERVICES = [
     slug: "ai-security",
     title: "AI & LLM Application Security",
     description: "Vulnerability assessment for AI applications, LLM integrations, RAG vector stores, and prompt injection vectors (OWASP Top 10 for LLMs).",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "critical",
     technologies: ["LangChain", "LlamaIndex", "Pinecone", "OpenAI APIs", "Prompt Injection", "Burp Suite"],
     deliverables: [
@@ -242,7 +242,7 @@ export const SERVICES = [
     slug: "saas-vapt",
     title: "SaaS Penetration Testing",
     description: "Deep audit of multi-tenant SaaS platforms focusing on tenant isolation boundaries, horizontal privilege scaling, and account takeover vectors.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "critical",
     technologies: ["Tenant Isolation", "Burp Suite Pro", "OWASP WSTG", "Privilege Scaling", "React", "NodeJS"],
     deliverables: [
@@ -258,7 +258,7 @@ export const SERVICES = [
     slug: "soc2-pentesting",
     title: "SOC 2 Compliance Pentesting",
     description: "Specialized penetration testing fulfilling Technical Security Control requirements (CC6.1–CC6.8) for SOC 2 Type II attestation audits.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "high",
     technologies: ["SOC 2 CC6.1-CC6.3", "Vanta/Drata Integrations", "AWS/GCP Audits", "IAM Review", "Nessus"],
     deliverables: [
@@ -290,7 +290,7 @@ export const SERVICES = [
     slug: "aws-security",
     title: "AWS Cloud Security Assessment",
     description: "Deep dive audit of AWS Cloud architecture, least-privilege IAM mapping, secure credential storage, and CIS benchmark conformance.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "high",
     technologies: ["AWS IAM", "KMS Encryption", "CloudTrail", "AWS Config", "Trivy", "S3 Bucket Audits"],
     deliverables: [
@@ -322,7 +322,7 @@ export const SERVICES = [
     slug: "iso-27001-vapt",
     title: "ISO 27001 VAPT Audit",
     description: "Annex A technical security vulnerability assessment validating infrastructure, networks, and perimeter configurations.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "high",
     technologies: ["ISO 27001 controls", "Nmap", "OpenVAS", "Qualys", "Network perimeter scans"],
     deliverables: [
@@ -338,7 +338,7 @@ export const SERVICES = [
     slug: "hipaa-vapt",
     title: "HIPAA Security & Healthcare Audit",
     description: "Vulnerability assessment for healthcare portals and ePHI databases ensuring compliant patient records isolation.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "critical",
     technologies: ["HIPAA security rules", "ePHI safeguards", "AWS CloudFront", "Cognito", "SSL/TLS audits"],
     deliverables: [
@@ -354,7 +354,7 @@ export const SERVICES = [
     slug: "active-directory-pentesting",
     title: "Active Directory Security Audit",
     description: "Internal network security testing mimicking ransomware routes, lateral movement, Kerberoasting, and AD privilege escalations.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "high",
     technologies: ["Active Directory", "BloodHound", "Mimikatz", "Responder", "Impacket", "Kerberoasting"],
     deliverables: [
@@ -402,7 +402,7 @@ export const SERVICES = [
     slug: "source-code-review",
     title: "Source Code Security Review",
     description: "Line-by-line manual and automated security review of your application source code (SAST) to uncover hidden backdoors, hardcoded secrets, and injection points.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "critical",
     technologies: ["GitHub Actions", "Semgrep", "SonarQube", "Manual Code Review", "Node.js", "Python", "Go", "Java"],
     deliverables: [
@@ -418,7 +418,7 @@ export const SERVICES = [
     slug: "azure-security",
     title: "Azure Cloud Security Audit",
     description: "Security posture assessment (CSPM) of your Azure environment. We audit Entra ID permissions, Virtual Networks, Key Vaults, and App Service configurations.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "high",
     technologies: ["Microsoft Azure", "Entra ID", "Azure Key Vault", "Defender for Cloud", "ARM Templates", "Prowler"],
     deliverables: [
@@ -434,7 +434,7 @@ export const SERVICES = [
     slug: "gcp-security",
     title: "GCP Cloud Security Audit",
     description: "Deep security audit of Google Cloud Platform deployments, including IAM permissions, Google Kubernetes Engine (GKE) clusters, and Cloud Storage bucket access controls.",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "high",
     technologies: ["Google Cloud Platform", "GCP Cloud IAM", "Google Kubernetes Engine", "Cloud KMS", "Terraform", "Scout Suite"],
     deliverables: [
@@ -466,7 +466,7 @@ export const SERVICES = [
     slug: "owasp-api-security",
     title: "OWASP API Top 10 Security Testing",
     description: "Specialized pentest verifying your APIs against the entire OWASP API Security Top 10 list (BOLA, broken authentication, mass assignment, SSRF, etc.).",
-    duration: "5-7 Days",
+    duration: "5-10 business days",
     severity: "critical",
     technologies: ["OWASP API Top 10", "REST APIs", "JWT", "OAuth 2.0", "Postman", "Burp Suite Pro"],
     deliverables: [

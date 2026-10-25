@@ -13,7 +13,7 @@ import { trackPrimaryQuoteClick } from "@/lib/analytics";
 
 interface Benefit {
   title: string;
-  description: string;
+  description: React.ReactNode;
   icon: React.ReactNode;
 }
 
@@ -30,7 +30,14 @@ const BENEFITS: Benefit[] = [
   },
   {
     title: "Transparent & Fair Pricing",
-    description: "Honest, fixed-scope proposals with clear timelines. Zero hidden hourly rates or post-audit surprise retainers.",
+    description: (
+      <span>
+        Fixed-scope packages starting from ₹9,999 / $129.{" "}
+        <Link href="/#pricing" className="text-primary font-semibold underline hover:text-blue-700">
+          View packages &amp; pricing →
+        </Link>
+      </span>
+    ),
     icon: <DollarSign size={34} className="text-emerald-600" />,
   },
   {

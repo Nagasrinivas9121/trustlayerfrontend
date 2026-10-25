@@ -25,7 +25,7 @@ const COMPARISONS: ComparisonRow[] = [
   },
   {
     feature: "Turnaround Time",
-    trustlayer: "5–7 Days (Critical findings briefed within 48h)",
+    trustlayer: "5-10 business days depending on package (critical findings briefed within 48 hours)",
     scanners: "Instant scan, but misses contextual application logic",
     consultancies: "Multi-week scheduling queues & prolonged enterprise onboarding",
   },

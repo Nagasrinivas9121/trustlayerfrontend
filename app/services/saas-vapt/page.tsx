@@ -224,7 +224,7 @@ export default function SaasVaptPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">AUDIT TIMELINE</span>
-              <p className="text-xs text-textSecondary leading-normal">🕒 5–7 business days with critical findings debrief within 48–72h.</p>
+              <p className="text-xs text-textSecondary leading-normal">🕒 5-10 business days depending on package with critical findings briefed within 48 hours.</p>
             </div>
             <div className="p-3.5 bg-surface border border-border/80 rounded-xl">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary font-bold block mb-1">RETEST GUARANTEE</span>
