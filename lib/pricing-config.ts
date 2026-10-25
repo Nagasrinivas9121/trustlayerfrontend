@@ -24,7 +24,7 @@ export const FOUNDING_CLIENT_CONFIG = {
   slotsLeft: 2,  // {{FOUNDING_SLOTS_LEFT}}
   discountPercentage: 50, // {{FOUNDING_DISCOUNT_PERCENT}}
   title: "Founding Client Program",
-  note: "Listed prices are founding-client pricing and may change.",
+  note: "*Listed prices are founding-client pricing and are negotiable based on scope & architecture.",
   whatYouGet: [
     "Comprehensive manual API & SaaS multi-tenant penetration test",
     "Direct execution by senior certified practitioners (CEH, CWL C3SA, ISO 27001 LA)",
@@ -52,8 +52,8 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     popular: false,
     timeline: "5 business days",
     scope: "Up to 15 Endpoints",
-    priceInr: "₹9,999",
-    priceUsd: "$129",
+    priceInr: "₹9,999*",
+    priceUsd: "$129*",
     description: "Targeted manual testing focused on authorization boundaries, token security, and business logic.",
     inclusions: [
       "manual testing for BOLA/IDOR and BFLA",
@@ -71,8 +71,8 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     popular: false,
     timeline: "7-10 business days",
     scope: "Up to 30 Endpoints · 3 Roles",
-    priceInr: "₹24,999",
-    priceUsd: "$299",
+    priceInr: "₹24,999*",
+    priceUsd: "$299*",
     description: "Offensive audit of tenant isolation, database row-level security (RLS), RBAC, and background workers.",
     inclusions: [
       "cross-tenant isolation and data-boundary validation",
@@ -90,8 +90,8 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     popular: false,
     timeline: "7-10 business days",
     scope: "Full Web & Public API",
-    priceInr: "₹39,999",
-    priceUsd: "$479",
+    priceInr: "₹39,999*",
+    priceUsd: "$479*",
     description: "Offensive assessment designed to support enterprise procurement security reviews and auditor evidence requests.",
     inclusions: [
       "testing mapped to SOC 2 Trust Services Criteria and ISO 27001 Annex A",

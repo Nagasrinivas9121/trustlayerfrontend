@@ -37,7 +37,8 @@ export const metadata: Metadata = {
     description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, race conditions & free retests.",
     url: "https://www.trustlayerlabs.co.in/fintech-security",
     siteName: "TrustLayerLabs",
-    locale: "en_IN",
+    locale: "en_US",
+    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
     type: "website",
   },
   twitter: {

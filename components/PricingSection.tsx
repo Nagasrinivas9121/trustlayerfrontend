@@ -77,9 +77,14 @@ export default function PricingSection() {
                       ~ {pkg.priceUsd} USD
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 pt-2 border-t border-neutral-200/70 text-xs font-semibold text-neutral-700 font-sans">
-                    <Clock size={12} className="text-neutral-500 shrink-0" />
-                    <span>Turnaround: {pkg.timeline}</span>
+                  <div className="flex items-center justify-between pt-2 border-t border-neutral-200/70 text-xs font-semibold text-neutral-700 font-sans">
+                    <div className="flex items-center gap-1.5">
+                      <Clock size={12} className="text-neutral-500 shrink-0" />
+                      <span>Turnaround: {pkg.timeline}</span>
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+                      *Price Negotiable
+                    </span>
                   </div>
                 </div>
 
@@ -117,9 +122,9 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* Note under packages */}
+        {/* Note under packages indicating star means negotiable */}
         <p className="text-xs text-neutral-500 font-sans text-center mb-12 max-w-xl">
-          Starting prices. Final fixed price is confirmed after a scope review within 24 hours.
+          <span className="font-semibold text-neutral-800">*Star symbol (*) indicates prices are negotiable</span> based on target endpoint volume, architecture complexity, and custom scoping requirements. Final fixed-price quote confirmed within 24 hours.
         </p>
 
         {/* Other Services Link List (Narrowing the Homepage Offer while Preserving Routes) */}

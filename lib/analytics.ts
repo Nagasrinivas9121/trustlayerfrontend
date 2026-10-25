@@ -145,10 +145,14 @@ export function trackEvent(eventName: string, params: Record<string, any> = {}) 
   const safeOrigin = window.location.origin || "https://www.trustlayerlabs.co.in";
   const safePath = window.location.pathname || "/";
   const sanitizedLocation = `${safeOrigin}${safePath}`;
+  const eventId = `${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
 
   const payload = {
     event: eventName,
+    event_id: eventId,
     page_location: sanitizedLocation,
+    page_path: safePath,
+    page_title: typeof document !== "undefined" ? document.title : "",
     device_type: window.innerWidth < 768 ? "mobile" : window.innerWidth < 1024 ? "tablet" : "desktop",
     timestamp: new Date().toISOString(),
     ...utm,
@@ -163,7 +167,9 @@ export function trackEvent(eventName: string, params: Record<string, any> = {}) 
   if (typeof w.gtag === "function") {
     try {
       w.gtag("event", eventName, {
+        event_id: eventId,
         page_location: sanitizedLocation,
+        page_path: safePath,
         ...cleanParams,
       });
     } catch {

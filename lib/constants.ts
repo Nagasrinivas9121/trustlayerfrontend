@@ -603,8 +603,8 @@ export const TESTIMONIALS = [
 export const PRICING_TIERS = [
   {
     name: "Starter Pentest",
-    price: "₹5,000",
-    period: "per audit",
+    price: "₹5,000*",
+    period: "per audit (*negotiable)",
     description: "Ideal for early-stage startups needing a quick, reliable VAPT report to clear a sales deal or funding requirement.",
     features: [
       "1 Web App / API Scoping",
@@ -620,8 +620,8 @@ export const PRICING_TIERS = [
   },
   {
     name: "Growth Security",
-    price: "₹49,000",
-    period: "per audit",
+    price: "₹49,000*",
+    period: "per audit (*negotiable)",
     description: "Comprehensive VAPT, API testing, and cloud configuration audit for multi-tenant SaaS products and fintech apps.",
     features: [
       "Web App + Complete API Scoping",
@@ -700,6 +700,18 @@ export const FAQS = [
   {
     question: "Is retesting included after our developers fix the vulnerabilities?",
     answer: "Yes. Every assessment includes one complimentary retest within 30 days of initial report delivery. After your engineering team deploys patches to staging, our security practitioners re-evaluate the fixed vectors and issue an updated report alongside a formal Retest Verification Letter confirming remediation."
+  },
+  {
+    question: "Does TrustLayerLabs work with international startups and enterprises outside India?",
+    answer: "Yes. We serve startups, high-growth scale-ups, and technology enterprises worldwide across the United States, United Kingdom, Canada, European Union, Australia, and Singapore. We operate remote-first, execute international bilateral mutual NDAs (Delaware or English law compatible), coordinate scoping and engineering debriefs across US (PST/EST), UK/Europe (GMT/CET), and APAC time zones, and accept international wire transfers (SWIFT/ACH) and Stripe payments in USD, EUR, and GBP."
+  },
+  {
+    question: "Will your VAPT report and attestation satisfy US and European enterprise buyers and SOC 2 / ISO 27001 auditors?",
+    answer: "Yes. Our testing methodology adheres strictly to OWASP Top 10, OWASP API Top 10, NIST SP 800-115, and PTES standards. Our attestation letters are signed by credentialed offensive practitioners (CEH, CWL C3SA, ISO/IEC 27001 Lead Auditor) and are structured specifically to satisfy vendor risk assessments (SIG, CAIQ, VSA) and external compliance auditors for SOC 2 Type II, ISO 27001, HIPAA, and GDPR."
+  },
+  {
+    question: "What currencies and international payment methods do you accept?",
+    answer: "We invoice in USD, EUR, GBP, AUD, CAD, SGD, AED, and INR. Global clients can pay seamlessly via Stripe, corporate credit cards, or direct international wire transfer (SWIFT / ACH / IBAN). Transparent fixed-scope quotes are delivered within 24 hours in your preferred currency."
   },
   {
     question: "How do we scope an engagement and get started?",

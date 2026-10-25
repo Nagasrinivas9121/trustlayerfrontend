@@ -32,7 +32,8 @@ export const metadata: Metadata = {
     description: "Comprehensive AWS, GCP, and Azure cloud security configuration audits. Eliminate IAM privilege creep, S3 bucket exposure, and compliance gaps.",
     url: "https://www.trustlayerlabs.co.in/services/cloud-security",
     siteName: "TrustLayerLabs",
-    locale: "en_IN",
+    locale: "en_US",
+    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
     type: "website",
   },
   twitter: {
@@ -174,7 +175,7 @@ export default function CloudSecurityPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Comprehensive AWS, GCP, and Azure cloud security configuration audits. Eliminate IAM privilege creep, S3 bucket exposure, and compliance gaps.",
-        "areaServed": ["India", "Global"],
+        "areaServed": ["United States", "United Kingdom", "Canada", "Australia", "Singapore", "Germany", "European Union", "India", "Worldwide"],
       },
       {
         "@type": "BreadcrumbList",

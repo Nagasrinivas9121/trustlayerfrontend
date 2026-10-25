@@ -65,7 +65,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: service.description,
       url: `https://www.trustlayerlabs.co.in/services/${slug}`,
       siteName: "TrustLayerLabs",
-      locale: "en_IN",
+      locale: "en_US",
+      alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
       type: "website",
     },
   };
@@ -107,7 +108,7 @@ export default async function ServiceSlugPage({ params }: Props) {
         "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
         "serviceType": service.title,
         "description": service.description,
-        "areaServed": ["India", "Global"],
+        "areaServed": ["United States", "United Kingdom", "Canada", "Australia", "Singapore", "Germany", "European Union", "India", "Worldwide"],
       },
       {
         "@type": "BreadcrumbList",

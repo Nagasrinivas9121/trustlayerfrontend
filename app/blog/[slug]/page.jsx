@@ -60,7 +60,7 @@ export default async function BlogPost({ params }) {
     "url": `https://www.trustlayerlabs.co.in/blog/${post.slug}`,
     "datePublished": post.date,
     "dateModified": post.date,
-    "inLanguage": "en-IN",
+    "inLanguage": "en",
     "author": {
       "@type": "Person",
       "name": post.author || "TrustLayerLabs Security Team",

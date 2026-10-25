@@ -12,10 +12,19 @@ export default function robots() {
     "Claude-Web",
     "Bytespider",
     "PerplexityBot",
+    "Perplexity-Bot",
+    "Applebot",
     "Applebot-Extended",
     "Cohere-ai",
+    "cohere-ai",
     "meta-externalagent",
+    "Meta-ExternalAgent",
+    "FacebookBot",
+    "Amazonbot",
     "Diffbot",
+    "DuckAssistBot",
+    "YouBot",
+    "Timpibot",
   ];
 
   return {

@@ -78,7 +78,7 @@ export default function Footer() {
               <p className="font-semibold text-neutral-900 uppercase tracking-wider text-[11px] font-mono flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" /> Remote-First Operations
               </p>
-              <p>🌐 Serving B2B SaaS Founders Across India & Globally</p>
+              <p>🌐 Serving B2B SaaS Founders Across US, UK, EU, APAC &amp; India</p>
               <p className="text-[11px] font-mono text-neutral-500">Govt. of India Registered MSME · UDYAM-AP-21-0044317</p>
             </address>
 

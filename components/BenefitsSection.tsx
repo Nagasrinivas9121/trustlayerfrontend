@@ -34,7 +34,7 @@ const BENEFITS: Benefit[] = [
     title: "Transparent & Fair Pricing",
     description: (
       <span>
-        Fixed-scope packages starting from ₹9,999 / $129.{" "}
+        Fixed-scope packages starting from ₹9,999* / $129* (*price negotiable).{" "}
         <Link href="/#pricing" className="text-primary font-semibold underline hover:text-blue-700">
           View packages &amp; pricing →
         </Link>

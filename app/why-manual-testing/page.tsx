@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     description: "Why automated vulnerability scanners miss BOLA, broken access control, and tenant isolation flaws. Explore the 8 critical logic attack surfaces.",
     url: "https://www.trustlayerlabs.co.in/why-manual-testing",
     siteName: "TrustLayerLabs",
-    locale: "en_IN",
+    locale: "en_US",
+    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
     type: "website",
   },
 };

@@ -31,7 +31,8 @@ export const metadata: Metadata = {
     description: "Manual Web Application VAPT for modern React, Next.js & SaaS apps. Uncover OWASP Top 10, broken access control & business logic flaws. 30-day retest included.",
     url: "https://www.trustlayerlabs.co.in/services/web-app-vapt",
     siteName: "TrustLayerLabs",
-    locale: "en_IN",
+    locale: "en_US",
+    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
     type: "website",
   },
   twitter: {
@@ -173,7 +174,7 @@ export default function WebAppVaptPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Manual Web Application VAPT for modern React, Next.js, and SaaS platforms targeting OWASP Top 10 and business logic vulnerabilities.",
-        "areaServed": ["India", "Global"],
+        "areaServed": ["United States", "United Kingdom", "Canada", "Australia", "Singapore", "Germany", "European Union", "India", "Worldwide"],
       },
       {
         "@type": "BreadcrumbList",

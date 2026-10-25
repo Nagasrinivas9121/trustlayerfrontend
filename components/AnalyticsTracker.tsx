@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { captureUtmAttribution, trackLandingPageView } from "@/lib/analytics";
+import { captureUtmAttribution, getUtmAttribution, trackLandingPageView } from "@/lib/analytics";
 
 export default function AnalyticsTracker() {
   const pathname = usePathname();
@@ -11,34 +11,60 @@ export default function AnalyticsTracker() {
     // Capture and persist UTM parameters on initial entry
     captureUtmAttribution();
 
-    // Track landing page view per section 25
     const pageType = pathname === "/" ? "home" : pathname.replace(/^\//, "");
     trackLandingPageView(pageType);
 
-    try {
-      // Standard GTM & GA4 SPA Page View Dispatch
-      if (typeof window !== "undefined") {
-        const w = window as any;
-        const sanitizedLocation = (window.location.origin || "https://www.trustlayerlabs.co.in") + pathname;
-        w.dataLayer = w.dataLayer || [];
-        w.dataLayer.push({
-          event: "page_view",
-          page_location: sanitizedLocation,
-          page_path: pathname,
-          page_title: typeof document !== "undefined" ? document.title : "",
-        });
-        if (typeof w.gtag === "function") {
-          w.gtag("config", "G-51DXDHGGHS", {
-            page_path: pathname,
+    // Debounce slightly to allow Next.js App Router to update document.title
+    const timer = setTimeout(() => {
+      try {
+        if (typeof window !== "undefined") {
+          const w = window as any;
+          const safeOrigin = window.location.origin || "https://www.trustlayerlabs.co.in";
+          const sanitizedLocation = safeOrigin + pathname;
+          const pageTitle = typeof document !== "undefined" ? document.title : "";
+          const utm = getUtmAttribution();
+          const deviceType = window.innerWidth < 768 ? "mobile" : window.innerWidth < 1024 ? "tablet" : "desktop";
+          const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-51DXDHGGHS";
+
+          w.dataLayer = w.dataLayer || [];
+
+          // 1. Dispatch custom virtual_page_view for GTM SPA triggers
+          w.dataLayer.push({
+            event: "virtual_page_view",
             page_location: sanitizedLocation,
-            page_title: typeof document !== "undefined" ? document.title : "",
+            page_path: pathname,
+            page_title: pageTitle,
+            page_type: pageType,
+            device_type: deviceType,
+            ...utm,
           });
+
+          // 2. Standard page_view for GA4 & Universal GTM triggers
+          w.dataLayer.push({
+            event: "page_view",
+            page_location: sanitizedLocation,
+            page_path: pathname,
+            page_title: pageTitle,
+            page_type: pageType,
+          });
+
+          // 3. Direct GA4 config dispatch if gtag is active
+          if (typeof w.gtag === "function") {
+            w.gtag("config", gaId, {
+              page_path: pathname,
+              page_location: sanitizedLocation,
+              page_title: pageTitle,
+            });
+          }
         }
+      } catch {
+        // Silently handle tracker exceptions
       }
-    } catch {
-      // Silently handle any tracker exception
-    }
+    }, 60);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;
 }
+

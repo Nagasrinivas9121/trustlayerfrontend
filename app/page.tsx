@@ -18,7 +18,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": "https://www.trustlayerlabs.co.in/#faq",
-    "mainEntity": FAQS.slice(0, 8).map((faq) => ({
+    "mainEntity": FAQS.map((faq) => ({
       "@type": "Question",
       "name": faq.question,
       "acceptedAnswer": {
@@ -64,7 +64,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://www.trustlayerlabs.co.in/#service-vapt",
-    "name": "Manual API & SaaS Security Testing",
+    "name": "Manual API & SaaS Security Testing Worldwide",
     "serviceType": "Penetration Testing & Vulnerability Assessment",
     "description": "Manual offensive security assessments for SaaS, FinTech, and AI platforms targeting BOLA, broken access control, and business logic flaws overlooked by automated scanners.",
     "provider": {
@@ -73,10 +73,15 @@ export default function Home() {
       "name": "TrustLayerLabs"
     },
     "areaServed": [
-      { "@type": "City", "name": "Bengaluru" },
-      { "@type": "City", "name": "Hyderabad" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "United Kingdom" },
+      { "@type": "Country", "name": "Canada" },
+      { "@type": "Country", "name": "Australia" },
+      { "@type": "Country", "name": "Singapore" },
+      { "@type": "Country", "name": "Germany" },
+      { "@type": "AdministrativeArea", "name": "European Union" },
       { "@type": "Country", "name": "India" },
-      { "@type": "AdministrativeArea", "name": "Global" }
+      { "@type": "AdministrativeArea", "name": "Worldwide" }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

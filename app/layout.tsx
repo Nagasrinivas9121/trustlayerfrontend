@@ -34,23 +34,28 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.trustlayerlabs.co.in"),
   manifest: "/manifest.json",
   title: {
-    default: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
+    default: "TrustLayerLabs — Manual API & SaaS Security Testing for Startups Worldwide",
     template: "%s | TrustLayerLabs",
   },
-  description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Every finding manually verified with a reproducible PoC.",
+  description: "Global offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses worldwide. Every finding manually verified with reproducible cURL PoCs.",
   keywords: [
-    "VAPT India",
-    "API Security Testing India",
-    "Manual Penetration Testing Services",
-    "SaaS Multi-Tenant VAPT",
-    "VAPT Bangalore",
-    "VAPT Hyderabad",
-    "BOLA IDOR Security Testing",
-    "SOC 2 Type II Pentesting Readiness",
-    "ISO 27001 Security Audit India",
+    "API Penetration Testing",
+    "Manual API Security Testing",
+    "SaaS Multi-Tenant Penetration Testing",
+    "SOC 2 Type II Pentest",
+    "OWASP API Top 10 Testing",
+    "Cloud Penetration Testing Services",
+    "BOLA IDOR Security Assessment",
     "AI LLM Prompt Injection Testing",
     "FinTech API Security",
-    "Govt MSME Registered Cybersecurity Firm"
+    "Manual Penetration Testing Services",
+    "B2B SaaS Security Audit",
+    "Offensive Cybersecurity Consultancy USA UK Europe",
+    "VAPT Services Worldwide",
+    "ISO 27001 Security Audit",
+    "Govt MSME Registered Cybersecurity Firm",
+    "VAPT Bangalore",
+    "VAPT Hyderabad"
   ],
   authors: [{ name: "Nagasrinivasa Rao", url: "https://www.trustlayerlabs.co.in/about" }],
   creator: "TrustLayerLabs",
@@ -72,13 +77,19 @@ export const metadata: Metadata = {
     canonical: "https://www.trustlayerlabs.co.in",
     languages: {
       "en": "https://www.trustlayerlabs.co.in",
+      "en-US": "https://www.trustlayerlabs.co.in",
+      "en-GB": "https://www.trustlayerlabs.co.in",
+      "en-CA": "https://www.trustlayerlabs.co.in",
+      "en-AU": "https://www.trustlayerlabs.co.in",
+      "en-SG": "https://www.trustlayerlabs.co.in",
+      "en-DE": "https://www.trustlayerlabs.co.in",
       "en-IN": "https://www.trustlayerlabs.co.in",
       "x-default": "https://www.trustlayerlabs.co.in",
     },
   },
   openGraph: {
-    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
-    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Every finding manually verified with a reproducible PoC.",
+    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses Worldwide",
+    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses worldwide. Every finding manually verified with a reproducible PoC.",
     url: "https://www.trustlayerlabs.co.in",
     siteName: "TrustLayerLabs",
     images: [
@@ -86,18 +97,19 @@ export const metadata: Metadata = {
         url: "/og-image.jpg?v=2",
         width: 1200,
         height: 630,
-        alt: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
+        alt: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses Worldwide",
       },
     ],
-    locale: "en",
+    locale: "en_US",
+    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     site: "@trustlayerlabs",
     creator: "@trustlayerlabs",
-    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses",
-    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses. Every finding manually verified with a reproducible PoC.",
+    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses Worldwide",
+    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses worldwide. Every finding manually verified with a reproducible PoC.",
     images: ["/og-image.jpg?v=2"],
   },
   verification: {
@@ -122,9 +134,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-51DXDHGGHS";
+
   const orgLd = {
     "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+    "@type": ["Organization", "ProfessionalService"],
     "@id": "https://www.trustlayerlabs.co.in/#organization",
     "name": "TrustLayerLabs",
     "alternateName": ["TrustLayer Labs", "TrustLayer"],
@@ -139,7 +154,7 @@ export default function RootLayout({
       "height": 1024,
     },
     "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
-    "description": "Practitioner-led manual API penetration testing, SaaS multi-tenant isolation testing, AI/LLM security assessments, and SOC 2 / ISO 27001 readiness for high-growth tech startups and B2B enterprises.",
+    "description": "Global offensive security consultancy providing manual API penetration testing, SaaS multi-tenant isolation testing, AI/LLM security assessments, and SOC 2 / ISO 27001 readiness for high-growth tech startups and B2B enterprises worldwide.",
     "telephone": "+91-9391220328",
     "email": "ceo@trustlayerlabs.co.in",
     "address": {
@@ -150,21 +165,19 @@ export default function RootLayout({
       "postalCode": "500081",
       "addressCountry": "IN",
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 17.4435,
-      "longitude": 78.3772,
-    },
     "areaServed": [
+      { "@type": "Country", "name": "United States", "sameAs": "https://en.wikipedia.org/wiki/United_States" },
+      { "@type": "Country", "name": "United Kingdom", "sameAs": "https://en.wikipedia.org/wiki/United_Kingdom" },
+      { "@type": "Country", "name": "Canada", "sameAs": "https://en.wikipedia.org/wiki/Canada" },
+      { "@type": "Country", "name": "Australia", "sameAs": "https://en.wikipedia.org/wiki/Australia" },
+      { "@type": "Country", "name": "Singapore", "sameAs": "https://en.wikipedia.org/wiki/Singapore" },
+      { "@type": "Country", "name": "Germany", "sameAs": "https://en.wikipedia.org/wiki/Germany" },
+      { "@type": "AdministrativeArea", "name": "European Union", "sameAs": "https://en.wikipedia.org/wiki/European_Union" },
+      { "@type": "Country", "name": "United Arab Emirates", "sameAs": "https://en.wikipedia.org/wiki/United_Arab_Emirates" },
+      { "@type": "Country", "name": "India", "sameAs": "https://en.wikipedia.org/wiki/India" },
       { "@type": "City", "name": "Bengaluru", "sameAs": "https://en.wikipedia.org/wiki/Bangalore" },
       { "@type": "City", "name": "Hyderabad", "sameAs": "https://en.wikipedia.org/wiki/Hyderabad" },
-      { "@type": "City", "name": "Mumbai", "sameAs": "https://en.wikipedia.org/wiki/Mumbai" },
-      { "@type": "AdministrativeArea", "name": "Delhi NCR", "sameAs": "https://en.wikipedia.org/wiki/National_Capital_Region_(India)" },
-      { "@type": "City", "name": "Pune", "sameAs": "https://en.wikipedia.org/wiki/Pune" },
-      { "@type": "City", "name": "Chennai", "sameAs": "https://en.wikipedia.org/wiki/Chennai" },
-      { "@type": "Country", "name": "India", "sameAs": "https://en.wikipedia.org/wiki/India" },
-      { "@type": "AdministrativeArea", "name": "United States" },
-      { "@type": "AdministrativeArea", "name": "Global / Worldwide" },
+      { "@type": "AdministrativeArea", "name": "Worldwide" },
     ],
     "openingHoursSpecification": [
       {
@@ -174,10 +187,13 @@ export default function RootLayout({
         "closes": "21:00",
       },
     ],
-    "paymentAccepted": "Bank Wire Transfer, NEFT, RTGS, UPI, Corporate Credit Card, Razorpay, Stripe",
-    "currenciesAccepted": "INR, USD, EUR, GBP, SGD",
-    "priceRange": "₹₹₹",
+    "paymentAccepted": "Stripe, International Wire Transfer (SWIFT), ACH, Wise, Corporate Credit Card, Bank Transfer, Razorpay, UPI",
+    "currenciesAccepted": "USD, EUR, GBP, AUD, CAD, SGD, AED, INR",
+    "priceRange": "$$",
     "foundingDate": "2024-01-15",
+    "availableLanguage": [
+      { "@type": "Language", "name": "English" }
+    ],
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": ["#home h1", "#home p", "#why-choose-us h2", "#problems h2"],
@@ -291,7 +307,7 @@ export default function RootLayout({
     "@id": "https://www.trustlayerlabs.co.in/#website",
     "url": "https://www.trustlayerlabs.co.in",
     "name": "TrustLayerLabs",
-    "description": "API Security Testing & VAPT for SaaS & AI Startups in India",
+    "description": "Manual API Security Testing, SaaS Pentesting & SOC 2 Readiness for Startups Worldwide",
     "publisher": { 
       "@type": "Organization", 
       "@id": "https://www.trustlayerlabs.co.in/#organization" 
@@ -303,7 +319,7 @@ export default function RootLayout({
       "target": "https://www.trustlayerlabs.co.in/blog?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
-    "inLanguage": "en-IN",
+    "inLanguage": ["en", "en-US", "en-GB", "en-IN"],
   };
 
   return (
@@ -316,10 +332,6 @@ export default function RootLayout({
         <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.trustlayerlabs.co.in/sitemap.xml" />
         <link rel="help" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
-        <meta name="geo.region" content="IN-TG" />
-        <meta name="geo.placename" content="Hyderabad, Bengaluru, India" />
-        <meta name="geo.position" content="17.4435;78.3772" />
-        <meta name="ICBM" content="17.4435, 78.3772" />
         <meta name="target" content="all" />
         <meta name="audience" content="all" />
         <meta name="coverage" content="Worldwide" />
@@ -341,17 +353,41 @@ export default function RootLayout({
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;var p=null;try{var s=localStorage.getItem("cookie-consent");if(s)p=JSON.parse(s)}catch(e){}if(p&&typeof p==="object"){gtag("consent","default",{ad_storage:p.marketing?"granted":"denied",ad_user_data:p.marketing?"granted":"denied",ad_personalization:p.marketing?"granted":"denied",analytics_storage:p.analytics?"granted":"denied",personalization_storage:p.functional?"granted":"denied",functionality_storage:p.functional?"granted":"denied",security_storage:"granted",wait_for_update:500})}else{gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"denied",personalization_storage:"denied",functionality_storage:"denied",security_storage:"granted",wait_for_update:500})}gtag("set","ads_data_redaction",true);gtag("set","url_passthrough",true);`
           }}
         />
+        {/* Google Tag Manager Container (Initialized early in head when NEXT_PUBLIC_GTM_ID is provided) */}
+        {gtmId && (
+          <Script id="google-tag-manager" strategy="afterInteractive">
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${gtmId}');
+            `}
+          </Script>
+        )}
       </head>
       <body className="font-sans antialiased bg-background selection:bg-primary/20 selection:text-primary">
+        {/* Google Tag Manager (noscript fallback) */}
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+              title="Google Tag Manager"
+            />
+          </noscript>
+        )}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none font-sans text-xs font-bold uppercase tracking-wider"
         >
           Skip to content
         </a>
-        {/* Google tag (gtag.js) */}
+        {/* Google tag (gtag.js) for GA4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-51DXDHGGHS"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -360,7 +396,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-51DXDHGGHS');
+            gtag('config', '${gaId}');
           `}
         </Script>
         {process.env.NEXT_PUBLIC_CLARITY_ID && (
