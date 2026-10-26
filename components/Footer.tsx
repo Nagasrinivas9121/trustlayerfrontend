@@ -58,7 +58,7 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block group" aria-label="TrustLayerLabs Home">
-              <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0f14] shadow-sm transition-all duration-300 group-hover:scale-102 group-hover:border-blue-500 inline-flex items-center px-2 py-1">
+              <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-[#0d0f14] shadow-sm transition-[color,background-color,border-color,box-shadow,transform] duration-300 group-hover:scale-102 group-hover:border-blue-500 inline-flex items-center px-2 py-1">
                 <Image 
                   src="/trustlayerlabs-vapt-footer-logo.png" 
                   alt="TrustLayerLabs - The Verified Trust Layer" 
