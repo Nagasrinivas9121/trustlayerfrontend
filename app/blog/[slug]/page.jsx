@@ -43,6 +43,27 @@ export async function generateMetadata({ params }) {
   };
 }
 
+function getMatchingService(post) {
+  const text = `${post.slug} ${post.title} ${post.category || ""} ${(post.tags || []).join(" ")}`.toLowerCase();
+  
+  if (/llm|prompt injection|rag|ai security|machine learning/.test(text)) {
+    return { name: "AI & LLM Application Security testing", href: "/services/ai-security" };
+  }
+  if (/android|ssl pinning|frida|mobile|ios|masvs|apk/.test(text)) {
+    return { name: "Mobile App VAPT", href: "/services/mobile-vapt" };
+  }
+  if (/kubernetes|gcp|aws|s3|bucket|cloud security|iam/.test(text)) {
+    return { name: "Cloud Security Audit", href: "/services/cloud-security" };
+  }
+  if (/soc 2|iso 27001|compliance|audit|grc/.test(text)) {
+    return { name: "SOC 2 Penetration Testing", href: "/services/soc2-pentesting" };
+  }
+  if (/xss|csrf|cors|subdomain|web app|clickjacking|sql injection/.test(text)) {
+    return { name: "Web Application VAPT", href: "/services/web-app-vapt" };
+  }
+  return { name: "API Penetration Testing", href: "/services/api-security" };
+}
+
 export default async function BlogPost({ params }) {
   const resolvedParams = await params;
   const decodedSlug = decodeURIComponent(resolvedParams.slug).replace(/\s+/g, '-').toLowerCase();
@@ -51,6 +72,8 @@ export default async function BlogPost({ params }) {
   if (!post) {
     notFound();
   }
+
+  const matchingService = getMatchingService(post);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -143,6 +166,18 @@ export default async function BlogPost({ params }) {
             >
               {post.content}
             </ReactMarkdown>
+
+            <p className="border-t border-neutral-200/80 pt-6 mt-8 font-sans">
+              Need this tested on your own application? See our{" "}
+              <Link href={matchingService.href} className="font-semibold text-neutral-950 underline underline-offset-4 hover:text-neutral-700">
+                {matchingService.name}
+              </Link>{" "}
+              or{" "}
+              <Link href="/free-assessment" className="font-semibold text-neutral-950 underline underline-offset-4 hover:text-neutral-700">
+                get a fixed-price quote in 24h
+              </Link>
+              .
+            </p>
           </div>
         </div>
 

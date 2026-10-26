@@ -23,7 +23,15 @@ export default function PricingSection() {
           </h2>
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto font-sans">
-            Transparent, sprint-aligned pricing for startups preparing for enterprise vendor security questionnaires and external compliance audits.
+            Transparent, sprint-aligned pricing for startups preparing for enterprise vendor security questionnaires and external compliance audits. Explore our{" "}
+            <Link href="/services/api-security" className="text-neutral-900 font-semibold underline underline-offset-2 hover:text-primary">
+              API Security
+            </Link>{" "}
+            and{" "}
+            <Link href="/services/saas-vapt" className="text-neutral-900 font-semibold underline underline-offset-2 hover:text-primary">
+              SaaS Pentesting
+            </Link>{" "}
+            scopes.
           </p>
         </div>
 

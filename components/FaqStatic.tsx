@@ -1,15 +1,32 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { HelpCircle, ChevronDown } from "lucide-react";
 import { FAQS } from "@/lib/constants";
 
 export default function FaqStatic() {
   // Use high-impact questions tailored for enterprise vendor review unblocking
-  const questions = [
+  const questions: { q: string; a: React.ReactNode }[] = [
     {
       q: "How fast can you deliver a final pentest report for our enterprise deal?",
-      a: "The API Security Sprint takes 5 business days. The SaaS Multi-Tenant Assessment and SOC 2 Readiness Pentest take 7-10 business days. If your enterprise customer has an urgent deadline, critical findings and cURL PoCs are debriefed within 48 hours so your engineers can start patching."
+      a: (
+        <>
+          The{" "}
+          <Link href="/services/api-security" className="text-neutral-900 font-semibold underline underline-offset-2 hover:text-primary">
+            API Security Sprint
+          </Link>{" "}
+          takes 5 business days. The{" "}
+          <Link href="/services/saas-vapt" className="text-neutral-900 font-semibold underline underline-offset-2 hover:text-primary">
+            SaaS Multi-Tenant Assessment
+          </Link>{" "}
+          and{" "}
+          <Link href="/services/soc2-pentesting" className="text-neutral-900 font-semibold underline underline-offset-2 hover:text-primary">
+            SOC 2 Readiness Pentest
+          </Link>{" "}
+          take 7-10 business days. If your enterprise customer has an urgent deadline, critical findings and cURL PoCs are debriefed within 48 hours so your engineers can start patching.
+        </>
+      )
     },
     {
       q: "Does your pentest report satisfy enterprise procurement and SOC 2 / ISO 27001 auditors?",
