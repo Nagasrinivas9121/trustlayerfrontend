@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, ExternalLink, Award, Linkedin, CheckCircle2, FileCode } from "lucide-react";
 import { TRACK_RECORD_ENTRIES, FOUNDER_PROFILES } from "@/lib/track-record";
+import { PROOF_ITEMS } from "@/lib/proof-items";
 
 export default function TrackRecordSection() {
   // Auto-hide the section completely if there are no entries
@@ -20,20 +21,20 @@ export default function TrackRecordSection() {
         <div className="w-full max-w-2xl mx-auto flex flex-col items-center justify-center text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200 shadow-xs text-xs font-semibold text-neutral-800 mb-3">
             <Award size={14} className="text-primary" />
-            <span>Verifiable Practitioner Research</span>
+            <span>Practitioner Research</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950 mb-4 font-sans">
-            Verifiable Track Record
+            Research &amp; Write-ups
           </h2>
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto font-sans">
-            We operate transparently. Before partnering with us, verify our offensive practitioners through public disclosures, CVE records, and credential registries.
+            Technical write-ups from our team. You can verify our practitioners through the LinkedIn profiles and credential links on this page.
           </p>
         </div>
 
         {/* Track Record List */}
-        <div className="w-full max-w-4xl space-y-4 mb-14">
+        <div className="w-full max-w-4xl space-y-4 mb-10">
           {TRACK_RECORD_ENTRIES.map((record) => (
             <div
               key={record.id}
@@ -91,6 +92,38 @@ export default function TrackRecordSection() {
             </div>
           ))}
         </div>
+
+        {/* Real Proof Items (Hidden when empty) */}
+        {PROOF_ITEMS && PROOF_ITEMS.length > 0 && (
+          <div className="w-full max-w-4xl space-y-3 mb-10">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-500 mb-2">
+              Verified Proof Items
+            </h3>
+            <div className="bg-white rounded-2xl border border-neutral-200 divide-y divide-neutral-100 p-4">
+              {PROOF_ITEMS.map((item, idx) => (
+                <div key={idx} className="py-2.5 flex items-center justify-between gap-4 text-xs font-sans">
+                  <div className="flex items-center gap-2.5">
+                    <span className="font-mono text-[10px] uppercase font-bold text-primary bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
+                      {item.type}
+                    </span>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-neutral-900 hover:text-primary transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>{item.title}</span>
+                      <ExternalLink size={11} />
+                    </a>
+                  </div>
+                  <span className="font-mono text-neutral-400 text-[11px] shrink-0">
+                    {item.date}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Security Research Scenarios Link */}
         <div className="mb-12 text-center">
