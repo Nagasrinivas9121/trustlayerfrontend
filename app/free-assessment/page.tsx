@@ -185,7 +185,7 @@ function FreeAssessmentForm() {
           <div className="space-y-2">
             <h3 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Fixed-Price Quote Request Received</h3>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-sm mx-auto leading-relaxed">
-              Thank you! Our lead offensive security practitioners will review your scope under mutual NDA and send your fixed-price quote within 24 hours to <strong>{formData.email}</strong>.
+              Thank you! We will send a fixed-price quote within 24 hours to <strong>{formData.email}</strong>.
             </p>
           </div>
 
@@ -216,6 +216,9 @@ function FreeAssessmentForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5 font-sans" noValidate>
+          {/* Package hidden field */}
+          <input type="hidden" name="package" value={formData.package} />
+
           {/* Anti-spam honeypot */}
           <input
             type="text"
