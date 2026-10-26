@@ -30,6 +30,30 @@ export default function FaqStatic() {
     {
       q: "What certifications and qualifications do your security architects hold?",
       a: "Every assessment is led directly by our founding practitioners holding Certified Ethical Hacker (CEH), CyberWarfare Labs Certified Cyber Security Analyst (CWL C3SA), and ISO/IEC 27001:2022 Lead Auditor credentials. We are an officially registered Govt. of India MSME enterprise (UDYAM-AP-21-0044317)."
+    },
+    {
+      q: "Who have you worked with so far?",
+      a: "We are a new firm, which is why we run a Founding Client Program. We cannot share client names, and every engagement is covered by a mutual NDA. What you can verify today is our team: certifications and LinkedIn profiles are linked on this page, and the sample report shows exactly how we document findings."
+    },
+    {
+      q: "What do you need from us to start?",
+      a: "A list of in-scope endpoints or an OpenAPI/Postman collection, the user roles to test, a staging environment, and your compliance goal. A mutual NDA is signed before any of this is shared."
+    },
+    {
+      q: "Do you test production or staging?",
+      a: "By default we test in an isolated staging environment. Anything beyond that is agreed in writing in the Rules of Engagement before testing begins."
+    },
+    {
+      q: "What if you do not find any critical issues?",
+      a: "You still receive the full report with coverage and methodology. We report what we find and do not inflate severity."
+    },
+    {
+      q: "What counts as a retest?",
+      a: "After you deploy fixes, we re-run the original proof-of-concept requests against the patched build for the findings in the report. This is included for 30 days at no extra cost."
+    },
+    {
+      q: "Are your prices final?",
+      a: "The package prices on this page are starting prices. After a short scoping review we send a fixed-price quote within 24 hours. India prices exclude GST."
     }
   ];
 

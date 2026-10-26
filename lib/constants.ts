@@ -713,6 +713,30 @@ export const FAQS = [
   {
     question: "How do we scope an engagement and get started?",
     answer: "You can schedule a confidential 30-minute scoping review with our lead security practitioners. We discuss your architecture, endpoint count, authentication mechanisms, and timelines under mutual NDA, then provide a transparent, fixed-scope proposal within 24 hours."
+  },
+  {
+    question: "Who have you worked with so far?",
+    answer: "We are a new firm, which is why we run a Founding Client Program. We cannot share client names, and every engagement is covered by a mutual NDA. What you can verify today is our team: certifications and LinkedIn profiles are linked on this page, and the sample report shows exactly how we document findings."
+  },
+  {
+    question: "What do you need from us to start?",
+    answer: "A list of in-scope endpoints or an OpenAPI/Postman collection, the user roles to test, a staging environment, and your compliance goal. A mutual NDA is signed before any of this is shared."
+  },
+  {
+    question: "Do you test production or staging?",
+    answer: "By default we test in an isolated staging environment. Anything beyond that is agreed in writing in the Rules of Engagement before testing begins."
+  },
+  {
+    question: "What if you do not find any critical issues?",
+    answer: "You still receive the full report with coverage and methodology. We report what we find and do not inflate severity."
+  },
+  {
+    question: "What counts as a retest?",
+    answer: "After you deploy fixes, we re-run the original proof-of-concept requests against the patched build for the findings in the report. This is included for 30 days at no extra cost."
+  },
+  {
+    question: "Are your prices final?",
+    answer: "The package prices on this page are starting prices. After a short scoping review we send a fixed-price quote within 24 hours. India prices exclude GST."
   }
 ];
 
