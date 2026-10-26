@@ -691,7 +691,7 @@ export const FAQS = [
   },
   {
     question: "How long does a security assessment take and what is the turnaround time?",
-    answer: "A standard API or SaaS security assessment typically takes 5 to 7 business days, depending on endpoint count and architectural complexity. For startups facing tight enterprise deal deadlines or audit windows, we provide an expedited preliminary debrief of any critical findings within 48 to 72 hours so developers can begin patching immediately."
+    answer: "The API Security Sprint takes 5 business days. The SaaS Multi-Tenant Assessment and SOC 2 Readiness Pentest take 7-10 business days. If your enterprise customer has an urgent deadline, critical findings and cURL PoCs are debriefed within 48 hours so your engineers can start patching."
   },
   {
     question: "Do you sign a Non-Disclosure Agreement (NDA) before testing?",

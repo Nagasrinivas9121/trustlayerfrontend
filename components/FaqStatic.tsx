@@ -9,7 +9,7 @@ export default function FaqStatic() {
   const questions = [
     {
       q: "How fast can you deliver a final pentest report for our enterprise deal?",
-      a: "Our standard API Security Sprint and SaaS Multi-Tenant Assessment are completed in 5 to 7 business days. If your enterprise customer has an immediate procurement deadline, critical findings and raw cURL reproduction PoCs are debriefed asynchronously within 48 to 72 hours so your engineering team can begin patching immediately."
+      a: "The API Security Sprint takes 5 business days. The SaaS Multi-Tenant Assessment and SOC 2 Readiness Pentest take 7-10 business days. If your enterprise customer has an urgent deadline, critical findings and cURL PoCs are debriefed within 48 hours so your engineers can start patching."
     },
     {
       q: "Does your pentest report satisfy enterprise procurement and SOC 2 / ISO 27001 auditors?",

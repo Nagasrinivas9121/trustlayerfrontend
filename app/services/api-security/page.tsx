@@ -163,7 +163,7 @@ const faqs = [
   },
   {
     q: "How long does an API security assessment take?",
-    a: "A standard API penetration test takes 5 to 7 business days depending on endpoint count, authentication complexity, and custom business logic. For urgent customer security reviews, preliminary critical findings can be shared within 48 to 72 hours."
+    a: "The API Security Sprint takes 5 business days, while multi-tenant SaaS assessments take 7-10 business days. If your enterprise customer has an urgent deadline, critical findings and cURL PoCs are debriefed within 48 hours so your engineers can start patching."
   },
   {
     q: "Is retesting included after our engineering team patches the findings?",

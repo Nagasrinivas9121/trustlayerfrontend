@@ -46,7 +46,7 @@ export default function VaptBangaloreLayout({ children }: { children: React.Reac
             "name": "How fast can we receive a VAPT report for our SOC 2 audit or US enterprise deal?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For fast-moving SaaS startups in Bengaluru, we offer accelerated scoping intake under mutual NDA. Standard web & API assessments wrap up in 5 to 7 business days, with immediate preliminary notifications for any Critical findings so your developers can patch while we finalize the report."
+              "text": "For fast-moving SaaS startups in Bengaluru, we offer accelerated scoping intake under mutual NDA. The API Security Sprint takes 5 business days, and comprehensive SaaS & SOC 2 assessments take 7-10 business days, with preliminary notifications for critical findings within 48 hours so your developers can patch while we finalize the report."
             }
           },
           {

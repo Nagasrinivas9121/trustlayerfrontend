@@ -163,7 +163,7 @@ const faqs = [
   },
   {
     q: "How long does an AI application security audit take?",
-    a: "A standard AI application security assessment requires 5 to 7 business days, depending on model integration depth, tool-calling complexity, and vector store architecture. Urgent findings are shared in a preliminary debrief within 48 to 72 hours."
+    a: "AI application security assessments typically take 7-10 business days, depending on model integration depth, tool-calling complexity, and vector store architecture. If you have an urgent deadline, critical findings and PoCs are debriefed within 48 hours so your engineers can start patching."
   },
   {
     q: "Is vulnerability retesting included after our engineering team implements guardrails?",

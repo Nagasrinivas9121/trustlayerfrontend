@@ -142,7 +142,7 @@ const deliverables = [
 const faqs = [
   {
     q: "What is the typical duration of a Web Application VAPT?",
-    a: "A standard web application security assessment takes 5 to 7 business days. For complex enterprise applications or tight procurement deadlines, we provide an initial executive debrief within 48 to 72 hours."
+    a: "The API Security Sprint takes 5 business days, while comprehensive web and SaaS multi-tenant assessments take 7-10 business days. If you have an urgent deadline, critical findings and cURL PoCs are debriefed within 48 hours so your engineers can start patching."
   },
   {
     q: "Do you test single-page applications (React, Next.js, Vue)?",

@@ -127,7 +127,7 @@ const faqs = [
   },
   {
     q: "What is the typical turnaround time for a SaaS pentest?",
-    a: "Standard SaaS engagements require 5 to 7 business days of active testing. We conduct an initial debrief of critical findings within 48 to 72 hours, deliver the complete technical report upon completion, and include 30 days of free retesting following your patch deployment."
+    a: "The SaaS Multi-Tenant Assessment takes 7-10 business days. If your enterprise customer has an urgent deadline, critical findings and cURL PoCs are debriefed within 48 hours so your engineers can start patching immediately. 30 days of complimentary retesting is included following patch deployment."
   },
   {
     q: "What is considered out of scope during a SaaS penetration test?",
