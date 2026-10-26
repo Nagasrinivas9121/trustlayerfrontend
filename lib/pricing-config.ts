@@ -20,8 +20,9 @@ export interface PricingPackage {
 }
 
 export const FOUNDING_CLIENT_CONFIG = {
+  // Update only when a founding client has actually signed.
   slotsTotal: 3, // {{FOUNDING_SLOTS_TOTAL}}
-  slotsLeft: 2,  // {{FOUNDING_SLOTS_LEFT}}
+  slotsLeft: 3,  // {{FOUNDING_SLOTS_LEFT}}
   discountPercentage: 50, // {{FOUNDING_DISCOUNT_PERCENT}}
   title: "Founding Client Program",
   note: "*Listed prices are founding-client pricing and are negotiable based on scope & architecture.",

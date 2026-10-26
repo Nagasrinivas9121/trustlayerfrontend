@@ -119,7 +119,7 @@ export default function Home() {
       {/* 3. WHY CHOOSE US (Engineering Advantages, 48h Briefings, Direct Pentester Access) */}
       <BenefitsSection />
 
-      {/* 4. FOUNDING CLIENT PROGRAM (2-3 Discounted Slots, Transparent Give & Get) */}
+      {/* 4. FOUNDING CLIENT PROGRAM (3 Discounted Slots, Transparent Give & Get) */}
       <FoundingClientSection />
 
       {/* 4. PACKAGES & PRICING (3 Fixed-Scope Packages + Other Services Link List) */}
