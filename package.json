@@ -36,6 +36,7 @@
     "postcss": "^8.5.21"
   },
   "allowScripts": {
-    "unrs-resolver": true
+    "unrs-resolver": true,
+    "unrs-resolver@1.11.1": true
   }
 }
