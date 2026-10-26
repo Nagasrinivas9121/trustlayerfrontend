@@ -55,8 +55,8 @@ const STEPS: StepItem[] = [
 
 export default function HowItWorksStatic() {
   return (
-    <section id="how-it-works" className="w-full px-4 sm:px-6 py-20 bg-white border-t border-dashed border-neutral-200 relative">
-      <div id="steps" className="absolute -top-20" />
+    <section id="steps" className="w-full px-4 sm:px-6 py-20 bg-white border-t border-dashed border-neutral-200 relative scroll-mt-24">
+      <div id="how-it-works" className="scroll-mt-24" />
       <div className="max-w-[1140px] mx-auto w-full flex flex-col items-center">
         
         {/* Section Header */}

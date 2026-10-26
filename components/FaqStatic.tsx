@@ -58,7 +58,7 @@ export default function FaqStatic() {
   ];
 
   return (
-    <section id="faq" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200">
+    <section id="faq" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200 scroll-mt-24">
       <div className="max-w-[840px] mx-auto w-full flex flex-col items-center">
         
         {/* Section Header */}

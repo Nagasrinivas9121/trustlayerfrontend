@@ -15,7 +15,7 @@ const icons: Record<string, React.ElementType> = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-background border-t border-border relative" id="why-choose-us">
+    <section className="py-24 bg-background border-t border-border relative scroll-mt-24" id="why-choose-us">
       {/* Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 

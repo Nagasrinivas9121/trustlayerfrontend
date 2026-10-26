@@ -61,7 +61,7 @@ const BENEFITS: Benefit[] = [
 
 export default function BenefitsSection() {
   return (
-    <div id="why-choose-us" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200">
+    <div id="why-choose-us" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200 scroll-mt-24">
       <section className="max-w-[1140px] mx-auto dashed-x-custom w-full flex flex-col items-center justify-center px-4">
         
         {/* Section Header */}

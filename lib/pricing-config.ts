@@ -75,7 +75,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     badge: "Best fit for multi-tenant SaaS",
     popular: false,
     timeline: "7-10 business days",
-    scope: "Up to 30 Endpoints · 3 Roles",
+    scope: "30 endpoints · 3 roles",
     priceInr: "₹34,999 + GST",
     priceUsd: "$419",
     foundingPriceInr: "₹20,999",

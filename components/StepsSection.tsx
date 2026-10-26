@@ -74,7 +74,7 @@ export default function StepsSection() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <div id="steps" className="w-full px-4 sm:px-6 py-20 bg-white border-t border-dashed border-neutral-200">
+    <div id="steps" className="w-full px-4 sm:px-6 py-20 bg-white border-t border-dashed border-neutral-200 scroll-mt-24">
       <section className="max-w-[1140px] mx-auto w-full flex flex-col items-center justify-center">
         
         {/* Section Header */}
