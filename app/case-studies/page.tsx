@@ -38,7 +38,7 @@ export default function CaseStudiesPage() {
               <AlertTriangle size={16} />
             </div>
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
-              <strong className="text-neutral-900 font-semibold">Educational Notice:</strong> These are illustrative security scenarios designed to explain vulnerability vectors, exploit mechanisms, and remediation patterns. They do not represent specific TrustLayerLabs customer engagements or confidential data.
+              <strong className="text-neutral-900 font-semibold">Educational Notice:</strong> These are illustrative research scenarios written by our team. They are not client engagements. They explain vulnerability vectors, exploit mechanisms, and remediation patterns without representing specific confidential customer data.
             </p>
           </div>
 

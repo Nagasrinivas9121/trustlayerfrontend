@@ -63,7 +63,7 @@ export default function VaptHyderabad() {
       { "@type": "AdministrativeArea", "name": "Madhapur" },
       { "@type": "AdministrativeArea", "name": "Kondapur" }
     ],
-    "priceRange": "₹₹₹"
+    "priceRange": "₹₹"
   };
 
   const faqSchema = {

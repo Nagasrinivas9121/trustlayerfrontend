@@ -189,7 +189,7 @@ export default function RootLayout({
     ],
     "paymentAccepted": "Stripe, International Wire Transfer (SWIFT), ACH, Wise, Corporate Credit Card, Bank Transfer, Razorpay, UPI",
     "currenciesAccepted": "USD, EUR, GBP, AUD, CAD, SGD, AED, INR",
-    "priceRange": "$$",
+    "priceRange": "₹₹",
     "foundingDate": "2024-01-15",
     "availableLanguage": [
       { "@type": "Language", "name": "English" }
