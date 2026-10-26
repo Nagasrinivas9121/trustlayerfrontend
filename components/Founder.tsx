@@ -44,9 +44,9 @@ export default function Founder() {
               key={member.name} 
               itemScope
               itemType="https://schema.org/Person"
-              className="group p-7 bg-white border border-neutral-200/90 rounded-3xl flex flex-col justify-between relative overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)] hover:border-neutral-400 transition-all duration-300"
+              className="group p-7 bg-white border border-neutral-200/90 rounded-3xl flex flex-col justify-between relative overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)] hover:border-neutral-400 transition-[color,background-color,border-color,box-shadow,transform] duration-300"
             >
-              <div className="absolute top-0 right-0 w-28 h-28 bg-blue-50/60 rounded-bl-full pointer-events-none transition-all group-hover:scale-110" />
+              <div className="absolute top-0 right-0 w-28 h-28 bg-blue-50/60 rounded-bl-full pointer-events-none transition-[color,background-color,border-color,box-shadow,transform] group-hover:scale-110" />
               
               {/* Top Action Pills */}
               <div className="absolute top-5 right-5 z-20 flex items-center gap-2">
