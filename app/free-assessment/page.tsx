@@ -30,6 +30,7 @@ import {
   trackFormStart,
   trackFormSubmit,
   trackFormError,
+  trackWhatsappClick,
   trackCalendarCtaClick, 
   trackSampleReportCtaClick,
   getUtmAttribution
@@ -220,6 +221,7 @@ function FreeAssessmentForm() {
                 href="https://wa.me/919391220328" 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                onClick={() => trackWhatsappClick("free_assessment_success")}
                 className="text-emerald-700 underline font-medium hover:text-emerald-800"
               >
                 https://wa.me/919391220328
@@ -253,7 +255,13 @@ function FreeAssessmentForm() {
               </div>
               <p className="leading-relaxed opacity-90">
                 We could not submit this form right now. Please message us on WhatsApp:{" "}
-                <a href="https://wa.me/919391220328" target="_blank" rel="noopener noreferrer" className="underline font-bold">
+                <a 
+                  href="https://wa.me/919391220328" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  onClick={() => trackWhatsappClick("free_assessment_fallback_error")}
+                  className="underline font-bold"
+                >
                   https://wa.me/919391220328
                 </a>{" "}
                 or email{" "}
