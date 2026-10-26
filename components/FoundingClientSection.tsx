@@ -3,18 +3,18 @@
 import React from "react";
 import Link from "next/link";
 import { Sparkles, Check, ArrowRight, ShieldCheck, HelpCircle } from "lucide-react";
-import { FOUNDING_CLIENT_CONFIG } from "@/lib/pricing-config";
+import { FOUNDING_CLIENT_CONFIG, PRICING_PACKAGES } from "@/lib/pricing-config";
 import { trackPrimaryQuoteClick } from "@/lib/analytics";
 
 export default function FoundingClientSection() {
-  const { slotsTotal, slotsLeft, discountPercentage, whatYouGet, whatWeAsk, note } = FOUNDING_CLIENT_CONFIG;
+  const { slotsTotal, slotsLeft, whatYouGet, whatWeAsk } = FOUNDING_CLIENT_CONFIG;
 
   return (
     <section id="founding-program" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200">
       <div className="max-w-[1140px] mx-auto w-full flex flex-col items-center">
         
         {/* Section Header */}
-        <div className="w-full max-w-2xl mx-auto flex flex-col items-center justify-center text-center mb-12">
+        <div className="w-full max-w-2xl mx-auto flex flex-col items-center justify-center text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-primary mb-3">
             <Sparkles size={13} className="text-primary" />
             <span>Limited Cohort Offer</span>
@@ -25,7 +25,7 @@ export default function FoundingClientSection() {
           </h2>
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto font-sans mb-4">
-            Founding clients get {discountPercentage}% off listed package price for permission to publish an anonymized case study or short testimonial, plus priority scheduling.
+            Founding clients pay the founding price shown below (about 40% off list) in exchange for permission to publish an anonymized case study or short testimonial, plus priority scheduling.
           </p>
 
           {/* Slots Available Counter */}
@@ -37,8 +37,34 @@ export default function FoundingClientSection() {
           </div>
         </div>
 
+        {/* Founding Client Pricing Table */}
+        <div className="w-full max-w-4xl bg-white rounded-3xl border border-neutral-200/90 p-6 sm:p-7 shadow-xs mb-10 overflow-x-auto">
+          <table className="w-full text-left text-xs sm:text-sm font-sans">
+            <thead>
+              <tr className="border-b border-neutral-200 text-neutral-500 font-mono text-[11px] uppercase tracking-wider">
+                <th className="pb-3 pr-4 font-semibold">Package Name</th>
+                <th className="pb-3 px-4 font-semibold">List Price</th>
+                <th className="pb-3 pl-4 font-semibold text-emerald-700">Founding Price</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-neutral-100">
+              {PRICING_PACKAGES.map((pkg) => (
+                <tr key={pkg.id}>
+                  <td className="py-3 pr-4 font-bold text-neutral-900">{pkg.name}</td>
+                  <td className="py-3 px-4 font-mono text-neutral-600">
+                    {pkg.priceInr} / {pkg.priceUsd} USD
+                  </td>
+                  <td className="py-3 pl-4 font-mono font-bold text-emerald-700">
+                    {pkg.foundingPriceInr} / {pkg.foundingPriceUsd} USD
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
         {/* 2-Column Transparent Comparison: What You Get vs. What We Ask */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mb-4">
           
           {/* Column 1: What You Get */}
           <div className="p-7 sm:p-8 bg-white rounded-3xl border border-neutral-200/90 shadow-sm flex flex-col justify-between">
@@ -48,7 +74,7 @@ export default function FoundingClientSection() {
                   Deliverables & Inclusions
                 </span>
                 <span className="text-[11px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-md">
-                  {discountPercentage}% Discounted
+                  Founding pricing
                 </span>
               </div>
 
@@ -122,11 +148,6 @@ export default function FoundingClientSection() {
           </div>
 
         </div>
-
-        {/* Note under section */}
-        <p className="text-xs text-neutral-500 font-sans text-center mt-2">
-          {note}
-        </p>
 
       </div>
     </section>

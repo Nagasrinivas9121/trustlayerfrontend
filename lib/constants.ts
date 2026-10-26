@@ -602,56 +602,53 @@ export const TESTIMONIALS = [
 
 export const PRICING_TIERS = [
   {
-    name: "Starter Pentest",
-    price: "₹5,000*",
-    period: "per audit (*negotiable)",
-    description: "Ideal for early-stage startups needing a quick, reliable VAPT report to clear a sales deal or funding requirement.",
+    name: "API Security Sprint",
+    price: "₹14,999 + GST",
+    period: "fixed scope",
+    description: "Targeted manual testing focused on authorization boundaries, token security, and business logic.",
     features: [
-      "1 Web App / API Scoping",
+      "Up to 15 Endpoints",
       "Manual logic vulnerability testing",
-      "Vulnerability assessment (OWASP Top 10)",
+      "Vulnerability assessment (OWASP API Top 10)",
       "Detailed PDF audit report",
       "1 Free re-test within 30 days",
       "Email support",
-      "Signed VAPT Attestation Letter"
+      "Signed Attestation Letter"
     ],
-    cta: "Schedule 30-Min Review",
+    cta: "Get a fixed-price quote in 24h",
     popular: false
   },
   {
-    name: "Growth Security",
-    price: "₹49,000*",
-    period: "per audit (*negotiable)",
-    description: "Comprehensive VAPT, API testing, and cloud configuration audit for multi-tenant SaaS products and fintech apps.",
+    name: "SaaS Multi-Tenant Assessment",
+    price: "₹34,999 + GST",
+    period: "fixed scope",
+    description: "Comprehensive VAPT, API testing, and cloud configuration audit for multi-tenant SaaS products.",
     features: [
-      "Web App + Complete API Scoping",
+      "Up to 30 Endpoints · 3 Roles",
       "Deep manual logic testing & JWT audits",
-      "AWS / GCP cloud configuration check",
+      "Database row-level security (RLS) checks",
       "PDF Report + Developer debrief call",
-      "Remediation commits support",
-      "2 Free re-tests within 60 days",
-      "Slack security channel with our pentesters",
-      "Signed Attestation Letter & Security Badge"
+      "Remediation guidance",
+      "Complimentary 30-day retest",
+      "Signed Attestation Letter"
     ],
-    cta: "Schedule 30-Min Review",
+    cta: "Get a fixed-price quote in 24h",
     popular: true
   },
   {
-    name: "Enterprise Shield",
-    price: "Custom Pricing",
-    period: "annual retainer",
-    description: "Continuous security audits, SOC2/ISO readiness framework, and priority security testing for enterprise startups.",
+    name: "SOC 2 Readiness Pentest",
+    price: "₹59,999 + GST",
+    period: "fixed scope",
+    description: "Offensive assessment designed to support enterprise procurement security reviews and auditor evidence requests.",
     features: [
-      "Continuous pen testing (Quarterly audits)",
-      "SOC2 / ISO 27001 readiness & controls mapping",
-      "Secure code review & CI/CD pipeline SAST",
-      "Unlimited manual VAPT scoping",
-      "Priority SLA support responses",
-      "Dedicated virtual CISO (vCISO) hours",
-      "NDA guaranteed compliance assistance",
-      "Retainer dashboard & active threat alerts"
+      "Full Web & Public API",
+      "SOC 2 / ISO 27001 readiness & controls mapping",
+      "Manual VAPT scoping",
+      "Priority debrief",
+      "Complimentary 30-day retest",
+      "Signed Attestation Letter"
     ],
-    cta: "Schedule 30-Min Review",
+    cta: "Get a fixed-price quote in 24h",
     popular: false
   }
 ];

@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Check, ArrowRight, ShieldCheck, Clock, Layers } from "lucide-react";
-import { PRICING_PACKAGES, OTHER_SERVICES } from "@/lib/pricing-config";
+import { PRICING_PACKAGES, OTHER_SERVICES, FOUNDING_CLIENT_CONFIG } from "@/lib/pricing-config";
 import { trackPrimaryQuoteClick, trackPackageCtaClick } from "@/lib/analytics";
 
 export default function PricingSection() {
@@ -67,7 +67,7 @@ export default function PricingSection() {
                 <div className="mb-6 p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 space-y-2">
                   <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 uppercase tracking-wider">
                     <span>Starting from</span>
-                    <span>All-Inclusive</span>
+                    <span>Fixed scope</span>
                   </div>
                   <div className="flex items-baseline justify-between gap-2">
                     <span className="text-2xl sm:text-3xl font-bold text-neutral-950 font-mono tracking-tight">
@@ -82,9 +82,6 @@ export default function PricingSection() {
                       <Clock size={12} className="text-neutral-500 shrink-0" />
                       <span>Turnaround: {pkg.timeline}</span>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
-                      *Price Negotiable
-                    </span>
                   </div>
                 </div>
 
@@ -124,7 +121,7 @@ export default function PricingSection() {
 
         {/* Note under packages indicating star means negotiable */}
         <p className="text-xs text-neutral-500 font-sans text-center mb-12 max-w-xl">
-          <span className="font-semibold text-neutral-800">*Star symbol (*) indicates prices are negotiable</span> based on target endpoint volume, architecture complexity, and custom scoping requirements. Final fixed-price quote confirmed within 24 hours.
+          Starting prices. Your final fixed price is confirmed within 24 hours after scoping. India prices exclude GST. Founding prices apply to the first {FOUNDING_CLIENT_CONFIG.slotsTotal} clients and may change afterwards.
         </p>
 
         {/* Other Services Link List (Narrowing the Homepage Offer while Preserving Routes) */}
