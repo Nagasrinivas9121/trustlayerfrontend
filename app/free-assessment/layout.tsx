@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/free-assessment",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
     title: "Get a Free Security Scoping Review | 30-Min Scoping | TrustLayerLabs",
     description: "Get a practitioner-led architecture evaluation, threat surface scoping, and tailored security proposal under mutual NDA.",

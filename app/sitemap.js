@@ -16,7 +16,6 @@ export default function sitemap() {
     { url: "/tools/code-recommender",   priority: 0.9, frequency: "daily"   }, // Code Recommender Tool
     { url: "/tools/jwt-decoder",        priority: 0.9, frequency: "daily"   }, // JWT Decoder Tool
     { url: "/tools",                   priority: 0.85, frequency: "weekly"  }, // Developer Tools Hub
-    { url: "/free-assessment",         priority: 0.95, frequency: "weekly" },
     // Trust & Lead Magnets
     { url: "/manual-vs-automated-pentest", priority: 0.9, frequency: "weekly" },
     { url: "/why-manual-testing",       priority: 0.9, frequency: "weekly" },
