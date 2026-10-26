@@ -1,5 +1,5 @@
 /**
- * Public Verifiable Track Record for TrustLayerLabs Security Practitioners
+ * Public Practitioner Research & Write-ups for TrustLayerLabs Security Practitioners
  * 
  * NOTE: As a zero-client cybersecurity practice, we only present verifiable,
  * public security disclosures, CVEs, or bug bounty acknowledgments.

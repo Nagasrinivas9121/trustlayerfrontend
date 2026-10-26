@@ -128,7 +128,7 @@ export default function Home() {
       {/* 5. SAMPLE REPORT PREVIEW (Static Representative BOLA Finding + Retest Attestation) */}
       <SecurityReportPreviewStatic />
 
-      {/* 6. VERIFIABLE TRACK RECORD (Driven by data file, hidden if empty, Founder LinkedIn Links) */}
+      {/* 6. PRACTITIONER RESEARCH & WRITE-UPS (Driven by data file, hidden if empty, Founder LinkedIn Links) */}
       <TrackRecordSection />
 
       {/* 7. PRACTITIONER TEAM (IIT/VIT Credentials, CEH, CWL C3SA Footnote, Lead Auditors) */}
