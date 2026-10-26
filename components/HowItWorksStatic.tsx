@@ -48,7 +48,7 @@ const STEPS: StepItem[] = [
     deliverables: [
       "Exact reproducible cURL PoC scripts for engineers",
       "Executive summary tailored for enterprise buyers",
-      "Signed Attestation Letter accepted by auditors"
+      "Signed Attestation Letter designed to support auditor evidence requests"
     ]
   }
 ];

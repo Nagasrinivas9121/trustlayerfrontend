@@ -197,7 +197,7 @@ export default function VaptHyderabad() {
             <div className="p-5 bg-neutral-50 border border-neutral-200/70 rounded-2xl space-y-2">
               <h3 className="text-xs font-bold text-neutral-950 uppercase tracking-wider">Enterprise Attestation</h3>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                Formal security assessment reports and third-party auditor attestation letters accepted by global healthcare and enterprise buyers.
+                Formal security assessment reports and third-party auditor attestation letters designed to support global healthcare and enterprise buyers.
               </p>
             </div>
           </div>

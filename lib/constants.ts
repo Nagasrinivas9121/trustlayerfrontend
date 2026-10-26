@@ -707,7 +707,7 @@ export const FAQS = [
   },
   {
     question: "Will your VAPT report and attestation satisfy US and European enterprise buyers and SOC 2 / ISO 27001 auditors?",
-    answer: "Yes. Our testing methodology adheres strictly to OWASP Top 10, OWASP API Top 10, NIST SP 800-115, and PTES standards. Our attestation letters are signed by credentialed offensive practitioners (CEH, CWL C3SA, ISO/IEC 27001 Lead Auditor) and are structured specifically to satisfy vendor risk assessments (SIG, CAIQ, VSA) and external compliance auditors for SOC 2 Type II, ISO 27001, HIPAA, and GDPR."
+    answer: "It is designed to support them. Our testing methodology adheres strictly to OWASP Top 10, OWASP API Top 10, NIST SP 800-115, and PTES standards. Our attestation letters are signed by credentialed offensive practitioners (CEH, CWL C3SA, ISO/IEC 27001 Lead Auditor) and are structured specifically to support vendor risk assessments (SIG, CAIQ, VSA) and external compliance auditor evidence requests for SOC 2 Type II, ISO 27001, HIPAA, and GDPR."
   },
   {
     question: "What currencies and international payment methods do you accept?",

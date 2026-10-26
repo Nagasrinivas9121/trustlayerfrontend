@@ -13,7 +13,7 @@ export default function FaqStatic() {
     },
     {
       q: "Does your pentest report satisfy enterprise procurement and SOC 2 / ISO 27001 auditors?",
-      a: "Yes. Our testing methodology aligns directly with the OWASP Top 10, OWASP API Security Top 10, and PTES standards, with controls mapped to SOC 2 Security/Confidentiality criteria and ISO/IEC 27001:2022 Annex A. Deliverables include an Executive Summary for enterprise procurement officers and a signed formal Attestation Letter designed to support external audit evidence requests."
+      a: "It is designed to support them. Our testing methodology aligns directly with the OWASP Top 10, OWASP API Security Top 10, and PTES standards, with controls mapped to SOC 2 Security/Confidentiality criteria and ISO/IEC 27001:2022 Annex A. Deliverables include an Executive Summary for enterprise procurement officers and a signed formal Attestation Letter designed to support external audit evidence requests."
     },
     {
       q: "How does the complimentary 30-day retesting and signed attestation letter work?",
