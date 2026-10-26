@@ -23,10 +23,15 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import { PRICING_PACKAGES } from "@/lib/pricing-config";
+
+const saasPrice = PRICING_PACKAGES.find((p) => p.id === "saas-multi-tenant-assessment")?.priceInr.split("+")[0].trim() || "₹34,999";
 
 export const metadata: Metadata = {
-  title: "SaaS Penetration Testing & Multi-Tenant VAPT",
-  description: "Specialized SaaS penetration testing focused on multi-tenant isolation, cross-tenant BOLA, RBAC escalation, and billing bypasses. 30-day retest included.",
+  title: {
+    absolute: `SaaS & Multi-Tenant Pentesting India | From ${saasPrice}`,
+  },
+  description: "Tenant isolation, RLS and RBAC testing for B2B SaaS. Verified PoCs, free 30-day retest, 7-10 business days. Get a fixed-price quote.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/saas-vapt",
   },

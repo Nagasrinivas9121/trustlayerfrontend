@@ -21,6 +21,7 @@ import {
 import type { Metadata } from "next";
 import { SERVICES } from "@/lib/constants";
 import ContactForm from "@/components/ContactForm";
+import { PRICING_PACKAGES } from "@/lib/pricing-config";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -53,6 +54,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return {};
+
+  if (slug === "soc2-pentesting") {
+    const soc2Price = PRICING_PACKAGES.find((p) => p.id === "soc2-readiness-pentest")?.priceInr.split("+")[0].trim() || "₹59,999";
+    return {
+      title: {
+        absolute: `SOC 2 Penetration Testing in India | From ${soc2Price}`,
+      },
+      description: "Pentest mapped to SOC 2 and ISO 27001 for enterprise security reviews. Report designed to support auditor evidence requests. Quote in 24h.",
+      alternates: {
+        canonical: "https://www.trustlayerlabs.co.in/services/soc2-pentesting",
+      },
+      openGraph: {
+        title: "SOC 2 Penetration Testing in India | TrustLayerLabs",
+        description: "Pentest mapped to SOC 2 and ISO 27001 for enterprise security reviews. Report designed to support auditor evidence requests. Quote in 24h.",
+        url: "https://www.trustlayerlabs.co.in/services/soc2-pentesting",
+        siteName: "TrustLayerLabs",
+        locale: "en_US",
+        type: "website",
+      },
+    };
+  }
 
   return {
     title: `${service.title} Services | TrustLayerLabs`,

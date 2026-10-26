@@ -31,8 +31,10 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Mobile App VAPT & iOS/Android Pentesting",
-  description: "Manual mobile application VAPT services for iOS and Android. Inspect auth, data storage, deep links, and APIs with retesting and remediation guidance.",
+  title: {
+    absolute: "Mobile App VAPT (Android & iOS) India | OWASP MASVS",
+  },
+  description: "Manual Android and iOS penetration testing aligned to OWASP MASVS. Reproducible PoCs, remediation guidance and a free 30-day retest.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/mobile-vapt",
   },

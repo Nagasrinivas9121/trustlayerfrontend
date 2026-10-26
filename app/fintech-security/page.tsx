@@ -27,8 +27,10 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "FinTech VAPT & Payment API Security",
-  description: "Manual FinTech VAPT for APIs, payment workflows & banking integrations. Deep testing of BOLA/IDOR, transaction logic, race conditions & free retests.",
+  title: {
+    absolute: "FinTech API Security Testing in India | TrustLayerLabs",
+  },
+  description: "Manual pentesting for payment logic, ledger APIs and tenant isolation. Verified PoCs, 30-day retest, fixed-price quote in 24h.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/fintech-security",
   },

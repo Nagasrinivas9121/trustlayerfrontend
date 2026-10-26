@@ -20,10 +20,15 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import { PRICING_PACKAGES } from "@/lib/pricing-config";
+
+const apiSprintPrice = PRICING_PACKAGES.find((p) => p.id === "api-security-sprint")?.priceInr.split("+")[0].trim() || "₹14,999";
 
 export const metadata: Metadata = {
-  title: "API Security Testing & BOLA Pentesting",
-  description: "Practitioner-led manual API penetration testing for REST, GraphQL & gRPC. Uncover BOLA/IDOR, broken authorization & multi-tenant leaks. 30-day retest included.",
+  title: {
+    absolute: `API Penetration Testing for SaaS | From ${apiSprintPrice}`,
+  },
+  description: "Manual API pentesting for BOLA/IDOR, JWT and tenant isolation. cURL PoCs, free 30-day retest, 5-day turnaround. Fixed-price quote in 24h.",
   alternates: {
     canonical: "https://www.trustlayerlabs.co.in/services/api-security",
   },

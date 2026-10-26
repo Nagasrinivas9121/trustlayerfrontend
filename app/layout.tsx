@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.trustlayerlabs.co.in"),
   manifest: "/manifest.json",
   title: {
-    default: "TrustLayerLabs — Manual API & SaaS Security Testing for Startups Worldwide",
+    default: "API & SaaS Penetration Testing for Startups | TrustLayerLabs",
     template: "%s | TrustLayerLabs",
   },
   description: "Global offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses worldwide. Every finding manually verified with reproducible cURL PoCs.",
