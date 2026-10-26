@@ -27,6 +27,9 @@ import {
   trackFreeSecurityReviewSubmit, 
   trackFreeSecurityReviewConfirmation,
   trackSecurityReviewFormError,
+  trackFormStart,
+  trackFormSubmit,
+  trackFormError,
   trackCalendarCtaClick, 
   trackSampleReportCtaClick,
   getUtmAttribution
@@ -60,6 +63,7 @@ function FreeAssessmentForm() {
     if (!hasStarted) {
       setHasStarted(true);
       trackFreeSecurityReviewStart("free_assessment_page");
+      trackFormStart("free_assessment_page");
     }
   };
 
@@ -81,6 +85,9 @@ function FreeAssessmentForm() {
       errors.email = "A valid work email is required.";
     }
     setValidationErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      trackFormError("validation_error", "free_assessment");
+    }
     return Object.keys(errors).length === 0;
   };
 
@@ -119,9 +126,10 @@ function FreeAssessmentForm() {
       if (!response.ok || !result.success) {
         const errorMsg =
           result.error ||
-          "Unable to deliver enquiry automatically. Please contact our team directly at ceo@trustlayerlabs.co.in or via WhatsApp.";
+          "We could not submit this form right now. Please message us on WhatsApp: https://wa.me/919391220328 or email ceo@trustlayerlabs.co.in.";
         setError(errorMsg);
         trackSecurityReviewFormError(result.code || "delivery_error", "free_assessment");
+        trackFormError(result.code || "delivery_error", "free_assessment");
 
         const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
         existingLeads.push({
@@ -152,14 +160,19 @@ function FreeAssessmentForm() {
         deadline: formData.deadline,
         package: formData.package,
       });
+      trackFormSubmit({
+        package: formData.package,
+        source: "free_assessment",
+      });
 
       setSuccess(true);
       trackFreeSecurityReviewConfirmation();
     } catch (err: any) {
       console.error("Quote request submit error:", err);
-      const networkError = "Network error. Please verify your connection or email ceo@trustlayerlabs.co.in directly.";
+      const networkError = "We could not submit this form right now. Please message us on WhatsApp: https://wa.me/919391220328 or email ceo@trustlayerlabs.co.in.";
       setError(networkError);
       trackSecurityReviewFormError("network_error", "free_assessment");
+      trackFormError("network_error", "free_assessment");
 
       const existingLeads = JSON.parse(localStorage.getItem("trustlayer_leads") || "[]");
       existingLeads.push({
@@ -185,7 +198,7 @@ function FreeAssessmentForm() {
           <div className="space-y-2">
             <h3 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">Fixed-Price Quote Request Received</h3>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-sm mx-auto leading-relaxed">
-              Thank you! We will send a fixed-price quote within 24 hours to <strong>{formData.email}</strong>.
+              We will send a fixed-price quote within 24 hours.
             </p>
           </div>
 
@@ -238,11 +251,15 @@ function FreeAssessmentForm() {
                 <AlertCircle size={15} className="shrink-0" />
                 <span>Delivery Issue</span>
               </div>
-              <p className="leading-relaxed opacity-90">{error}</p>
-              <p className="text-[11px] pt-1 border-t border-red-200/60">
-                Your entered details are preserved below. You can also reach our team directly at{" "}
-                <a href="mailto:ceo@trustlayerlabs.co.in" className="underline font-bold">ceo@trustlayerlabs.co.in</a> or{" "}
-                <a href="https://wa.me/919391220328" target="_blank" rel="noopener noreferrer" className="underline font-bold">WhatsApp (+91 93912 20328)</a>.
+              <p className="leading-relaxed opacity-90">
+                We could not submit this form right now. Please message us on WhatsApp:{" "}
+                <a href="https://wa.me/919391220328" target="_blank" rel="noopener noreferrer" className="underline font-bold">
+                  https://wa.me/919391220328
+                </a>{" "}
+                or email{" "}
+                <a href="mailto:ceo@trustlayerlabs.co.in" className="underline font-bold">
+                  ceo@trustlayerlabs.co.in
+                </a>.
               </p>
             </div>
           )}

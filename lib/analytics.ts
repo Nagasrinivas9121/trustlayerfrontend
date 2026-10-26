@@ -495,10 +495,17 @@ export const trackPackageCtaClick = (packageName: string, location: string = "pr
 
 export const trackFormStart = (source: string = "unknown") => {
   trackQuoteFormStart(source);
+  trackEvent("form_start", { source });
 };
 
 export const trackFormSubmit = (data?: Record<string, any>) => {
   trackQuoteFormSubmit(data);
+  trackEvent("form_submit", data);
+};
+
+export const trackFormError = (errorType: string = "unknown", formName: string = "free_assessment") => {
+  trackSecurityReviewFormError(errorType, formName);
+  trackEvent("form_error", { form_name: formName, error_type: errorType });
 };
 
 

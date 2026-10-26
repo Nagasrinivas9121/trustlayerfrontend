@@ -105,45 +105,43 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // 5. Server-side validation and boundary limiting
-  const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "website-form";
-  const rawName = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
+  // 5. Server-side validation of company, website/stack, deadline, compliance goal, work email
   const company = typeof body.company === "string" 
     ? body.company.trim().slice(0, 100) 
     : typeof body.startup === "string" 
     ? body.startup.trim().slice(0, 100) 
     : "";
-  const name = rawName || (company ? `${company} Team` : "") || (source.includes("sample-report") ? "Sample Report Requester" : "") || (source.includes("checklist") ? "Checklist Requester" : "") || "Security Lead";
-  const email = typeof body.email === "string" ? body.email.trim().slice(0, 120) : "";
   const website = typeof body.website === "string" 
     ? body.website.trim().slice(0, 200) 
     : typeof body.website_or_stack === "string"
     ? body.website_or_stack.trim().slice(0, 200)
     : "";
-  const promptTrigger = typeof body.promptTrigger === "string" 
+  const deadline = typeof body.deadline === "string" 
+    ? body.deadline.trim().slice(0, 100) 
+    : typeof body.timeline === "string"
+    ? body.timeline.trim().slice(0, 100)
+    : "";
+  const complianceGoal = typeof body.compliance_goal === "string" 
+    ? body.compliance_goal.trim().slice(0, 100) 
+    : typeof body.promptTrigger === "string" 
     ? body.promptTrigger.trim().slice(0, 100) 
-    : typeof body.productType === "string" 
-    ? body.productType.trim().slice(0, 100) 
-    : typeof body.compliance_goal === "string"
-    ? body.compliance_goal.trim().slice(0, 100)
+    : typeof body.securityConcern === "string"
+    ? body.securityConcern.trim().slice(0, 100)
     : "";
-  const securityConcern = typeof body.securityConcern === "string" 
-    ? body.securityConcern.trim().slice(0, 100) 
-    : typeof body.scope === "string" 
-    ? body.scope.trim().slice(0, 100) 
-    : typeof body.compliance_goal === "string"
-    ? body.compliance_goal.trim().slice(0, 100)
-    : "";
-  const timeline = typeof body.timeline === "string" 
-    ? body.timeline.trim().slice(0, 50) 
-    : typeof body.deadline === "string"
-    ? body.deadline.trim().slice(0, 50)
-    : "";
+  const email = typeof body.email === "string" ? body.email.trim().slice(0, 120) : "";
+  const pkg = typeof body.package === "string" ? body.package.trim().slice(0, 100) : "";
+  const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "free-assessment";
+  const rawName = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
+  const name = rawName || (company ? `${company} Team` : "Security Lead");
   const message = typeof body.message === "string" ? body.message.trim().slice(0, 2000) : "";
 
-  if (!email || !EMAIL_REGEX.test(email)) {
+  if (!company || !website || !deadline || !complianceGoal || !email || !EMAIL_REGEX.test(email)) {
     return NextResponse.json(
-      { success: false, error: "A valid email address is required." },
+      { 
+        success: false, 
+        error: "Validation error: company, website/tech stack, deadline, compliance goal, and a valid work email are required.",
+        code: "VALIDATION_ERROR"
+      },
       { status: 422 }
     );
   }
@@ -153,37 +151,83 @@ export async function POST(req: NextRequest) {
   if (isDuplicateSubmission(dedupeKey)) {
     return NextResponse.json({
       success: true,
-      message: "Enquiry already received and queued for review.",
+      message: "We will send a fixed-price quote within 24 hours.",
       code: "DUPLICATE_ACCEPTED",
     });
   }
 
-  // 6. Delivery Dispatch Configuration
+  // Full lead payload
+  const leadPayload = {
+    source,
+    name,
+    company,
+    website,
+    deadline,
+    complianceGoal,
+    email,
+    package: pkg,
+    message,
+    timestamp: new Date().toISOString(),
+    ip: clientIp,
+  };
+
+  // 3. Fallback: ALWAYS write the full lead payload to server logs with a clear "NEW LEAD" prefix
+  console.log("NEW LEAD:", JSON.stringify(leadPayload, null, 2));
+
+  // Delivery configuration: (1) LEAD_WEBHOOK_URL; (2) RESEND_API_KEY
+  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
   const resendApiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.LEADS_TO_EMAIL || process.env.LEAD_NOTIFICATION_EMAIL || "ceo@trustlayerlabs.co.in";
   const fromEmail = process.env.LEADS_FROM_EMAIL || process.env.LEAD_FROM_EMAIL || "leads@trustlayerlabs.co.in";
-  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
 
   let delivered = false;
   let deliveryProvider = "none";
   let deliveryError = "";
 
-  // Strategy A: Transactional Email API (Resend)
-  if (resendApiKey) {
+  // Priority 1: Webhook Delivery (POST JSON)
+  if (webhookUrl) {
+    deliveryProvider = "webhook";
+    try {
+      const isSlack = webhookUrl.includes("hooks.slack.com");
+      const webhookPayload = isSlack
+        ? {
+            text: `🎯 *New Lead Received on TrustLayerLabs* (${source})\n*Company:* ${company}\n*Website:* ${website}\n*Email:* ${email}\n*Package:* ${pkg || "General"}\n*Deadline:* ${deadline}\n*Compliance Goal:* ${complianceGoal}\n*Message:* ${message || "None"}`,
+          }
+        : {
+            event: "new_lead",
+            ...leadPayload,
+          };
+
+      const webhookRes = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(webhookPayload),
+      });
+
+      if (webhookRes.ok) {
+        delivered = true;
+      } else {
+        deliveryError = `Webhook endpoint returned HTTP ${webhookRes.status}`;
+      }
+    } catch (err: any) {
+      deliveryError = err?.message || "Failed to reach webhook URL";
+    }
+  }
+
+  // Priority 2: Email Provider (Resend) to ceo@trustlayerlabs.co.in
+  if (!delivered && resendApiKey) {
     deliveryProvider = "resend";
     try {
       const safeName = escapeHtml(name);
       const safeEmail = escapeHtml(email);
-      const safeCompany = escapeHtml(company || "Not provided");
-      const safeWebsite = escapeHtml(website || "Not provided");
-      const safeConcern = escapeHtml(securityConcern || "Not provided");
-      const safeTrigger = escapeHtml(promptTrigger || "Not provided");
-      const safeTimeline = escapeHtml(timeline || "Not provided");
+      const safeCompany = escapeHtml(company);
+      const safeWebsite = escapeHtml(website);
+      const safeConcern = escapeHtml(complianceGoal);
+      const safeTimeline = escapeHtml(deadline);
+      const safePackage = escapeHtml(pkg || "None");
       const safeMessage = escapeHtml(message || "None").replace(/\n/g, "<br/>");
 
-      const emailSubject = source.includes("sample-report")
-        ? `[TrustLayerLabs Sample Report Download] ${safeEmail} (${company || "Product Team"})`
-        : `[TrustLayerLabs Enquiry] ${safeName} from ${company || "Product Team"} (${source})`;
+      const emailSubject = `[TrustLayerLabs Enquiry] ${safeName} from ${safeCompany} (${safePackage || source})`;
 
       const emailHtml = `<!DOCTYPE html>
 <html>
@@ -196,36 +240,32 @@ export async function POST(req: NextRequest) {
     </div>
     <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
       <tr>
-        <td style="padding: 8px 0; color: #8a8f9e; width: 140px;">Name:</td>
-        <td style="padding: 8px 0; color: #ffffff; font-weight: bold;">${safeName}</td>
+        <td style="padding: 8px 0; color: #8a8f9e; width: 140px;">Company:</td>
+        <td style="padding: 8px 0; color: #ffffff; font-weight: bold;">${safeCompany}</td>
       </tr>
       <tr>
         <td style="padding: 8px 0; color: #8a8f9e;">Work Email:</td>
         <td style="padding: 8px 0;"><a href="mailto:${safeEmail}" style="color: #3b5bdb; text-decoration: none; font-weight: bold;">${safeEmail}</a></td>
       </tr>
       <tr>
-        <td style="padding: 8px 0; color: #8a8f9e;">Company:</td>
-        <td style="padding: 8px 0; color: #ffffff;">${safeCompany}</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px 0; color: #8a8f9e;">Website:</td>
+        <td style="padding: 8px 0; color: #8a8f9e;">Website / Tech:</td>
         <td style="padding: 8px 0; color: #ffffff;">${safeWebsite}</td>
       </tr>
       <tr>
-        <td style="padding: 8px 0; color: #8a8f9e;">Primary Concern:</td>
+        <td style="padding: 8px 0; color: #8a8f9e;">Selected Package:</td>
+        <td style="padding: 8px 0; color: #ffffff;">${safePackage}</td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; color: #8a8f9e;">Compliance Goal:</td>
         <td style="padding: 8px 0; color: #ffffff;">${safeConcern}</td>
       </tr>
       <tr>
-        <td style="padding: 8px 0; color: #8a8f9e;">Review Trigger:</td>
-        <td style="padding: 8px 0; color: #ffffff;">${safeTrigger}</td>
-      </tr>
-      <tr>
-        <td style="padding: 8px 0; color: #8a8f9e;">Timeline:</td>
+        <td style="padding: 8px 0; color: #8a8f9e;">Target Deadline:</td>
         <td style="padding: 8px 0; color: #ffffff;">${safeTimeline}</td>
       </tr>
     </table>
     <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #1f2937;">
-      <p style="margin: 0 0 8px; color: #8a8f9e; font-size: 13px; font-weight: bold; text-transform: uppercase;">Scoping Brief / Message:</p>
+      <p style="margin: 0 0 8px; color: #8a8f9e; font-size: 13px; font-weight: bold; text-transform: uppercase;">Message:</p>
       <div style="background-color: #0d0f14; border: 1px solid #1f2937; border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.5; color: #e2e8f0;">
         ${safeMessage}
       </div>
@@ -239,15 +279,14 @@ export async function POST(req: NextRequest) {
 
       const emailText = `New Enquiry on TrustLayerLabs:
 Source: ${source}
-Name: ${name}
+Company: ${company}
+Website: ${website}
 Work Email: ${email}
-Company: ${company || "Not provided"}
-Website: ${website || "Not provided"}
-Primary Concern: ${securityConcern || "Not provided"}
-Review Trigger: ${promptTrigger || "Not provided"}
-Timeline: ${timeline || "Not provided"}
+Package: ${pkg || "None"}
+Compliance Goal: ${complianceGoal}
+Deadline: ${deadline}
 
-Scoping Brief:
+Message:
 ${message || "None"}
 
 Timestamp: ${new Date().toISOString()}`;
@@ -273,86 +312,34 @@ Timestamp: ${new Date().toISOString()}`;
       } else {
         const errJson = await emailRes.json().catch(() => ({}));
         deliveryError = errJson.message || `Resend API returned HTTP ${emailRes.status}`;
-        if (errJson?.message?.toLowerCase().includes("not verified")) {
-          console.error(`[Leads API] Domain in '${fromEmail}' is unverified in Resend DNS. Verify custom domain in Resend dashboard to send production emails.`);
-        }
       }
     } catch (err: any) {
       deliveryError = err?.message || "Failed to reach Resend API";
     }
   }
 
-  // Strategy B: Webhook Delivery (Slack, Discord, Zapier, Make, n8n, or internal CRM)
-  if (!delivered && webhookUrl) {
-    deliveryProvider = "webhook";
-    try {
-      const isSlack = webhookUrl.includes("hooks.slack.com");
-      const webhookPayload = isSlack
-        ? {
-            text: `🎯 *New Lead Received on TrustLayerLabs* (${source})\n*Name:* ${name}\n*Email:* ${email}\n*Company:* ${company || "N/A"}\n*Website:* ${website || "N/A"}\n*Concern:* ${securityConcern || "N/A"}\n*Timeline:* ${timeline || "N/A"}\n*Brief:* ${message || "None"}`,
-          }
-        : {
-            event: "lead_submission",
-            source,
-            timestamp: new Date().toISOString(),
-            lead: {
-              name,
-              email,
-              company,
-              website,
-              promptTrigger,
-              securityConcern,
-              timeline,
-              message,
-            },
-          };
-
-      const webhookRes = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(webhookPayload),
-      });
-
-      if (webhookRes.ok) {
-        delivered = true;
-      } else {
-        deliveryError = `Webhook endpoint returned HTTP ${webhookRes.status}`;
-      }
-    } catch (err: any) {
-      deliveryError = err?.message || "Failed to reach webhook URL";
-    }
-  }
-
-  // 7. Responses & Safe Audit Logging (Never log names, emails, phone numbers, or message bodies)
+  // 6. Responses
   if (delivered) {
-    console.info(`[Leads API] Enquiry accepted and delivered via ${deliveryProvider} (source: ${source})`);
+    console.info(`[Leads API] Enquiry accepted and delivered via ${deliveryProvider}`);
     return NextResponse.json({
       success: true,
-      message: "Enquiry delivered successfully to the TrustLayerLabs security team.",
+      message: "We will send a fixed-price quote within 24 hours.",
     });
   }
 
-  // Case: Neither provider is configured in environment
-  if (!resendApiKey && !webhookUrl) {
-    console.warn(`[Leads API] Submission received for ${source}, but no email delivery provider is configured (RESEND_API_KEY or LEAD_WEBHOOK_URL).`);
-    return NextResponse.json(
-      {
-        success: false,
-        error: "Email delivery service is currently not configured on this server. Please contact us directly at ceo@trustlayerlabs.co.in or via WhatsApp (+91 93912 20328).",
-        code: "PROVIDER_NOT_CONFIGURED",
-      },
-      { status: 503 }
-    );
-  }
+  // Fallback when NO delivery channel is configured or delivery fails at runtime
+  const fallbackMessage = "We could not submit this form right now. Please message us on WhatsApp: https://wa.me/919391220328 or email ceo@trustlayerlabs.co.in.";
+  console.error("NEW LEAD DELIVERY FAILED:", {
+    error: deliveryError || "No real delivery channel configured (LEAD_WEBHOOK_URL or RESEND_API_KEY unset)",
+    payload: leadPayload,
+  });
 
-  // Case: Provider configured but dispatch failed
-  console.error(`[Leads API] Delivery failed via ${deliveryProvider}. Details: ${deliveryError}`);
   return NextResponse.json(
     {
       success: false,
-      error: "Unable to deliver enquiry due to a temporary email provider issue. Please retry or contact ceo@trustlayerlabs.co.in directly.",
-      code: "DELIVERY_FAILED",
+      error: fallbackMessage,
+      code: webhookUrl || resendApiKey ? "DELIVERY_FAILED" : "NO_DELIVERY_CHANNEL",
     },
-    { status: 502 }
+    { status: webhookUrl || resendApiKey ? 502 : 503 }
   );
 }
