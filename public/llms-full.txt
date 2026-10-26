@@ -137,3 +137,5 @@
 - **API Security Checklist**: https://www.trustlayerlabs.co.in/api-security-checklist
 - **Bilateral NDA Process**: https://www.trustlayerlabs.co.in/nda-process
 - **Client-Side JWT Decoder**: https://www.trustlayerlabs.co.in/tools/jwt-decoder
+- **Secure Code Recommender**: https://www.trustlayerlabs.co.in/tools/code-recommender
+- **Developer Security Tools Hub**: https://www.trustlayerlabs.co.in/tools

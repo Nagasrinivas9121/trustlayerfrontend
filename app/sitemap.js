@@ -13,7 +13,9 @@ export default function sitemap() {
     { url: "/grc-readiness",           priority: 0.95, frequency: "weekly" },
     { url: "/partnerships",            priority: 0.85, frequency: "monthly" },
     { url: "/services",                priority: 0.95, frequency: "weekly"  },
+    { url: "/tools/code-recommender",   priority: 0.9, frequency: "daily"   }, // Code Recommender Tool
     { url: "/tools/jwt-decoder",        priority: 0.9, frequency: "daily"   }, // JWT Decoder Tool
+    { url: "/tools",                   priority: 0.85, frequency: "weekly"  }, // Developer Tools Hub
     { url: "/free-assessment",         priority: 0.95, frequency: "weekly" },
     // Trust & Lead Magnets
     { url: "/manual-vs-automated-pentest", priority: 0.9, frequency: "weekly" },

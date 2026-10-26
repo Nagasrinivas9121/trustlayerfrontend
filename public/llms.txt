@@ -40,8 +40,9 @@
 - [Manual Pentesting vs Automated Vulnerability Scanners](https://www.trustlayerlabs.co.in/manual-vs-automated-pentest): In-depth architectural evaluation explaining why automated DAST scanners miss 80% of business logic vulnerabilities (BOLA/BFLA).
 - [Sanitized Sample VAPT Report](https://www.trustlayerlabs.co.in/sample-report): Download an actual sanitized vulnerability assessment report demonstrating executive summaries, reproduction steps, and remediation guidance.
 - [API Security Checklist](https://www.trustlayerlabs.co.in/api-security-checklist): 45-point actionable technical checklist for engineering teams covering OWASP API Top 10 vulnerabilities.
-- [Mutual NDA Process](https://www.trustlayerlabs.co.in/nda-process): Step-by-step confidentiality workflow and bilateral NDA template.
+- [Secure Code Recommender](https://www.trustlayerlabs.co.in/tools/code-recommender): Client-side developer security tool to diagnose BOLA, SQLi, broken JWTs, and generate hardened secure code refactors with regression unit tests.
 - [JWT Decoder Security Tool](https://www.trustlayerlabs.co.in/tools/jwt-decoder): Client-side JWT inspection and security analysis tool.
+- [Developer Security Tools Hub](https://www.trustlayerlabs.co.in/tools): Comprehensive suite of free privacy-first developer security utilities.
 - [Technical Blog](https://www.trustlayerlabs.co.in/blog): In-depth technical guides on OWASP LLM Top 10, GCP bucket ACL exposure, Android SSL pinning bypass, and CNAME subdomain takeovers.
 - [About the Team](https://www.trustlayerlabs.co.in/about): Background on founder Nagasrinivasa Rao (IIT Guwahati, CEH/C3SA credentials) and core security consultants.
 
