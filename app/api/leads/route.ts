@@ -123,12 +123,18 @@ export async function POST(req: NextRequest) {
     : "";
   const complianceGoal = typeof body.compliance_goal === "string" 
     ? body.compliance_goal.trim().slice(0, 100) 
+    : typeof body.complianceGoal === "string"
+    ? body.complianceGoal.trim().slice(0, 100)
     : typeof body.promptTrigger === "string" 
     ? body.promptTrigger.trim().slice(0, 100) 
     : typeof body.securityConcern === "string"
     ? body.securityConcern.trim().slice(0, 100)
     : "";
-  const email = typeof body.email === "string" ? body.email.trim().slice(0, 120) : "";
+  const email = typeof body.email === "string" 
+    ? body.email.trim().slice(0, 120) 
+    : typeof body.workEmail === "string"
+    ? body.workEmail.trim().slice(0, 120)
+    : "";
   const pkg = typeof body.package === "string" ? body.package.trim().slice(0, 100) : "";
   const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "free-assessment";
   const rawName = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
