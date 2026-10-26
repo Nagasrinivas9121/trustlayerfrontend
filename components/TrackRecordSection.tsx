@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, ExternalLink, Award, Linkedin, CheckCircle2, FileCode } from "lucide-react";
-import { TRACK_RECORD_ENTRIES, FOUNDER_PROFILES } from "@/lib/track-record";
+import { ExternalLink, Award } from "lucide-react";
+import { TRACK_RECORD_ENTRIES } from "@/lib/track-record";
 import { PROOF_ITEMS } from "@/lib/proof-items";
 
 export default function TrackRecordSection() {
@@ -126,7 +125,7 @@ export default function TrackRecordSection() {
         )}
 
         {/* Security Research Scenarios Link */}
-        <div className="mb-12 text-center">
+        <div className="text-center">
           <Link
             href="/case-studies"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-blue-700 transition-colors underline underline-offset-4"
@@ -134,68 +133,6 @@ export default function TrackRecordSection() {
             <span>Explore Security Research Scenarios</span>
             <ExternalLink size={12} />
           </Link>
-        </div>
-
-        {/* Verified Founder Profiles Strip */}
-        <div className="w-full max-w-4xl p-6 sm:p-7 bg-white rounded-3xl border border-neutral-200/90 shadow-xs">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-5 border-b border-dashed border-neutral-200 gap-2">
-            <div>
-              <h3 className="text-sm font-bold text-neutral-950 font-sans uppercase tracking-wider">
-                Practitioner Identity Verification
-              </h3>
-              <p className="text-xs text-neutral-500 mt-0.5">
-                Every client assessment is conducted directly by our certified founding team:
-              </p>
-            </div>
-            <span className="text-xs font-mono text-emerald-700 font-bold flex items-center gap-1">
-              <CheckCircle2 size={13} />
-              Identity Confirmed
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {FOUNDER_PROFILES.map((profile) => (
-              <div
-                key={profile.name}
-                className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200 flex flex-col justify-between"
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3">
-                    <Image
-                      src={profile.avatar}
-                      alt={profile.name}
-                      width={40}
-                      height={40}
-                      className="w-10 h-10 rounded-full object-cover border border-neutral-200"
-                    />
-                    <div>
-                      <h4 className="text-xs font-bold text-neutral-950 font-sans">
-                        {profile.name}
-                      </h4>
-                      <p className="text-[10px] font-mono text-primary font-semibold">
-                        {profile.education}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-[11px] text-neutral-600 font-sans">
-                    {profile.credentials}
-                  </p>
-                </div>
-
-                <div className="pt-3 mt-3 border-t border-neutral-200/60">
-                  <a
-                    href={profile.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-700 hover:text-blue-600 transition-colors"
-                  >
-                    <Linkedin size={13} className="text-blue-600" />
-                    <span>LinkedIn Profile ↗</span>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>

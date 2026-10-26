@@ -44,13 +44,15 @@ export const TRACK_RECORD_ENTRIES: TrackRecordItem[] = [
   },
 ];
 
+import { TEAM_LINKEDIN } from "@/lib/constants";
+
 export const FOUNDER_PROFILES = [
   {
     name: "Nagasrinivasa Rao",
     role: "Founder & Lead Security Architect",
     education: "IIT Guwahati",
     credentials: "CEH · CWL C3SA",
-    linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/",
+    linkedin: TEAM_LINKEDIN.nagasrinivasa,
     avatar: "/nagasrinivasarao.jpg"
   },
   {
@@ -58,7 +60,7 @@ export const FOUNDER_PROFILES = [
     role: "Co-Founder & GRC Lead",
     education: "VIT Bhopal",
     credentials: "ISO/IEC 27001 Lead Auditor · CWL C3SA",
-    linkedin: "https://www.linkedin.com/in/ramineniteja",
+    linkedin: TEAM_LINKEDIN.ramineniteja,
     avatar: "/ramineniteja.jpg"
   },
   {
@@ -66,7 +68,7 @@ export const FOUNDER_PROFILES = [
     role: "VAPT Specialist",
     education: "Offensive Engineering",
     credentials: "CEH · Web App & API Security",
-    linkedin: "https://www.linkedin.com/in/nayansianand/",
+    linkedin: TEAM_LINKEDIN.nayansi,
     avatar: "/nayansianand.jpg"
   }
 ];

@@ -1009,6 +1009,13 @@ export const ASSESSMENT_PROCESS_STEPS = [
   }
 ];
 
+export const TEAM_LINKEDIN = {
+  nagasrinivasa: "https://www.linkedin.com/in/nagasrinivasarao9/",
+  ramineniteja: "https://www.linkedin.com/in/ramineniteja",
+  nayansi: "https://www.linkedin.com/in/nayansi-anand-35a99a31b/",
+  doddajagadeesh: "https://www.linkedin.com/in/dodda-jagadeesh"
+} as const;
+
 export const TEAM = [
   {
     name: "Nagasrinivasa Rao",
@@ -1022,7 +1029,7 @@ export const TEAM = [
     certificateTitle: "View Verified CyberWarfare Labs C3SA (Certified Cyber Security Analyst) Certificate",
     certificateId: "C3SA-6ad1ceaeb6d122ea6a9362fa",
     certModalId: "c3sa",
-    linkedin: "https://www.linkedin.com/in/nagasrinivasarao9/"
+    linkedin: TEAM_LINKEDIN.nagasrinivasa
   },
   {
     name: "Ramineni Teja",
@@ -1040,7 +1047,7 @@ export const TEAM = [
       { id: "c3sa_teja", label: "CWL C3SA" },
       { id: "btf_teja", label: "CWL BTF" }
     ],
-    linkedin: "https://www.linkedin.com/in/ramineniteja"
+    linkedin: TEAM_LINKEDIN.ramineniteja
   },
   {
     name: "Nayansi Anand",
@@ -1050,7 +1057,7 @@ export const TEAM = [
     image: "/nayansianand.jpg",
     credentials: ["CEH", "Web App Security", "VAPT Specialist", "VIT Bhopal"],
     education: "VIT Bhopal",
-    linkedin: "https://www.linkedin.com/in/nayansi-anand-35a99a31b/"
+    linkedin: TEAM_LINKEDIN.nayansi
   },
   {
     name: "Dodda Jagadeesh",
@@ -1059,7 +1066,7 @@ export const TEAM = [
     initials: "DJ",
     credentials: ["Operations Lead", "Engagement Management", "Malla Reddy University"],
     education: "Malla Reddy University",
-    linkedin: "https://www.linkedin.com/in/dodda-jagadeesh"
+    linkedin: TEAM_LINKEDIN.doddajagadeesh
   }
 ];
 
