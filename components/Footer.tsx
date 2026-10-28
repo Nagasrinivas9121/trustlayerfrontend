@@ -73,14 +73,14 @@ export default function Footer() {
             </Link>
             
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed max-w-sm font-sans">
-              Practitioner-led manual penetration testing, API logic audits, and GRC readiness consulting for fast-growing SaaS, FinTech, and AI platforms globally.
+              Practitioner-led manual penetration testing, API logic audits, and GRC readiness consulting for fast-growing SaaS, FinTech, and AI platforms.
             </p>
 
             <address className="not-italic text-xs text-neutral-600 space-y-1.5 font-sans border-t border-dashed border-neutral-200 pt-4">
               <p className="font-semibold text-neutral-900 uppercase tracking-wider text-[11px] font-mono flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" /> Remote-First Operations
               </p>
-              <p>🌐 Serving B2B SaaS Founders Across US, UK, EU, APAC &amp; India</p>
+              <p>🌐 Serving B2B SaaS and API-first startups. Based in India, working remotely.</p>
               <p className="text-[11px] font-mono text-neutral-500">Govt. of India Registered MSME · UDYAM-AP-21-0044317</p>
             </address>
 

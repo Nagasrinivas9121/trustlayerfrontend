@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     description: "Offensive security assessment for GenAI apps, LLM agents, and RAG vector databases. Test prompt injection, context leakage, and tool abuse with free retesting.",
     url: "https://www.trustlayerlabs.co.in/services/ai-security",
     siteName: "TrustLayerLabs",
-    locale: "en_US",
-    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
+    locale: "en_IN",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: {
@@ -187,7 +187,7 @@ export default function AiSecurityPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Vulnerability assessment for AI applications, LLM agents, RAG vector databases, and prompt injection vectors (OWASP Top 10 for LLMs).",
-        "areaServed": ["United States", "United Kingdom", "Canada", "Australia", "Singapore", "Germany", "European Union", "India", "Worldwide"],
+        "areaServed": "IN",
       },
       {
         "@type": "BreadcrumbList",

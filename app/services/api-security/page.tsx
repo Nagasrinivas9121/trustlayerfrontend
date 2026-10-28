@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     description: "Practitioner-led manual API penetration testing for REST, GraphQL & gRPC. Uncover BOLA/IDOR, broken authorization & multi-tenant leaks. 30-day retest included.",
     url: "https://www.trustlayerlabs.co.in/services/api-security",
     siteName: "TrustLayerLabs",
-    locale: "en_US",
-    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
+    locale: "en_IN",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: {
@@ -192,7 +192,7 @@ export default function ApiSecurityPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Manual vulnerability assessment for REST, GraphQL, and gRPC microservices targeting BOLA/IDOR, BFLA, broken authentication, and business logic flaws.",
-        "areaServed": ["United States", "United Kingdom", "Canada", "Australia", "Singapore", "Germany", "European Union", "India", "Worldwide"],
+        "areaServed": "IN",
       },
       {
         "@type": "BreadcrumbList",

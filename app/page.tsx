@@ -7,7 +7,8 @@ import PricingSection from "@/components/PricingSection";
 import SecurityReportPreviewStatic from "@/components/SecurityReportPreviewStatic";
 import TrackRecordSection from "@/components/TrackRecordSection";
 import Founder from "@/components/Founder";
-import FaqStatic, { HOMEPAGE_FAQS } from "@/components/FaqStatic";
+import FaqStatic from "@/components/FaqStatic";
+import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
 import FinalCTA from "@/components/FinalCTA";
 import QuoteModal from "@/components/QuoteModal";
 import FloatingActions from "@/components/FloatingActions";
@@ -63,7 +64,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://www.trustlayerlabs.co.in/#service-vapt",
-    "name": "Manual API & SaaS Security Testing Worldwide",
+    "name": "Manual API & SaaS Security Testing in India",
     "serviceType": "Penetration Testing & Vulnerability Assessment",
     "description": "Manual offensive security assessments for SaaS, FinTech, and AI platforms targeting BOLA, broken access control, and business logic flaws overlooked by automated scanners.",
     "provider": {
@@ -71,17 +72,7 @@ export default function Home() {
       "@id": "https://www.trustlayerlabs.co.in/#organization",
       "name": "TrustLayerLabs"
     },
-    "areaServed": [
-      { "@type": "Country", "name": "United States" },
-      { "@type": "Country", "name": "United Kingdom" },
-      { "@type": "Country", "name": "Canada" },
-      { "@type": "Country", "name": "Australia" },
-      { "@type": "Country", "name": "Singapore" },
-      { "@type": "Country", "name": "Germany" },
-      { "@type": "AdministrativeArea", "name": "European Union" },
-      { "@type": "Country", "name": "India" },
-      { "@type": "AdministrativeArea", "name": "Worldwide" }
-    ],
+    "areaServed": "IN",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Core Security Assessments",

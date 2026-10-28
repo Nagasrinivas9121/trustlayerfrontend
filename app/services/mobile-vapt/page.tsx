@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     description: "Manual mobile application VAPT services for iOS and Android. Inspect auth, data storage, deep links, and APIs with retesting and remediation guidance.",
     url: "https://www.trustlayerlabs.co.in/services/mobile-vapt",
     siteName: "TrustLayerLabs",
-    locale: "en_US",
-    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
+    locale: "en_IN",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: {
@@ -346,7 +346,7 @@ export default function MobileVaptPage() {
           "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Manual mobile application VAPT services for Android and iOS apps, APIs, authentication, data storage and business logic with actionable remediation guidance and retesting.",
-        "areaServed": ["India", "Global"],
+        "areaServed": "IN",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Mobile Application Security Testing Services",

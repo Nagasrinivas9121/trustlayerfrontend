@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     description: "Specialized SaaS penetration testing focused on multi-tenant isolation, cross-tenant BOLA, RBAC escalation, and billing bypasses. 30-day retest included.",
     url: "https://www.trustlayerlabs.co.in/services/saas-vapt",
     siteName: "TrustLayerLabs",
-    locale: "en_US",
-    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
+    locale: "en_IN",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: {
@@ -158,7 +158,7 @@ export default function SaasVaptPage() {
           "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Specialized SaaS penetration testing focused on multi-tenant isolation, cross-tenant BOLA, RBAC escalation, and billing bypasses. 30-day retest included.",
-        "areaServed": ["United States", "United Kingdom", "Canada", "Australia", "Singapore", "Germany", "European Union", "India", "Worldwide"],
+        "areaServed": "IN",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "SaaS Security Assessment Services",

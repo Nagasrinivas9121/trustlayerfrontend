@@ -8,6 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { INDIA_FIRST_METADATA } from "@/lib/constants";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     default: "API & SaaS Penetration Testing for Startups | TrustLayerLabs",
     template: "%s | TrustLayerLabs",
   },
-  description: "Global offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses worldwide. Every finding manually verified with reproducible cURL PoCs.",
+  description: INDIA_FIRST_METADATA.metaDescription,
   keywords: [
     "API Penetration Testing",
     "Manual API Security Testing",
@@ -50,8 +51,9 @@ export const metadata: Metadata = {
     "FinTech API Security",
     "Manual Penetration Testing Services",
     "B2B SaaS Security Audit",
-    "Offensive Cybersecurity Consultancy USA UK Europe",
-    "VAPT Services Worldwide",
+    "API Penetration Testing India",
+    "SOC 2 Penetration Testing India",
+    "Penetration Testing Cost India",
     "ISO 27001 Security Audit",
     "Govt MSME Registered Cybersecurity Firm",
     "VAPT Bangalore",
@@ -88,8 +90,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses Worldwide",
-    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses worldwide. Every finding manually verified with a reproducible PoC.",
+    title: INDIA_FIRST_METADATA.ogTitle,
+    description: INDIA_FIRST_METADATA.metaDescription,
     url: "https://www.trustlayerlabs.co.in",
     siteName: "TrustLayerLabs",
     images: [
@@ -97,19 +99,19 @@ export const metadata: Metadata = {
         url: "/og-image.jpg?v=2",
         width: 1200,
         height: 630,
-        alt: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses Worldwide",
+        alt: INDIA_FIRST_METADATA.ogImageAlt,
       },
     ],
-    locale: "en_US",
-    alternateLocale: ["en_GB", "en_CA", "en_AU", "en_SG", "en_IN"],
+    locale: INDIA_FIRST_METADATA.ogLocale,
+    alternateLocale: INDIA_FIRST_METADATA.ogLocaleAlternate,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     site: "@trustlayerlabs",
     creator: "@trustlayerlabs",
-    title: "TrustLayerLabs — Security Testing for Startups & Fast Growing Businesses Worldwide",
-    description: "Offensive security assessments, manual API penetration testing, and GRC readiness built for startups and fast-growing businesses worldwide. Every finding manually verified with a reproducible PoC.",
+    title: INDIA_FIRST_METADATA.twitterTitle,
+    description: INDIA_FIRST_METADATA.metaDescription,
     images: ["/og-image.jpg?v=2"],
   },
   verification: {
@@ -154,7 +156,7 @@ export default function RootLayout({
       "height": 1024,
     },
     "image": "https://www.trustlayerlabs.co.in/og-image.jpg",
-    "description": "Global offensive security consultancy providing manual API penetration testing, SaaS multi-tenant isolation testing, AI/LLM security assessments, and SOC 2 / ISO 27001 readiness for high-growth tech startups and B2B enterprises worldwide.",
+    "description": "Offensive security consultancy based in India providing manual API penetration testing, SaaS multi-tenant isolation testing, AI/LLM security assessments, and SOC 2 / ISO 27001 readiness for startups.",
     "telephone": "+91-9391220328",
     "email": "ceo@trustlayerlabs.co.in",
     "address": {
@@ -165,20 +167,7 @@ export default function RootLayout({
       "postalCode": "500081",
       "addressCountry": "IN",
     },
-    "areaServed": [
-      { "@type": "Country", "name": "United States", "sameAs": "https://en.wikipedia.org/wiki/United_States" },
-      { "@type": "Country", "name": "United Kingdom", "sameAs": "https://en.wikipedia.org/wiki/United_Kingdom" },
-      { "@type": "Country", "name": "Canada", "sameAs": "https://en.wikipedia.org/wiki/Canada" },
-      { "@type": "Country", "name": "Australia", "sameAs": "https://en.wikipedia.org/wiki/Australia" },
-      { "@type": "Country", "name": "Singapore", "sameAs": "https://en.wikipedia.org/wiki/Singapore" },
-      { "@type": "Country", "name": "Germany", "sameAs": "https://en.wikipedia.org/wiki/Germany" },
-      { "@type": "AdministrativeArea", "name": "European Union", "sameAs": "https://en.wikipedia.org/wiki/European_Union" },
-      { "@type": "Country", "name": "United Arab Emirates", "sameAs": "https://en.wikipedia.org/wiki/United_Arab_Emirates" },
-      { "@type": "Country", "name": "India", "sameAs": "https://en.wikipedia.org/wiki/India" },
-      { "@type": "City", "name": "Bengaluru", "sameAs": "https://en.wikipedia.org/wiki/Bangalore" },
-      { "@type": "City", "name": "Hyderabad", "sameAs": "https://en.wikipedia.org/wiki/Hyderabad" },
-      { "@type": "AdministrativeArea", "name": "Worldwide" },
-    ],
+    "areaServed": "IN",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -307,7 +296,7 @@ export default function RootLayout({
     "@id": "https://www.trustlayerlabs.co.in/#website",
     "url": "https://www.trustlayerlabs.co.in",
     "name": "TrustLayerLabs",
-    "description": "Manual API Security Testing, SaaS Pentesting & SOC 2 Readiness for Startups Worldwide",
+    "description": INDIA_FIRST_METADATA.metaDescription,
     "publisher": { 
       "@type": "Organization", 
       "@id": "https://www.trustlayerlabs.co.in/#organization" 
@@ -334,8 +323,8 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <meta name="target" content="all" />
         <meta name="audience" content="all" />
-        <meta name="coverage" content="Worldwide" />
-        <meta name="distribution" content="Global" />
+        <meta name="coverage" content={INDIA_FIRST_METADATA.metaCoverage} />
+        <meta name="distribution" content={INDIA_FIRST_METADATA.metaDistribution} />
         <meta name="rating" content="General" />
         <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/trustlayerlabs-verified-vendor-boost.svg" type="image/svg+xml" fetchPriority="high" />
