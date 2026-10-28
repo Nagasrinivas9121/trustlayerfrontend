@@ -7,23 +7,22 @@ import PricingSection from "@/components/PricingSection";
 import SecurityReportPreviewStatic from "@/components/SecurityReportPreviewStatic";
 import TrackRecordSection from "@/components/TrackRecordSection";
 import Founder from "@/components/Founder";
-import FaqStatic from "@/components/FaqStatic";
+import FaqStatic, { HOMEPAGE_FAQS } from "@/components/FaqStatic";
 import FinalCTA from "@/components/FinalCTA";
 import QuoteModal from "@/components/QuoteModal";
 import FloatingActions from "@/components/FloatingActions";
-import { FAQS } from "@/lib/constants";
 
 export default function Home() {
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": "https://www.trustlayerlabs.co.in/#faq",
-    "mainEntity": FAQS.map((faq) => ({
+    "mainEntity": HOMEPAGE_FAQS.map((faq) => ({
       "@type": "Question",
-      "name": faq.question,
+      "name": faq.q,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer,
+        "text": faq.a,
       },
     })),
   };

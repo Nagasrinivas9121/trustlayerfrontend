@@ -432,7 +432,7 @@ A standard application or API penetration test typically spans **5 to 10 busines
 
 ## Schedule a Scoping Review with TrustLayerLabs
 
-Need independent verification for your upcoming enterprise audit or compliance review? TrustLayerLabs provides rigorous, 100% practitioner-led [Web Application VAPT](/services/web-app-vapt), [API Penetration Testing](/services/api-security), and [SOC 2 Penetration Testing](/services/soc2-pentesting).
+Need independent verification for your upcoming enterprise audit or compliance review? TrustLayerLabs provides rigorous, practitioner-led [Web Application VAPT](/services/web-app-vapt), [API Penetration Testing](/services/api-security), and [SOC 2 Penetration Testing](/services/soc2-pentesting).
 
 Explore our [offensive testing methodology](/methodology), inspect a [sanitized sample report](/sample-report), or [schedule a technical scoping review](/free-assessment) directly with our lead security architects.
     `

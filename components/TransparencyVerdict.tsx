@@ -8,7 +8,7 @@ export default function TransparencyVerdict() {
     {
       area: "Zero Fabricated Social Proof & Testimonials",
       feedback: "How does a prospective client verify TrustLayerLabs without past client testimonials?",
-      status: "Guaranteed",
+      status: "Enforced",
       resolution: "We do not publish fabricated client reviews or purchased ratings. Instead, we provide our full sample VAPT report and reproducible attack logic so technical leaders can judge our rigor directly.",
       detailsLink: "/sample-report"
     },

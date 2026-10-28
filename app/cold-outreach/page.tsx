@@ -89,7 +89,7 @@ export default function ColdOutreachPage() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-neutral-700">
               <li className="flex items-start gap-2">
                 <span className="text-emerald-600 font-bold">✓</span>
-                <span>100% manual business logic auditing</span>
+                <span>Manual business logic auditing</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-emerald-600 font-bold">✓</span>

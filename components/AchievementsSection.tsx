@@ -26,7 +26,7 @@ export default function AchievementsSection() {
         {/* 3 Technical Capability Cards (Realistic Technical UI) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full items-stretch">
           
-          {/* Card 1: 100% Manual Verification (Real Terminal Execution Box) */}
+          {/* Card 1: Manual Verification (Real Terminal Execution Box) */}
           <div className="p-7 bg-white rounded-3xl border border-neutral-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:border-neutral-300 transition-all flex flex-col justify-between">
             <div>
               {/* Realistic Terminal UI Console */}
@@ -61,7 +61,7 @@ export default function AchievementsSection() {
                   <span>Every finding manually verified</span>
                 </div>
                 <h3 className="text-xl font-bold text-neutral-950 tracking-tight">
-                  100% Manual Verification
+                  Manual Verification
                 </h3>
                 <p className="text-sm text-neutral-600 leading-relaxed">
                   Every vulnerability is manually validated with reproducible curl proof-of-concept scripts and practical remediation code snippets.
@@ -71,7 +71,7 @@ export default function AchievementsSection() {
 
             <div className="pt-6 mt-6 border-t border-dashed border-neutral-200 text-xs text-neutral-500 flex items-center justify-between">
               <span>Verified in Dedicated Staging</span>
-              <span className="text-neutral-900 font-semibold font-mono">100% Verified PoCs</span>
+              <span className="text-neutral-900 font-semibold font-mono">Verified PoCs</span>
             </div>
           </div>
 
@@ -137,7 +137,7 @@ export default function AchievementsSection() {
 
             <div className="pt-6 mt-6 border-t border-dashed border-neutral-200 text-xs text-neutral-500 flex items-center justify-between">
               <span>OWASP &amp; PTES Aligned</span>
-              <span className="text-neutral-900 font-semibold font-mono">100% Human Scrutiny</span>
+              <span className="text-neutral-900 font-semibold font-mono">Practitioner Scrutiny</span>
             </div>
           </div>
 

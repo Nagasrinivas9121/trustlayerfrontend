@@ -111,7 +111,7 @@ export default function Founder() {
               {/* Credentials list */}
               <div className="border-t border-dashed border-neutral-200 pt-4 flex flex-col gap-2">
                 <div className="text-[10px] uppercase font-mono tracking-wider text-neutral-500 font-semibold mb-1">
-                  Verified Credentials
+                  {member.name.includes("Jagadeesh") ? "Role" : "Verified Credentials"}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {member.credentials.map((cred) => {

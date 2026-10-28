@@ -128,7 +128,7 @@ export default function FoundingClientSection() {
               </ul>
 
               <div className="mt-6 p-3.5 bg-neutral-50 rounded-2xl border border-neutral-200 text-xs text-neutral-600 leading-relaxed">
-                <strong className="text-neutral-900 block mb-0.5">Anonymization Guaranteed:</strong>
+                <strong className="text-neutral-900 block mb-0.5">Complete Anonymization:</strong>
                 If your company policies restrict public disclosure, your case study will be completely anonymized (e.g. &ldquo;Series-A B2B FinTech Platform&rdquo;) with zero logos or identifying marks.
               </div>
             </div>

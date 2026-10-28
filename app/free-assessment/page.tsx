@@ -571,7 +571,7 @@ export default function FreeAssessmentPage() {
               Why Engineering Teams Trust Our Security Reviews
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans mb-6">
-              Unlike automated scanning tools that generate noisy, irrelevant alerts, our assessments are conducted entirely by senior offensive security practitioners with extensive software engineering backgrounds. We focus on business logic flaws, authorization boundaries, and exploitable vulnerabilities.
+              Unlike automated scanning tools that generate noisy, irrelevant alerts, our assessments are conducted by our certified offensive security practitioners. We focus on business logic flaws, authorization boundaries, and exploitable vulnerabilities.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

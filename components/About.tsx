@@ -15,7 +15,7 @@ const specializations = [
 const highlights = [
   {
     icon: Target,
-    title: "100% Manual Logical Pentesting",
+    title: "Manual Logical Penetration Testing",
     desc: "We focus on IDORs, authentication bypasses, privilege escalation, and multi-tenant boundary breaches that automated scanners miss."
   },
   {
