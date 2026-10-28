@@ -36,7 +36,7 @@
 - **What are the accepted international payment methods?**: International clients can pay via Stripe, corporate credit cards, or international wire transfer (SWIFT / ACH / IBAN).
 
 ## Core Resources & Action Links
-- [Free Security Review & Scoping Portal](https://www.trustlayerlabs.co.in/free-assessment): Request a confidential 30-minute scoping review or apply for the limited-scope Free API Security Pilot under mutual NDA.
+- [Free Security Review & Scoping Portal](https://www.trustlayerlabs.co.in/free-assessment): Request a confidential 30-minute scoping review or apply for the Founding Client Program under mutual NDA.
 - [Manual Pentesting vs Automated Vulnerability Scanners](https://www.trustlayerlabs.co.in/manual-vs-automated-pentest): In-depth architectural evaluation explaining why automated DAST scanners miss 80% of business logic vulnerabilities (BOLA/BFLA).
 - [Sanitized Sample VAPT Report](https://www.trustlayerlabs.co.in/sample-report): Download an actual sanitized vulnerability assessment report demonstrating executive summaries, reproduction steps, and remediation guidance.
 - [API Security Checklist](https://www.trustlayerlabs.co.in/api-security-checklist): 45-point actionable technical checklist for engineering teams covering OWASP API Top 10 vulnerabilities.

@@ -21,6 +21,7 @@ import {
   Check
 } from "lucide-react";
 import { openCalendly } from "@/lib/calendly";
+import { FOUNDING_CLIENT_CONFIG } from "@/lib/pricing-config";
 import { 
   trackFreeSecurityReviewView,
   trackFreeSecurityReviewStart, 
@@ -52,6 +53,7 @@ function FreeAssessmentForm() {
     complianceGoal: "SOC 2",
     email: searchParams?.get("email") || "",
     package: packageParam,
+    foundingInterest: false,
   });
 
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
@@ -116,6 +118,7 @@ function FreeAssessmentForm() {
           promptTrigger: formData.complianceGoal,
           email: formData.email,
           package: formData.package,
+          founding_interest: formData.foundingInterest,
           source: "free-assessment",
           bot_field: botField,
           utm,
@@ -407,6 +410,21 @@ function FreeAssessmentForm() {
             )}
           </div>
 
+          {/* Optional Founding Client Interest Checkbox */}
+          <div className="flex items-center gap-2.5 pt-1">
+            <input
+              type="checkbox"
+              id="foundingInterest"
+              name="foundingInterest"
+              checked={formData.foundingInterest}
+              onChange={(e) => setFormData({ ...formData, foundingInterest: e.target.checked })}
+              className="w-4 h-4 rounded border-neutral-300 text-primary focus:ring-primary/20 cursor-pointer"
+            />
+            <label htmlFor="foundingInterest" className="text-xs text-neutral-700 font-sans cursor-pointer select-none">
+              I am interested in founding client pricing
+            </label>
+          </div>
+
           {/* Submit CTA */}
           <div className="pt-2">
             <button 
@@ -470,7 +488,7 @@ export default function FreeAssessmentPage() {
             For B2B SaaS, API, and multi-tenant platforms whose enterprise deals are waiting on an offensive pentest report.
           </p>
 
-          {/* Scoping Review & Pilot Information Banner - CodeDale Dashed Box */}
+          {/* Scoping Review & Founding Client Program Banner - CodeDale Dashed Box */}
           <div className="p-6 bg-white border border-dashed border-neutral-300 rounded-3xl max-w-xl mx-auto text-left shadow-[0_4px_20px_rgba(0,0,0,0.02)] space-y-4">
             <div>
               <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider block mb-1">
@@ -484,11 +502,11 @@ export default function FreeAssessmentPage() {
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span className="text-xs font-mono font-bold text-emerald-700 uppercase tracking-wider">
-                  Limited-Scope Pilot Assessment (3 Startup Slots)
+                  Founding Client Program: {FOUNDING_CLIENT_CONFIG.slotsLeft} of {FOUNDING_CLIENT_CONFIG.slotsTotal} slots open
                 </span>
               </div>
               <p className="text-xs text-neutral-600 leading-relaxed font-sans">
-                For qualifying early-stage B2B SaaS and AI product startups, we are conducting 3 free, limited-scope API security pilots (2–3 critical endpoints tested for BOLA/IDOR and auth bypass under mutual written authorization). Select the pilot trigger below to apply.
+                Founding clients pay about 40% off the list price in exchange for permission to publish an anonymized case study or short testimonial, plus priority scheduling. Select a package below to get your fixed-price quote.
               </p>
             </div>
           </div>

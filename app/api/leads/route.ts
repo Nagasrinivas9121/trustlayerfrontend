@@ -136,6 +136,11 @@ export async function POST(req: NextRequest) {
     ? body.workEmail.trim().slice(0, 120)
     : "";
   const pkg = typeof body.package === "string" ? body.package.trim().slice(0, 100) : "";
+  const foundingInterest = typeof body.founding_interest === "boolean" 
+    ? body.founding_interest 
+    : typeof body.foundingInterest === "boolean"
+    ? body.foundingInterest
+    : false;
   const source = typeof body.source === "string" ? body.source.trim().slice(0, 50) : "free-assessment";
   const rawName = typeof body.name === "string" ? body.name.trim().slice(0, 100) : "";
   const name = rawName || (company ? `${company} Team` : "Security Lead");
@@ -172,6 +177,7 @@ export async function POST(req: NextRequest) {
     complianceGoal,
     email,
     package: pkg,
+    founding_interest: foundingInterest,
     message,
     timestamp: new Date().toISOString(),
     ip: clientIp,
@@ -197,7 +203,7 @@ export async function POST(req: NextRequest) {
       const isSlack = webhookUrl.includes("hooks.slack.com");
       const webhookPayload = isSlack
         ? {
-            text: `🎯 *New Lead Received on TrustLayerLabs* (${source})\n*Company:* ${company}\n*Website:* ${website}\n*Email:* ${email}\n*Package:* ${pkg || "General"}\n*Deadline:* ${deadline}\n*Compliance Goal:* ${complianceGoal}\n*Message:* ${message || "None"}`,
+            text: `🎯 *New Lead Received on TrustLayerLabs* (${source})\n*Company:* ${company}\n*Website:* ${website}\n*Email:* ${email}\n*Package:* ${pkg || "General"}\n*Founding Client Interest:* ${foundingInterest ? "Yes" : "No"}\n*Deadline:* ${deadline}\n*Compliance Goal:* ${complianceGoal}\n*Message:* ${message || "None"}`,
           }
         : {
             event: "new_lead",
@@ -263,6 +269,10 @@ export async function POST(req: NextRequest) {
         <td style="padding: 8px 0; color: #ffffff;">${safePackage}</td>
       </tr>
       <tr>
+        <td style="padding: 8px 0; color: #8a8f9e;">Founding Interest:</td>
+        <td style="padding: 8px 0; color: #ffffff;">${foundingInterest ? "Yes (~40% off list)" : "No"}</td>
+      </tr>
+      <tr>
         <td style="padding: 8px 0; color: #8a8f9e;">Compliance Goal:</td>
         <td style="padding: 8px 0; color: #ffffff;">${safeConcern}</td>
       </tr>
@@ -290,6 +300,7 @@ Company: ${company}
 Website: ${website}
 Work Email: ${email}
 Package: ${pkg || "None"}
+Founding Client Interest: ${foundingInterest ? "Yes" : "No"}
 Compliance Goal: ${complianceGoal}
 Deadline: ${deadline}
 

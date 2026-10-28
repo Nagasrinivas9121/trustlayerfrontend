@@ -714,7 +714,7 @@ Before passing text from files or web scrapers into the RAG context window, sani
 ---
 
 ### Next Steps for GenAI Engineering Teams
-If your team is deploying LLM features, RAG pipelines, or autonomous agent tools, automated scanners cannot verify whether vector search filters or authorization guards hold under adversarial manipulation. Explore our [AI Application Security Testing](/services/ai-security) services or schedule a confidential [30-Minute Security Review](/free-assessment) under mutual NDA. Qualifying early-stage AI startups can also apply for our limited-scope pilot assessment.
+If your team is deploying LLM features, RAG pipelines, or autonomous agent tools, automated scanners cannot verify whether vector search filters or authorization guards hold under adversarial manipulation. Explore our [AI Application Security Testing](/services/ai-security) services or schedule a confidential [30-Minute Security Review](/free-assessment) under mutual NDA. Qualifying early-stage AI startups can also apply for our Founding Client Program.
 `
   },
   {

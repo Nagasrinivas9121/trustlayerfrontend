@@ -105,16 +105,16 @@
 
 ---
 
-## 4. Scoping & Pilot Client Program
+## 4. Scoping & Founding Client Program
 
 ### Free 30-Minute Security Review (Scoping Conversation)
 - **URL**: https://www.trustlayerlabs.co.in/free-assessment
 - **Purpose**: A technical scoping conversation under mutual NDA to review application architecture, identify critical attack surfaces, discuss past assessment findings, and define testing scopes.
 
-### 3-Slot Free API Security Pilot
+### Founding Client Program (3 Slots)
 - **URL**: https://www.trustlayerlabs.co.in/free-assessment
-- **Eligibility**: Open to qualified B2B SaaS or AI startups worldwide.
-- **Scope**: Focused manual testing on 2–3 sensitive API endpoints (such as authentication or multi-tenant authorization endpoints).
+- **Offer**: Approximately 40% off list pricing in exchange for permission to publish an anonymized case study or short testimonial, plus priority scheduling.
+- **Scope**: Fixed-scope manual API and SaaS security assessments with reproducible cURL PoCs and complimentary 30-day retesting.
 - **Requirements**: Bilateral mutual NDA signed, written Rules of Engagement (RoE) authorization granted, and a staging environment provided.
 
 ---
