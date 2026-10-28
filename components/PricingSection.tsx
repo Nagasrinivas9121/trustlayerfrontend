@@ -52,7 +52,7 @@ export default function PricingSection() {
               >
                 <div className="flex-1 flex flex-col">
                   {/* Header Row */}
-                  <div className="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-neutral-100 min-h-[44px]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-neutral-100 min-h-[52px]">
                     <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-600">
                       {pkg.scope}
                     </span>
@@ -71,7 +71,7 @@ export default function PricingSection() {
                     {pkg.name}
                   </h3>
 
-                  <p className="text-xs text-neutral-600 leading-relaxed mb-6 font-sans min-h-[48px]">
+                  <p className="text-xs text-neutral-600 leading-relaxed mb-6 font-sans min-h-[54px]">
                     {pkg.description}
                   </p>
 
@@ -81,13 +81,13 @@ export default function PricingSection() {
                       <span>Starting from</span>
                       <span>Fixed scope</span>
                     </div>
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1.5">
-                      <div className="flex items-baseline whitespace-nowrap">
-                        <span className="text-2xl sm:text-3xl font-bold text-neutral-950 font-mono tracking-tight">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-2">
+                      <div className="inline-flex items-baseline whitespace-nowrap shrink-0">
+                        <span className="text-2xl sm:text-3xl font-bold text-neutral-950 font-mono tracking-tight whitespace-nowrap">
                           {priceAmount}
                         </span>
                         {priceTax && (
-                          <span className="ml-1.5 text-xs sm:text-sm font-semibold font-mono text-neutral-500 whitespace-nowrap">
+                          <span className="ml-1 text-[11px] sm:text-xs font-semibold font-mono text-neutral-500 whitespace-nowrap">
                             {priceTax}
                           </span>
                         )}

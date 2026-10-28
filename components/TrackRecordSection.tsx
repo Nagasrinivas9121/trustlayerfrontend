@@ -13,7 +13,8 @@ export default function TrackRecordSection() {
   }
 
   return (
-    <section id="track-record" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200">
+    <section id="research" className="w-full bg-[#FAFAFA] px-4 sm:px-6 py-20 border-t border-dashed border-neutral-200 scroll-mt-24">
+      <span id="track-record" className="scroll-mt-24 -mt-24 block" />
       <div className="max-w-[1140px] mx-auto w-full flex flex-col items-center">
         
         {/* Section Header */}
