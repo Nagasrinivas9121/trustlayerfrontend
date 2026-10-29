@@ -193,7 +193,7 @@ export default function ApiSecurityPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Manual vulnerability assessment for REST, GraphQL, and gRPC microservices targeting BOLA/IDOR, BFLA, broken authentication, and business logic flaws.",
-        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"],
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "United Arab Emirates", "Singapore"],
       },
       {
         "@type": "BreadcrumbList",

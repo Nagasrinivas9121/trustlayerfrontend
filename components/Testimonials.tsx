@@ -38,7 +38,7 @@ export default function Testimonials() {
 
             <div className="relative z-10 space-y-6">
               <p className="text-base text-textPrimary leading-relaxed italic font-sans">
-                &ldquo;We operate as a distributed offensive security team delivering remote-first security assessments based in India. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.&rdquo;
+                &ldquo;We operate as a distributed offensive security team delivering remote-first security assessments for startups worldwide from India. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.&rdquo;
               </p>
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-border/60 font-sans">

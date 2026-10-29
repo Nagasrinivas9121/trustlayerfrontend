@@ -30,13 +30,13 @@ export const BRAND = {
   }
 };
 
-export const SITE_METADATA = {
+export const GLOBAL_METADATA = {
   metaDescription: "Manual API and multi-tenant SaaS penetration testing for startups worldwide. Reproducible cURL PoCs, free 30-day retest, fixed-price quote in 24h. Remote-first team based in India.",
   ogTitle: "TrustLayerLabs: API & SaaS Penetration Testing for Startups",
   twitterTitle: "TrustLayerLabs: API & SaaS Penetration Testing for Startups",
   ogImageAlt: "TrustLayerLabs: API & SaaS Penetration Testing for Startups",
   metaCoverage: "Worldwide",
-  metaDistribution: "Global",
+  metaDistribution: "Worldwide",
   ogLocale: "en_US",
   ogLocaleAlternate: ["en_IN"],
   areaServed: [
@@ -44,7 +44,7 @@ export const SITE_METADATA = {
     "United States",
     "United Kingdom",
     "European Union",
-    "UAE",
+    "United Arab Emirates",
     "Singapore"
   ],
   countryName: "India",
@@ -54,11 +54,11 @@ export const SITE_METADATA = {
     "Penetration Testing for SaaS Startups",
   ],
   footerBlurb: "Practitioner-led manual penetration testing, API logic audits, and GRC readiness consulting for fast-growing SaaS, FinTech, and AI platforms.",
-  footerServing: "🌐 Serving B2B SaaS and API-first startups worldwide. Remote-first, based in India."
+  footerServing: "Serving B2B SaaS and API-first startups worldwide. Remote-first, based in India."
 };
 
-export const GLOBAL_METADATA = SITE_METADATA;
-export const INDIA_FIRST_METADATA = SITE_METADATA;
+export const SITE_METADATA = GLOBAL_METADATA;
+export const INDIA_FIRST_METADATA = GLOBAL_METADATA;
 
 export const C3SA_EXPLANATION = "CWL C3SA: Certified Cyber Security Analyst, an advanced offensive practitioner certification issued by CyberWarfare Labs focusing on manual penetration testing, authorization logic, and real-world exploitation techniques.";
 
@@ -621,7 +621,7 @@ export const CASE_STUDIES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "We operate as a distributed offensive security team delivering remote-first security assessments based in India. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.",
+    quote: "We operate as a distributed offensive security team delivering remote-first security assessments for startups worldwide from India. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.",
     name: "TrustLayerLabs Team",
     role: "Distributed Offensive Security Team",
     company: "Remote-First Operations",
@@ -730,7 +730,7 @@ export const FAQS = [
   },
   {
     question: "Does TrustLayerLabs work with international startups and enterprises outside India?",
-    answer: "Yes. Based in India, we serve B2B SaaS and API-first startups remotely. We execute bilateral mutual NDAs (Delaware or English law compatible), coordinate scoping and engineering debriefs across time zones, and accept international wire transfers (SWIFT/ACH) and Stripe payments in USD, EUR, and GBP."
+    answer: "Yes. TrustLayerLabs serves B2B SaaS and API-first startups worldwide. Operating as a remote-first team based in India, we execute bilateral mutual NDAs (Delaware or English law compatible), coordinate scoping and engineering debriefs across time zones, and accept international wire transfers (SWIFT/ACH) and Stripe payments in USD, EUR, and GBP."
   },
   {
     question: "Will your VAPT report and attestation satisfy US and European enterprise buyers and SOC 2 / ISO 27001 auditors?",

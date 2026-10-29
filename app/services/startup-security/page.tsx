@@ -22,7 +22,7 @@ export default function StartupSecurityPage() {
         "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
         "serviceType": "Compliance Consulting",
         "description": "Fast-track SOC2 Type II, ISO 27001, and enterprise vendor audit readiness for SaaS, AI, and FinTech startups. GRC controls mapping and pentest attestation.",
-        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"],
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "United Arab Emirates", "Singapore"],
       },
       {
         "@type": "BreadcrumbList",

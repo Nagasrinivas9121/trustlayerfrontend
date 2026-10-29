@@ -81,7 +81,7 @@ export default function Proof() {
 
           {/* Quick Pill Badges */}
           <div className="flex flex-wrap gap-2">
-            {["Remote-First Delivery (India)", "SOC 2 & ISO 27001 Aligned", "Bilateral Mutual NDA", "USD & Multi-Currency Billing"].map((item, i) => (
+            {["Remote-First Delivery", "SOC 2 & ISO 27001 Aligned", "Bilateral Mutual NDA", "USD & Multi-Currency Billing"].map((item, i) => (
               <div 
                 key={i} 
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-neutral-200/80 rounded-full text-xs font-semibold text-neutral-700 shadow-xs font-sans"
@@ -253,7 +253,7 @@ export default function Proof() {
               </div>
 
               <h4 className="text-base font-bold text-neutral-950 font-sans mb-1">
-                Serving Startups in India &amp; Remotely
+                Serving Startups Worldwide, Remotely
               </h4>
               <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                 Remote-first execution under international mutual NDAs. We accommodate US (PST/EST), European (GMT/CET), and APAC time zones with multi-currency billing in USD, EUR, GBP, and INR via Stripe or SWIFT wire transfer.

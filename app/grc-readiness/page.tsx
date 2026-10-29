@@ -128,7 +128,7 @@ export default function GrcReadinessPage() {
         "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
         "description": "SOC 2 Type II, ISO 27001 readiness advisory, security policy development, and technical controls mapping.",
         "serviceType": "Cybersecurity Governance, Risk & Compliance Advisory",
-        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"]
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "United Arab Emirates", "Singapore"]
       },
       {
         "@type": "BreadcrumbList",

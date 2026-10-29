@@ -268,7 +268,7 @@ export default function FinTechSecurityPage() {
           "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Manual FinTech VAPT services for APIs, web applications, payment workflows and cloud infrastructure with actionable remediation guidance and retesting.",
-        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"],
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "United Arab Emirates", "Singapore"],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "FinTech Security Assessment Services",

@@ -188,7 +188,7 @@ export default function AiSecurityPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Vulnerability assessment for AI applications, LLM agents, RAG vector databases, and prompt injection vectors (OWASP Top 10 for LLMs).",
-        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"],
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "United Arab Emirates", "Singapore"],
       },
       {
         "@type": "BreadcrumbList",

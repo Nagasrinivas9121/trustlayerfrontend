@@ -8,7 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import { INDIA_FIRST_METADATA } from "@/lib/constants";
+import { GLOBAL_METADATA } from "@/lib/constants";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     default: "API & SaaS Penetration Testing for Startups | TrustLayerLabs",
     template: "%s | TrustLayerLabs",
   },
-  description: INDIA_FIRST_METADATA.metaDescription,
+  description: GLOBAL_METADATA.metaDescription,
   keywords: [
     "API Penetration Testing Services",
     "SOC 2 Penetration Testing",
@@ -93,8 +93,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: INDIA_FIRST_METADATA.ogTitle,
-    description: INDIA_FIRST_METADATA.metaDescription,
+    title: GLOBAL_METADATA.ogTitle,
+    description: GLOBAL_METADATA.metaDescription,
     url: "https://www.trustlayerlabs.co.in",
     siteName: "TrustLayerLabs",
     images: [
@@ -102,19 +102,19 @@ export const metadata: Metadata = {
         url: "/og-image.jpg?v=2",
         width: 1200,
         height: 630,
-        alt: INDIA_FIRST_METADATA.ogImageAlt,
+        alt: GLOBAL_METADATA.ogImageAlt,
       },
     ],
-    locale: INDIA_FIRST_METADATA.ogLocale,
-    alternateLocale: INDIA_FIRST_METADATA.ogLocaleAlternate,
+    locale: GLOBAL_METADATA.ogLocale,
+    alternateLocale: GLOBAL_METADATA.ogLocaleAlternate,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     site: "@trustlayerlabs",
     creator: "@trustlayerlabs",
-    title: INDIA_FIRST_METADATA.twitterTitle,
-    description: INDIA_FIRST_METADATA.metaDescription,
+    title: GLOBAL_METADATA.twitterTitle,
+    description: GLOBAL_METADATA.metaDescription,
     images: ["/og-image.jpg?v=2"],
   },
   verification: {
@@ -170,7 +170,7 @@ export default function RootLayout({
       "postalCode": "500081",
       "addressCountry": "IN",
     },
-    "areaServed": INDIA_FIRST_METADATA.areaServed,
+    "areaServed": GLOBAL_METADATA.areaServed,
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -299,7 +299,7 @@ export default function RootLayout({
     "@id": "https://www.trustlayerlabs.co.in/#website",
     "url": "https://www.trustlayerlabs.co.in",
     "name": "TrustLayerLabs",
-    "description": INDIA_FIRST_METADATA.metaDescription,
+    "description": GLOBAL_METADATA.metaDescription,
     "publisher": { 
       "@type": "Organization", 
       "@id": "https://www.trustlayerlabs.co.in/#organization" 
@@ -326,8 +326,8 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="https://www.trustlayerlabs.co.in/llms.txt" title="llms.txt" />
         <meta name="target" content="all" />
         <meta name="audience" content="all" />
-        <meta name="coverage" content={INDIA_FIRST_METADATA.metaCoverage} />
-        <meta name="distribution" content={INDIA_FIRST_METADATA.metaDistribution} />
+        <meta name="coverage" content={GLOBAL_METADATA.metaCoverage} />
+        <meta name="distribution" content={GLOBAL_METADATA.metaDistribution} />
         <meta name="rating" content="General" />
         <link rel="preload" as="image" href="/trustlayerlabs-api-security-logo.png" fetchPriority="high" />
         <link rel="preload" as="image" href="/trustlayerlabs-verified-vendor-boost.svg" type="image/svg+xml" fetchPriority="high" />

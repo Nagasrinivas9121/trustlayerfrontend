@@ -22,7 +22,7 @@ export default function KubernetesSecurityPage() {
         "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
         "serviceType": "Container Security Auditing",
         "description": "Security assessments for Kubernetes clusters, RBAC roles, container base images, and Pod Security Admission policies.",
-        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"],
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "United Arab Emirates", "Singapore"],
       },
       {
         "@type": "BreadcrumbList",
