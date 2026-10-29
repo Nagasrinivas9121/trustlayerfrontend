@@ -176,7 +176,7 @@ export default function CloudSecurityPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Comprehensive AWS, GCP, and Azure cloud security configuration audits. Eliminate IAM privilege creep, S3 bucket exposure, and compliance gaps.",
-        "areaServed": "India",
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"],
       },
       {
         "@type": "BreadcrumbList",

@@ -30,25 +30,35 @@ export const BRAND = {
   }
 };
 
-export const INDIA_FIRST_METADATA = {
-  metaDescription: "Manual API and multi-tenant SaaS penetration testing for startups. Reproducible cURL PoCs, free 30-day retest, fixed-price quote in 24h. Based in India.",
-  ogTitle: "TrustLayerLabs: API & SaaS Penetration Testing for Startups in India",
-  twitterTitle: "TrustLayerLabs: API & SaaS Penetration Testing for Startups in India",
-  ogImageAlt: "TrustLayerLabs: API & SaaS Penetration Testing for Startups in India",
-  metaCoverage: "India",
-  metaDistribution: "India",
-  ogLocale: "en_IN",
-  ogLocaleAlternate: ["en_US"],
-  areaServed: "India",
+export const SITE_METADATA = {
+  metaDescription: "Manual API and multi-tenant SaaS penetration testing for startups worldwide. Reproducible cURL PoCs, free 30-day retest, fixed-price quote in 24h. Remote-first team based in India.",
+  ogTitle: "TrustLayerLabs: API & SaaS Penetration Testing for Startups",
+  twitterTitle: "TrustLayerLabs: API & SaaS Penetration Testing for Startups",
+  ogImageAlt: "TrustLayerLabs: API & SaaS Penetration Testing for Startups",
+  metaCoverage: "Worldwide",
+  metaDistribution: "Global",
+  ogLocale: "en_US",
+  ogLocaleAlternate: ["en_IN"],
+  areaServed: [
+    "India",
+    "United States",
+    "United Kingdom",
+    "European Union",
+    "UAE",
+    "Singapore"
+  ],
   countryName: "India",
   addedKeywords: [
-    "API Penetration Testing India",
-    "SOC 2 Penetration Testing India",
-    "Penetration Testing Cost India",
+    "API Penetration Testing Services",
+    "SOC 2 Penetration Testing",
+    "Penetration Testing for SaaS Startups",
   ],
   footerBlurb: "Practitioner-led manual penetration testing, API logic audits, and GRC readiness consulting for fast-growing SaaS, FinTech, and AI platforms.",
-  footerServing: "🌐 Serving B2B SaaS and API-first startups. Based in India, working remotely."
+  footerServing: "🌐 Serving B2B SaaS and API-first startups worldwide. Remote-first, based in India."
 };
+
+export const GLOBAL_METADATA = SITE_METADATA;
+export const INDIA_FIRST_METADATA = SITE_METADATA;
 
 export const C3SA_EXPLANATION = "CWL C3SA: Certified Cyber Security Analyst, an advanced offensive practitioner certification issued by CyberWarfare Labs focusing on manual penetration testing, authorization logic, and real-world exploitation techniques.";
 

@@ -51,7 +51,7 @@ export default function FreeAssessmentLayout({
           "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Schedule a practitioner-led 30-minute security scoping review under mutual NDA. We evaluate your API, SaaS, and AI attack surface and provide a tailored testing roadmap.",
-        "areaServed": "India",
+        "areaServed": ["India", "United States", "United Kingdom", "European Union", "UAE", "Singapore"],
         "isPlan": false
       },
       {

@@ -101,7 +101,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://www.trustlayerlabs.co.in/#service-vapt",
-    "name": "Manual API & SaaS Security Testing in India",
+    "name": "Manual API & SaaS Security Testing for Startups",
     "serviceType": "Penetration Testing & Vulnerability Assessment",
     "description": "Manual offensive security assessments for SaaS, FinTech, and AI platforms targeting BOLA, broken access control, and business logic flaws overlooked by automated scanners.",
     "provider": {

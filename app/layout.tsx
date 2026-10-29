@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   },
   description: INDIA_FIRST_METADATA.metaDescription,
   keywords: [
+    "API Penetration Testing Services",
+    "SOC 2 Penetration Testing",
+    "Penetration Testing for SaaS Startups",
     "API Penetration Testing",
     "Manual API Security Testing",
     "SaaS Multi-Tenant Penetration Testing",
