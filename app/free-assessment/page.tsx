@@ -62,16 +62,6 @@ function FreeAssessmentForm() {
     trackFreeSecurityReviewView();
   }, []);
 
-  useEffect(() => {
-    if (packageParam) {
-      setFormData((prev) => ({
-        ...prev,
-        package: packageParam,
-        foundingInterest: packageParam === "founding-client" ? true : prev.foundingInterest,
-      }));
-    }
-  }, [packageParam]);
-
   const handleStart = () => {
     if (!hasStarted) {
       setHasStarted(true);
