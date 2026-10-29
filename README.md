@@ -45,3 +45,32 @@ Microsoft Clarity provides anonymous session recording and heatmaps. It is stric
    ```
 3. When unset, Clarity is completely disabled and no third-party script is requested.
 4. When set, Clarity only loads after the user grants analytics consent via the cookie consent banner (`cookie_consent_update` event with `analytics: true`).
+
+---
+
+## Cache Invalidation & On-Demand Revalidation
+
+To guarantee that the deployed homepage, assessment portal, and service pages never serve stale cached text, the application configures:
+1. **Incremental Static Regeneration (ISR)**: The homepage (`/`), assessment page (`/free-assessment`), and all service pages specify `revalidate = 3600` (1 hour automatic background revalidation).
+2. **HTML Cache-Control Headers**: In `next.config.mjs`, all non-static HTML routes emit `Cache-Control: public, max-age=0, must-revalidate`, ensuring browsers and intermediate CDNs always revalidate HTML with the origin server, while hashed static assets (`/_next/static/*`) maintain long-lived immutable caching.
+3. **On-Demand Revalidation API**: Protected by `REVALIDATE_SECRET`, you can immediately purge and revalidate pages on-demand without redeploying.
+
+### How to Purge Cache After a Deploy
+
+#### Option 1: Trigger On-Demand Revalidation Endpoint (Recommended)
+Set `REVALIDATE_SECRET` in your deployment environment variables (e.g. Vercel Project Settings > Environment Variables).
+Then trigger immediate cache purging with curl:
+```bash
+# Revalidate all core marketing and service pages:
+curl -X POST "https://www.trustlayerlabs.co.in/api/revalidate?secret=YOUR_REVALIDATE_SECRET"
+
+# Or revalidate a single specific page:
+curl -X POST "https://www.trustlayerlabs.co.in/api/revalidate?secret=YOUR_REVALIDATE_SECRET&path=/"
+```
+
+#### Option 2: Purge Cache via Vercel CLI / Dashboard
+If deploying on Vercel:
+```bash
+vercel deploy --prod --force
+```
+Or in the Vercel Dashboard, go to **Deployments** > select the latest deployment > click **Redeploy** (uncheck "Use existing Build Cache").

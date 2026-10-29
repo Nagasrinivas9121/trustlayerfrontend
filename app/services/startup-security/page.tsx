@@ -1,3 +1,4 @@
+export const revalidate = 3600;
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";

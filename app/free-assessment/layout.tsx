@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   },
 };
 
+
+
+export const revalidate = 3600;
+
 export default function FreeAssessmentLayout({
   children,
 }: {
@@ -90,6 +94,8 @@ export default function FreeAssessmentLayout({
       }
     ]
   };
+
+
 
   return (
     <>
