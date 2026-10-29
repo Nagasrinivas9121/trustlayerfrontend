@@ -53,7 +53,7 @@ function FreeAssessmentForm() {
     complianceGoal: "SOC 2",
     email: searchParams?.get("email") || "",
     package: packageParam,
-    foundingInterest: false,
+    foundingInterest: packageParam === "founding-client",
   });
 
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
@@ -61,6 +61,16 @@ function FreeAssessmentForm() {
   useEffect(() => {
     trackFreeSecurityReviewView();
   }, []);
+
+  useEffect(() => {
+    if (packageParam) {
+      setFormData((prev) => ({
+        ...prev,
+        package: packageParam,
+        foundingInterest: packageParam === "founding-client" ? true : prev.foundingInterest,
+      }));
+    }
+  }, [packageParam]);
 
   const handleStart = () => {
     if (!hasStarted) {
@@ -277,7 +287,7 @@ function FreeAssessmentForm() {
 
           {formData.package && (
             <div className="p-3 bg-blue-50/80 border border-blue-200 rounded-xl text-xs font-semibold text-primary flex items-center justify-between">
-              <span>Selected Scope: <strong>{formData.package.replace(/-/g, " ").toUpperCase()}</strong></span>
+              <span>Selected Scope: <strong>{formData.package === "founding-client" ? "Founding client (all packages)" : formData.package.replace(/-/g, " ").toUpperCase()}</strong></span>
               <span className="text-[10px] font-mono text-blue-600 font-normal">Fixed-Price Proposal</span>
             </div>
           )}
