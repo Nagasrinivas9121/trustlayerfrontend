@@ -158,7 +158,7 @@ export default function SaasVaptPage() {
           "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Specialized SaaS penetration testing focused on multi-tenant isolation, cross-tenant BOLA, RBAC escalation, and billing bypasses. 30-day retest included.",
-        "areaServed": "IN",
+        "areaServed": "India",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "SaaS Security Assessment Services",

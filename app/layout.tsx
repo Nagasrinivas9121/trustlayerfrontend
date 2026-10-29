@@ -167,7 +167,7 @@ export default function RootLayout({
       "postalCode": "500081",
       "addressCountry": "IN",
     },
-    "areaServed": "IN",
+    "areaServed": INDIA_FIRST_METADATA.areaServed,
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",

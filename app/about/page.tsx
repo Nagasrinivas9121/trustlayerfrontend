@@ -42,7 +42,7 @@ export default function AboutPage() {
               Who We Are: <span className="text-primary">TrustLayerLabs</span>
             </h1>
             <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl font-sans">
-              We are offensive security engineers, penetration testers, and compliance advisors providing deep manual security testing and audit readiness for high-growth tech platforms globally.
+              We are offensive security engineers, penetration testers, and compliance advisors providing deep manual security testing and audit readiness for high-growth tech platforms.
             </p>
           </div>
 

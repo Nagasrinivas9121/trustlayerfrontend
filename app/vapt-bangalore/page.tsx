@@ -102,7 +102,7 @@ export default function VaptBangalore() {
         <div className="mb-14 space-y-6 max-w-4xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/80 shadow-sm text-xs font-semibold text-neutral-800">
             <MapPin size={13} className="text-neutral-900" />
-            <span>Serving Bengaluru Technology Ecosystem & Global SaaS</span>
+            <span>Serving Bengaluru Technology Ecosystem & SaaS Startups</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-950">

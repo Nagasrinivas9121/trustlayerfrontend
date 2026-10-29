@@ -174,7 +174,7 @@ export default function WebAppVaptPage() {
           "url": "https://www.trustlayerlabs.co.in"
         },
         "description": "Manual Web Application VAPT for modern React, Next.js, and SaaS platforms targeting OWASP Top 10 and business logic vulnerabilities.",
-        "areaServed": "IN",
+        "areaServed": "India",
       },
       {
         "@type": "BreadcrumbList",

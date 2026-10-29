@@ -346,7 +346,7 @@ export default function MobileVaptPage() {
           "email": "ceo@trustlayerlabs.co.in"
         },
         "description": "Manual mobile application VAPT services for Android and iOS apps, APIs, authentication, data storage and business logic with actionable remediation guidance and retesting.",
-        "areaServed": "IN",
+        "areaServed": "India",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Mobile Application Security Testing Services",

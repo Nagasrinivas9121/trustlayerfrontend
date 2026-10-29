@@ -39,7 +39,7 @@ export const INDIA_FIRST_METADATA = {
   metaDistribution: "India",
   ogLocale: "en_IN",
   ogLocaleAlternate: ["en_US"],
-  areaServed: "IN",
+  areaServed: "India",
   countryName: "India",
   addedKeywords: [
     "API Penetration Testing India",
@@ -611,7 +611,7 @@ export const CASE_STUDIES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "We operate as a distributed offensive security team delivering remote-first security assessments across India and globally. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.",
+    quote: "We operate as a distributed offensive security team delivering remote-first security assessments based in India. We are currently onboarding foundational clients. Check our illustrative sample VAPT report and methodology below to inspect our testing rigor and reporting standards.",
     name: "TrustLayerLabs Team",
     role: "Distributed Offensive Security Team",
     company: "Remote-First Operations",
@@ -720,7 +720,7 @@ export const FAQS = [
   },
   {
     question: "Does TrustLayerLabs work with international startups and enterprises outside India?",
-    answer: "Yes. We serve startups, high-growth scale-ups, and technology enterprises worldwide across the United States, United Kingdom, Canada, European Union, Australia, and Singapore. We operate remote-first, execute international bilateral mutual NDAs (Delaware or English law compatible), coordinate scoping and engineering debriefs across US (PST/EST), UK/Europe (GMT/CET), and APAC time zones, and accept international wire transfers (SWIFT/ACH) and Stripe payments in USD, EUR, and GBP."
+    answer: "Yes. Based in India, we serve B2B SaaS and API-first startups remotely. We execute bilateral mutual NDAs (Delaware or English law compatible), coordinate scoping and engineering debriefs across time zones, and accept international wire transfers (SWIFT/ACH) and Stripe payments in USD, EUR, and GBP."
   },
   {
     question: "Will your VAPT report and attestation satisfy US and European enterprise buyers and SOC 2 / ISO 27001 auditors?",

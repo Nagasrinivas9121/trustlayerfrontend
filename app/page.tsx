@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import HowItWorksStatic from "@/components/HowItWorksStatic";
 import BenefitsSection from "@/components/BenefitsSection";
@@ -9,9 +10,43 @@ import TrackRecordSection from "@/components/TrackRecordSection";
 import Founder from "@/components/Founder";
 import FaqStatic from "@/components/FaqStatic";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
+import { INDIA_FIRST_METADATA } from "@/lib/constants";
 import FinalCTA from "@/components/FinalCTA";
 import QuoteModal from "@/components/QuoteModal";
 import FloatingActions from "@/components/FloatingActions";
+
+export const metadata: Metadata = {
+  title: "API & SaaS Penetration Testing for Startups | TrustLayerLabs",
+  description: INDIA_FIRST_METADATA.metaDescription,
+  alternates: {
+    canonical: "https://www.trustlayerlabs.co.in",
+  },
+  openGraph: {
+    title: INDIA_FIRST_METADATA.ogTitle,
+    description: INDIA_FIRST_METADATA.metaDescription,
+    url: "https://www.trustlayerlabs.co.in",
+    siteName: "TrustLayerLabs",
+    images: [
+      {
+        url: "/og-image.jpg?v=2",
+        width: 1200,
+        height: 630,
+        alt: INDIA_FIRST_METADATA.ogImageAlt,
+      },
+    ],
+    locale: INDIA_FIRST_METADATA.ogLocale,
+    alternateLocale: INDIA_FIRST_METADATA.ogLocaleAlternate,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@trustlayerlabs",
+    creator: "@trustlayerlabs",
+    title: INDIA_FIRST_METADATA.twitterTitle,
+    description: INDIA_FIRST_METADATA.metaDescription,
+    images: ["/og-image.jpg?v=2"],
+  },
+};
 
 export default function Home() {
   const faqLd = {
@@ -72,7 +107,7 @@ export default function Home() {
       "@id": "https://www.trustlayerlabs.co.in/#organization",
       "name": "TrustLayerLabs"
     },
-    "areaServed": "IN",
+    "areaServed": INDIA_FIRST_METADATA.areaServed,
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Core Security Assessments",

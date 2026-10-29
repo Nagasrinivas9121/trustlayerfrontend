@@ -81,7 +81,7 @@ export default function Proof() {
 
           {/* Quick Pill Badges */}
           <div className="flex flex-wrap gap-2">
-            {["Worldwide Remote Delivery", "SOC 2 & ISO 27001 Aligned", "Bilateral Mutual NDA", "USD & Multi-Currency Billing"].map((item, i) => (
+            {["Remote-First Delivery (India)", "SOC 2 & ISO 27001 Aligned", "Bilateral Mutual NDA", "USD & Multi-Currency Billing"].map((item, i) => (
               <div 
                 key={i} 
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-neutral-200/80 rounded-full text-xs font-semibold text-neutral-700 shadow-xs font-sans"
@@ -241,19 +241,19 @@ export default function Proof() {
               </div>
             </div>
 
-            {/* Card 4: Worldwide Engagements & International Payments */}
+            {/* Card 4: Remote-First Engagements & Transparent Billing */}
             <div className="p-6 sm:p-7 bg-white border border-neutral-200/90 rounded-3xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] space-y-3">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-2xl bg-sky-50 border border-sky-200/70 flex items-center justify-center text-sky-600 shadow-xs">
                   <Globe size={20} />
                 </div>
                 <span className="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 border border-sky-200 px-2.5 py-0.5 rounded-md">
-                  WORLDWIDE CLIENTS
+                  REMOTE-FIRST STARTUPS
                 </span>
               </div>
 
               <h4 className="text-base font-bold text-neutral-950 font-sans mb-1">
-                Serving Startups in US, EU, APAC &amp; India
+                Serving Startups in India &amp; Remotely
               </h4>
               <p className="text-xs text-neutral-600 leading-relaxed font-sans">
                 Remote-first execution under international mutual NDAs. We accommodate US (PST/EST), European (GMT/CET), and APAC time zones with multi-currency billing in USD, EUR, GBP, and INR via Stripe or SWIFT wire transfer.

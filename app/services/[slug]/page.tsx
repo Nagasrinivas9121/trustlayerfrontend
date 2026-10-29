@@ -130,7 +130,7 @@ export default async function ServiceSlugPage({ params }: Props) {
         "provider": { "@id": "https://www.trustlayerlabs.co.in/#organization" },
         "serviceType": service.title,
         "description": service.description,
-        "areaServed": "IN",
+        "areaServed": "India",
       },
       {
         "@type": "BreadcrumbList",
