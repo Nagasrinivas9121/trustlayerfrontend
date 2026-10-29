@@ -504,7 +504,7 @@ ${analysis.advisory}
                   Static Code Tools Miss Complex Business Logic Flaws
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-6">
-                  While our code recommender helps you fix syntax and authorization patterns locally, attackers target multi-step workflow logic, race conditions in state machines, and cross-tenant API chaining that only certified human practitioners can uncover.
+                  While our code recommender helps you fix syntax and authorization patterns locally, attackers target multi-step workflow logic, race conditions in state machines, and cross-tenant API chaining that only certified practitioners can uncover.
                 </p>
                 <div className="flex flex-wrap items-center gap-3">
                   <button

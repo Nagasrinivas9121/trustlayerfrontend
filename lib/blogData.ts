@@ -420,7 +420,7 @@ Modern engineering organizations should not view Vulnerability Assessment and Pe
 ## 7. Frequently Asked Questions (FAQ)
 
 ### Can an automated scanner report satisfy our SOC 2 auditor?
-No. Tier-1 accounting and compliance audit firms (e.g., Schellman, Coalfire, A-LIGN, EY, Deloitte) explicitly distinguish between automated scanner exports and a formal Penetration Testing Report. Automated scanner outputs lack proof-of-exploitation, logic analysis, and certified human attestation.
+No. Tier-1 accounting and compliance audit firms (e.g., Schellman, Coalfire, A-LIGN, EY, Deloitte) explicitly distinguish between automated scanner exports and a formal Penetration Testing Report. Automated scanner outputs lack proof-of-exploitation, logic analysis, and certified practitioner attestation.
 
 ### What qualifications should we look for in penetration testers?
 Ensure the lead security practitioners performing your assessment hold recognized offensive certifications such as **OSCP (Offensive Security Certified Professional)**, **CEH (Certified Ethical Hacker)**, **CWL C3SA (Certified Cyber Security Analyst)**, or **ISO/IEC 27001 Lead Auditor** credentials. Always confirm whether the agency uses internal full-time practitioners or outsources your sensitive code to unvetted freelancers.
