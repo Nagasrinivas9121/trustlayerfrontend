@@ -430,6 +430,9 @@ export default function WebAppVaptPage() {
         {/* Related Assessment Navigation */}
         <div className="py-6 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-textSecondary">
           <span>Need specialized backend API penetration testing for REST, GraphQL, or microservices?</span>
+          <Link href="/services/web-development" className="text-primary hover:underline font-semibold mr-4">
+            Secure Web Development →
+          </Link>
           <Link href="/services/api-security" className="text-primary hover:underline font-semibold flex items-center gap-1">
             Explore API Security Testing & BOLA Pentesting →
           </Link>
