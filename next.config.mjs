@@ -210,13 +210,78 @@ const nextConfig = {
       },
       {
         source: '/schedule',
-        destination: '/book',
-        permanent: false,
+        destination: '/free-assessment',
+        permanent: true,
       },
       {
         source: '/cal',
-        destination: '/book',
-        permanent: false,
+        destination: '/free-assessment',
+        permanent: true,
+      },
+      {
+        source: '/book',
+        destination: '/free-assessment',
+        permanent: true,
+      },
+      {
+        source: '/code-recommender',
+        destination: '/tools/code-recommender',
+        permanent: true,
+      },
+      {
+        source: '/api-security-testing',
+        destination: '/services/api-security',
+        permanent: true,
+      },
+      {
+        source: '/cloud-security-testing',
+        destination: '/services/cloud-security',
+        permanent: true,
+      },
+      {
+        source: '/owasp-top-10-testing',
+        destination: '/services/api-security',
+        permanent: true,
+      },
+      {
+        source: '/penetration-testing-company-india',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/vapt-services-india',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/vapt-services',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/terms-and-conditions',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/scan',
+        destination: '/free-assessment',
+        permanent: true,
+      },
+      {
+        source: '/blog/bola-vulnerability-fintech-saas',
+        destination: '/blog/bola-vulnerabilities-multi-tenant-saas',
+        permanent: true,
+      },
+      {
+        source: '/blog/securing-ai-startups-prompt-injection',
+        destination: '/blog/ai-and-llm-security-risks-prompt-injection',
+        permanent: true,
       },
     ];
   },
