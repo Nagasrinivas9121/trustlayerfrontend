@@ -103,6 +103,42 @@ export default function ApiSecurityChecklistPage() {
           </p>
         </div>
 
+        {/* API Security Methodology Context */}
+        <div className="bg-white border border-neutral-200/90 rounded-3xl p-6 sm:p-8 mb-8 space-y-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+          <h2 className="text-lg font-bold text-neutral-900 font-sans tracking-tight">
+            Production API Security Verification Framework
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
+            APIs form the core data layer for modern SaaS, mobile apps, and microservice architectures. Securing endpoints requires systematic validation against the OWASP API Security Top 10 vulnerabilities, specifically targeting object-level authorization, mass assignment, and cryptographic token verification.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">1. Object-Level Authorization (BOLA/IDOR)</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Validating that every request handler verifies caller ownership of resource IDs, preventing unauthorized access to other tenants&apos; data records.
+              </p>
+            </div>
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">2. JWT &amp; Session Cryptography</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Enforcing strong RS256/ES256 asymmetric signing, algorithm header validation, short token expiration windows, and refresh token rotation.
+              </p>
+            </div>
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">3. Rate Limiting &amp; Anti-Automation</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Deploying distributed sliding-window rate limiters per IP, user, and API key to prevent credential stuffing, brute force, and data scraping.
+              </p>
+            </div>
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">4. Mass Assignment &amp; Schema Validation</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Filtering input request payloads with strict schema validators (Zod/Joi) to reject unexpected internal fields like isAdmin or role.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Email Capture Gate */}
         {!isUnlocked ? (
           <div className="p-8 sm:p-12 bg-white rounded-3xl border border-neutral-200 shadow-sm text-center space-y-6 max-w-xl mx-auto my-8">

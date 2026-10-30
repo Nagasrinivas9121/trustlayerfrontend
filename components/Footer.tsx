@@ -23,7 +23,10 @@ const footerLinks = [
   {
     title: "Resources & Trust",
     links: [
+      { name: "About TrustLayerLabs", href: "/about" },
+      { name: "8 Business Logic Attack Surfaces", href: "/why-manual-testing" },
       { name: "Manual Pentesting vs Scanners", href: "/manual-vs-automated-pentest" },
+      { name: "Security Research & Engineering", href: "/blog" },
       { name: "Testing Methodology", href: "/methodology" },
       { name: "Redacted Sample VAPT Report", href: "/sample-report" },
       { name: "Secure Code Recommender", href: "/tools/code-recommender" },

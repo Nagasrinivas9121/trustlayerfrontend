@@ -97,6 +97,42 @@ export default function ChecklistPage() {
           </p>
         </div>
 
+        {/* Methodology & Overview Context */}
+        <div className="bg-white border border-neutral-200/90 rounded-3xl p-6 sm:p-8 mb-8 space-y-4 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+          <h2 className="text-lg font-bold text-neutral-900 font-sans tracking-tight">
+            Engineering Security Baseline for Modern B2B SaaS &amp; APIs
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-sans">
+            Securing early-stage tech platforms requires moving beyond basic automated vulnerability scans. Modern web security risks stem primarily from broken access control, tenant boundary violations (BOLA/IDOR), and state manipulation that automated tooling fails to detect.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">1. Authentication &amp; JWT Integrity</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Rigorous cryptographic verification of signature keys, token expiration lifetimes, algorithm pinning, and secure storage in HttpOnly, SameSite cookies.
+              </p>
+            </div>
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">2. Multi-Tenant Authorization (BOLA/IDOR)</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Mandatory tenant ID checks on every database access layer, preventing horizontal privilege escalation across organization boundaries.
+              </p>
+            </div>
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">3. Cloud &amp; Storage Boundaries</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Enforcing private S3/GCS bucket policies, short-lived signed URLs, and least-privilege IAM service account credentials.
+              </p>
+            </div>
+            <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-200/80">
+              <h3 className="text-xs font-bold text-neutral-900 mb-1 font-sans">4. Rate Limiting &amp; GRC Readiness</h3>
+              <p className="text-[11px] text-neutral-600 leading-relaxed font-sans">
+                Distributed rate limiting across authentication routes, audit logging, and automated control mapping for SOC 2 and ISO 27001 readiness.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Email Capture Gate */}
         {!isUnlocked ? (
           <div className="p-8 sm:p-12 bg-white rounded-3xl border border-neutral-200 shadow-sm text-center space-y-6 max-w-xl mx-auto my-8">

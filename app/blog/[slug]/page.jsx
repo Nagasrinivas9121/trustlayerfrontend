@@ -75,6 +75,13 @@ export default async function BlogPost({ params }) {
 
   const matchingService = getMatchingService(post);
 
+  const postIndex = blogPosts.findIndex((p) => p.slug === post.slug);
+  const relatedPosts = [];
+  for (let i = 1; i <= 3; i++) {
+    const nextIdx = (postIndex + i) % blogPosts.length;
+    relatedPosts.push(blogPosts[nextIdx]);
+  }
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -178,6 +185,38 @@ export default async function BlogPost({ params }) {
               </Link>
               .
             </p>
+          </div>
+        </div>
+
+        {/* Related Technical Articles */}
+        <div className="mt-12 bg-white border border-neutral-200/80 rounded-3xl p-8 sm:p-10 shadow-xs">
+          <h3 className="text-xl font-bold text-neutral-950 mb-6 font-sans tracking-tight">
+            Related Security Research &amp; Guides
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {relatedPosts.map((related) => (
+              <Link
+                key={related.slug}
+                href={`/blog/${related.slug}`}
+                className="group p-5 rounded-2xl border border-neutral-100 bg-neutral-50/50 hover:bg-neutral-50 hover:border-neutral-200 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-[10px] font-mono font-semibold text-neutral-500 uppercase tracking-wider block mb-2">
+                    {related.date}
+                  </span>
+                  <h4 className="text-sm font-bold text-neutral-900 group-hover:text-primary transition-colors line-clamp-2 mb-2 font-sans">
+                    {related.title}
+                  </h4>
+                  <p className="text-xs text-neutral-600 line-clamp-3 leading-relaxed font-sans">
+                    {related.excerpt}
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-neutral-200/60 flex items-center text-xs font-semibold text-neutral-800 group-hover:text-primary transition-colors">
+                  <span>Read Article</span>
+                  <ArrowRight size={13} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
 

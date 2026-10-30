@@ -158,6 +158,13 @@ export default async function ServiceSlugPage({ params }: Props) {
     ],
   };
 
+  const currentServiceIndex = SERVICES.findIndex((s) => s.slug === slug);
+  const relatedServices = [];
+  for (let i = 1; i <= 3; i++) {
+    const nextIdx = (currentServiceIndex + i) % SERVICES.length;
+    relatedServices.push(SERVICES[nextIdx]);
+  }
+
   return (
     <div className="bg-background min-h-screen pt-32 pb-24 font-sans text-neutral-900">
       <script
@@ -370,6 +377,46 @@ export default async function ServiceSlugPage({ params }: Props) {
             </div>
           </div>
 
+        </div>
+
+        {/* Related Assessment Scopes */}
+        <div className="mt-12 mb-16 p-8 bg-white border border-neutral-200/80 rounded-3xl shadow-xs">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h3 className="text-xl font-bold text-neutral-900 font-sans tracking-tight">
+                Related Offensive Security Scopes
+              </h3>
+              <p className="text-xs text-neutral-600 font-sans mt-0.5">
+                Explore complementary penetration testing and architecture verification scopes
+              </p>
+            </div>
+            <Link href="/services" className="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+              <span>View All 24 Scopes</span>
+              <ArrowRight size={12} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {relatedServices.map((rel) => (
+              <Link
+                key={rel.slug}
+                href={`/services/${rel.slug}`}
+                className="p-5 rounded-2xl border border-neutral-100 bg-neutral-50/60 hover:bg-neutral-50 hover:border-neutral-200 transition-all group flex flex-col justify-between"
+              >
+                <div>
+                  <h4 className="text-sm font-bold text-neutral-900 group-hover:text-primary transition-colors mb-1.5 font-sans">
+                    {rel.title}
+                  </h4>
+                  <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed font-sans">
+                    {rel.description}
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-neutral-200/60 flex items-center text-xs font-semibold text-neutral-800 group-hover:text-primary transition-colors">
+                  <span>Scope Overview</span>
+                  <ArrowRight size={12} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Booking CTA Banner - CodeDale Dashed Container */}
