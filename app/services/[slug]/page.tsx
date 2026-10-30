@@ -194,6 +194,12 @@ export default async function ServiceSlugPage({ params }: Props) {
 
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-3xl">
             {service.description} We perform deep manual security testing to identify exploitable vulnerabilities, privilege escalation paths, and compliance control gaps.
+            {service.slug === "owasp-api-security" && (
+              <> For comprehensive REST, GraphQL, and microservice testing, see our <Link href="/services/api-security" className="text-primary hover:underline font-semibold">API Security testing service</Link>.</>
+            )}
+            {service.slug === "fintech-vapt" && (
+              <> For specialized banking API and payment gateway audits, see our <Link href="/fintech-security" className="text-primary hover:underline font-semibold">FinTech Security Assessment</Link>.</>
+            )}
           </p>
 
           {/* Quick Value Prop Strip - CodeDale 3-Card Strip */}

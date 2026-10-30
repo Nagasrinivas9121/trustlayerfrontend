@@ -104,6 +104,9 @@ export default function WhyManualTestingPage() {
             The 8 Critical Logic Attack Surfaces <br className="hidden sm:inline" />
             <span className="text-primary">That Automated Scanners Miss</span>
           </h1>
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-sans mb-4">
+            Automated scanners miss contextual business logic and authorization boundaries. For an architectural comparison with technical evaluation metrics, see our <Link href="/manual-vs-automated-pentest" className="text-primary hover:underline font-semibold">manual pentesting vs automated scanners guide</Link>.
+          </p>
 
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl font-sans">
             Automated vulnerability scanners search for outdated syntax patterns and known CVE signatures. But in modern multi-tenant SaaS and microservices, the most catastrophic vulnerabilities exist entirely in authorization and business logic.

@@ -334,7 +334,7 @@ export default function FinTechSecurityPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed font-sans max-w-3xl">
-            TrustLayerLabs performs manual application and API security assessments for FinTech platforms, focusing on authorization, authentication, transaction workflows, payment integrations, sensitive financial data, and cloud infrastructure.
+            TrustLayerLabs performs manual application and API security assessments for FinTech platforms, focusing on authorization, authentication, transaction workflows, payment integrations, sensitive financial data, and cloud infrastructure. For our modular service catalog breakdown, see our <Link href="/services/fintech-vapt" className="text-primary hover:underline font-semibold">FinTech VAPT service specification</Link>.
           </p>
 
           {/* Value Props Strip - CodeDale 3-Card Strip */}

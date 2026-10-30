@@ -248,7 +248,7 @@ export default function ApiSecurityPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-textSecondary leading-relaxed font-sans max-w-3xl">
-            Manual offensive security testing for REST, GraphQL, and gRPC APIs. We uncover Broken Object Level Authorization (BOLA/IDOR), authentication bypasses, tenant isolation failures, and business logic flaws that automated scanners overlook.
+            Manual offensive security testing for REST, GraphQL, and gRPC APIs. We uncover Broken Object Level Authorization (BOLA/IDOR), authentication bypasses, tenant isolation failures, and business logic flaws that automated scanners overlook. For standards mapping against the OWASP Top 10 list, see our <Link href="/services/owasp-api-security" className="text-primary hover:underline font-semibold">OWASP API Security testing</Link>.
           </p>
 
           {/* Quick Value Prop Matrix */}
