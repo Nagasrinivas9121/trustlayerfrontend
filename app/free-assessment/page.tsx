@@ -506,7 +506,7 @@ export default function FreeAssessmentPage() {
                 </span>
               </div>
               <p className="text-xs text-neutral-600 leading-relaxed font-sans">
-                Founding clients pay about 40% off the list price in exchange for permission to publish an anonymized case study or short testimonial, plus priority scheduling. Select a package below to get your fixed-price quote.
+                Founding clients pay about 30% off the list price in exchange for permission to publish an anonymized case study or short testimonial, plus priority scheduling. Select a package below to get your fixed-price quote.
               </p>
             </div>
           </div>

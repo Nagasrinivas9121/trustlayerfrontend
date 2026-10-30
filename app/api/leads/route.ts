@@ -270,7 +270,7 @@ export async function POST(req: NextRequest) {
       </tr>
       <tr>
         <td style="padding: 8px 0; color: #8a8f9e;">Founding Interest:</td>
-        <td style="padding: 8px 0; color: #ffffff;">${foundingInterest ? "Yes (~40% off list)" : "No"}</td>
+        <td style="padding: 8px 0; color: #ffffff;">${foundingInterest ? "Yes (~30% off list)" : "No"}</td>
       </tr>
       <tr>
         <td style="padding: 8px 0; color: #8a8f9e;">Compliance Goal:</td>

@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const soc2Price = PRICING_PACKAGES.find((p) => p.id === "soc2-readiness-pentest")?.priceInr.split("+")[0].trim() || "₹1,24,999";
     return {
       title: {
-        absolute: `SOC 2 Penetration Testing in India | From ${soc2Price}`,
+        absolute: `SOC 2 Penetration Testing | From ${soc2Price}`,
       },
       description: "Pentest mapped to SOC 2 and ISO 27001 for enterprise security reviews. Report designed to support auditor evidence requests. Quote in 24h.",
       alternates: {

@@ -25,7 +25,7 @@ export default function FoundingClientSection() {
           </h2>
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto font-sans mb-4">
-            Founding clients pay the founding price shown below (about 40% off list) in exchange for permission to publish an anonymized case study or short testimonial, plus priority scheduling.
+            Founding clients pay the founding price shown below (about 30% off list) in exchange for permission to publish an anonymized case study or short testimonial, plus priority scheduling.
           </p>
 
           {/* Slots Available Counter */}

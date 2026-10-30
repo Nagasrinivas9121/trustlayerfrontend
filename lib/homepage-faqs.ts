@@ -50,6 +50,6 @@ export const HOMEPAGE_FAQS: HomepageFaqItem[] = [
   },
   {
     q: "Are your prices final?",
-    a: "The package prices on this page are starting prices. After a short scoping review we send a fixed-price quote within 24 hours. India prices exclude GST."
+    a: "The package prices on this page are starting prices. After a short scoping review we send a fixed-price quote within 24 hours. India prices are in INR and exclude GST; international clients are quoted in USD."
   }
 ];

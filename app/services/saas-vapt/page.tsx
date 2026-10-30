@@ -30,7 +30,7 @@ const saasPrice = PRICING_PACKAGES.find((p) => p.id === "saas-multi-tenant-asses
 
 export const metadata: Metadata = {
   title: {
-    absolute: `SaaS & Multi-Tenant Pentesting India | From ${saasPrice}`,
+    absolute: `SaaS & Multi-Tenant Pentesting | From ${saasPrice}`,
   },
   description: "Tenant isolation, RLS and RBAC testing for B2B SaaS. Verified PoCs, free 30-day retest, 7-10 business days. Get a fixed-price quote.",
   alternates: {

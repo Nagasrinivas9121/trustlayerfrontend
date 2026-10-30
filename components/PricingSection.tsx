@@ -93,7 +93,7 @@ export default function PricingSection() {
                         )}
                       </div>
                       <span className="text-xs font-mono text-neutral-600 bg-white px-2 py-0.5 rounded border border-neutral-200 shrink-0">
-                        ~ {pkg.priceUsd} USD
+                        {pkg.priceUsd} USD
                       </span>
                     </div>
                     <div className="flex items-center justify-between pt-2 border-t border-neutral-200/70 text-xs font-semibold text-neutral-700 font-sans">
@@ -141,7 +141,7 @@ export default function PricingSection() {
 
         {/* Note under packages indicating star means negotiable */}
         <p className="text-xs text-neutral-500 font-sans text-center mb-12 max-w-xl">
-          Starting prices. Your final fixed price is confirmed within 24 hours after scoping. India prices exclude GST. Founding prices apply to the first {FOUNDING_CLIENT_CONFIG.slotsTotal} clients and may change afterwards.
+          Starting prices. Your final fixed price is confirmed within 24 hours after scoping. India prices exclude GST and are quoted in INR; international clients are quoted in USD. Founding prices apply to the first {FOUNDING_CLIENT_CONFIG.slotsTotal} clients and may change afterwards.
         </p>
 
         {/* Other Services Link List (Narrowing the Homepage Offer while Preserving Routes) */}
