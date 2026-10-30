@@ -7,7 +7,7 @@ import path from "path";
 // Helper to retrieve the actual last-commit date of a file from Git
 function getFileLastModified(relativeFilePath, fallbackDate = new Date("2026-10-13T00:00:00.000Z")) {
   try {
-    const fullPath = path.join(process.cwd(), relativeFilePath);
+    const fullPath = path.join(/*turbopackIgnore: true*/ process.cwd(), relativeFilePath);
     if (fs.existsSync(fullPath)) {
       const gitDate = execSync(`git log -1 --format=%cI "${relativeFilePath}"`, {
         encoding: "utf8",
