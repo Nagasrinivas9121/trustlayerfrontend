@@ -74,3 +74,67 @@ If deploying on Vercel:
 vercel deploy --prod --force
 ```
 Or in the Vercel Dashboard, go to **Deployments** > select the latest deployment > click **Redeploy** (uncheck "Use existing Build Cache").
+
+---
+
+## SEO and Indexing
+
+### 1. Dynamic Sitemap Generation (`app/sitemap.js`)
+The XML sitemap at `/sitemap.xml` is generated dynamically using Next.js App Router metadata conventions (`app/sitemap.js`).
+
+- **Dynamic `lastmod` per file**: Rather than emitting hardcoded timestamps or `new Date()` (which falsely claims every page was updated on every build and degrades crawl budget credibility), `app/sitemap.js` inspects the real Git commit history (`git log -1 --format=%cI <filepath>`) for each route's source file. For blog articles, it parses the actual article publish/update date from `lib/blogData.ts`.
+- **Exclusion of non-indexable & utility routes**: Internal routes such as `/book` (redirect), `/free-assessment` (`noindex`), and `/api/*` are strictly omitted from `sitemap.xml`.
+- **Deprecation of `changeFrequency` and `priority`**: As per Google Search Central documentation, Googlebot ignores `<changefreq>` and `<priority>` tags in favor of genuine `lastmod` accuracy and internal linking structure.
+
+### 2. Canonical URL Policy
+Every page on the website strictly enforces a self-referencing absolute canonical URL:
+- **Base Domain**: `https://www.trustlayerlabs.co.in` (naked `trustlayerlabs.co.in` is permanently 308-redirected via `next.config.mjs`).
+- **Trailing Slash Policy**: Enforced to `false` via `trailingSlash: false` in `next.config.mjs`. All canonical tags point to `/path` without a trailing slash.
+- **Client Components & Layouts**: Next.js App Router client components (`"use client"`) that lack an explicit `layout.tsx` inherit the parent layout's metadata. All standalone client pages (e.g. `/api-security-checklist`, `/checklist`) define dedicated `layout.tsx` files declaring self-referencing canonical URLs.
+
+### 3. URL Redirects & 404 Prevention (`next.config.mjs`)
+When renaming, consolidating, or deprecating routes, add a permanent redirect in `next.config.mjs` under `async redirects()`:
+
+```javascript
+{
+  source: '/legacy-path',
+  destination: '/new-canonical-path',
+  permanent: true, // Emits 308 Permanent Redirect (SEO 301 equivalent)
+}
+```
+
+**Key Rules for Redirects**:
+1. **Single-Hop Only**: Ensure the destination is the final live URL (`200 OK`). Never redirect A -> B -> C.
+2. **Never Catch-All Redirect**: Do NOT add wildcard catch-all redirects (e.g. `/:slug* -> /`). Unmatched requests must return an HTTP 404 status code so search engines properly de-index removed non-existent paths.
+
+### 4. Google Search Console Action Plan (Runbook)
+
+#### A. URL Inspection & Request Indexing
+Open [Google Search Console](https://search.google.com/search-console) for property `https://www.trustlayerlabs.co.in`:
+1. Use the top search bar to inspect each key updated page:
+   - `https://www.trustlayerlabs.co.in/api-security-checklist`
+   - `https://www.trustlayerlabs.co.in/checklist`
+   - `https://www.trustlayerlabs.co.in/why-manual-testing`
+   - `https://www.trustlayerlabs.co.in/about`
+   - `https://www.trustlayerlabs.co.in/`
+2. Click **Test Live URL**. Verify that:
+   - Google can fetch the page (Status: `URL is available to Google`).
+   - User-declared canonical equals Google-selected canonical.
+3. Click **Request Indexing**.
+
+#### B. Validate Fixes in GSC Coverage Reports
+Navigate to **Indexing** > **Pages**:
+1. **"Alternative page with proper canonical tag"**:
+   - Click into the issue bucket.
+   - Click **Validate Fix**. (Fixed by self-referencing canonical on `/api-security-checklist` and removing `/book` from sitemap).
+2. **"Not found (404)"**:
+   - Click into the issue bucket.
+   - Click **Validate Fix**. (Fixed by adding permanent redirects for legacy deleted URLs in `next.config.mjs`).
+3. **"Crawled - currently not indexed"**:
+   - Click into the issue bucket.
+   - Click **Validate Fix**. (Fixed by internal cross-linking in footer, related posts, and expanded content depth).
+
+#### C. Post-Fix Monitoring Schedule
+- **Day 3 to 5**: Check Search Console Validation status. The status will transition from *Started* to *Passed*.
+- **Day 7**: Review **Page indexing** summary chart for downward trends in "Not indexed" counts and upward trends in "Indexed".
+- **Day 14**: Check **Performance** > **Pages** to verify impression recovery and new queries ranking for `/api-security-checklist` and related security guides.
