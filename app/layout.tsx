@@ -9,6 +9,7 @@ import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { GLOBAL_METADATA } from "@/lib/constants";
+import { PRICING_PACKAGES } from "@/lib/pricing-config";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -181,7 +182,7 @@ export default function RootLayout({
     ],
     "paymentAccepted": "Stripe, International Wire Transfer (SWIFT), ACH, Wise, Corporate Credit Card, Bank Transfer, Razorpay, UPI",
     "currenciesAccepted": "USD, EUR, GBP, AUD, CAD, SGD, AED, INR",
-    "priceRange": "₹₹",
+    "priceRange": "₹₹₹",
     "foundingDate": "2024-01-15",
     "availableLanguage": [
       { "@type": "Language", "name": "English" }
@@ -235,6 +236,8 @@ export default function RootLayout({
       "itemListElement": [
         {
           "@type": "Offer",
+          "price": PRICING_PACKAGES.find((p) => p.id === "api-security-sprint")?.priceInr.replace(/[^0-9]/g, "") || "34999",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
             "name": "API Penetration Testing",
@@ -243,6 +246,8 @@ export default function RootLayout({
         },
         {
           "@type": "Offer",
+          "price": PRICING_PACKAGES.find((p) => p.id === "saas-multi-tenant-assessment")?.priceInr.replace(/[^0-9]/g, "") || "74999",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
             "name": "SaaS Multi-Tenant Isolation & Authorization Testing",
@@ -275,6 +280,8 @@ export default function RootLayout({
         },
         {
           "@type": "Offer",
+          "price": PRICING_PACKAGES.find((p) => p.id === "soc2-readiness-pentest")?.priceInr.replace(/[^0-9]/g, "") || "124999",
+          "priceCurrency": "INR",
           "itemOffered": {
             "@type": "Service",
             "name": "SOC2 & ISO 27001 Readiness",

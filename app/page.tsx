@@ -11,6 +11,7 @@ import Founder from "@/components/Founder";
 import FaqStatic from "@/components/FaqStatic";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
 import { GLOBAL_METADATA } from "@/lib/constants";
+import { PRICING_PACKAGES } from "@/lib/pricing-config";
 import FinalCTA from "@/components/FinalCTA";
 import QuoteModal from "@/components/QuoteModal";
 import FloatingActions from "@/components/FloatingActions";
@@ -114,9 +115,24 @@ export default function Home() {
       "@type": "OfferCatalog",
       "name": "Core Security Assessments",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "API Security Sprint" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS Multi-Tenant Assessment" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SOC 2 Readiness Pentest" } },
+        {
+          "@type": "Offer",
+          "price": PRICING_PACKAGES.find((p) => p.id === "api-security-sprint")?.priceInr.replace(/[^0-9]/g, "") || "34999",
+          "priceCurrency": "INR",
+          "itemOffered": { "@type": "Service", "name": "API Security Sprint" }
+        },
+        {
+          "@type": "Offer",
+          "price": PRICING_PACKAGES.find((p) => p.id === "saas-multi-tenant-assessment")?.priceInr.replace(/[^0-9]/g, "") || "74999",
+          "priceCurrency": "INR",
+          "itemOffered": { "@type": "Service", "name": "SaaS Multi-Tenant Assessment" }
+        },
+        {
+          "@type": "Offer",
+          "price": PRICING_PACKAGES.find((p) => p.id === "soc2-readiness-pentest")?.priceInr.replace(/[^0-9]/g, "") || "124999",
+          "priceCurrency": "INR",
+          "itemOffered": { "@type": "Service", "name": "SOC 2 Readiness Pentest" }
+        },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & RAG Application Security" } }
       ]
     }

@@ -62,7 +62,7 @@ export default function VaptBangalore() {
       { "@type": "AdministrativeArea", "name": "Whitefield" },
       { "@type": "AdministrativeArea", "name": "Electronic City" }
     ],
-    "priceRange": "₹₹"
+    "priceRange": "₹₹₹"
   };
 
   const faqSchema = {
