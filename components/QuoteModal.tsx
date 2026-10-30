@@ -308,7 +308,7 @@ export default function QuoteModal({ isOpen: controlledIsOpen, onClose: controll
                   <option value="SOC 2 Type II or ISO 27001 readiness">SOC 2 / ISO 27001 Readiness Pentest</option>
                   <option value="API BOLA and tenant authorization">API BOLA / Authorization Verification</option>
                   <option value="Pre-production launch review">Pre-Production Release VAPT</option>
-                  <option value="Founding Client Slot Application">Founding Client Program Slot (Discounted)</option>
+                  <option value="Founding Client Slot Application">Founding Client Program Slot (Founding Pricing)</option>
                 </select>
               </div>
 
