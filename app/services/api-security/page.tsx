@@ -23,7 +23,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { PRICING_PACKAGES } from "@/lib/pricing-config";
 
-const apiSprintPrice = PRICING_PACKAGES.find((p) => p.id === "api-security-sprint")?.priceInr.split("+")[0].trim() || "₹14,999";
+const apiSprintPrice = PRICING_PACKAGES.find((p) => p.id === "api-security-sprint")?.priceInr.split("+")[0].trim() || "₹34,999";
 
 export const metadata: Metadata = {
   title: {

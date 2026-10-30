@@ -633,7 +633,7 @@ export const TESTIMONIALS = [
 export const PRICING_TIERS = [
   {
     name: "API Security Sprint",
-    price: "₹14,999 + GST",
+    price: "₹34,999 + GST",
     period: "fixed scope",
     description: "Targeted manual testing focused on authorization boundaries, token security, and business logic.",
     features: [
@@ -650,7 +650,7 @@ export const PRICING_TIERS = [
   },
   {
     name: "SaaS Multi-Tenant Assessment",
-    price: "₹34,999 + GST",
+    price: "₹74,999 + GST",
     period: "fixed scope",
     description: "Comprehensive VAPT, API testing, and cloud configuration audit for multi-tenant SaaS products.",
     features: [
@@ -667,7 +667,7 @@ export const PRICING_TIERS = [
   },
   {
     name: "SOC 2 Readiness Pentest",
-    price: "₹59,999 + GST",
+    price: "₹1,24,999 + GST",
     period: "fixed scope",
     description: "Offensive assessment designed to support enterprise procurement security reviews and auditor evidence requests.",
     features: [

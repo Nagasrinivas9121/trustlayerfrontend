@@ -34,7 +34,7 @@ const BENEFITS: Benefit[] = [
     title: "Transparent & Fair Pricing",
     description: (
       <span>
-        Fixed-scope packages starting from ₹14,999 + GST / $179.{" "}
+        Fixed-scope packages starting from ₹34,999 + GST (India) or $1,200 (international).{" "}
         <Link href="/#pricing" className="text-primary font-semibold underline hover:text-blue-700">
           View packages &amp; pricing →
         </Link>

@@ -26,7 +26,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { PRICING_PACKAGES } from "@/lib/pricing-config";
 
-const saasPrice = PRICING_PACKAGES.find((p) => p.id === "saas-multi-tenant-assessment")?.priceInr.split("+")[0].trim() || "₹34,999";
+const saasPrice = PRICING_PACKAGES.find((p) => p.id === "saas-multi-tenant-assessment")?.priceInr.split("+")[0].trim() || "₹74,999";
 
 export const metadata: Metadata = {
   title: {

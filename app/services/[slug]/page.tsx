@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return {};
 
   if (slug === "soc2-pentesting") {
-    const soc2Price = PRICING_PACKAGES.find((p) => p.id === "soc2-readiness-pentest")?.priceInr.split("+")[0].trim() || "₹59,999";
+    const soc2Price = PRICING_PACKAGES.find((p) => p.id === "soc2-readiness-pentest")?.priceInr.split("+")[0].trim() || "₹1,24,999";
     return {
       title: {
         absolute: `SOC 2 Penetration Testing in India | From ${soc2Price}`,
